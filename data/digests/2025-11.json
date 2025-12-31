@@ -1,0 +1,172 @@
+{
+  "monthLabel": "2025-11",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2025-10-31T23:00:00.000Z",
+  "endISO": "2025-11-30T22:59:59.999Z",
+  "totals": {
+    "total": 23,
+    "byTopic": {
+      "Jewellery": 10,
+      "Ecommerce": 6,
+      "AIStrategy": 4,
+      "Luxury": 0
+    }
+  },
+  "topics": {
+    "JewelleryIndustry": {
+      "total": 10,
+      "top": [
+        {
+          "id": "3f38c3",
+          "title": "UNOde50",
+          "url": "https://www.jewellermagazine.com/Article/14638/UNOde50",
+          "source": "Jeweller - Jewellery Trends",
+          "published_at": "2025-11-30T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "7j1yan",
+          "title": "Coeur de Lion",
+          "url": "https://www.jewellermagazine.com/Article/14637/Coeur-de-Lion",
+          "source": "Jeweller - Jewellery Trends",
+          "published_at": "2025-11-30T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "2p8mnn",
+          "title": "Sapphire Dreams",
+          "url": "https://www.jewellermagazine.com/Article/14639/Sapphire-Dreams",
+          "source": "Jeweller - Jewellery Trends",
+          "published_at": "2025-11-30T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "i8jvqm",
+          "title": "Ikecho Australia",
+          "url": "https://www.jewellermagazine.com/Article/14633/Ikecho-Australia",
+          "source": "Jeweller - Jewellery Trends",
+          "published_at": "2025-11-30T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "b8x47y",
+          "title": "Athan Wholesale Jewellers",
+          "url": "https://www.jewellermagazine.com/Article/14636/Athan-Wholesale-Jewellers",
+          "source": "Jeweller - Jewellery Trends",
+          "published_at": "2025-11-30T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "tx4i1n",
+          "title": "Ellendale Diamonds Australia",
+          "url": "https://www.jewellermagazine.com/Article/14631/Ellendale-Diamonds-Australia",
+          "source": "Jeweller - Jewellery Trends",
+          "published_at": "2025-11-30T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "drtagw",
+          "title": "Jewellery chain collapses; Administrator appointed",
+          "url": "https://www.jewellermagazine.com/Article/14672/Jewellery-chain-collapses-Administrator-appointed",
+          "source": "Jeweller - Business News",
+          "published_at": "2025-11-30T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        }
+      ]
+    },
+    "EcommerceTechnology": {
+      "total": 6,
+      "top": [
+        {
+          "id": "f67341",
+          "title": "Best Text Message Strategy for 2026",
+          "url": "https://www.practicalecommerce.com/best-text-message-strategy-for-2026",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-11-30T13:31:58.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        },
+        {
+          "id": "nraif1",
+          "title": "New Ecommerce Tools: November 26, 2025",
+          "url": "https://www.practicalecommerce.com/new-ecommerce-tools-november-26-2025",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-11-26T10:00:23.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        },
+        {
+          "id": "ww5tfp",
+          "title": "Where Investors See Ecommerce Heading",
+          "url": "https://www.practicalecommerce.com/where-investors-see-ecommerce-heading",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-11-25T19:07:43.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        },
+        {
+          "id": "z9p30w",
+          "title": "How Google’s Web Guide Helps SEO",
+          "url": "https://www.practicalecommerce.com/how-googles-web-guide-helps-seo",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-11-24T13:57:43.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        },
+        {
+          "id": "4neamq",
+          "title": "Solar Power Developer on Fueling the Grid",
+          "url": "https://www.practicalecommerce.com/solar-power-developer-on-fueling-the-grid",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-11-21T14:26:07.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        },
+        {
+          "id": "pwq7gr",
+          "title": "GoWish’s shopping and wish list app is having its biggest year yet",
+          "url": "https://techcrunch.com/2025/11/07/gowishs-shopping-and-wishlist-app-is-having-its-biggest-year-yet/",
+          "source": "TechCrunch Ecommerce",
+          "published_at": "2025-11-07T20:16:32.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        }
+      ]
+    },
+    "AIEcommerceStrategy": {
+      "total": 4,
+      "top": [
+        {
+          "id": "dxgeom",
+          "title": "Will Google’s AI Mode Dominate ChatGPT?",
+          "url": "https://www.practicalecommerce.com/will-googles-ai-mode-dominate-chatgpt",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-11-28T14:31:42.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        },
+        {
+          "id": "vb39n1",
+          "title": "Deloitte sees BFCM shopper turnout climb, Gen Z drives momentum",
+          "url": "https://www.luxurydaily.com/deloitte-sees-bfcm-shopper-turnout-climb-gen-z-drives-momentum/",
+          "source": "Luxury Daily - Research",
+          "published_at": "2025-11-26T22:00:25.000Z",
+          "ingested_at": "2025-12-30T17:30:50.941Z"
+        },
+        {
+          "id": "80u7pc",
+          "title": "‘Automate First’ for AI Commerce Success",
+          "url": "https://www.practicalecommerce.com/automate-first-for-ai-commerce-success",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-11-23T13:26:56.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        },
+        {
+          "id": "xeyhvx",
+          "title": "Will AI Solve Ecommerce Personalization?",
+          "url": "https://www.practicalecommerce.com/will-ai-solve-ecommerce-personalization",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-11-20T12:21:12.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        }
+      ]
+    },
+    "LuxuryConsumerBehaviour": {
+      "total": 0,
+      "top": []
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "monthLabel": "2025-12",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2025-11-30T23:00:00.000Z",
+  "endISO": "2025-12-31T22:59:59.999Z",
+  "builtAtISO": "2025-12-31T14:30:29.013+01:00",
+  "builtAtLocal": "2025-12-31 14:30:29",
+  "totals": {
+    "total": 175,
+    "byTopic": {
+      "Jewellery": 41,
+      "Ecommerce": 86,
+      "AIStrategy": 48,
+      "Luxury": 0
+    }
+  },
+  "topics": {
+    "JewelleryIndustry": {
+      "total": 41,
+      "top": [
+        {
+          "id": "yp0k9a",
+          "title": "JAA appoints seventh director to board",
+          "url": "https://www.jewellermagazine.com/Article/14685/JAA-appoints-seventh-director-to-board",
+          "source": "Jeweller - Business News",
+          "published_at": "2025-12-21T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "f8ksil",
+          "title": "Consumer watchdog issues new warning about ghost stores",
+          "url": "https://www.jewellermagazine.com/Article/14658/Consumer-watchdog-issues-new-warning-about-ghost-stores",
+          "source": "Jeweller - Business News",
+          "published_at": "2025-12-19T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "mbyzt6",
+          "title": "Impractical regulations set to disrupt gift card transactions",
+          "url": "https://www.jewellermagazine.com/Article/14657/Impractical-regulations-set-to-disrupt-gift-card-transactions",
+          "source": "Jeweller - Business News",
+          "published_at": "2025-12-19T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "a49xui",
+          "title": "Australian retailers encouraged to plan for a productive holiday period",
+          "url": "https://www.jewellermagazine.com/Article/14656/Australian-retailers-encouraged-to-plan-for-a-productive-holiday-period",
+          "source": "Jeweller - Business News",
+          "published_at": "2025-12-19T13:00:00.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "ltsstm",
+          "title": "Assay offices call for reform of Hallmarking law",
+          "url": "https://www.professionaljeweller.com/assay-offices-reform-hallmarking-law/",
+          "source": "Professional Jeweller",
+          "published_at": "2025-12-18T14:15:42.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "q7mno1",
+          "title": "Hugh Rice appoints new retail director",
+          "url": "https://www.professionaljeweller.com/hugh-rice-appoint-new-retail-director/",
+          "source": "Professional Jeweller",
+          "published_at": "2025-12-18T14:14:49.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        },
+        {
+          "id": "ywmowd",
+          "title": "Wongs Jewellers debuts new Manchester store today",
+          "url": "https://www.professionaljeweller.com/wongs-jewellers-new-manchester-store/",
+          "source": "Professional Jeweller",
+          "published_at": "2025-12-18T14:14:27.000Z",
+          "ingested_at": "2025-12-30T20:03:05.084Z"
+        }
+      ]
+    },
+    "EcommerceTechnology": {
+      "total": 86,
+      "top": [
+        {
+          "id": "yg52at",
+          "title": "Phone Searches at U.S. Borders: What Travelers Need to Know",
+          "url": "https://www.nytimes.com/2025/12/31/travel/airport-border-phone-search.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-31T10:00:22.000Z",
+          "ingested_at": "2025-12-31T12:36:16.184Z"
+        },
+        {
+          "id": "sjl53v",
+          "title": "3 SEO Predictions for 2026",
+          "url": "https://www.practicalecommerce.com/3-seo-predictions-for-2026",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-12-30T20:10:58.000Z",
+          "ingested_at": "2025-12-30T20:58:31.247Z"
+        },
+        {
+          "id": "v0vq6o",
+          "title": "Looking for friends, lobsters may stumble into an ecological trap",
+          "url": "https://arstechnica.com/science/2025/12/looking-for-friends-lobsters-may-stumble-into-an-ecological-trap/",
+          "source": "Ars Technica",
+          "published_at": "2025-12-30T15:00:56.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z"
+        },
+        {
+          "id": "z8ko5",
+          "title": "What Happened to Abit Motherboards",
+          "url": "https://dfarq.homeip.net/what-happened-to-abit-motherboards/",
+          "source": "Hacker News",
+          "published_at": "2025-12-30T14:58:18.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z"
+        },
+        {
+          "id": "yov8x3",
+          "title": "The Legacy of Undersea Cables",
+          "url": "https://blog.sciencemuseumgroup.org.uk/the-legacy-of-undersea-cables/",
+          "source": "Hacker News",
+          "published_at": "2025-12-30T14:49:38.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z"
+        },
+        {
+          "id": "6rp39z",
+          "title": "Hive (YC S14) Is Hiring a Staff Software Engineer (Data Systems)",
+          "url": "https://jobs.ashbyhq.com/hive.co/cb0dc490-0e32-4734-8d91-8b56a31ed497",
+          "source": "Hacker News",
+          "published_at": "2025-12-30T14:31:34.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z"
+        },
+        {
+          "id": "oka1ei",
+          "title": "Public Sans – A strong, neutral typeface",
+          "url": "https://public-sans.digital.gov/",
+          "source": "Hacker News",
+          "published_at": "2025-12-30T14:23:11.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z"
+        }
+      ]
+    },
+    "AIEcommerceStrategy": {
+      "total": 48,
+      "top": [
+        {
+          "id": "501hss",
+          "title": "The Modern Retail guide to what’s in and what’s out in 2026",
+          "url": "https://www.modernretail.co/marketing/the-modern-retail-guide-to-whats-in-and-whats-out-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-31T05:00:00.000Z",
+          "ingested_at": "2025-12-31T07:41:21.690Z"
+        },
+        {
+          "id": "pguvn9",
+          "title": "Cheez-It bets on ‘Prince Cheddward’ mascot in an overcrowded sports marketing arena",
+          "url": "https://www.modernretail.co/marketing/cheez-it-bets-on-prince-cheddward-mascot-in-an-overcrowded-sports-marketing-arena/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-31T05:00:00.000Z",
+          "ingested_at": "2025-12-31T07:41:21.690Z"
+        },
+        {
+          "id": "fh9fpe",
+          "title": "‘Quitting wasn’t an option’: How tariffs took an emotional and financial toll on founders in 2025",
+          "url": "https://www.modernretail.co/operations/quitting-wasnt-an-option-how-tariffs-took-an-emotional-and-financial-toll-on-founders-in-2025/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-30T05:01:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        },
+        {
+          "id": "6erx5k",
+          "title": "The revenge of the ’90s mall brand",
+          "url": "https://www.modernretail.co/operations/the-revenge-of-the-90s-mall-brand/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-30T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z"
+        },
+        {
+          "id": "337gjj",
+          "title": "The New Billionaires of the A.I. Boom",
+          "url": "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-29T22:53:31.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z"
+        },
+        {
+          "id": "61ru0r",
+          "title": "ManusAI Joins Meta",
+          "url": "https://manus.im/blog/manus-joins-meta-for-next-era-of-innovation",
+          "source": "Hacker News",
+          "published_at": "2025-12-29T22:24:22.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z"
+        },
+        {
+          "id": "gva55j",
+          "title": "AI is forcing us to write good code",
+          "url": "https://bits.logic.inc/p/ai-is-forcing-us-to-write-good-code",
+          "source": "Hacker News",
+          "published_at": "2025-12-29T19:11:26.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z"
+        }
+      ]
+    },
+    "LuxuryConsumerBehaviour": {
+      "total": 0,
+      "top": []
+    }
+  }
+}

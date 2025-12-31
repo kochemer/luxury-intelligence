@@ -1,0 +1,243 @@
+{
+  "feeds": [
+    {
+      "source": "Jeweller - Business News",
+      "url": "https://www.jewellermagazine.com/rss/jewellery-business.xml",
+      "status": "200 OK",
+      "items": 30,
+      "contentType": "text/xml",
+      "newestDate": "2025-12-21T13:00:00.000Z",
+      "oldestDate": "2025-11-30T13:00:00.000Z",
+      "error": null
+    },
+    {
+      "source": "Jeweller - Jewellery Trends",
+      "url": "https://www.jewellermagazine.com/rss/jewellery-trends.xml",
+      "status": "200 OK",
+      "items": 30,
+      "contentType": "text/xml",
+      "newestDate": "2025-12-14T13:00:00.000Z",
+      "oldestDate": "2025-11-28T13:00:00.000Z",
+      "error": null
+    },
+    {
+      "source": "Jeweller - Main",
+      "url": "https://www.jewellermagazine.com/rss/jeweller.xml",
+      "status": "200 OK",
+      "items": 30,
+      "contentType": "text/xml",
+      "newestDate": "2025-12-21T13:00:00.000Z",
+      "oldestDate": "2025-11-30T13:00:00.000Z",
+      "error": null
+    },
+    {
+      "source": "National Jeweler",
+      "url": "https://www.nationaljeweler.com/rss/feed/news",
+      "status": "404 Not Found",
+      "items": null,
+      "contentType": "text/html; charset=utf-8",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "source": "JCK Online",
+      "url": "https://www.jckonline.com/feed/",
+      "status": "200 OK",
+      "items": 0,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": null
+    },
+    {
+      "source": "Professional Jeweller",
+      "url": "https://www.professionaljeweller.com/feed/",
+      "status": "403 HTTP Forbidden",
+      "items": null,
+      "contentType": "text/html;charset=utf-8",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": "HTTP 403: HTTP Forbidden"
+    },
+    {
+      "source": "Jeweller Magazine (AU)",
+      "url": "https://www.jewellermagazine.com/rss",
+      "status": "200 OK",
+      "items": null,
+      "contentType": "text/html; charset=utf-8",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": "Parse error: Attribute without value\nLine: 7\nColumn: 500\nChar: s"
+    },
+    {
+      "source": "Rapaport News",
+      "url": "https://www.diamonds.net/News/rss.aspx",
+      "status": "200 OK",
+      "items": null,
+      "contentType": "text/html; charset=utf-8",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": "Parse error: Invalid character in entity name\nLine: 198\nColumn: 35\nChar: &"
+    },
+    {
+      "source": "Luxury Daily - Retail",
+      "url": "https://www.luxurydaily.com/category/news/retail/feed/",
+      "status": "200 OK",
+      "items": 0,
+      "contentType": "text/html; charset=UTF-8",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": null
+    },
+    {
+      "source": "Luxury Daily - Commerce",
+      "url": "https://www.luxurydaily.com/category/news/commerce/feed/",
+      "status": "200 OK",
+      "items": 0,
+      "contentType": "text/html; charset=UTF-8",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": null
+    },
+    {
+      "source": "Luxury Daily - Research",
+      "url": "https://www.luxurydaily.com/category/news/research/feed/",
+      "status": "200 OK",
+      "items": 10,
+      "contentType": "text/html; charset=UTF-8",
+      "newestDate": "2025-12-29T09:45:46.000Z",
+      "oldestDate": "2025-11-26T22:00:25.000Z",
+      "error": null
+    },
+    {
+      "source": "Retail Dive",
+      "url": "https://www.retaildive.com/feeds/news/",
+      "status": "200 OK",
+      "items": 10,
+      "contentType": "application/rss+xml; charset=utf-8",
+      "newestDate": "2025-12-23T16:39:00.000Z",
+      "oldestDate": "2025-12-22T15:28:00.000Z",
+      "error": null
+    },
+    {
+      "source": "Practical Ecommerce",
+      "url": "https://www.practicalecommerce.com/feed",
+      "status": "200 OK",
+      "items": 30,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "newestDate": "2025-12-30T20:10:58.000Z",
+      "oldestDate": "2025-11-21T14:26:07.000Z",
+      "error": null
+    },
+    {
+      "source": "Modern Retail",
+      "url": "https://www.modernretail.co/feed/",
+      "status": "200 OK",
+      "items": 10,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "newestDate": "2025-12-30T05:01:00.000Z",
+      "oldestDate": "2025-12-23T05:00:00.000Z",
+      "error": null
+    },
+    {
+      "source": "TechCrunch Ecommerce",
+      "url": "https://techcrunch.com/tag/ecommerce/feed/",
+      "status": "200 OK",
+      "items": 20,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "newestDate": "2025-12-10T15:14:28.000Z",
+      "oldestDate": "2024-11-06T17:58:57.000Z",
+      "error": null
+    },
+    {
+      "source": "Shopify Engineering",
+      "url": "https://shopify.engineering/rss.xml",
+      "status": "404 Not Found",
+      "items": null,
+      "contentType": "text/html; charset=utf-8",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "source": "NYTimes Technology",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+      "status": "200 OK",
+      "items": 20,
+      "contentType": "application/xml",
+      "newestDate": "2025-12-30T16:47:16.000Z",
+      "oldestDate": "2025-12-24T01:34:50.000Z",
+      "error": null
+    },
+    {
+      "source": "Harvard Business Review (Technology & AI)",
+      "url": "https://hbr.org/feeds/section/technology",
+      "status": "404 Not Found",
+      "items": null,
+      "contentType": "text/html",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "source": "Bain & Company Insights (Technology)",
+      "url": "https://www.bain.com/about/media-center/rss/technology.xml",
+      "status": "404 Not Found",
+      "items": null,
+      "contentType": "text/html",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "source": "McKinsey & Company: Artificial Intelligence",
+      "url": "https://www.mckinsey.com/rss/our-insights/artificial-intelligence",
+      "status": "404 Not Found",
+      "items": null,
+      "contentType": "text/html",
+      "newestDate": null,
+      "oldestDate": null,
+      "error": "HTTP 404: Not Found"
+    }
+  ],
+  "pages": [
+    {
+      "source": "Retail TouchPoints - Technology",
+      "url": "https://www.retailtouchpoints.com/topics/technology",
+      "status": "200 OK",
+      "items": 0,
+      "dates": 0,
+      "titles": [],
+      "error": null
+    },
+    {
+      "source": "BoF - News",
+      "url": "https://www.businessoffashion.com/news/",
+      "status": "200 OK",
+      "items": 0,
+      "dates": 0,
+      "titles": [],
+      "error": null
+    },
+    {
+      "source": "MIT Technology Review - AI",
+      "url": "https://www.technologyreview.com/ai/",
+      "status": "404 Not Found",
+      "items": null,
+      "dates": null,
+      "titles": [],
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "source": "InstoreMag - Latest News",
+      "url": "https://instoremag.com/category/latest-news/",
+      "status": "200 OK",
+      "items": 0,
+      "dates": 0,
+      "titles": [],
+      "error": null
+    }
+  ],
+  "generatedAt": "2025-12-30T21:17:15.508Z"
+}
