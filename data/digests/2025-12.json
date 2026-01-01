@@ -3,8 +3,8 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2025-11-30T23:00:00.000Z",
   "endISO": "2025-12-31T22:59:59.999Z",
-  "builtAtISO": "2026-01-01T19:02:23.059+01:00",
-  "builtAtLocal": "2026-01-01 19:02:23",
+  "builtAtISO": "2026-01-01T20:23:07.994+01:00",
+  "builtAtLocal": "2026-01-01 20:23:07",
   "totals": {
     "total": 175,
     "byTopic": {

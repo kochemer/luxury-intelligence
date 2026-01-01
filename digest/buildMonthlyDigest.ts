@@ -83,10 +83,10 @@ export type MonthlyDigest = {
     };
   };
   topics: {
-    JewelleryIndustry: { total: number; top: Article[] };
-    EcommerceTechnology: { total: number; top: Article[] };
-    AIEcommerceStrategy: { total: number; top: Article[] };
-    LuxuryConsumerBehaviour: { total: number; top: Article[] };
+    JewelleryIndustry: { total: number; top: Article[]; aiSummary?: string };
+    EcommerceTechnology: { total: number; top: Article[]; aiSummary?: string };
+    AIEcommerceStrategy: { total: number; top: Article[]; aiSummary?: string };
+    LuxuryConsumerBehaviour: { total: number; top: Article[]; aiSummary?: string };
   };
 };
 
