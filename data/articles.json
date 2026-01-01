@@ -165,7 +165,8 @@
     "url": "https://www.nytimes.com/2025/12/26/technology/california-wealth-tax-page-thiel.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-26T22:23:55.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "It’s uncertain whether the proposal will reach the statewide ballot in November, but some billionaires like Peter Thiel and Larry Page may be unwilling to take the risk."
   },
   {
     "id": "o7kjz5",
@@ -181,7 +182,8 @@
     "url": "https://www.nytimes.com/2025/12/26/travel/airpods-live-translation-japan.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-26T10:00:29.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "A non-Japanese-speaking first-time visitor used Apple’s new in-ear translation feature to connect with locals at bars, sushi classes and even a fire ritual."
   },
   {
     "id": "vglrjc",
@@ -197,7 +199,8 @@
     "url": "https://www.nytimes.com/2025/12/30/podcasts/hardfork-wirecutter-ai.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-30T12:00:04.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "If you’ve ever wondered what chatbots are good for and how best to use them, this episode is for you."
   },
   {
     "id": "4agilu",
@@ -205,7 +208,8 @@
     "url": "https://www.nytimes.com/2025/12/30/technology/personaltech/tech-jargon-ai.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-30T10:02:10.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "Here’s a cheat sheet for decoding this year’s A.I.-driven tech lingo, from RAG to superintelligence."
   },
   {
     "id": "337gjj",
@@ -213,7 +217,8 @@
     "url": "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-29T22:53:31.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "Just like past tech booms, the latest frenzy has produced a group of billionaires — at least on paper — from smaller start-ups."
   },
   {
     "id": "9wmu6u",
@@ -221,7 +226,8 @@
     "url": "https://www.nytimes.com/2025/12/29/business/energy-environment/rare-earth-processing-phoenix-tailings.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-29T10:00:24.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "Companies like Phoenix Tailings, which recently began producing metal in New Hampshire, are using new processing methods to compete with Chinese suppliers."
   },
   {
     "id": "n837fi",
@@ -229,7 +235,8 @@
     "url": "https://www.nytimes.com/2025/12/28/technology/gmail-change-address-email.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-28T18:47:26.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "Under the shift, which Google said would eventually be rolled out to all users, old addresses would remain active. Messages and services would not be lost."
   },
   {
     "id": "84sxlu",
@@ -237,7 +244,8 @@
     "url": "https://www.nytimes.com/2025/12/28/technology/tech-trump.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-28T10:01:54.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "The president has backed policies that allow the industry to grow unfettered. The mutually beneficial alliance is causing concern among some conservatives."
   },
   {
     "id": "om4ib6",
@@ -245,7 +253,8 @@
     "url": "https://www.nytimes.com/2025/12/28/science/eric-matthew-gilbertson-mountains.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-28T10:01:44.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "Two brothers, both mechanical engineers, are climbing many of the world’s tall peaks to prove they have been measured incorrectly."
   },
   {
     "id": "kq2uem",
@@ -253,7 +262,8 @@
     "url": "https://www.nytimes.com/2025/12/27/business/electric-vehicles-poilitics-republicans-conservatives.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-27T10:00:57.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "The political polarization of battery-powered cars may have started when Toyota released its first hybrid model 25 years ago."
   },
   {
     "id": "pk95xq",
@@ -261,7 +271,8 @@
     "url": "https://www.nytimes.com/2025/12/27/world/australia/australia-social-media-ban.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-27T10:00:49.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "After the country barred children under 16 from using social media, many parents have been asking whether similarly tough action is needed in their own countries."
   },
   {
     "id": "60r0id",
@@ -269,7 +280,8 @@
     "url": "https://www.nytimes.com/2025/12/26/podcasts/hardfork-ai-science.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-26T12:00:05.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "A tech C.E.O. explains why A.I. probably won’t cure diseases anytime soon. Hint: You still need humans."
   },
   {
     "id": "clkcro",
@@ -277,7 +289,8 @@
     "url": "https://www.nytimes.com/2025/12/25/technology/brown-university-shooting-disinformation-politicians.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-25T17:05:52.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "Prominent business and government figures spread rumors about the attack on Brown University’s campus this month, reigniting questions about accountability in online discourse."
   },
   {
     "id": "riis3i",
@@ -285,7 +298,8 @@
     "url": "https://www.nytimes.com/2025/12/25/business/tesla-robotaxis-austin-waymo.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-26T14:35:45.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "Shares of Tesla have hit new highs on optimism about the company’s self-driving taxis. But experts say Tesla is far behind Waymo, which has a big head start."
   },
   {
     "id": "8np6dh",
@@ -293,7 +307,8 @@
     "url": "https://www.nytimes.com/2025/12/24/business/europe-us-online-censorship-free-speech.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-26T00:31:40.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "The Trump administration said five regulators and researchers who work to tackle disinformation and abuse on the internet had been barred from entering the United States."
   },
   {
     "id": "p7y50",
@@ -301,7 +316,8 @@
     "url": "https://www.nytimes.com/2025/12/24/us/politics/trump-artificial-intelligence-economy-risks.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-24T10:02:31.000Z",
-    "ingested_at": "2025-12-30T12:26:38.325Z"
+    "ingested_at": "2025-12-30T12:26:38.325Z",
+    "snippet": "The administration has downplayed concerns — from mass job losses, to a potential financial bubble — as President Trump cheers soaring stock prices and faster growth."
   },
   {
     "id": "bnaz4j",
@@ -589,7 +605,8 @@
     "url": "https://www.nytimes.com/2025/12/29/business/louis-v-gerstner-dead.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-29T23:20:24.000Z",
-    "ingested_at": "2025-12-30T17:15:32.891Z"
+    "ingested_at": "2025-12-30T17:15:32.891Z",
+    "snippet": "Installed as an outsider, he engineered a comeback, shifting the company’s focus from a waning mainframe computer business toward consulting and services."
   },
   {
     "id": "v0vq6o",
@@ -621,7 +638,8 @@
     "url": "https://www.retaildive.com/news/zales-debuts-next-gen-retail-concept-the-edit/808595/",
     "source": "Retail Dive",
     "published_at": "2025-12-23T16:39:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The locations feature customization areas, consultations and a digital companion tool that connects customers to the jewelry brand’s full in-store assortment."
   },
   {
     "id": "dz2z03",
@@ -629,7 +647,8 @@
     "url": "https://www.retaildive.com/news/saks-global-doesnt-rule-out-bankruptcy/808601/",
     "source": "Retail Dive",
     "published_at": "2025-12-23T16:16:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The department store conglomerate says it’s “exploring all potential paths” toward stability but insists the luxury market is strong."
   },
   {
     "id": "x1e29t",
@@ -637,7 +656,8 @@
     "url": "https://www.retaildive.com/news/jc-penney-private-equity-store-sale-onyx-partners-falls-through/808581/",
     "source": "Retail Dive",
     "published_at": "2025-12-23T15:47:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "When it was announced in July, the deal to private equity firm Onyx Partners faced questions from investors over the selling price."
   },
   {
     "id": "5pj7wm",
@@ -645,7 +665,8 @@
     "url": "https://www.retaildive.com/news/mattel-hires-netflix-disney-vet-consumer-products-experiences-officer/808507/",
     "source": "Retail Dive",
     "published_at": "2025-12-23T15:39:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Natalia Premovic was named chief consumer products and experiences officer as the toy company draws on its IP for new projects."
   },
   {
     "id": "ipt75y",
@@ -653,7 +674,8 @@
     "url": "https://www.retaildive.com/news/dollar-shave-clubs-first-ai-generated-ad-makes-tech-the-punchline/808105/",
     "source": "Retail Dive",
     "published_at": "2025-12-23T14:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The brand and partner Too Short for Modeling leveraged AI to animate complex visuals while keeping to a development timeline of just a few weeks."
   },
   {
     "id": "44w3dx",
@@ -661,7 +683,8 @@
     "url": "https://www.retaildive.com/news/a-look-at-retails-year-of-ai-news/807946/",
     "source": "Retail Dive",
     "published_at": "2025-12-23T14:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Retail may be lagging behind other industries in the adoption of artificial intelligence, but 2025 was still transformative. Here’s a recap of retail’s biggest AI-related news this year."
   },
   {
     "id": "4rh5eu",
@@ -669,7 +692,8 @@
     "url": "https://www.retaildive.com/news/podcast-the-backroom-doug-stephens-2026-predictions-ai-malls/808252/",
     "source": "Retail Dive",
     "published_at": "2025-12-22T16:55:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The retail strategy adviser talks about trust in the age of emerging AI and the industry’s potential to shape our society."
   },
   {
     "id": "efakh2",
@@ -677,7 +701,8 @@
     "url": "https://www.retaildive.com/news/lululemon-enters-six-international-markets-greece-austria-india-2026/808480/",
     "source": "Retail Dive",
     "published_at": "2025-12-22T16:39:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The athletics retailer is expanding its international presence as it executes on a turnaround plan, which includes finding its next leader."
   },
   {
     "id": "uiguiw",
@@ -685,7 +710,8 @@
     "url": "https://www.retaildive.com/news/coty-procter-gamble-vet-executive-chair-interim-ceo-sue-nabi-exits/808487/",
     "source": "Retail Dive",
     "published_at": "2025-12-22T16:28:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Markus Strobel’s appointment comes days after the beauty giant sold its remaining stake in hair care brand Wella for $750 million."
   },
   {
     "id": "97nyqf",
@@ -701,7 +727,8 @@
     "url": "https://www.practicalecommerce.com/the-psychology-of-ai-serps-and-shopping",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-29T10:00:37.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The rise of \"zero-click\" searches may signal the coming effect of AI shopping on product discovery and decision-making.\nThe post The Psychology of AI SERPs and Shopping appeared first on Practical Ecommerce."
   },
   {
     "id": "hqr9g4",
@@ -709,7 +736,8 @@
     "url": "https://www.practicalecommerce.com/new-books-swiftynomics-ux-skills-more",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-26T10:00:53.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Our latest rundown of new books for merchants includes titles on supply chain, user experience, transformation, and, yes, Taylor Swift. \nThe post New Books: Swiftynomics, UX Skills, More appeared first on Practical Ecommerce."
   },
   {
     "id": "4j39kk",
@@ -717,7 +745,8 @@
     "url": "https://www.practicalecommerce.com/new-ecommerce-tools-december-24-2025",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-24T10:00:23.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "This week: AEO, agentic commerce, analytics, cryptocurrencies and alternative payments, AI marketing, fulfillment, fraud prevention, creator-led commerce, and more.\nThe post New Ecommerce Tools: December 24, 2025 appeared first on Practical Ecommerce."
   },
   {
     "id": "1qm5wf",
@@ -725,7 +754,8 @@
     "url": "https://www.practicalecommerce.com/gsc-groups-keywords-as-ai-queries-expand",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-23T12:11:45.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Google Search Console's \"Insights\" section no longer shows click trends for single keywords, only by group. \nThe post GSC Groups Keywords as AI Queries Expand appeared first on Practical Ecommerce."
   },
   {
     "id": "p1it7z",
@@ -733,7 +763,8 @@
     "url": "https://www.practicalecommerce.com/shopify-integrates-ai-product-discovery",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-22T14:03:28.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Shopify's new Agentic Storefronts means even the smallest merchants can sell via ChatGPT, Perplexity, Microsoft Copilot, and more.\nThe post Shopify Integrates AI Product Discovery appeared first on Practical Ecommerce."
   },
   {
     "id": "960nar",
@@ -741,7 +772,8 @@
     "url": "https://www.practicalecommerce.com/the-good-bad-and-ugly-of-2025",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-19T13:31:43.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "What worked in 2025, what didn't, what was painful, and what made it all worth it.\nThe post The Good, Bad, and Ugly of 2025 appeared first on Practical Ecommerce."
   },
   {
     "id": "6k3px",
@@ -749,7 +781,8 @@
     "url": "https://www.practicalecommerce.com/ecommerce-marketing-amid-ai-slop",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-18T13:33:26.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Generative AI did not introduce subpar content so much as streamline its speed and quantity.\nThe post Ecommerce Marketing amid AI ‘Slop’ appeared first on Practical Ecommerce."
   },
   {
     "id": "evwyay",
@@ -757,7 +790,8 @@
     "url": "https://www.practicalecommerce.com/new-ecommerce-tools-december-17-2025",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-17T14:28:02.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "This week: new products and services for agentic commerce, marketplaces, crowdfunding, creator partnerships, rush pickups, analytics, fraud prevention, and more.\nThe post New Ecommerce Tools: December 17, 2025 appeared first on Practical Ecommerce."
   },
   {
     "id": "h4ryj4",
@@ -765,7 +799,8 @@
     "url": "https://www.practicalecommerce.com/the-top-conversion-barrier-in-the-e-u",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-16T15:30:21.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Ecommerce traction in Europe starts with understanding the trust factors shaping the customer journey.\nThe post The Top Conversion Barrier in the E.U. appeared first on Practical Ecommerce."
   },
   {
     "id": "682v6d",
@@ -773,7 +808,8 @@
     "url": "https://www.practicalecommerce.com/primer-on-chatgpts-3-bots",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-15T13:10:08.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Knowing which bot is responsible for which task is essential before attempting to disallow it.\nThe post Primer on ChatGPT’s 3 Bots appeared first on Practical Ecommerce."
   },
   {
     "id": "vo34nj",
@@ -781,7 +817,8 @@
     "url": "https://www.practicalecommerce.com/ai-favors-ecommerce-giants-for-now",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-14T18:40:59.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "AI models rely on \"trusted\" enterprise sources, yet providers are emerging for SMBs.\nThe post AI Favors Ecommerce Giants — for Now appeared first on Practical Ecommerce."
   },
   {
     "id": "k4hx9i",
@@ -789,7 +826,8 @@
     "url": "https://www.practicalecommerce.com/expat-money-ceo-on-moving-abroad",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-12T13:51:59.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Why relocate overseas? What are the risks and the rewards? Mikkel Thorup addresses those questions and more.\nThe post Expat Money CEO on Moving Abroad appeared first on Practical Ecommerce."
   },
   {
     "id": "734vbf",
@@ -797,7 +835,8 @@
     "url": "https://www.practicalecommerce.com/how-to-scale-a-recommerce-business",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-11T12:57:51.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Profitable selling of used, refurbished, or overstock items requires repeatable systems. \nThe post How to Scale a Recommerce Business appeared first on Practical Ecommerce."
   },
   {
     "id": "jf0lqp",
@@ -805,7 +844,8 @@
     "url": "https://www.practicalecommerce.com/new-ecommerce-tools-december-10-2025",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-10T12:54:10.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "This week: new tools for live-streaming, agentic commerce, ecommerce insurance, returns management, analytics, product customizations, digital identity verification, and more.\nThe post New Ecommerce Tools: December 10, 2025 appeared first on Practical Ecommerce."
   },
   {
     "id": "xu9j",
@@ -813,7 +853,8 @@
     "url": "https://www.practicalecommerce.com/seo-targeting-the-longtail-for-more-sales",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-09T13:35:53.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The top benefit of targeting long-tail searches could now be AI visibility.\nThe post Long-Tail SEO in an AI World appeared first on Practical Ecommerce."
   },
   {
     "id": "sjlm9w",
@@ -821,7 +862,8 @@
     "url": "https://www.practicalecommerce.com/5-content-marketing-ideas-for-january",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-08T11:36:16.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Topics for January 2026 include the U.S.'s 250th year, Wikipedia's anniversary, product quality, and simple pleasures such as puzzles and cocktails.\nThe post 5 Content Marketing Ideas for January 2026 appeared first on Practical Ecommerce."
   },
   {
     "id": "slrbuu",
@@ -829,7 +871,8 @@
     "url": "https://www.practicalecommerce.com/notes-on-google-ads-new-strategy-tool",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-07T14:05:25.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The new \"Investment Strategy\" feature is akin to Google's existing budget simulators, with two main differences.\nThe post Notes on Google Ads New Strategy Tool appeared first on Practical Ecommerce."
   },
   {
     "id": "i1qmvi",
@@ -837,7 +880,8 @@
     "url": "https://www.practicalecommerce.com/cfo-brands-rarely-max-out-meta-ads",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-05T12:45:05.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Abir Syed says creative volume drives ecommerce marketing success, and few merchants have exhausted any channel, much less Meta.\nThe post CFO: Brands Rarely Max Out Meta Ads appeared first on Practical Ecommerce."
   },
   {
     "id": "bkwlnq",
@@ -845,7 +889,8 @@
     "url": "https://www.practicalecommerce.com/the-rise-of-global-tariffs-explained",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-04T12:39:20.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "A new book from a noted economist seeks to explain the causes of tariffs and trade barriers.\nThe post The Rise of Global Tariffs, Explained appeared first on Practical Ecommerce."
   },
   {
     "id": "vmx25b",
@@ -853,7 +898,8 @@
     "url": "https://www.practicalecommerce.com/new-ecommerce-tools-december-3-2025",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-03T12:45:33.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "This week's rundown includes new services for fraud prevention, agentic commerce, automated customer support, fulfillment, payments, and generative ads.\nThe post New Ecommerce Tools: December 3, 2025 appeared first on Practical Ecommerce."
   },
   {
     "id": "yxcc5e",
@@ -861,7 +907,8 @@
     "url": "https://www.practicalecommerce.com/tools-to-track-genai-citations-sources",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-02T14:13:25.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Understanding how AI platforms conduct searches is key to optimizing visibility in the answers.\nThe post Tools to Track GenAI Citations, Sources appeared first on Practical Ecommerce."
   },
   {
     "id": "y4ce99",
@@ -869,7 +916,8 @@
     "url": "https://www.practicalecommerce.com/how-u-s-merchants-fail-e-u-consumers",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-01T11:00:41.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The European Union harmonizes cross-border commerce rules, but it doesn't harmonize the people doing the buying.\nThe post How U.S. Merchants Fail E.U. Consumers appeared first on Practical Ecommerce."
   },
   {
     "id": "f67341",
@@ -877,7 +925,8 @@
     "url": "https://www.practicalecommerce.com/best-text-message-strategy-for-2026",
     "source": "Practical Ecommerce",
     "published_at": "2025-11-30T13:31:58.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Roughly eight in 10 U.S. consumers have agreed to receive commercial text messages, according to a recent survey.\nThe post Best Text Message Strategy for 2026 appeared first on Practical Ecommerce."
   },
   {
     "id": "dxgeom",
@@ -885,7 +934,8 @@
     "url": "https://www.practicalecommerce.com/will-googles-ai-mode-dominate-chatgpt",
     "source": "Practical Ecommerce",
     "published_at": "2025-11-28T14:31:42.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Jeff Oxford of 180 Marketing addresses ChatGPT optimization, with a caveat: Google's AI Mode could eventually dominate.\nThe post Will Google’s AI Mode Dominate ChatGPT? appeared first on Practical Ecommerce."
   },
   {
     "id": "nraif1",
@@ -893,7 +943,8 @@
     "url": "https://www.practicalecommerce.com/new-ecommerce-tools-november-26-2025",
     "source": "Practical Ecommerce",
     "published_at": "2025-11-26T10:00:23.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Our handpicked list this week includes updates on product experience management, agentic commerce, AI-powered payments, fulfillment, customer support, website builders, and more.\nThe post New Ecommerce Tools: November 26, 2025 appeared first on Practical Ecommerce."
   },
   {
     "id": "ww5tfp",
@@ -901,7 +952,8 @@
     "url": "https://www.practicalecommerce.com/where-investors-see-ecommerce-heading",
     "source": "Practical Ecommerce",
     "published_at": "2025-11-25T19:07:43.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Investors are concentrating on areas they believe will define the next phase of ecommerce.\nThe post Where Investors See Ecommerce Heading appeared first on Practical Ecommerce."
   },
   {
     "id": "z9p30w",
@@ -909,7 +961,8 @@
     "url": "https://www.practicalecommerce.com/how-googles-web-guide-helps-seo",
     "source": "Practical Ecommerce",
     "published_at": "2025-11-24T13:57:43.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The new Google Labs experiment uses AI to organize a user's search results. It's also handy for SEO.\nThe post How Google’s Web Guide Helps SEO appeared first on Practical Ecommerce."
   },
   {
     "id": "80u7pc",
@@ -941,7 +994,8 @@
     "url": "https://www.modernretail.co/operations/quitting-wasnt-an-option-how-tariffs-took-an-emotional-and-financial-toll-on-founders-in-2025/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
     "source": "Modern Retail",
     "published_at": "2025-12-30T05:01:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Many founders had to completely upend their business models in 2025 due to tariffs, resorting to production delays, raising prices and putting off hiring to save their businesses."
   },
   {
     "id": "6erx5k",
@@ -949,7 +1003,8 @@
     "url": "https://www.modernretail.co/operations/the-revenge-of-the-90s-mall-brand/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
     "source": "Modern Retail",
     "published_at": "2025-12-30T05:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Brands known for their heyday in the ‘90s, like Gap and Victoria's Secret, have used 2025 to mount turnaround plans. But staging a successful comeback after years of a battered reputation takes more than a few quarters of growth."
   },
   {
     "id": "xrh5uj",
@@ -957,7 +1012,8 @@
     "url": "https://www.modernretail.co/operations/the-winners-and-losers-of-tariffs/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
     "source": "Modern Retail",
     "published_at": "2025-12-29T05:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "This year, tariffs kicked in at their highest rate since the Great Depression, completely upending the retail industry. In turn, Modern Retail rounded up the biggest winners and losers of all the changes in tariff policy this year."
   },
   {
     "id": "avjg8h",
@@ -965,7 +1021,8 @@
     "url": "https://www.modernretail.co/marketing/how-brands-shifted-marketing-and-media-strategies-through-the-year-of-tariffs/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
     "source": "Modern Retail",
     "published_at": "2025-12-29T05:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Marketers share how they navigated the maze of tariffs and regulatory changes this year."
   },
   {
     "id": "gnbvcu",
@@ -973,7 +1030,8 @@
     "url": "https://www.modernretail.co/operations/in-memoriam-brands-we-lost-in-2025/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
     "source": "Modern Retail",
     "published_at": "2025-12-26T05:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Modern Retail staff rounded up some of the most notable brand names we lost in 2025, like Joann and Rite Aid. These included brands we lost due to reorganizations, bankruptcies or quiet closures."
   },
   {
     "id": "i02ny2",
@@ -981,7 +1039,8 @@
     "url": "https://www.modernretail.co/retailers/the-k-shaped-economy-is-forcing-luxury-brands-to-pick-a-side/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
     "source": "Modern Retail",
     "published_at": "2025-12-26T05:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Amid a K-shaped economy, fashion and luxury brands are rethinking pricing, experience and who they are really building for."
   },
   {
     "id": "aujjrr",
@@ -989,7 +1048,8 @@
     "url": "https://www.modernretail.co/operations/what-brand-and-retail-leaders-wish-they-could-change-about-the-industry-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
     "source": "Modern Retail",
     "published_at": "2025-12-24T05:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Before everyone put up their out-of-office responders, Modern Retail polled a group of executives to talk about what's on their wish lists for 2026. We asked them one simple question: If you could wave a magic wand and change one thing about the retail industry in 2026, what would it be?"
   },
   {
     "id": "6l55pl",
@@ -997,7 +1057,8 @@
     "url": "https://www.modernretail.co/operations/wolverine-worldwide-ceo-talks-growth-in-2026-ai-and-getting-better-at-telling-stories/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
     "source": "Modern Retail",
     "published_at": "2025-12-24T05:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The CEO of Wolverine Worldwide, owner of brands like Saucony and Merrell, believes the company has been generally very good at developing products. But, he said, \"I think we have to get better at telling stories.\""
   },
   {
     "id": "yejhgb",
@@ -1021,7 +1082,8 @@
     "url": "https://techcrunch.com/2025/12/10/amazon-now-offers-same-day-delivery-of-perishable-groceries-in-2300-us-cities/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-12-10T15:14:28.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The e-commerce giant says it will expand the service to additional cities in 2026."
   },
   {
     "id": "j3jd7i",
@@ -1029,7 +1091,8 @@
     "url": "https://techcrunch.com/2025/12/05/walmart-backed-phonepe-winds-down-its-pincode-app-in-yet-another-e-commerce-step-back/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-12-05T11:08:12.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "PhonePe has shut down its Pincode app over two years after its debut. The company said it will now focus on working with offline retailers by expanding its B2B offerings."
   },
   {
     "id": "vvcpt3",
@@ -1037,7 +1100,8 @@
     "url": "https://techcrunch.com/2025/12/01/shopify-resolves-outage-disrupting-merchants-on-cyber-monday/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-12-01T21:31:02.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Shopify was down for many merchants this morning, preventing them from processing transactions. It appears to be fixed now."
   },
   {
     "id": "pwq7gr",
@@ -1045,7 +1109,8 @@
     "url": "https://techcrunch.com/2025/11/07/gowishs-shopping-and-wishlist-app-is-having-its-biggest-year-yet/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-11-07T20:16:32.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "GoWish, an app for making wish lists, is having a record year, and has doubled its users."
   },
   {
     "id": "5ca30t",
@@ -1053,7 +1118,8 @@
     "url": "https://techcrunch.com/2025/10/02/amazon-now-lets-prime-members-add-items-to-upcoming-orders-with-one-tap/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-10-02T15:26:53.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Amazon's new \"Add to today's delivery\" button makes it easier for Prime members to buy more and tack on items to existing orders."
   },
   {
     "id": "52sftt",
@@ -1061,7 +1127,8 @@
     "url": "https://techcrunch.com/2025/09/22/ebay-to-acquire-social-marketplace-platform-tise/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-09-22T14:45:07.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The company's acquisition of Tise indicates that it's looking to modernize its platform to attract younger shoppers, expand its social commerce tools, and build a stronger presence in the sustainable retail market."
   },
   {
     "id": "3djb0a",
@@ -1069,7 +1136,8 @@
     "url": "https://techcrunch.com/2025/07/22/etsy-faces-user-boycott-over-alligator-alcatraz-branded-products/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-07-22T16:46:15.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Etsy users are boycotting the site over its \"Alligator Alcatraz\" merchandise."
   },
   {
     "id": "qgq4z1",
@@ -1077,7 +1145,8 @@
     "url": "https://techcrunch.com/2025/07/08/genai-as-a-shopping-assistant-set-to-explode-during-prime-day-sales/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-07-08T20:07:45.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Amazon's annual sale is predicted to drive $23.8 billion in online spending across U.S. e-commerce retailers, as other businesses run their own competing sales alongside the popular shopping event."
   },
   {
     "id": "7jywjm",
@@ -1085,7 +1154,8 @@
     "url": "https://techcrunch.com/2025/07/01/remark-raises-16-million-in-to-build-out-human-powered-expert-models-for-e-commerce/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-07-01T16:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Startups working on AI-powered e-commerce tools often rely on external data or user signals to build and improve their models. But Remark lets thousands of human experts chat with users while they are purchasing items, and then using that knowledge to train models."
   },
   {
     "id": "my32zh",
@@ -1093,7 +1163,8 @@
     "url": "https://techcrunch.com/2025/06/24/indias-gokwik-raised-a-small-13m-round-for-a-hefty-leap-in-valuation/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-06-24T21:05:12.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "What has made GoKwik so attractive to investors is its offerings, which help companies, big and small, set up shop online and enter the direct-to-consumer (D2C) space."
   },
   {
     "id": "wbog3t",
@@ -1101,7 +1172,8 @@
     "url": "https://techcrunch.com/2025/06/24/amazon-to-spend-over-4b-to-expand-prime-delivery-to-rural-communities-in-the-us/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-06-24T14:09:40.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Amazon expands its Same-Day and Next-Day delivery services to 4,000 small cities and towns in the rural U.S."
   },
   {
     "id": "rd0m2a",
@@ -1109,7 +1181,8 @@
     "url": "https://techcrunch.com/2025/05/15/doji-raises-14m-to-make-virtual-try-ons-fun-through-ai-avatars/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-05-15T14:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "For years, big tech companies like Amazon and Google have been trying to make virtual try-ons engaging to encourage consumers to shop more online. Startups also tried to solve for inspiration and fit in fashion using AI. A new startup called Doji is now entering this space with an app designed to make apparel try-ons […]"
   },
   {
     "id": "xb0qb5",
@@ -1117,7 +1190,8 @@
     "url": "https://techcrunch.com/2025/04/14/chinese-marketplace-dhgate-becomes-a-top-us-app-as-trade-war-intensifies/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-04-14T19:19:36.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The Trump trade war has gone viral on TikTok, pushing a Chinese e-commerce app, DHgate, to the top of the U.S. App Store. After Trump increased U.S. tariffs on Chinese imports by 145%, numerous Chinese suppliers and manufacturers began making TikTok videos explaining to consumers how the global luxury goods market actually works. The clothing, […]"
   },
   {
     "id": "d9nnsu",
@@ -1125,7 +1199,8 @@
     "url": "https://techcrunch.com/2025/03/04/cino-has-cracked-bill-splitting-at-the-moment-of-payment-raises-seed/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-03-04T09:00:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "While Venmo or Splitwise are effectively “debt collector” tools, which require one person to pay a full bill and then request funds from others, neither have cracked bill-splitting at the moment of payment. European startup Cino, which has come up with just such a product, has now raised €3.5 million in a seed-funding round led […]"
   },
   {
     "id": "716hi3",
@@ -1133,7 +1208,8 @@
     "url": "https://techcrunch.com/2025/02/27/ebay-makes-it-easier-to-find-fast-shipping-items-and-local-listings/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-02-27T15:06:02.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "eBay announced on Thursday that it has updated its platform to help buyers find fast-shipping items and local listings, thanks to changes to Search item cards and additional usage of AI. The company is making it easier to identify items with fast delivery, as search item cards now display delivery range estimates for all fast […]"
   },
   {
     "id": "gu85d4",
@@ -1141,7 +1217,8 @@
     "url": "https://techcrunch.com/2025/02/26/shop-circle-raises-60m-to-encircle-ecommerce-with-an-app-suite/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-02-27T00:07:00.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "The boom in e-commerce post-pandemic meant shops moved online. However, some merchants ended up with dozens of separate app providers to accommodate everything from supply chains, to inventory, to marketing. The founders of Shop Circle realized this and either built or bought many such apps. The company has now raised $60 million in a Series […]"
   },
   {
     "id": "4bz6th",
@@ -1149,7 +1226,8 @@
     "url": "https://techcrunch.com/2025/02/07/shopify-pushes-for-open-trade-as-trump-delays-import-exemption/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2025-02-07T21:59:59.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "On the same day that President Donald Trump delayed ending a trade exemption targeting certain Chinese imports, e-commerce company Shopify published a blog post making its stance on U.S. trade policy clear. In the post, Shopify endorsed “open trade,” calling for regulators to give online merchants the “freedom to expand without constraints imposed by geopolitical […]"
   },
   {
     "id": "s2xe2b",
@@ -1157,7 +1235,8 @@
     "url": "https://techcrunch.com/2024/12/10/tiktoks-e-commerce-shop-platform-launches-in-spain/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2024-12-10T15:09:58.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "TikTok’s e-commerce Shop feature is going live in Spain, the company announced on Tuesday, marking the first step of a wider European rollout. The launch indicates that TikTok parent ByteDance is speeding up the expansion of the TikTok Shop in European markets as a potential U.S. ban looms. Users in Spain will now be able […]"
   },
   {
     "id": "48psji",
@@ -1165,7 +1244,8 @@
     "url": "https://techcrunch.com/2024/12/10/amazon-is-officially-in-the-online-car-sales-business/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2024-12-10T14:01:16.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Amazon expanded Tuesday into online car sales with the launch of Amazon Autos, an e-commerce business that lets customers find, order, and buy new cars, trucks, and SUVs from dealerships. Amazon is kicking off the new endeavor with Hyundai in 48 U.S. cities, including Atlanta, Boston, Chicago, Los Angeles, and New York. The launch comes […]"
   },
   {
     "id": "3znakf",
@@ -1173,7 +1253,8 @@
     "url": "https://techcrunch.com/2024/11/06/pinstripe-wants-to-redefine-the-way-online-sellers-sell-secondhand-clothing/",
     "source": "TechCrunch Ecommerce",
     "published_at": "2024-11-06T17:58:57.000Z",
-    "ingested_at": "2025-12-30T17:19:14.042Z"
+    "ingested_at": "2025-12-30T17:19:14.042Z",
+    "snippet": "Pinstripe aims to reimagine the secondhand market by offering sellers the opportunity to have both a digital storefront and a physical retail presence. Launched in June, the platform offers an alternative approach compared with other marketplaces like Archive, Depop, Facebook Marketplace, and Poshmark. With Pinstripe, sellers take their clothes to local consignment stores, vintage shops, […]"
   },
   {
     "id": "bvf7if",
@@ -1181,7 +1262,8 @@
     "url": "https://www.luxurydaily.com/crowd-avoidance-off-peak-trips-to-drive-next-12-months-of-luxury-travel-virtuoso/",
     "source": "Luxury Daily - Research",
     "published_at": "2025-12-29T09:45:46.000Z",
-    "ingested_at": "2025-12-30T17:30:50.941Z"
+    "ingested_at": "2025-12-30T17:30:50.941Z",
+    "snippet": "Ducking overtourism and uncomfortable temperatures, discerning clients are increasingly willing to adventure out of season; the high-end hospitality network expects the trend to take full effect in 2026."
   },
   {
     "id": "rnq4lb",
@@ -1189,7 +1271,8 @@
     "url": "https://www.luxurydaily.com/us-luxury-car-market-expected-to-double-in-next-decade-bcg/",
     "source": "Luxury Daily - Research",
     "published_at": "2025-12-18T10:00:34.000Z",
-    "ingested_at": "2025-12-30T17:30:50.941Z"
+    "ingested_at": "2025-12-30T17:30:50.941Z",
+    "snippet": "Global economic pressures and generational shifts are influencing the industry, according to new findings from the global consulting firm."
   },
   {
     "id": "nkndax",
@@ -1197,7 +1280,8 @@
     "url": "https://www.luxurydaily.com/the-defining-theme-of-2026-is-connection-between-people-systems-and-senses-the-future-laboratory/",
     "source": "Luxury Daily - Research",
     "published_at": "2025-12-16T10:00:28.000Z",
-    "ingested_at": "2025-12-30T17:30:50.941Z"
+    "ingested_at": "2025-12-30T17:30:50.941Z",
+    "snippet": "“Climate-attuned Beauty,” “Future-proof Foods” and “Golden Gap Years” are among the 50 trends included in the latest edition of the London-based market research firm’s annual forecast report."
   },
   {
     "id": "xh0nom",
@@ -1205,7 +1289,8 @@
     "url": "https://www.luxurydaily.com/85pc-of-recent-pending-gen-z-car-buyers-considering-luxury-vehicle-purchase-report/",
     "source": "Luxury Daily - Research",
     "published_at": "2025-12-12T10:00:18.000Z",
-    "ingested_at": "2025-12-30T17:30:50.941Z"
+    "ingested_at": "2025-12-30T17:30:50.941Z",
+    "snippet": "New data suggests that younger consumers are increasingly willing to make these transactions online, shifting focus away from retail showrooms."
   },
   {
     "id": "ua9stm",
@@ -1213,7 +1298,8 @@
     "url": "https://www.luxurydaily.com/hermes-goyard-lead-consigner-sales-in-2025-rebag/",
     "source": "Luxury Daily - Research",
     "published_at": "2025-12-11T09:45:35.000Z",
-    "ingested_at": "2025-12-30T17:30:50.941Z"
+    "ingested_at": "2025-12-30T17:30:50.941Z",
+    "snippet": "The secondhand platform is revealing the impact of international tariffs on high-end goods over the past year."
   },
   {
     "id": "t2l35n",
@@ -1221,7 +1307,8 @@
     "url": "https://www.luxurydaily.com/hnwis-report-surging-interest-in-luxury-cruises-altiant-iltm/",
     "source": "Luxury Daily - Research",
     "published_at": "2025-12-09T10:00:51.000Z",
-    "ingested_at": "2025-12-30T17:30:50.941Z"
+    "ingested_at": "2025-12-30T17:30:50.941Z",
+    "snippet": "The market research firm is detailing an uptick in demand for sea travel experiences from high-net-worth individuals."
   },
   {
     "id": "7ljd98",
@@ -1229,7 +1316,8 @@
     "url": "https://www.luxurydaily.com/kering-foundation-to-examine-violence-against-women-children-via-new-research-program/",
     "source": "Luxury Daily - Research",
     "published_at": "2025-12-08T20:03:24.000Z",
-    "ingested_at": "2025-12-30T17:30:50.941Z"
+    "ingested_at": "2025-12-30T17:30:50.941Z",
+    "snippet": "The French luxury conglomerate’s foundation is committing to a multi-year project with Canada’s McGill University."
   },
   {
     "id": "z0q29b",
@@ -1237,7 +1325,8 @@
     "url": "https://www.luxurydaily.com/tech-is-transforming-every-corner-of-our-lives-drinks-will-be-no-exception-report/",
     "source": "Luxury Daily - Research",
     "published_at": "2025-12-02T09:45:41.000Z",
-    "ingested_at": "2025-12-30T17:30:50.941Z"
+    "ingested_at": "2025-12-30T17:30:50.941Z",
+    "snippet": "InterContinental Hotels Group’s Kimpton Hotels & Restaurants is sharing findings from its “Culinary + Cocktail Trend Forecast.”"
   },
   {
     "id": "dfu372",
@@ -1245,7 +1334,8 @@
     "url": "https://www.luxurydaily.com/corporate-water-management-strategies-in-apac-falling-short-kering-nus-report-finds/",
     "source": "Luxury Daily - Research",
     "published_at": "2025-12-01T19:44:18.000Z",
-    "ingested_at": "2025-12-30T17:30:50.941Z"
+    "ingested_at": "2025-12-30T17:30:50.941Z",
+    "snippet": "The pair are sharing their second publication since announcing a three-year research collaboration in 2024."
   },
   {
     "id": "vb39n1",
@@ -1253,7 +1343,8 @@
     "url": "https://www.luxurydaily.com/deloitte-sees-bfcm-shopper-turnout-climb-gen-z-drives-momentum/",
     "source": "Luxury Daily - Research",
     "published_at": "2025-11-26T22:00:25.000Z",
-    "ingested_at": "2025-12-30T17:30:50.941Z"
+    "ingested_at": "2025-12-30T17:30:50.941Z",
+    "snippet": "Younger consumers continue to reshape holiday retail dynamics, with 72 percent planning to shop in store on Black Friday compared to 49 percent of all shoppers."
   },
   {
     "id": "glr9hw",
@@ -1261,7 +1352,8 @@
     "url": "https://www.jewellermagazine.com/Article/14683/Sales-lessons-learned-for-jewellers-ahead-of-all-important-holidays",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-18T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "The latest analysis of sales at independent jewellery stores in Australia has uncovered many interesting trends in November."
   },
   {
     "id": "yp0k9a",
@@ -1269,7 +1361,8 @@
     "url": "https://www.jewellermagazine.com/Article/14685/JAA-appoints-seventh-director-to-board",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-21T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "The Jewellers Association of Australia (JAA) has announced the appointment of a seventh director, Lindsay Kotzman."
   },
   {
     "id": "f8ksil",
@@ -1277,7 +1370,8 @@
     "url": "https://www.jewellermagazine.com/Article/14658/Consumer-watchdog-issues-new-warning-about-ghost-stores",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-19T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "The Australian Competition and Consumer Commission (ACCC) is warning consumers and retailers to be vigilant about online retail scammers posing as local businesses during the holiday season."
   },
   {
     "id": "mbyzt6",
@@ -1285,7 +1379,8 @@
     "url": "https://www.jewellermagazine.com/Article/14657/Impractical-regulations-set-to-disrupt-gift-card-transactions",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-19T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Retail industry representatives are warning about the unintended consequences of recent changes to Australia’s anti-money laundering and counter terrorism-financing regime, particularly as it concerns gift cards."
   },
   {
     "id": "a49xui",
@@ -1293,7 +1388,8 @@
     "url": "https://www.jewellermagazine.com/Article/14656/Australian-retailers-encouraged-to-plan-for-a-productive-holiday-period",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-19T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Industry forecasters are anticipating strong holiday sales for Australian retailers, with shoppers expected to spend heavily during the all-important trading period."
   },
   {
     "id": "w8ieb7",
@@ -1301,7 +1397,8 @@
     "url": "https://www.jewellermagazine.com/Article/14684/Former-Jewellery-Industry-Network-directors-issue-statement",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-18T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Jeweller recently reported on the dramatic multi-million dollar collapse of several companies associated with the Jewellery Industry Network and now two former directors have issued a statement ‘clearing the air’ regarding their decision to exit the company."
   },
   {
     "id": "lljv5w",
@@ -1309,7 +1406,8 @@
     "url": "https://www.jewellermagazine.com/Article/14681/Buying-group-announces-2026-board-changes",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-16T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Showcase Jewellers has announced a number of changes to its board."
   },
   {
     "id": "odr1th",
@@ -1317,7 +1415,8 @@
     "url": "https://www.jewellermagazine.com/Article/14680/Surprising-twist-in-Jewellery-Industry-Network-connections-and-collapses",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-15T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "In recent weeks, Jeweller has painstakingly documented the collapse of seven companies that share some unusual connections with two of the founding directors of the Jewellery Industry Network."
   },
   {
     "id": "cxs2ge",
@@ -1325,7 +1424,8 @@
     "url": "https://www.jewellermagazine.com/Article/14676/Beauty-Flaw-Nothing-lasts-forever",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Suggesting a shift in perspective, Daniel Nyfeler proposes that the industry should embrace the individuality conveyed by inclusions, as the traditional narrative of diamond perfection has lost some of its appeal."
   },
   {
     "id": "evkqn7",
@@ -1333,7 +1433,8 @@
     "url": "https://www.jewellermagazine.com/Article/14666/Legacy-of-Clarity-GIA-updates-diamond-reports-to-reflect-market",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Reflecting changes in the market, the GIA (Gemological Institute of America) has updated its diamond reports."
   },
   {
     "id": "5tgus6",
@@ -1341,7 +1442,8 @@
     "url": "https://www.jewellermagazine.com/Article/14664/Natural-Diamonds-Natures-Mic-Drop",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Elevating natural diamonds as symbols of both authenticity and responsible sourcing, Feriel Zerouki draws a distinct contrast with lab-created diamonds and what she sees as their potentially misleading marketing tactics."
   },
   {
     "id": "oyvgb4",
@@ -1349,7 +1451,8 @@
     "url": "https://www.jewellermagazine.com/Article/14677/Strictly-speaking-about-synthetics",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Gaetano Cavalieri affirms that CIBJO’s primary mission is to guarantee the industry’s operations are conducted with complete transparency, ensuring all products are described with accuracy and without ambiguity."
   },
   {
     "id": "31yk24",
@@ -1357,7 +1460,8 @@
     "url": "https://www.jewellermagazine.com/Article/14667/Natural-or-Synthetic-Diamonds-Education-is-more-important-than-ever",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Protecting consumers through education and accurate identification, Ian Dun emphasizes the Gemmological Association of Australia’s commitment to distinguishing between natural and synthetic diamonds."
   },
   {
     "id": "e9hk3r",
@@ -1365,7 +1469,8 @@
     "url": "https://www.jewellermagazine.com/Article/14663/Consumers-wisely-opt-for-the-superior-product-Lab-created-diamonds",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Consumers are increasingly opting for lab-created diamonds, a superior product driven by affordability, technological advancements and changing consumer attitudes, asserts Martin Roscheisen."
   },
   {
     "id": "gm6nct",
@@ -1373,7 +1478,8 @@
     "url": "https://www.jewellermagazine.com/Article/14662/Trust-and-transparency-remain-critical-in-an-evolving-diamond-industry",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Sally Morrison stresses the crucial roles of trust and transparency within the diamond industry, especially concerning lab-created diamonds, while also showcasing De Beers’ initiatives designed to bolster consumer confidence in natural diamonds."
   },
   {
     "id": "ufg4uz",
@@ -1381,7 +1487,8 @@
     "url": "https://www.jewellermagazine.com/Article/14669/Seismic-shifts-that-will-shape-jewellery-retail-for-the-next-40-years",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Marty Hurwitz draws attention to the significant shifts occurring in jewellery retail, noting the marked increase in demand for custom-made pieces using lab-created diamonds, particularly amongst younger generations."
   },
   {
     "id": "e0ax48",
@@ -1389,7 +1496,8 @@
     "url": "https://www.jewellermagazine.com/Article/14670/Consumers-hold-an-enduring-love-for-natural-diamonds",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "David Kellie underscores the enduring consumer affection for natural diamonds, emphasising their inherent rarity, unquestionable authenticity, and the significantly positive impact of the natural diamond industry on communities across the globe."
   },
   {
     "id": "atmiff",
@@ -1397,7 +1505,8 @@
     "url": "https://www.jewellermagazine.com/Article/14675/Diamonds-Ice-Nobody-likes-change",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Drawing a compelling historical parallel, Tom Chatham equates the diamond industry’s evolution to the natural ice trade’s trajectory, suggesting that efficient and cost-effective products are destined to prevail."
   },
   {
     "id": "g0zwqy",
@@ -1405,7 +1514,8 @@
     "url": "https://www.jewellermagazine.com/Article/14678/Natural-diamonds-Clean-your-house-first",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Garry Holloway champions the cause of improved consumer confidence in natural diamonds by advocating for honest and transparent diamond grading reports, directly addressing the flaws he sees in the current grading system."
   },
   {
     "id": "vmil8v",
@@ -1413,7 +1523,8 @@
     "url": "https://www.jewellermagazine.com/Article/14660/The-Mark-Natural-diamonds-need-to-be-more-easily-identifiable",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "For enhanced consumer confidence and to clearly differentiate natural stones, Paul Zimnisky makes a compelling argument for physically marking natural diamonds as a definitive form of authentication."
   },
   {
     "id": "415b51",
@@ -1421,7 +1532,8 @@
     "url": "https://www.jewellermagazine.com/Article/14674/Lab-created-diamonds-are-in-fashion",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Joshua Freedman observes the increasing acceptance of lab-created diamonds in fashion jewellery, pinpointing Signet Jewellers’ success as evidence of shifting consumer perceptions."
   },
   {
     "id": "oequfb",
@@ -1429,7 +1541,8 @@
     "url": "https://www.jewellermagazine.com/Article/14671/Will-diamonds-shine-forever-Eight-steps-to-securing-a-brighter-future",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Emphasising the critical need for market stabilisation, Robert Bouquet discusses the multifaceted challenges confronting the natural diamond industry, including the growing impact of lab-created diamonds, oversupply issues, and consistently weak prices."
   },
   {
     "id": "8dictb",
@@ -1437,7 +1550,8 @@
     "url": "https://www.jewellermagazine.com/Article/14673/Diamonds-A-small-piece-of-a-large-puzzle",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Signifying a change in how we perceive reality and value, Samuel Ord analyses how lab-grown diamonds are shifting perceptions and the value we place on diamonds."
   },
   {
     "id": "yik9nj",
@@ -1445,7 +1559,8 @@
     "url": "https://www.jewellermagazine.com/Article/14668/The-Great-Diamond-Debate-III-Passion-vs-Tension",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Seven years after the inaugural Great Diamond Debate, the diamond landscape is almost unrecognisable. Natural and laboratory-created stones now share a stage transformed by technology, shifting values, and new rules of engagement. In this edition, leading voices worldwide reveal how the story has evolved – and where it’s heading next!"
   },
   {
     "id": "evasw",
@@ -1453,7 +1568,8 @@
     "url": "https://www.jewellermagazine.com/Article/14661/What-becomes-of-the-broken-hearted",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-10T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Angela Han argues that once ‘breach of promise to marry’ laws were abolished, diamond rings stopped being legal protection and started functioning as financial collateral. What's changed, and what does this mean for the broken-hearted?"
   },
   {
     "id": "drtagw",
@@ -1461,7 +1577,8 @@
     "url": "https://www.jewellermagazine.com/Article/14672/Jewellery-chain-collapses-Administrator-appointed",
     "source": "Jeweller - Business News",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "The 23-store fashion jewellery retailer Secrets Shhh has been placed under administration with hope the business can be sold."
   },
   {
     "id": "vygt75",
@@ -1469,7 +1586,8 @@
     "url": "https://www.jewellermagazine.com/Article/14655/Now-Showing-How-to-use-psychology-to-sell-luxury-items-The-online-shopping-fraud-you-may-not-know-about-Inside-the-2025-Gold-Boom",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-04T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Take a few moments to enjoy Jeweller's Friday Flicks video selection, including updates on current affairs and insights into the jewellery trade. This week, learn how psychology can be used to sell luxury items, uncover an online shopping fraud many people don’t know about, and take a closer look inside the 2025 gold boom."
   },
   {
     "id": "6se0zt",
@@ -1477,7 +1595,8 @@
     "url": "https://www.jewellermagazine.com/Article/14654/Quantum-diamond-foundry-opens-in-Victoria",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-01T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "The Victorian Government has announced the opening of a quantum diamond technology foundry, based in Notting Hill, south east of Melbourne."
   },
   {
     "id": "1y2ab9",
@@ -1485,7 +1604,8 @@
     "url": "https://www.jewellermagazine.com/Article/14653/Diamond-Foundry-receives-funding-boost-in-Spain",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-01T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Spain’s government has announced a significant investment in a lab-created diamond manufacturing plant operated by Diamond Foundry."
   },
   {
     "id": "9ru2um",
@@ -1493,7 +1613,8 @@
     "url": "https://www.jewellermagazine.com/Article/14652/Mysterious-monster-emerald-showcased-by-military-ruler",
     "source": "Jeweller - Business News",
     "published_at": "2025-12-01T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Amid extensive political turmoil in Madagascar, an unusual colour gemstone has been thrust into the spotlight."
   },
   {
     "id": "weeui7",
@@ -1501,7 +1622,8 @@
     "url": "https://www.jewellermagazine.com/Article/14665/Diamonds-from-Earth-and-Lab-Facts-Opportunities-Transparency",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-12-14T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Tehmasp Printer makes the point that natural and lab-created diamonds may differ in origin, but they share the same brilliance, value and a rightful place within today’s market."
   },
   {
     "id": "2nd66e",
@@ -1509,7 +1631,8 @@
     "url": "https://www.jewellermagazine.com/Article/14643/Love-Marriage-Changing-attitudes-your-jewellery-store",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "SAMUEL ORD takes a closer look at the evolving attitude towards marriage in Australia and what this means for independent jewellery store owners."
   },
   {
     "id": "2y4yr8",
@@ -1517,7 +1640,8 @@
     "url": "https://www.jewellermagazine.com/Article/14646/Jewellery-Industry-Network-Connecting-the-dots-in-a-14-million-collapse",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-28T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Jeweller recently documented the collapse of eight companies that, on the surface, seem largely unrelated – operating in diverse and disparate industries – sharing little more than some unusual connections to the Australian jewellery industry."
   },
   {
     "id": "b8x47y",
@@ -1525,7 +1649,8 @@
     "url": "https://www.jewellermagazine.com/Article/14636/Athan-Wholesale-Jewellers",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Crafted in Italy and offered in 9, 14, and 18-carat gold, Athan’s Omega necklaces come in yellow, white, and two-tone finishes."
   },
   {
     "id": "7j1yan",
@@ -1533,7 +1658,8 @@
     "url": "https://www.jewellermagazine.com/Article/14637/Coeur-de-Lion",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "This statement necklace features a harmonious blend of warm blue and soft purple hues in natural Chalcedony, Onyx, Haematite, Swarovski Crystals and rhinestone rondelles, set in a sleek stainless steel design."
   },
   {
     "id": "i8jvqm",
@@ -1541,7 +1667,8 @@
     "url": "https://www.jewellermagazine.com/Article/14633/Ikecho-Australia",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "The Ethereal Pearl Necklace captures timeless elegance with delicate freshwater pearls spaced along a fine chain, creating an effortless look of sophistication."
   },
   {
     "id": "3f38c3",
@@ -1549,7 +1676,8 @@
     "url": "https://www.jewellermagazine.com/Article/14638/UNOde50",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "UNOde50’s unique, organic style creates bold statement pieces that truly stand out."
   },
   {
     "id": "2p8mnn",
@@ -1557,7 +1685,8 @@
     "url": "https://www.jewellermagazine.com/Article/14639/Sapphire-Dreams",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Unique and beautiful, the Numilla necklace showcases an arrangement of marquise-cut Australian sapphires and a single sparkling white diamond."
   },
   {
     "id": "m1xvds",
@@ -1565,7 +1694,8 @@
     "url": "https://www.jewellermagazine.com/Article/14634/Athan-Wholesale-Jewellers",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "A classic redefined: Athan’s Figaro chains are available in both 9 and 18-carat yellow gold, ranging from 2 mm to 3.9 mm in gauge and in various lengths."
   },
   {
     "id": "8aoofk",
@@ -1573,7 +1703,8 @@
     "url": "https://www.jewellermagazine.com/Article/14635/Ikecho-Australia",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Made from exquisite AA-grade Japanese Akoya pearls, the Geisha Necklace embodies timeless elegance and refined beauty."
   },
   {
     "id": "tx4i1n",
@@ -1581,7 +1712,8 @@
     "url": "https://www.jewellermagazine.com/Article/14631/Ellendale-Diamonds-Australia",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "An 18-carat white and yellow gold pendant featuring a striking black opal from Lightning Ridge, framed by a flowing arrangement of Argyle white diamonds."
   },
   {
     "id": "1i9qm4",
@@ -1589,7 +1721,8 @@
     "url": "https://www.jewellermagazine.com/Article/14632/Ellendale-Diamonds-Australia",
     "source": "Jeweller - Jewellery Trends",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "An 18-carat yellow and white gold pendant showcasing a luminous white opal from Coober Pedy, accentuated by a graceful curve of Argyle white diamonds."
   },
   {
     "id": "3roqt9",
@@ -1597,7 +1730,8 @@
     "url": "https://www.jewellermagazine.com/Article/14644/Critical-step-forward-in-the-fight-for-Australias-jewellery-apprentice",
     "source": "Jeweller - Main",
     "published_at": "2025-11-30T13:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "There’s been a significant victory   in the campaign to ease the pressures of rising demand and secure a brighter future for the Australian jewellery industry."
   },
   {
     "id": "ltsstm",
@@ -1605,7 +1739,8 @@
     "url": "https://www.professionaljeweller.com/assay-offices-reform-hallmarking-law/",
     "source": "Professional Jeweller",
     "published_at": "2025-12-18T14:15:42.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "The four UK Assay Offices have issued a joint open letter to MPs urging action in reforming the Hallmarking Act 1973. This open letter is fully supported by the National Association of Jewellers (NAJ). Hallmarking remains a cornerstone of consumer protection, providing independent assurance of precious metal quality and safeguarding public trust in jewellery and […]\nThe post Assay offices call for reform of Hallmarking law appeared first on Professional Jeweller."
   },
   {
     "id": "q7mno1",
@@ -1613,7 +1748,8 @@
     "url": "https://www.professionaljeweller.com/hugh-rice-appoint-new-retail-director/",
     "source": "Professional Jeweller",
     "published_at": "2025-12-18T14:14:49.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Hugh Rice the Jewellers has announced the appointment of Hannah Hirst to the board of directors as retail director. Hirst, who has been serving as the company’s procurement manager, brings a wealth of experience, strong brand partnerships, and a deep understanding of the business. In her new role, Hirst will work closely with store managers […]\nThe post Hugh Rice appoints new retail director appeared first on Professional Jeweller."
   },
   {
     "id": "ywmowd",
@@ -1621,7 +1757,8 @@
     "url": "https://www.professionaljeweller.com/wongs-jewellers-new-manchester-store/",
     "source": "Professional Jeweller",
     "published_at": "2025-12-18T14:14:27.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Manchester’s Arndale Centre welcomes Wongs Jewellers today, marking its first expansion outside Liverpool. With a legacy spanning over four decades, Wongs Jewellers brings its signature elegance, heritage, and playful design to Manchester for the first time. Now, after 45 years in the making, Wongs Jewellers is opening a store that celebrates the family legacy while […]\nThe post Wongs Jewellers debuts new Manchester store today appeared first on Professional Jeweller."
   },
   {
     "id": "rh5w6x",
@@ -1629,7 +1766,8 @@
     "url": "https://www.professionaljeweller.com/goldsmiths-centre-apps-open-course/",
     "source": "Professional Jeweller",
     "published_at": "2025-12-18T14:13:53.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "The Goldsmiths’ Centre is now accepting applications for Getting Started Online, a free, one-week intensive business course. Running online from 9–13 March 2026, the course is accessible to participants across the UK and serves as a gateway to further opportunities, including Spotlighting Getting Started and Shine, while connecting participants to the Goldsmiths’ Centre’s creative community. […]\nThe post Applications open for Goldsmiths’ Centre Getting Started Online course appeared first on Pro..."
   },
   {
     "id": "54q8qe",
@@ -1637,7 +1775,8 @@
     "url": "https://www.professionaljeweller.com/saddle-up-2026-thomas-sabo-year-horse/",
     "source": "Professional Jeweller",
     "published_at": "2025-12-18T14:00:13.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Thomas Sabo is starting the new year with a trio of collections that celebrate the Year of the Horse, symbolising freedom, energy, and ambition. The Horse stands for passionate energy and courageous decisions. This is reflected in the Elyndra, Wild Horses and Good Luck Rodeo collections. With elegance, they interpret the fascination of the horse […]\nThe post Saddle up 2026: Thomas Sabo celebrates the year of the Horse appeared first on Professional Jeweller."
   },
   {
     "id": "q1omo4",
@@ -1645,7 +1784,8 @@
     "url": "https://www.professionaljeweller.com/introducing-pjs-12-days-of-dazzle/",
     "source": "Professional Jeweller",
     "published_at": "2025-12-18T08:45:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "This December at Professional Jeweller, we are bringing festive sparkle to the industry with our special showcase: The 12 Days of Dazzle. This exclusive feature highlights the year’s most exceptional suppliers, brands and retailers in a curated, high-impact spread that lands just in time for the crucial Christmas and early 2026 buying period. As the […]\nThe post 12 Days of Dazzle appeared first on Professional Jeweller."
   },
   {
     "id": "c5fva0",
@@ -1653,7 +1793,8 @@
     "url": "https://www.professionaljeweller.com/richemont-uk-jewellery-sales-rise/",
     "source": "Professional Jeweller",
     "published_at": "2025-12-17T08:15:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Richemont‘s watch and jewellery business has generated record sales in the UK with turnover rising 5.3% to £277 million in 2024-25. The group’s latest accounts cover the 12 months to March 1 2025. Operating profit surged by 155% to £32 million. The results cover retail and wholesale for jewellery and watchmakers, but do not include […]\nThe post Richemont UK outperforms rival groups with 5% rise in sales appeared first on Professional Jeweller."
   },
   {
     "id": "ppwd09",
@@ -1661,7 +1802,8 @@
     "url": "https://www.professionaljeweller.com/the-goldsmiths-centre-emerging-talent/",
     "source": "Professional Jeweller",
     "published_at": "2025-12-17T08:05:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "The Goldsmiths’ Centre is set to hold Spotlighting Getting Started, a free public exhibition championing the work of 15 emerging jewellers and silversmiths. From 12 January to 18 February 2026, the exhibition will showcase over 50 independent designers utilising a range of contemporary practices. Visitors can explore techniques from Japonisme-inspired motifs and ocean forms captured […]\nThe post The Goldsmiths’ Centre to spotlights emerging talent in New Year appeared first on Professional Jewel..."
   },
   {
     "id": "fd8lvl",
@@ -1669,7 +1811,8 @@
     "url": "https://www.professionaljeweller.com/12-days-of-dazzle-12-sonja-t-jewelry/",
     "source": "Professional Jeweller",
     "published_at": "2025-12-17T08:00:00.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Sonja T. Jewelry is renowned for transforming emotional depth and cultural heritage into exquisite pieces of fine filigree. The latest creation, the Filigree Crown Bear Pendant, is more than just an accessory; it is a regal, modern heirloom. This unique piece reimagines a nostalgic childhood companion with the precision of haute joaillerie, making it a […]\nThe post 12 Days of Dazzle Day 12: Sonja T. Jewelry appeared first on Professional Jeweller."
   },
   {
     "id": "6beipe",
@@ -1677,7 +1820,8 @@
     "url": "https://www.professionaljeweller.com/gerald-ratner-try-buy-signet-uk/",
     "source": "Professional Jeweller",
     "published_at": "2025-12-16T12:37:03.000Z",
-    "ingested_at": "2025-12-30T20:03:05.084Z"
+    "ingested_at": "2025-12-30T20:03:05.084Z",
+    "snippet": "Gerald Ratner is trying to buy H. Samuel and Ernest Jones, the UK retail marques owned by US-based Signet Jewelers, 34 years after losing control of the business. Ratner famously described jewellery sold by what was then named Ratners Group as “total crap” in a speech to the Institute of Directors in 1991, and was […]\nThe post Gerald Ratner agitates to buy back Ernest Jones and H. Samuel appeared first on Professional Jeweller."
   },
   {
     "id": "sjl53v",
@@ -1685,7 +1829,8 @@
     "url": "https://www.practicalecommerce.com/3-seo-predictions-for-2026",
     "source": "Practical Ecommerce",
     "published_at": "2025-12-30T20:10:58.000Z",
-    "ingested_at": "2025-12-30T20:58:31.247Z"
+    "ingested_at": "2025-12-30T20:58:31.247Z",
+    "snippet": "Generative AI increasingly dominates search results through AI Overviews and AI Mode, rendering traditional optimization ineffective.\nThe post 3 SEO Predictions for 2026 appeared first on Practical Ecommerce."
   },
   {
     "id": "501hss",
@@ -1693,7 +1838,8 @@
     "url": "https://www.modernretail.co/marketing/the-modern-retail-guide-to-whats-in-and-whats-out-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
     "source": "Modern Retail",
     "published_at": "2025-12-31T05:00:00.000Z",
-    "ingested_at": "2025-12-31T07:41:21.690Z"
+    "ingested_at": "2025-12-31T07:41:21.690Z",
+    "snippet": "Big workout pants, fiber and thrifting are just some of the trends that will dominate 2026, Modern Retail predicts in its annual In/Out list."
   },
   {
     "id": "pguvn9",
@@ -1701,7 +1847,8 @@
     "url": "https://www.modernretail.co/marketing/cheez-it-bets-on-prince-cheddward-mascot-in-an-overcrowded-sports-marketing-arena/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
     "source": "Modern Retail",
     "published_at": "2025-12-31T05:00:00.000Z",
-    "ingested_at": "2025-12-31T07:41:21.690Z"
+    "ingested_at": "2025-12-31T07:41:21.690Z",
+    "snippet": "To cut through sports marketing noise, Cheez-It is resurrecting Prince Cheddward and betting on nostalgia."
   },
   {
     "id": "yg52at",
@@ -1709,6 +1856,7 @@
     "url": "https://www.nytimes.com/2025/12/31/travel/airport-border-phone-search.html",
     "source": "NYTimes Technology",
     "published_at": "2025-12-31T10:00:22.000Z",
-    "ingested_at": "2025-12-31T12:36:16.184Z"
+    "ingested_at": "2025-12-31T12:36:16.184Z",
+    "snippet": "Customs agents have broad authority to search the electronic devices of travelers entering and leaving the U.S. Here are tips for keeping your data safe."
   }
 ]

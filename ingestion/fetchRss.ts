@@ -35,13 +35,18 @@ async function saveArticles(articles: Article[]) {
   await fs.writeFile(DATA_PATH, JSON.stringify(articles, null, 2), 'utf-8');
 }
 
-export async function runRssIngestion(): Promise<number> {
+export async function runRssIngestion(): Promise<{ added: number; updated: number }> {
   const parser = new Parser();
   const allNewArticles: Article[] = [];
+  let updatedCount = 0;
   const now = new Date().toISOString();
 
   let existingArticles = await loadArticles();
-  const existingUrls = new Set(existingArticles.map(a => a.url));
+  // Use Map for easier updates
+  const existingArticlesByUrl = new Map<string, Article>();
+  for (const article of existingArticles) {
+    existingArticlesByUrl.set(article.url, article);
+  }
 
   for (const feed of SOURCE_FEEDS) {
     try {
@@ -68,39 +73,69 @@ export async function runRssIngestion(): Promise<number> {
         console.error(`Parse failure for "${feed.name}". First 200 bytes:`, text.slice(0, 200));
         throw err;
       }
+      let feedItemsProcessed = 0;
+      let feedItemsMatched = 0;
+      let feedItemsUpdated = 0;
+      
       for (const item of rss.items || []) {
         const title = item.title || '';
         const url = item.link || '';
         const isoDate = item.isoDate || item.pubDate;
         if (!url || !title || !isoDate) continue;
-        if (existingUrls.has(url)) continue;
+        
+        feedItemsProcessed++;
 
-        const article: Article = {
-          id: hashString(url),
-          title,
-          url,
-          source: feed.name,
-          published_at: new Date(isoDate).toISOString(),
-          ingested_at: now,
-        };
-        allNewArticles.push(article);
-        existingUrls.add(url); // Prevent dupes within this run
+        // Extract snippet from contentSnippet, content, or description
+        const snippet = (item.contentSnippet || item.content || item.description || '').trim();
+        // Limit snippet length to reasonable size (first 500 chars)
+        const truncatedSnippet = snippet.length > 500 ? snippet.substring(0, 500) + '...' : snippet;
+
+        const existingArticle = existingArticlesByUrl.get(url);
+        if (existingArticle) {
+          feedItemsMatched++;
+          // Update existing article with snippet if it doesn't have one
+          if (!existingArticle.snippet && truncatedSnippet) {
+            existingArticle.snippet = truncatedSnippet;
+            updatedCount++;
+            feedItemsUpdated++;
+          }
+        } else {
+          // New article
+          const article: Article = {
+            id: hashString(url),
+            title,
+            url,
+            source: feed.name,
+            published_at: new Date(isoDate).toISOString(),
+            ingested_at: now,
+            snippet: truncatedSnippet || undefined,
+          };
+          allNewArticles.push(article);
+          existingArticlesByUrl.set(url, article); // Prevent dupes within this run
+        }
+      }
+      
+      if (feedItemsProcessed > 0) {
+        console.log(`[${feed.name}] processed ${feedItemsProcessed} items, matched ${feedItemsMatched} existing, updated ${feedItemsUpdated} with snippets`);
       }
     } catch (err) {
       console.warn(`Failed to fetch feed "${feed.name}": ${(err as Error).message}`);
       continue;
     }
   }
-  if (allNewArticles.length > 0) {
-    await saveArticles([...existingArticles, ...allNewArticles]);
+  
+  // Save if we have new articles or updates
+  if (allNewArticles.length > 0 || updatedCount > 0) {
+    await saveArticles(existingArticles);
   }
-  return allNewArticles.length;
+  
+  return { added: allNewArticles.length, updated: updatedCount };
 }
 
 // CLI runner - run if this file is executed directly
 runRssIngestion()
-  .then(count => {
-    console.log(`Added ${count} new articles`);
+  .then(result => {
+    console.log(`Added ${result.added} new articles, updated ${result.updated} existing articles with snippets`);
     process.exit(0);
   })
   .catch(err => {

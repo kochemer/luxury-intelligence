@@ -3,13 +3,13 @@ import { runPageIngestion } from "./fetchPages.js";
 
 async function main() {
   try {
-    const rssTotal = await runRssIngestion();
-    console.log(`[Combined] RSS ingestion added ${rssTotal} new articles.`);
+    const rssResult = await runRssIngestion();
+    console.log(`[Combined] RSS ingestion added ${rssResult.added} new articles, updated ${rssResult.updated} existing articles with snippets.`);
 
     const pageTotal = await runPageIngestion();
     console.log(`[Combined] Page ingestion added ${pageTotal} new articles.`);
 
-    const overallTotal = (rssTotal || 0) + (pageTotal || 0);
+    const overallTotal = (rssResult.added || 0) + (pageTotal || 0);
     console.log(`[Combined] Ingestion complete. Total new articles added: ${overallTotal}.`);
 
     process.exit(0);

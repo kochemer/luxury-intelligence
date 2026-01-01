@@ -5,6 +5,8 @@ export type Article = {
   source: string;
   published_at: string;
   ingested_at: string;
+  snippet?: string;
+  aiSummary?: string;
 };
 
 export type SourceFeed = {

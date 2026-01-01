@@ -3,8 +3,8 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2025-11-30T23:00:00.000Z",
   "endISO": "2025-12-31T22:59:59.999Z",
-  "builtAtISO": "2026-01-01T20:23:07.994+01:00",
-  "builtAtLocal": "2026-01-01 20:23:07",
+  "builtAtISO": "2026-01-01T21:33:50.687+01:00",
+  "builtAtLocal": "2026-01-01 21:33:50",
   "totals": {
     "total": 175,
     "byTopic": {
@@ -24,7 +24,9 @@
           "url": "https://www.jewellermagazine.com/Article/14685/JAA-appoints-seventh-director-to-board",
           "source": "Jeweller - Business News",
           "published_at": "2025-12-21T13:00:00.000Z",
-          "ingested_at": "2025-12-30T20:03:05.084Z"
+          "ingested_at": "2025-12-30T20:03:05.084Z",
+          "snippet": "The Jewellers Association of Australia (JAA) has announced the appointment of a seventh director, Lindsay Kotzman.",
+          "aiSummary": "AI-Generated Summary:\nThe Jewellers Association of Australia (JAA) has appointed Lindsay Kotzman as its seventh director."
         },
         {
           "id": "f8ksil",
@@ -32,7 +34,9 @@
           "url": "https://www.jewellermagazine.com/Article/14658/Consumer-watchdog-issues-new-warning-about-ghost-stores",
           "source": "Jeweller - Business News",
           "published_at": "2025-12-19T13:00:00.000Z",
-          "ingested_at": "2025-12-30T20:03:05.084Z"
+          "ingested_at": "2025-12-30T20:03:05.084Z",
+          "snippet": "The Australian Competition and Consumer Commission (ACCC) is warning consumers and retailers to be vigilant about online retail scammers posing as local businesses during the holiday season.",
+          "aiSummary": "AI-Generated Summary:\nThe ACCC cautions consumers and retailers to watch out for online retail scammers impersonating local businesses during the holiday season, as reported by Jeweller's business news."
         },
         {
           "id": "mbyzt6",
@@ -40,7 +44,9 @@
           "url": "https://www.jewellermagazine.com/Article/14657/Impractical-regulations-set-to-disrupt-gift-card-transactions",
           "source": "Jeweller - Business News",
           "published_at": "2025-12-19T13:00:00.000Z",
-          "ingested_at": "2025-12-30T20:03:05.084Z"
+          "ingested_at": "2025-12-30T20:03:05.084Z",
+          "snippet": "Retail industry representatives are warning about the unintended consequences of recent changes to Australia’s anti-money laundering and counter terrorism-financing regime, particularly as it concerns gift cards.",
+          "aiSummary": "AI-Generated Summary:\nRetail industry representatives are concerned about the impact of new regulations on gift card transactions due to changes in Australia's anti-money laundering and counter terrorism-financing regime."
         },
         {
           "id": "a49xui",
@@ -48,7 +54,9 @@
           "url": "https://www.jewellermagazine.com/Article/14656/Australian-retailers-encouraged-to-plan-for-a-productive-holiday-period",
           "source": "Jeweller - Business News",
           "published_at": "2025-12-19T13:00:00.000Z",
-          "ingested_at": "2025-12-30T20:03:05.084Z"
+          "ingested_at": "2025-12-30T20:03:05.084Z",
+          "snippet": "Industry forecasters are anticipating strong holiday sales for Australian retailers, with shoppers expected to spend heavily during the all-important trading period.",
+          "aiSummary": "AI-generated summary: Industry forecasters predict robust holiday sales for Australian retailers in the jewellery industry as shoppers are anticipated to spend significantly during the crucial trading period."
         },
         {
           "id": "ltsstm",
@@ -56,7 +64,9 @@
           "url": "https://www.professionaljeweller.com/assay-offices-reform-hallmarking-law/",
           "source": "Professional Jeweller",
           "published_at": "2025-12-18T14:15:42.000Z",
-          "ingested_at": "2025-12-30T20:03:05.084Z"
+          "ingested_at": "2025-12-30T20:03:05.084Z",
+          "snippet": "The four UK Assay Offices have issued a joint open letter to MPs urging action in reforming the Hallmarking Act 1973. This open letter is fully supported by the National Association of Jewellers (NAJ). Hallmarking remains a cornerstone of consumer protection, providing independent assurance of precious metal quality and safeguarding public trust in jewellery and […]\nThe post Assay offices call for reform of Hallmarking law appeared first on Professional Jeweller.",
+          "aiSummary": "AI-generated summary: The UK Assay Offices and the National Association of Jewellers are calling for reform of the Hallmarking Act 1973 in order to safeguard public trust in the jewellery industry through independent assurance of precious metal quality."
         },
         {
           "id": "q7mno1",
@@ -64,7 +74,9 @@
           "url": "https://www.professionaljeweller.com/hugh-rice-appoint-new-retail-director/",
           "source": "Professional Jeweller",
           "published_at": "2025-12-18T14:14:49.000Z",
-          "ingested_at": "2025-12-30T20:03:05.084Z"
+          "ingested_at": "2025-12-30T20:03:05.084Z",
+          "snippet": "Hugh Rice the Jewellers has announced the appointment of Hannah Hirst to the board of directors as retail director. Hirst, who has been serving as the company’s procurement manager, brings a wealth of experience, strong brand partnerships, and a deep understanding of the business. In her new role, Hirst will work closely with store managers […]\nThe post Hugh Rice appoints new retail director appeared first on Professional Jeweller.",
+          "aiSummary": "In December 2025, Hannah Hirst was appointed as the new retail director at Hugh Rice the Jewellers, bringing extensive experience and strong brand partnerships to the role. Hirst will collaborate closely with store managers in her new position."
         },
         {
           "id": "ywmowd",
@@ -72,7 +84,9 @@
           "url": "https://www.professionaljeweller.com/wongs-jewellers-new-manchester-store/",
           "source": "Professional Jeweller",
           "published_at": "2025-12-18T14:14:27.000Z",
-          "ingested_at": "2025-12-30T20:03:05.084Z"
+          "ingested_at": "2025-12-30T20:03:05.084Z",
+          "snippet": "Manchester’s Arndale Centre welcomes Wongs Jewellers today, marking its first expansion outside Liverpool. With a legacy spanning over four decades, Wongs Jewellers brings its signature elegance, heritage, and playful design to Manchester for the first time. Now, after 45 years in the making, Wongs Jewellers is opening a store that celebrates the family legacy while […]\nThe post Wongs Jewellers debuts new Manchester store today appeared first on Professional Jeweller.",
+          "aiSummary": "AI-generated summary: Wongs Jewellers opens its first store outside Liverpool at Manchester's Arndale Centre, showcasing its legacy of elegance, heritage, and playful design after 45 years in the making."
         }
       ]
     },
@@ -85,7 +99,9 @@
           "url": "https://www.nytimes.com/2025/12/31/travel/airport-border-phone-search.html",
           "source": "NYTimes Technology",
           "published_at": "2025-12-31T10:00:22.000Z",
-          "ingested_at": "2025-12-31T12:36:16.184Z"
+          "ingested_at": "2025-12-31T12:36:16.184Z",
+          "snippet": "Customs agents have broad authority to search the electronic devices of travelers entering and leaving the U.S. Here are tips for keeping your data safe.",
+          "aiSummary": "AI-Generated Summary:\nCustoms agents have extensive powers to search travelers' electronic devices at U.S. borders, prompting the need for strategies to protect personal data."
         },
         {
           "id": "sjl53v",
@@ -93,7 +109,9 @@
           "url": "https://www.practicalecommerce.com/3-seo-predictions-for-2026",
           "source": "Practical Ecommerce",
           "published_at": "2025-12-30T20:10:58.000Z",
-          "ingested_at": "2025-12-30T20:58:31.247Z"
+          "ingested_at": "2025-12-30T20:58:31.247Z",
+          "snippet": "Generative AI increasingly dominates search results through AI Overviews and AI Mode, rendering traditional optimization ineffective.\nThe post 3 SEO Predictions for 2026 appeared first on Practical Ecommerce.",
+          "aiSummary": "AI is predicted to dominate search results in 2026 with Generative AI advancements like AI Overviews and AI Mode, making traditional SEO less effective."
         },
         {
           "id": "v0vq6o",
@@ -146,7 +164,9 @@
           "url": "https://www.modernretail.co/marketing/the-modern-retail-guide-to-whats-in-and-whats-out-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
           "source": "Modern Retail",
           "published_at": "2025-12-31T05:00:00.000Z",
-          "ingested_at": "2025-12-31T07:41:21.690Z"
+          "ingested_at": "2025-12-31T07:41:21.690Z",
+          "snippet": "Big workout pants, fiber and thrifting are just some of the trends that will dominate 2026, Modern Retail predicts in its annual In/Out list.",
+          "aiSummary": "AI-Generated Summary:\nModern Retail's 2026 In/Out list predicts trends like big workout pants, fiber, and thrifting will dominate the year."
         },
         {
           "id": "pguvn9",
@@ -154,7 +174,9 @@
           "url": "https://www.modernretail.co/marketing/cheez-it-bets-on-prince-cheddward-mascot-in-an-overcrowded-sports-marketing-arena/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
           "source": "Modern Retail",
           "published_at": "2025-12-31T05:00:00.000Z",
-          "ingested_at": "2025-12-31T07:41:21.690Z"
+          "ingested_at": "2025-12-31T07:41:21.690Z",
+          "snippet": "To cut through sports marketing noise, Cheez-It is resurrecting Prince Cheddward and betting on nostalgia.",
+          "aiSummary": "AI-Generated Summary:\nCheez-It is relying on nostalgia by bringing back the Prince Cheddward mascot to stand out in the crowded sports marketing landscape, as reported by Modern Retail on December 31, 2025."
         },
         {
           "id": "fh9fpe",
@@ -162,7 +184,9 @@
           "url": "https://www.modernretail.co/operations/quitting-wasnt-an-option-how-tariffs-took-an-emotional-and-financial-toll-on-founders-in-2025/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
           "source": "Modern Retail",
           "published_at": "2025-12-30T05:01:00.000Z",
-          "ingested_at": "2025-12-30T17:19:14.042Z"
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Many founders had to completely upend their business models in 2025 due to tariffs, resorting to production delays, raising prices and putting off hiring to save their businesses.",
+          "aiSummary": "AI-Generated Summary:\nIn 2025, founders faced emotional and financial challenges as tariffs forced them to change business models, leading to production delays, increased prices, and hiring freezes to protect their businesses."
         },
         {
           "id": "6erx5k",
@@ -170,7 +194,9 @@
           "url": "https://www.modernretail.co/operations/the-revenge-of-the-90s-mall-brand/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
           "source": "Modern Retail",
           "published_at": "2025-12-30T05:00:00.000Z",
-          "ingested_at": "2025-12-30T17:19:14.042Z"
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Brands known for their heyday in the ‘90s, like Gap and Victoria's Secret, have used 2025 to mount turnaround plans. But staging a successful comeback after years of a battered reputation takes more than a few quarters of growth.",
+          "aiSummary": "AI-Generated Summary:\nIn 2025, '90s mall brands such as Gap and Victoria's Secret are working on turnaround plans, but revitalizing their battered reputation requires sustained growth beyond just a few quarters."
         },
         {
           "id": "337gjj",
@@ -178,7 +204,9 @@
           "url": "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html",
           "source": "NYTimes Technology",
           "published_at": "2025-12-29T22:53:31.000Z",
-          "ingested_at": "2025-12-30T12:26:38.325Z"
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "Just like past tech booms, the latest frenzy has produced a group of billionaires — at least on paper — from smaller start-ups.",
+          "aiSummary": "AI-Generated Summary:\nThe AI boom has created a new wave of billionaires from smaller start-ups, following a pattern seen in past tech booms, as reported by NYTimes Technology on December 29, 2025."
         },
         {
           "id": "61ru0r",

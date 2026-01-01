@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs';
+import { promises as fs, readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { DateTime } from 'luxon';
@@ -8,36 +8,56 @@ import { getTopicTotalsDisplayName, type TopicTotalsKey } from '../utils/topicNa
 // --- AI Summarization Imports & Config ---
 import OpenAI from 'openai';
 
+// Load environment variables from .env.local if it exists
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const envPath = path.join(__dirname, '../.env.local');
+try {
+  const envContent = readFileSync(envPath, 'utf-8');
+  for (const line of envContent.split('\n')) {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#')) {
+      const [key, ...valueParts] = trimmed.split('=');
+      if (key && valueParts.length > 0) {
+        process.env[key.trim()] = valueParts.join('=').trim();
+      }
+    }
+  }
+} catch (err) {
+  // .env.local doesn't exist or can't be read, use process.env as-is
+}
+
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const AI_MODEL = "gpt-3.5-turbo"; // Could be changed to another model if desired
 
 /**
- * Generate a short AI summary for a topic using OpenAI, based only on the 7 most recent titles/sources/dates.
- * Returns the summary string, or null on error.
+ * Generate a short AI summary for a single article using OpenAI.
+ * Input: article title, source, published date, topic, and snippet/description.
+ * Returns the summary string, or null on error or if no snippet available.
  */
-export async function generateAISummaryForTopic(topicKey: TopicTotalsKey, articles: any[]): Promise<string | null> {
+export async function generateAISummaryForArticle(
+  article: { title: string; source: string; published_at: string; snippet?: string },
+  topicDisplayName: string
+): Promise<string | null> {
   if (!OPENAI_API_KEY) return null;
-
-  // Only use the top 7 articles (if any)
-  const items = articles.slice(0, 7);
-
-  if (items.length === 0) return null;
-
-  // Compose a prompt containing only titles, sources, dates for context:
-  const bulletList = items.map(
-    (item: any, i: number) => {
-      const date = item.published_at ? new Date(item.published_at).toISOString().split('T')[0] : '';
-      return `${i + 1}. "${item.title}" (${item.source}${date ? ", " + date : ""})`;
-    }
-  ).join('\n');
-  const displayName = getTopicTotalsDisplayName(topicKey) || topicKey;
-
-  const prompt = `As an AI assistant, produce a short summary (2-4 sentences) about the following collection of headlines for the topic "${displayName}" for the given month. Only use the info from headlines, sources, and dates below. DO NOT reference any articles you don't know, and do not invent facts or extra details. Make it clear the summary is AI-generated.
   
-Headlines:
-${bulletList}
+  // Skip if no snippet available
+  if (!article.snippet || article.snippet.trim().length === 0) {
+    return null;
+  }
 
-(Write as if for a newsletter digest, clearly label as "AI summary:")`;
+  const date = article.published_at ? new Date(article.published_at).toISOString().split('T')[0] : '';
+
+  const prompt = `As an AI assistant, produce a short summary (1-2 sentences) for this article based ONLY on the information provided below. Use only the title, source, date, topic, and snippet/description. DO NOT invent facts or reference information not provided. Clearly indicate this is an AI-generated summary.
+
+Article information:
+- Title: "${article.title}"
+- Source: ${article.source}
+- Published: ${date}
+- Topic: ${topicDisplayName}
+- Snippet/Description: ${article.snippet}
+
+Generate a concise summary (1-2 sentences) that captures the key points from the snippet.`;
 
   // Call OpenAI API with strong error handling
   try {
@@ -45,21 +65,15 @@ ${bulletList}
     const res = await openai.chat.completions.create({
       model: AI_MODEL,
       temperature: 0.7,
-      max_tokens: 220,
+      max_tokens: 150,
       messages: [{ role: "user", content: prompt }],
     });
     const summary = res.choices[0]?.message?.content?.trim();
-    // Always label as AI
-    return summary
-      ? `AI summary: ${summary.replace(/^AI summary:/i, "").trim()}`
-      : null;
+    return summary || null;
   } catch (e) {
     return null; // Do not fail the build
   }
 }
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 /**
  * Get the current month in Europe/Copenhagen timezone
@@ -98,25 +112,24 @@ async function main() {
     // Build the digest
     const digest = await buildMonthlyDigest(monthLabel);
     
-    // Generate AI summaries for each topic
-    console.log('Generating AI summaries...');
-    const summaryPromises = [
-      generateAISummaryForTopic('Jewellery', digest.topics.JewelleryIndustry.top).then(
-        summary => { digest.topics.JewelleryIndustry.aiSummary = summary || undefined; }
-      ),
-      generateAISummaryForTopic('Ecommerce', digest.topics.EcommerceTechnology.top).then(
-        summary => { digest.topics.EcommerceTechnology.aiSummary = summary || undefined; }
-      ),
-      generateAISummaryForTopic('AIStrategy', digest.topics.AIEcommerceStrategy.top).then(
-        summary => { digest.topics.AIEcommerceStrategy.aiSummary = summary || undefined; }
-      ),
-      generateAISummaryForTopic('Luxury', digest.topics.LuxuryConsumerBehaviour.top).then(
-        summary => { digest.topics.LuxuryConsumerBehaviour.aiSummary = summary || undefined; }
-      ),
+    // Generate AI summaries for each Top-N article
+    console.log('Generating AI summaries for articles...');
+    const allTopArticles = [
+      ...digest.topics.JewelleryIndustry.top.map(a => ({ article: a, topic: 'Jewellery Industry' })),
+      ...digest.topics.EcommerceTechnology.top.map(a => ({ article: a, topic: 'Ecommerce Technology' })),
+      ...digest.topics.AIEcommerceStrategy.top.map(a => ({ article: a, topic: 'AI & Ecommerce Strategy' })),
+      ...digest.topics.LuxuryConsumerBehaviour.top.map(a => ({ article: a, topic: 'Luxury Consumer Behaviour' })),
     ];
+
+    const summaryPromises = allTopArticles.map(({ article, topic }) =>
+      generateAISummaryForArticle(article, topic).then(
+        summary => { article.aiSummary = summary || undefined; }
+      )
+    );
     
     await Promise.all(summaryPromises);
-    console.log('✓ AI summaries generated\n');
+    const generatedCount = allTopArticles.filter(({ article }) => article.aiSummary !== undefined && article.aiSummary !== null).length;
+    console.log(`✓ AI summaries generated for ${generatedCount} articles\n`);
     
     // Ensure output directory exists
     const outputDir = path.join(__dirname, '../data/digests');

@@ -12,6 +12,7 @@ type Article = {
   source: string;
   published_at: string;
   ingested_at: string;
+  aiSummary?: string | null;
 };
 
 type MonthlyDigest = {
@@ -31,10 +32,10 @@ type MonthlyDigest = {
     };
   };
   topics: {
-    JewelleryIndustry: { total: number; top: Article[]; aiSummary?: string };
-    EcommerceTechnology: { total: number; top: Article[]; aiSummary?: string };
-    AIEcommerceStrategy: { total: number; top: Article[]; aiSummary?: string };
-    LuxuryConsumerBehaviour: { total: number; top: Article[]; aiSummary?: string };
+    JewelleryIndustry: { total: number; top: Article[] };
+    EcommerceTechnology: { total: number; top: Article[] };
+    AIEcommerceStrategy: { total: number; top: Article[] };
+    LuxuryConsumerBehaviour: { total: number; top: Article[] };
   };
 };
 
@@ -136,11 +137,6 @@ export default async function Home() {
               No articles for this topic in this month.
             </p>
           )}
-          {digest.topics.JewelleryIndustry.aiSummary && (
-            <div style={{ fontSize: '0.9rem', color: '#555', marginBottom: '1rem', fontStyle: 'italic' }}>
-              <strong>AI summary:</strong> {digest.topics.JewelleryIndustry.aiSummary}
-            </div>
-          )}
           {digest.topics.JewelleryIndustry.top.length > 0 ? (
             <ul style={{ listStyle: 'none', padding: 0 }}>
               {digest.topics.JewelleryIndustry.top.map((article) => (
@@ -156,6 +152,11 @@ export default async function Home() {
                   <div style={{ fontSize: '0.9rem', color: '#666', marginTop: '0.25rem' }}>
                     {formatDate(article.published_at)} | {article.source}
                   </div>
+                  {article.aiSummary && (
+                    <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
+                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
@@ -178,11 +179,6 @@ export default async function Home() {
               No articles for this topic in this month.
             </p>
           )}
-          {digest.topics.EcommerceTechnology.aiSummary && (
-            <div style={{ fontSize: '0.9rem', color: '#555', marginBottom: '1rem', fontStyle: 'italic' }}>
-              <strong>AI summary:</strong> {digest.topics.EcommerceTechnology.aiSummary}
-            </div>
-          )}
           {digest.topics.EcommerceTechnology.top.length > 0 ? (
             <ul style={{ listStyle: 'none', padding: 0 }}>
               {digest.topics.EcommerceTechnology.top.map((article) => (
@@ -198,6 +194,11 @@ export default async function Home() {
                   <div style={{ fontSize: '0.9rem', color: '#666', marginTop: '0.25rem' }}>
                     {formatDate(article.published_at)} | {article.source}
                   </div>
+                  {article.aiSummary && (
+                    <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
+                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
@@ -220,11 +221,6 @@ export default async function Home() {
               No articles for this topic in this month.
             </p>
           )}
-          {digest.topics.AIEcommerceStrategy.aiSummary && (
-            <div style={{ fontSize: '0.9rem', color: '#555', marginBottom: '1rem', fontStyle: 'italic' }}>
-              <strong>AI summary:</strong> {digest.topics.AIEcommerceStrategy.aiSummary}
-            </div>
-          )}
           {digest.topics.AIEcommerceStrategy.top.length > 0 ? (
             <ul style={{ listStyle: 'none', padding: 0 }}>
               {digest.topics.AIEcommerceStrategy.top.map((article) => (
@@ -240,6 +236,11 @@ export default async function Home() {
                   <div style={{ fontSize: '0.9rem', color: '#666', marginTop: '0.25rem' }}>
                     {formatDate(article.published_at)} | {article.source}
                   </div>
+                  {article.aiSummary && (
+                    <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
+                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
@@ -262,11 +263,6 @@ export default async function Home() {
               No articles for this topic in this month.
             </p>
           )}
-          {digest.topics.LuxuryConsumerBehaviour.aiSummary && (
-            <div style={{ fontSize: '0.9rem', color: '#555', marginBottom: '1rem', fontStyle: 'italic' }}>
-              <strong>AI summary:</strong> {digest.topics.LuxuryConsumerBehaviour.aiSummary}
-            </div>
-          )}
           {digest.topics.LuxuryConsumerBehaviour.top.length > 0 ? (
             <ul style={{ listStyle: 'none', padding: 0 }}>
               {digest.topics.LuxuryConsumerBehaviour.top.map((article) => (
@@ -282,6 +278,11 @@ export default async function Home() {
                   <div style={{ fontSize: '0.9rem', color: '#666', marginTop: '0.25rem' }}>
                     {formatDate(article.published_at)} | {article.source}
                   </div>
+                  {article.aiSummary && (
+                    <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
+                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
