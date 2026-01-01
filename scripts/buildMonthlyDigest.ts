@@ -30,21 +30,46 @@ try {
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const AI_MODEL = "gpt-3.5-turbo"; // Could be changed to another model if desired
 
+// Cost/safety guards
+const MAX_SNIPPET_LENGTH = 800; // Truncate snippet to this length before sending
+const MAX_OUTPUT_TOKENS = 100; // Cap output length (80-120 range, using 100)
+const TEMPERATURE = 0.2; // Deterministic temperature (0-0.3 range, using 0.2)
+
+type TokenUsage = {
+  prompt_tokens?: number;
+  completion_tokens?: number;
+  total_tokens?: number;
+};
+
+type SummaryResult = {
+  summary: string | null;
+  tokenUsage: TokenUsage | null;
+  skipped: boolean;
+  failed: boolean;
+};
+
 /**
  * Generate a short AI summary for a single article using OpenAI.
  * Input: article title, source, published date, topic, and snippet/description.
- * Returns the summary string, or null on error or if no snippet available.
+ * Returns summary result with token usage info.
  */
 export async function generateAISummaryForArticle(
   article: { title: string; source: string; published_at: string; snippet?: string },
   topicDisplayName: string
-): Promise<string | null> {
-  if (!OPENAI_API_KEY) return null;
+): Promise<SummaryResult> {
+  if (!OPENAI_API_KEY) {
+    return { summary: null, tokenUsage: null, skipped: false, failed: true };
+  }
   
   // Skip if no snippet available
   if (!article.snippet || article.snippet.trim().length === 0) {
-    return null;
+    return { summary: null, tokenUsage: null, skipped: true, failed: false };
   }
+
+  // Truncate snippet defensively to prevent excessive input
+  const truncatedSnippet = article.snippet.length > MAX_SNIPPET_LENGTH
+    ? article.snippet.substring(0, MAX_SNIPPET_LENGTH) + '...'
+    : article.snippet;
 
   const date = article.published_at ? new Date(article.published_at).toISOString().split('T')[0] : '';
 
@@ -55,7 +80,7 @@ Article information:
 - Source: ${article.source}
 - Published: ${date}
 - Topic: ${topicDisplayName}
-- Snippet/Description: ${article.snippet}
+- Snippet/Description: ${truncatedSnippet}
 
 Generate a concise summary (1-2 sentences) that captures the key points from the snippet.`;
 
@@ -64,14 +89,29 @@ Generate a concise summary (1-2 sentences) that captures the key points from the
     const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
     const res = await openai.chat.completions.create({
       model: AI_MODEL,
-      temperature: 0.7,
-      max_tokens: 150,
+      temperature: TEMPERATURE,
+      max_tokens: MAX_OUTPUT_TOKENS,
       messages: [{ role: "user", content: prompt }],
     });
-    const summary = res.choices[0]?.message?.content?.trim();
-    return summary || null;
+    
+    const summary = res.choices[0]?.message?.content?.trim() || null;
+    
+    // Extract token usage if available (handle missing fields gracefully)
+    const tokenUsage: TokenUsage = {};
+    if (res.usage) {
+      if (res.usage.prompt_tokens !== undefined) tokenUsage.prompt_tokens = res.usage.prompt_tokens;
+      if (res.usage.completion_tokens !== undefined) tokenUsage.completion_tokens = res.usage.completion_tokens;
+      if (res.usage.total_tokens !== undefined) tokenUsage.total_tokens = res.usage.total_tokens;
+    }
+    
+    return {
+      summary,
+      tokenUsage: Object.keys(tokenUsage).length > 0 ? tokenUsage : null,
+      skipped: false,
+      failed: false,
+    };
   } catch (e) {
-    return null; // Do not fail the build
+    return { summary: null, tokenUsage: null, skipped: false, failed: true }; // Do not fail the build
   }
 }
 
@@ -114,6 +154,9 @@ async function main() {
     
     // Generate AI summaries for each Top-N article
     console.log('Generating AI summaries for articles...');
+    console.log(`Model: ${AI_MODEL}`);
+    console.log(`Settings: max_tokens=${MAX_OUTPUT_TOKENS}, temperature=${TEMPERATURE}, max_snippet_length=${MAX_SNIPPET_LENGTH}\n`);
+    
     const allTopArticles = [
       ...digest.topics.JewelleryIndustry.top.map(a => ({ article: a, topic: 'Jewellery Industry' })),
       ...digest.topics.EcommerceTechnology.top.map(a => ({ article: a, topic: 'Ecommerce Technology' })),
@@ -121,15 +164,76 @@ async function main() {
       ...digest.topics.LuxuryConsumerBehaviour.top.map(a => ({ article: a, topic: 'Luxury Consumer Behaviour' })),
     ];
 
-    const summaryPromises = allTopArticles.map(({ article, topic }) =>
-      generateAISummaryForArticle(article, topic).then(
-        summary => { article.aiSummary = summary || undefined; }
-      )
-    );
+    // Statistics tracking
+    let attempted = 0;
+    let succeeded = 0;
+    let skipped = 0;
+    let failed = 0;
+    let totalPromptTokens = 0;
+    let totalCompletionTokens = 0;
+    let totalTokens = 0;
+    let callsWithTokenData = 0;
+
+    const summaryPromises = allTopArticles.map(({ article, topic }) => {
+      attempted++;
+      return generateAISummaryForArticle(article, topic).then(
+        (result) => {
+          if (result.skipped) {
+            skipped++;
+            article.aiSummary = undefined;
+          } else if (result.failed) {
+            failed++;
+            article.aiSummary = undefined;
+          } else if (result.summary) {
+            succeeded++;
+            article.aiSummary = result.summary;
+          } else {
+            failed++;
+            article.aiSummary = undefined;
+          }
+          
+          // Aggregate token usage if available
+          if (result.tokenUsage) {
+            callsWithTokenData++;
+            if (result.tokenUsage.prompt_tokens !== undefined) {
+              totalPromptTokens += result.tokenUsage.prompt_tokens;
+            }
+            if (result.tokenUsage.completion_tokens !== undefined) {
+              totalCompletionTokens += result.tokenUsage.completion_tokens;
+            }
+            if (result.tokenUsage.total_tokens !== undefined) {
+              totalTokens += result.tokenUsage.total_tokens;
+            }
+          }
+        }
+      );
+    });
     
     await Promise.all(summaryPromises);
-    const generatedCount = allTopArticles.filter(({ article }) => article.aiSummary !== undefined && article.aiSummary !== null).length;
-    console.log(`✓ AI summaries generated for ${generatedCount} articles\n`);
+    
+    // Log statistics
+    console.log('AI Summary Generation Statistics:');
+    console.log(`  Attempted: ${attempted}`);
+    console.log(`  Succeeded: ${succeeded}`);
+    console.log(`  Skipped (no snippet): ${skipped}`);
+    console.log(`  Failed: ${failed}`);
+    
+    if (callsWithTokenData > 0) {
+      if (totalTokens > 0) {
+        console.log(`  Total tokens: ${totalTokens} (prompt: ${totalPromptTokens}, completion: ${totalCompletionTokens})`);
+        console.log(`  Average tokens per call: ${Math.round(totalTokens / callsWithTokenData)}`);
+      } else if (totalPromptTokens > 0 || totalCompletionTokens > 0) {
+        console.log(`  Token usage: prompt=${totalPromptTokens}, completion=${totalCompletionTokens}`);
+        const estimatedTotal = totalPromptTokens + totalCompletionTokens;
+        console.log(`  Estimated total tokens: ${estimatedTotal}`);
+        console.log(`  Average tokens per call: ${Math.round(estimatedTotal / callsWithTokenData)}`);
+      } else {
+        console.log(`  Token usage data: available for ${callsWithTokenData} calls, but values not present in response`);
+      }
+    } else {
+      console.log(`  Token usage: not available in API responses`);
+    }
+    console.log('');
     
     // Ensure output directory exists
     const outputDir = path.join(__dirname, '../data/digests');
