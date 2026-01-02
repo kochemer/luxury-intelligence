@@ -6,10 +6,11 @@ async function main() {
     const rssResult = await runRssIngestion();
     console.log(`[Combined] RSS ingestion added ${rssResult.added} new articles, updated ${rssResult.updated} existing articles with snippets.`);
 
-    const pageTotal = await runPageIngestion();
-    console.log(`[Combined] Page ingestion added ${pageTotal} new articles.`);
+    // Integrate page ingestion here, after RSS ingestion
+    const pageAdded = await runPageIngestion();
+    console.log(`[Combined] Page ingestion added ${pageAdded} new articles.`);
 
-    const overallTotal = (rssResult.added || 0) + (pageTotal || 0);
+    const overallTotal = (rssResult.added || 0) + (pageAdded || 0);
     console.log(`[Combined] Ingestion complete. Total new articles added: ${overallTotal}.`);
 
     process.exit(0);
@@ -19,7 +20,7 @@ async function main() {
   }
 }
 
-// Only run if invoked from CLI
-if (process.argv[1] === (new URL(import.meta.url)).pathname || process.argv[1] === process.argv[1]) {
+// Only run if this file is executed directly from the command line
+if (process.argv[1] === new URL(import.meta.url).pathname) {
   main();
 }

@@ -118,31 +118,33 @@ export const SOURCE_FEEDS: SourceFeed[] = [
 ];
 
 // --- Web page & non-RSS sources ---
+// Yes, SOURCE_PAGES is actually used in the project flow—see for example ingestion/fetchPages.ts, which imports and uses SOURCE_PAGES.
 export const SOURCE_PAGES: SourcePage[] = [
   // --- Ecommerce & Retail: Retail TouchPoints --- 
   {
     name: "Retail TouchPoints - Technology",
-    url: "https://www.retailtouchpoints.com/topics/technology",
+    url: "https://www.retailtouchpoints.com/topics/retail-innovation",
     selectors: {
-      item: ".article-list article",
-      title: "h3",
-      link: "a",
-      date: ".post-meta time"
+      item: "article, .article-item, .post-item, .entry",
+      title: "h2 a, h3 a, h2, h3, .title, .entry-title",
+      link: "h2 a, h3 a, a.entry-title-link, a",
+      date: "time, .date, .post-date, .meta-date, .published-date"
     },
     linkAttr: "href",
-    dateFormatHint: "YYYY-MM-DD"
+    dateFormatHint: "RELATIVE"
   },
   // --- Luxury: The Business of Fashion News --- 
   {
-    name: "BoF - News",
+    name: "BoF - News (The News in Brief)",
     url: "https://www.businessoffashion.com/news/",
     selectors: {
-      item: "li.ArticleCard",
-      title: "h3",
+      item: "main h2, main h2:has(a)",
+      title: "a",
       link: "a",
-      date: "time"
+      date: "" // parse from the next sibling text node (e.g. "01 January 2026")
     },
-    linkAttr: "href"
+    linkAttr: "href",
+    dateFormatHint: "D MMMM YYYY"
   },
   // --- AI: The Algorithm - MIT Technology Review AI Section ---
   {
@@ -159,14 +161,14 @@ export const SOURCE_PAGES: SourcePage[] = [
   // --- Jewellery: InstoreMag News Feed Page ---
   {
     name: "InstoreMag - Latest News",
-    url: "https://instoremag.com/category/latest-news/",
+    url: "https://instoremag.com/news/headlines/",
     selectors: {
-      item: "div.td_module_16",
-      title: "h3.entry-title a",
-      link: "h3.entry-title a",
-      date: "time"
+      item: "article, .post, .entry, li, .news-item, .headline-item",
+      title: "h2 a, h3 a, h2, h3, .title a, .entry-title a, a",
+      link: "h2 a, h3 a, .title a, .entry-title a, a",
+      date: "time, .date, .post-date, .meta, .published, .timestamp"
     },
     linkAttr: "href",
-    dateFormatHint: "YYYY-MM-DD"
+    dateFormatHint: "RELATIVE"
   }
 ];

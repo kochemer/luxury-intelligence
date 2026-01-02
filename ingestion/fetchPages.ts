@@ -1,3 +1,18 @@
+/**
+ * fetchPages.ts
+ *
+ * 
+ * This module provides utilities to fetch and extract articles from web pages
+ * defined in the SOURCE_PAGES list, parse HTML using cheerio, and standardize their data
+ * for ingestion and storage.
+ *
+ * - Imports dependencies for web scraping (cheerio), URL handling, hashing article URLs,
+ *   and filesystem I/O.
+ * - Relies on a shared type definition for Article and SourcePage.
+ * - Final output is a normalized list of newly ingested Article objects saved to disk.
+ * Output is saved to the local file at DATA_PATH, typically: ../data/articles.json
+ */
+
 import { SOURCE_PAGES } from "./sources";
 import { Article, SourcePage } from "./types";
 import fs from "fs/promises";
@@ -26,10 +41,64 @@ function makeAbsoluteUrl(relativeOrAbsolute: string, baseUrl: string): string {
 }
 
 function bestEffortDate(dateStr: string, hint?: string): string | null {
-  // Try Date.parse first
-  const ts = Date.parse(dateStr);
+  if (!dateStr || dateStr.trim().length === 0) return null;
+  
+  const trimmed = dateStr.trim();
+  
+  // Handle relative dates if hint is "RELATIVE"
+  if (hint === "RELATIVE") {
+    // Parse relative dates: "X hours ago", "X days ago", "X weeks ago", etc.
+    const relativeMatch = trimmed.match(/^(\d+)\s+(hour|hours|day|days|week|weeks|month|months)\s+ago$/i);
+    if (relativeMatch) {
+      const amount = parseInt(relativeMatch[1], 10);
+      const unit = relativeMatch[2].toLowerCase();
+      const now = new Date();
+      
+      if (unit.startsWith('hour')) {
+        now.setHours(now.getHours() - amount);
+      } else if (unit.startsWith('day')) {
+        now.setDate(now.getDate() - amount);
+      } else if (unit.startsWith('week')) {
+        now.setDate(now.getDate() - (amount * 7));
+      } else if (unit.startsWith('month')) {
+        now.setMonth(now.getMonth() - amount);
+      }
+      
+      return now.toISOString();
+    }
+    
+    // Also handle "X days ago" without "ago" (e.g., "7 days ago" -> "7 days")
+    const daysMatch = trimmed.match(/^(\d+)\s+days?$/i);
+    if (daysMatch) {
+      const days = parseInt(daysMatch[1], 10);
+      const date = new Date();
+      date.setDate(date.getDate() - days);
+      return date.toISOString();
+    }
+  }
+  
+  // Try parsing absolute dates like "01 January 2026" or "D MMMM YYYY" format
+  if (hint === "D MMMM YYYY" || hint === "RELATIVE") {
+    // Try Luxon-style parsing for "01 January 2026"
+    const absoluteMatch = trimmed.match(/^(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})$/i);
+    if (absoluteMatch) {
+      const day = parseInt(absoluteMatch[1], 10);
+      const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+      const month = monthNames.indexOf(absoluteMatch[2].toLowerCase());
+      const year = parseInt(absoluteMatch[3], 10);
+      if (month >= 0) {
+        const date = new Date(year, month, day);
+        if (!isNaN(date.getTime())) {
+          return date.toISOString();
+        }
+      }
+    }
+  }
+  
+  // Try Date.parse for standard formats
+  const ts = Date.parse(trimmed);
   if (!isNaN(ts)) return new Date(ts).toISOString();
-  // Could attempt to improve with hint, but just skip on error as per requirements
+  
   return null;
 }
 
@@ -78,6 +147,7 @@ export async function runPageIngestion(): Promise<number> {
     }
     const $ = cheerio.load(res.data);
     const items = $(page.selectors.item);
+    const itemsMatched = items.length;
     let extracted: Article[] = [];
     let addedThisPage = 0;
     items.each((i, el) => {
@@ -106,16 +176,37 @@ export async function runPageIngestion(): Promise<number> {
       let published_at: string | undefined = undefined;
       if (page.selectors.date) {
         let dateText = $(el).find(page.selectors.date).first().text().trim();
+        
+        // If date selector is empty but hint is RELATIVE, try to find relative date in item text
+        if (dateText.length === 0 && page.dateFormatHint === "RELATIVE") {
+          const itemText = $(el).text();
+          // Look for patterns like "X hours ago", "X days ago", "X weeks ago" in the item text
+          const relativeDateMatch = itemText.match(/(\d+\s+(?:hour|hours|day|days|week|weeks|month|months)\s+ago)/i);
+          if (relativeDateMatch) {
+            dateText = relativeDateMatch[1];
+          }
+        }
+        
         if (dateText.length > 0) {
           let parsed = bestEffortDate(dateText, page.dateFormatHint);
           if (parsed) published_at = parsed;
           else {
-            // skip this item (no valid date)
-            return;
+            // For RELATIVE hint, if parsing fails, try using current date as fallback
+            if (page.dateFormatHint === "RELATIVE") {
+              published_at = new Date().toISOString();
+            } else {
+              // skip this item (no valid date)
+              return;
+            }
           }
         } else {
-          // skip this item (no date found)
-          return;
+          // For RELATIVE hint, allow items without dates (use current date as fallback)
+          if (page.dateFormatHint === "RELATIVE") {
+            published_at = new Date().toISOString();
+          } else {
+            // skip this item (no date found)
+            return;
+          }
         }
       }
       // Minimal validation
@@ -142,9 +233,30 @@ export async function runPageIngestion(): Promise<number> {
     }
     added += addedThisPage;
 
-    console.log(
-      `[${page.name}] fetched status ${res.status}, extracted ${extracted.length} items, added ${addedThisPage}`
-    );
+    // Improved logging per instructions:
+    const logObj = {
+      status: res.status,
+      itemsMatched,
+      extractedCount: extracted.length,
+      addedCount: addedThisPage
+    };
+    console.log(`[${page.name}] ${JSON.stringify(logObj)}`);
+
+    // For BoF, print first 5 extracted { title, url, published_at }
+    if (
+      (page.name === 'BoF' || page.name.toLowerCase() === 'bof') &&
+      extracted.length > 0
+    ) {
+      console.log(`[${page.name}] First 5 extracted:`);
+      extracted.slice(0, 5).forEach((art, idx) => {
+        const simple = {
+          title: art.title,
+          url: art.url,
+          published_at: art.published_at
+        };
+        console.log(`  [${idx + 1}]`, simple);
+      });
+    }
   }
 
   // Save back to file if any new

@@ -31,76 +31,123 @@ const TOPIC_PRIORITY: Topic[] = [
 ];
 
 // Heuristic keyword lists (lowercase all for case-insensitive match)
-const JEWELLERY_KEYWORDS = [
+// Keywords should be specific enough to avoid false positives
+
+const Jewellery_Industry_Keywords = [
   "jewel", "jewellery", "jewelry", "diamond", "gold", "silver", "gem", "gems",
   "fancy color", "carat", "cartier", "tiffany", "bulgari", "harry winston",
   "gemstone", "precious stone", "van cleef", "luxury watch", "horology",
-  "de beers", "sotheby’s", "graff", "piaget"
+  "de beers", "sotheby's", "graff", "piaget", "jeweler", "jeweller"
 ];
 
-const AI_ECOMMERCE_KEYWORDS = [
+const AI_and_Strategy_Keywords = [
   "ai", "artificial intelligence", "machine learning", "ml model", "llm",
-  "chatgpt", "gpt-", "openai", "generative", "personalization", "recommender",
-  "recommendation", "predictive", "data-driven", "algorithm", "automation", 
-  "data science", "computer vision", "nlp", "large language", "deep learning",
-  "prompt", "foundation model"
+  "chatgpt", "gpt-", "openai", "generative ai", "ai personalization", "ai recommender",
+  "ai recommendation", "ai predictive", "ai-driven strategy", "ai algorithm", "ai automation", 
+  "ai data science", "computer vision", "ai nlp", "large language model", "deep learning",
+  "ai prompt", "foundation model", "neural network", "ai strategy", "ai model"
 ];
 
-const LUXURY_BEHAVIOUR_KEYWORDS = [
-  "consumer", "behaviour", "behavior", "consumer insights", "affluent",
-  "luxury shopper", "vip", "purchase intent", "brand loyalty", "spending",
-  "trend", "trends", "market research", "demographic", "psychographic",
-  "demand", "customer journey", "connoisseur", "collectors", "high net worth",
-  "motivation", "desire", "experiential"
+const Luxury_and_Consumer_Keywords = [
+  "luxury consumer", "consumer behaviour", "consumer behavior", "consumer insights", "affluent consumer",
+  "luxury shopper", "vip customer", "purchase intent", "brand loyalty", "luxury spending",
+  "luxury trend", "luxury trends", "luxury market research", "luxury demographic", "luxury psychographic",
+  "luxury demand", "luxury customer journey", "connoisseur", "luxury collectors", "high net worth",
+  "luxury motivation", "luxury desire", "luxury experiential", "luxury brand"
 ];
 
-const ECOMMERCE_KEYWORDS = [
-  "ecommerce", "e-commerce", "online store", "webshop", "marketplace",
-  "shopify", "cart", "checkout", "payment", "digital storefront", "dropshipping",
-  "conversion", "fulfillment", "shipment", "online retail", "cross-border",
-  "platform", "magento", "bigcommerce", "shop system", "omnichannel", "logistics",
-  "commerce cloud", "woocommerce"
+const Ecommerce_Retail_Tech_Keywords = [
+  "ecommerce", "e-commerce", "online store", "webshop", "ecommerce marketplace",
+  "shopify", "shopping cart", "checkout", "ecommerce payment", "digital storefront", "dropshipping",
+  "ecommerce conversion", "order fulfillment", "ecommerce shipment", "online retail", "cross-border ecommerce",
+  "ecommerce platform", "magento", "bigcommerce", "shop system", "omnichannel retail", "retail logistics",
+  "commerce cloud", "woocommerce", "retail technology", "retail innovation", "retail tech"
 ];
 
 // Source name matches for obvious routing
 const JEWELLERY_SOURCES = [
-  "Rapaport", "National Jeweler", "JCK", "Jeweller Magazine", "Professional Jeweller", "JewelleryNet"
+  "Rapaport", "National Jeweler", "JCK", "Jeweller Magazine", "Professional Jeweller", "JewelleryNet", "InstoreMag"
+];
+
+// Source-based classification hints (strong indicators)
+const ECOMMERCE_RETAIL_SOURCES = [
+  "Retail TouchPoints", "Modern Retail", "Practical Ecommerce", "Retail"
+];
+
+const LUXURY_CONSUMER_SOURCES = [
+  "BoF", "Business of Fashion", "Luxury Daily", "WWD", "FashionNetwork", "JustLuxe", "Trend Hunter"
+];
+
+const AI_STRATEGY_SOURCES = [
+  "MIT Technology Review"
 ];
 
 // Helper: Lowercase test for any keyword present
+// Uses word boundaries for short keywords like "ai" to avoid false matches (e.g., "retail" contains "ai")
 function matchesAnyKeyword(text: string, keywords: string[]): boolean {
   const lower = text.toLowerCase();
-  return keywords.some(kw => lower.includes(kw));
+  return keywords.some(kw => {
+    // For very short keywords (2-3 chars), use word boundary matching to avoid false positives
+    if (kw.length <= 3) {
+      // Match as whole word or with non-letter characters around it
+      const regex = new RegExp(`\\b${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      return regex.test(lower);
+    }
+    // For longer keywords, simple substring match is fine
+    return lower.includes(kw);
+  });
 }
 
 export function classifyTopic(article: { title: string; url: string; source: string }): Topic {
   const titleAndSource = `${article.title} ${article.source}`.toLowerCase();
+  const sourceLower = article.source.toLowerCase();
   
-  // Collect all matching topics (in priority order)
+  // Source-based classification (strong indicators, checked first)
+  // These take precedence over keyword matching for known sources
+  if (JEWELLERY_SOURCES.some(s => sourceLower.includes(s.toLowerCase()))) {
+    return "Jewellery_Industry";
+  }
+  
+  if (ECOMMERCE_RETAIL_SOURCES.some(s => sourceLower.includes(s.toLowerCase()))) {
+    // Retail/ecommerce sources default to Ecommerce_Retail_Tech
+    // Only override if there's a very strong AI signal (explicit AI keywords)
+    if (matchesAnyKeyword(titleAndSource, ["ai", "artificial intelligence", "machine learning", "llm", "chatgpt", "gpt-", "openai"])) {
+      return "AI_and_Strategy";
+    }
+    return "Ecommerce_Retail_Tech";
+  }
+  
+  if (LUXURY_CONSUMER_SOURCES.some(s => sourceLower.includes(s.toLowerCase()))) {
+    // Luxury/fashion sources default to Luxury_and_Consumer
+    return "Luxury_and_Consumer";
+  }
+  
+  if (AI_STRATEGY_SOURCES.some(s => sourceLower.includes(s.toLowerCase()))) {
+    // MIT Tech Review AI articles default to AI_and_Strategy
+    return "AI_and_Strategy";
+  }
+  
+  // For unknown sources, use keyword-based classification
+  // Collect all matching topics (in priority order) based on keywords
   const matches: Topic[] = [];
   
   // Check AI & Strategy first (highest priority)
-  if (matchesAnyKeyword(titleAndSource, AI_ECOMMERCE_KEYWORDS)) {
+  if (matchesAnyKeyword(titleAndSource, AI_and_Strategy_Keywords)) {
     matches.push("AI_and_Strategy");
   }
   
   // Check Ecommerce & Retail Tech
-  if (matchesAnyKeyword(titleAndSource, ECOMMERCE_KEYWORDS)) {
+  if (matchesAnyKeyword(titleAndSource, Ecommerce_Retail_Tech_Keywords)) {
     matches.push("Ecommerce_Retail_Tech");
   }
   
   // Check Luxury & Consumer
-  if (matchesAnyKeyword(titleAndSource, LUXURY_BEHAVIOUR_KEYWORDS)) {
+  if (matchesAnyKeyword(titleAndSource, Luxury_and_Consumer_Keywords)) {
     matches.push("Luxury_and_Consumer");
   }
   
-  // Check Jewellery Industry (lowest priority, but source override takes precedence)
-  if (JEWELLERY_SOURCES.some(s => 
-    article.source && article.source.toLowerCase().includes(s.toLowerCase())
-  )) {
-    return "Jewellery_Industry";
-  }
-  if (matchesAnyKeyword(titleAndSource, JEWELLERY_KEYWORDS)) {
+  // Check Jewellery Industry
+  if (matchesAnyKeyword(titleAndSource, Jewellery_Industry_Keywords)) {
     matches.push("Jewellery_Industry");
   }
   
@@ -111,13 +158,34 @@ export function classifyTopic(article: { title: string; url: string; source: str
     }
   }
   
-  // Broad fallback: if looks consumer-ish use "Luxury_and_Consumer"
-  const fallbackConsumerish = ["consumer", "shopper", "customer", "retail", "buy", "seller", "trend"];
-  if (matchesAnyKeyword(titleAndSource, fallbackConsumerish)) {
+  // Conservative fallback: only use if there's a clear signal
+  // Check for very specific luxury/consumer terms
+  const specificLuxuryTerms = ["luxury", "affluent", "high-end", "premium brand", "luxury brand"];
+  if (matchesAnyKeyword(titleAndSource, specificLuxuryTerms)) {
     return "Luxury_and_Consumer";
   }
   
-  // Default fallback: "Ecommerce_Retail_Tech"
+  // Check for very specific retail/ecommerce terms
+  const specificRetailTerms = ["retail innovation", "retail technology", "omnichannel retail", "online retail", "retail tech"];
+  if (matchesAnyKeyword(titleAndSource, specificRetailTerms)) {
+    return "Ecommerce_Retail_Tech";
+  }
+  
+  // For Hacker News and other general tech sources: only classify if there's a weak signal
+  // Otherwise, these articles don't fit our categories well
+  if (sourceLower.includes("hacker news")) {
+    // Hacker News articles need at least some tech/retail signal
+    const weakTechSignals = ["retail", "ecommerce", "shopping", "store", "merchant", "retailer"];
+    if (matchesAnyKeyword(titleAndSource, weakTechSignals)) {
+      return "Ecommerce_Retail_Tech";
+    }
+    // If no signal, still default to Ecommerce_Retail_Tech (required by taxonomy)
+    // but this is a catch-all for articles that don't fit our domain
+    return "Ecommerce_Retail_Tech";
+  }
+  
+  // For other unknown sources, default to Ecommerce_Retail_Tech
+  // This should be rare - most articles should match keywords or source hints
   return "Ecommerce_Retail_Tech";
 }
 

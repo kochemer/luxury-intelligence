@@ -4,8 +4,12 @@ import { fileURLToPath } from 'url';
 import { DateTime } from 'luxon';
 import { getWeekRangeCET } from '../utils/weekCET';
 import { classifyTopic } from '../classification/classifyTopics';
-import type { Article } from '../ingestion/types';
-import type { Topic } from '../classification/classifyTopics';
+import type { Article as BaseArticle, Topic } from '../classification/classifyTopics';
+
+// Extended Article type that includes snippet (used in actual data)
+type Article = BaseArticle & {
+  snippet?: string;
+};
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

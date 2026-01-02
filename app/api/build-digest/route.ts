@@ -9,21 +9,68 @@
  */
 
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
+import { promises as fs, readFileSync } from 'fs';
 import path from 'path';
 import { DateTime } from 'luxon';
 import { buildWeeklyDigest } from '@/digest/buildWeeklyDigest';
+import { generateSummariesForDigest } from '@/digest/generateSummaries';
+import { parse } from 'dotenv';
+
+// Load environment variables from .env.local if OPENAI_API_KEY is not already set
+// (Next.js should load .env.local automatically, but this ensures it's available)
+function ensureEnvVarsLoaded() {
+  if (process.env.OPENAI_API_KEY) {
+    return; // Already available
+  }
+
+  try {
+    const envPath = path.join(process.cwd(), '.env.local');
+    const buffer = readFileSync(envPath);
+    // Detect encoding: check for UTF-16 BOM (FE FF for BE, FF FE for LE)
+    let contentToParse: string;
+    if (buffer.length >= 2 && buffer[0] === 0xFF && buffer[1] === 0xFE) {
+      // UTF-16 LE BOM
+      contentToParse = buffer.toString('utf16le', 2);
+    } else if (buffer.length >= 2 && buffer[0] === 0xFE && buffer[1] === 0xFF) {
+      // UTF-16 BE BOM - convert to LE for processing
+      const leBuffer = Buffer.alloc(buffer.length - 2);
+      for (let i = 2; i < buffer.length; i += 2) {
+        leBuffer[i - 2] = buffer[i + 1];
+        leBuffer[i - 1] = buffer[i];
+      }
+      contentToParse = leBuffer.toString('utf16le');
+    } else if (buffer.length > 0 && buffer[1] === 0 && buffer[0] !== 0) {
+      // UTF-16 LE without BOM (every other byte is null)
+      contentToParse = buffer.toString('utf16le');
+    } else {
+      // Assume UTF-8
+      contentToParse = buffer.toString('utf-8');
+    }
+    const parsed = parse(contentToParse);
+    Object.assign(process.env, parsed);
+  } catch (err) {
+    // Silently fail - Next.js may have already loaded it or file doesn't exist
+    console.log('API: Could not load .env.local (may already be loaded by Next.js)');
+  }
+}
 
 export async function POST() {
+  // Ensure environment variables are loaded before generating summaries
+  ensureEnvVarsLoaded();
   try {
     const now = DateTime.now().setZone('Europe/Copenhagen');
     const year = now.year;
     const weekNumber = now.weekNumber;
     const weekLabel = `${year}-W${weekNumber.toString().padStart(2, '0')}`;
 
-    console.log(`API: Building digest for week: ${weekLabel}\n`);
+    console.log(`API: Building digest for week: ${weekLabel}`);
 
     const digest = await buildWeeklyDigest(weekLabel);
+
+    // Generate AI summaries for each Top-N article using shared function
+    console.log('API: Generating AI summaries for articles...');
+    const stats = await generateSummariesForDigest(digest);
+    console.log(`API: Summary generation complete - Succeeded: ${stats.succeeded}, Skipped: ${stats.skipped}, Failed: ${stats.failed}`);
 
     const outputDir = path.join(process.cwd(), 'data', 'digests');
     await fs.mkdir(outputDir, { recursive: true });

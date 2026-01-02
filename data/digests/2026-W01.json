@@ -3,97 +3,21 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2025-12-28T23:00:00.000Z",
   "endISO": "2026-01-04T22:59:59.999Z",
-  "builtAtISO": "2026-01-02T12:13:27.968+01:00",
-  "builtAtLocal": "2026-01-02 12:13:27",
+  "builtAtISO": "2026-01-02T20:41:47.047+01:00",
+  "builtAtLocal": "2026-01-02 20:41:47",
   "totals": {
-    "total": 56,
+    "total": 57,
     "byTopic": {
-      "AIStrategy": 12,
-      "EcommerceRetail": 44,
-      "LuxuryConsumer": 0,
+      "AIStrategy": 3,
+      "EcommerceRetail": 53,
+      "LuxuryConsumer": 1,
       "Jewellery": 0
     }
   },
   "topics": {
     "AI_and_Strategy": {
-      "total": 12,
+      "total": 3,
       "top": [
-        {
-          "id": "501hss",
-          "title": "The Modern Retail guide to what’s in and what’s out in 2026",
-          "url": "https://www.modernretail.co/marketing/the-modern-retail-guide-to-whats-in-and-whats-out-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2025-12-31T05:00:00.000Z",
-          "ingested_at": "2025-12-31T07:41:21.690Z",
-          "snippet": "Big workout pants, fiber and thrifting are just some of the trends that will dominate 2026, Modern Retail predicts in its annual In/Out list.",
-          "relevance": {
-            "scoreTotal": 0.471428571960034,
-            "recencyScore": 0.321428571960034,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0.05,
-            "penalty": 0,
-            "matchedKeywords": [
-              "ai"
-            ]
-          },
-          "aiSummary": "AI-Generated Summary:\nModern Retail's 2026 In/Out list predicts trends like big workout pants, fiber, and thrifting to dominate the year ahead."
-        },
-        {
-          "id": "pguvn9",
-          "title": "Cheez-It bets on ‘Prince Cheddward’ mascot in an overcrowded sports marketing arena",
-          "url": "https://www.modernretail.co/marketing/cheez-it-bets-on-prince-cheddward-mascot-in-an-overcrowded-sports-marketing-arena/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2025-12-31T05:00:00.000Z",
-          "ingested_at": "2025-12-31T07:41:21.690Z",
-          "snippet": "To cut through sports marketing noise, Cheez-It is resurrecting Prince Cheddward and betting on nostalgia.",
-          "relevance": {
-            "scoreTotal": 0.421428571960034,
-            "recencyScore": 0.321428571960034,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "aiSummary": "AI-Generated Summary:\nCheez-It is reviving its 'Prince Cheddward' mascot to stand out in the crowded sports marketing landscape by leveraging nostalgia."
-        },
-        {
-          "id": "337gjj",
-          "title": "The New Billionaires of the A.I. Boom",
-          "url": "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html",
-          "source": "NYTimes Technology",
-          "published_at": "2025-12-29T22:53:31.000Z",
-          "ingested_at": "2025-12-30T12:26:38.325Z",
-          "snippet": "Just like past tech booms, the latest frenzy has produced a group of billionaires — at least on paper — from smaller start-ups.",
-          "relevance": {
-            "scoreTotal": 0.3422139552615971,
-            "recencyScore": 0.14221395526159714,
-            "sourceWeight": 0.15,
-            "keywordBoost": 0.05,
-            "penalty": 0,
-            "matchedKeywords": [
-              "ai"
-            ]
-          },
-          "aiSummary": "AI-generated summary:\nThe AI boom has created a new group of billionaires from smaller start-ups, following the pattern of past tech booms, as reported by NYTimes Technology on December 29, 2025."
-        },
-        {
-          "id": "6erx5k",
-          "title": "The revenge of the ’90s mall brand",
-          "url": "https://www.modernretail.co/operations/the-revenge-of-the-90s-mall-brand/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2025-12-30T05:00:00.000Z",
-          "ingested_at": "2025-12-30T17:19:14.042Z",
-          "snippet": "Brands known for their heyday in the ‘90s, like Gap and Victoria's Secret, have used 2025 to mount turnaround plans. But staging a successful comeback after years of a battered reputation takes more than a few quarters of growth.",
-          "relevance": {
-            "scoreTotal": 0.27857142886668557,
-            "recencyScore": 0.17857142886668556,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "aiSummary": "AI-Generated Summary:\nIn 2025, '90s mall brands such as Gap and Victoria's Secret are working on turnaround plans to revive their reputation, but success requires more than just short-term growth."
-        },
         {
           "id": "pd8wix",
           "title": "The Psychology of AI SERPs and Shopping",
@@ -115,24 +39,6 @@
           "aiSummary": "AI-driven \"zero-click\" searches are changing the landscape of product discovery and decision-making, hinting at the impact of AI on shopping behavior."
         },
         {
-          "id": "61ru0r",
-          "title": "ManusAI Joins Meta",
-          "url": "https://manus.im/blog/manus-joins-meta-for-next-era-of-innovation",
-          "source": "Hacker News",
-          "published_at": "2025-12-29T22:24:22.000Z",
-          "ingested_at": "2025-12-30T12:26:38.325Z",
-          "relevance": {
-            "scoreTotal": 0.18932209017745055,
-            "recencyScore": 0.13932209017745054,
-            "sourceWeight": 0,
-            "keywordBoost": 0.05,
-            "penalty": 0,
-            "matchedKeywords": [
-              "ai"
-            ]
-          }
-        },
-        {
           "id": "gva55j",
           "title": "AI is forcing us to write good code",
           "url": "https://bits.logic.inc/p/ai-is-forcing-us-to-write-good-code",
@@ -149,12 +55,82 @@
               "ai"
             ]
           }
+        },
+        {
+          "id": "4zjnai",
+          "title": "China drafts world’s strictest rules to end AI-encouraged suicide, violence",
+          "url": "https://arstechnica.com/tech-policy/2025/12/china-drafts-worlds-strictest-rules-to-end-ai-encouraged-suicide-violence/",
+          "source": "Ars Technica",
+          "published_at": "2025-12-29T16:30:45.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "relevance": {
+            "scoreTotal": 0.1542410716009277,
+            "recencyScore": 0.1042410716009277,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          }
         }
       ]
     },
     "Ecommerce_Retail_Tech": {
-      "total": 44,
+      "total": 53,
       "top": [
+        {
+          "id": "tttlfdz",
+          "title": "REI Sustainability Efforts: From Local Renewable Energy to Greater Use of Recycled Raw Materials",
+          "url": "https://www.retailtouchpoints.com/features/news-briefs/rei-sustainability-efforts-range-from-local-renewable-energy-to-greater-use-of-recycled-raw-materials",
+          "source": "Retail TouchPoints - Technology",
+          "published_at": "2026-01-02T16:10:02.889Z",
+          "ingested_at": "2026-01-02T19:10:02.889Z",
+          "relevance": {
+            "scoreTotal": 0.6736158890106083,
+            "recencyScore": 0.6736158890106083,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          }
+        },
+        {
+          "id": "pguvn9",
+          "title": "Cheez-It bets on ‘Prince Cheddward’ mascot in an overcrowded sports marketing arena",
+          "url": "https://www.modernretail.co/marketing/cheez-it-bets-on-prince-cheddward-mascot-in-an-overcrowded-sports-marketing-arena/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-31T05:00:00.000Z",
+          "ingested_at": "2025-12-31T07:41:21.690Z",
+          "snippet": "To cut through sports marketing noise, Cheez-It is resurrecting Prince Cheddward and betting on nostalgia.",
+          "relevance": {
+            "scoreTotal": 0.421428571960034,
+            "recencyScore": 0.321428571960034,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-generated summary:\nCheez-It is reviving its Prince Cheddward mascot to stand out in the crowded sports marketing landscape by leveraging nostalgia."
+        },
+        {
+          "id": "501hss",
+          "title": "The Modern Retail guide to what’s in and what’s out in 2026",
+          "url": "https://www.modernretail.co/marketing/the-modern-retail-guide-to-whats-in-and-whats-out-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-31T05:00:00.000Z",
+          "ingested_at": "2025-12-31T07:41:21.690Z",
+          "snippet": "Big workout pants, fiber and thrifting are just some of the trends that will dominate 2026, Modern Retail predicts in its annual In/Out list.",
+          "relevance": {
+            "scoreTotal": 0.421428571960034,
+            "recencyScore": 0.321428571960034,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-generated summary:\nModern Retail's 2026 In/Out list predicts trends like big workout pants, fiber, and thrifting to dominate the year in ecommerce and retail tech."
+        },
         {
           "id": "bv2j8a",
           "title": "The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose",
@@ -171,7 +147,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\n\"The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose\" from NYTimes Technology on 2025-12-30 discusses the benefits of chatbots and offers advice on how to effectively utilize them."
+          "aiSummary": "AI-Generated Summary:\n\"The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose\" from NYTimes Technology discusses the benefits of chatbots and offers advice on how to utilize them effectively in ecommerce and retail tech."
         },
         {
           "id": "4agilu",
@@ -189,7 +165,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nA cheat sheet for understanding A.I.-driven tech terms in 2025, from RAG to superintelligence, is provided in this NYTimes Technology article."
+          "aiSummary": "AI-Generated Summary:\nA cheat sheet for understanding A.I.-driven tech terms in 2025, including RAG and superintelligence, is provided in this NYTimes Technology article."
         },
         {
           "id": "yg52at",
@@ -207,77 +183,53 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nCustoms agents have extensive power to search travelers' electronic devices at U.S. borders, prompting the need for safeguarding data during travel."
+          "aiSummary": "AI-Generated Summary:\nCustoms agents have extensive power to search travelers' electronic devices at U.S. borders, prompting the need for data protection measures."
         },
         {
-          "id": "v0vq6o",
-          "title": "Looking for friends, lobsters may stumble into an ecological trap",
-          "url": "https://arstechnica.com/science/2025/12/looking-for-friends-lobsters-may-stumble-into-an-ecological-trap/",
-          "source": "Ars Technica",
-          "published_at": "2025-12-30T15:00:56.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
+          "id": "6erx5k",
+          "title": "The revenge of the ’90s mall brand",
+          "url": "https://www.modernretail.co/operations/the-revenge-of-the-90s-mall-brand/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-30T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Brands known for their heyday in the ‘90s, like Gap and Victoria's Secret, have used 2025 to mount turnaround plans. But staging a successful comeback after years of a battered reputation takes more than a few quarters of growth.",
           "relevance": {
-            "scoreTotal": 0.23818783108165978,
-            "recencyScore": 0.23818783108165978,
-            "sourceWeight": 0,
+            "scoreTotal": 0.27857142886668557,
+            "recencyScore": 0.17857142886668556,
+            "sourceWeight": 0.1,
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
-          }
-        },
-        {
-          "id": "z8ko5",
-          "title": "What Happened to Abit Motherboards",
-          "url": "https://dfarq.homeip.net/what-happened-to-abit-motherboards/",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T14:58:18.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
-          "relevance": {
-            "scoreTotal": 0.23792658769498443,
-            "recencyScore": 0.23792658769498443,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          }
-        },
-        {
-          "id": "yov8x3",
-          "title": "The Legacy of Undersea Cables",
-          "url": "https://blog.sciencemuseumgroup.org.uk/the-legacy-of-undersea-cables/",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T14:49:38.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
-          "relevance": {
-            "scoreTotal": 0.23706679933377448,
-            "recencyScore": 0.23706679933377448,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          }
-        },
-        {
-          "id": "6rp39z",
-          "title": "Hive (YC S14) Is Hiring a Staff Software Engineer (Data Systems)",
-          "url": "https://jobs.ashbyhq.com/hive.co/cb0dc490-0e32-4734-8d91-8b56a31ed497",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T14:31:34.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
-          "relevance": {
-            "scoreTotal": 0.23527447128848292,
-            "recencyScore": 0.23527447128848292,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          }
+          },
+          "aiSummary": "AI-generated summary:\nIn 2025, '90s mall brands such as Gap and Victoria's Secret are working on turnaround plans to revive their reputation, but achieving a successful comeback requires more than just short-term growth."
         }
       ]
     },
     "Luxury_and_Consumer": {
-      "total": 0,
-      "top": []
+      "total": 1,
+      "top": [
+        {
+          "id": "bvf7if",
+          "title": "Crowd avoidance, off-peak trips to drive next 12 months of luxury travel: Virtuoso",
+          "url": "https://www.luxurydaily.com/crowd-avoidance-off-peak-trips-to-drive-next-12-months-of-luxury-travel-virtuoso/",
+          "source": "Luxury Daily - Research",
+          "published_at": "2025-12-29T09:45:46.000Z",
+          "ingested_at": "2025-12-30T17:30:50.941Z",
+          "snippet": "Ducking overtourism and uncomfortable temperatures, discerning clients are increasingly willing to adventure out of season; the high-end hospitality network expects the trend to take full effect in 2026.",
+          "relevance": {
+            "scoreTotal": -0.03593584645492037,
+            "recencyScore": 0.06406415354507962,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "luxury",
+              "high-end"
+            ]
+          },
+          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and uncomfortable temperatures, with Virtuoso predicting this trend to shape the next year of luxury travel in 2026."
+        }
+      ]
     },
     "Jewellery_Industry": {
       "total": 0,
