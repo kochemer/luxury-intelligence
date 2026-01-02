@@ -15,8 +15,8 @@ type Article = {
   aiSummary?: string | null;
 };
 
-type MonthlyDigest = {
-  monthLabel: string;
+type WeeklyDigest = {
+  weekLabel: string;
   tz: string;
   startISO: string;
   endISO: string;
@@ -39,36 +39,38 @@ type MonthlyDigest = {
   };
 };
 
-function getPreviousMonth(): string {
+function getCurrentWeek(): string {
   const now = DateTime.now().setZone('Europe/Copenhagen');
-  return now.toFormat('yyyy-MM');
+  const year = now.year;
+  const weekNumber = now.weekNumber;
+  return `${year}-W${weekNumber.toString().padStart(2, '0')}`;
 }
 
 function formatDate(isoString: string): string {
   return DateTime.fromISO(isoString).toFormat('yyyy-MM-dd');
 }
 
-async function loadDigest(monthLabel: string): Promise<MonthlyDigest | null> {
+async function loadDigest(weekLabel: string): Promise<WeeklyDigest | null> {
   try {
-    const digestPath = path.join(process.cwd(), 'data', 'digests', `${monthLabel}.json`);
+    const digestPath = path.join(process.cwd(), 'data', 'digests', `${weekLabel}.json`);
     const raw = await fs.readFile(digestPath, 'utf-8');
-    return JSON.parse(raw) as MonthlyDigest;
+    return JSON.parse(raw) as WeeklyDigest;
   } catch (err) {
-    console.error(`Failed to load digest for ${monthLabel}:`, err);
+    console.error(`Failed to load digest for ${weekLabel}:`, err);
     return null;
   }
 }
 
 export default async function Home() {
-  const monthLabel = getPreviousMonth();
-  const digest = await loadDigest(monthLabel);
+  const weekLabel = getCurrentWeek();
+  const digest = await loadDigest(weekLabel);
 
   if (!digest) {
     return (
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem', fontFamily: 'system-ui, sans-serif' }}>
-        <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Monthly Digest</h1>
+        <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Weekly Digest</h1>
         <p style={{ color: '#666', fontSize: '1.1rem', marginBottom: '1.5rem' }}>
-          Digest not built yet. Run: <code style={{ background: '#f0f0f0', padding: '0.2rem 0.4rem', borderRadius: '3px' }}>npx tsx scripts/buildMonthlyDigest.ts</code>
+          Digest not built yet. Run: <code style={{ background: '#f0f0f0', padding: '0.2rem 0.4rem', borderRadius: '3px' }}>npx tsx scripts/buildWeeklyDigest.ts</code>
         </p>
         <BuildDigestButton />
       </div>
@@ -84,7 +86,7 @@ export default async function Home() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
           <div>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontWeight: '600' }}>
-            Monthly Digest: {digest.monthLabel}
+            Weekly Digest: {digest.weekLabel}
           </h1>
             {digest.builtAtLocal && (
               <p style={{ color: '#666', fontSize: '0.9rem', marginTop: '0.25rem' }}>
@@ -130,11 +132,11 @@ export default async function Home() {
           </h2>
           {digest.topics.JewelleryIndustry.total > 0 ? (
             <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.JewelleryIndustry.total} articles this month. Showing top 7 by recency.
+              Total {digest.topics.JewelleryIndustry.total} articles this week. Showing top 7 by relevance.
             </p>
           ) : (
             <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this month.
+              No articles for this topic in this week.
             </p>
           )}
           {digest.topics.JewelleryIndustry.top.length > 0 ? (
@@ -154,7 +156,7 @@ export default async function Home() {
                   </div>
                   {article.aiSummary && (
                     <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
                     </div>
                   )}
                 </li>
@@ -172,11 +174,11 @@ export default async function Home() {
           </h2>
           {digest.topics.EcommerceTechnology.total > 0 ? (
             <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.EcommerceTechnology.total} articles this month. Showing top 7 by recency.
+              Total {digest.topics.EcommerceTechnology.total} articles this week. Showing top 7 by recency.
             </p>
           ) : (
             <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this month.
+              No articles for this topic in this week.
             </p>
           )}
           {digest.topics.EcommerceTechnology.top.length > 0 ? (
@@ -196,7 +198,7 @@ export default async function Home() {
                   </div>
                   {article.aiSummary && (
                     <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
                     </div>
                   )}
                 </li>
@@ -214,11 +216,11 @@ export default async function Home() {
           </h2>
           {digest.topics.AIEcommerceStrategy.total > 0 ? (
             <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.AIEcommerceStrategy.total} articles this month. Showing top 7 by recency.
+              Total {digest.topics.AIEcommerceStrategy.total} articles this week. Showing top 7 by recency.
             </p>
           ) : (
             <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this month.
+              No articles for this topic in this week.
             </p>
           )}
           {digest.topics.AIEcommerceStrategy.top.length > 0 ? (
@@ -238,7 +240,7 @@ export default async function Home() {
                   </div>
                   {article.aiSummary && (
                     <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
                     </div>
                   )}
                 </li>
@@ -256,11 +258,11 @@ export default async function Home() {
           </h2>
           {digest.topics.LuxuryConsumerBehaviour.total > 0 ? (
             <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.LuxuryConsumerBehaviour.total} articles this month. Showing top 7 by recency.
+              Total {digest.topics.LuxuryConsumerBehaviour.total} articles this week. Showing top 7 by recency.
             </p>
           ) : (
             <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this month.
+              No articles for this topic in this week.
             </p>
           )}
           {digest.topics.LuxuryConsumerBehaviour.top.length > 0 ? (
@@ -280,7 +282,7 @@ export default async function Home() {
                   </div>
                   {article.aiSummary && (
                     <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
                     </div>
                   )}
                 </li>

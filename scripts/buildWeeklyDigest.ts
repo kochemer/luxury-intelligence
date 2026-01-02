@@ -2,32 +2,63 @@ import { promises as fs, readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { DateTime } from 'luxon';
-import { buildMonthlyDigest } from '../digest/buildMonthlyDigest';
+import { buildWeeklyDigest } from '../digest/buildWeeklyDigest';
 import { getTopicTotalsDisplayName, type TopicTotalsKey } from '../utils/topicNames';
 
 // --- AI Summarization Imports & Config ---
 import OpenAI from 'openai';
+import { parse } from 'dotenv';
 
-// Load environment variables from .env.local if it exists
+// Load environment variables from .env.local for Node CLI script
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const envPath = path.join(__dirname, '../.env.local');
+let envResult: { error?: Error; parsed?: Record<string, string> } = { parsed: {} };
 try {
-  const envContent = readFileSync(envPath, 'utf-8');
-  for (const line of envContent.split('\n')) {
-    const trimmed = line.trim();
-    if (trimmed && !trimmed.startsWith('#')) {
-      const [key, ...valueParts] = trimmed.split('=');
-      if (key && valueParts.length > 0) {
-        process.env[key.trim()] = valueParts.join('=').trim();
-      }
+  const buffer = readFileSync(envPath);
+  // Detect encoding: check for UTF-16 BOM (FE FF for BE, FF FE for LE)
+  let contentToParse: string;
+  if (buffer.length >= 2 && buffer[0] === 0xFF && buffer[1] === 0xFE) {
+    // UTF-16 LE BOM
+    contentToParse = buffer.toString('utf16le', 2);
+  } else if (buffer.length >= 2 && buffer[0] === 0xFE && buffer[1] === 0xFF) {
+    // UTF-16 BE BOM - convert to LE for processing
+    const leBuffer = Buffer.alloc(buffer.length - 2);
+    for (let i = 2; i < buffer.length; i += 2) {
+      leBuffer[i - 2] = buffer[i + 1];
+      leBuffer[i - 1] = buffer[i];
     }
+    contentToParse = leBuffer.toString('utf16le');
+  } else if (buffer.length > 0 && buffer[1] === 0 && buffer[0] !== 0) {
+    // UTF-16 LE without BOM (every other byte is null)
+    contentToParse = buffer.toString('utf16le');
+  } else {
+    // Assume UTF-8
+    contentToParse = buffer.toString('utf-8');
   }
+  const parsed = parse(contentToParse);
+  Object.assign(process.env, parsed);
+  envResult.parsed = parsed;
 } catch (err) {
-  // .env.local doesn't exist or can't be read, use process.env as-is
+  envResult.error = err as Error;
 }
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+
+// Diagnostic logging (startup check)
+console.log('AI Configuration Check:');
+if (envResult.error) {
+  console.log(`  .env.local file: not found or error loading`);
+} else {
+  console.log(`  .env.local file: loaded successfully`);
+}
+if (!OPENAI_API_KEY) {
+  console.log(`  OPENAI_API_KEY: missing (not in .env.local or process.env)`);
+} else {
+  console.log(`  OPENAI_API_KEY: present`);
+}
+console.log('');
+
 const AI_MODEL = "gpt-3.5-turbo"; // Could be changed to another model if desired
 
 // Cost/safety guards
@@ -58,6 +89,7 @@ export async function generateAISummaryForArticle(
   topicDisplayName: string
 ): Promise<SummaryResult> {
   if (!OPENAI_API_KEY) {
+    console.error(`Env var missing: OPENAI_API_KEY not found in environment. Cannot generate AI summary for article "${article.title.substring(0, 50)}..."`);
     return { summary: null, tokenUsage: null, skipped: false, failed: true };
   }
   
@@ -110,47 +142,93 @@ Generate a concise summary (1-2 sentences) that captures the key points from the
       skipped: false,
       failed: false,
     };
-  } catch (e) {
+  } catch (e: any) {
+    // Check if error is due to missing/invalid API key
+    const isMissingKey = !OPENAI_API_KEY || 
+      (e?.message && (e.message.includes('api key') || e.message.includes('API key'))) ||
+      (e?.status === 401);
+    
+    if (isMissingKey) {
+      if (!OPENAI_API_KEY) {
+        console.error(`Env var missing: OPENAI_API_KEY not found in environment. Cannot generate AI summary for article "${article.title.substring(0, 50)}..."`);
+      } else {
+        console.error(`OpenAI API error (invalid key): Cannot generate AI summary for article "${article.title.substring(0, 50)}..."`);
+      }
+    } else {
+      // Enhanced error reporting for API errors
+      const errorInfo: {
+        type?: string;
+        status?: number;
+        message?: string;
+        requestId?: string;
+        code?: string;
+        retryable?: boolean;
+      } = {};
+      
+      if (e?.status) errorInfo.status = e.status;
+      if (e?.message) errorInfo.message = e.message;
+      if (e?.type) errorInfo.type = e.type;
+      if (e?.code) errorInfo.code = e.code;
+      if (e?.request_id) errorInfo.requestId = e.request_id;
+      if (e?.x_request_id) errorInfo.requestId = e.x_request_id;
+      
+      // Determine if retryable (5xx errors, rate limits, timeouts)
+      if (e?.status) {
+        const status = e.status;
+        errorInfo.retryable = status >= 500 || status === 429 || status === 408;
+      } else if (e?.code === 'ECONNRESET' || e?.code === 'ETIMEDOUT') {
+        errorInfo.retryable = true;
+      }
+      
+      // Log error details (without sensitive data)
+      console.error(`OpenAI API error for article "${article.title.substring(0, 50)}...":`, {
+        model: AI_MODEL,
+        ...errorInfo,
+      });
+    }
+    
     return { summary: null, tokenUsage: null, skipped: false, failed: true }; // Do not fail the build
   }
 }
 
 /**
- * Get the current month in Europe/Copenhagen timezone
+ * Get the current week in Europe/Copenhagen timezone (format: YYYY-W##)
  */
-function getPreviousMonth(): string {
+function getCurrentWeek(): string {
   const now = DateTime.now().setZone('Europe/Copenhagen');
-  return now.toFormat('yyyy-MM');
+  const year = now.year;
+  const weekNumber = now.weekNumber;
+  return `${year}-W${weekNumber.toString().padStart(2, '0')}`;
 }
 
 /**
- * Parse CLI arguments for --month flag
+ * Parse CLI arguments for --week flag
  */
 function parseArgs(): string {
   const args = process.argv.slice(2);
   for (const arg of args) {
-    if (arg.startsWith('--month=')) {
-      const monthLabel = arg.split('=')[1];
+    if (arg.startsWith('--week=')) {
+      const weekLabel = arg.split('=')[1];
       // Validate format
-      if (!/^\d{4}-\d{2}$/.test(monthLabel)) {
-        console.error(`Invalid month format: ${monthLabel}. Expected YYYY-MM`);
+      if (!/^\d{4}-W\d{1,2}$/.test(weekLabel)) {
+        console.error(`Invalid week format: ${weekLabel}. Expected YYYY-W## (e.g. 2025-W52)`);
         process.exit(1);
       }
-      return monthLabel;
+      return weekLabel;
     }
   }
-  // Default to current month
-  return getPreviousMonth();
+  // Default to current week
+  return getCurrentWeek();
 }
 
 async function main() {
-  const monthLabel = parseArgs();
+  const weekLabel = parseArgs();
   
-  console.log(`Building digest for month: ${monthLabel}\n`);
+  console.log(`Building digest for week: ${weekLabel}\n`);
   
   try {
     // Build the digest
-    const digest = await buildMonthlyDigest(monthLabel);
+    const digest = await buildWeeklyDigest(weekLabel);
     
     // Generate AI summaries for each Top-N article
     console.log('Generating AI summaries for articles...');
@@ -240,7 +318,7 @@ async function main() {
     await fs.mkdir(outputDir, { recursive: true });
     
     // Write JSON file
-    const outputPath = path.join(outputDir, `${monthLabel}.json`);
+    const outputPath = path.join(outputDir, `${weekLabel}.json`);
     await fs.writeFile(
       outputPath,
       JSON.stringify(digest, null, 2),

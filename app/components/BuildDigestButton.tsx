@@ -24,7 +24,7 @@ export default function BuildDigestButton() {
       const data = await response.json();
 
       if (data.ok) {
-        setMessage(`Success! Built digest for ${data.monthLabel}.`);
+        setMessage(`Success! Built digest for ${data.weekLabel}.`);
         // Refresh the page after a short delay to show the new digest
         setTimeout(() => {
           router.refresh();

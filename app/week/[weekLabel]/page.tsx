@@ -14,8 +14,8 @@ type Article = {
   aiSummary?: string | null;
 };
 
-type MonthlyDigest = {
-  monthLabel: string;
+type WeeklyDigest = {
+  weekLabel: string;
   tz: string;
   startISO: string;
   endISO: string;
@@ -42,26 +42,26 @@ function formatDate(isoString: string): string {
   return DateTime.fromISO(isoString).toFormat('yyyy-MM-dd');
 }
 
-async function loadDigest(monthLabel: string): Promise<MonthlyDigest | null> {
+async function loadDigest(weekLabel: string): Promise<WeeklyDigest | null> {
   try {
-    const digestPath = path.join(process.cwd(), 'data', 'digests', `${monthLabel}.json`);
+    const digestPath = path.join(process.cwd(), 'data', 'digests', `${weekLabel}.json`);
     const raw = await fs.readFile(digestPath, 'utf-8');
-    return JSON.parse(raw) as MonthlyDigest;
+    return JSON.parse(raw) as WeeklyDigest;
   } catch {
     return null;
   }
 }
 
-export default async function MonthPage({ params }: { params: { monthLabel: string } }) {
-  const { monthLabel } = await params;
+export default async function WeekPage({ params }: { params: { weekLabel: string } }) {
+  const { weekLabel } = await params;
   
   // Validate format
-  if (!/^\d{4}-\d{2}$/.test(monthLabel)) {
+  if (!/^\d{4}-W\d{1,2}$/.test(weekLabel)) {
     return (
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem', fontFamily: 'system-ui, sans-serif' }}>
-        <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Invalid Month Format</h1>
+        <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Invalid Week Format</h1>
         <p style={{ color: '#666', fontSize: '1.1rem' }}>
-          The month label "{monthLabel}" is not valid. Expected format: YYYY-MM (e.g., 2025-12).
+          The week label "{weekLabel}" is not valid. Expected format: YYYY-W## (e.g., 2025-W52).
         </p>
         <div style={{ marginTop: '2rem' }}>
           <Link href="/archive" style={{ color: '#0066cc', textDecoration: 'none', marginRight: '1rem' }}>
@@ -75,17 +75,17 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
     );
   }
 
-  const digest = await loadDigest(monthLabel);
+  const digest = await loadDigest(weekLabel);
 
   if (!digest) {
     return (
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem', fontFamily: 'system-ui, sans-serif' }}>
         <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Digest Not Found</h1>
         <p style={{ color: '#666', fontSize: '1.1rem' }}>
-          The digest for {monthLabel} has not been built yet.
+          The digest for {weekLabel} has not been built yet.
         </p>
         <p style={{ color: '#666', fontSize: '1rem', marginTop: '1rem' }}>
-          Run: <code style={{ background: '#f0f0f0', padding: '0.2rem 0.4rem', borderRadius: '3px' }}>npx tsx scripts/buildMonthlyDigest.ts --month={monthLabel}</code>
+          Run: <code style={{ background: '#f0f0f0', padding: '0.2rem 0.4rem', borderRadius: '3px' }}>npx tsx scripts/buildWeeklyDigest.ts --week={weekLabel}</code>
         </p>
         <div style={{ marginTop: '2rem' }}>
           <Link href="/archive" style={{ color: '#0066cc', textDecoration: 'none', marginRight: '1rem' }}>
@@ -115,7 +115,7 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
         </div>
         <div>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontWeight: '600' }}>
-            Monthly Digest: {digest.monthLabel}
+            Weekly Digest: {digest.weekLabel}
           </h1>
           {digest.builtAtLocal && (
             <p style={{ color: '#666', fontSize: '0.9rem', marginTop: '0.25rem' }}>
@@ -154,11 +154,11 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
           </h2>
           {digest.topics.JewelleryIndustry.total > 0 ? (
             <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.JewelleryIndustry.total} articles this month. Showing top 7 by recency.
+              Total {digest.topics.JewelleryIndustry.total} articles this week. Showing top 7 by relevance.
             </p>
           ) : (
             <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this month.
+              No articles for this topic in this week.
             </p>
           )}
           {digest.topics.JewelleryIndustry.top.length > 0 ? (
@@ -176,6 +176,11 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
                   <div style={{ fontSize: '0.9rem', color: '#666', marginTop: '0.25rem' }}>
                     {formatDate(article.published_at)} | {article.source}
                   </div>
+                  {article.aiSummary && (
+                    <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
+                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
@@ -191,11 +196,11 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
           </h2>
           {digest.topics.EcommerceTechnology.total > 0 ? (
             <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.EcommerceTechnology.total} articles this month. Showing top 7 by recency.
+              Total {digest.topics.EcommerceTechnology.total} articles this week. Showing top 7 by relevance.
             </p>
           ) : (
             <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this month.
+              No articles for this topic in this week.
             </p>
           )}
           {digest.topics.EcommerceTechnology.top.length > 0 ? (
@@ -215,7 +220,7 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
                   </div>
                   {article.aiSummary && (
                     <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
                     </div>
                   )}
                 </li>
@@ -233,11 +238,11 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
           </h2>
           {digest.topics.AIEcommerceStrategy.total > 0 ? (
             <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.AIEcommerceStrategy.total} articles this month. Showing top 7 by recency.
+              Total {digest.topics.AIEcommerceStrategy.total} articles this week. Showing top 7 by relevance.
             </p>
           ) : (
             <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this month.
+              No articles for this topic in this week.
             </p>
           )}
           {digest.topics.AIEcommerceStrategy.top.length > 0 ? (
@@ -257,7 +262,7 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
                   </div>
                   {article.aiSummary && (
                     <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
                     </div>
                   )}
                 </li>
@@ -275,11 +280,11 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
           </h2>
           {digest.topics.LuxuryConsumerBehaviour.total > 0 ? (
             <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.LuxuryConsumerBehaviour.total} articles this month. Showing top 7 by recency.
+              Total {digest.topics.LuxuryConsumerBehaviour.total} articles this week. Showing top 7 by relevance.
             </p>
           ) : (
             <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this month.
+              No articles for this topic in this week.
             </p>
           )}
           {digest.topics.LuxuryConsumerBehaviour.top.length > 0 ? (
@@ -299,7 +304,7 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
                   </div>
                   {article.aiSummary && (
                     <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI-generated summary (from headline + snippet):</strong> {article.aiSummary}
+                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
                     </div>
                   )}
                 </li>
@@ -313,8 +318,4 @@ export default async function MonthPage({ params }: { params: { monthLabel: stri
     </div>
   );
 }
-
-
-
-
 

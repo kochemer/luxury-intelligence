@@ -1,0 +1,287 @@
+{
+  "weekLabel": "2026-W01",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2025-12-28T23:00:00.000Z",
+  "endISO": "2026-01-04T22:59:59.999Z",
+  "builtAtISO": "2026-01-01T23:33:28.454+01:00",
+  "builtAtLocal": "2026-01-01 23:33:28",
+  "totals": {
+    "total": 56,
+    "byTopic": {
+      "Jewellery": 0,
+      "Ecommerce": 44,
+      "AIStrategy": 12,
+      "Luxury": 0
+    }
+  },
+  "topics": {
+    "JewelleryIndustry": {
+      "total": 0,
+      "top": []
+    },
+    "EcommerceTechnology": {
+      "total": 44,
+      "top": [
+        {
+          "id": "bv2j8a",
+          "title": "The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose",
+          "url": "https://www.nytimes.com/2025/12/30/podcasts/hardfork-wirecutter-ai.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-30T12:00:04.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "If you’ve ever wondered what chatbots are good for and how best to use them, this episode is for you.",
+          "relevance": {
+            "scoreTotal": 0.3702447093588702,
+            "recencyScore": 0.22024470935887022,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-Generated Summary:\n\"The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose\" from NYTimes Technology discusses the benefits of chatbots and offers advice on how to utilize them effectively in ecommerce technology."
+        },
+        {
+          "id": "4agilu",
+          "title": "Decoding the A.I.-Driven Tech Lingo From 2025",
+          "url": "https://www.nytimes.com/2025/12/30/technology/personaltech/tech-jargon-ai.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-30T10:02:10.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "Here’s a cheat sheet for decoding this year’s A.I.-driven tech lingo, from RAG to superintelligence.",
+          "relevance": {
+            "scoreTotal": 0.3585482807681023,
+            "recencyScore": 0.2085482807681023,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-Generated Summary:\nA cheat sheet for understanding A.I.-driven tech lingo in 2025, including terms like RAG and superintelligence, is provided in this NYTimes Technology article."
+        },
+        {
+          "id": "yg52at",
+          "title": "Phone Searches at U.S. Borders: What Travelers Need to Know",
+          "url": "https://www.nytimes.com/2025/12/31/travel/airport-border-phone-search.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-31T10:00:22.000Z",
+          "ingested_at": "2025-12-31T12:36:16.184Z",
+          "snippet": "Customs agents have broad authority to search the electronic devices of travelers entering and leaving the U.S. Here are tips for keeping your data safe.",
+          "relevance": {
+            "scoreTotal": 0.301226852432584,
+            "recencyScore": 0.35122685243258406,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-Generated Summary:\nCustoms agents can search electronic devices of travelers at U.S. borders, prompting the need for data protection measures while traveling."
+        },
+        {
+          "id": "v0vq6o",
+          "title": "Looking for friends, lobsters may stumble into an ecological trap",
+          "url": "https://arstechnica.com/science/2025/12/looking-for-friends-lobsters-may-stumble-into-an-ecological-trap/",
+          "source": "Ars Technica",
+          "published_at": "2025-12-30T15:00:56.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z",
+          "relevance": {
+            "scoreTotal": 0.23818783108165978,
+            "recencyScore": 0.23818783108165978,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          }
+        },
+        {
+          "id": "z8ko5",
+          "title": "What Happened to Abit Motherboards",
+          "url": "https://dfarq.homeip.net/what-happened-to-abit-motherboards/",
+          "source": "Hacker News",
+          "published_at": "2025-12-30T14:58:18.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z",
+          "relevance": {
+            "scoreTotal": 0.23792658769498443,
+            "recencyScore": 0.23792658769498443,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          }
+        },
+        {
+          "id": "yov8x3",
+          "title": "The Legacy of Undersea Cables",
+          "url": "https://blog.sciencemuseumgroup.org.uk/the-legacy-of-undersea-cables/",
+          "source": "Hacker News",
+          "published_at": "2025-12-30T14:49:38.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z",
+          "relevance": {
+            "scoreTotal": 0.23706679933377448,
+            "recencyScore": 0.23706679933377448,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          }
+        },
+        {
+          "id": "6rp39z",
+          "title": "Hive (YC S14) Is Hiring a Staff Software Engineer (Data Systems)",
+          "url": "https://jobs.ashbyhq.com/hive.co/cb0dc490-0e32-4734-8d91-8b56a31ed497",
+          "source": "Hacker News",
+          "published_at": "2025-12-30T14:31:34.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z",
+          "relevance": {
+            "scoreTotal": 0.23527447128848292,
+            "recencyScore": 0.23527447128848292,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          }
+        }
+      ]
+    },
+    "AIEcommerceStrategy": {
+      "total": 12,
+      "top": [
+        {
+          "id": "501hss",
+          "title": "The Modern Retail guide to what’s in and what’s out in 2026",
+          "url": "https://www.modernretail.co/marketing/the-modern-retail-guide-to-whats-in-and-whats-out-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-31T05:00:00.000Z",
+          "ingested_at": "2025-12-31T07:41:21.690Z",
+          "snippet": "Big workout pants, fiber and thrifting are just some of the trends that will dominate 2026, Modern Retail predicts in its annual In/Out list.",
+          "relevance": {
+            "scoreTotal": 0.471428571960034,
+            "recencyScore": 0.321428571960034,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "aiSummary": "AI-Generated Summary:\nModern Retail's 2026 In/Out list predicts trends like big workout pants, fiber, and thrifting to dominate the year."
+        },
+        {
+          "id": "pguvn9",
+          "title": "Cheez-It bets on ‘Prince Cheddward’ mascot in an overcrowded sports marketing arena",
+          "url": "https://www.modernretail.co/marketing/cheez-it-bets-on-prince-cheddward-mascot-in-an-overcrowded-sports-marketing-arena/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-31T05:00:00.000Z",
+          "ingested_at": "2025-12-31T07:41:21.690Z",
+          "snippet": "To cut through sports marketing noise, Cheez-It is resurrecting Prince Cheddward and betting on nostalgia.",
+          "relevance": {
+            "scoreTotal": 0.421428571960034,
+            "recencyScore": 0.321428571960034,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-Generated Summary:\nCheez-It is reviving its 'Prince Cheddward' mascot to stand out in the crowded sports marketing landscape, focusing on nostalgia to cut through the noise."
+        },
+        {
+          "id": "337gjj",
+          "title": "The New Billionaires of the A.I. Boom",
+          "url": "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-29T22:53:31.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "Just like past tech booms, the latest frenzy has produced a group of billionaires — at least on paper — from smaller start-ups.",
+          "relevance": {
+            "scoreTotal": 0.3422139552615971,
+            "recencyScore": 0.14221395526159714,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "aiSummary": "AI-generated summary:\nThe AI boom has created a new group of billionaires from smaller start-ups, following the trend of past tech booms."
+        },
+        {
+          "id": "6erx5k",
+          "title": "The revenge of the ’90s mall brand",
+          "url": "https://www.modernretail.co/operations/the-revenge-of-the-90s-mall-brand/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-30T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Brands known for their heyday in the ‘90s, like Gap and Victoria's Secret, have used 2025 to mount turnaround plans. But staging a successful comeback after years of a battered reputation takes more than a few quarters of growth.",
+          "relevance": {
+            "scoreTotal": 0.27857142886668557,
+            "recencyScore": 0.17857142886668556,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-Generated Summary:\nIn 2025, '90s mall brands like Gap and Victoria's Secret are attempting comebacks with turnaround plans, but success requires more than short-term growth."
+        },
+        {
+          "id": "pd8wix",
+          "title": "The Psychology of AI SERPs and Shopping",
+          "url": "https://www.practicalecommerce.com/the-psychology-of-ai-serps-and-shopping",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-12-29T10:00:37.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "The rise of \"zero-click\" searches may signal the coming effect of AI shopping on product discovery and decision-making.\nThe post The Psychology of AI SERPs and Shopping appeared first on Practical Ecommerce.",
+          "relevance": {
+            "scoreTotal": 0.2155373678332298,
+            "recencyScore": 0.06553736783322978,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "aiSummary": "AI-driven SERPs are changing the landscape of shopping by influencing product discovery and decision-making, particularly through \"zero-click\" searches."
+        },
+        {
+          "id": "61ru0r",
+          "title": "ManusAI Joins Meta",
+          "url": "https://manus.im/blog/manus-joins-meta-for-next-era-of-innovation",
+          "source": "Hacker News",
+          "published_at": "2025-12-29T22:24:22.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "relevance": {
+            "scoreTotal": 0.18932209017745055,
+            "recencyScore": 0.13932209017745054,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          }
+        },
+        {
+          "id": "gva55j",
+          "title": "AI is forcing us to write good code",
+          "url": "https://bits.logic.inc/p/ai-is-forcing-us-to-write-good-code",
+          "source": "Hacker News",
+          "published_at": "2025-12-29T19:11:26.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "relevance": {
+            "scoreTotal": 0.17018187850559174,
+            "recencyScore": 0.12018187850559173,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          }
+        }
+      ]
+    },
+    "LuxuryConsumerBehaviour": {
+      "total": 0,
+      "top": []
+    }
+  }
+}

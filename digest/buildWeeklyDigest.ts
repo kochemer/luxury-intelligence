@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { DateTime } from 'luxon';
-import { getMonthRangeCET } from '../utils/monthCET';
+import { getWeekRangeCET } from '../utils/weekCET';
 import { classifyTopic } from '../classification/classifyTopics';
 import type { Article } from '../ingestion/types';
 import type { Topic } from '../classification/classifyTopics';
@@ -122,17 +122,17 @@ type ArticleWithRelevance = Article & {
 };
 
 /**
- * Calculate recency score: map publishedAt within month to 0..1 (newest=1)
+ * Calculate recency score: map publishedAt within week to 0..1 (newest=1)
  */
-function calculateRecencyScore(publishedAt: string, monthStart: number, monthEnd: number): number {
+function calculateRecencyScore(publishedAt: string, weekStart: number, weekEnd: number): number {
   if (!publishedAt) return 0;
   const articleTime = new Date(publishedAt).getTime();
-  if (isNaN(articleTime) || articleTime < monthStart || articleTime > monthEnd) return 0;
+  if (isNaN(articleTime) || articleTime < weekStart || articleTime > weekEnd) return 0;
   
-  // Normalize to 0..1 where newest (monthEnd) = 1, oldest (monthStart) = 0
-  const monthDuration = monthEnd - monthStart;
-  if (monthDuration === 0) return 1;
-  return (articleTime - monthStart) / monthDuration;
+  // Normalize to 0..1 where newest (weekEnd) = 1, oldest (weekStart) = 0
+  const weekDuration = weekEnd - weekStart;
+  if (weekDuration === 0) return 1;
+  return (articleTime - weekStart) / weekDuration;
 }
 
 /**
@@ -173,11 +173,11 @@ function calculatePenalty(article: Article): number {
 function calculateRelevanceScore(
   article: Article,
   topic: Topic,
-  monthStart: number,
-  monthEnd: number
+  weekStart: number,
+  weekEnd: number
 ): RelevanceScore {
   // Recency score (0..1)
-  const recencyScore = calculateRecencyScore(article.published_at, monthStart, monthEnd);
+  const recencyScore = calculateRecencyScore(article.published_at, weekStart, weekEnd);
   
   // Source weight (default 0)
   const sourceWeight = SOURCE_WEIGHTS[article.source] || 0;
@@ -209,15 +209,15 @@ function selectTopN(
   articles: Article[],
   n: number,
   topic: Topic,
-  monthStart: number,
-  monthEnd: number
+  weekStart: number,
+  weekEnd: number
 ): ArticleWithRelevance[] {
   if (articles.length === 0) return [];
   
   // Calculate scores for all articles
   const articlesWithScores = articles.map(article => ({
     article,
-    relevance: calculateRelevanceScore(article, topic, monthStart, monthEnd),
+    relevance: calculateRelevanceScore(article, topic, weekStart, weekEnd),
   }));
   
   // Sort by total score (descending), then by URL for determinism
@@ -256,8 +256,8 @@ function selectTopN(
   return selected;
 }
 
-export type MonthlyDigest = {
-  monthLabel: string;
+export type WeeklyDigest = {
+  weekLabel: string;
   tz: string;
   startISO: string;
   endISO: string;
@@ -281,23 +281,36 @@ export type MonthlyDigest = {
 };
 
 /**
- * Builds a monthly digest from articles in data/articles.json
- * @param monthLabel - Month in format "YYYY-MM" (e.g. "2025-12")
- * @returns Monthly digest object with totals and topic breakdowns
+ * Builds a weekly digest from articles in data/articles.json
+ * @param weekLabel - Week in format "YYYY-W##" (e.g. "2025-W52")
+ * @returns Weekly digest object with totals and topic breakdowns
  */
-export async function buildMonthlyDigest(monthLabel: string): Promise<MonthlyDigest> {
-  // Parse monthLabel to create a Date (use first day of month)
-  const [year, month] = monthLabel.split('-').map(Number);
-  if (!year || !month || month < 1 || month > 12) {
-    throw new Error(`Invalid monthLabel format: ${monthLabel}. Expected "YYYY-MM"`);
+export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest> {
+  // Parse weekLabel to create a Date (use Monday of the week)
+  const weekMatch = weekLabel.match(/^(\d{4})-W(\d{1,2})$/);
+  if (!weekMatch) {
+    throw new Error(`Invalid weekLabel format: ${weekLabel}. Expected "YYYY-W##" (e.g. "2025-W52")`);
   }
   
-  // Create a date in the middle of the month to get the full month range
-  const monthDate = new Date(year, month - 1, 15);
-  const { monthStartCET, monthEndCET } = getMonthRangeCET(monthDate);
+  const year = parseInt(weekMatch[1], 10);
+  const weekNumber = parseInt(weekMatch[2], 10);
   
-  const startISO = monthStartCET.toISOString();
-  const endISO = monthEndCET.toISOString();
+  if (weekNumber < 1 || weekNumber > 53) {
+    throw new Error(`Invalid week number: ${weekNumber}. Must be between 1 and 53.`);
+  }
+  
+  // Create a DateTime in Europe/Copenhagen for the given week
+  // Use Luxon to get the Monday of that week
+  const dt = DateTime.fromObject({ weekYear: year, weekNumber }, { zone: 'Europe/Copenhagen' });
+  if (!dt.isValid) {
+    throw new Error(`Invalid week: ${weekLabel}. ${dt.invalidReason}`);
+  }
+  
+  // Get the week range
+  const { weekStartCET, weekEndCET } = getWeekRangeCET(dt.toJSDate());
+  
+  const startISO = weekStartCET.toISOString();
+  const endISO = weekEndCET.toISOString();
   
   // Load articles
   const dataPath = path.join(__dirname, '../data/articles.json');
@@ -309,16 +322,16 @@ export async function buildMonthlyDigest(monthLabel: string): Promise<MonthlyDig
     throw new Error(`Failed to read articles.json: ${(err as Error).message}`);
   }
   
-  // Filter articles to the month window (exclude those without published_at)
-  const monthStart = monthStartCET.getTime();
-  const monthEnd = monthEndCET.getTime();
+  // Filter articles to the week window (exclude those without published_at)
+  const weekStart = weekStartCET.getTime();
+  const weekEnd = weekEndCET.getTime();
   
   const eligibleArticles = articles.filter(article => {
     if (!article.published_at) return false;
     const dt = new Date(article.published_at);
     if (isNaN(dt.getTime())) return false;
     const t = dt.getTime();
-    return t >= monthStart && t <= monthEnd;
+    return t >= weekStart && t <= weekEnd;
   });
   
   // Classify articles and group by topic
@@ -354,19 +367,19 @@ export async function buildMonthlyDigest(monthLabel: string): Promise<MonthlyDig
   const topics = {
     JewelleryIndustry: {
       total: byTopic["Jewellery Industry"].length,
-      top: selectTopN(byTopic["Jewellery Industry"], TOP_N, "Jewellery Industry", monthStart, monthEnd),
+      top: selectTopN(byTopic["Jewellery Industry"], TOP_N, "Jewellery Industry", weekStart, weekEnd),
     },
     EcommerceTechnology: {
       total: byTopic["Ecommerce Technology"].length,
-      top: selectTopN(byTopic["Ecommerce Technology"], TOP_N, "Ecommerce Technology", monthStart, monthEnd),
+      top: selectTopN(byTopic["Ecommerce Technology"], TOP_N, "Ecommerce Technology", weekStart, weekEnd),
     },
     AIEcommerceStrategy: {
       total: byTopic["AI & Ecommerce Strategy"].length,
-      top: selectTopN(byTopic["AI & Ecommerce Strategy"], TOP_N, "AI & Ecommerce Strategy", monthStart, monthEnd),
+      top: selectTopN(byTopic["AI & Ecommerce Strategy"], TOP_N, "AI & Ecommerce Strategy", weekStart, weekEnd),
     },
     LuxuryConsumerBehaviour: {
       total: byTopic["Luxury Consumer Behaviour"].length,
-      top: selectTopN(byTopic["Luxury Consumer Behaviour"], TOP_N, "Luxury Consumer Behaviour", monthStart, monthEnd),
+      top: selectTopN(byTopic["Luxury Consumer Behaviour"], TOP_N, "Luxury Consumer Behaviour", weekStart, weekEnd),
     },
   };
   
@@ -376,7 +389,7 @@ export async function buildMonthlyDigest(monthLabel: string): Promise<MonthlyDig
   const builtAtLocal = now.toFormat('yyyy-MM-dd HH:mm:ss');
 
   return {
-    monthLabel,
+    weekLabel,
     tz: "Europe/Copenhagen",
     startISO,
     endISO,

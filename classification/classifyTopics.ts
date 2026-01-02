@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { getMonthRangeCET } from '../utils/monthCET';
+import { getWeekRangeCET } from '../utils/weekCET';
 
 // --- Types ---
 export type Topic =
@@ -123,8 +123,8 @@ export async function classifyCurrentWeekArticles(
 ): Promise<{ weekLabel: string; byTopic: Record<Topic, Article[]> }> {
   const dataPath = await getArticlesPath();
 
-  // Filter-to-CET-month logic uses getMonthRangeCET
-  const { monthStartCET, monthEndCET, monthLabel } = getMonthRangeCET(inputDate ?? new Date());
+  // Filter-to-CET-week logic uses getWeekRangeCET
+  const { weekStartCET, weekEndCET, weekLabel } = getWeekRangeCET(inputDate ?? new Date());
 
   let articles: Article[] = [];
   try {
@@ -132,7 +132,7 @@ export async function classifyCurrentWeekArticles(
     articles = JSON.parse(raw);
   } catch (err) {
     console.error('Failed to read articles.json:', (err as Error).message);
-    return { weekLabel: monthLabel, byTopic: {
+    return { weekLabel: weekLabel, byTopic: {
       "Jewellery Industry": [],
       "Ecommerce Technology": [],
       "AI & Ecommerce Strategy": [],
@@ -140,16 +140,16 @@ export async function classifyCurrentWeekArticles(
     }};
   }
 
-  const monthStart = monthStartCET.getTime();
-  const monthEnd = monthEndCET.getTime();
+  const weekStart = weekStartCET.getTime();
+  const weekEnd = weekEndCET.getTime();
 
-  // Only consider articles whose published_at falls in CET month span
+  // Only consider articles whose published_at falls in CET week span
   const eligibleArticles = articles.filter(article => {
     if (!article.published_at) return false;
     const dt = new Date(article.published_at);
     if (isNaN(dt.getTime())) return false;
     const t = dt.getTime();
-    return t >= monthStart && t <= monthEnd;
+    return t >= weekStart && t <= weekEnd;
   });
 
   // Group articles by topic
@@ -165,7 +165,7 @@ export async function classifyCurrentWeekArticles(
     byTopic[topic].push(article);
   }
 
-  return { weekLabel: monthLabel, byTopic };
+  return { weekLabel: weekLabel, byTopic };
 }
 
 // --- CLI runner ---
