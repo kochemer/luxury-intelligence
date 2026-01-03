@@ -24,6 +24,41 @@ import crypto from "crypto";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DATA_PATH = path.join(__dirname, "../data/articles.json");
+const STATS_PATH = path.join(__dirname, "../data/page_source_stats.json");
+
+// Statistics tracking structure
+type SourceStats = {
+  sourceName: string;
+  pagesFetched: number;
+  fetchStatus: number | null;
+  itemsMatched: number;
+  articlesExtracted: number;
+  rejectedNoDate: number;
+  rejectedInvalidDate: number;
+  rejectedNoTitle: number;
+  rejectedNoUrl: number;
+  rejectedDuplicate: number;
+  rejectedSelectorMiss: number;
+  articlesKept: number;
+  yieldPercentage: number; // (articlesKept / itemsMatched) * 100
+  failures: Array<{
+    url?: string;
+    title?: string;
+    reason: string;
+  }>;
+};
+
+type PageIngestionStats = {
+  timestamp: string;
+  sources: SourceStats[];
+  summary: {
+    totalPagesFetched: number;
+    totalItemsMatched: number;
+    totalArticlesExtracted: number;
+    totalArticlesKept: number;
+    overallYieldPercentage: number;
+  };
+};
 
 // Hash function (same as fetchRss uses: short base36 of md5 hex)
 function hashString(input: string): string {
@@ -135,21 +170,51 @@ export async function runPageIngestion(): Promise<number> {
     articles = [];
   }
 
+  // Initialize statistics tracking
+  const sourceStats: SourceStats[] = [];
+  const MAX_FAILURES_PER_SOURCE = 10; // Cap failure logs to avoid noise
+
   for (const page of SOURCE_PAGES) {
+    // Initialize stats for this source
+    const stats: SourceStats = {
+      sourceName: page.name,
+      pagesFetched: 0,
+      fetchStatus: null,
+      itemsMatched: 0,
+      articlesExtracted: 0,
+      rejectedNoDate: 0,
+      rejectedInvalidDate: 0,
+      rejectedNoTitle: 0,
+      rejectedNoUrl: 0,
+      rejectedDuplicate: 0,
+      rejectedSelectorMiss: 0,
+      articlesKept: 0,
+      yieldPercentage: 0,
+      failures: []
+    };
+
+    // Track page fetch
+    stats.pagesFetched = 1;
     const res = await fetchWithHeaders(page.url);
+    stats.fetchStatus = res.status;
+    
     if (res.status !== 200) {
       console.log(`[${page.name}] ERROR: Fetch failed (status ${res.status})`);
+      sourceStats.push(stats);
       continue;
     }
     if (!res.data || res.data.length === 0) {
       console.log(`[${page.name}] ERROR: No data received`);
+      sourceStats.push(stats);
       continue;
     }
     const $ = cheerio.load(res.data);
     const items = $(page.selectors.item);
+    stats.itemsMatched = items.length;
     const itemsMatched = items.length;
     let extracted: Article[] = [];
     let addedThisPage = 0;
+    
     items.each((i, el) => {
       // Title
       let title: string | undefined;
@@ -171,6 +236,18 @@ export async function runPageIngestion(): Promise<number> {
       // If title still missing, use link text
       if ((!title || title.length === 0) && linkElem && linkElem.length > 0) {
         title = linkElem.text().trim();
+      }
+      
+      // Track selector misses
+      if (!linkElem || linkElem.length === 0) {
+        if (stats.failures.length < MAX_FAILURES_PER_SOURCE) {
+          stats.failures.push({
+            reason: "selector_miss_link",
+            title: title || undefined
+          });
+        }
+        stats.rejectedSelectorMiss++;
+        return;
       }
       // Date
       let published_at: string | undefined = undefined;
@@ -195,7 +272,15 @@ export async function runPageIngestion(): Promise<number> {
             if (page.dateFormatHint === "RELATIVE") {
               published_at = new Date().toISOString();
             } else {
-              // skip this item (no valid date)
+              // Track invalid date rejection
+              if (stats.failures.length < MAX_FAILURES_PER_SOURCE) {
+                stats.failures.push({
+                  url: url || undefined,
+                  title: title || undefined,
+                  reason: `invalid_date_parse: "${dateText}"`
+                });
+              }
+              stats.rejectedInvalidDate++;
               return;
             }
           }
@@ -204,16 +289,58 @@ export async function runPageIngestion(): Promise<number> {
           if (page.dateFormatHint === "RELATIVE") {
             published_at = new Date().toISOString();
           } else {
-            // skip this item (no date found)
+            // Track no date rejection
+            if (stats.failures.length < MAX_FAILURES_PER_SOURCE) {
+              stats.failures.push({
+                url: url || undefined,
+                title: title || undefined,
+                reason: "no_date_found"
+              });
+            }
+            stats.rejectedNoDate++;
             return;
           }
         }
       }
-      // Minimal validation
-      if (!url || !title || (page.selectors.date && !published_at)) {
+      
+      // Minimal validation with detailed tracking
+      if (!url) {
+        if (stats.failures.length < MAX_FAILURES_PER_SOURCE) {
+          stats.failures.push({
+            title: title || undefined,
+            reason: "no_url"
+          });
+        }
+        stats.rejectedNoUrl++;
         return;
       }
-      if (seenUrls.has(url)) return;
+      if (!title) {
+        if (stats.failures.length < MAX_FAILURES_PER_SOURCE) {
+          stats.failures.push({
+            url: url,
+            reason: "no_title"
+          });
+        }
+        stats.rejectedNoTitle++;
+        return;
+      }
+      if (page.selectors.date && !published_at) {
+        if (stats.failures.length < MAX_FAILURES_PER_SOURCE) {
+          stats.failures.push({
+            url: url,
+            title: title,
+            reason: "date_required_but_missing"
+          });
+        }
+        stats.rejectedNoDate++;
+        return;
+      }
+      
+      // Check for duplicates
+      if (seenUrls.has(url)) {
+        stats.rejectedDuplicate++;
+        return;
+      }
       const article: Article = {
         id: hashString(url),
         title,
@@ -224,14 +351,21 @@ export async function runPageIngestion(): Promise<number> {
       };
       seenUrls.add(url);
       extracted.push(article);
+      stats.articlesExtracted++;
     });
 
     // Update & log
     for (const art of extracted) {
       articles.push(art);
       addedThisPage++;
+      stats.articlesKept++;
     }
     added += addedThisPage;
+
+    // Calculate yield percentage
+    if (stats.itemsMatched > 0) {
+      stats.yieldPercentage = (stats.articlesKept / stats.itemsMatched) * 100;
+    }
 
     // Improved logging per instructions:
     const logObj = {
@@ -257,12 +391,42 @@ export async function runPageIngestion(): Promise<number> {
         console.log(`  [${idx + 1}]`, simple);
       });
     }
+    
+    // Add stats for this source
+    sourceStats.push(stats);
   }
 
   // Save back to file if any new
   if (added > 0) {
     await fs.writeFile(DATA_PATH, JSON.stringify(articles, null, 2), "utf8");
   }
+
+  // Calculate summary statistics
+  const totalPagesFetched = sourceStats.reduce((sum, s) => sum + s.pagesFetched, 0);
+  const totalItemsMatched = sourceStats.reduce((sum, s) => sum + s.itemsMatched, 0);
+  const totalArticlesExtracted = sourceStats.reduce((sum, s) => sum + s.articlesExtracted, 0);
+  const totalArticlesKept = sourceStats.reduce((sum, s) => sum + s.articlesKept, 0);
+  const overallYieldPercentage = totalItemsMatched > 0 
+    ? (totalArticlesKept / totalItemsMatched) * 100 
+    : 0;
+
+  // Create final stats object
+  const statsOutput: PageIngestionStats = {
+    timestamp: new Date().toISOString(),
+    sources: sourceStats,
+    summary: {
+      totalPagesFetched,
+      totalItemsMatched,
+      totalArticlesExtracted,
+      totalArticlesKept,
+      overallYieldPercentage
+    }
+  };
+
+  // Write statistics to file
+  await fs.writeFile(STATS_PATH, JSON.stringify(statsOutput, null, 2), "utf8");
+  console.log(`\n[Stats] Page source statistics written to: ${STATS_PATH}`);
+
   return added;
 }
 

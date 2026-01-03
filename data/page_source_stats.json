@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-01-03T20:45:49.719Z",
+  "sources": [
+    {
+      "sourceName": "Retail TouchPoints - Technology",
+      "pagesFetched": 1,
+      "fetchStatus": 200,
+      "itemsMatched": 22,
+      "articlesExtracted": 0,
+      "rejectedNoDate": 0,
+      "rejectedInvalidDate": 0,
+      "rejectedNoTitle": 0,
+      "rejectedNoUrl": 0,
+      "rejectedDuplicate": 22,
+      "rejectedSelectorMiss": 0,
+      "articlesKept": 0,
+      "yieldPercentage": 0,
+      "failures": []
+    },
+    {
+      "sourceName": "BoF - News (The News in Brief)",
+      "pagesFetched": 1,
+      "fetchStatus": 200,
+      "itemsMatched": 16,
+      "articlesExtracted": 0,
+      "rejectedNoDate": 0,
+      "rejectedInvalidDate": 0,
+      "rejectedNoTitle": 0,
+      "rejectedNoUrl": 0,
+      "rejectedDuplicate": 8,
+      "rejectedSelectorMiss": 8,
+      "articlesKept": 0,
+      "yieldPercentage": 0,
+      "failures": [
+        {
+          "reason": "selector_miss_link"
+        },
+        {
+          "reason": "selector_miss_link"
+        },
+        {
+          "reason": "selector_miss_link"
+        },
+        {
+          "reason": "selector_miss_link"
+        },
+        {
+          "reason": "selector_miss_link"
+        },
+        {
+          "reason": "selector_miss_link"
+        },
+        {
+          "reason": "selector_miss_link"
+        },
+        {
+          "reason": "selector_miss_link"
+        }
+      ]
+    },
+    {
+      "sourceName": "MIT Technology Review - AI",
+      "pagesFetched": 1,
+      "fetchStatus": 404,
+      "itemsMatched": 0,
+      "articlesExtracted": 0,
+      "rejectedNoDate": 0,
+      "rejectedInvalidDate": 0,
+      "rejectedNoTitle": 0,
+      "rejectedNoUrl": 0,
+      "rejectedDuplicate": 0,
+      "rejectedSelectorMiss": 0,
+      "articlesKept": 0,
+      "yieldPercentage": 0,
+      "failures": []
+    },
+    {
+      "sourceName": "InstoreMag - Latest News",
+      "pagesFetched": 1,
+      "fetchStatus": 200,
+      "itemsMatched": 274,
+      "articlesExtracted": 0,
+      "rejectedNoDate": 0,
+      "rejectedInvalidDate": 0,
+      "rejectedNoTitle": 6,
+      "rejectedNoUrl": 0,
+      "rejectedDuplicate": 268,
+      "rejectedSelectorMiss": 0,
+      "articlesKept": 0,
+      "yieldPercentage": 0,
+      "failures": [
+        {
+          "url": "https://www.facebook.com/instoremag/",
+          "reason": "no_title"
+        },
+        {
+          "url": "https://twitter.com/instoremag",
+          "reason": "no_title"
+        },
+        {
+          "url": "https://www.instagram.com/instoremagazine/",
+          "reason": "no_title"
+        },
+        {
+          "url": "https://www.facebook.com/instoremag/",
+          "reason": "no_title"
+        },
+        {
+          "url": "https://twitter.com/instoremag",
+          "reason": "no_title"
+        },
+        {
+          "url": "https://www.instagram.com/instoremagazine/",
+          "reason": "no_title"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalPagesFetched": 4,
+    "totalItemsMatched": 312,
+    "totalArticlesExtracted": 0,
+    "totalArticlesKept": 0,
+    "overallYieldPercentage": 0
+  }
+}
