@@ -59,7 +59,7 @@ export default async function ArchivePage() {
       {digests.length > 0 ? (
         <div>
           <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
-            Available weekly digests ({digests.length}):
+            Available weekly briefs ({digests.length}):
           </p>
           <ul className="space-y-3">
             {digests.map((weekLabel) => {

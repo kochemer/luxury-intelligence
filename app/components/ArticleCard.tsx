@@ -29,21 +29,21 @@ export default function ArticleCard({
   const displayDate = date ? formatDisplayDate(date) : null;
 
   return (
-    <div className="block w-full rounded-lg border border-gray-200 bg-white p-4 md:p-5 shadow-sm transition-shadow hover:shadow-md">
+    <div className="block w-full bg-white pb-4 md:pb-5 border-b border-gray-100 transition-colors hover:border-gray-300">
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="block no-underline text-inherit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded"
+        className="block pt-4 md:pt-5 no-underline text-inherit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
       >
         {/* Title */}
-        <div className="mb-1.5 md:mb-2 font-semibold text-base md:text-lg leading-snug text-blue-900">
+        <div className="mb-1 md:mb-1.5 font-semibold text-base md:text-lg leading-snug text-blue-900">
           {title}
         </div>
 
         {/* Meta row: Source • Date (only render if source or date exists) */}
         {(source || displayDate) && (
-          <div className="flex items-center gap-2 text-sm md:text-base text-gray-600 mb-2 md:mb-3">
+          <div className="flex items-center gap-2 text-sm md:text-base text-gray-600 mb-1.5 md:mb-2">
             {source && <span>{source}</span>}
             {source && displayDate && (
               <span className="text-gray-400 font-light">•</span>
@@ -84,16 +84,19 @@ export default function ArticleCard({
 
       {/* Optional summary - responsive clamp */}
       {cleanSummary && (
-        <div
-          className="text-sm md:text-base text-gray-800 bg-gray-50 border-l-4 border-blue-600 rounded px-3 md:px-4 py-2.5 md:py-3 mt-3 md:mt-4 italic line-clamp-2 md:line-clamp-3"
-          style={{
-            display: '-webkit-box',
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-          }}
-        >
-          {cleanSummary}
+        <div className="mt-2 md:mt-2.5">
+          <div className="text-xs text-gray-500 mb-1 font-medium">AI summary</div>
+          <div
+            className="text-sm md:text-base text-gray-600 bg-gray-50 border-l-2 border-gray-300 rounded px-3 md:px-4 py-2 md:py-2.5 line-clamp-2 md:line-clamp-3"
+            style={{
+              display: '-webkit-box',
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }}
+          >
+            {cleanSummary}
+          </div>
         </div>
       )}
     </div>

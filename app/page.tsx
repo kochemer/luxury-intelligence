@@ -95,7 +95,7 @@ const CATEGORY_CARDS: Array<{
     key: 'Jewellery_Industry',
     color: '#be8b36',
     title: 'Jewellery Industry',
-    desc: 'Key updates and stories across jewellery brands, trade, and supply chain.',
+    desc: 'Key updates and articles across jewellery brands, trade, and supply chain.',
     countBy: 'Jewellery',
     topInfo: 'Top 7 articles by recency',
     anchorId: 'jewellery-industry',
@@ -127,14 +127,14 @@ export default async function Home() {
       <section style={{
         position: 'relative',
         width: '100%',
-        minHeight: 360,
-        background: 'linear-gradient(120deg,#2e3741 40%, #637b8b 100%)',
+        minHeight: 240,
+        background: 'linear-gradient(120deg,#2e3741 50%, #4a5a6b 100%)',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 0,
-        borderBottom: '8px solid #eaeaea'
+        borderBottom: '1px solid #e5e7eb'
       }}>
         <div style={{
           position: 'absolute',
@@ -146,61 +146,54 @@ export default async function Home() {
               alt="Weekly Digest Hero"
               priority
               fill
-              style={{ objectFit: 'cover', objectPosition: 'center center', filter: 'brightness(0.62) blur(0.2px)' }}
+              style={{ objectFit: 'cover', objectPosition: 'center center', filter: 'brightness(0.75) blur(0.3px)', opacity: 0.4 }}
             />
         </div>
         <div className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8" style={{
           position: 'relative',
           zIndex: 2,
           color: '#fff',
-          padding: '3rem 1.5rem 2.5rem 1.5rem',
+          padding: '2rem 1.5rem 1.75rem 1.5rem',
           textAlign: 'center',
         }}>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{
-            textShadow: '0 2px 8px rgba(18,30,49,0.20)'
+          <h1 className="text-4xl md:text-5xl font-bold mb-3" style={{
+            textShadow: '0 1px 4px rgba(18,30,49,0.15)'
           }}>
             Luxury Intelligence
           </h1>
-          <div className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto">
-            <span style={{ fontWeight: 600, color: '#fff' }}>Luxury Ecommerce, Retail Technology & AI</span><br/>
-            Essential intelligence handpicked across strategy, ecommerce, luxury, and jewellery.<br/>
-            Save hours weekly – get expert-curated coverage, <span style={{ color: '#fed236' }}>AI summaries</span>, and direct source links.
+          <div className="text-base md:text-lg text-gray-100 leading-relaxed max-w-xl mx-auto mb-3">
+            Weekly intelligence across AI, ecommerce, luxury, and jewellery.
           </div>
-          <div style={{marginTop: '1.7rem', display: 'flex', justifyContent: 'center', gap: 14, flexWrap: 'wrap'}}>
+          <p className="text-sm md:text-base text-gray-300 mb-5">
+            Curated articles, signals, and context — handpicked and summarised each week.
+          </p>
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, flexWrap: 'wrap'}}>
             <Link href="/archive" style={{
               fontWeight: 500,
               color: '#06244c',
               background: '#fed236',
-              borderRadius: 3,
-              padding: '0.65rem 1.6rem',
+              borderRadius: 4,
+              padding: '0.6rem 1.4rem',
               textDecoration: 'none',
-              transition: 'background 0.19s, color 0.16s',
-              fontSize: '1.12rem',
-              boxShadow: '0 1px 2px rgba(0,0,0,0.07)'
+              transition: 'background 0.2s',
+              fontSize: '1rem',
             }}>Browse Archive</Link>
-            <Link href="/about" style={{
-              fontWeight: 500,
-              color: '#fff',
-              background: 'rgba(255,255,255,0.15)',
-              borderRadius: 3,
-              padding: '0.65rem 1.6rem',
-              textDecoration: 'none',
-              transition: 'background 0.19s, color 0.16s',
-              fontSize: '1.12rem',
-              border: '1px solid rgba(255,255,255,0.3)'
-            }}>About</Link>
-            <Link href="/support" style={{
-              fontWeight: 500,
-              color: '#fff',
-              background: 'rgba(255,255,255,0.15)',
-              borderRadius: 3,
-              padding: '0.65rem 1.6rem',
-              textDecoration: 'none',
-              transition: 'background 0.19s, color 0.16s',
-              fontSize: '1.12rem',
-              border: '1px solid rgba(255,255,255,0.3)'
-            }}>Support</Link>
-            <BuildDigestButton />
+            <span className="text-gray-300 text-sm">•</span>
+            <Link href="/about" className="text-sm md:text-base text-gray-200 hover:text-white underline">
+              About
+            </Link>
+            <span className="text-gray-300 text-sm">•</span>
+            <Link href="/support" className="text-sm md:text-base text-gray-200 hover:text-white underline">
+              Support
+            </Link>
+            <span className="text-gray-300 text-sm">•</span>
+            <Link href="/methodology" className="text-sm md:text-base text-gray-200 hover:text-white underline">
+              How this is curated
+            </Link>
+            <span className="text-gray-300 text-sm">•</span>
+            <div className="text-xs text-gray-400">
+              <BuildDigestButton />
+            </div>
           </div>
         </div>
       </section>
@@ -237,41 +230,29 @@ export default async function Home() {
       ) : (
       <>
         {/* Weekly Digest Summary / Meta */}
-        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-12 md:mb-16" style={{
-          background: '#fff',
-          borderRadius: 12,
-          boxShadow: '0 2px 24px 0 rgba(28,68,90,.06)',
-          margin: '-64px auto 0 auto',
-          padding: '2.5rem 2rem',
-          position: 'relative'
-        }}>
-          <div className="flex items-end justify-between mb-4 flex-wrap gap-4">
+        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-8 md:mb-12 pb-6 border-b border-gray-200">
+          <div className="flex items-baseline justify-between flex-wrap gap-4">
             <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2">
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-1">
                 Week {digest.weekLabel}
               </h2>
-              <p className="text-base md:text-lg text-gray-600 mb-1">
+              <p className="text-sm md:text-base text-gray-500">
                 {formatDate(digest.startISO)} to {formatDate(digest.endISO)} ({digest.tz})
+                {digest.builtAtLocal && (
+                  <span className="ml-2">• Built {digest.builtAtLocal}</span>
+                )}
               </p>
-              {digest.builtAtLocal && (
-                <p className="text-sm text-gray-500">
-                  Built: {digest.builtAtLocal}
-                </p>
-              )}
             </div>
             <div className="text-right">
-              <p className="text-sm md:text-base text-gray-600 mb-1">
-                Digest total
-              </p>
-              <p className="text-3xl md:text-4xl font-bold text-blue-700">
-                {digest.totals.total}
+              <p className="text-sm md:text-base text-gray-500">
+                {digest.totals.total} articles
               </p>
             </div>
           </div>
         </section>
 
         {/* Category Jump Navigation */}
-        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-12 md:mb-16">
+        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-8 md:mb-10">
           <nav className="flex flex-wrap gap-2 justify-center" aria-label="Category navigation">
             {CATEGORY_CARDS.map(cat => (
               <a
@@ -283,6 +264,13 @@ export default async function Home() {
               </a>
             ))}
           </nav>
+        </section>
+
+        {/* Ranking Note - Single Line */}
+        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-8 md:mb-10">
+          <p className="text-sm text-gray-500 text-center">
+            Ranked by relevance & recency.
+          </p>
         </section>
 
         {/* CATEGORY SECTIONS UI - 12 Column Grid */}

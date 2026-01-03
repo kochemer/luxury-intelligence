@@ -33,7 +33,7 @@ export default function AboutPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{
             textShadow: '0 2px 8px rgba(18,30,49,0.20)'
           }}>
-            About This Digest
+            About This Brief
           </h1>
           <div className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto">
             Understanding how we curate, score, and summarize the week's most important news
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 </h3>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-3">
                   Each article is classified into one of four topic categories and scored based on <strong className="text-gray-900">relevance</strong>, <strong className="text-gray-900">recency</strong>, 
-                  and <strong className="text-gray-900">source quality</strong>. The highest-scoring articles are selected for each weekly digest.
+                  and <strong className="text-gray-900">source quality</strong>. The highest-scoring articles are selected for each weekly brief.
                 </p>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                   Articles are ranked within each category by combining these factors: <strong className="text-gray-900">relevance</strong> measures how closely the content matches the category's focus, 

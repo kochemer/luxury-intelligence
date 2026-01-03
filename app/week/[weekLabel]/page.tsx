@@ -114,7 +114,7 @@ export default async function WeekPage({ params }: { params: { weekLabel: string
             </Link>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Weekly Digest: {digest.weekLabel}
+            Weekly Brief: {digest.weekLabel}
           </h1>
           <p className="text-base md:text-lg text-gray-600 mb-2">
             Period: {startDate} to {endDate} ({digest.tz})

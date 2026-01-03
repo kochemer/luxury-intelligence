@@ -91,6 +91,12 @@ export default function RootLayout({
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/methodology"
+                className="hover:underline"
+              >
+                How this is curated
+              </Link>
             </div>
           </div>
         </footer>
