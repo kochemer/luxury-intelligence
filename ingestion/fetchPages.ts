@@ -209,7 +209,26 @@ export async function runPageIngestion(): Promise<number> {
       continue;
     }
     const $ = cheerio.load(res.data);
-    const items = $(page.selectors.item);
+    
+    // Try primary selector first
+    let items = $(page.selectors.item);
+    let currentSelectors = page.selectors;
+    
+    // If primary selector finds 0 items and fallback exists, try fallback (BoF only)
+    if (items.length === 0 && page.fallbackSelectors) {
+      console.log(`[${page.name}] WARNING: Primary selector found 0 items, trying fallback selector`);
+      items = $(page.fallbackSelectors.item);
+      currentSelectors = page.fallbackSelectors;
+      
+      if (items.length === 0) {
+        console.log(`[${page.name}] WARNING: Fallback selector also found 0 items, skipping this source`);
+        sourceStats.push(stats);
+        continue;
+      } else {
+        console.log(`[${page.name}] INFO: Fallback selector found ${items.length} items`);
+      }
+    }
+    
     stats.itemsMatched = items.length;
     const itemsMatched = items.length;
     let extracted: Article[] = [];
@@ -218,13 +237,28 @@ export async function runPageIngestion(): Promise<number> {
     items.each((i, el) => {
       // Title
       let title: string | undefined;
-      if (page.selectors.title) {
-        title = $(el).find(page.selectors.title).first().text().trim();
+      if (currentSelectors.title) {
+        title = $(el).find(currentSelectors.title).first().text().trim();
+      } else if (currentSelectors.link) {
+        // If no title selector but link selector exists, try to get title from link text
+        const linkElem = $(el).find(currentSelectors.link).first();
+        if (linkElem.length > 0) {
+          title = linkElem.text().trim();
+        }
       }
+      
       // Link
-      let linkElem = page.selectors.link
-        ? $(el).find(page.selectors.link).first()
+      let linkElem = currentSelectors.link
+        ? $(el).find(currentSelectors.link).first()
         : null;
+      
+      // For fallback selector case where item IS the link (e.g., "main h2 a")
+      if (!linkElem || linkElem.length === 0) {
+        // If the element itself is a link, use it
+        if ($(el).is('a')) {
+          linkElem = $(el);
+        }
+      }
       let url: string | undefined;
       if (linkElem && linkElem.length > 0) {
         const attr = page.linkAttr || "href";
@@ -251,8 +285,63 @@ export async function runPageIngestion(): Promise<number> {
       }
       // Date
       let published_at: string | undefined = undefined;
-      if (page.selectors.date) {
-        let dateText = $(el).find(page.selectors.date).first().text().trim();
+      if (currentSelectors.date !== undefined) {
+        let dateText = "";
+        if (currentSelectors.date && currentSelectors.date.length > 0) {
+          dateText = $(el).find(currentSelectors.date).first().text().trim();
+        } else if (page.dateFormatHint === "D MMMM YYYY") {
+          // BoF special case: date is in the next sibling text node after the link
+          // Try multiple strategies to find the date
+          if ($(el).is('a')) {
+            // Item is the link (fallback case)
+            // Strategy 1: Look for date in parent h2's next sibling text node
+            const parentH2 = $(el).parent('h2');
+            if (parentH2.length > 0) {
+              const parentDomNode = parentH2[0] as any;
+              const nextNode = parentDomNode.nextSibling;
+              if (nextNode && nextNode.nodeType === 3) { // Text node
+                dateText = nextNode.textContent?.trim() || "";
+              }
+              // Strategy 2: If no sibling, look in parent's text (excluding link text)
+              if (!dateText) {
+                const parentText = parentH2.text();
+                const linkText = $(el).text();
+                const remainingText = parentText.replace(linkText, '').trim();
+                // Try to extract date pattern from remaining text
+                const dateMatch = remainingText.match(/(\d{1,2}\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4})/i);
+                if (dateMatch) {
+                  dateText = dateMatch[1];
+                }
+              }
+            }
+          } else {
+            // Item contains the link (primary case)
+            // Strategy 1: Look for date in item's next sibling text node
+            const itemDomNode = $(el)[0] as any;
+            const nextNode = itemDomNode.nextSibling;
+            if (nextNode && nextNode.nodeType === 3) { // Text node
+              dateText = nextNode.textContent?.trim() || "";
+            }
+            // Strategy 2: Try link's next sibling
+            if (!dateText && linkElem && linkElem.length > 0) {
+              const linkDomNode = linkElem[0] as any;
+              const linkNextNode = linkDomNode.nextSibling;
+              if (linkNextNode && linkNextNode.nodeType === 3) {
+                dateText = linkNextNode.textContent?.trim() || "";
+              }
+            }
+            // Strategy 3: Look in item text (excluding link text)
+            if (!dateText && linkElem && linkElem.length > 0) {
+              const itemText = $(el).text();
+              const linkText = linkElem.text();
+              const remainingText = itemText.replace(linkText, '').trim();
+              const dateMatch = remainingText.match(/(\d{1,2}\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4})/i);
+              if (dateMatch) {
+                dateText = dateMatch[1];
+              }
+            }
+          }
+        }
         
         // If date selector is empty but hint is RELATIVE, try to find relative date in item text
         if (dateText.length === 0 && page.dateFormatHint === "RELATIVE") {
@@ -285,8 +374,8 @@ export async function runPageIngestion(): Promise<number> {
             }
           }
         } else {
-          // For RELATIVE hint, allow items without dates (use current date as fallback)
-          if (page.dateFormatHint === "RELATIVE") {
+          // For RELATIVE hint or BoF with empty date selector, allow items without dates (use current date as fallback)
+          if (page.dateFormatHint === "RELATIVE" || (currentSelectors.date === "" && page.dateFormatHint === "D MMMM YYYY")) {
             published_at = new Date().toISOString();
           } else {
             // Track no date rejection
@@ -324,16 +413,24 @@ export async function runPageIngestion(): Promise<number> {
         stats.rejectedNoTitle++;
         return;
       }
-      if (page.selectors.date && !published_at) {
-        if (stats.failures.length < MAX_FAILURES_PER_SOURCE) {
-          stats.failures.push({
-            url: url,
-            title: title,
-            reason: "date_required_but_missing"
-          });
+      if (currentSelectors.date !== undefined && !published_at) {
+        // For BoF with empty date selector, be lenient - use current date as fallback
+        if (currentSelectors.date && currentSelectors.date.length > 0 && !published_at) {
+          // Date selector is set but date not found - reject
+          if (stats.failures.length < MAX_FAILURES_PER_SOURCE) {
+            stats.failures.push({
+              url: url,
+              title: title,
+              reason: "date_required_but_missing"
+            });
+          }
+          stats.rejectedNoDate++;
+          return;
+        } else if (currentSelectors.date === "" && page.dateFormatHint === "D MMMM YYYY" && !published_at) {
+          // BoF special case: empty date selector, date not found - use current date as fallback
+          // This allows BoF articles to be ingested even if date parsing fails
+          published_at = new Date().toISOString();
         }
-        stats.rejectedNoDate++;
-        return;
       }
       
       // Check for duplicates

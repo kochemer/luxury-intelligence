@@ -6,6 +6,7 @@ import { getWeekRangeCET } from '../utils/weekCET';
 import { classifyTopic } from '../classification/classifyTopics';
 import type { Article as BaseArticle, Topic } from '../classification/classifyTopics';
 import { classifyArticleLLM, getClassificationStats, resetClassificationStats } from '../classification/classifyWithLLM';
+import { rerankArticles, getRerankStats, resetRerankStats } from './rerankArticles';
 
 // Extended Article type that includes snippet (used in actual data)
 type Article = BaseArticle & {
@@ -207,10 +208,10 @@ function calculateRelevanceScore(
 }
 
 /**
- * Select top N articles with composite scoring and diversity guard
+ * Select top N articles deterministically (fallback for reranking)
  * Returns articles with relevance scores attached
  */
-function selectTopN(
+function selectTopNDeterministic(
   articles: Article[],
   n: number,
   topic: Topic,
@@ -259,6 +260,71 @@ function selectTopN(
   }
   
   return selected;
+}
+
+/**
+ * Select top N articles using LLM reranking with fallback
+ * Returns articles with relevance scores and optional explainability attached
+ */
+async function selectTopN(
+  articles: Article[],
+  n: number,
+  topic: Topic,
+  weekStart: number,
+  weekEnd: number,
+  weekLabel: string
+): Promise<ArticleWithRelevance[]> {
+  if (articles.length === 0) return [];
+  
+  // Calculate scores for all articles
+  const articlesWithScores = articles.map(article => ({
+    article,
+    relevance: calculateRelevanceScore(article, topic, weekStart, weekEnd),
+  }));
+  
+  // Sort by total score (descending), then by URL for determinism
+  articlesWithScores.sort((a, b) => {
+    if (Math.abs(a.relevance.scoreTotal - b.relevance.scoreTotal) > 0.0001) {
+      return b.relevance.scoreTotal - a.relevance.scoreTotal;
+    }
+    return a.article.url.localeCompare(b.article.url);
+  });
+  
+  // Get candidates: top N articles by deterministic score (default 30, min 25, max 40)
+  // Use all available if fewer than 25, but still try to rerank if >= 7
+  const candidateCount = articlesWithScores.length < 25
+    ? articlesWithScores.length
+    : Math.min(30, articlesWithScores.length, 40);
+  const candidates = articlesWithScores.slice(0, candidateCount).map(item => ({
+    ...item.article,
+    relevance: item.relevance,
+  }));
+  
+  // Fallback function: deterministic top N
+  const fallbackSelect = (arts: ArticleWithRelevance[]) => {
+    return selectTopNDeterministic(arts, n, topic, weekStart, weekEnd);
+  };
+  
+  // Rerank using LLM (pass total available count for logging)
+  const result = await rerankArticles(
+    weekLabel,
+    topic,
+    articles.length, // total available in category
+    candidates,
+    fallbackSelect
+  );
+  
+  // Attach explainability if available
+  if (result.explainability) {
+    result.selected.forEach((article, idx) => {
+      if (result.explainability && result.explainability[idx]) {
+        (article as any).rerankWhy = result.explainability[idx].rerankWhy;
+        (article as any).rerankConfidence = result.explainability[idx].rerankConfidence;
+      }
+    });
+  }
+  
+  return result.selected;
 }
 
 export type WeeklyDigest = {
@@ -350,6 +416,9 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
   // Reset classification stats
   resetClassificationStats();
   
+  // Reset rerank stats
+  resetRerankStats();
+  
   // Classify articles using LLM with fallback
   // Process in batches to avoid overwhelming the API, but await all results
   const classificationPromises = eligibleArticles.map(async (article) => {
@@ -365,8 +434,8 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
   }
   
   // Log classification statistics
-  const stats = getClassificationStats();
-  console.log(`[Classification Stats] Total: ${stats.total}, Cache hits: ${stats.cache_hits}, Cache misses: ${stats.cache_misses}, LLM calls: ${stats.llm_calls}, LLM successes: ${stats.llm_successes}, LLM failures: ${stats.llm_failures}, Fallbacks: ${stats.fallbacks}`);
+  const classificationStats = getClassificationStats();
+  console.log(`[Classification Stats] Total: ${classificationStats.total}, Cache hits: ${classificationStats.cache_hits}, Cache misses: ${classificationStats.cache_misses}, LLM calls: ${classificationStats.llm_calls}, LLM successes: ${classificationStats.llm_successes}, LLM failures: ${classificationStats.llm_failures}, Fallbacks: ${classificationStats.fallbacks}`);
   
   // Deduplicate articles within each topic
   for (const topicKey of Object.keys(byTopic) as Topic[]) {
@@ -384,25 +453,46 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
     },
   };
   
-  // Build topics structure with top N articles (with relevance scores)
+  // Build topics structure with top N articles (with relevance scores and LLM reranking)
   const topics = {
     AI_and_Strategy: {
       total: byTopic["AI_and_Strategy"].length,
-      top: selectTopN(byTopic["AI_and_Strategy"], TOP_N, "AI_and_Strategy", weekStart, weekEnd),
+      top: await selectTopN(byTopic["AI_and_Strategy"], TOP_N, "AI_and_Strategy", weekStart, weekEnd, weekLabel),
     },
     Ecommerce_Retail_Tech: {
       total: byTopic["Ecommerce_Retail_Tech"].length,
-      top: selectTopN(byTopic["Ecommerce_Retail_Tech"], TOP_N, "Ecommerce_Retail_Tech", weekStart, weekEnd),
+      top: await selectTopN(byTopic["Ecommerce_Retail_Tech"], TOP_N, "Ecommerce_Retail_Tech", weekStart, weekEnd, weekLabel),
     },
     Luxury_and_Consumer: {
       total: byTopic["Luxury_and_Consumer"].length,
-      top: selectTopN(byTopic["Luxury_and_Consumer"], TOP_N, "Luxury_and_Consumer", weekStart, weekEnd),
+      top: await selectTopN(byTopic["Luxury_and_Consumer"], TOP_N, "Luxury_and_Consumer", weekStart, weekEnd, weekLabel),
     },
     Jewellery_Industry: {
       total: byTopic["Jewellery_Industry"].length,
-      top: selectTopN(byTopic["Jewellery_Industry"], TOP_N, "Jewellery_Industry", weekStart, weekEnd),
+      top: await selectTopN(byTopic["Jewellery_Industry"], TOP_N, "Jewellery_Industry", weekStart, weekEnd, weekLabel),
     },
   };
+  
+  // Log rerank statistics (per-category + summary)
+  const rerankStats = getRerankStats();
+  console.log(`[Rerank Stats] Per-category:`);
+  for (const catStat of rerankStats.category_stats) {
+    let status: string;
+    if (catStat.skipped) {
+      status = `SKIPPED: ${catStat.skip_reason}`;
+    } else if (catStat.cache_hit) {
+      status = 'CACHE_HIT';
+    } else {
+      // Check if it was a fallback
+      const wasFallback = catStat.skip_reason && catStat.skip_reason.includes('fallback');
+      status = wasFallback ? 'FALLBACK' : 'LLM_CALL';
+    }
+    console.log(`  ${catStat.category}: ${catStat.total_available} available, ${catStat.candidates_count} candidates, ${catStat.selected_count} selected [${status}]`);
+  }
+  const avgCandidates = rerankStats.category_stats.length > 0
+    ? (rerankStats.total_candidates / rerankStats.category_stats.length).toFixed(1)
+    : '0';
+  console.log(`[Rerank Stats] Summary: Calls: ${rerankStats.calls}, Cache hits: ${rerankStats.cache_hits}, Cache misses: ${rerankStats.cache_misses}, Fallbacks: ${rerankStats.fallbacks}, Avg candidates: ${avgCandidates}`);
   
   // Get current timestamp in Europe/Copenhagen
   const now = DateTime.now().setZone('Europe/Copenhagen');

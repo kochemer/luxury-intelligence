@@ -121,30 +121,41 @@ export const SOURCE_FEEDS: SourceFeed[] = [
 // Yes, SOURCE_PAGES is actually used in the project flow—see for example ingestion/fetchPages.ts, which imports and uses SOURCE_PAGES.
 export const SOURCE_PAGES: SourcePage[] = [
   // --- Ecommerce & Retail: Retail TouchPoints --- 
-  {
-    name: "Retail TouchPoints - Technology",
-    url: "https://www.retailtouchpoints.com/topics/retail-innovation",
-    selectors: {
-      item: "article, .article-item, .post-item, .entry",
-      title: "h2 a, h3 a, h2, h3, .title, .entry-title",
-      link: "h2 a, h3 a, a.entry-title-link, a",
-      date: "time, .date, .post-date, .meta-date, .published-date"
-    },
-    linkAttr: "href",
-    dateFormatHint: "RELATIVE"
-  },
+  // Disabled: page fetch yielded 100% duplicates vs RSS.
+  // {
+  //   name: "Retail TouchPoints - Technology",
+  //   url: "https://www.retailtouchpoints.com/topics/retail-innovation",
+  //   selectors: {
+  //     item: "article, .article-item, .post-item, .entry",
+  //     title: "h2 a, h3 a, h2, h3, .title, .entry-title",
+  //     link: "h2 a, h3 a, a.entry-title-link, a",
+  //     date: "time, .date, .post-date, .meta-date, .published-date"
+  //   },
+  //   linkAttr: "href",
+  //   dateFormatHint: "RELATIVE"
+  // },
   // --- Luxury: The Business of Fashion News --- 
   {
     name: "BoF - News (The News in Brief)",
     url: "https://www.businessoffashion.com/news/",
     selectors: {
-      item: "main h2, main h2:has(a)",
-      title: "a",
-      link: "a",
+      // Primary: target h2 elements that contain article links
+      item: "main h2:has(a[href^='/']), main article h2:has(a[href^='/']), main .news-item h2:has(a[href^='/'])",
+      // More specific: link must be direct child or descendant of h2, and have href starting with /
+      title: "a[href^='/']",
+      link: "a[href^='/']",
       date: "" // parse from the next sibling text node (e.g. "01 January 2026")
     },
     linkAttr: "href",
-    dateFormatHint: "D MMMM YYYY"
+    dateFormatHint: "D MMMM YYYY",
+    // Fallback selectors if primary finds 0 items
+    // In fallback, item IS the link, so we extract title and url from the link element itself
+    fallbackSelectors: {
+      item: "main h2 a[href^='/'], main article h2 a[href^='/']",
+      title: "", // Will use link text
+      link: "", // Item itself is the link
+      date: "" // Still parse from sibling text node
+    }
   },
   // --- AI: The Algorithm - MIT Technology Review AI Section ---
   {
@@ -159,16 +170,17 @@ export const SOURCE_PAGES: SourcePage[] = [
     linkAttr: "href"
   },
   // --- Jewellery: InstoreMag News Feed Page ---
-  {
-    name: "InstoreMag - Latest News",
-    url: "https://instoremag.com/news/headlines/",
-    selectors: {
-      item: "article, .post, .entry, li, .news-item, .headline-item",
-      title: "h2 a, h3 a, h2, h3, .title a, .entry-title a, a",
-      link: "h2 a, h3 a, .title a, .entry-title a, a",
-      date: "time, .date, .post-date, .meta, .published, .timestamp"
-    },
-    linkAttr: "href",
-    dateFormatHint: "RELATIVE"
-  }
+  // Disabled: page fetch yielded 100% duplicates vs RSS.
+  // {
+  //   name: "InstoreMag - Latest News",
+  //   url: "https://instoremag.com/news/headlines/",
+  //   selectors: {
+  //     item: "article, .post, .entry, li, .news-item, .headline-item",
+  //     title: "h2 a, h3 a, h2, h3, .title a, .entry-title a, a",
+  //     link: "h2 a, h3 a, .title a, .entry-title a, a",
+  //     date: "time, .date, .post-date, .meta, .published, .timestamp"
+  //   },
+  //   linkAttr: "href",
+  //   dateFormatHint: "RELATIVE"
+  // }
 ];

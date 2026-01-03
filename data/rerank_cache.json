@@ -1,0 +1,290 @@
+{
+  "2026-W01:AI_and_Strategy:96c4f6b71fa0": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Insights on effective AI usage from an expert",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Decoding current AI terminology is essential",
+        "confidence": 0.85
+      },
+      {
+        "id": "4",
+        "rank": 3,
+        "why": "Explores the emergence of new billionaires in AI",
+        "confidence": 0.8
+      },
+      {
+        "id": "11",
+        "rank": 4,
+        "why": "Discusses generative AI's impact on SEO strategies",
+        "confidence": 0.75
+      },
+      {
+        "id": "13",
+        "rank": 5,
+        "why": "Analyzes AI's influence on shopping behavior",
+        "confidence": 0.7
+      },
+      {
+        "id": "17",
+        "rank": 6,
+        "why": "Highlights regulatory responses to AI-related issues",
+        "confidence": 0.65
+      },
+      {
+        "id": "23",
+        "rank": 7,
+        "why": "Innovative research on AI applications in robotics",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-03T21:30:01.766Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Ecommerce_Retail_Tech:2e97c3e9b686": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Focus on sustainability in retail tech",
+        "confidence": 0.9
+      },
+      {
+        "id": "16",
+        "rank": 2,
+        "why": "Insights on marketing strategies amid tariffs",
+        "confidence": 0.85
+      },
+      {
+        "id": "17",
+        "rank": 3,
+        "why": "Analysis of tariff impacts on retail",
+        "confidence": 0.8
+      },
+      {
+        "id": "1",
+        "rank": 4,
+        "why": "Unique marketing approach in crowded space",
+        "confidence": 0.75
+      },
+      {
+        "id": "2",
+        "rank": 5,
+        "why": "Trends shaping the retail landscape in 2026",
+        "confidence": 0.7
+      },
+      {
+        "id": "3",
+        "rank": 6,
+        "why": "Revival strategies of iconic retail brands",
+        "confidence": 0.65
+      },
+      {
+        "id": "20",
+        "rank": 7,
+        "why": "Impact of tariffs on founders' business models",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-03T21:30:06.793Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:AI_and_Strategy:54aeb4239cec": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Insights on effective AI usage from an expert",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Decoding current AI terminology is essential",
+        "confidence": 0.85
+      },
+      {
+        "id": "4",
+        "rank": 3,
+        "why": "Explores the impact of AI on wealth creation",
+        "confidence": 0.8
+      },
+      {
+        "id": "12",
+        "rank": 4,
+        "why": "Discusses AI's influence on SEO strategies",
+        "confidence": 0.75
+      },
+      {
+        "id": "14",
+        "rank": 5,
+        "why": "Analyzes AI's effect on shopping behavior",
+        "confidence": 0.7
+      },
+      {
+        "id": "18",
+        "rank": 6,
+        "why": "Highlights regulatory responses to AI challenges",
+        "confidence": 0.65
+      },
+      {
+        "id": "24",
+        "rank": 7,
+        "why": "Innovative AI applications in robotics discussed",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-03T21:34:17.800Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:AI_and_Strategy:ba3b12c29162": {
+    "selected": [
+      {
+        "id": "4",
+        "rank": 1,
+        "why": "Highlights the impact of AI on wealth creation",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Explains current AI terminology for better understanding",
+        "confidence": 0.85
+      },
+      {
+        "id": "13",
+        "rank": 3,
+        "why": "Discusses AI's influence on shopping behavior",
+        "confidence": 0.8
+      },
+      {
+        "id": "11",
+        "rank": 4,
+        "why": "Predicts AI's role in future SEO strategies",
+        "confidence": 0.75
+      },
+      {
+        "id": "0",
+        "rank": 5,
+        "why": "Provides practical tips for using AI effectively",
+        "confidence": 0.7
+      },
+      {
+        "id": "17",
+        "rank": 6,
+        "why": "Covers regulatory responses to AI-related issues",
+        "confidence": 0.65
+      },
+      {
+        "id": "23",
+        "rank": 7,
+        "why": "Explores advancements in AI technology for robotics",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-03T21:37:38.603Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Ecommerce_Retail_Tech:3c232c0e5b6e": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Focus on sustainability in retail tech",
+        "confidence": 0.9
+      },
+      {
+        "id": "16",
+        "rank": 2,
+        "why": "Insights on marketing strategies amid tariffs",
+        "confidence": 0.85
+      },
+      {
+        "id": "17",
+        "rank": 3,
+        "why": "Analysis of tariff impacts on retail",
+        "confidence": 0.8
+      },
+      {
+        "id": "1",
+        "rank": 4,
+        "why": "Unique marketing approach in crowded space",
+        "confidence": 0.75
+      },
+      {
+        "id": "2",
+        "rank": 5,
+        "why": "Trends shaping the retail landscape in 2026",
+        "confidence": 0.7
+      },
+      {
+        "id": "3",
+        "rank": 6,
+        "why": "Revival strategies of iconic brands",
+        "confidence": 0.65
+      },
+      {
+        "id": "20",
+        "rank": 7,
+        "why": "Emotional toll of tariffs on founders",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-03T21:37:42.964Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Luxury_and_Consumer:c17cf742237e": {
+    "selected": [
+      {
+        "id": "3",
+        "rank": 1,
+        "why": "Highlights trends in luxury travel for 2026",
+        "confidence": 0.9
+      },
+      {
+        "id": "0",
+        "rank": 2,
+        "why": "Relevant ecological insights impacting luxury markets",
+        "confidence": 0.7
+      },
+      {
+        "id": "1",
+        "rank": 3,
+        "why": "Links screen time to future consumer behavior",
+        "confidence": 0.65
+      },
+      {
+        "id": "2",
+        "rank": 4,
+        "why": "Legal issues affecting luxury market players",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-03T21:38:09.311Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Jewellery_Industry:6af7f7be04aa": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Relevant to jewellery design and technology",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Explores historical techniques impacting jewellery",
+        "confidence": 0.85
+      }
+    ],
+    "cached_at": "2026-01-03T21:39:38.499Z",
+    "model": "gpt-4o-mini"
+  }
+}

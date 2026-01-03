@@ -3,8 +3,8 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2025-12-28T23:00:00.000Z",
   "endISO": "2026-01-04T22:59:59.999Z",
-  "builtAtISO": "2026-01-03T20:51:07.689+01:00",
-  "builtAtLocal": "2026-01-03 20:51:07",
+  "builtAtISO": "2026-01-03T22:40:31.266+01:00",
+  "builtAtLocal": "2026-01-03 22:40:31",
   "totals": {
     "total": 57,
     "byTopic": {
@@ -18,6 +18,92 @@
     "AI_and_Strategy": {
       "total": 29,
       "top": [
+        {
+          "id": "337gjj",
+          "title": "The New Billionaires of the A.I. Boom",
+          "url": "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-29T22:53:31.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "Just like past tech booms, the latest frenzy has produced a group of billionaires — at least on paper — from smaller start-ups.",
+          "relevance": {
+            "scoreTotal": 0.3422139552615971,
+            "recencyScore": 0.14221395526159714,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Highlights the impact of AI on wealth creation",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-generated summary:\nThe AI boom has created a new group of billionaires from smaller start-ups, following a trend seen in past tech booms."
+        },
+        {
+          "id": "4agilu",
+          "title": "Decoding the A.I.-Driven Tech Lingo From 2025",
+          "url": "https://www.nytimes.com/2025/12/30/technology/personaltech/tech-jargon-ai.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-30T10:02:10.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "Here’s a cheat sheet for decoding this year’s A.I.-driven tech lingo, from RAG to superintelligence.",
+          "relevance": {
+            "scoreTotal": 0.3585482807681023,
+            "recencyScore": 0.2085482807681023,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Explains current AI terminology for better understanding",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary:\nA cheat sheet for decoding A.I.-driven tech lingo in 2025, including terms like RAG and superintelligence, is provided in this NYTimes Technology article."
+        },
+        {
+          "id": "pd8wix",
+          "title": "The Psychology of AI SERPs and Shopping",
+          "url": "https://www.practicalecommerce.com/the-psychology-of-ai-serps-and-shopping",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-12-29T10:00:37.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "The rise of \"zero-click\" searches may signal the coming effect of AI shopping on product discovery and decision-making.\nThe post The Psychology of AI SERPs and Shopping appeared first on Practical Ecommerce.",
+          "relevance": {
+            "scoreTotal": 0.2155373678332298,
+            "recencyScore": 0.06553736783322978,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Discusses AI's influence on shopping behavior",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-driven \"zero-click\" searches are changing the landscape of product discovery and decision-making, hinting at the impact of AI on shopping behavior."
+        },
+        {
+          "id": "sjl53v",
+          "title": "3 SEO Predictions for 2026",
+          "url": "https://www.practicalecommerce.com/3-seo-predictions-for-2026",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-12-30T20:10:58.000Z",
+          "ingested_at": "2025-12-30T20:58:31.247Z",
+          "snippet": "Generative AI increasingly dominates search results through AI Overviews and AI Mode, rendering traditional optimization ineffective.\nThe post 3 SEO Predictions for 2026 appeared first on Practical Ecommerce.",
+          "relevance": {
+            "scoreTotal": 0.21894510626479013,
+            "recencyScore": 0.2689451062647902,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Predicts AI's role in future SEO strategies",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI is predicted to dominate search results in 2026 with the rise of AI Overviews and AI Mode, making traditional SEO strategies less effective."
+        },
         {
           "id": "bv2j8a",
           "title": "The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose",
@@ -36,111 +122,47 @@
               "chatbot"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\n\"The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose\" from NYTimes Technology on 2025-12-30 discusses the benefits of chatbots and offers advice on how to use them effectively."
+          "rerankWhy": "Provides practical tips for using AI effectively",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-generated summary: The NYTimes Technology podcast episode \"The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose\" discusses the benefits of chatbots and offers advice on how to use them effectively."
         },
         {
-          "id": "4agilu",
-          "title": "Decoding the A.I.-Driven Tech Lingo From 2025",
-          "url": "https://www.nytimes.com/2025/12/30/technology/personaltech/tech-jargon-ai.html",
-          "source": "NYTimes Technology",
-          "published_at": "2025-12-30T10:02:10.000Z",
-          "ingested_at": "2025-12-30T12:26:38.325Z",
-          "snippet": "Here’s a cheat sheet for decoding this year’s A.I.-driven tech lingo, from RAG to superintelligence.",
-          "relevance": {
-            "scoreTotal": 0.3585482807681023,
-            "recencyScore": 0.2085482807681023,
-            "sourceWeight": 0.15,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "aiSummary": "AI-generated summary: A cheat sheet for understanding A.I.-driven tech lingo in 2025, including terms like RAG and superintelligence, is provided in this NYTimes Technology article."
-        },
-        {
-          "id": "yg52at",
-          "title": "Phone Searches at U.S. Borders: What Travelers Need to Know",
-          "url": "https://www.nytimes.com/2025/12/31/travel/airport-border-phone-search.html",
-          "source": "NYTimes Technology",
-          "published_at": "2025-12-31T10:00:22.000Z",
-          "ingested_at": "2025-12-31T12:36:16.184Z",
-          "snippet": "Customs agents have broad authority to search the electronic devices of travelers entering and leaving the U.S. Here are tips for keeping your data safe.",
-          "relevance": {
-            "scoreTotal": 0.35122685243258406,
-            "recencyScore": 0.35122685243258406,
-            "sourceWeight": 0.15,
-            "keywordBoost": 0.05,
-            "penalty": 0.2,
-            "matchedKeywords": [
-              "data"
-            ]
-          },
-          "aiSummary": "AI-Generated Summary:\nCustoms agents at U.S. borders have the authority to search travelers' electronic devices, prompting the need for data protection measures while traveling."
-        },
-        {
-          "id": "6rp39z",
-          "title": "Hive (YC S14) Is Hiring a Staff Software Engineer (Data Systems)",
-          "url": "https://jobs.ashbyhq.com/hive.co/cb0dc490-0e32-4734-8d91-8b56a31ed497",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T14:31:34.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
-          "relevance": {
-            "scoreTotal": 0.28527447128848293,
-            "recencyScore": 0.23527447128848292,
-            "sourceWeight": 0,
-            "keywordBoost": 0.05,
-            "penalty": 0,
-            "matchedKeywords": [
-              "data"
-            ]
-          }
-        },
-        {
-          "id": "oka1ei",
-          "title": "Public Sans – A strong, neutral typeface",
-          "url": "https://public-sans.digital.gov/",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T14:23:11.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
-          "relevance": {
-            "scoreTotal": 0.2344427913929279,
-            "recencyScore": 0.2344427913929279,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          }
-        },
-        {
-          "id": "lomqhg",
-          "title": "The top 5 most horrifying and fascinating medical cases of 2025",
-          "url": "https://arstechnica.com/health/2025/12/the-top-5-most-horrifying-and-fascinating-medical-cases-of-2025/",
+          "id": "4zjnai",
+          "title": "China drafts world’s strictest rules to end AI-encouraged suicide, violence",
+          "url": "https://arstechnica.com/tech-policy/2025/12/china-drafts-worlds-strictest-rules-to-end-ai-encouraged-suicide-violence/",
           "source": "Ars Technica",
-          "published_at": "2025-12-30T14:00:27.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
+          "published_at": "2025-12-29T16:30:45.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
           "relevance": {
-            "scoreTotal": 0.2321875003839079,
-            "recencyScore": 0.2321875003839079,
+            "scoreTotal": 0.1542410716009277,
+            "recencyScore": 0.1042410716009277,
             "sourceWeight": 0,
-            "keywordBoost": 0,
+            "keywordBoost": 0.05,
             "penalty": 0,
-            "matchedKeywords": []
-          }
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Covers regulatory responses to AI-related issues",
+          "rerankConfidence": 0.65
         },
         {
-          "id": "3hv1vo",
-          "title": "No strcpy either",
-          "url": "https://daniel.haxx.se/blog/2025/12/29/no-strcpy-either/",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T13:14:40.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
+          "id": "h4eke",
+          "title": "Researchers make “neuromorphic” artificial skin for robots",
+          "url": "https://arstechnica.com/science/2025/12/researchers-make-neuromorphic-artificial-skin-for-robots/",
+          "source": "Ars Technica",
+          "published_at": "2025-12-29T19:00:42.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
           "relevance": {
-            "scoreTotal": 0.22764550302190065,
-            "recencyScore": 0.22764550302190065,
+            "scoreTotal": 0.11911706368901631,
+            "recencyScore": 0.11911706368901631,
             "sourceWeight": 0,
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
-          }
+          },
+          "rerankWhy": "Explores advancements in AI technology for robotics",
+          "rerankConfidence": 0.6
         }
       ]
     },
@@ -161,7 +183,49 @@
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
-          }
+          },
+          "rerankWhy": "Focus on sustainability in retail tech",
+          "rerankConfidence": 0.9
+        },
+        {
+          "id": "avjg8h",
+          "title": "How brands shifted marketing and media strategies through the year of tariffs",
+          "url": "https://www.modernretail.co/marketing/how-brands-shifted-marketing-and-media-strategies-through-the-year-of-tariffs/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-29T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Marketers share how they navigated the maze of tariffs and regulatory changes this year.",
+          "relevance": {
+            "scoreTotal": 0.1357142857733371,
+            "recencyScore": 0.035714285773337115,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Insights on marketing strategies amid tariffs",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary: Marketers discuss their strategies for adapting to tariffs and regulatory changes in the ecommerce and retail tech industry throughout the year."
+        },
+        {
+          "id": "xrh5uj",
+          "title": "The winners and losers of tariffs",
+          "url": "https://www.modernretail.co/operations/the-winners-and-losers-of-tariffs/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-29T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "This year, tariffs kicked in at their highest rate since the Great Depression, completely upending the retail industry. In turn, Modern Retail rounded up the biggest winners and losers of all the changes in tariff policy this year.",
+          "relevance": {
+            "scoreTotal": 0.1357142857733371,
+            "recencyScore": 0.035714285773337115,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Analysis of tariff impacts on retail",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-Generated Summary:\nIn 2025, tariffs had a significant impact on the retail industry, with Modern Retail highlighting the major winners and losers of the changes in tariff policy."
         },
         {
           "id": "pguvn9",
@@ -179,7 +243,9 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nCheez-It is reviving its 'Prince Cheddward' mascot to stand out in the crowded sports marketing landscape by leveraging nostalgia."
+          "rerankWhy": "Unique marketing approach in crowded space",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-generated summary:\nCheez-It is reviving its 'Prince Cheddward' mascot to stand out in the crowded sports marketing landscape, focusing on nostalgia to cut through the noise."
         },
         {
           "id": "501hss",
@@ -197,7 +263,9 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary:\nModern Retail's 2026 In/Out list predicts trends like big workout pants, fiber, and thrifting to dominate the year in ecommerce and retail tech."
+          "rerankWhy": "Trends shaping the retail landscape in 2026",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-Generated Summary:\nModern Retail's 2026 In/Out list predicts trends like big workout pants, fiber, and thrifting to dominate the year in ecommerce and retail tech."
         },
         {
           "id": "6erx5k",
@@ -215,109 +283,35 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nIn 2025, '90s mall brands such as Gap and Victoria's Secret are working on turnaround plans to revive their reputation, but success requires more than just short-term growth."
+          "rerankWhy": "Revival strategies of iconic brands",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-Generated Summary:\nIn 2025, '90s mall brands like Gap and Victoria's Secret are working on turnaround plans to revive their reputation, but success requires more than short-term growth."
         },
         {
-          "id": "z8ko5",
-          "title": "What Happened to Abit Motherboards",
-          "url": "https://dfarq.homeip.net/what-happened-to-abit-motherboards/",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T14:58:18.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
+          "id": "fh9fpe",
+          "title": "‘Quitting wasn’t an option’: How tariffs took an emotional and financial toll on founders in 2025",
+          "url": "https://www.modernretail.co/operations/quitting-wasnt-an-option-how-tariffs-took-an-emotional-and-financial-toll-on-founders-in-2025/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-30T05:01:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Many founders had to completely upend their business models in 2025 due to tariffs, resorting to production delays, raising prices and putting off hiring to save their businesses.",
           "relevance": {
-            "scoreTotal": 0.23792658769498443,
-            "recencyScore": 0.23792658769498443,
-            "sourceWeight": 0,
+            "scoreTotal": 0.07867063521605594,
+            "recencyScore": 0.17867063521605595,
+            "sourceWeight": 0.1,
             "keywordBoost": 0,
-            "penalty": 0,
+            "penalty": 0.2,
             "matchedKeywords": []
-          }
-        },
-        {
-          "id": "yov8x3",
-          "title": "The Legacy of Undersea Cables",
-          "url": "https://blog.sciencemuseumgroup.org.uk/the-legacy-of-undersea-cables/",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T14:49:38.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
-          "relevance": {
-            "scoreTotal": 0.23706679933377448,
-            "recencyScore": 0.23706679933377448,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          }
-        },
-        {
-          "id": "z2zsaa",
-          "title": "The 10 best vehicles Ars Technica drove in 2025",
-          "url": "https://arstechnica.com/cars/2025/12/the-10-best-vehicles-ars-technica-drove-in-2025/",
-          "source": "Ars Technica",
-          "published_at": "2025-12-30T13:30:40.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
-          "relevance": {
-            "scoreTotal": 0.22923280461182674,
-            "recencyScore": 0.22923280461182674,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          }
+          },
+          "rerankWhy": "Emotional toll of tariffs on founders",
+          "rerankConfidence": 0.6,
+          "aiSummary": "AI-Generated Summary:\nIn 2025, founders faced emotional and financial challenges as tariffs forced them to make difficult decisions like changing business models, raising prices, and delaying hiring to sustain their businesses."
         }
       ]
     },
     "Luxury_and_Consumer": {
       "total": 4,
       "top": [
-        {
-          "id": "v0vq6o",
-          "title": "Looking for friends, lobsters may stumble into an ecological trap",
-          "url": "https://arstechnica.com/science/2025/12/looking-for-friends-lobsters-may-stumble-into-an-ecological-trap/",
-          "source": "Ars Technica",
-          "published_at": "2025-12-30T15:00:56.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
-          "relevance": {
-            "scoreTotal": 0.23818783108165978,
-            "recencyScore": 0.23818783108165978,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          }
-        },
-        {
-          "id": "ikl06u",
-          "title": "Singapore Study Links Heavy Infant Screen Time to Teen Anxiety",
-          "url": "https://www.bloomberg.com/news/articles/2025-12-30/singapore-study-links-heavy-infant-screen-time-to-teen-anxiety",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T12:46:52.000Z",
-          "ingested_at": "2025-12-30T17:15:32.891Z",
-          "relevance": {
-            "scoreTotal": 0.22488756650940406,
-            "recencyScore": 0.22488756650940406,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          }
-        },
-        {
-          "id": "swcqzq",
-          "title": "Nicolas Guillou, French ICC judge sanctioned by the US and \"debanked\"",
-          "url": "https://www.lemonde.fr/en/international/article/2025/11/19/nicolas-guillou-french-icc-judge-sanctioned-by-the-us-you-are-effectively-blacklisted-by-much-of-the-world-s-banking-system_6747628_4.html",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T11:13:30.000Z",
-          "ingested_at": "2025-12-30T12:26:38.325Z",
-          "relevance": {
-            "scoreTotal": 0.21562500035652282,
-            "recencyScore": 0.21562500035652282,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          }
-        },
         {
           "id": "bvf7if",
           "title": "Crowd avoidance, off-peak trips to drive next 12 months of luxury travel: Virtuoso",
@@ -337,7 +331,63 @@
               "high-end"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and uncomfortable temperatures, according to Virtuoso. The high-end hospitality network predicts this trend will drive luxury travel in the next 12 months."
+          "rerankWhy": "Highlights trends in luxury travel for 2026",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and unfavorable weather conditions, according to Virtuoso. The high-end hospitality network predicts this trend will drive luxury travel in the next 12 months."
+        },
+        {
+          "id": "v0vq6o",
+          "title": "Looking for friends, lobsters may stumble into an ecological trap",
+          "url": "https://arstechnica.com/science/2025/12/looking-for-friends-lobsters-may-stumble-into-an-ecological-trap/",
+          "source": "Ars Technica",
+          "published_at": "2025-12-30T15:00:56.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z",
+          "relevance": {
+            "scoreTotal": 0.23818783108165978,
+            "recencyScore": 0.23818783108165978,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Relevant ecological insights impacting luxury markets",
+          "rerankConfidence": 0.7
+        },
+        {
+          "id": "ikl06u",
+          "title": "Singapore Study Links Heavy Infant Screen Time to Teen Anxiety",
+          "url": "https://www.bloomberg.com/news/articles/2025-12-30/singapore-study-links-heavy-infant-screen-time-to-teen-anxiety",
+          "source": "Hacker News",
+          "published_at": "2025-12-30T12:46:52.000Z",
+          "ingested_at": "2025-12-30T17:15:32.891Z",
+          "relevance": {
+            "scoreTotal": 0.22488756650940406,
+            "recencyScore": 0.22488756650940406,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Links screen time to future consumer behavior",
+          "rerankConfidence": 0.65
+        },
+        {
+          "id": "swcqzq",
+          "title": "Nicolas Guillou, French ICC judge sanctioned by the US and \"debanked\"",
+          "url": "https://www.lemonde.fr/en/international/article/2025/11/19/nicolas-guillou-french-icc-judge-sanctioned-by-the-us-you-are-effectively-blacklisted-by-much-of-the-world-s-banking-system_6747628_4.html",
+          "source": "Hacker News",
+          "published_at": "2025-12-30T11:13:30.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "relevance": {
+            "scoreTotal": 0.21562500035652282,
+            "recencyScore": 0.21562500035652282,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Legal issues affecting luxury market players",
+          "rerankConfidence": 0.6
         }
       ]
     },
@@ -358,7 +408,9 @@
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
-          }
+          },
+          "rerankWhy": "Relevant to jewellery design and technology",
+          "rerankConfidence": 0.9
         },
         {
           "id": "slsn2b",
@@ -374,7 +426,9 @@
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
-          }
+          },
+          "rerankWhy": "Explores historical techniques impacting jewellery",
+          "rerankConfidence": 0.85
         }
       ]
     }

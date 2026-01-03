@@ -25,4 +25,10 @@ export type SourcePage = {
   };
   linkAttr?: string;
   dateFormatHint?: string;
+  fallbackSelectors?: {
+    item: string;
+    title?: string;
+    link: string;
+    date?: string;
+  };
 };

@@ -5,5 +5,68 @@
     "rationale": "The article seems to discuss fonts in the context of design, which aligns more with Ecommerce_Retail_Tech than the other categories.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-03T19:51:07.687Z"
+  },
+  "https://www.nytimes.com/2025/12/30/technology/personaltech/tech-jargon-ai.html": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article focuses on decoding A.I.-driven tech lingo, indicating a primary focus on artificial intelligence and technology strategy.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T21:29:57.759Z"
+  },
+  "https://www.bloomberg.com/news/articles/2025-12-30/singapore-study-links-heavy-infant-screen-time-to-teen-anxiety": {
+    "category": "Luxury_and_Consumer",
+    "confidence": 0.85,
+    "rationale": "The article focuses on consumer behavior and the impact of screen time on teen anxiety, aligning more closely with luxury consumer insights.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T21:30:18.181Z"
+  },
+  "https://screenrant.com/stranger-things-creator-turn-off-settings-premiere": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article discusses AI-driven recommendations or personalization in content settings.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T21:34:12.334Z"
+  },
+  "https://subseacables.blogspot.com/2025/12/the-british-empires-resilient-subsea.html": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article is likely about the historical context and technology of the British Empire's subsea telegraph network, which aligns more closely with Ecommerce_Retail_Tech.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T21:34:29.605Z"
+  },
+  "https://www.getflack.com/p/responding-to-negative-feedback": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article seems to be about product feedback and customer sentiment, which aligns with ecommerce and retail tech.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T21:37:33.821Z"
+  },
+  "https://www.zeitgeistofbytes.com/p/bye-bye-big-tech-how-i-migrated-to": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article discusses migrating to an EU stack for cost savings, which aligns with topics related to technology, cost optimization, and potentially ecommerce platforms.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T21:38:06.651Z"
+  },
+  "https://www.circusscientist.com/2025/12/29/google-is-dead-where-do-we-go-now": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The title suggests a focus on the impact of technology and potentially AI on the future direction after Google, aligning with AI and strategy themes.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T21:39:09.400Z"
+  },
+  "https://arstechnica.com/science/2025/12/looking-for-friends-lobsters-may-stumble-into-an-ecological-trap": {
+    "category": "Luxury_and_Consumer",
+    "confidence": 0.85,
+    "rationale": "The article is likely about consumer behavior or ecological traps related to luxury or affluent demographics.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T21:39:36.404Z"
+  },
+  "https://arstechnica.com/tech-policy/2025/12/china-drafts-worlds-strictest-rules-to-end-ai-encouraged-suicide-violence": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article focuses on AI regulations related to preventing negative outcomes like suicide and violence, falling under the AI and strategy category.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T21:40:31.262Z"
   }
 }
