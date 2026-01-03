@@ -118,8 +118,7 @@ export default function SupportPage() {
             color: '#5c6880',
             lineHeight: 1.7,
           }}>
-            Please use the <Link href="/feedback" style={{ color: '#20678c', textDecoration: 'underline' }}>feedback form</Link> to 
-            suggest sources. Include the publication name, URL, and RSS feed (if available).
+            To suggest sources, please contact us with the publication name, URL, and RSS feed (if available).
           </p>
         </div>
 
@@ -182,8 +181,7 @@ export default function SupportPage() {
             color: '#5c6880',
             lineHeight: 1.7,
           }}>
-            Use the <Link href="/feedback" style={{ color: '#20678c', textDecoration: 'underline' }}>feedback form</Link> to 
-            report issues. Please include as much detail as possible, such as the article title, week label, and a description 
+            To report issues, please contact us with as much detail as possible, such as the article title, week label, and a description 
             of the problem.
           </p>
         </div>
@@ -210,40 +208,9 @@ export default function SupportPage() {
             lineHeight: 1.7,
             marginBottom: '1.5rem',
           }}>
-            For general inquiries, questions, or feedback, please use the feedback form. We aim to respond to all 
-            submissions within a few business days.
+            For general inquiries, questions, or feedback, please contact us. We aim to respond to all 
+            inquiries within a few business days.
           </p>
-          <div style={{
-            background: '#f4f7fa',
-            borderRadius: 8,
-            padding: '1.5rem',
-            border: '1px solid #e7ecf0',
-          }}>
-            <p style={{
-              fontSize: '1.05rem',
-              color: '#233442',
-              lineHeight: 1.7,
-              margin: 0,
-              fontWeight: 500,
-            }}>
-              <Link href="/feedback" style={{
-                color: '#20678c',
-                textDecoration: 'none',
-                fontWeight: 600,
-                fontSize: '1.1rem',
-              }}>
-                Submit Feedback →
-              </Link>
-            </p>
-            <p style={{
-              fontSize: '0.95rem',
-              color: '#788189',
-              lineHeight: 1.7,
-              margin: '0.5rem 0 0 0',
-            }}>
-              Use this form for source suggestions, issue reports, general questions, or any other feedback.
-            </p>
-          </div>
         </div>
 
         {/* Navigation */}
@@ -269,18 +236,6 @@ export default function SupportPage() {
               border: '1px solid #e7ecf0',
             }}>
               About
-            </Link>
-            <Link href="/feedback" style={{
-              fontWeight: 500,
-              color: '#20678c',
-              background: '#f4f7fa',
-              borderRadius: 3,
-              padding: '0.5rem 1.2rem',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              border: '1px solid #e7ecf0',
-            }}>
-              Feedback
             </Link>
           </div>
           <Link href="/" style={{

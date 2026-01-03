@@ -1,6 +1,9 @@
 import Link from 'next/link';
 
 export default function FeedbackPage() {
+  // Safely read environment variable (server-side)
+  const formAction = process.env.NEXT_PUBLIC_FEEDBACK_FORM_ACTION?.trim() || '';
+
   return (
     <main style={{
       maxWidth: '100vw',
@@ -60,140 +63,218 @@ export default function FeedbackPage() {
         margin: '3rem auto 4rem auto',
         padding: '0 1.5rem',
       }}>
-        {/* Feedback Form Card */}
-        <div style={{
-          background: '#fff',
-          borderRadius: 12,
-          boxShadow: '0 2px 24px 0 rgba(28,68,90,.06)',
-          padding: '2.5rem 2rem',
-          marginBottom: '2rem',
-        }}>
-          <h2 style={{
-            fontSize: '1.8rem',
-            fontWeight: 600,
-            color: '#143c42',
-            marginBottom: '1.5rem',
-          }}>
-            Submit Feedback
-          </h2>
-          <p style={{
-            fontSize: '1.05rem',
-            color: '#5c6880',
-            lineHeight: 1.7,
+        {formAction ? (
+          /* Feedback Form Card - when configured */
+          <div style={{
+            background: '#fff',
+            borderRadius: 12,
+            boxShadow: '0 2px 24px 0 rgba(28,68,90,.06)',
+            padding: '2.5rem 2rem',
             marginBottom: '2rem',
           }}>
-            Use this form to suggest sources, report issues, ask questions, or share any other feedback about the digest.
-          </p>
-
-          {/* Form Placeholder - to be implemented in next prompt */}
-          <div style={{
-            background: '#f9fafb',
-            borderRadius: 8,
-            border: '1px dashed #d6dfec',
-            padding: '3rem 2rem',
-            textAlign: 'center',
-          }}>
-            <div style={{
-              fontSize: '1.2rem',
-              color: '#8a99ac',
-              fontWeight: 500,
-              marginBottom: '0.5rem',
-            }}>
-              Feedback Form
-            </div>
-            <div style={{
-              fontSize: '1rem',
-              color: '#bfcada',
-            }}>
-              Form implementation coming soon
-            </div>
-          </div>
-        </div>
-
-        {/* What to Include Card */}
-        <div style={{
-          background: '#fff',
-          borderRadius: 12,
-          boxShadow: '0 2px 24px 0 rgba(28,68,90,.06)',
-          padding: '2.5rem 2rem',
-          marginBottom: '2rem',
-        }}>
-          <h2 style={{
-            fontSize: '1.8rem',
-            fontWeight: 600,
-            color: '#143c42',
-            marginBottom: '1rem',
-          }}>
-            What to Include
-          </h2>
-          <div style={{
-            marginBottom: '1.5rem',
-          }}>
-            <h3 style={{
-              fontSize: '1.2rem',
+            <h2 style={{
+              fontSize: '1.8rem',
               fontWeight: 600,
-              color: '#233442',
-              marginBottom: '0.75rem',
+              color: '#143c42',
+              marginBottom: '1.5rem',
             }}>
-              For Source Suggestions:
-            </h3>
-            <ul style={{
-              fontSize: '1.05rem',
-              color: '#5c6880',
-              lineHeight: 1.7,
-              margin: 0,
-              paddingLeft: '1.5rem',
-            }}>
-              <li>Publication or website name</li>
-              <li>URL</li>
-              <li>RSS feed URL (if available)</li>
-              <li>Brief description of why it's relevant</li>
-            </ul>
-          </div>
-          <div style={{
-            marginBottom: '1.5rem',
-          }}>
-            <h3 style={{
-              fontSize: '1.2rem',
-              fontWeight: 600,
-              color: '#233442',
-              marginBottom: '0.75rem',
-            }}>
-              For Issue Reports:
-            </h3>
-            <ul style={{
-              fontSize: '1.05rem',
-              color: '#5c6880',
-              lineHeight: 1.7,
-              margin: 0,
-              paddingLeft: '1.5rem',
-            }}>
-              <li>Week label (e.g., 2026-W01)</li>
-              <li>Article title or link</li>
-              <li>Description of the issue</li>
-              <li>Screenshots (if applicable)</li>
-            </ul>
-          </div>
-          <div>
-            <h3 style={{
-              fontSize: '1.2rem',
-              fontWeight: 600,
-              color: '#233442',
-              marginBottom: '0.75rem',
-            }}>
-              For General Feedback:
-            </h3>
+              Submit Feedback
+            </h2>
             <p style={{
               fontSize: '1.05rem',
               color: '#5c6880',
               lineHeight: 1.7,
-              margin: 0,
+              marginBottom: '2rem',
             }}>
-              Share any thoughts, suggestions, or questions you have about the digest. We value your input and use it 
-              to improve the service.
+              Use this form to suggest sources, report issues, ask questions, or share any other feedback about the digest.
             </p>
+            <form method="POST" action={formAction} style={{ marginBottom: '1.5rem' }}>
+              {/* Honeypot field - hidden from humans */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  width: '1px',
+                  height: '1px',
+                  opacity: 0,
+                  pointerEvents: 'none',
+                }}
+                aria-hidden="true"
+              />
+
+              <div style={{ marginBottom: '1.75rem' }}>
+                <label
+                  htmlFor="name"
+                  style={{
+                    display: 'block',
+                    fontSize: '1rem',
+                    fontWeight: 500,
+                    color: '#233442',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  Name <span style={{ color: '#8a99ac', fontWeight: 400, fontSize: '0.95rem' }}>(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  style={{
+                    width: '100%',
+                    padding: '0.875rem',
+                    fontSize: '1rem',
+                    border: '1px solid #e7ecf0',
+                    borderRadius: 8,
+                    fontFamily: 'inherit',
+                    boxSizing: 'border-box',
+                  }}
+                />
+              </div>
+
+              <div style={{ marginBottom: '1.75rem' }}>
+                <label
+                  htmlFor="email"
+                  style={{
+                    display: 'block',
+                    fontSize: '1rem',
+                    fontWeight: 500,
+                    color: '#233442',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  Email <span style={{ color: '#8a99ac', fontWeight: 400, fontSize: '0.95rem' }}>(optional)</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  style={{
+                    width: '100%',
+                    padding: '0.875rem',
+                    fontSize: '1rem',
+                    border: '1px solid #e7ecf0',
+                    borderRadius: 8,
+                    fontFamily: 'inherit',
+                    boxSizing: 'border-box',
+                  }}
+                />
+              </div>
+
+              <div style={{ marginBottom: '1.75rem' }}>
+                <label
+                  htmlFor="message"
+                  style={{
+                    display: 'block',
+                    fontSize: '1rem',
+                    fontWeight: 500,
+                    color: '#233442',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  Message <span style={{ color: '#dc2626' }}>*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={7}
+                  style={{
+                    width: '100%',
+                    padding: '0.875rem',
+                    fontSize: '1rem',
+                    border: '1px solid #e7ecf0',
+                    borderRadius: 8,
+                    fontFamily: 'inherit',
+                    resize: 'vertical',
+                    boxSizing: 'border-box',
+                    lineHeight: 1.6,
+                  }}
+                />
+              </div>
+
+              <button
+                type="submit"
+                style={{
+                  fontWeight: 600,
+                  color: '#fff',
+                  background: '#20678c',
+                  borderRadius: 8,
+                  padding: '0.875rem 2rem',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '1.1rem',
+                  width: '100%',
+                  boxShadow: '0 2px 8px 0 rgba(32, 103, 140, 0.2)',
+                }}
+              >
+                Submit Feedback
+              </button>
+
+              <p style={{
+                fontSize: '0.95rem',
+                color: '#788189',
+                lineHeight: 1.6,
+                marginTop: '1.5rem',
+                textAlign: 'center',
+              }}>
+                Submissions are sent to the site owner.
+              </p>
+            </form>
           </div>
-        </div>
+        ) : (
+          /* Not Configured Message - with mailto fallback */
+          <div style={{
+            background: '#fff',
+            borderRadius: 12,
+            boxShadow: '0 2px 24px 0 rgba(28,68,90,.06)',
+            padding: '2.5rem 2rem',
+            marginBottom: '2rem',
+            textAlign: 'center',
+          }}>
+            <div style={{
+              fontSize: '3rem',
+              marginBottom: '1rem',
+            }}>
+              📧
+            </div>
+            <h2 style={{
+              fontSize: '1.8rem',
+              fontWeight: 600,
+              color: '#143c42',
+              marginBottom: '1rem',
+            }}>
+              Feedback Form Not Configured
+            </h2>
+            <p style={{
+              fontSize: '1.05rem',
+              color: '#5c6880',
+              lineHeight: 1.7,
+              marginBottom: '2rem',
+            }}>
+              The feedback form is currently not available. Please contact us directly via email.
+            </p>
+            <a
+              href="mailto:feedback@example.com?subject=Feedback%20for%20Luxury%20Intelligence"
+              style={{
+                display: 'inline-block',
+                fontWeight: 600,
+                color: '#fff',
+                background: '#20678c',
+                borderRadius: 8,
+                padding: '0.875rem 2rem',
+                textDecoration: 'none',
+                fontSize: '1.1rem',
+                boxShadow: '0 2px 8px 0 rgba(32, 103, 140, 0.2)',
+              }}
+            >
+              Send Email
+            </a>
+          </div>
+        )}
 
         {/* Navigation */}
         <div style={{
@@ -240,7 +321,6 @@ export default function FeedbackPage() {
             padding: '0.65rem 1.6rem',
             textDecoration: 'none',
             display: 'inline-block',
-            transition: 'background 0.19s, color 0.16s',
             fontSize: '1.12rem',
             boxShadow: '0 1px 2px rgba(0,0,0,0.07)'
           }}>
@@ -251,4 +331,3 @@ export default function FeedbackPage() {
     </main>
   );
 }
-

@@ -3,8 +3,8 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2025-12-28T23:00:00.000Z",
   "endISO": "2026-01-04T22:59:59.999Z",
-  "builtAtISO": "2026-01-02T20:41:47.047+01:00",
-  "builtAtLocal": "2026-01-02 20:41:47",
+  "builtAtISO": "2026-01-03T11:54:45.450+01:00",
+  "builtAtLocal": "2026-01-03 11:54:45",
   "totals": {
     "total": 57,
     "byTopic": {
@@ -36,7 +36,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-driven \"zero-click\" searches are changing the landscape of product discovery and decision-making, hinting at the impact of AI on shopping behavior."
+          "aiSummary": "AI SERPs are impacting shopping behavior through \"zero-click\" searches, hinting at the future influence of AI on product discovery and decision-making, as discussed in Practical Ecommerce's article \"The Psychology of AI SERPs and Shopping.\""
         },
         {
           "id": "gva55j",
@@ -111,7 +111,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary:\nCheez-It is reviving its Prince Cheddward mascot to stand out in the crowded sports marketing landscape by leveraging nostalgia."
+          "aiSummary": "AI-Generated Summary:\nCheez-It is reviving its 'Prince Cheddward' mascot to stand out in the crowded sports marketing landscape, focusing on nostalgia to cut through the noise."
         },
         {
           "id": "501hss",
@@ -129,7 +129,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary:\nModern Retail's 2026 In/Out list predicts trends like big workout pants, fiber, and thrifting to dominate the year in ecommerce and retail tech."
+          "aiSummary": "AI-Generated Summary: Modern Retail's 2026 In/Out list predicts trends like big workout pants, fiber, and thrifting to dominate the year in ecommerce and retail tech."
         },
         {
           "id": "bv2j8a",
@@ -147,7 +147,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\n\"The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose\" from NYTimes Technology discusses the benefits of chatbots and offers advice on how to utilize them effectively in ecommerce and retail tech."
+          "aiSummary": "AI-Generated Summary:\n\"The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose\" from NYTimes Technology on 2025-12-30 discusses the benefits of chatbots and offers advice on how to utilize them effectively in ecommerce and retail tech."
         },
         {
           "id": "4agilu",
@@ -165,7 +165,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nA cheat sheet for understanding A.I.-driven tech terms in 2025, including RAG and superintelligence, is provided in this NYTimes Technology article."
+          "aiSummary": "AI-Generated Summary:\nA cheat sheet for decoding A.I.-driven tech lingo in 2025, including terms like RAG and superintelligence, is provided in this NYTimes Technology article."
         },
         {
           "id": "yg52at",
@@ -183,7 +183,7 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nCustoms agents have extensive power to search travelers' electronic devices at U.S. borders, prompting the need for data protection measures."
+          "aiSummary": "AI-Generated Summary:\nCustoms agents have extensive power to search travelers' electronic devices at U.S. borders, prompting the need for data protection measures while traveling."
         },
         {
           "id": "6erx5k",
@@ -201,7 +201,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary:\nIn 2025, '90s mall brands such as Gap and Victoria's Secret are working on turnaround plans to revive their reputation, but achieving a successful comeback requires more than just short-term growth."
+          "aiSummary": "AI-generated summary:\nIn 2025, '90s mall brands such as Gap and Victoria's Secret are working on turnaround plans, but achieving a successful comeback requires more than just short-term growth."
         }
       ]
     },
@@ -227,7 +227,7 @@
               "high-end"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and uncomfortable temperatures, with Virtuoso predicting this trend to shape the next year of luxury travel in 2026."
+          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and uncomfortable temperatures, according to Virtuoso. The high-end hospitality network predicts this trend will drive luxury travel in the next 12 months."
         }
       ]
     },

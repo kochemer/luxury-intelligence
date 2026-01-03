@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jewellery & Retail AI Digest",
-  description: "Curated, AI-assisted summaries and trends in jewellery, ecommerce, luxury, and retail tech.",
+  title: "Luxury Intelligence",
+  description: "Luxury Ecommerce, Retail Technology & AI - Curated intelligence and AI-assisted summaries for luxury, ecommerce, and retail tech.",
 };
 
 const navLinks = [
@@ -52,7 +52,7 @@ export default function RootLayout({
                 className="font-bold text-lg sm:text-xl tracking-tight"
                 style={{ letterSpacing: "-0.01em" }}
               >
-                Jewellery & Retail AI Digest
+                Luxury Intelligence
               </span>
             </div>
             <ul className="flex gap-3 sm:gap-5 text-sm sm:text-base font-medium">

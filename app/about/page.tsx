@@ -82,7 +82,7 @@ export default function AboutPage() {
             lineHeight: 1.7,
             marginBottom: '1rem',
           }}>
-            The AI Weekly Digest saves you hours of reading by curating the most relevant articles across four key sectors: 
+            Luxury Intelligence saves you hours of reading by curating the most relevant articles across four key sectors: 
             <strong style={{ color: '#233442' }}> AI & Strategy</strong>, 
             <strong style={{ color: '#233442' }}> Ecommerce & Retail Tech</strong>, 
             <strong style={{ color: '#233442' }}> Luxury & Consumer</strong>, and 
@@ -332,18 +332,6 @@ export default function AboutPage() {
               border: '1px solid #e7ecf0',
             }}>
               Support
-            </Link>
-            <Link href="/feedback" style={{
-              fontWeight: 500,
-              color: '#20678c',
-              background: '#f4f7fa',
-              borderRadius: 3,
-              padding: '0.5rem 1.2rem',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              border: '1px solid #e7ecf0',
-            }}>
-              Feedback
             </Link>
           </div>
           <Link href="/" style={{

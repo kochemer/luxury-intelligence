@@ -2,7 +2,9 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { DateTime } from 'luxon';
 import Link from 'next/link';
+import CategorySection from '../../components/CategorySection';
 import { getTopicDisplayName, getTopicTotalsDisplayName } from '../../../utils/topicNames';
+import { formatDate } from '../../../utils/formatDate';
 
 type Article = {
   id: string;
@@ -38,9 +40,6 @@ type WeeklyDigest = {
   };
 };
 
-function formatDate(isoString: string): string {
-  return DateTime.fromISO(isoString).toFormat('yyyy-MM-dd');
-}
 
 async function loadDigest(weekLabel: string): Promise<WeeklyDigest | null> {
   try {
@@ -146,174 +145,50 @@ export default async function WeekPage({ params }: { params: { weekLabel: string
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '3rem' }}>
+      <div style={{ maxWidth: '1200px' }}>
         {/* AI & Strategy */}
-        <section>
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>
-            {getTopicDisplayName('AI_and_Strategy')} ({digest.topics.AI_and_Strategy.total})
-          </h2>
-          {digest.topics.AI_and_Strategy.total > 0 ? (
-            <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.AI_and_Strategy.total} articles this week. Showing top 7 by relevance.
-            </p>
-          ) : (
-            <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this week.
-            </p>
-          )}
-          {digest.topics.AI_and_Strategy.top.length > 0 ? (
-            <ul style={{ listStyle: 'none', padding: 0 }}>
-              {digest.topics.AI_and_Strategy.top.map((article) => (
-                <li key={article.id} style={{ marginBottom: '1.5rem' }}>
-                  <a
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: '#0066cc', textDecoration: 'none', fontWeight: '500' }}
-                  >
-                    {article.title}
-                  </a>
-                  <div style={{ fontSize: '0.9rem', color: '#666', marginTop: '0.25rem' }}>
-                    {formatDate(article.published_at)} | {article.source}
-                  </div>
-                  {article.aiSummary && (
-                    <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p style={{ color: '#999' }}>No articles</p>
-          )}
-        </section>
+        <CategorySection
+          title={getTopicDisplayName('AI_and_Strategy')}
+          count={digest.topics.AI_and_Strategy.total}
+          articles={digest.topics.AI_and_Strategy.top.map(article => ({
+            ...article,
+            date: formatDate(article.published_at),
+          }))}
+          rankingLabel="Top 7 articles by relevance"
+        />
 
         {/* Ecommerce & Retail Tech */}
-        <section>
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>
-            {getTopicDisplayName('Ecommerce_Retail_Tech')} ({digest.topics.Ecommerce_Retail_Tech.total})
-          </h2>
-          {digest.topics.Ecommerce_Retail_Tech.total > 0 ? (
-            <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.Ecommerce_Retail_Tech.total} articles this week. Showing top 7 by relevance.
-            </p>
-          ) : (
-            <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this week.
-            </p>
-          )}
-          {digest.topics.Ecommerce_Retail_Tech.top.length > 0 ? (
-            <ul style={{ listStyle: 'none', padding: 0 }}>
-              {digest.topics.Ecommerce_Retail_Tech.top.map((article) => (
-                <li key={article.id} style={{ marginBottom: '1.5rem' }}>
-                  <a
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: '#0066cc', textDecoration: 'none', fontWeight: '500' }}
-                  >
-                    {article.title}
-                  </a>
-                  <div style={{ fontSize: '0.9rem', color: '#666', marginTop: '0.25rem' }}>
-                    {formatDate(article.published_at)} | {article.source}
-                  </div>
-                  {article.aiSummary && (
-                    <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p style={{ color: '#999' }}>No articles</p>
-          )}
-        </section>
+        <CategorySection
+          title={getTopicDisplayName('Ecommerce_Retail_Tech')}
+          count={digest.topics.Ecommerce_Retail_Tech.total}
+          articles={digest.topics.Ecommerce_Retail_Tech.top.map(article => ({
+            ...article,
+            date: formatDate(article.published_at),
+          }))}
+          rankingLabel="Top 7 articles by relevance"
+        />
 
         {/* Luxury & Consumer */}
-        <section>
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>
-            {getTopicDisplayName('Luxury_and_Consumer')} ({digest.topics.Luxury_and_Consumer.total})
-          </h2>
-          {digest.topics.Luxury_and_Consumer.total > 0 ? (
-            <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.Luxury_and_Consumer.total} articles this week. Showing top 7 by relevance.
-            </p>
-          ) : (
-            <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this week.
-            </p>
-          )}
-          {digest.topics.Luxury_and_Consumer.top.length > 0 ? (
-            <ul style={{ listStyle: 'none', padding: 0 }}>
-              {digest.topics.Luxury_and_Consumer.top.map((article) => (
-                <li key={article.id} style={{ marginBottom: '1.5rem' }}>
-                  <a
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: '#0066cc', textDecoration: 'none', fontWeight: '500' }}
-                  >
-                    {article.title}
-                  </a>
-                  <div style={{ fontSize: '0.9rem', color: '#666', marginTop: '0.25rem' }}>
-                    {formatDate(article.published_at)} | {article.source}
-                  </div>
-                  {article.aiSummary && (
-                    <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p style={{ color: '#999' }}>No articles</p>
-          )}
-        </section>
+        <CategorySection
+          title={getTopicDisplayName('Luxury_and_Consumer')}
+          count={digest.topics.Luxury_and_Consumer.total}
+          articles={digest.topics.Luxury_and_Consumer.top.map(article => ({
+            ...article,
+            date: formatDate(article.published_at),
+          }))}
+          rankingLabel="Top 7 articles by relevance"
+        />
 
         {/* Jewellery Industry */}
-        <section>
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>
-            {getTopicDisplayName('Jewellery_Industry')} ({digest.topics.Jewellery_Industry.total})
-          </h2>
-          {digest.topics.Jewellery_Industry.total > 0 ? (
-            <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>
-              Total {digest.topics.Jewellery_Industry.total} articles this week. Showing top 7 by relevance.
-            </p>
-          ) : (
-            <p style={{ fontSize: '0.9rem', color: '#999', marginBottom: '1rem' }}>
-              No articles for this topic in this week.
-            </p>
-          )}
-          {digest.topics.Jewellery_Industry.top.length > 0 ? (
-            <ul style={{ listStyle: 'none', padding: 0 }}>
-              {digest.topics.Jewellery_Industry.top.map((article) => (
-                <li key={article.id} style={{ marginBottom: '1.5rem' }}>
-                  <a
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: '#0066cc', textDecoration: 'none', fontWeight: '500' }}
-                  >
-                    {article.title}
-                  </a>
-                  <div style={{ fontSize: '0.9rem', color: '#666', marginTop: '0.25rem' }}>
-                    {formatDate(article.published_at)} | {article.source}
-                  </div>
-                  {article.aiSummary && (
-                    <div style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.5rem', fontStyle: 'italic', paddingLeft: '0.5rem', borderLeft: '2px solid #ddd' }}>
-                      <strong>AI summary:</strong> {article.aiSummary?.replace(/^AI-Generated Summary:\s*/i, '').replace(/^AI-generated summary:\s*/i, '')}
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p style={{ color: '#999' }}>No articles</p>
-          )}
-        </section>
+        <CategorySection
+          title={getTopicDisplayName('Jewellery_Industry')}
+          count={digest.topics.Jewellery_Industry.total}
+          articles={digest.topics.Jewellery_Industry.top.map(article => ({
+            ...article,
+            date: formatDate(article.published_at),
+          }))}
+          rankingLabel="Top 7 articles by relevance"
+        />
       </div>
     </div>
   );

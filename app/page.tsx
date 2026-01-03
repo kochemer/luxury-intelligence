@@ -4,7 +4,10 @@ import { DateTime } from 'luxon';
 import Link from 'next/link';
 import Image from 'next/image';
 import BuildDigestButton from './components/BuildDigestButton';
+import CategorySection from './components/CategorySection';
+import ArticleCard from './components/ArticleCard';
 import { getTopicDisplayName, TopicKey } from '../utils/topicNames';
+import { formatDate } from '../utils/formatDate';
 
 type Article = {
   id: string;
@@ -47,9 +50,6 @@ function getCurrentWeek(): string {
   return `${year}-W${weekNumber.toString().padStart(2, '0')}`;
 }
 
-function formatDate(isoString: string): string {
-  return DateTime.fromISO(isoString).toFormat('yyyy-MM-dd');
-}
 
 async function loadDigest(weekLabel: string): Promise<WeeklyDigest | null> {
   try {
@@ -105,54 +105,6 @@ const CATEGORY_CARDS: Array<{
   },
 ];
 
-function ArticleCard({ article }: { article: Article }) {
-  return (
-    <a
-      href={article.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        display: 'block',
-        borderRadius: 8,
-        border: '1px solid #eee',
-        padding: '1rem',
-        background: 'white',
-        boxShadow: '0 2px 8px 0 rgba(31,41,55,.06)',
-        textDecoration: 'none',
-        marginBottom: '1.5rem',
-        transition: 'box-shadow 0.14s',
-        color: 'inherit',
-      }}
-    >
-      <div style={{ marginBottom: '0.45rem', fontWeight: 600, fontSize: '1.08rem', color: '#003d7a', lineHeight: 1.35 }}>
-        {article.title}
-      </div>
-      <div style={{ fontSize: '0.92rem', color: '#666', marginBottom: '0.25rem', display: 'flex', gap: 8 }}>
-        <span>{article.source}</span>
-        <span style={{ fontWeight: 300, color: '#abb' }}>•</span>
-        <span>{formatDate(article.published_at)}</span>
-      </div>
-      {article.aiSummary && (
-        <div style={{
-          fontSize: '0.97rem',
-          color: '#31353c',
-          background: '#f4f7fa',
-          borderLeft: '4px solid #3a7b9c',
-          borderRadius: 4,
-          padding: '0.65rem 1rem 0.65rem 0.75rem',
-          marginTop: 8,
-          fontStyle: 'italic',
-        }}>
-          {article.aiSummary
-              ?.replace(/^AI-Generated Summary:\s*/i, '')
-              .replace(/^AI-generated summary:\s*/i, '')
-              .slice(0, 320)}
-          {article.aiSummary && article.aiSummary.length > 320 ? '…' : ''}
-        </div>
-      )}
-    </a>
-  );
-}
 
 export default async function Home() {
   const weekLabel = getCurrentWeek();
@@ -210,7 +162,7 @@ export default async function Home() {
             marginBottom: '1.15rem',
             textShadow: '0 2px 8px rgba(18,30,49,0.20)'
           }}>
-            AI Weekly Digest: <span style={{ color: '#fed236'}}>The Week in 4 Key Sectors</span>
+            Luxury Intelligence
           </h1>
           <div style={{
             fontSize: '1.23rem',
@@ -220,7 +172,8 @@ export default async function Home() {
             maxWidth: 600,
             margin: '0 auto'
           }}>
-            Essential <span style={{ fontWeight: 600, color: '#fff' }}>AI and industry news</span> handpicked across strategy, ecommerce, luxury, and jewellery.<br/>
+            <span style={{ fontWeight: 600, color: '#fff' }}>Luxury Ecommerce, Retail Technology & AI</span><br/>
+            Essential intelligence handpicked across strategy, ecommerce, luxury, and jewellery.<br/>
             Save hours weekly – get expert-curated coverage, <span style={{ color: '#fed236' }}>AI summaries</span>, and direct source links.
           </div>
           <div style={{marginTop: '1.7rem', display: 'flex', justifyContent: 'center', gap: 14, flexWrap: 'wrap'}}>
@@ -351,114 +304,34 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* CATEGORY CARDS UI */}
+        {/* CATEGORY SECTIONS UI */}
         <section style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '2.7rem',
           maxWidth: 1060,
           margin: '3.2rem auto 0 auto',
-          alignItems: 'start'
+          padding: '0 1.5rem'
         }}>
           {CATEGORY_CARDS.map(cat => {
             // @ts-ignore
             const topic = digest.topics[cat.key];
             // @ts-ignore
             const totalCat = digest.totals.byTopic[cat.countBy] ?? 0;
+            
+            // Format articles with dates at page level
+            const formattedArticles = (topic?.top || []).slice(0, 7).map(article => ({
+              ...article,
+              date: formatDate(article.published_at),
+            }));
+            
             return (
-              <div key={cat.key}
-                style={{
-                  background: '#fff',
-                  borderRadius: 13,
-                  boxShadow: '0 2px 16px 0 rgba(53,80,130,0.06)',
-                  border: `1.7px solid #e7ecf0`,
-                  minHeight: 380,
-                  padding: '2.2rem 1.7rem 2.1rem 1.7rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-start',
-                  position: 'relative'
-                }}
-              >
-                <div style={{
-                  fontSize: '1.06rem',
-                  color: '#687787',
-                  fontWeight: 500,
-                  marginBottom: 6,
-                  letterSpacing: '.01em',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 8
-                }}>
-                  <span style={{
-                    display: 'inline-block',
-                    width: 13,
-                    height: 13,
-                    borderRadius: 7,
-                    background: cat.color,
-                    marginTop: 1
-                  }}></span>
-                  {cat.title}
-                </div>
-                <div style={{fontSize: '1.19rem', color: '#233442', fontWeight: 600, marginBottom: 5}}>
-                  {getTopicDisplayName(cat.key)}
-                </div>
-                <div style={{
-                  fontSize: '1.02rem',
-                  color: '#5c6880',
-                  marginBottom: 17
-                }}>
-                  {cat.desc}
-                </div>
-                <div style={{
-                  marginBottom: 16,
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  gap: 13
-                }}>
-                  <span style={{
-                    fontWeight: 600,
-                    fontSize: '1.5rem',
-                    color: cat.color,
-                    letterSpacing: '.01em'
-                  }}>
-                    {totalCat}
-                  </span>
-                  <span style={{
-                    fontSize: '1rem',
-                    color: '#8a99ac',
-                    fontWeight: 400,
-                  }}>
-                    articles this week • {cat.topInfo}
-                  </span>
-                </div>
-                <div>
-                  {topic?.top && topic.top.length > 0 ? (
-                    <div>
-                      {topic.top.slice(0,7).map(article =>
-                        <ArticleCard article={article} key={article.id} />
-                      )}
-                    </div>
-                  ) : (
-                    <div style={{
-                      background: '#f9fafb',
-                      borderRadius: 6,
-                      border: '1px dashed #d6dfec',
-                      color: '#a6acbe',
-                      padding: '2.2rem 1.1rem',
-                      textAlign: 'center',
-                      margin: '1rem auto 0 auto',
-                      fontSize: '1.06rem',
-                    }}>
-                      <div style={{fontWeight:600, fontSize:'1.16rem', color: '#b2b8ca',marginBottom:8}}>No articles this week</div>
-                      <div style={{color:'#bfcada'}}>
-                        We'll be back with relevant updates and expert news soon.
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )
+              <CategorySection
+                key={cat.key}
+                title={getTopicDisplayName(cat.key)}
+                description={cat.desc}
+                count={totalCat}
+                articles={formattedArticles}
+                rankingLabel={cat.topInfo}
+              />
+            );
           })}
         </section>
       </>

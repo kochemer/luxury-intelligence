@@ -1,0 +1,301 @@
+{
+  "weekLabel": "2025-W52",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2025-12-21T23:00:00.000Z",
+  "endISO": "2025-12-28T22:59:59.999Z",
+  "builtAtISO": "2026-01-02T22:40:27.442+01:00",
+  "builtAtLocal": "2026-01-02 22:40:27",
+  "totals": {
+    "total": 51,
+    "byTopic": {
+      "AIStrategy": 7,
+      "EcommerceRetail": 44,
+      "LuxuryConsumer": 0,
+      "Jewellery": 0
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 7,
+      "top": [
+        {
+          "id": "6l55pl",
+          "title": "Wolverine Worldwide CEO talks growth in 2026, AI and getting ‘better at telling stories’",
+          "url": "https://www.modernretail.co/operations/wolverine-worldwide-ceo-talks-growth-in-2026-ai-and-getting-better-at-telling-stories/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-24T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "The CEO of Wolverine Worldwide, owner of brands like Saucony and Merrell, believes the company has been generally very good at developing products. But, he said, \"I think we have to get better at telling stories.\"",
+          "relevance": {
+            "scoreTotal": 0.471428571960034,
+            "recencyScore": 0.321428571960034,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "aiSummary": "AI-Generated Summary:\nThe CEO of Wolverine Worldwide discusses the company's growth in 2026, emphasizing the need to improve storytelling despite success in product development. (Source: Modern Retail, Published: 2025-12-24)"
+        },
+        {
+          "id": "1qm5wf",
+          "title": "GSC Groups Keywords as AI Queries Expand",
+          "url": "https://www.practicalecommerce.com/gsc-groups-keywords-as-ai-queries-expand",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-12-23T12:11:45.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Google Search Console's \"Insights\" section no longer shows click trends for single keywords, only by group. \nThe post GSC Groups Keywords as AI Queries Expand appeared first on Practical Ecommerce.",
+          "relevance": {
+            "scoreTotal": 0.42140377020734754,
+            "recencyScore": 0.2214037702073475,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "insights"
+            ]
+          },
+          "aiSummary": "AI-generated summary: Google Search Console's \"Insights\" section now groups keywords instead of showing click trends for individual keywords, reflecting the expansion of AI queries."
+        },
+        {
+          "id": "8inddk",
+          "title": "How AI coding agents work—and what to remember if you use them",
+          "url": "https://arstechnica.com/information-technology/2025/12/how-do-ai-coding-agents-work-we-look-under-the-hood/",
+          "source": "Ars Technica",
+          "published_at": "2025-12-24T12:00:27.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "relevance": {
+            "scoreTotal": 0.4131398815528106,
+            "recencyScore": 0.36313988155281063,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          }
+        },
+        {
+          "id": "fzw3pt",
+          "title": "OpenAI’s child exploitation reports increased sharply this year",
+          "url": "https://arstechnica.com/tech-policy/2025/12/openais-child-exploitation-reports-increased-sharply-this-year/",
+          "source": "Ars Technica",
+          "published_at": "2025-12-23T17:02:26.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "relevance": {
+            "scoreTotal": 0.300241402530161,
+            "recencyScore": 0.25024140253016103,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          }
+        },
+        {
+          "id": "p1it7z",
+          "title": "Shopify Integrates AI Product Discovery",
+          "url": "https://www.practicalecommerce.com/shopify-integrates-ai-product-discovery",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-12-22T14:03:28.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Shopify's new Agentic Storefronts means even the smallest merchants can sell via ChatGPT, Perplexity, Microsoft Copilot, and more.\nThe post Shopify Integrates AI Product Discovery appeared first on Practical Ecommerce.",
+          "relevance": {
+            "scoreTotal": 0.23962962977782676,
+            "recencyScore": 0.08962962977782676,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "aiSummary": "AI-generated summary: Shopify's Agentic Storefronts now allow small merchants to utilize AI tools like ChatGPT, Perplexity, and Microsoft Copilot for product discovery, as reported by Practical Ecommerce."
+        },
+        {
+          "id": "44w3dx",
+          "title": "A look at retail’s year of AI news",
+          "url": "https://www.retaildive.com/news/a-look-at-retails-year-of-ai-news/807946/",
+          "source": "Retail Dive",
+          "published_at": "2025-12-23T14:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Retail may be lagging behind other industries in the adoption of artificial intelligence, but 2025 was still transformative. Here’s a recap of retail’s biggest AI-related news this year.",
+          "relevance": {
+            "scoreTotal": 0.23214285752669123,
+            "recencyScore": 0.23214285752669123,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ai",
+              "artificial intelligence"
+            ]
+          },
+          "aiSummary": "AI-Generated Summary:\nIn 2025, retail experienced significant advancements in artificial intelligence despite lagging behind other industries in adoption. Retail Dive provides a recap of the biggest AI-related news in the retail sector for the year."
+        },
+        {
+          "id": "ipt75y",
+          "title": "Dollar Shave Club’s first AI-generated ad makes tech the punchline",
+          "url": "https://www.retaildive.com/news/dollar-shave-clubs-first-ai-generated-ad-makes-tech-the-punchline/808105/",
+          "source": "Retail Dive",
+          "published_at": "2025-12-23T14:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "The brand and partner Too Short for Modeling leveraged AI to animate complex visuals while keeping to a development timeline of just a few weeks.",
+          "relevance": {
+            "scoreTotal": 0.18214285752669124,
+            "recencyScore": 0.23214285752669123,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "aiSummary": "AI-generated ad by Dollar Shave Club and Too Short for Modeling uses AI to animate visuals quickly, showcasing tech as the punchline in the campaign."
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 44,
+      "top": [
+        {
+          "id": "om4ib6",
+          "title": "Twins’ Peaks: The Gilbertson Brothers Want to Rewrite Your Country’s Map",
+          "url": "https://www.nytimes.com/2025/12/28/science/eric-matthew-gilbertson-mountains.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-28T10:01:44.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "Two brothers, both mechanical engineers, are climbing many of the world’s tall peaks to prove they have been measured incorrectly.",
+          "relevance": {
+            "scoreTotal": 1.072791006816784,
+            "recencyScore": 0.922791006816784,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-Generated Summary:\nThe Gilbertson brothers, mechanical engineers, are challenging the accuracy of measurements of tall peaks by climbing them, aiming to rewrite the maps of various countries."
+        },
+        {
+          "id": "84sxlu",
+          "title": "From A.I. to Chips, Big Tech Is Getting What It Wants From Trump",
+          "url": "https://www.nytimes.com/2025/12/28/technology/tech-trump.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-28T10:01:54.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "The president has backed policies that allow the industry to grow unfettered. The mutually beneficial alliance is causing concern among some conservatives.",
+          "relevance": {
+            "scoreTotal": 1.0728075412083458,
+            "recencyScore": 0.9228075412083458,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-Generated Summary:\nPresident Trump's policies have supported the growth of Big Tech, leading to a mutually beneficial relationship that is causing concern among some conservatives."
+        },
+        {
+          "id": "kq2uem",
+          "title": "Before Electric Vehicles Became Political, There Was the Toyota Prius",
+          "url": "https://www.nytimes.com/2025/12/27/business/electric-vehicles-poilitics-republicans-conservatives.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-27T10:00:57.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "The political polarization of battery-powered cars may have started when Toyota released its first hybrid model 25 years ago.",
+          "relevance": {
+            "scoreTotal": 0.9298561520830955,
+            "recencyScore": 0.7798561520830954,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-generated summary:\nThe Toyota Prius, released 25 years ago, is seen as the starting point for the political polarization surrounding electric vehicles."
+        },
+        {
+          "id": "hqr9g4",
+          "title": "New Books: Swiftynomics, UX Skills, More",
+          "url": "https://www.practicalecommerce.com/new-books-swiftynomics-ux-skills-more",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-12-26T10:00:53.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Our latest rundown of new books for merchants includes titles on supply chain, user experience, transformation, and, yes, Taylor Swift. \nThe post New Books: Swiftynomics, UX Skills, More appeared first on Practical Ecommerce.",
+          "relevance": {
+            "scoreTotal": 0.7869923952331224,
+            "recencyScore": 0.6369923952331223,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ecommerce"
+            ]
+          },
+          "aiSummary": "AI-generated summary: Practical Ecommerce's latest article highlights new books for merchants covering topics such as supply chain, user experience, transformation, and even Taylor Swift."
+        },
+        {
+          "id": "gnbvcu",
+          "title": "In memoriam: Brands we lost in 2025",
+          "url": "https://www.modernretail.co/operations/in-memoriam-brands-we-lost-in-2025/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-26T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Modern Retail staff rounded up some of the most notable brand names we lost in 2025, like Joann and Rite Aid. These included brands we lost due to reorganizations, bankruptcies or quiet closures.",
+          "relevance": {
+            "scoreTotal": 0.707142858146731,
+            "recencyScore": 0.607142858146731,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-Generated Summary:\nModern Retail's 2025 roundup highlights the loss of notable brands like Joann and Rite Aid due to reorganizations, bankruptcies, or quiet closures."
+        },
+        {
+          "id": "i02ny2",
+          "title": "The K-shaped economy is forcing luxury brands to pick a side",
+          "url": "https://www.modernretail.co/retailers/the-k-shaped-economy-is-forcing-luxury-brands-to-pick-a-side/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-26T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Amid a K-shaped economy, fashion and luxury brands are rethinking pricing, experience and who they are really building for.",
+          "relevance": {
+            "scoreTotal": 0.707142858146731,
+            "recencyScore": 0.607142858146731,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "AI-Generated Summary:\nLuxury brands are adapting to the K-shaped economy by reconsidering pricing and customer experience strategies to cater to changing consumer needs."
+        },
+        {
+          "id": "jnsoc1",
+          "title": "Embark on a visual voyage of art inspired by black holes",
+          "url": "https://arstechnica.com/science/2025/12/embark-on-a-visual-voyage-of-art-inspired-by-black-holes/",
+          "source": "Ars Technica",
+          "published_at": "2025-12-26T16:40:40.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "relevance": {
+            "scoreTotal": 0.6766534402722445,
+            "recencyScore": 0.6766534402722445,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          }
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 0,
+      "top": []
+    },
+    "Jewellery_Industry": {
+      "total": 0,
+      "top": []
+    }
+  }
+}
