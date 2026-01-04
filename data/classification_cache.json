@@ -68,5 +68,26 @@
     "rationale": "The article focuses on AI regulations related to preventing negative outcomes like suicide and violence, falling under the AI and strategy category.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-03T21:40:31.262Z"
+  },
+  "https://www.practicalecommerce.com/the-psychology-of-ai-serps-and-shopping": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article discusses the impact of AI on shopping behavior and product discovery, aligning with AI-driven business decisions and AI algorithms.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T22:09:53.732Z"
+  },
+  "https://arstechnica.com/science/2025/12/did-one-line-in-a-leonardo-codex-anticipate-yakisugi": {
+    "category": "Jewellery_Industry",
+    "confidence": 0.85,
+    "rationale": "The article focuses on historical jewelry-making techniques, specifically Leonardo's wood charring method, which aligns with the Jewelry Industry category.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-03T22:14:49.721Z"
+  },
+  "https://www.nytimes.com/2026/01/01/technology/space-data-centers-ai.html": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article discusses concerns of tech leaders about the artificial intelligence race and its impact on land and energy, suggesting a solution in orbit, aligning with AI strategy and AI-driven decisions.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-04T13:50:19.358Z"
   }
 }

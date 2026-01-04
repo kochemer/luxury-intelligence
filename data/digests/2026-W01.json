@@ -3,32 +3,77 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2025-12-28T23:00:00.000Z",
   "endISO": "2026-01-04T22:59:59.999Z",
-  "builtAtISO": "2026-01-03T22:40:31.266+01:00",
-  "builtAtLocal": "2026-01-03 22:40:31",
+  "builtAtISO": "2026-01-04T14:50:33.059+01:00",
+  "builtAtLocal": "2026-01-04 14:50:33",
   "totals": {
-    "total": 57,
+    "total": 81,
     "byTopic": {
-      "AIStrategy": 29,
-      "EcommerceRetail": 22,
-      "LuxuryConsumer": 4,
+      "AIStrategy": 36,
+      "EcommerceRetail": 38,
+      "LuxuryConsumer": 5,
       "Jewellery": 2
     }
   },
   "topics": {
     "AI_and_Strategy": {
-      "total": 29,
+      "total": 36,
       "top": [
         {
-          "id": "337gjj",
-          "title": "The New Billionaires of the A.I. Boom",
-          "url": "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html",
+          "id": "p162sc",
+          "title": "As Schools Embrace A.I. Tools, Skeptics Raise Concerns",
+          "url": "https://www.nytimes.com/2026/01/02/technology/school-ai-chatgpt-estonia-iceland.html",
           "source": "NYTimes Technology",
-          "published_at": "2025-12-29T22:53:31.000Z",
-          "ingested_at": "2025-12-30T12:26:38.325Z",
-          "snippet": "Just like past tech booms, the latest frenzy has produced a group of billionaires — at least on paper — from smaller start-ups.",
+          "published_at": "2026-01-02T14:29:46.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "More governments are rolling out chatbots in schools. Some experts warn the tools could erode teaching and learning.",
           "relevance": {
-            "scoreTotal": 0.3422139552615971,
-            "recencyScore": 0.14221395526159714,
+            "scoreTotal": 0.9136673291396616,
+            "recencyScore": 0.6636673291396616,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "chatbot"
+            ]
+          },
+          "rerankWhy": "Highlights concerns about AI in education",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-generated summary:\nGovernments are increasingly implementing chatbots in schools, but experts caution that these tools may have negative impacts on teaching and learning."
+        },
+        {
+          "id": "qw1abf",
+          "title": "The Modern Retail Podcast’s 2026 predictions",
+          "url": "https://www.modernretail.co/operations/the-modern-retail-podcasts-2026-predictions/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-03T05:00:00.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "For 2026, the Modern Retail staff predicts more AI shopping and more creator economy shakeups. Plus, a look at what brands could sell next year.",
+          "relevance": {
+            "scoreTotal": 0.9000000012400794,
+            "recencyScore": 0.7500000012400794,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Discusses AI's impact on retail strategies",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary:\nIn 2026, Modern Retail predicts increased AI shopping, disruptions in the creator economy, and potential shifts in brands' offerings."
+        },
+        {
+          "id": "9ji3hg",
+          "title": "In Ukraine, an Arsenal of Killer A.I. Drones Is Being Born in War Against Russia",
+          "url": "https://www.nytimes.com/2025/12/31/magazine/ukraine-ai-drones-war-russia.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-31T17:00:12.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "As the war grinds on, sophisticated Russian defenses have pushed Ukraine to develop a frightening new weapon: semiautonomous killing machines.",
+          "relevance": {
+            "scoreTotal": 0.5928769847765823,
+            "recencyScore": 0.39287698477658234,
             "sourceWeight": 0.15,
             "keywordBoost": 0.05,
             "penalty": 0,
@@ -36,29 +81,33 @@
               "ai"
             ]
           },
-          "rerankWhy": "Highlights the impact of AI on wealth creation",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary:\nThe AI boom has created a new group of billionaires from smaller start-ups, following a trend seen in past tech booms."
+          "rerankWhy": "Explores military applications of AI in Ukraine",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary:\nUkraine is developing semiautonomous killer drones in response to sophisticated Russian defenses during the ongoing war, as reported by NYTimes Technology in December 2025."
         },
         {
-          "id": "4agilu",
-          "title": "Decoding the A.I.-Driven Tech Lingo From 2025",
-          "url": "https://www.nytimes.com/2025/12/30/technology/personaltech/tech-jargon-ai.html",
+          "id": "vssc3q",
+          "title": "Even the Sky May Not Be the Limit for A.I. Data Centers",
+          "url": "https://www.nytimes.com/2026/01/01/technology/space-data-centers-ai.html",
           "source": "NYTimes Technology",
-          "published_at": "2025-12-30T10:02:10.000Z",
-          "ingested_at": "2025-12-30T12:26:38.325Z",
-          "snippet": "Here’s a cheat sheet for decoding this year’s A.I.-driven tech lingo, from RAG to superintelligence.",
+          "published_at": "2026-01-01T10:00:32.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "Some tech leaders are concerned that the artificial intelligence race will exhaust available land and energy. The solution might lie in orbit.",
           "relevance": {
-            "scoreTotal": 0.3585482807681023,
-            "recencyScore": 0.2085482807681023,
+            "scoreTotal": 0.5941005299174942,
+            "recencyScore": 0.49410052991749426,
             "sourceWeight": 0.15,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
+            "keywordBoost": 0.15000000000000002,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "data",
+              "artificial intelligence",
+              "ai"
+            ]
           },
-          "rerankWhy": "Explains current AI terminology for better understanding",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary:\nA cheat sheet for decoding A.I.-driven tech lingo in 2025, including terms like RAG and superintelligence, is provided in this NYTimes Technology article."
+          "rerankWhy": "Addresses sustainability issues in AI data centers",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI data centers may face limitations on land and energy resources, prompting consideration of utilizing space for expansion, according to tech leaders."
         },
         {
           "id": "pd8wix",
@@ -78,97 +127,119 @@
               "ai"
             ]
           },
-          "rerankWhy": "Discusses AI's influence on shopping behavior",
-          "rerankConfidence": 0.8,
+          "rerankWhy": "Analyzes AI's influence on shopping behavior",
+          "rerankConfidence": 0.7,
           "aiSummary": "AI-driven \"zero-click\" searches are changing the landscape of product discovery and decision-making, hinting at the impact of AI on shopping behavior."
         },
         {
-          "id": "sjl53v",
-          "title": "3 SEO Predictions for 2026",
-          "url": "https://www.practicalecommerce.com/3-seo-predictions-for-2026",
-          "source": "Practical Ecommerce",
-          "published_at": "2025-12-30T20:10:58.000Z",
-          "ingested_at": "2025-12-30T20:58:31.247Z",
-          "snippet": "Generative AI increasingly dominates search results through AI Overviews and AI Mode, rendering traditional optimization ineffective.\nThe post 3 SEO Predictions for 2026 appeared first on Practical Ecommerce.",
-          "relevance": {
-            "scoreTotal": 0.21894510626479013,
-            "recencyScore": 0.2689451062647902,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0.05,
-            "penalty": 0.2,
-            "matchedKeywords": [
-              "ai"
-            ]
-          },
-          "rerankWhy": "Predicts AI's role in future SEO strategies",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI is predicted to dominate search results in 2026 with the rise of AI Overviews and AI Mode, making traditional SEO strategies less effective."
-        },
-        {
-          "id": "bv2j8a",
-          "title": "The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose",
-          "url": "https://www.nytimes.com/2025/12/30/podcasts/hardfork-wirecutter-ai.html",
+          "id": "337gjj",
+          "title": "The New Billionaires of the A.I. Boom",
+          "url": "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html",
           "source": "NYTimes Technology",
-          "published_at": "2025-12-30T12:00:04.000Z",
+          "published_at": "2025-12-29T22:53:31.000Z",
           "ingested_at": "2025-12-30T12:26:38.325Z",
-          "snippet": "If you’ve ever wondered what chatbots are good for and how best to use them, this episode is for you.",
+          "snippet": "Just like past tech booms, the latest frenzy has produced a group of billionaires — at least on paper — from smaller start-ups.",
           "relevance": {
-            "scoreTotal": 0.4202447093588702,
-            "recencyScore": 0.22024470935887022,
+            "scoreTotal": 0.3422139552615971,
+            "recencyScore": 0.14221395526159714,
             "sourceWeight": 0.15,
             "keywordBoost": 0.05,
             "penalty": 0,
             "matchedKeywords": [
-              "chatbot"
-            ]
-          },
-          "rerankWhy": "Provides practical tips for using AI effectively",
-          "rerankConfidence": 0.7,
-          "aiSummary": "AI-generated summary: The NYTimes Technology podcast episode \"The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose\" discusses the benefits of chatbots and offers advice on how to use them effectively."
-        },
-        {
-          "id": "4zjnai",
-          "title": "China drafts world’s strictest rules to end AI-encouraged suicide, violence",
-          "url": "https://arstechnica.com/tech-policy/2025/12/china-drafts-worlds-strictest-rules-to-end-ai-encouraged-suicide-violence/",
-          "source": "Ars Technica",
-          "published_at": "2025-12-29T16:30:45.000Z",
-          "ingested_at": "2025-12-30T12:26:38.325Z",
-          "relevance": {
-            "scoreTotal": 0.1542410716009277,
-            "recencyScore": 0.1042410716009277,
-            "sourceWeight": 0,
-            "keywordBoost": 0.05,
-            "penalty": 0,
-            "matchedKeywords": [
               "ai"
             ]
           },
-          "rerankWhy": "Covers regulatory responses to AI-related issues",
-          "rerankConfidence": 0.65
+          "rerankWhy": "Examines the rise of billionaires in AI",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-Generated Summary:\nThe AI boom has created a new group of billionaires from smaller start-ups, mirroring past tech booms."
         },
         {
-          "id": "h4eke",
-          "title": "Researchers make “neuromorphic” artificial skin for robots",
-          "url": "https://arstechnica.com/science/2025/12/researchers-make-neuromorphic-artificial-skin-for-robots/",
-          "source": "Ars Technica",
-          "published_at": "2025-12-29T19:00:42.000Z",
-          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "id": "632tbq",
+          "title": "Our 2026 Tech Resolutions + We Answer Your Questions",
+          "url": "https://www.nytimes.com/2026/01/02/podcasts/hardfork-tech-resolutions-listener-questions.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-01-02T12:00:03.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "“When we came into the studio last year to record our resolutions, I had the best of intentions.”",
           "relevance": {
-            "scoreTotal": 0.11911706368901631,
-            "recencyScore": 0.11911706368901631,
+            "scoreTotal": 0.5988144851997594,
+            "recencyScore": 0.6488144851997594,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Offers insights into tech resolutions involving AI",
+          "rerankConfidence": 0.6,
+          "aiSummary": "AI-Generated Summary:\nThe article discusses 2026 tech resolutions and answers questions related to AI and strategy, reflecting on past intentions and future goals."
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 38,
+      "top": [
+        {
+          "id": "6stssz",
+          "title": "When Heavy Products Make Global Sense",
+          "url": "https://www.practicalecommerce.com/when-heavy-products-make-global-sense",
+          "source": "Practical Ecommerce",
+          "published_at": "2026-01-02T10:34:16.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "Selling high-value, differentiated products with international interest can unlock meaningful growth.\nThe post When Heavy Products Make Global Sense appeared first on Practical Ecommerce.",
+          "relevance": {
+            "scoreTotal": 0.7903042338629369,
+            "recencyScore": 0.6403042338629369,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ecommerce"
+            ]
+          },
+          "rerankWhy": "Focuses on international growth for heavy products",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-generated summary: Selling high-value, differentiated products with international appeal can drive significant growth in ecommerce, as discussed in Practical Ecommerce's article \"When Heavy Products Make Global Sense.\""
+        },
+        {
+          "id": "9ducqp",
+          "title": "GigaCloud buys New Classic Home Furnishings for $18 million",
+          "url": "https://www.digitalcommerce360.com/2026/01/02/gigacloud-18-million-acquisition-new-classic-home-furnishings/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-02T17:22:37.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "GigaCloud Technology Inc. said it has completed the acquisition of New Classic Home Furnishings, a U.S.-based distributor serving the home furnishings market. New Classic was founded more than 25 years ago and is based in Fontana, California. The distributor serves more than 1,000 retail customers and offers over 2,000 SKUs across home furnishings categories. GigaCloud […]\nThe post GigaCloud buys New Classic Home Furnishings for $18 million appeared first on Digital Commerce 360.",
+          "relevance": {
+            "scoreTotal": 0.6808151466283319,
+            "recencyScore": 0.6808151466283319,
             "sourceWeight": 0,
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Explores advancements in AI technology for robotics",
-          "rerankConfidence": 0.6
-        }
-      ]
-    },
-    "Ecommerce_Retail_Tech": {
-      "total": 22,
-      "top": [
+          "rerankWhy": "Highlights significant acquisition in home furnishings",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary: GigaCloud Technology Inc. has acquired New Classic Home Furnishings for $18 million, a U.S.-based distributor with over 1,000 retail customers and 2,000 SKUs in home furnishings categories."
+        },
+        {
+          "id": "c5sl3i",
+          "title": "Activating the long tail: How retailers are using digital tools to turn SMBs into scalable growth",
+          "url": "https://www.retaildive.com/spons/activating-the-long-tail-how-retailers-are-using-digital-tools-to-turn-smb/808500/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-01T10:00:00.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "How retailers can tap digital tools to turn small businesses into big revenue.",
+          "relevance": {
+            "scoreTotal": 0.5940476198644967,
+            "recencyScore": 0.49404761986449675,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Discusses digital tools for SMB growth",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary:\nRetailers are leveraging digital tools to transform small businesses into sources of significant revenue growth."
+        },
         {
           "id": "tttlfdz",
           "title": "REI Sustainability Efforts: From Local Renewable Energy to Greater Use of Recycled Raw Materials",
@@ -184,134 +255,101 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Focus on sustainability in retail tech",
-          "rerankConfidence": 0.9
+          "rerankWhy": "Covers sustainability efforts in retail",
+          "rerankConfidence": 0.75
         },
         {
-          "id": "avjg8h",
-          "title": "How brands shifted marketing and media strategies through the year of tariffs",
-          "url": "https://www.modernretail.co/marketing/how-brands-shifted-marketing-and-media-strategies-through-the-year-of-tariffs/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2025-12-29T05:00:00.000Z",
-          "ingested_at": "2025-12-30T17:19:14.042Z",
-          "snippet": "Marketers share how they navigated the maze of tariffs and regulatory changes this year.",
+          "id": "po0y2o",
+          "title": "US holiday 2025 retail spending up 3.9pc: Mastercard",
+          "url": "https://www.luxurydaily.com/us-holiday-2025-retail-spending-up-3-9pc-mastercard/",
+          "source": "Luxury Daily - Research",
+          "published_at": "2026-01-02T09:45:11.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "Bricks-and-mortar and online sales both rose, with the clothing and restaurant industries seeing the highest increases in demand during the seasonal rush.",
           "relevance": {
-            "scoreTotal": 0.1357142857733371,
-            "recencyScore": 0.035714285773337115,
-            "sourceWeight": 0.1,
+            "scoreTotal": 0.6354348555480074,
+            "recencyScore": 0.6354348555480074,
+            "sourceWeight": 0,
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Insights on marketing strategies amid tariffs",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary: Marketers discuss their strategies for adapting to tariffs and regulatory changes in the ecommerce and retail tech industry throughout the year."
-        },
-        {
-          "id": "xrh5uj",
-          "title": "The winners and losers of tariffs",
-          "url": "https://www.modernretail.co/operations/the-winners-and-losers-of-tariffs/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2025-12-29T05:00:00.000Z",
-          "ingested_at": "2025-12-30T17:19:14.042Z",
-          "snippet": "This year, tariffs kicked in at their highest rate since the Great Depression, completely upending the retail industry. In turn, Modern Retail rounded up the biggest winners and losers of all the changes in tariff policy this year.",
-          "relevance": {
-            "scoreTotal": 0.1357142857733371,
-            "recencyScore": 0.035714285773337115,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Analysis of tariff impacts on retail",
-          "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nIn 2025, tariffs had a significant impact on the retail industry, with Modern Retail highlighting the major winners and losers of the changes in tariff policy."
-        },
-        {
-          "id": "pguvn9",
-          "title": "Cheez-It bets on ‘Prince Cheddward’ mascot in an overcrowded sports marketing arena",
-          "url": "https://www.modernretail.co/marketing/cheez-it-bets-on-prince-cheddward-mascot-in-an-overcrowded-sports-marketing-arena/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2025-12-31T05:00:00.000Z",
-          "ingested_at": "2025-12-31T07:41:21.690Z",
-          "snippet": "To cut through sports marketing noise, Cheez-It is resurrecting Prince Cheddward and betting on nostalgia.",
-          "relevance": {
-            "scoreTotal": 0.421428571960034,
-            "recencyScore": 0.321428571960034,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Unique marketing approach in crowded space",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary:\nCheez-It is reviving its 'Prince Cheddward' mascot to stand out in the crowded sports marketing landscape, focusing on nostalgia to cut through the noise."
-        },
-        {
-          "id": "501hss",
-          "title": "The Modern Retail guide to what’s in and what’s out in 2026",
-          "url": "https://www.modernretail.co/marketing/the-modern-retail-guide-to-whats-in-and-whats-out-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2025-12-31T05:00:00.000Z",
-          "ingested_at": "2025-12-31T07:41:21.690Z",
-          "snippet": "Big workout pants, fiber and thrifting are just some of the trends that will dominate 2026, Modern Retail predicts in its annual In/Out list.",
-          "relevance": {
-            "scoreTotal": 0.421428571960034,
-            "recencyScore": 0.321428571960034,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Trends shaping the retail landscape in 2026",
+          "rerankWhy": "Reports on retail spending trends during holidays",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary:\nModern Retail's 2026 In/Out list predicts trends like big workout pants, fiber, and thrifting to dominate the year in ecommerce and retail tech."
+          "aiSummary": "AI-Generated Summary:\nMastercard reports a 3.9% increase in US holiday retail spending in 2025, with growth in both physical and online sales. The clothing and restaurant sectors experienced the highest surge in demand during the festive season."
         },
         {
-          "id": "6erx5k",
-          "title": "The revenge of the ’90s mall brand",
-          "url": "https://www.modernretail.co/operations/the-revenge-of-the-90s-mall-brand/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2025-12-30T05:00:00.000Z",
-          "ingested_at": "2025-12-30T17:19:14.042Z",
-          "snippet": "Brands known for their heyday in the ‘90s, like Gap and Victoria's Secret, have used 2025 to mount turnaround plans. But staging a successful comeback after years of a battered reputation takes more than a few quarters of growth.",
+          "id": "m6kq5j",
+          "title": "Ecommerce faces a structural reckoning in 2026",
+          "url": "https://www.digitalcommerce360.com/2025/12/30/ecommerce-faces-a-structural-reckoning-in-2026/",
+          "source": "Digital Commerce 360",
+          "published_at": "2025-12-30T21:09:15.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "Ecommerce is entering 2026 in what executives describe as a structural reset, driven by the rise of artificial intelligence (AI)-powered shopping, autonomous network operations and tariff changes that are reshaping supply chains. Instead of incremental digital upgrades, companies are preparing for a year in which competitiveness hinges on the speed of operational change, the quality […]\nThe post Ecommerce faces a structural reckoning in 2026 appeared first on Digital Commerce 360.",
           "relevance": {
-            "scoreTotal": 0.27857142886668557,
-            "recencyScore": 0.17857142886668556,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Revival strategies of iconic brands",
-          "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nIn 2025, '90s mall brands like Gap and Victoria's Secret are working on turnaround plans to revive their reputation, but success requires more than short-term growth."
-        },
-        {
-          "id": "fh9fpe",
-          "title": "‘Quitting wasn’t an option’: How tariffs took an emotional and financial toll on founders in 2025",
-          "url": "https://www.modernretail.co/operations/quitting-wasnt-an-option-how-tariffs-took-an-emotional-and-financial-toll-on-founders-in-2025/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2025-12-30T05:01:00.000Z",
-          "ingested_at": "2025-12-30T17:19:14.042Z",
-          "snippet": "Many founders had to completely upend their business models in 2025 due to tariffs, resorting to production delays, raising prices and putting off hiring to save their businesses.",
-          "relevance": {
-            "scoreTotal": 0.07867063521605594,
-            "recencyScore": 0.17867063521605595,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
+            "scoreTotal": 0.17472718299392725,
+            "recencyScore": 0.27472718299392723,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
             "penalty": 0.2,
-            "matchedKeywords": []
+            "matchedKeywords": [
+              "ecommerce",
+              "shopping"
+            ]
           },
-          "rerankWhy": "Emotional toll of tariffs on founders",
+          "rerankWhy": "Analyzes structural changes in ecommerce landscape",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-generated summary: Ecommerce is undergoing a structural reset in 2026 due to AI-powered shopping, autonomous network operations, and tariff changes reshaping supply chains, leading companies to focus on operational agility for competitiveness."
+        },
+        {
+          "id": "hwetf9",
+          "title": "New rules: Privacy laws reshape ecommerce compliance for B2B sellers",
+          "url": "https://www.digitalcommerce360.com/2026/01/02/privacy-laws-b2b-ecommerce-compliance-2026/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-02T17:43:04.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "As the calendar flipped to 2026, a fresh layer of regulatory complexity landed on the desks of B2B ecommerce leaders across the United States. Three states — Indiana, Kentucky, and Rhode Island — ushered in comprehensive consumer data privacy laws, marking the latest chapter in a fast-evolving state-level privacy landscape that now covers two dozen […]\nThe post New rules: Privacy laws reshape ecommerce compliance for B2B sellers appeared first on Digital Commerce 360.",
+          "relevance": {
+            "scoreTotal": 0.5328439164729561,
+            "recencyScore": 0.6828439164729562,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ecommerce"
+            ]
+          },
+          "rerankWhy": "Addresses new privacy laws affecting B2B ecommerce",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-Generated Summary:\nIn 2025, founders faced emotional and financial challenges as tariffs forced them to make difficult decisions like changing business models, raising prices, and delaying hiring to sustain their businesses."
+          "aiSummary": "AI-generated summary: Three states in the US, including Indiana, Kentucky, and Rhode Island, have implemented new consumer data privacy laws affecting B2B ecommerce compliance in 2026, adding to the evolving state-level privacy landscape."
         }
       ]
     },
     "Luxury_and_Consumer": {
-      "total": 4,
+      "total": 5,
       "top": [
+        {
+          "id": "x1shig",
+          "title": "Saks Global CEO Marc Metrick exits",
+          "url": "https://www.retaildive.com/news/saks-global-ceo-marc-metrick-exits-richard-baker-executive-chairman/808683/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-02T15:20:00.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "Executive Chairman Richard Baker is taking over the top position at the luxury retailer as bankruptcy speculation swirls.",
+          "relevance": {
+            "scoreTotal": 0.818650794756367,
+            "recencyScore": 0.668650794756367,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury"
+            ]
+          },
+          "rerankWhy": "CEO exit amidst bankruptcy speculation is significant news",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nSaks Global CEO Marc Metrick has exited, with Executive Chairman Richard Baker stepping in amid bankruptcy speculation at the luxury retailer."
+        },
         {
           "id": "bvf7if",
           "title": "Crowd avoidance, off-peak trips to drive next 12 months of luxury travel: Virtuoso",
@@ -331,9 +369,9 @@
               "high-end"
             ]
           },
-          "rerankWhy": "Highlights trends in luxury travel for 2026",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and unfavorable weather conditions, according to Virtuoso. The high-end hospitality network predicts this trend will drive luxury travel in the next 12 months."
+          "rerankWhy": "Insights on luxury travel trends are highly relevant",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and uncomfortable temperatures, with Virtuoso predicting this trend to drive the next 12 months of luxury travel in 2026."
         },
         {
           "id": "v0vq6o",
@@ -350,8 +388,8 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Relevant ecological insights impacting luxury markets",
-          "rerankConfidence": 0.7
+          "rerankWhy": "Ecological traps may impact luxury seafood markets",
+          "rerankConfidence": 0.4
         },
         {
           "id": "ikl06u",
@@ -368,8 +406,8 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Links screen time to future consumer behavior",
-          "rerankConfidence": 0.65
+          "rerankWhy": "Child screen time links to anxiety affect consumer behavior",
+          "rerankConfidence": 0.35
         },
         {
           "id": "swcqzq",
@@ -386,8 +424,8 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Legal issues affecting luxury market players",
-          "rerankConfidence": 0.6
+          "rerankWhy": "Sanctioned judge's case may influence luxury legal markets",
+          "rerankConfidence": 0.3
         }
       ]
     },

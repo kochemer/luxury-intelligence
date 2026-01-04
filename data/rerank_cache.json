@@ -286,5 +286,137 @@
     ],
     "cached_at": "2026-01-03T21:39:38.499Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W01:AI_and_Strategy:baa043d96301": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Highlights concerns about AI in education",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Discusses AI's impact on retail strategies",
+        "confidence": 0.85
+      },
+      {
+        "id": "5",
+        "rank": 3,
+        "why": "Explores military applications of AI in Ukraine",
+        "confidence": 0.8
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "why": "Addresses sustainability issues in AI data centers",
+        "confidence": 0.75
+      },
+      {
+        "id": "19",
+        "rank": 5,
+        "why": "Analyzes AI's influence on shopping behavior",
+        "confidence": 0.7
+      },
+      {
+        "id": "11",
+        "rank": 6,
+        "why": "Examines the rise of billionaires in AI",
+        "confidence": 0.65
+      },
+      {
+        "id": "3",
+        "rank": 7,
+        "why": "Offers insights into tech resolutions involving AI",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-04T13:50:24.077Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Ecommerce_Retail_Tech:8d4007be4809": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Focuses on international growth for heavy products",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Highlights significant acquisition in home furnishings",
+        "confidence": 0.85
+      },
+      {
+        "id": "5",
+        "rank": 3,
+        "why": "Discusses digital tools for SMB growth",
+        "confidence": 0.8
+      },
+      {
+        "id": "2",
+        "rank": 4,
+        "why": "Covers sustainability efforts in retail",
+        "confidence": 0.75
+      },
+      {
+        "id": "4",
+        "rank": 5,
+        "why": "Reports on retail spending trends during holidays",
+        "confidence": 0.7
+      },
+      {
+        "id": "24",
+        "rank": 6,
+        "why": "Analyzes structural changes in ecommerce landscape",
+        "confidence": 0.65
+      },
+      {
+        "id": "7",
+        "rank": 7,
+        "why": "Addresses new privacy laws affecting B2B ecommerce",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-04T13:50:29.580Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Luxury_and_Consumer:8d758000b8b8": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "CEO exit amidst bankruptcy speculation is significant news",
+        "confidence": 0.9
+      },
+      {
+        "id": "4",
+        "rank": 2,
+        "why": "Insights on luxury travel trends are highly relevant",
+        "confidence": 0.85
+      },
+      {
+        "id": "1",
+        "rank": 3,
+        "why": "Ecological traps may impact luxury seafood markets",
+        "confidence": 0.4
+      },
+      {
+        "id": "2",
+        "rank": 4,
+        "why": "Child screen time links to anxiety affect consumer behavior",
+        "confidence": 0.35
+      },
+      {
+        "id": "3",
+        "rank": 5,
+        "why": "Sanctioned judge's case may influence luxury legal markets",
+        "confidence": 0.3
+      }
+    ],
+    "cached_at": "2026-01-04T13:50:33.057Z",
+    "model": "gpt-4o-mini"
   }
 }
