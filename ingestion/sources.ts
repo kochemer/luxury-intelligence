@@ -17,10 +17,6 @@ export const SOURCE_FEEDS: SourceFeed[] = [
   },
   // --- Additional Jewellery Industry ---
   {
-    name: "National Jeweler",
-    url: "https://www.nationaljeweler.com/rss/feed/news",
-  },
-  {
     name: "JCK Online",
     url: "https://www.jckonline.com/feed/",
   },
@@ -28,14 +24,22 @@ export const SOURCE_FEEDS: SourceFeed[] = [
     name: "Professional Jeweller",
     url: "https://www.professionaljeweller.com/feed/",
   },
-  {
-    name: "Jeweller Magazine (AU)",
-    url: "https://www.jewellermagazine.com/rss",
-  },
-  {
-    name: "Rapaport News",
-    url: "https://www.diamonds.net/News/rss.aspx",
-  },
+  // {
+  //   name: "National Jeweler",
+  //   url: "https://www.nationaljeweler.com/rss/feed/news",
+  // }, // disabled: 404
+  // {
+  //   name: "Jeweller Magazine (AU)",
+  //   url: "https://www.jewellermagazine.com/rss",
+  // }, // disabled: not XML/RSS/Atom
+  // {
+  //   name: "Rapaport News",
+  //   url: "https://www.diamonds.net/News/rss.aspx",
+  // }, // disabled: not XML/RSS/Atom
+  // {
+  //   name: "Jewellery Outlook",
+  //   url: "https://www.jewelleryoutlook.com/rss.xml",
+  // }, // disabled: 404
 
   // --- Luxury Daily Key Category Feeds ---
   {
@@ -50,31 +54,42 @@ export const SOURCE_FEEDS: SourceFeed[] = [
     "name": "Luxury Daily - Research",
     "url": "https://www.luxurydaily.com/category/news/research/feed/"
   },
-  {
-    "name": "WWD RSS - Global News",
-    "url": "https://wwd.com/rss-feeds/" 
-  },
-  {
-    "name": "FashionNetwork.com - RSS (Global)",
-    "url": "https://ww.fashionnetwork.com/rss/"
-  },
-  {
-    "name": "FashionNetwork.com - RSS (US)",
-    "url": "https://us.fashionnetwork.com/rss/"
-  },
-  {
-    "name": "JustLuxe - RSS",
-    "url": "https://www.justluxe.com/rss/"
-  },
-  {
-    "name": "Trend Hunter - Luxury RSS",
-    "url": "https://www.trendhunter.com/rssfeeds"
-  },
-  {
-    "name": "Business of Fashion - Luxury (via RSS generator)",
-    "url": "https://rss.app/en/rss-feed/the-business-of-fashion-rss-feed?url=https://www.businessoffashion.com/topics/luxury"
-  }
-  ,
+  // {
+  //   "name": "WWD RSS - Global News",
+  //   "url": "https://wwd.com/rss-feeds/"
+  // }, // disabled: not XML/RSS/Atom
+  // {
+  //   "name": "FashionNetwork.com - RSS (Global)",
+  //   "url": "https://ww.fashionnetwork.com/rss/"
+  // }, // disabled: not XML/RSS/Atom
+  // {
+  //   "name": "FashionNetwork.com - RSS (US)",
+  //   "url": "https://us.fashionnetwork.com/rss/"
+  // }, // disabled: not XML/RSS/Atom
+  // {
+  //   "name": "JustLuxe - RSS",
+  //   "url": "https://www.justluxe.com/rss/"
+  // }, // disabled: timeout
+  // {
+  //   "name": "Trend Hunter - Luxury RSS",
+  //   "url": "https://www.trendhunter.com/rssfeeds"
+  // }, // disabled: 403
+  // {
+  //   "name": "Business of Fashion - Luxury (via RSS generator)",
+  //   "url": "https://rss.app/en/rss-feed/the-business-of-fashion-rss-feed?url=https://www.businessoffashion.com/topics/luxury"
+  // }, // disabled: not XML/RSS/Atom
+  // {
+  //   name: "Vogue Business",
+  //   url: "https://www.voguebusiness.com/rss",
+  // }, // disabled: 404
+  // {
+  //   name: "Jing Daily",
+  //   url: "https://jingdaily.com/feed/",
+  // }, // disabled: 404
+  // {
+  //   name: "Luxury Society",
+  //   url: "https://www.luxurysociety.com/en/rss.xml",
+  // }, // disabled: 404
 
   // --- Ecommerce, Retail & DTC Technology ---
   {
@@ -94,27 +109,57 @@ export const SOURCE_FEEDS: SourceFeed[] = [
     url: "https://techcrunch.com/tag/ecommerce/feed/",
   },
   {
-    name: "Shopify Engineering",
-    url: "https://shopify.engineering/rss.xml",
+    name: "Digital Commerce 360",
+    url: "https://www.digitalcommerce360.com/feed/",
   },
+  // {
+  //   name: "Shopify Engineering",
+  //   url: "https://shopify.engineering/rss.xml",
+  // }, // disabled: 404
+  // {
+  //   name: "Retail Dive – Technology",
+  //   url: "https://www.retaildive.com/feeds/news/technology/",
+  // }, // disabled: 404
 
   // --- AI, Tech & Consulting (General/Filtered) ---
   {
     name: "NYTimes Technology",
     url: "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
   },
+  // {
+  //   name: "Harvard Business Review (Technology & AI)",
+  //   url: "https://hbr.org/feeds/section/technology",
+  // }, // disabled: 404
+  // {
+  //   name: "Bain & Company Insights (Technology)",
+  //   url: "https://www.bain.com/about/media-center/rss/technology.xml",
+  // }, // disabled: 404
+  // {
+  //   name: "McKinsey & Company: Artificial Intelligence",
+  //   url: "https://www.mckinsey.com/rss/our-insights/artificial-intelligence",
+  // }, // disabled: 404
+  
+  // --- AI & Strategy ---
   {
-    name: "Harvard Business Review (Technology & AI)",
-    url: "https://hbr.org/feeds/section/technology",
+    name: "MIT Sloan Management Review – AI",
+    url: "https://sloanreview.mit.edu/tag/artificial-intelligence/feed/",
   },
   {
-    name: "Bain & Company Insights (Technology)",
-    url: "https://www.bain.com/about/media-center/rss/technology.xml",
+    name: "Benedict Evans",
+    url: "https://www.ben-evans.com/benedictevans?format=rss",
   },
   {
-    name: "McKinsey & Company: Artificial Intelligence",
-    url: "https://www.mckinsey.com/rss/our-insights/artificial-intelligence",
+    name: "Stratechery",
+    url: "https://stratechery.com/feed/",
   },
+  // {
+  //   name: "a16z – AI",
+  //   url: "https://a16z.com/tag/ai/feed/",
+  // }, // disabled: not XML/RSS/Atom
+  // {
+  //   name: "a16z",
+  //   url: "https://a16z.com/feed/",
+  // }, // disabled: 404
 ];
 
 // --- Web page & non-RSS sources ---

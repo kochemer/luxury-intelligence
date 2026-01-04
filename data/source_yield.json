@@ -1,0 +1,174 @@
+{
+  "timestamp": "2026-01-04T13:49:43.991Z",
+  "sources": [
+    {
+      "sourceName": "Jeweller - Business News",
+      "type": "rss",
+      "itemsFetched": 30,
+      "itemsParsed": 30,
+      "newArticlesAdded": 0,
+      "duplicates": 30,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Jeweller - Jewellery Trends",
+      "type": "rss",
+      "itemsFetched": 30,
+      "itemsParsed": 30,
+      "newArticlesAdded": 0,
+      "duplicates": 30,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Jeweller - Main",
+      "type": "rss",
+      "itemsFetched": 30,
+      "itemsParsed": 30,
+      "newArticlesAdded": 0,
+      "duplicates": 30,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "JCK Online",
+      "type": "rss",
+      "itemsFetched": 0,
+      "itemsParsed": 0,
+      "newArticlesAdded": 0,
+      "duplicates": 0,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Professional Jeweller",
+      "type": "rss",
+      "itemsFetched": 10,
+      "itemsParsed": 10,
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Luxury Daily - Retail",
+      "type": "rss",
+      "itemsFetched": 0,
+      "itemsParsed": 0,
+      "newArticlesAdded": 0,
+      "duplicates": 0,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Luxury Daily - Commerce",
+      "type": "rss",
+      "itemsFetched": 0,
+      "itemsParsed": 0,
+      "newArticlesAdded": 0,
+      "duplicates": 0,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Luxury Daily - Research",
+      "type": "rss",
+      "itemsFetched": 10,
+      "itemsParsed": 10,
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Retail Dive",
+      "type": "rss",
+      "itemsFetched": 10,
+      "itemsParsed": 10,
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Practical Ecommerce",
+      "type": "rss",
+      "itemsFetched": 30,
+      "itemsParsed": 30,
+      "newArticlesAdded": 0,
+      "duplicates": 30,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Modern Retail",
+      "type": "rss",
+      "itemsFetched": 10,
+      "itemsParsed": 10,
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "TechCrunch Ecommerce",
+      "type": "rss",
+      "itemsFetched": 20,
+      "itemsParsed": 20,
+      "newArticlesAdded": 0,
+      "duplicates": 20,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Digital Commerce 360",
+      "type": "rss",
+      "itemsFetched": 10,
+      "itemsParsed": 10,
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "NYTimes Technology",
+      "type": "rss",
+      "itemsFetched": 20,
+      "itemsParsed": 20,
+      "newArticlesAdded": 0,
+      "duplicates": 20,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "MIT Sloan Management Review – AI",
+      "type": "rss",
+      "itemsFetched": 20,
+      "itemsParsed": 20,
+      "newArticlesAdded": 0,
+      "duplicates": 20,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Benedict Evans",
+      "type": "rss",
+      "itemsFetched": 20,
+      "itemsParsed": 20,
+      "newArticlesAdded": 0,
+      "duplicates": 20,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Stratechery",
+      "type": "rss",
+      "itemsFetched": 10,
+      "itemsParsed": 10,
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "BoF - News (The News in Brief)",
+      "type": "page",
+      "itemsFetched": 8,
+      "itemsParsed": 0,
+      "newArticlesAdded": 0,
+      "duplicates": 8,
+      "yieldPct": 0
+    }
+  ],
+  "summary": {
+    "totalSources": 18,
+    "totalItemsFetched": 268,
+    "totalNewArticles": 0,
+    "totalDuplicates": 268,
+    "overallYieldPct": 0
+  }
+}

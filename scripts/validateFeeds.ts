@@ -1,172 +1,207 @@
+/**
+ * RSS/Atom Feed Preflight Validator
+ * Validates all feeds in SOURCE_FEEDS before ingestion
+ */
+
+import { SOURCE_FEEDS } from '../ingestion/sources.js';
 import Parser from 'rss-parser';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { SOURCE_FEEDS } from '../ingestion/sources.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-type FeedHealthResult = {
-  source: string;
+const FETCH_TIMEOUT_MS = 10000; // 10 seconds
+const OUTPUT_PATH = path.join(__dirname, '../data/feed_validation.json');
+
+type ValidationResult = {
+  name: string;
   url: string;
-  status: string;
-  items: number;
-  newestDate: string | null;
-  oldestDate: string | null;
+  status: number | null;
+  contentType: string | null;
+  itemsFound: number;
   error: string | null;
+  isValid: boolean;
+  timestamp: string;
 };
 
-const parser = new Parser();
+/**
+ * Fetch with timeout
+ */
+async function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  
+  try {
+    const response = await fetch(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+        "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5",
+        "Accept-Language": "en-US,en;q=0.9"
+      },
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+    return response;
+  } catch (err: any) {
+    clearTimeout(timeoutId);
+    if (err.name === 'AbortError') {
+      throw new Error(`Request timeout after ${timeoutMs}ms`);
+    }
+    throw err;
+  }
+}
 
-async function validateFeed(feed: { name: string; url: string }): Promise<FeedHealthResult> {
-  const result: FeedHealthResult = {
-    source: feed.name,
+/**
+ * Check if content looks like XML/RSS/Atom
+ */
+function isXmlLike(text: string): boolean {
+  const trimmed = text.trim();
+  // Check for XML declaration or RSS/Atom tags
+  return (
+    trimmed.startsWith('<?xml') ||
+    trimmed.startsWith('<rss') ||
+    trimmed.startsWith('<feed') ||
+    trimmed.startsWith('<RDF') ||
+    trimmed.includes('<rss') ||
+    trimmed.includes('<feed') ||
+    trimmed.includes('<channel')
+  );
+}
+
+/**
+ * Count items in RSS/Atom feed
+ */
+async function countItems(text: string): Promise<number> {
+  try {
+    const parser = new Parser();
+    const feed = await parser.parseString(text);
+    return feed.items?.length || 0;
+  } catch (err) {
+    // If parsing fails, try to count <item> tags manually
+    const itemMatches = text.match(/<item[^>]*>/gi) || text.match(/<entry[^>]*>/gi);
+    return itemMatches ? itemMatches.length : 0;
+  }
+}
+
+/**
+ * Validate a single feed
+ */
+async function validateFeed(feed: { name: string; url: string }): Promise<ValidationResult> {
+  const result: ValidationResult = {
+    name: feed.name,
     url: feed.url,
-    status: 'unknown',
-    items: 0,
-    newestDate: null,
-    oldestDate: null,
+    status: null,
+    contentType: null,
+    itemsFound: 0,
     error: null,
+    isValid: false,
+    timestamp: new Date().toISOString()
   };
 
   try {
-    // Fetch with browser-like headers
-    const headers = {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
-      'Accept': 'application/rss+xml, application/xml, text/xml, */*',
-      'Accept-Language': 'en-US,en;q=0.9',
-    };
+    // Fetch with timeout
+    const response = await fetchWithTimeout(feed.url, FETCH_TIMEOUT_MS);
+    result.status = response.status;
+    result.contentType = response.headers.get('content-type') || null;
 
-    const response = await fetch(feed.url, { headers });
-    result.status = `${response.status} ${response.statusText}`;
-
-    if (!response.ok) {
-      result.error = `HTTP ${response.status}: ${response.statusText}`;
+    if (response.status !== 200) {
+      result.error = `HTTP ${response.status}`;
       return result;
     }
 
+    // Get response text
     const text = await response.text();
 
-    // Parse with rss-parser
-    let rss;
-    try {
-      rss = await parser.parseString(text);
-    } catch (parseError) {
-      result.error = `Parse error: ${(parseError as Error).message}`;
+    // Check if it's XML-like
+    if (!isXmlLike(text)) {
+      result.error = 'Response does not appear to be XML/RSS/Atom';
       return result;
     }
 
-    const items = rss.items || [];
-    result.items = items.length;
+    // Count items
+    result.itemsFound = await countItems(text);
+    result.isValid = true;
 
-    if (items.length === 0) {
-      result.error = 'No items found in feed';
-      return result;
-    }
-
-    // Extract dates and find newest/oldest
-    const dates: Date[] = [];
-    for (const item of items) {
-      const dateStr = item.isoDate || item.pubDate;
-      if (dateStr) {
-        const date = new Date(dateStr);
-        if (!isNaN(date.getTime())) {
-          dates.push(date);
-        }
-      }
-    }
-
-    if (dates.length > 0) {
-      dates.sort((a, b) => a.getTime() - b.getTime());
-      result.oldestDate = dates[0].toISOString();
-      result.newestDate = dates[dates.length - 1].toISOString();
-    } else {
-      result.error = 'No valid dates found in feed items';
-    }
-  } catch (err) {
-    result.error = (err as Error).message;
-    if (!result.status || result.status === 'unknown') {
-      result.status = 'error';
-    }
+  } catch (err: any) {
+    result.error = err.message || String(err);
   }
 
   return result;
 }
 
-function formatTable(results: FeedHealthResult[]): string {
-  // Calculate column widths
-  const sourceWidth = Math.max(8, ...results.map(r => r.source.length));
-  const urlWidth = Math.max(3, ...results.map(r => r.url.length));
-  const statusWidth = Math.max(6, ...results.map(r => r.status.length));
-  const itemsWidth = 5;
-  const newestWidth = 20;
-  const oldestWidth = 20;
-  const errorWidth = Math.max(5, ...results.map(r => (r.error || '').length));
-
-  // Header
-  const header = [
-    'source'.padEnd(sourceWidth),
-    'url'.padEnd(urlWidth),
-    'status'.padEnd(statusWidth),
-    'items'.padEnd(itemsWidth),
-    'newestDate'.padEnd(newestWidth),
-    'oldestDate'.padEnd(oldestWidth),
-    'error'.padEnd(errorWidth),
-  ].join(' | ');
-
-  const separator = '-'.repeat(header.length);
-
-  // Rows
-  const rows = results.map(r => [
-    r.source.padEnd(sourceWidth),
-    r.url.padEnd(urlWidth),
-    r.status.padEnd(statusWidth),
-    r.items.toString().padEnd(itemsWidth),
-    (r.newestDate || 'N/A').padEnd(newestWidth),
-    (r.oldestDate || 'N/A').padEnd(oldestWidth),
-    (r.error || '').padEnd(errorWidth),
-  ].join(' | '));
-
-  return [header, separator, ...rows].join('\n');
+/**
+ * Format table row
+ */
+function formatRow(result: ValidationResult): string {
+  const name = result.name.padEnd(45);
+  const status = (result.status?.toString() || 'N/A').padStart(6);
+  const contentType = (result.contentType?.substring(0, 30) || 'N/A').padEnd(30);
+  const items = result.itemsFound.toString().padStart(6);
+  const error = result.error ? result.error.substring(0, 40) : 'OK';
+  const valid = result.isValid ? '✓' : '✗';
+  
+  return `${valid} ${name} ${status} ${contentType} ${items} ${error}`;
 }
 
 async function main() {
+  console.log('=== RSS/Atom Feed Validation ===\n');
   console.log(`Validating ${SOURCE_FEEDS.length} feeds...\n`);
 
-  const results: FeedHealthResult[] = [];
-  
+  const results: ValidationResult[] = [];
+
+  // Validate each feed
   for (const feed of SOURCE_FEEDS) {
+    process.stdout.write(`Validating ${feed.name}... `);
     const result = await validateFeed(feed);
     results.push(result);
-    // Show progress
-    const statusIcon = result.error ? '❌' : '✅';
-    console.log(`${statusIcon} ${feed.name}`);
+    
+    if (result.isValid) {
+      console.log(`✓ ${result.itemsFound} items`);
+    } else {
+      console.log(`✗ ${result.error || 'Failed'}`);
+    }
   }
 
-  console.log('\n' + formatTable(results));
+  // Print table
+  console.log('\n=== Validation Results ===\n');
+  console.log('Status | Source Name'.padEnd(45) + 'HTTP'.padStart(6) + 'Content-Type'.padStart(30) + 'Items'.padStart(6) + 'Error/Status');
+  console.log('-'.repeat(150));
 
-  // Write to JSON
-  const outputPath = path.join(__dirname, '../data/feed_health.json');
-  await fs.mkdir(path.dirname(outputPath), { recursive: true });
-  await fs.writeFile(
-    outputPath,
-    JSON.stringify(results, null, 2),
-    'utf-8'
-  );
-
-  console.log(`\nResults written to: ${outputPath}`);
+  for (const result of results) {
+    console.log(formatRow(result));
+  }
 
   // Summary
-  const successCount = results.filter(r => !r.error).length;
-  const errorCount = results.filter(r => r.error).length;
-  console.log(`\nSummary: ${successCount} successful, ${errorCount} failed`);
+  const valid = results.filter(r => r.isValid).length;
+  const invalid = results.length - valid;
+  const totalItems = results.reduce((sum, r) => sum + r.itemsFound, 0);
+
+  console.log('-'.repeat(150));
+  console.log(`\nSummary:`);
+  console.log(`  Valid feeds: ${valid}/${results.length}`);
+  console.log(`  Invalid feeds: ${invalid}/${results.length}`);
+  console.log(`  Total items found: ${totalItems}`);
+
+  // Save results
+  const output = {
+    timestamp: new Date().toISOString(),
+    totalFeeds: results.length,
+    validFeeds: valid,
+    invalidFeeds: invalid,
+    totalItems,
+    results
+  };
+
+  await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
+  await fs.writeFile(OUTPUT_PATH, JSON.stringify(output, null, 2), 'utf-8');
+  console.log(`\n✓ Results saved to: ${OUTPUT_PATH}`);
 }
 
 main()
   .then(() => process.exit(0))
   .catch(err => {
-    console.error('Validation failed:', err);
+    console.error('Fatal error:', err);
     process.exit(1);
   });
-

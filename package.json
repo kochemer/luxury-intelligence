@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "ingest": "tsx ingestion/runIngestion.ts"
+    "ingest": "tsx ingestion/runIngestion.ts",
+    "print-yield": "tsx scripts/printSourceYield.ts",
+    "validate:feeds": "tsx scripts/validateFeeds.ts"
   },
   "dependencies": {
     "@vercel/speed-insights": "^1.3.1",

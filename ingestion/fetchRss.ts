@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { SOURCE_FEEDS } from './sources.js';
 import type { Article } from './types.js';
+import { addRssYield } from './sourceYield.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -76,6 +77,8 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
       let feedItemsProcessed = 0;
       let feedItemsMatched = 0;
       let feedItemsUpdated = 0;
+      let feedItemsParsed = 0;
+      let feedNewArticles = 0;
       
       for (const item of rss.items || []) {
         const title = item.title || '';
@@ -84,6 +87,7 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
         if (!url || !title || !isoDate) continue;
         
         feedItemsProcessed++;
+        feedItemsParsed++; // Successfully parsed item
 
         // Extract snippet from contentSnippet, content, or description
         const snippet = (item.contentSnippet || item.content || item.description || '').trim();
@@ -111,9 +115,20 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
             snippet: truncatedSnippet || undefined,
           };
           allNewArticles.push(article);
+          feedNewArticles++;
           existingArticlesByUrl.set(url, article); // Prevent dupes within this run
         }
       }
+      
+      // Track yield for this RSS source
+      const feedDuplicates = feedItemsMatched;
+      addRssYield(
+        feed.name,
+        feedItemsProcessed, // itemsFetched
+        feedItemsParsed,    // itemsParsed
+        feedNewArticles,    // newArticlesAdded
+        feedDuplicates      // duplicates
+      );
       
       if (feedItemsProcessed > 0) {
         console.log(`[${feed.name}] processed ${feedItemsProcessed} items, matched ${feedItemsMatched} existing, updated ${feedItemsUpdated} with snippets`);
@@ -124,6 +139,9 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
     }
   }
   
+  // Add new articles to existingArticles array before saving
+  existingArticles.push(...allNewArticles);
+  
   // Save if we have new articles or updates
   if (allNewArticles.length > 0 || updatedCount > 0) {
     await saveArticles(existingArticles);
@@ -133,12 +151,14 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
 }
 
 // CLI runner - run if this file is executed directly
-runRssIngestion()
-  .then(result => {
-    console.log(`Added ${result.added} new articles, updated ${result.updated} existing articles with snippets`);
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error('RSS ingestion failed:', err);
-    process.exit(1);
-  });
+if (import.meta.url === `file://${process.argv[1]?.replace(/\\/g, '/')}` || process.argv[1]?.includes('fetchRss.ts')) {
+  runRssIngestion()
+    .then(result => {
+      console.log(`Added ${result.added} new articles, updated ${result.updated} existing articles with snippets`);
+      process.exit(0);
+    })
+    .catch(err => {
+      console.error('RSS ingestion failed:', err);
+      process.exit(1);
+    });
+}

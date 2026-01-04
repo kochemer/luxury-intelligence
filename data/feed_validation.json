@@ -1,0 +1,179 @@
+{
+  "timestamp": "2026-01-04T13:46:45.301Z",
+  "totalFeeds": 17,
+  "validFeeds": 17,
+  "invalidFeeds": 0,
+  "totalItems": 260,
+  "results": [
+    {
+      "name": "Jeweller - Business News",
+      "url": "https://www.jewellermagazine.com/rss/jewellery-business.xml",
+      "status": 200,
+      "contentType": "text/xml",
+      "itemsFound": 30,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:38.350Z"
+    },
+    {
+      "name": "Jeweller - Jewellery Trends",
+      "url": "https://www.jewellermagazine.com/rss/jewellery-trends.xml",
+      "status": 200,
+      "contentType": "text/xml",
+      "itemsFound": 30,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:39.639Z"
+    },
+    {
+      "name": "Jeweller - Main",
+      "url": "https://www.jewellermagazine.com/rss/jeweller.xml",
+      "status": 200,
+      "contentType": "text/xml",
+      "itemsFound": 30,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:40.003Z"
+    },
+    {
+      "name": "JCK Online",
+      "url": "https://www.jckonline.com/feed/",
+      "status": 200,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "itemsFound": 0,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:40.310Z"
+    },
+    {
+      "name": "Professional Jeweller",
+      "url": "https://www.professionaljeweller.com/feed/",
+      "status": 200,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "itemsFound": 10,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:42.285Z"
+    },
+    {
+      "name": "Luxury Daily - Retail",
+      "url": "https://www.luxurydaily.com/category/news/retail/feed/",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "itemsFound": 0,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:42.428Z"
+    },
+    {
+      "name": "Luxury Daily - Commerce",
+      "url": "https://www.luxurydaily.com/category/news/commerce/feed/",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "itemsFound": 0,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:42.882Z"
+    },
+    {
+      "name": "Luxury Daily - Research",
+      "url": "https://www.luxurydaily.com/category/news/research/feed/",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "itemsFound": 10,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:42.980Z"
+    },
+    {
+      "name": "Retail Dive",
+      "url": "https://www.retaildive.com/feeds/news/",
+      "status": 200,
+      "contentType": "application/rss+xml; charset=utf-8",
+      "itemsFound": 10,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:43.080Z"
+    },
+    {
+      "name": "Practical Ecommerce",
+      "url": "https://www.practicalecommerce.com/feed",
+      "status": 200,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "itemsFound": 30,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:43.484Z"
+    },
+    {
+      "name": "Modern Retail",
+      "url": "https://www.modernretail.co/feed/",
+      "status": 200,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "itemsFound": 10,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:43.561Z"
+    },
+    {
+      "name": "TechCrunch Ecommerce",
+      "url": "https://techcrunch.com/tag/ecommerce/feed/",
+      "status": 200,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "itemsFound": 20,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:43.616Z"
+    },
+    {
+      "name": "Digital Commerce 360",
+      "url": "https://www.digitalcommerce360.com/feed/",
+      "status": 200,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "itemsFound": 10,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:43.688Z"
+    },
+    {
+      "name": "NYTimes Technology",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "itemsFound": 20,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:44.369Z"
+    },
+    {
+      "name": "MIT Sloan Management Review – AI",
+      "url": "https://sloanreview.mit.edu/tag/artificial-intelligence/feed/",
+      "status": 200,
+      "contentType": "text/xml; charset=UTF-8",
+      "itemsFound": 20,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:44.398Z"
+    },
+    {
+      "name": "Benedict Evans",
+      "url": "https://www.ben-evans.com/benedictevans?format=rss",
+      "status": 200,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "itemsFound": 20,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:44.611Z"
+    },
+    {
+      "name": "Stratechery",
+      "url": "https://stratechery.com/feed/",
+      "status": 200,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "itemsFound": 10,
+      "error": null,
+      "isValid": true,
+      "timestamp": "2026-01-04T13:46:45.215Z"
+    }
+  ]
+}

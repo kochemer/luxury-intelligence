@@ -20,6 +20,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import * as cheerio from "cheerio";
 import crypto from "crypto";
+import { addPageYield } from "./sourceYield.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -491,6 +492,20 @@ export async function runPageIngestion(): Promise<number> {
     
     // Add stats for this source
     sourceStats.push(stats);
+    
+    // Track yield for this page source
+    const itemsFetched = stats.itemsMatched; // Items matched by selector
+    const itemsParsed = stats.articlesExtracted; // Successfully extracted articles
+    const newArticlesAdded = stats.articlesKept; // Articles actually added (not duplicates)
+    const duplicates = stats.rejectedDuplicate; // Duplicate rejections
+    
+    addPageYield(
+      page.name,
+      itemsFetched,
+      itemsParsed,
+      newArticlesAdded,
+      duplicates
+    );
   }
 
   // Save back to file if any new
@@ -528,12 +543,14 @@ export async function runPageIngestion(): Promise<number> {
 }
 
 // CLI runner - run if this file is executed directly
-runPageIngestion()
-  .then(count => {
-    console.log(`Added ${count} new articles`);
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error('Page ingestion failed:', err);
-    process.exit(1);
-  });
+if (import.meta.url === `file://${process.argv[1]?.replace(/\\/g, '/')}` || process.argv[1]?.includes('fetchPages.ts')) {
+  runPageIngestion()
+    .then(count => {
+      console.log(`Added ${count} new articles`);
+      process.exit(0);
+    })
+    .catch(err => {
+      console.error('Page ingestion failed:', err);
+      process.exit(1);
+    });
+}
