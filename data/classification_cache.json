@@ -89,5 +89,19 @@
     "rationale": "The article discusses concerns of tech leaders about the artificial intelligence race and its impact on land and energy, suggesting a solution in orbit, aligning with AI strategy and AI-driven decisions.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-04T13:50:19.358Z"
+  },
+  "https://www.digitalcommerce360.com/2025/12/31/recap-last-mile-delivery-partnerships-fulfillment-2025": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article discusses how last-mile delivery partnerships have changed fulfillment in 2025, focusing on retail technology and fulfillment networks.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-04T16:24:40.731Z"
+  },
+  "https://www.modernretail.co/operations/quitting-wasnt-an-option-how-tariffs-took-an-emotional-and-financial-toll-on-founders-in-2025?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article discusses the impact of tariffs on founders and how they had to adapt their business models, which aligns with topics related to ecommerce platforms, retail technology, and business challenges in the retail sector.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-04T16:26:48.838Z"
   }
 }

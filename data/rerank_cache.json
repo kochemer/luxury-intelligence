@@ -418,5 +418,101 @@
     ],
     "cached_at": "2026-01-04T13:50:33.057Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W01:AI_and_Strategy:dd4ecb527b64": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Highlights concerns over AI in education",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Discusses AI's impact on retail strategies",
+        "confidence": 0.85
+      },
+      {
+        "id": "5",
+        "rank": 3,
+        "why": "Explores military applications of AI in Ukraine",
+        "confidence": 0.8
+      },
+      {
+        "id": "2",
+        "rank": 4,
+        "why": "Details Amazon's significant AI investments",
+        "confidence": 0.75
+      },
+      {
+        "id": "20",
+        "rank": 5,
+        "why": "Analyzes AI's influence on shopping behavior",
+        "confidence": 0.7
+      },
+      {
+        "id": "18",
+        "rank": 6,
+        "why": "Predicts generative AI's effect on SEO",
+        "confidence": 0.65
+      },
+      {
+        "id": "11",
+        "rank": 7,
+        "why": "Covers the rise of billionaires in AI",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-04T16:24:45.921Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Ecommerce_Retail_Tech:8c2f50664798": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Focuses on international growth for heavy products",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Highlights significant acquisition in home furnishings market",
+        "confidence": 0.85
+      },
+      {
+        "id": "5",
+        "rank": 3,
+        "why": "Discusses digital tools for SMB growth in retail",
+        "confidence": 0.8
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "why": "Reports on retail spending trends during holidays",
+        "confidence": 0.75
+      },
+      {
+        "id": "7",
+        "rank": 5,
+        "why": "Covers new privacy laws affecting B2B ecommerce",
+        "confidence": 0.7
+      },
+      {
+        "id": "23",
+        "rank": 6,
+        "why": "Analyzes structural changes in ecommerce landscape",
+        "confidence": 0.65
+      },
+      {
+        "id": "19",
+        "rank": 7,
+        "why": "Details changes in exclusivity agreements impacting retail",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-04T16:24:50.410Z",
+    "model": "gpt-4o-mini"
   }
 }

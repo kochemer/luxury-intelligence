@@ -1,9 +1,11 @@
+import { Suspense } from 'react';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { DateTime } from 'luxon';
 import Link from 'next/link';
-import CategorySection from '../../components/CategorySection';
-import { getTopicDisplayName, getTopicTotalsDisplayName } from '../../../utils/topicNames';
+import DigestClientView from '../../components/DigestClientView';
+import TopNSelector from '../../components/TopNSelector';
+import { getTopicTotalsDisplayName } from '../../../utils/topicNames';
 import { formatDate } from '../../../utils/formatDate';
 
 type Article = {
@@ -51,7 +53,11 @@ async function loadDigest(weekLabel: string): Promise<WeeklyDigest | null> {
   }
 }
 
-export default async function WeekPage({ params }: { params: { weekLabel: string } }) {
+export default async function WeekPage({ 
+  params
+}: { 
+  params: { weekLabel: string };
+}) {
   const { weekLabel } = await params;
   
   // Validate format
@@ -113,20 +119,29 @@ export default async function WeekPage({ params }: { params: { weekLabel: string
               Archive
             </Link>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Weekly Brief: {digest.weekLabel}
-          </h1>
-          <p className="text-base md:text-lg text-gray-600 mb-2">
-            Period: {startDate} to {endDate} ({digest.tz})
-          </p>
-          {digest.builtAtLocal && (
-            <p className="text-sm text-gray-500 mb-2">
-              Last built: {digest.builtAtLocal} ({digest.tz})
-            </p>
-          )}
-          <p className="text-base md:text-lg text-gray-600">
-            Total articles: <strong className="text-gray-900">{digest.totals.total}</strong>
-          </p>
+          <div className="flex items-start justify-between flex-wrap gap-4 mb-4">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+                Weekly Brief: {digest.weekLabel}
+              </h1>
+              <p className="text-base md:text-lg text-gray-600 mb-2">
+                Period: {startDate} to {endDate} ({digest.tz})
+              </p>
+              {digest.builtAtLocal && (
+                <p className="text-sm text-gray-500 mb-2">
+                  Last built: {digest.builtAtLocal} ({digest.tz})
+                </p>
+              )}
+              <p className="text-base md:text-lg text-gray-600">
+                Total articles: <strong className="text-gray-900">{digest.totals.total}</strong>
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <Suspense fallback={<div className="h-6 w-20" />}>
+                <TopNSelector />
+              </Suspense>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -149,47 +164,15 @@ export default async function WeekPage({ params }: { params: { weekLabel: string
         </div>
       </div>
 
-      <div className="space-y-12 md:space-y-16">
-        {/* AI & Strategy */}
-        <CategorySection
-          title={getTopicDisplayName('AI_and_Strategy')}
-          count={digest.topics.AI_and_Strategy.total}
-          articles={digest.topics.AI_and_Strategy.top.map(article => ({
-            ...article,
-            date: formatDate(article.published_at),
-          }))}
-        />
-
-        {/* Ecommerce & Retail Tech */}
-        <CategorySection
-          title={getTopicDisplayName('Ecommerce_Retail_Tech')}
-          count={digest.topics.Ecommerce_Retail_Tech.total}
-          articles={digest.topics.Ecommerce_Retail_Tech.top.map(article => ({
-            ...article,
-            date: formatDate(article.published_at),
-          }))}
-        />
-
-        {/* Luxury & Consumer */}
-        <CategorySection
-          title={getTopicDisplayName('Luxury_and_Consumer')}
-          count={digest.topics.Luxury_and_Consumer.total}
-          articles={digest.topics.Luxury_and_Consumer.top.map(article => ({
-            ...article,
-            date: formatDate(article.published_at),
-          }))}
-        />
-
-        {/* Jewellery Industry */}
-        <CategorySection
-          title={getTopicDisplayName('Jewellery_Industry')}
-          count={digest.topics.Jewellery_Industry.total}
-          articles={digest.topics.Jewellery_Industry.top.map(article => ({
-            ...article,
-            date: formatDate(article.published_at),
-          }))}
-        />
-      </div>
+      <Suspense fallback={
+        <div className="space-y-12 md:space-y-16">
+          {[1, 2, 3, 4].map(i => (
+            <div key={i} className="bg-white rounded-lg border border-gray-100 p-4 md:p-7 h-64 animate-pulse" />
+          ))}
+        </div>
+      }>
+        <DigestClientView digest={digest} variant="week" />
+      </Suspense>
     </div>
   );
 }

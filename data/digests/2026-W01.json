@@ -3,20 +3,20 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2025-12-28T23:00:00.000Z",
   "endISO": "2026-01-04T22:59:59.999Z",
-  "builtAtISO": "2026-01-04T14:50:33.059+01:00",
-  "builtAtLocal": "2026-01-04 14:50:33",
+  "builtAtISO": "2026-01-04T17:26:48.844+01:00",
+  "builtAtLocal": "2026-01-04 17:26:48",
   "totals": {
     "total": 81,
     "byTopic": {
-      "AIStrategy": 36,
-      "EcommerceRetail": 38,
+      "AIStrategy": 37,
+      "EcommerceRetail": 37,
       "LuxuryConsumer": 5,
       "Jewellery": 2
     }
   },
   "topics": {
     "AI_and_Strategy": {
-      "total": 36,
+      "total": 37,
       "top": [
         {
           "id": "p162sc",
@@ -37,9 +37,9 @@
               "chatbot"
             ]
           },
-          "rerankWhy": "Highlights concerns about AI in education",
+          "rerankWhy": "Highlights concerns over AI in education",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary:\nGovernments are increasingly implementing chatbots in schools, but experts caution that these tools may have negative impacts on teaching and learning."
+          "aiSummary": "AI-generated summary:\nGovernments are implementing chatbots in schools, but experts caution that these tools may have negative impacts on teaching and learning."
         },
         {
           "id": "qw1abf",
@@ -61,7 +61,7 @@
           },
           "rerankWhy": "Discusses AI's impact on retail strategies",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary:\nIn 2026, Modern Retail predicts increased AI shopping, disruptions in the creator economy, and potential shifts in brands' offerings."
+          "aiSummary": "AI-generated summary:\nThe Modern Retail staff predicts increased AI shopping, creator economy shakeups, and potential new product offerings for brands in 2026."
         },
         {
           "id": "9ji3hg",
@@ -86,28 +86,28 @@
           "aiSummary": "AI-generated summary:\nUkraine is developing semiautonomous killer drones in response to sophisticated Russian defenses during the ongoing war, as reported by NYTimes Technology in December 2025."
         },
         {
-          "id": "vssc3q",
-          "title": "Even the Sky May Not Be the Limit for A.I. Data Centers",
-          "url": "https://www.nytimes.com/2026/01/01/technology/space-data-centers-ai.html",
-          "source": "NYTimes Technology",
-          "published_at": "2026-01-01T10:00:32.000Z",
+          "id": "26j9cr",
+          "title": "Amazon accelerates AI and data center spending with multibillion-dollar commitments",
+          "url": "https://www.digitalcommerce360.com/2026/01/02/amazon-ai-data-center-multibillion-dollar-commitments/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-02T18:02:05.000Z",
           "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "Some tech leaders are concerned that the artificial intelligence race will exhaust available land and energy. The solution might lie in orbit.",
+          "snippet": "Amazon.com Inc. is sharply increasing its spending on artificial intelligence and data center infrastructure, committing tens of billions of dollars to expand cloud capacity as demand for AI computing accelerates across government and commercial markets. The company’s cloud unit, Amazon Web Services, is leading the investments. Executives have said AWS will account for most Amazon’s […]\nThe post Amazon accelerates AI and data center spending with multibillion-dollar commitments appeared first on...",
           "relevance": {
-            "scoreTotal": 0.5941005299174942,
-            "recencyScore": 0.49410052991749426,
-            "sourceWeight": 0.15,
+            "scoreTotal": 0.6347304905501496,
+            "recencyScore": 0.6847304905501497,
+            "sourceWeight": 0,
             "keywordBoost": 0.15000000000000002,
             "penalty": 0.2,
             "matchedKeywords": [
+              "ai",
               "data",
-              "artificial intelligence",
-              "ai"
+              "artificial intelligence"
             ]
           },
-          "rerankWhy": "Addresses sustainability issues in AI data centers",
+          "rerankWhy": "Details Amazon's significant AI investments",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI data centers may face limitations on land and energy resources, prompting consideration of utilizing space for expansion, according to tech leaders."
+          "aiSummary": "AI-generated summary: Amazon is ramping up its investment in artificial intelligence and data center infrastructure, with a focus on expanding cloud capacity to meet the growing demand for AI computing in government and commercial markets. Amazon Web Services (AWS) is spearheading these multibillion-dollar commitments."
         },
         {
           "id": "pd8wix",
@@ -132,6 +132,28 @@
           "aiSummary": "AI-driven \"zero-click\" searches are changing the landscape of product discovery and decision-making, hinting at the impact of AI on shopping behavior."
         },
         {
+          "id": "sjl53v",
+          "title": "3 SEO Predictions for 2026",
+          "url": "https://www.practicalecommerce.com/3-seo-predictions-for-2026",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-12-30T20:10:58.000Z",
+          "ingested_at": "2025-12-30T20:58:31.247Z",
+          "snippet": "Generative AI increasingly dominates search results through AI Overviews and AI Mode, rendering traditional optimization ineffective.\nThe post 3 SEO Predictions for 2026 appeared first on Practical Ecommerce.",
+          "relevance": {
+            "scoreTotal": 0.21894510626479013,
+            "recencyScore": 0.2689451062647902,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Predicts generative AI's effect on SEO",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI is predicted to dominate search results in 2026 with the rise of AI Overviews and AI Mode, making traditional SEO tactics less effective."
+        },
+        {
           "id": "337gjj",
           "title": "The New Billionaires of the A.I. Boom",
           "url": "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html",
@@ -149,34 +171,14 @@
               "ai"
             ]
           },
-          "rerankWhy": "Examines the rise of billionaires in AI",
-          "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nThe AI boom has created a new group of billionaires from smaller start-ups, mirroring past tech booms."
-        },
-        {
-          "id": "632tbq",
-          "title": "Our 2026 Tech Resolutions + We Answer Your Questions",
-          "url": "https://www.nytimes.com/2026/01/02/podcasts/hardfork-tech-resolutions-listener-questions.html",
-          "source": "NYTimes Technology",
-          "published_at": "2026-01-02T12:00:03.000Z",
-          "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "“When we came into the studio last year to record our resolutions, I had the best of intentions.”",
-          "relevance": {
-            "scoreTotal": 0.5988144851997594,
-            "recencyScore": 0.6488144851997594,
-            "sourceWeight": 0.15,
-            "keywordBoost": 0,
-            "penalty": 0.2,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Offers insights into tech resolutions involving AI",
+          "rerankWhy": "Covers the rise of billionaires in AI",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-Generated Summary:\nThe article discusses 2026 tech resolutions and answers questions related to AI and strategy, reflecting on past intentions and future goals."
+          "aiSummary": "AI-generated summary:\nThe AI boom has created a new group of billionaires from smaller start-ups, mirroring past tech booms, as reported by NYTimes Technology on December 29, 2025."
         }
       ]
     },
     "Ecommerce_Retail_Tech": {
-      "total": 38,
+      "total": 37,
       "top": [
         {
           "id": "6stssz",
@@ -198,7 +200,7 @@
           },
           "rerankWhy": "Focuses on international growth for heavy products",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary: Selling high-value, differentiated products with international appeal can drive significant growth in ecommerce, as discussed in Practical Ecommerce's article \"When Heavy Products Make Global Sense.\""
+          "aiSummary": "AI-generated summary: Selling high-value, differentiated products with international interest can lead to significant growth in ecommerce, as discussed in the Practical Ecommerce article \"When Heavy Products Make Global Sense.\""
         },
         {
           "id": "9ducqp",
@@ -216,9 +218,9 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Highlights significant acquisition in home furnishings",
+          "rerankWhy": "Highlights significant acquisition in home furnishings market",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary: GigaCloud Technology Inc. has acquired New Classic Home Furnishings for $18 million, a U.S.-based distributor with over 1,000 retail customers and 2,000 SKUs in home furnishings categories."
+          "aiSummary": "AI-generated summary: GigaCloud Technology Inc. has acquired New Classic Home Furnishings for $18 million, a U.S.-based distributor with over 25 years of experience in the home furnishings market, serving more than 1,000 retail customers and offering over 2,000 SKUs."
         },
         {
           "id": "c5sl3i",
@@ -236,27 +238,9 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Discusses digital tools for SMB growth",
+          "rerankWhy": "Discusses digital tools for SMB growth in retail",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary:\nRetailers are leveraging digital tools to transform small businesses into sources of significant revenue growth."
-        },
-        {
-          "id": "tttlfdz",
-          "title": "REI Sustainability Efforts: From Local Renewable Energy to Greater Use of Recycled Raw Materials",
-          "url": "https://www.retailtouchpoints.com/features/news-briefs/rei-sustainability-efforts-range-from-local-renewable-energy-to-greater-use-of-recycled-raw-materials",
-          "source": "Retail TouchPoints - Technology",
-          "published_at": "2026-01-02T16:10:02.889Z",
-          "ingested_at": "2026-01-02T19:10:02.889Z",
-          "relevance": {
-            "scoreTotal": 0.6736158890106083,
-            "recencyScore": 0.6736158890106083,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Covers sustainability efforts in retail",
-          "rerankConfidence": 0.75
+          "aiSummary": "AI-generated summary:\nRetailers are leveraging digital tools to transform small businesses into sources of significant revenue growth, tapping into the potential of the long tail."
         },
         {
           "id": "po0y2o",
@@ -275,8 +259,30 @@
             "matchedKeywords": []
           },
           "rerankWhy": "Reports on retail spending trends during holidays",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-Generated Summary:\nAccording to Mastercard, US holiday retail spending in 2025 increased by 3.9%, with both brick-and-mortar and online sales rising. The clothing and restaurant industries experienced the highest boosts in demand during the festive season rush."
+        },
+        {
+          "id": "hwetf9",
+          "title": "New rules: Privacy laws reshape ecommerce compliance for B2B sellers",
+          "url": "https://www.digitalcommerce360.com/2026/01/02/privacy-laws-b2b-ecommerce-compliance-2026/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-02T17:43:04.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "As the calendar flipped to 2026, a fresh layer of regulatory complexity landed on the desks of B2B ecommerce leaders across the United States. Three states — Indiana, Kentucky, and Rhode Island — ushered in comprehensive consumer data privacy laws, marking the latest chapter in a fast-evolving state-level privacy landscape that now covers two dozen […]\nThe post New rules: Privacy laws reshape ecommerce compliance for B2B sellers appeared first on Digital Commerce 360.",
+          "relevance": {
+            "scoreTotal": 0.5328439164729561,
+            "recencyScore": 0.6828439164729562,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ecommerce"
+            ]
+          },
+          "rerankWhy": "Covers new privacy laws affecting B2B ecommerce",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary:\nMastercard reports a 3.9% increase in US holiday retail spending in 2025, with growth in both physical and online sales. The clothing and restaurant sectors experienced the highest surge in demand during the festive season."
+          "aiSummary": "AI-generated summary: New privacy laws in Indiana, Kentucky, and Rhode Island are reshaping compliance requirements for B2B ecommerce sellers in the United States, adding to the evolving state-level privacy landscape."
         },
         {
           "id": "m6kq5j",
@@ -302,26 +308,28 @@
           "aiSummary": "AI-generated summary: Ecommerce is undergoing a structural reset in 2026 due to AI-powered shopping, autonomous network operations, and tariff changes reshaping supply chains, leading companies to focus on operational agility for competitiveness."
         },
         {
-          "id": "hwetf9",
-          "title": "New rules: Privacy laws reshape ecommerce compliance for B2B sellers",
-          "url": "https://www.digitalcommerce360.com/2026/01/02/privacy-laws-b2b-ecommerce-compliance-2026/",
+          "id": "dcx2pl",
+          "title": "Kroger partner Ocado Group ends exclusivity agreements with U.S. supermarkets",
+          "url": "https://www.digitalcommerce360.com/2025/12/30/kroger-partner-ocado-group-ends-exclusivity-agreements-us-supermarkets/",
           "source": "Digital Commerce 360",
-          "published_at": "2026-01-02T17:43:04.000Z",
+          "published_at": "2025-12-30T20:28:45.000Z",
           "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "As the calendar flipped to 2026, a fresh layer of regulatory complexity landed on the desks of B2B ecommerce leaders across the United States. Three states — Indiana, Kentucky, and Rhode Island — ushered in comprehensive consumer data privacy laws, marking the latest chapter in a fast-evolving state-level privacy landscape that now covers two dozen […]\nThe post New rules: Privacy laws reshape ecommerce compliance for B2B sellers appeared first on Digital Commerce 360.",
+          "snippet": "Just weeks after Kroger agreed to make a one-time $350 million payment to Ocado Group, the warehouse technology provider announced that exclusivity terms had ended with the grocer and other companies internationally. Kroger’s latest deal with Ocado followed recent fulfillment strategy changes that were addressed alongside Kroger’s latest earnings results for its fiscal third quarter. […]\nThe post Kroger partner Ocado Group ends exclusivity agreements with U.S. supermarkets appeared first on Digi...",
           "relevance": {
-            "scoreTotal": 0.5328439164729561,
-            "recencyScore": 0.6828439164729562,
+            "scoreTotal": 0.22070932584442682,
+            "recencyScore": 0.2707093258444268,
             "sourceWeight": 0,
-            "keywordBoost": 0.05,
+            "keywordBoost": 0.15000000000000002,
             "penalty": 0.2,
             "matchedKeywords": [
-              "ecommerce"
+              "payment",
+              "fulfillment",
+              "warehouse"
             ]
           },
-          "rerankWhy": "Addresses new privacy laws affecting B2B ecommerce",
+          "rerankWhy": "Details changes in exclusivity agreements impacting retail",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary: Three states in the US, including Indiana, Kentucky, and Rhode Island, have implemented new consumer data privacy laws affecting B2B ecommerce compliance in 2026, adding to the evolving state-level privacy landscape."
+          "aiSummary": "AI-generated summary: Ocado Group has terminated exclusivity agreements with U.S. supermarkets, including Kroger, following a $350 million payment. This decision comes after recent fulfillment strategy changes and Kroger's fiscal third-quarter earnings results."
         }
       ]
     },
@@ -348,7 +356,7 @@
           },
           "rerankWhy": "CEO exit amidst bankruptcy speculation is significant news",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nSaks Global CEO Marc Metrick has exited, with Executive Chairman Richard Baker stepping in amid bankruptcy speculation at the luxury retailer."
+          "aiSummary": "AI-Generated Summary:\nSaks Global CEO Marc Metrick exits, with Executive Chairman Richard Baker stepping in amid bankruptcy speculation at the luxury retailer."
         },
         {
           "id": "bvf7if",
@@ -371,7 +379,7 @@
           },
           "rerankWhy": "Insights on luxury travel trends are highly relevant",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and uncomfortable temperatures, with Virtuoso predicting this trend to drive the next 12 months of luxury travel in 2026."
+          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and uncomfortable temperatures, with Virtuoso predicting this trend to shape the next 12 months of luxury travel in 2026."
         },
         {
           "id": "v0vq6o",

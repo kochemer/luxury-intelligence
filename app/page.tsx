@@ -3,10 +3,11 @@ import path from 'path';
 import { DateTime } from 'luxon';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Suspense } from 'react';
 import BuildDigestButton from './components/BuildDigestButton';
-import CategorySection from './components/CategorySection';
-import ArticleCard from './components/ArticleCard';
-import { getTopicDisplayName, TopicKey } from '../utils/topicNames';
+import DigestClientView from './components/DigestClientView';
+import TopNSelector from './components/TopNSelector';
+import { TopicKey } from '../utils/topicNames';
 import { formatDate } from '../utils/formatDate';
 
 type Article = {
@@ -274,38 +275,27 @@ export default async function Home() {
               </p>
             </div>
           </div>
-        </section>
-
-        {/* CATEGORY SECTIONS UI - 12 Column Grid */}
-        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-16 md:mb-20">
-          <div className="w-full grid grid-cols-12 gap-8 lg:gap-10">
-            {CATEGORY_CARDS.map(cat => {
-              // @ts-ignore
-              const topic = digest.topics[cat.key];
-              // @ts-ignore
-              const totalCat = digest.totals.byTopic[cat.countBy] ?? 0;
-              
-              // Format articles with dates at page level
-              const formattedArticles = (topic?.top || []).slice(0, 7).map(article => ({
-                ...article,
-                date: formatDate(article.published_at),
-              }));
-              
-              return (
-                <div key={cat.key} className="col-span-12 lg:col-span-6 w-full">
-                  <CategorySection
-                    id={cat.anchorId}
-                    variant="grid"
-                    title={getTopicDisplayName(cat.key)}
-                    description={cat.desc}
-                    count={totalCat}
-                    articles={formattedArticles}
-                  />
-                </div>
-              );
-            })}
+          <div className="flex justify-end mt-3">
+            <Suspense fallback={<div className="h-6 w-20" />}>
+              <TopNSelector />
+            </Suspense>
           </div>
         </section>
+
+        {/* CATEGORY SECTIONS UI - Client-side rendering with reactive TopN */}
+        <Suspense fallback={
+          <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-16 md:mb-20">
+            <div className="w-full grid grid-cols-12 gap-8 lg:gap-10">
+              {CATEGORY_CARDS.map(cat => (
+                <div key={cat.key} className="col-span-12 lg:col-span-6 w-full">
+                  <div className="bg-white rounded-lg border border-gray-100 p-4 md:p-7 h-64 animate-pulse" />
+                </div>
+              ))}
+            </div>
+          </section>
+        }>
+          <DigestClientView digest={digest} categoryCards={CATEGORY_CARDS} variant="home" />
+        </Suspense>
       </>
       )}
     </main>
