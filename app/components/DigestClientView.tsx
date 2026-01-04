@@ -110,7 +110,7 @@ export default function DigestClientView({
       return null;
     }
     return (
-      <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-16 md:mb-20">
+      <section className="w-full max-w-[1400px] lg:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 md:px-8 mb-16 md:mb-20">
         <div className="w-full grid grid-cols-12 gap-8 lg:gap-10">
           {categoryCards.map(cat => {
             // @ts-ignore
