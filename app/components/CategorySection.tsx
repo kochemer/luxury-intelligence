@@ -44,9 +44,14 @@ export default function CategorySection({
       <div className="flex items-baseline justify-between mb-5 md:mb-6">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">{title}</h2>
         {count > 0 && (
-          <span className="px-3 py-1 text-xs font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-md ml-4 flex-shrink-0">
-            {count}
-          </span>
+          <div className="flex flex-col items-end ml-4 flex-shrink-0">
+            <span className="px-3 py-1 text-xs font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-md">
+              {count}
+            </span>
+            <span className="text-[10px] text-gray-400 leading-tight mt-0.5">
+              # of articles processed
+            </span>
+          </div>
         )}
       </div>
 

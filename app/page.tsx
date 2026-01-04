@@ -124,7 +124,7 @@ export default async function Home() {
       background: '#f7f9fb',
     }}>
       {/* HERO */}
-      <section style={{
+      <section className="mb-6" style={{
         position: 'relative',
         width: '100%',
         minHeight: 240,
@@ -190,8 +190,10 @@ export default async function Home() {
             <Link href="/methodology" className="text-sm md:text-base text-gray-200 hover:text-white underline">
               How this is curated
             </Link>
-            <span className="text-gray-300 text-sm">•</span>
-            <div className="text-xs text-gray-400">
+          </div>
+          {/* Build Digest Button - Top Right */}
+          <div className="absolute top-4 right-4">
+            <div className="text-xs text-gray-300">
               <BuildDigestButton />
             </div>
           </div>
@@ -253,24 +255,25 @@ export default async function Home() {
 
         {/* Category Jump Navigation */}
         <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-8 md:mb-10">
-          <nav className="flex flex-wrap gap-2 justify-center" aria-label="Category navigation">
-            {CATEGORY_CARDS.map(cat => (
-              <a
-                key={cat.anchorId}
-                href={`#${cat.anchorId}`}
-                className="px-4 py-2 text-sm font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-full hover:bg-gray-100 hover:border-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
-              >
-                {cat.title}
-              </a>
-            ))}
-          </nav>
-        </section>
-
-        {/* Ranking Note - Single Line */}
-        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-8 md:mb-10">
-          <p className="text-sm text-gray-500 text-center">
-            Ranked by relevance & recency.
-          </p>
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <span className="text-xs text-gray-400 italic">jump to category →</span>
+            <div className="flex items-center gap-4 flex-wrap">
+              <nav className="flex flex-wrap gap-2 justify-center" aria-label="Category navigation">
+                {CATEGORY_CARDS.map(cat => (
+                  <a
+                    key={cat.anchorId}
+                    href={`#${cat.anchorId}`}
+                    className="px-4 py-2 text-sm font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-full hover:bg-gray-100 hover:border-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
+                  >
+                    {cat.title}
+                  </a>
+                ))}
+              </nav>
+              <p className="text-xs text-gray-500">
+                Ranked by relevance & recency
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* CATEGORY SECTIONS UI - 12 Column Grid */}
