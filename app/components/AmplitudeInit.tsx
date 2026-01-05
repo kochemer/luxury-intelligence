@@ -17,14 +17,29 @@ export default function AmplitudeInit() {
       return;
     }
 
-    // Initialize Amplitude with sessions and pageViews tracking only
+    // Initialize Amplitude with EU server zone and autocapture for sessions/pageViews
     // Explicitly NOT enabling: Session Replay, click/form autocapture, user identity
-    amplitude.init(apiKey, undefined, {
-      defaultTracking: {
-        sessions: true,
-        pageViews: true,
-      },
-    });
+    const initAmplitude = async () => {
+      try {
+        await amplitude.init(apiKey, undefined, {
+          serverZone: 'EU',
+          autocapture: {
+            sessions: true,
+            pageViews: true,
+          },
+          logLevel: amplitude.Types.LogLevel.Debug,
+        }).promise;
+
+        console.info('[Amplitude] initialized', { hasKey: true, serverZone: 'EU' });
+
+        // Temporary sanity-check event after init
+        amplitude.track('Amplitude Debug Event', { path: window.location.pathname });
+      } catch (error) {
+        console.error('[Amplitude] initialization failed:', error);
+      }
+    };
+
+    initAmplitude();
   }, []);
 
   // This component renders nothing
