@@ -103,5 +103,12 @@
     "rationale": "The article discusses the impact of tariffs on founders and how they had to adapt their business models, which aligns with topics related to ecommerce platforms, retail technology, and business challenges in the retail sector.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-04T16:26:48.838Z"
+  },
+  "https://www.modernretail.co/technology/2026-will-prove-whether-ai-checkout-is-here-to-stay?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article discusses the integration of AI technology in the checkout process and its impact on shopper behavior, aligning with AI-driven business decisions and AI platforms like ChatGPT and Perplexity.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-05T19:21:15.072Z"
   }
 }

@@ -1,0 +1,380 @@
+{
+  "weekLabel": "2026-W02",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2026-01-04T23:00:00.000Z",
+  "endISO": "2026-01-11T22:59:59.999Z",
+  "builtAtISO": "2026-01-05T20:21:31.176+01:00",
+  "builtAtLocal": "2026-01-05 20:21:31",
+  "totals": {
+    "total": 21,
+    "byTopic": {
+      "AIStrategy": 3,
+      "EcommerceRetail": 12,
+      "LuxuryConsumer": 2,
+      "Jewellery": 4
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 3,
+      "top": [
+        {
+          "id": "deu1k8",
+          "title": "Most consumers interacted with AI customer service during holiday shopping",
+          "url": "https://www.retaildive.com/news/consumers-ai-customer-service-holiday/808705/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-05T17:08:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Consumers’ response to AI and automation is largely positive, but a majority still say humans provide better support, a Liveops survey found.",
+          "relevance": {
+            "scoreTotal": 0.3079365081149744,
+            "recencyScore": 0.10793650811497439,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "automation"
+            ]
+          },
+          "rerankWhy": "Highlights consumer interaction with AI in retail",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-generated summary:\nA Liveops survey revealed that while most consumers had positive interactions with AI customer service during holiday shopping, the majority still believe human support is superior."
+        },
+        {
+          "id": "iu9bzw",
+          "title": "2026 will prove whether AI checkout is here to stay",
+          "url": "https://www.modernretail.co/technology/2026-will-prove-whether-ai-checkout-is-here-to-stay/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-05T05:00:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "2025 showed that more shoppers were eager and willing to start their shopping journeys on AI engines like ChatGPT and Perplexity. Now, 2026 will be the year that proves whether shoppers have gotten comfortable enough with the technology to click \"buy\" within these AI platforms.",
+          "relevance": {
+            "scoreTotal": 0.1857142857733371,
+            "recencyScore": 0.035714285773337115,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Explores the future of AI in shopping",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI checkout's future will be determined in 2026 as shoppers increasingly use AI engines like ChatGPT and Perplexity to start their shopping journeys, with the question being whether they will be comfortable enough to complete purchases within these platforms."
+        },
+        {
+          "id": "15kpgs",
+          "title": "AI and the Human Condition",
+          "url": "https://stratechery.com/2026/ai-and-the-human-condition/",
+          "source": "Stratechery",
+          "published_at": "2026-01-05T11:00:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "AI might replace all of the jobs; that's only a problem if you think that humans will care, but if they care, they will create new jobs.",
+          "relevance": {
+            "scoreTotal": 0.12142857154667423,
+            "recencyScore": 0.07142857154667423,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Discusses AI's impact on jobs and society",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI may potentially replace all jobs, but whether this is a concern depends on human perspectives; if humans are worried, they can generate new job opportunities."
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 12,
+      "top": [
+        {
+          "id": "fmuena",
+          "title": "Why 2025 was Shopify’s best year yet",
+          "url": "https://www.modernretail.co/technology/why-2025-was-shopifys-best-year-yet/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-05T05:00:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Shopify just wrapped up its strongest year since 2021, with record sales growth, major enterprise brand wins and an OpenAI partnership positioning the company as core infrastructure for AI-driven shopping.",
+          "relevance": {
+            "scoreTotal": 0.1857142857733371,
+            "recencyScore": 0.035714285773337115,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "shopping"
+            ]
+          },
+          "rerankWhy": "Highlights Shopify's record growth and AI partnership",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nIn 2025, Shopify experienced its best year yet, marked by record sales growth, significant enterprise brand victories, and a partnership with OpenAI, solidifying its role as essential infrastructure for AI-powered shopping."
+        },
+        {
+          "id": "az00l6",
+          "title": "Retail’s data moment: Why trusted customer data is the new competitive edge",
+          "url": "https://www.retaildive.com/spons/retails-data-moment-why-trusted-customer-data-is-the-new-competitive-edge/805619/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-05T10:00:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Shopper expectations are rising, channels are multiplying and AI is redefining how, where and why people buy.",
+          "relevance": {
+            "scoreTotal": 0.1654761905844514,
+            "recencyScore": 0.06547619058445138,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Discusses the importance of trusted customer data",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-Generated Summary:\nRetail Dive's article discusses how trusted customer data is becoming crucial in the competitive landscape of retail, as shopper expectations rise, channels multiply, and AI reshapes the buying experience."
+        },
+        {
+          "id": "5hozlr",
+          "title": "Bed Bath & Beyond operating chief out as Marcus Lemonis takes on CEO role",
+          "url": "https://www.retaildive.com/news/bed-bath-beyond-chief-operating-officer-exits-marcus-lemonis-ceo/808737/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-05T17:30:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Lemonis outlined a plan that moves the company beyond retail and into insurance, financial tools and “mortgage related solutions.”",
+          "relevance": {
+            "scoreTotal": 0.21011904780112278,
+            "recencyScore": 0.11011904780112276,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Covers leadership changes impacting retail strategy",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-Generated Summary:\nBed Bath & Beyond's operating chief is leaving as Marcus Lemonis becomes CEO, with plans to expand the company into insurance, financial tools, and mortgage-related solutions."
+        },
+        {
+          "id": "idnusk",
+          "title": "Lovesac reshores key manufacturing process",
+          "url": "https://www.retaildive.com/news/lovesac-readies-us-manufacturing-tariffs/808476/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-05T14:00:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "The direct-to-consumer furniture retailer plans to start domestic production of core inserts for its primary product line.",
+          "relevance": {
+            "scoreTotal": 0.1892857144333428,
+            "recencyScore": 0.08928571443334278,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Focuses on reshoring manufacturing in retail",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-Generated Summary:\nLovesac, a direct-to-consumer furniture retailer, will reshore the manufacturing of core inserts for its main product line, moving production domestically."
+        },
+        {
+          "id": "s015is",
+          "title": "Lululemon founder Chip Wilson scuffles with board amid CEO search",
+          "url": "https://www.retaildive.com/news/chip-wilson-lululemon-board-proxy-fight/808727/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-05T17:31:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "The brand says it wants to avoid a proxy fight but that Wilson “declined to engage further” after nominating three people to its board.",
+          "relevance": {
+            "scoreTotal": 0.21021825415049317,
+            "recencyScore": 0.11021825415049315,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Details board dynamics affecting Lululemon's future",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-Generated Summary:\nLululemon founder Chip Wilson has clashed with the board during the CEO search, with the brand aiming to prevent a proxy fight as Wilson nominated three individuals to the board but declined further engagement."
+        },
+        {
+          "id": "7qao9j",
+          "title": "Expect skinification to hit mass retail aisles in 2026",
+          "url": "https://www.modernretail.co/operations/expect-skinification-to-hit-mass-retail-aisles-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-05T05:00:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Once limited to prestige brands, skinification is becoming table stakes across personal care aisles as people look for ingredient-specific solutions.",
+          "relevance": {
+            "scoreTotal": 0.1357142857733371,
+            "recencyScore": 0.035714285773337115,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Explores emerging trends in personal care retail",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-Generated Summary:\nSkinification, previously exclusive to high-end brands, is now a common trend in personal care aisles as consumers seek ingredient-specific solutions."
+        },
+        {
+          "id": "6zqb043",
+          "title": "Fast Fashion, Delivery Apps Tap India’s Next Billion Consumers",
+          "url": "https://www.businessoffashion.com/news/retail/fast-fashion-delivery-apps-tap-india-next-billion-consumers/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-05T19:19:07.969Z",
+          "ingested_at": "2026-01-05T19:19:07.970Z",
+          "relevance": {
+            "scoreTotal": 0.12094571613912983,
+            "recencyScore": 0.12094571613912983,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Examines fast fashion's expansion in India",
+          "rerankConfidence": 0.6
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 2,
+      "top": [
+        {
+          "id": "iqyctn",
+          "title": "New Car Sales Are Rising Thanks to Purchases by the Well-Off",
+          "url": "https://www.nytimes.com/2026/01/05/business/new-car-sales.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-01-05T17:57:43.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "A larger proportion of new cars are being bought by affluent Americans as prices and interest rates for auto loans climb, analysts said.",
+          "relevance": {
+            "scoreTotal": 0.3128687171178385,
+            "recencyScore": 0.11286871711783848,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "affluent"
+            ]
+          },
+          "rerankWhy": "Highlights luxury consumer trends in auto sales",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nNew car sales are increasing among wealthy Americans due to rising prices and interest rates for auto loans, according to analysts."
+        },
+        {
+          "id": "83kzzv",
+          "title": "Pat McGrath Labs seeks a buyer",
+          "url": "https://www.retaildive.com/news/pat-mcgrath-labs-sale-auction-hilco-global/808664/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-05T15:14:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Bids are due to Hilco Global by Jan. 26, with a public auction for the beauty brand’s assets to be held on Jan. 27.",
+          "relevance": {
+            "scoreTotal": 0.24662698428675095,
+            "recencyScore": 0.09662698428675097,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "rerankWhy": "Relevant to luxury beauty market dynamics",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-Generated Summary:\nPat McGrath Labs is up for sale, with bids due by Jan. 26 and a public auction for the beauty brand's assets scheduled for Jan. 27, as reported by Retail Dive on January 5, 2026."
+        }
+      ]
+    },
+    "Jewellery_Industry": {
+      "total": 4,
+      "top": [
+        {
+          "id": "vxhu43",
+          "title": "Jewellery designer Solange Azagury-Partridge receives MBE",
+          "url": "https://www.professionaljeweller.com/solange-azagury-partridge-design-mbe/",
+          "source": "Professional Jeweller",
+          "published_at": "2026-01-05T07:58:29.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "British jewellery designer Solange Azagury-Partridge has been awarded a Mem­ber of the Order of the Brit­ish Empire (MBE) for her ser­vices to design. As always, these awards are handed out dur­ing the year by King Charles III and mem­bers of the royal fam­ily. Based in London, Azagury-Partridge runs her own jewellery brand Solange, with a […]\nThe post Jewellery designer Solange Azagury-Partridge receives MBE appeared first on Professional Jeweller.",
+          "relevance": {
+            "scoreTotal": 0.25342096569679395,
+            "recencyScore": 0.05342096569679392,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller"
+            ]
+          },
+          "rerankWhy": "Recognition of a prominent jewellery designer's achievements",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-generated summary: Jewellery designer Solange Azagury-Partridge has been awarded an MBE for her services to design, presented by King Charles III. She runs her own brand, Solange, based in London."
+        },
+        {
+          "id": "t4qkp2",
+          "title": "Tiffany rides into 2026 Chinese New Year with campaign",
+          "url": "https://www.professionaljeweller.com/tiffany-2026-chinese-new-year/",
+          "source": "Professional Jeweller",
+          "published_at": "2026-01-05T09:06:24.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Tiffany & Co has unveiled its 2026 Chinese New Year campaign, uniting a Pegasus motif with the House’s most celebrated designs to mark the arrival of a new year. The campaign features a Pegasus motif inspired by a brooch created under the artistic direction of Nathalie Verdeille, chief artistic officer, and rooted in the imaginative world of Jean Schlumberger. The campaign […]\nThe post Tiffany rides into 2026 Chinese New Year with campaign appeared first on Professional Jeweller.",
+          "relevance": {
+            "scoreTotal": 0.21015873025819898,
+            "recencyScore": 0.060158730258198956,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jeweller"
+            ]
+          },
+          "rerankWhy": "Tiffany's campaign highlights cultural significance in jewellery",
+          "rerankConfidence": 0.85,
+          "aiSummary": "Tiffany & Co's 2026 Chinese New Year campaign features a Pegasus motif inspired by Jean Schlumberger's imaginative world, marking the arrival of the new year. The campaign showcases the House's celebrated designs under the artistic direction of Nathalie Verdeille."
+        },
+        {
+          "id": "v7ghaz",
+          "title": "Inflation set to remain sticky in 2026",
+          "url": "https://www.professionaljeweller.com/inflation-remain-sticky-2026/",
+          "source": "Professional Jeweller",
+          "published_at": "2026-01-05T09:36:28.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "As we enter into 2026, inflation rates are increasing as prices continued to edge up at the end of last year. According to the British Retail Consortium, shop price inflation picked up to 0.7% year on year in December, against growth of 0.6% in November. This is in line with the 3-month average of 0.7%. […]\nThe post Inflation set to remain sticky in 2026 appeared first on Professional Jeweller.",
+          "relevance": {
+            "scoreTotal": 0.2131415344959351,
+            "recencyScore": 0.06314153449593507,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jeweller"
+            ]
+          },
+          "rerankWhy": "Inflation impacts on jewellery pricing and retail",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary: Inflation rates are on the rise in 2026, with shop price inflation increasing to 0.7% year on year in December according to the British Retail Consortium. This trend is expected to persist in the jewellery industry."
+        },
+        {
+          "id": "uh0we",
+          "title": "How indie retailers will shape the high street in 2026 ",
+          "url": "https://www.professionaljeweller.com/retailers-shape-high-street-2026/",
+          "source": "Professional Jeweller",
+          "published_at": "2026-01-05T08:26:33.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "One of the things I love most about working with independent retailers is their resilience and adaptability. They have weathered everything the world has thrown at them over the past few years, including shifting consumer behaviours, economic pressures, rising costs, and the arrival of new technologies. Yet they have kept innovating, kept experimenting, and kept […]\nThe post How indie retailers will shape the high street in 2026  appeared first on Professional Jeweller.",
+          "relevance": {
+            "scoreTotal": 0.05620535723578929,
+            "recencyScore": 0.05620535723578928,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "retailer",
+              "jeweller"
+            ]
+          },
+          "rerankWhy": "Indie retailers' role in the evolving jewellery market",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-generated summary: Independent retailers in the jewellery industry have shown resilience and adaptability in the face of challenges, shaping the high street with innovation and experimentation in 2026."
+        }
+      ]
+    }
+  }
+}

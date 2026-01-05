@@ -514,5 +514,125 @@
     ],
     "cached_at": "2026-01-04T16:24:50.410Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:164fe79e9460": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Highlights consumer interaction with AI in retail",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Explores the future of AI in shopping",
+        "confidence": 0.85
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "Discusses AI's impact on jobs and society",
+        "confidence": 0.8
+      }
+    ],
+    "cached_at": "2026-01-05T19:21:17.614Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:ac60803c05c1": {
+    "selected": [
+      {
+        "id": "4",
+        "rank": 1,
+        "why": "Highlights Shopify's record growth and AI partnership",
+        "confidence": 0.9
+      },
+      {
+        "id": "5",
+        "rank": 2,
+        "why": "Discusses the importance of trusted customer data",
+        "confidence": 0.85
+      },
+      {
+        "id": "1",
+        "rank": 3,
+        "why": "Covers leadership changes impacting retail strategy",
+        "confidence": 0.8
+      },
+      {
+        "id": "3",
+        "rank": 4,
+        "why": "Focuses on reshoring manufacturing in retail",
+        "confidence": 0.75
+      },
+      {
+        "id": "2",
+        "rank": 5,
+        "why": "Details board dynamics affecting Lululemon's future",
+        "confidence": 0.7
+      },
+      {
+        "id": "6",
+        "rank": 6,
+        "why": "Explores emerging trends in personal care retail",
+        "confidence": 0.65
+      },
+      {
+        "id": "7",
+        "rank": 7,
+        "why": "Examines fast fashion's expansion in India",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-05T19:21:24.393Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Luxury_and_Consumer:8c1d82530f8f": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Highlights luxury consumer trends in auto sales",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Relevant to luxury beauty market dynamics",
+        "confidence": 0.85
+      }
+    ],
+    "cached_at": "2026-01-05T19:21:26.605Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Jewellery_Industry:f3a2db31a941": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Recognition of a prominent jewellery designer's achievements",
+        "confidence": 0.9
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "why": "Tiffany's campaign highlights cultural significance in jewellery",
+        "confidence": 0.85
+      },
+      {
+        "id": "1",
+        "rank": 3,
+        "why": "Inflation impacts on jewellery pricing and retail",
+        "confidence": 0.8
+      },
+      {
+        "id": "3",
+        "rank": 4,
+        "why": "Indie retailers' role in the evolving jewellery market",
+        "confidence": 0.75
+      }
+    ],
+    "cached_at": "2026-01-05T19:21:31.175Z",
+    "model": "gpt-4o-mini"
   }
 }
