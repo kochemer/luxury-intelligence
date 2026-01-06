@@ -8,3 +8,4 @@ export function formatDate(isoString: string): string {
   return DateTime.fromISO(isoString).toFormat('yyyy-MM-dd');
 }
 
+
