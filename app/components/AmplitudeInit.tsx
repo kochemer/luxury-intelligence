@@ -1,45 +1,51 @@
 'use client';
 
-import { useEffect } from 'react';
-import * as amplitude from '@amplitude/analytics-browser';
+import { useEffect, useRef } from 'react';
+import * as amplitude from '@amplitude/unified';
 
 export default function AmplitudeInit() {
+  const initializedRef = useRef(false);
+
   useEffect(() => {
     // Ensure this only runs on the client
     if (typeof window === 'undefined') {
       return;
     }
 
-    const apiKey = process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY;
+    // Ensure amplitude is only initialized once during the lifecycle of the application
+    if (initializedRef.current) {
+      return;
+    }
+
+    const apiKey = process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY || '2f72d6d40500d170bda25421e23d7975';
     
     if (!apiKey) {
       console.warn('Amplitude API key not found. Analytics will not be initialized.');
       return;
     }
 
-    // Initialize Amplitude with EU server zone and autocapture for sessions/pageViews
-    // Explicitly NOT enabling: Session Replay, click/form autocapture, user identity
-    const initAmplitude = async () => {
-      try {
-        await amplitude.init(apiKey, undefined, {
-          serverZone: 'EU',
-          autocapture: {
-            sessions: true,
-            pageViews: true,
-          },
-          logLevel: amplitude.Types.LogLevel.Debug,
-        }).promise;
+    // Initialize Amplitude Analytics and Session Replay with EU server zone
+    try {
+      amplitude.initAll(apiKey, {
+        serverZone: 'EU',
+        analytics: {
+          autocapture: true,
+        },
+        sessionReplay: {
+          sampleRate: 1,
+        },
+      });
 
-        console.info('[Amplitude] initialized', { hasKey: true, serverZone: 'EU' });
-
-        // Temporary sanity-check event after init
-        amplitude.track('Amplitude Debug Event', { path: window.location.pathname });
-      } catch (error) {
-        console.error('[Amplitude] initialization failed:', error);
-      }
-    };
-
-    initAmplitude();
+      initializedRef.current = true;
+      console.info('[Amplitude] initialized with Analytics and Session Replay', { 
+        hasKey: true, 
+        serverZone: 'EU',
+        analytics: true,
+        sessionReplay: true,
+      });
+    } catch (error) {
+      console.error('[Amplitude] initialization failed:', error);
+    }
   }, []);
 
   // This component renders nothing
