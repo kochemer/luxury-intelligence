@@ -2,7 +2,8 @@ import Link from 'next/link';
 
 export default function FeedbackPage() {
   // Safely read environment variable (server-side)
-  const formAction = process.env.NEXT_PUBLIC_FEEDBACK_FORM_ACTION?.trim() || '';
+  // Fallback to Formspree endpoint if not configured
+  const formAction = process.env.NEXT_PUBLIC_FEEDBACK_FORM_ACTION?.trim() || 'https://formspree.io/f/xwvpbnbz';
 
   return (
     <main style={{

@@ -27,42 +27,18 @@ export default function FeedbackForm() {
           envVar = undefined;
         }
       }
-      return (typeof envVar === 'string' && envVar.trim()) ? envVar.trim() : '';
+      // Use environment variable if set, otherwise fallback to Formspree endpoint
+      if (typeof envVar === 'string' && envVar.trim()) {
+        return envVar.trim();
+      }
+      // Fallback to Formspree endpoint
+      return 'https://formspree.io/f/xwvpbnbz';
     } catch {
-      // Any error during env var access - return empty string
-      return '';
+      // Any error during env var access - use fallback
+      return 'https://formspree.io/f/xwvpbnbz';
     }
   }, []);
 
-  // Show configuration error if env var is missing
-  if (!formAction) {
-    return (
-      <div style={{
-        background: '#fff1e2',
-        border: '1.5px dashed #ffdfa9',
-        borderRadius: 8,
-        padding: '2rem',
-        textAlign: 'center',
-      }}>
-        <div style={{
-          fontSize: '1.2rem',
-          color: '#913d00',
-          fontWeight: 600,
-          marginBottom: '0.5rem',
-        }}>
-          Feedback form not configured.
-        </div>
-        <p style={{
-          fontSize: '1rem',
-          color: '#913d00',
-          lineHeight: 1.6,
-          margin: 0,
-        }}>
-          Please set the NEXT_PUBLIC_FEEDBACK_FORM_ACTION environment variable.
-        </p>
-      </div>
-    );
-  }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
