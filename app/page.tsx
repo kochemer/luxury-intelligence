@@ -170,16 +170,32 @@ export default async function Home() {
             Curated articles, signals, and context — handpicked and summarised each week.
           </p>
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, flexWrap: 'wrap'}}>
+            <Link
+              href="/subscribe"
+              style={{
+                fontWeight: 600,
+                color: '#06244c',
+                background: '#fed236',
+                borderRadius: 4,
+                padding: '0.6rem 1.4rem',
+                textDecoration: 'none',
+                transition: 'background 0.2s',
+                fontSize: '1rem',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+              }}
+            >
+              Subscribe (email digest)
+            </Link>
             <Link href="/archive" style={{
               fontWeight: 500,
-              color: '#06244c',
-              background: '#fed236',
+              color: '#f9fafb',
+              background: 'rgba(15,23,42,0.25)',
               borderRadius: 4,
-              padding: '0.6rem 1.4rem',
+              padding: '0.55rem 1.25rem',
               textDecoration: 'none',
-              transition: 'background 0.2s',
-              fontSize: '1rem',
-            }}>Browse Archive</Link>
+              border: '1px solid rgba(148,163,184,0.5)',
+              fontSize: '0.98rem',
+            }}>Browse archive</Link>
             <span className="text-gray-300 text-sm">•</span>
             <Link href="/about" className="text-sm md:text-base text-gray-200 hover:text-white underline">
               About

@@ -634,5 +634,137 @@
     ],
     "cached_at": "2026-01-05T19:21:31.175Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:04cad75b9edc": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Nvidia's advancements impact AI and automotive strategy",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Bosch's significant investment signals AI's strategic importance",
+        "confidence": 0.85
+      },
+      {
+        "id": "6",
+        "rank": 3,
+        "why": "AI checkout's future is crucial for retail strategy",
+        "confidence": 0.8
+      },
+      {
+        "id": "8",
+        "rank": 4,
+        "why": "AI shopping agents represent a competitive retail landscape",
+        "confidence": 0.75
+      },
+      {
+        "id": "10",
+        "rank": 5,
+        "why": "Trends in AI and data science shape strategic decisions",
+        "confidence": 0.7
+      },
+      {
+        "id": "11",
+        "rank": 6,
+        "why": "CVS's AI strategy highlights healthcare's digital transformation",
+        "confidence": 0.65
+      },
+      {
+        "id": "12",
+        "rank": 7,
+        "why": "B2B AI changes vendor evaluation processes significantly",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-07T09:10:19.610Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:6b94648ae102": {
+    "selected": [
+      {
+        "id": "1",
+        "rank": 1,
+        "why": "Concerns over brand control on Amazon are critical",
+        "confidence": 0.9
+      },
+      {
+        "id": "13",
+        "rank": 2,
+        "why": "Shopify's growth highlights trends in ecommerce",
+        "confidence": 0.85
+      },
+      {
+        "id": "5",
+        "rank": 3,
+        "why": "Insights into holiday shopping trends are valuable",
+        "confidence": 0.8
+      },
+      {
+        "id": "14",
+        "rank": 4,
+        "why": "Customer data is essential for competitive advantage",
+        "confidence": 0.75
+      },
+      {
+        "id": "20",
+        "rank": 5,
+        "why": "In-store advertising evolution reflects retail tech trends",
+        "confidence": 0.7
+      },
+      {
+        "id": "3",
+        "rank": 6,
+        "why": "Nike's potential divestment impacts retail strategy",
+        "confidence": 0.65
+      },
+      {
+        "id": "4",
+        "rank": 7,
+        "why": "New product launches at Ulta show retail dynamics",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-07T09:10:28.079Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Luxury_and_Consumer:0e34764022ca": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Highlights affluent consumer behavior in auto sales",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Impact of travel restrictions on luxury retail",
+        "confidence": 0.85
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "Significant financial struggles of a luxury retailer",
+        "confidence": 0.8
+      },
+      {
+        "id": "3",
+        "rank": 4,
+        "why": "Leadership changes in a luxury resale platform",
+        "confidence": 0.75
+      },
+      {
+        "id": "4",
+        "rank": 5,
+        "why": "Potential sale of a prominent beauty brand",
+        "confidence": 0.7
+      }
+    ],
+    "cached_at": "2026-01-07T09:10:33.963Z",
+    "model": "gpt-4o-mini"
   }
 }

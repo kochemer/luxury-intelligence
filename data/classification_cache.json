@@ -110,5 +110,12 @@
     "rationale": "The article discusses the integration of AI technology in the checkout process and its impact on shopper behavior, aligning with AI-driven business decisions and AI platforms like ChatGPT and Perplexity.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-05T19:21:15.072Z"
+  },
+  "https://www.practicalecommerce.com/how-404s-impact-organic-rankings": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article discusses the impact of 404 status codes on SEO, which is more related to ecommerce and website optimization.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-07T09:10:13.533Z"
   }
 }
