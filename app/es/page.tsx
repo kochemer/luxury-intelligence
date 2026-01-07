@@ -4,10 +4,10 @@ import { DateTime } from 'luxon';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Suspense } from 'react';
-import DigestClientView from './components/DigestClientView';
-import TopNSelector from './components/TopNSelector';
-import { TopicKey } from '../utils/topicNames';
-import { formatDate } from '../utils/formatDate';
+import DigestClientView from '../components/DigestClientView';
+import TopNSelector from '../components/TopNSelector';
+import { TopicKey } from '../../utils/topicNames';
+import { formatDate } from '../../utils/formatDate';
 
 type Article = {
   id: string;
@@ -76,43 +76,43 @@ const CATEGORY_CARDS: Array<{
   {
     key: 'Ecommerce_Retail_Tech',
     color: '#264653',
-    title: 'Ecommerce & Retail Tech',
-    desc: 'Breakthroughs and trends shaping online commerce, retail, and emerging tech.',
+    title: 'Ecommerce y Tecnología Retail',
+    desc: 'Avances y tendencias que dan forma al comercio en línea, retail y tecnología emergente.',
     countBy: 'EcommerceRetail',
-    topInfo: 'Top 7 articles by recency',
+    topInfo: 'Top 7 artículos por recencia',
     anchorId: 'ecommerce-retail-tech',
   },
   {
     key: 'AI_and_Strategy',
     color: '#25505f',
-    title: 'AI & Strategy',
-    desc: 'The latest advances and strategies in artificial intelligence and business transformation.',
+    title: 'IA y Estrategia',
+    desc: 'Los últimos avances y estrategias en inteligencia artificial y transformación empresarial.',
     countBy: 'AIStrategy',
-    topInfo: 'Top 7 articles by relevance',
+    topInfo: 'Top 7 artículos por relevancia',
     anchorId: 'ai-strategy',
   },
   {
     key: 'Jewellery_Industry',
     color: '#be8b36',
-    title: 'Jewellery Industry',
-    desc: 'Key updates and articles across jewellery brands, trade, and supply chain.',
+    title: 'Industria de la Joyería',
+    desc: 'Actualizaciones clave y artículos sobre marcas de joyería, comercio y cadena de suministro.',
     countBy: 'Jewellery',
-    topInfo: 'Top 7 articles by recency',
+    topInfo: 'Top 7 artículos por recencia',
     anchorId: 'jewellery-industry',
   },
   {
     key: 'Luxury_and_Consumer',
     color: '#6b2d5c',
-    title: 'Luxury & Consumer',
-    desc: 'Innovations and changes in luxury and wider consumer products, experiences, and brands.',
+    title: 'Lujo y Consumo',
+    desc: 'Innovaciones y cambios en lujo y productos de consumo más amplios, experiencias y marcas.',
     countBy: 'LuxuryConsumer',
-    topInfo: 'Top 7 articles by recency',
+    topInfo: 'Top 7 artículos por recencia',
     anchorId: 'luxury-consumer',
   },
 ];
 
 
-export default async function Home() {
+export default async function HomeES() {
   const weekLabel = getCurrentWeek();
   const digest = await loadDigest(weekLabel);
 
@@ -136,21 +136,6 @@ export default async function Home() {
         padding: 0,
         borderBottom: '1px solid #e5e7eb'
       }}>
-        {/* Temporarily commented out - image file missing
-        <div style={{
-          position: 'absolute',
-          zIndex: 0,
-          top: 0, left: 0, width: '100%', height: '100%',
-        }}>
-            <Image
-              src="/hero-digest.jpg"
-              alt="Weekly Digest Hero"
-              priority
-              fill
-              style={{ objectFit: 'cover', objectPosition: 'center center', filter: 'brightness(0.75) blur(0.3px)', opacity: 0.4 }}
-            />
-        </div>
-        */}
         <div className="w-full max-w-[1400px] lg:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 md:px-8" style={{
           position: 'relative',
           zIndex: 2,
@@ -164,10 +149,10 @@ export default async function Home() {
             Luxury Intelligence
           </h1>
           <div className="text-base md:text-lg text-gray-100 leading-relaxed max-w-xl mx-auto mb-3">
-            Weekly intelligence across AI, ecommerce, luxury, and jewellery.
+            Inteligencia semanal sobre IA, ecommerce, lujo y joyería.
           </div>
           <p className="text-sm md:text-base text-gray-300 mb-5">
-            Curated articles, signals, and context — handpicked and summarised each week.
+            Artículos, señales y contexto curados — seleccionados y resumidos cada semana.
           </p>
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, flexWrap: 'wrap'}}>
             <Link
@@ -184,7 +169,7 @@ export default async function Home() {
                 boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
               }}
             >
-              Subscribe (email digest)
+              Suscribirse (resumen por email)
             </Link>
             <Link href="/archive" style={{
               fontWeight: 500,
@@ -195,18 +180,18 @@ export default async function Home() {
               textDecoration: 'none',
               border: '1px solid rgba(148,163,184,0.5)',
               fontSize: '0.98rem',
-            }}>Browse archive</Link>
+            }}>Explorar archivo</Link>
             <span className="text-gray-300 text-sm">•</span>
             <Link href="/about" className="text-sm md:text-base text-gray-200 hover:text-white underline">
-              About
+              Acerca de
             </Link>
             <span className="text-gray-300 text-sm">•</span>
             <Link href="/support" className="text-sm md:text-base text-gray-200 hover:text-white underline">
-              Support
+              Soporte
             </Link>
             <span className="text-gray-300 text-sm">•</span>
             <Link href="/methodology" className="text-sm md:text-base text-gray-200 hover:text-white underline">
-              How this is curated
+              Cómo se cura esto
             </Link>
           </div>
         </div>
@@ -226,8 +211,8 @@ export default async function Home() {
           textAlign: 'center',
           boxShadow: '0 2px 12px 0 rgba(200,170,100,0.04)'
         }}>
-          <h2 style={{margin: '0 0 1rem 0', fontSize: '1.6rem', fontWeight: 600}}>Digest not built yet</h2>
-          <p style={{marginBottom:'1.1rem'}}>No latest digest found for this week.</p>
+          <h2 style={{margin: '0 0 1rem 0', fontSize: '1.6rem', fontWeight: 600}}>Resumen aún no construido</h2>
+          <p style={{marginBottom:'1.1rem'}}>No se encontró resumen para esta semana.</p>
           <div style={{marginBottom:'1.5rem'}}>
             <span style={{
               background: '#fff4ca',
@@ -247,18 +232,18 @@ export default async function Home() {
           <div className="flex items-baseline justify-between flex-wrap gap-4">
             <div>
               <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-1">
-                Week {digest.weekLabel}
+                Semana {digest.weekLabel}
               </h2>
               <p className="text-sm md:text-base text-gray-500">
-                {formatDate(digest.startISO)} to {formatDate(digest.endISO)} ({digest.tz})
+                {formatDate(digest.startISO)} a {formatDate(digest.endISO)} ({digest.tz})
                 {digest.builtAtLocal && (
-                  <span className="ml-2">• Built {digest.builtAtLocal}</span>
+                  <span className="ml-2">• Construido {digest.builtAtLocal}</span>
                 )}
               </p>
             </div>
             <div className="text-right">
               <p className="text-sm md:text-base text-gray-500">
-                {digest.totals.total} articles this week
+                {digest.totals.total} artículos esta semana
               </p>
             </div>
           </div>
@@ -267,9 +252,9 @@ export default async function Home() {
         {/* Category Jump Navigation */}
         <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6">
           <div className="flex items-center justify-between flex-wrap gap-4">
-            <span className="text-xs text-gray-400 italic">jump to category →</span>
+            <span className="text-xs text-gray-400 italic">saltar a categoría →</span>
             <div className="flex items-center gap-4 flex-wrap">
-              <nav className="flex flex-wrap gap-2 justify-center" aria-label="Category navigation">
+              <nav className="flex flex-wrap gap-2 justify-center" aria-label="Navegación de categorías">
                 {CATEGORY_CARDS.map(cat => (
                   <a
                     key={cat.anchorId}
@@ -281,7 +266,7 @@ export default async function Home() {
                 ))}
               </nav>
               <p className="text-xs text-gray-500">
-                Ranked by relevance & recency
+                Clasificado por relevancia y recencia
               </p>
             </div>
           </div>
@@ -311,3 +296,4 @@ export default async function Home() {
     </main>
   );
 }
+
