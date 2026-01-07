@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import CategorySection from './CategorySection';
 import { getTopicDisplayName, TopicKey } from '../../utils/topicNames';
 import { formatDate } from '../../utils/formatDate';
@@ -88,7 +88,8 @@ export default function DigestClientView({
 }: DigestClientViewProps) {
   const searchParams = useSearchParams();
   
-  // Get current N from URL param, localStorage, or default
+  // Get current N from URL param or default (server-safe)
+  // Don't access localStorage during initial render to avoid hydration mismatch
   const topN = useMemo(() => {
     const urlN = searchParams.get('n');
     if (urlN) {
@@ -97,11 +98,32 @@ export default function DigestClientView({
         return parsed;
       }
     }
-    const storedN = getNFromStorage();
-    if (storedN) {
-      return storedN;
-    }
+    // Always return default on server - localStorage will be checked after hydration
     return DEFAULT_N;
+  }, [searchParams]);
+  
+  // Use state to track the effective topN value
+  // Initialize with server-safe value (URL param or default)
+  const [effectiveTopN, setEffectiveTopN] = useState<TopNValue>(topN);
+  
+  // Update when topN changes (from URL params)
+  useEffect(() => {
+    if (topN !== effectiveTopN) {
+      setEffectiveTopN(topN);
+    }
+  }, [topN]);
+  
+  // Sync with localStorage after hydration (only if no URL param)
+  useEffect(() => {
+    const urlN = searchParams.get('n');
+    if (!urlN) {
+      // No URL param - check localStorage (client-side only)
+      const storedN = getNFromStorage();
+      if (storedN && storedN !== topN) {
+        setEffectiveTopN(storedN);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   if (variant === 'home') {
@@ -118,8 +140,8 @@ export default function DigestClientView({
             // @ts-ignore
             const totalCat = digest.totals.byTopic[cat.countBy] ?? 0;
             
-            // Slice articles client-side based on topN
-            const formattedArticles = (topic?.top || []).slice(0, topN).map(article => ({
+            // Slice articles client-side based on effectiveTopN
+            const formattedArticles = (topic?.top || []).slice(0, effectiveTopN).map(article => ({
               ...article,
               date: formatDate(article.published_at),
             }));
@@ -148,7 +170,7 @@ export default function DigestClientView({
         <CategorySection
           title={getTopicDisplayName('AI_and_Strategy')}
           count={digest.topics.AI_and_Strategy.total}
-          articles={digest.topics.AI_and_Strategy.top.slice(0, topN).map(article => ({
+          articles={digest.topics.AI_and_Strategy.top.slice(0, effectiveTopN).map(article => ({
             ...article,
             date: formatDate(article.published_at),
           }))}
@@ -158,7 +180,7 @@ export default function DigestClientView({
         <CategorySection
           title={getTopicDisplayName('Ecommerce_Retail_Tech')}
           count={digest.topics.Ecommerce_Retail_Tech.total}
-          articles={digest.topics.Ecommerce_Retail_Tech.top.slice(0, topN).map(article => ({
+          articles={digest.topics.Ecommerce_Retail_Tech.top.slice(0, effectiveTopN).map(article => ({
             ...article,
             date: formatDate(article.published_at),
           }))}
@@ -168,7 +190,7 @@ export default function DigestClientView({
         <CategorySection
           title={getTopicDisplayName('Luxury_and_Consumer')}
           count={digest.topics.Luxury_and_Consumer.total}
-          articles={digest.topics.Luxury_and_Consumer.top.slice(0, topN).map(article => ({
+          articles={digest.topics.Luxury_and_Consumer.top.slice(0, effectiveTopN).map(article => ({
             ...article,
             date: formatDate(article.published_at),
           }))}
@@ -178,7 +200,7 @@ export default function DigestClientView({
         <CategorySection
           title={getTopicDisplayName('Jewellery_Industry')}
           count={digest.topics.Jewellery_Industry.total}
-          articles={digest.topics.Jewellery_Industry.top.slice(0, topN).map(article => ({
+          articles={digest.topics.Jewellery_Industry.top.slice(0, effectiveTopN).map(article => ({
             ...article,
             date: formatDate(article.published_at),
           }))}

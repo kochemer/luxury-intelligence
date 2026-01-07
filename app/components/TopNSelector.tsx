@@ -32,7 +32,8 @@ export default function TopNSelector() {
   const router = useRouter();
   const searchParams = useSearchParams();
   
-  // Initialize: URL param > localStorage > default
+  // Initialize with URL param or default (server-safe)
+  // Don't access localStorage during initial render to avoid hydration mismatch
   const getInitialN = (): TopNValue => {
     const urlN = searchParams.get('n');
     if (urlN) {
@@ -41,17 +42,15 @@ export default function TopNSelector() {
         return parsed;
       }
     }
-    const storedN = getNFromStorage();
-    if (storedN) {
-      return storedN;
-    }
+    // Always return default on server - localStorage will be checked in useEffect
     return DEFAULT_N;
   };
   
   const [currentN, setCurrentN] = useState<TopNValue>(getInitialN);
 
-  // Sync with URL param changes
+  // After hydration, sync with localStorage and URL params
   useEffect(() => {
+    
     const urlN = searchParams.get('n');
     if (urlN) {
       const parsed = parseInt(urlN, 10);
@@ -64,7 +63,7 @@ export default function TopNSelector() {
         }
       }
     } else {
-      // No URL param - use stored value or default
+      // No URL param - check localStorage (client-side only)
       const storedN = getNFromStorage();
       if (storedN && storedN !== currentN) {
         setCurrentN(storedN);

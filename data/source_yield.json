@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-05T19:19:08.258Z",
+  "timestamp": "2026-01-06T20:27:18.357Z",
   "sources": [
     {
       "sourceName": "Jeweller - Business News",
@@ -42,9 +42,9 @@
       "type": "rss",
       "itemsFetched": 10,
       "itemsParsed": 10,
-      "newArticlesAdded": 8,
-      "duplicates": 2,
-      "yieldPct": 80
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
     },
     {
       "sourceName": "Luxury Daily - Retail",
@@ -69,18 +69,18 @@
       "type": "rss",
       "itemsFetched": 10,
       "itemsParsed": 10,
-      "newArticlesAdded": 1,
-      "duplicates": 9,
-      "yieldPct": 10
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
     },
     {
       "sourceName": "Retail Dive",
       "type": "rss",
       "itemsFetched": 10,
       "itemsParsed": 10,
-      "newArticlesAdded": 8,
-      "duplicates": 2,
-      "yieldPct": 80
+      "newArticlesAdded": 6,
+      "duplicates": 4,
+      "yieldPct": 60
     },
     {
       "sourceName": "Practical Ecommerce",
@@ -96,9 +96,9 @@
       "type": "rss",
       "itemsFetched": 10,
       "itemsParsed": 10,
-      "newArticlesAdded": 3,
-      "duplicates": 7,
-      "yieldPct": 30
+      "newArticlesAdded": 5,
+      "duplicates": 5,
+      "yieldPct": 50
     },
     {
       "sourceName": "TechCrunch Ecommerce",
@@ -114,27 +114,27 @@
       "type": "rss",
       "itemsFetched": 10,
       "itemsParsed": 10,
-      "newArticlesAdded": 2,
-      "duplicates": 8,
-      "yieldPct": 20
+      "newArticlesAdded": 5,
+      "duplicates": 5,
+      "yieldPct": 50
     },
     {
       "sourceName": "NYTimes Technology",
       "type": "rss",
       "itemsFetched": 20,
       "itemsParsed": 20,
-      "newArticlesAdded": 1,
-      "duplicates": 19,
-      "yieldPct": 5
+      "newArticlesAdded": 3,
+      "duplicates": 17,
+      "yieldPct": 15
     },
     {
       "sourceName": "MIT Sloan Management Review – AI",
       "type": "rss",
       "itemsFetched": 20,
       "itemsParsed": 20,
-      "newArticlesAdded": 0,
-      "duplicates": 20,
-      "yieldPct": 0
+      "newArticlesAdded": 1,
+      "duplicates": 19,
+      "yieldPct": 5
     },
     {
       "sourceName": "Benedict Evans",
@@ -158,10 +158,10 @@
       "sourceName": "BoF - News (The News in Brief)",
       "type": "page",
       "itemsFetched": 8,
-      "itemsParsed": 1,
-      "newArticlesAdded": 1,
-      "duplicates": 7,
-      "yieldPct": 12.5
+      "itemsParsed": 4,
+      "newArticlesAdded": 4,
+      "duplicates": 4,
+      "yieldPct": 50
     }
   ],
   "summary": {

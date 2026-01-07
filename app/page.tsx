@@ -4,7 +4,6 @@ import { DateTime } from 'luxon';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Suspense } from 'react';
-import BuildDigestButton from './components/BuildDigestButton';
 import DigestClientView from './components/DigestClientView';
 import TopNSelector from './components/TopNSelector';
 import { TopicKey } from '../utils/topicNames';
@@ -137,6 +136,7 @@ export default async function Home() {
         padding: 0,
         borderBottom: '1px solid #e5e7eb'
       }}>
+        {/* Temporarily commented out - image file missing
         <div style={{
           position: 'absolute',
           zIndex: 0,
@@ -150,6 +150,7 @@ export default async function Home() {
               style={{ objectFit: 'cover', objectPosition: 'center center', filter: 'brightness(0.75) blur(0.3px)', opacity: 0.4 }}
             />
         </div>
+        */}
         <div className="w-full max-w-[1400px] lg:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 md:px-8" style={{
           position: 'relative',
           zIndex: 2,
@@ -192,12 +193,6 @@ export default async function Home() {
               How this is curated
             </Link>
           </div>
-          {/* Build Digest Button - Top Right */}
-          <div className="absolute top-4 right-4">
-            <div className="text-xs text-gray-300">
-              <BuildDigestButton />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -228,12 +223,11 @@ export default async function Home() {
               display:'inline-block'
             }}>npx tsx scripts/buildWeeklyDigest.ts</span>
           </div>
-          <BuildDigestButton />
         </section>
       ) : (
       <>
         {/* Weekly Digest Summary / Meta */}
-        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-8 md:mb-12 pb-6 border-b border-gray-200">
+        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6 pb-6 border-b border-gray-200">
           <div className="flex items-baseline justify-between flex-wrap gap-4">
             <div>
               <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-1">
@@ -248,14 +242,14 @@ export default async function Home() {
             </div>
             <div className="text-right">
               <p className="text-sm md:text-base text-gray-500">
-                {digest.totals.total} articles
+                {digest.totals.total} articles this week
               </p>
             </div>
           </div>
         </section>
 
         {/* Category Jump Navigation */}
-        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-8 md:mb-10">
+        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <span className="text-xs text-gray-400 italic">jump to category →</span>
             <div className="flex items-center gap-4 flex-wrap">
@@ -275,7 +269,7 @@ export default async function Home() {
               </p>
             </div>
           </div>
-          <div className="flex justify-end mt-3">
+          <div className="flex justify-center mt-2">
             <Suspense fallback={<div className="h-6 w-20" />}>
               <TopNSelector />
             </Suspense>
