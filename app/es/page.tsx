@@ -63,7 +63,7 @@ async function loadDigest(weekLabel: string): Promise<WeeklyDigest | null> {
 }
 
 // Category UI meta data (title, short desc, topicKey, N)
-// Ordered for display: Ecommerce, AI, Jewellery, Luxury
+// Ordered for display: Ecommerce, Jewellery, AI, Luxury
 const CATEGORY_CARDS: Array<{
   key: TopicKey;
   color: string;
@@ -83,15 +83,6 @@ const CATEGORY_CARDS: Array<{
     anchorId: 'ecommerce-retail-tech',
   },
   {
-    key: 'AI_and_Strategy',
-    color: '#25505f',
-    title: 'IA y Estrategia',
-    desc: 'Los últimos avances y estrategias en inteligencia artificial y transformación empresarial.',
-    countBy: 'AIStrategy',
-    topInfo: 'Top 7 artículos por relevancia',
-    anchorId: 'ai-strategy',
-  },
-  {
     key: 'Jewellery_Industry',
     color: '#be8b36',
     title: 'Industria de la Joyería',
@@ -99,6 +90,15 @@ const CATEGORY_CARDS: Array<{
     countBy: 'Jewellery',
     topInfo: 'Top 7 artículos por recencia',
     anchorId: 'jewellery-industry',
+  },
+  {
+    key: 'AI_and_Strategy',
+    color: '#25505f',
+    title: 'IA y Estrategia',
+    desc: 'Los últimos avances y estrategias en inteligencia artificial y transformación empresarial.',
+    countBy: 'AIStrategy',
+    topInfo: 'Top 7 artículos por relevancia',
+    anchorId: 'ai-strategy',
   },
   {
     key: 'Luxury_and_Consumer',
@@ -152,7 +152,7 @@ export default async function HomeES() {
             Inteligencia semanal sobre IA, ecommerce, lujo y joyería.
           </div>
           <p className="text-sm md:text-base text-gray-300 mb-5">
-            Artículos, señales y contexto curados — seleccionados y resumidos cada semana.
+            Artículos, señales y contexto curados — seleccionados y resumidos por agentes de IA cada semana.
           </p>
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, flexWrap: 'wrap'}}>
             <Link
@@ -171,16 +171,10 @@ export default async function HomeES() {
             >
               Suscribirse (resumen por email)
             </Link>
-            <Link href="/archive" style={{
-              fontWeight: 500,
-              color: '#f9fafb',
-              background: 'rgba(15,23,42,0.25)',
-              borderRadius: 4,
-              padding: '0.55rem 1.25rem',
-              textDecoration: 'none',
-              border: '1px solid rgba(148,163,184,0.5)',
-              fontSize: '0.98rem',
-            }}>Explorar archivo</Link>
+            <span className="text-gray-300 text-sm">•</span>
+            <Link href="/archive" className="text-sm md:text-base text-gray-200 hover:text-white underline">
+              Explorar archivo
+            </Link>
             <span className="text-gray-300 text-sm">•</span>
             <Link href="/about" className="text-sm md:text-base text-gray-200 hover:text-white underline">
               Acerca de
@@ -235,7 +229,7 @@ export default async function HomeES() {
                 Semana {digest.weekLabel}
               </h2>
               <p className="text-sm md:text-base text-gray-500">
-                {formatDate(digest.startISO)} a {formatDate(digest.endISO)} ({digest.tz})
+                {formatDate(digest.startISO)} a {formatDate(digest.endISO)}
                 {digest.builtAtLocal && (
                   <span className="ml-2">• Construido {digest.builtAtLocal}</span>
                 )}
@@ -243,7 +237,7 @@ export default async function HomeES() {
             </div>
             <div className="text-right">
               <p className="text-sm md:text-base text-gray-500">
-                {digest.totals.total} artículos esta semana
+                {digest.totals.total} artículos procesados esta semana
               </p>
             </div>
           </div>
@@ -251,29 +245,23 @@ export default async function HomeES() {
 
         {/* Category Jump Navigation */}
         <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <span className="text-xs text-gray-400 italic">saltar a categoría →</span>
-            <div className="flex items-center gap-4 flex-wrap">
-              <nav className="flex flex-wrap gap-2 justify-center" aria-label="Navegación de categorías">
-                {CATEGORY_CARDS.map(cat => (
-                  <a
-                    key={cat.anchorId}
-                    href={`#${cat.anchorId}`}
-                    className="px-4 py-2 text-sm font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-full hover:bg-gray-100 hover:border-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
-                  >
-                    {cat.title}
-                  </a>
-                ))}
-              </nav>
-              <p className="text-xs text-gray-500">
-                Clasificado por relevancia y recencia
-              </p>
+          <div className="flex flex-col items-center gap-4">
+            <nav className="flex flex-wrap gap-2 justify-center" aria-label="Navegación de categorías">
+              {CATEGORY_CARDS.map(cat => (
+                <a
+                  key={cat.anchorId}
+                  href={`#${cat.anchorId}`}
+                  className="px-4 py-2 text-sm font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-full hover:bg-gray-100 hover:border-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
+                >
+                  {cat.title}
+                </a>
+              ))}
+            </nav>
+            <div className="flex justify-center">
+              <Suspense fallback={<div className="h-6 w-20" />}>
+                <TopNSelector />
+              </Suspense>
             </div>
-          </div>
-          <div className="flex justify-center mt-2">
-            <Suspense fallback={<div className="h-6 w-20" />}>
-              <TopNSelector />
-            </Suspense>
           </div>
         </section>
 

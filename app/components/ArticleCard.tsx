@@ -85,7 +85,6 @@ export default function ArticleCard({
       {/* Optional summary - responsive clamp */}
       {cleanSummary && (
         <div className="mt-2 md:mt-2.5">
-          <div className="text-xs text-gray-500 mb-1 font-medium">AI summary</div>
           <div
             className="text-sm md:text-base text-gray-600 bg-gray-50 border-l-2 border-gray-300 rounded px-3 md:px-4 py-2 md:py-2.5 line-clamp-2 md:line-clamp-3"
             style={{
@@ -95,7 +94,7 @@ export default function ArticleCard({
               overflow: 'hidden',
             }}
           >
-            {cleanSummary}
+            <span className="text-xs text-gray-500 font-medium">AI summary: </span>{cleanSummary}
           </div>
         </div>
       )}

@@ -117,5 +117,12 @@
     "rationale": "The article discusses the impact of 404 status codes on SEO, which is more related to ecommerce and website optimization.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-07T09:10:13.533Z"
+  },
+  "https://www.digitalcommerce360.com/2026/01/06/amazon-alexa-plus-web-experience-ai-assistant": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article focuses on Amazon's AI-powered assistant Alexa and its new features, emphasizing shopping and smart home controls, aligning with AI-driven business decisions and AI personalization.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-08T19:34:29.226Z"
   }
 }

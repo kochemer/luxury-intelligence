@@ -766,5 +766,185 @@
     ],
     "cached_at": "2026-01-07T09:10:33.963Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:f4e21395f8c6": {
+    "selected": [
+      {
+        "id": "3",
+        "rank": 1,
+        "why": "Significant funding news for a major AI competitor",
+        "confidence": 0.9
+      },
+      {
+        "id": "4",
+        "rank": 2,
+        "why": "Insightful interview on AI infrastructure development",
+        "confidence": 0.85
+      },
+      {
+        "id": "0",
+        "rank": 3,
+        "why": "Regulatory implications of AI acquisitions in China",
+        "confidence": 0.8
+      },
+      {
+        "id": "1",
+        "rank": 4,
+        "why": "Exploration of AI's creative capabilities in theater",
+        "confidence": 0.75
+      },
+      {
+        "id": "8",
+        "rank": 5,
+        "why": "Details on new AI chip technology impacting industries",
+        "confidence": 0.7
+      },
+      {
+        "id": "7",
+        "rank": 6,
+        "why": "Major funding announcement in the AI sector",
+        "confidence": 0.65
+      },
+      {
+        "id": "5",
+        "rank": 7,
+        "why": "Walmart's strategic move towards AI leadership",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-08T19:34:36.250Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:a6bf28caf325": {
+    "selected": [
+      {
+        "id": "1",
+        "rank": 1,
+        "why": "Target faces potential changes from activist investors",
+        "confidence": 0.9
+      },
+      {
+        "id": "10",
+        "rank": 2,
+        "why": "Significant funding for a Shopify competitor highlights market dynamics",
+        "confidence": 0.85
+      },
+      {
+        "id": "7",
+        "rank": 3,
+        "why": "New B2B ecommerce platform update addresses complex selling needs",
+        "confidence": 0.8
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "why": "E.l.f. Beauty's virtual experience targets younger consumers",
+        "confidence": 0.75
+      },
+      {
+        "id": "3",
+        "rank": 5,
+        "why": "Amazon's holiday recap silence marks a significant shift",
+        "confidence": 0.7
+      },
+      {
+        "id": "15",
+        "rank": 6,
+        "why": "Concerns over Amazon's AI tool impact on brand control",
+        "confidence": 0.65
+      },
+      {
+        "id": "5",
+        "rank": 7,
+        "why": "Target's wellness assortment expansion reflects retail trends",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-08T19:34:41.983Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Luxury_and_Consumer:31a403c19be8": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Highlights trend of brands partnering with athletes",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Discusses luxury cardholders leveraging exclusive perks",
+        "confidence": 0.85
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "Showcases luxury brand collaboration with sports",
+        "confidence": 0.8
+      },
+      {
+        "id": "5",
+        "rank": 4,
+        "why": "Covers financial struggles of a luxury giant",
+        "confidence": 0.75
+      },
+      {
+        "id": "6",
+        "rank": 5,
+        "why": "Indicates rising luxury car sales among affluent",
+        "confidence": 0.7
+      },
+      {
+        "id": "9",
+        "rank": 6,
+        "why": "Reports on potential sale of a beauty brand",
+        "confidence": 0.65
+      },
+      {
+        "id": "4",
+        "rank": 7,
+        "why": "Informs about leadership changes in a fashion publication",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-08T19:34:49.867Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Jewellery_Industry:612c18a69b27": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Highlights De Beers' strategy in a key market",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Recognizes a prominent designer's achievements",
+        "confidence": 0.85
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "why": "Showcases Tiffany's marketing for a major event",
+        "confidence": 0.8
+      },
+      {
+        "id": "2",
+        "rank": 4,
+        "why": "Discusses economic factors affecting the industry",
+        "confidence": 0.75
+      },
+      {
+        "id": "4",
+        "rank": 5,
+        "why": "Explores the role of indie retailers in the market",
+        "confidence": 0.7
+      }
+    ],
+    "cached_at": "2026-01-08T19:34:53.954Z",
+    "model": "gpt-4o-mini"
   }
 }

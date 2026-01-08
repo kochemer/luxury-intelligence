@@ -3,21 +3,111 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2026-01-04T23:00:00.000Z",
   "endISO": "2026-01-11T22:59:59.999Z",
-  "builtAtISO": "2026-01-07T10:10:33.965+01:00",
-  "builtAtLocal": "2026-01-07 10:10:33",
+  "builtAtISO": "2026-01-08T20:34:53.956+01:00",
+  "builtAtLocal": "2026-01-08 20:34:53",
   "totals": {
-    "total": 47,
+    "total": 90,
     "byTopic": {
-      "AIStrategy": 13,
-      "EcommerceRetail": 25,
-      "LuxuryConsumer": 5,
-      "Jewellery": 4
+      "AIStrategy": 28,
+      "EcommerceRetail": 47,
+      "LuxuryConsumer": 10,
+      "Jewellery": 5
     }
   },
   "topics": {
     "AI_and_Strategy": {
-      "total": 13,
+      "total": 28,
       "top": [
+        {
+          "id": "y0hb6z",
+          "title": "Anthropic Said to Be in Talks to Raise Funding at a $350 Billion Valuation",
+          "url": "https://www.nytimes.com/2026/01/07/technology/anthropic-funding-valuation.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-01-07T21:02:05.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "The artificial intelligence start-up, which competes with OpenAI, is aiming to raise around $10 billion amid talk of a potential initial public offering.",
+          "relevance": {
+            "scoreTotal": 0.6668733472501213,
+            "recencyScore": 0.41687334725012126,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "artificial intelligence"
+            ]
+          },
+          "rerankWhy": "Significant funding news for a major AI competitor",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nAnthropic, an AI start-up rivaling OpenAI, is reportedly seeking funding at a $350 billion valuation, with plans for a $10 billion raise and potential IPO discussions."
+        },
+        {
+          "id": "u2824o",
+          "title": "An Interview with Jeremie Eliahou Ontiveros and Ajey Pandey About Building Power for AI",
+          "url": "https://stratechery.com/2026/an-interview-with-jeremie-eliahou-ontiveros-and-ajey-pandey-about-building-power-for-ai/",
+          "source": "Stratechery",
+          "published_at": "2026-01-08T11:00:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "An Interview with Jeremie Eliahou Ontiveros and Ajey Pandey about how AI labs and hyperscalers are leveraging demand to build out entirely new electrical infrastructure for AI.",
+          "relevance": {
+            "scoreTotal": 0.5500000008267196,
+            "recencyScore": 0.5000000008267196,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Insightful interview on AI infrastructure development",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI labs and hyperscalers are collaborating to develop new electrical infrastructure for AI, as discussed in an interview with Jeremie Eliahou Ontiveros and Ajey Pandey."
+        },
+        {
+          "id": "txrdd1",
+          "title": "China Is Investigating Meta’s Acquisition of the AI Start-Ip Manus",
+          "url": "https://www.nytimes.com/2026/01/08/business/meta-manus-china-ai.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-01-08T18:56:53.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "Regulators said they would look at whether the deal for Manus, a Singapore start-up with Chinese roots, complied with China’s export and investment rules.",
+          "relevance": {
+            "scoreTotal": 0.7473098554022981,
+            "recencyScore": 0.547309855402298,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Regulatory implications of AI acquisitions in China",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-Generated Summary:\nChina is investigating Meta's acquisition of the AI start-up Manus to ensure compliance with export and investment rules, as Manus has Chinese roots."
+        },
+        {
+          "id": "zekg2j",
+          "title": "Can A.I. Match Molière’s Wit? These Researchers Think So.",
+          "url": "https://www.nytimes.com/2026/01/08/theater/moliere-ai-sorbonne-the-astrologer.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-01-08T10:02:48.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "Scholars and artists at Sorbonne University trained artificial intelligence to imitate the French playwright’s themes, structures and sense of humor. The result is a new play.",
+          "relevance": {
+            "scoreTotal": 0.7443253976427338,
+            "recencyScore": 0.4943253976427338,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "artificial intelligence",
+              "ai"
+            ]
+          },
+          "rerankWhy": "Exploration of AI's creative capabilities in theater",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-generated summary:\nResearchers at Sorbonne University have trained AI to mimic Molière's wit, resulting in a new play that captures the French playwright's themes, structures, and humor."
+        },
         {
           "id": "qjagft",
           "title": "Nvidia Details New A.I. Chips and Autonomous Car Project With Mercedes",
@@ -36,153 +126,167 @@
               "ai"
             ]
           },
-          "rerankWhy": "Nvidia's advancements impact AI and automotive strategy",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nNvidia's CEO announced at CES a new, more efficient and powerful AI chip that will ship later this year, along with an autonomous car project with Mercedes."
-        },
-        {
-          "id": "4hmm77",
-          "title": "Bosch to invest more than $2.9 billion in AI",
-          "url": "https://www.digitalcommerce360.com/2026/01/06/bosch-2-billion-ai-investment/",
-          "source": "Digital Commerce 360",
-          "published_at": "2026-01-06T19:27:14.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "Robert Bosch GmbH plans to invest more than $2.9 billion in artificial intelligence (AI) through 2027, according to company statements and media reports published Jan. 6. It’s betting that the technology will help increase productivity and support new products. The investment reflects its effort to expand its use of software and data-driven technologies across its […]\nThe post Bosch to invest more than $2.9 billion in AI appeared first on Digital Commerce 360.",
-          "relevance": {
-            "scoreTotal": 0.41460648191899224,
-            "recencyScore": 0.2646064819189922,
-            "sourceWeight": 0,
-            "keywordBoost": 0.15000000000000002,
-            "penalty": 0,
-            "matchedKeywords": [
-              "ai",
-              "artificial intelligence",
-              "data"
-            ]
-          },
-          "rerankWhy": "Bosch's significant investment signals AI's strategic importance",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary: Bosch GmbH is set to invest over $2.9 billion in AI by 2027 to boost productivity and develop new products, focusing on software and data-driven technologies."
-        },
-        {
-          "id": "iu9bzw",
-          "title": "2026 will prove whether AI checkout is here to stay",
-          "url": "https://www.modernretail.co/technology/2026-will-prove-whether-ai-checkout-is-here-to-stay/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2026-01-05T05:00:00.000Z",
-          "ingested_at": "2026-01-05T19:18:58.166Z",
-          "snippet": "2025 showed that more shoppers were eager and willing to start their shopping journeys on AI engines like ChatGPT and Perplexity. Now, 2026 will be the year that proves whether shoppers have gotten comfortable enough with the technology to click \"buy\" within these AI platforms.",
-          "relevance": {
-            "scoreTotal": 0.1857142857733371,
-            "recencyScore": 0.035714285773337115,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0.05,
-            "penalty": 0,
-            "matchedKeywords": [
-              "ai"
-            ]
-          },
-          "rerankWhy": "AI checkout's future is crucial for retail strategy",
-          "rerankConfidence": 0.8,
-          "aiSummary": "AI checkout's future will be determined in 2026 as shoppers increasingly start their shopping journeys on AI engines like ChatGPT and Perplexity, with the question being whether they will be comfortable enough to make purchases directly within these platforms."
-        },
-        {
-          "id": "cazfkx",
-          "title": "Why the AI shopping agent wars will heat up in 2026",
-          "url": "https://www.modernretail.co/technology/why-the-ai-shopping-agent-wars-will-heat-up-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2026-01-06T05:00:00.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "As retailers and tech giants race to build AI shopping agents, 2026 is shaping up as a pivotal year to see whether consumers embrace these tools — or whether hype outpaces real-world adoption.",
-          "relevance": {
-            "scoreTotal": 0.12857142886668554,
-            "recencyScore": 0.17857142886668556,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0.05,
-            "penalty": 0.2,
-            "matchedKeywords": [
-              "ai"
-            ]
-          },
-          "rerankWhy": "AI shopping agents represent a competitive retail landscape",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI shopping agent wars are expected to intensify in 2026 as retailers and tech giants compete to see if consumers will adopt these tools. The year will be crucial in determining if the hype surrounding AI shopping agents matches actual consumer adoption."
-        },
-        {
-          "id": "teekvl",
-          "title": "Five Trends in AI and Data Science for 2026",
-          "url": "https://sloanreview.mit.edu/article/five-trends-in-ai-and-data-science-for-2026/",
-          "source": "MIT Sloan Management Review – AI",
-          "published_at": "2026-01-06T12:00:05.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "Carolyn Geason-Beissel/MIT SMR | Getty Images Organizations tend to change much more slowly than AI technology does these days. This means that forecasting enterprise adoption of AI is a bit easier than predicting technology change in this, our third year of making AI predictions. Neither of us is a computer or cognitive scientist, so we […]",
-          "relevance": {
-            "scoreTotal": 0.12024636279802642,
-            "recencyScore": 0.2202463627980264,
-            "sourceWeight": 0,
-            "keywordBoost": 0.1,
-            "penalty": 0.2,
-            "matchedKeywords": [
-              "ai",
-              "data"
-            ]
-          },
-          "rerankWhy": "Trends in AI and data science shape strategic decisions",
+          "rerankWhy": "Details on new AI chip technology impacting industries",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-generated summary:\nThe article discusses the challenge of organizations adapting to rapidly evolving AI technology, making it easier to forecast enterprise adoption of AI compared to predicting technology changes."
+          "aiSummary": "AI-Generated Summary:\nNvidia's CEO announced new AI chips at CES for autonomous cars, set to ship later in the year, in collaboration with Mercedes."
         },
         {
-          "id": "ospav6",
-          "title": "CVS Health details AI-driven digital strategy",
-          "url": "https://www.digitalcommerce360.com/2026/01/05/cvs-health-ai-digital-strategy/",
-          "source": "Digital Commerce 360",
-          "published_at": "2026-01-05T20:14:17.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "CVS Health has outlined a broad digital and artificial intelligence (AI) strategy aimed at simplifying health care delivery. The strategy deepens consumer engagement and supports multiyear earnings growth. It positions technology as a core driver of the company’s next phase rather than a back-office function. At its 2025 investor day in December, the health care […]\nThe post CVS Health details AI-driven digital strategy appeared first on Digital Commerce 360.",
+          "id": "986ene",
+          "title": "Elon Musk’s xAI Raises $20 Billion",
+          "url": "https://www.nytimes.com/2026/01/06/technology/xai-elon-musk-funding.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-01-06T21:43:54.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "The funding is part of an A.I. frenzy, as investors aggressively plow enormous sums into fast-growing start-ups at sky-high valuations.",
           "relevance": {
-            "scoreTotal": 0.07641699756352022,
-            "recencyScore": 0.12641699756352018,
-            "sourceWeight": 0,
-            "keywordBoost": 0.15000000000000002,
-            "penalty": 0.2,
+            "scoreTotal": 0.47816468299961085,
+            "recencyScore": 0.2781646829996109,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.05,
+            "penalty": 0,
             "matchedKeywords": [
-              "ai",
-              "strategy",
-              "artificial intelligence"
+              "ai"
             ]
           },
-          "rerankWhy": "CVS's AI strategy highlights healthcare's digital transformation",
+          "rerankWhy": "Major funding announcement in the AI sector",
           "rerankConfidence": 0.65,
-          "aiSummary": "AI-generated summary: CVS Health has revealed an AI-driven digital strategy to simplify healthcare delivery, deepen consumer engagement, and support earnings growth. Technology is positioned as a core driver of the company's future rather than a back-office function."
+          "aiSummary": "AI-generated summary:\nElon Musk's xAI secures $20 billion in funding amid a surge of investment in fast-growing AI start-ups with high valuations."
         },
         {
-          "id": "hek9vp",
-          "title": "AI reshapes B2B buying, but RFPs still decide who wins",
-          "url": "https://www.digitalcommerce360.com/2026/01/05/ai-reshapes-b2b-buying-rfps/",
-          "source": "Digital Commerce 360",
-          "published_at": "2026-01-05T21:19:31.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "Generative artificial intelligence (AI) is rapidly changing how business-to-business buyers discover and evaluate vendors, but the final decision still comes down to traditional fundamentals. Those fundamentals include the quality of a vendor’s request for proposal (RFP) response and its industry expertise, according to new research released by strategic response management software provider Responsive. It based […]\nThe post AI reshapes B2B buying, but RFPs still decide who wins appeared first o...",
+          "id": "t83tsr",
+          "title": "Walmart adds tech veteran to board as it preps for AI era",
+          "url": "https://www.retaildive.com/news/walmart-adds-tech-veteran-board-member-ai-era/809095/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-08T16:19:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "Shishir Mehrotra, who co-founded an AI platform and also has experience at YouTube, joins the board ahead of John Furner’s move to CEO.",
           "relevance": {
-            "scoreTotal": 0.03288855842078134,
-            "recencyScore": 0.13288855842078134,
-            "sourceWeight": 0,
-            "keywordBoost": 0.1,
+            "scoreTotal": 0.48164682627587113,
+            "recencyScore": 0.5316468262758711,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
             "penalty": 0.2,
             "matchedKeywords": [
-              "ai",
-              "artificial intelligence"
+              "ai"
             ]
           },
-          "rerankWhy": "B2B AI changes vendor evaluation processes significantly",
+          "rerankWhy": "Walmart's strategic move towards AI leadership",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI is transforming B2B buying processes, but the final decision still relies on traditional factors like the quality of a vendor's RFP response and industry expertise. This insight comes from research by Responsive, a strategic response management software provider."
+          "aiSummary": "AI-Generated Summary:\nShishir Mehrotra, a tech veteran with AI platform experience and a background at YouTube, joins Walmart's board as the company prepares for the AI era, coinciding with John Furner's upcoming CEO transition."
         }
       ]
     },
     "Ecommerce_Retail_Tech": {
-      "total": 25,
+      "total": 47,
       "top": [
+        {
+          "id": "7jqqzk",
+          "title": "Activist investor could force even more change at Target",
+          "url": "https://www.modernretail.co/operations/activist-investor-could-force-even-more-change-at-target/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-08T05:00:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "The same hedge fund that pushed for change at Kellanova and Tylenol maker Kenvue now has its sights set on Target.",
+          "relevance": {
+            "scoreTotal": 0.5642857150533824,
+            "recencyScore": 0.46428571505338245,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Target faces potential changes from activist investors",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nAn activist investor previously involved in Kellanova and Kenvue is now targeting Target for potential changes in the retail sector."
+        },
+        {
+          "id": "jzjggr",
+          "title": "Shopify competitor Swap raises $100M six months after raising $40M",
+          "url": "https://techcrunch.com/2026/01/07/shopify-competitor-swap-raises-100m-six-months-after-raising-40m/",
+          "source": "TechCrunch Ecommerce",
+          "published_at": "2026-01-07T19:10:33.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "VC firms DST Global and Iconiq are piling into e-commerce startup Swap Commerce, which is going up against Shopify.",
+          "relevance": {
+            "scoreTotal": 0.45580853241701147,
+            "recencyScore": 0.4058085324170115,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "e-commerce"
+            ]
+          },
+          "rerankWhy": "Significant funding for a Shopify competitor highlights market dynamics",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary:\nE-commerce startup Swap Commerce has raised $100M from VC firms DST Global and Iconiq, positioning itself as a competitor to Shopify in the market."
+        },
+        {
+          "id": "z1dhyr",
+          "title": "Cloudfy launches B2B ecommerce platform update",
+          "url": "https://www.digitalcommerce360.com/2026/01/07/cloudfy-launches-enterprise-v5-b2b-ecommerce-platform-update/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-07T16:41:10.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "Cloudfy has launched Cloudfy Enterprise v5, a new version of its ecommerce platform that it designed to support complex B2B selling models and deeper integration with enterprise systems. The company said the new platform introduces a modular, application programming interface (API)-first architecture. It allows customers to deploy and customize ecommerce capabilities without replacing existing enterprise […]\nThe post Cloudfy launches B2B ecommerce platform update appeared first on Digital Commer...",
+          "relevance": {
+            "scoreTotal": 0.4909887572602327,
+            "recencyScore": 0.39098875726023274,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ecommerce",
+              "platform"
+            ]
+          },
+          "rerankWhy": "New B2B ecommerce platform update addresses complex selling needs",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-Generated Summary:\nCloudfy has released Cloudfy Enterprise v5, an updated B2B ecommerce platform with a modular API-first architecture for supporting complex selling models and integrating with enterprise systems, as reported by Digital Commerce 360 on January 7, 2026."
+        },
+        {
+          "id": "k03sgu",
+          "title": "E.l.f. Beauty launches virtual makeup experience on Roblox",
+          "url": "https://www.retaildive.com/news/elf-beauty-roblox-makeup-experience/808613/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-07T17:26:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "The cosmetics company seeks to attract Gen Alpha and Gen Z shoppers in the gaming universe with avatars that reflect their aesthetic.",
+          "relevance": {
+            "scoreTotal": 0.49543650859033816,
+            "recencyScore": 0.39543650859033813,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "E.l.f. Beauty's virtual experience targets younger consumers",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-Generated Summary:\nE.l.f. Beauty has introduced a virtual makeup experience on Roblox to engage Gen Alpha and Gen Z consumers through personalized avatars in line with their style preferences."
+        },
+        {
+          "id": "easp6k",
+          "title": "Marketplace Briefing: Amazon skips its Black Friday and Cyber Monday recap for the first time since 2016",
+          "url": "https://www.modernretail.co/marketing/marketplace-briefing-amazon-skips-its-black-friday-and-cyber-monday-recap-for-the-first-time-since-2016/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-08T15:00:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "Amazon broke a long-standing holiday tradition in 2025 by not publishing a post–Black Friday and Cyber Monday sales recap, marking the first time in nearly a decade that the company has stayed silent after one of its biggest shopping periods.",
+          "relevance": {
+            "scoreTotal": 0.5238095246756109,
+            "recencyScore": 0.523809524675611,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "marketplace",
+              "shopping"
+            ]
+          },
+          "rerankWhy": "Amazon's holiday recap silence marks a significant shift",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-generated summary: Amazon broke tradition in 2025 by not releasing a post-Black Friday and Cyber Monday sales recap, marking the first time since 2016 that the company has remained silent after the major shopping period."
+        },
         {
           "id": "g1nusq",
           "title": "Brands are upset that ‘Buy For Me’ is featuring their products on Amazon without permission",
@@ -201,137 +305,115 @@
               "shopping"
             ]
           },
-          "rerankWhy": "Concerns over brand control on Amazon are critical",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nBrands are expressing frustration as Amazon's \"Buy for Me\" AI tool features their products without permission, leading to concerns about brand control, customer trust, and the influence of AI on shopping experiences."
-        },
-        {
-          "id": "fmuena",
-          "title": "Why 2025 was Shopify’s best year yet",
-          "url": "https://www.modernretail.co/technology/why-2025-was-shopifys-best-year-yet/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2026-01-05T05:00:00.000Z",
-          "ingested_at": "2026-01-05T19:18:58.166Z",
-          "snippet": "Shopify just wrapped up its strongest year since 2021, with record sales growth, major enterprise brand wins and an OpenAI partnership positioning the company as core infrastructure for AI-driven shopping.",
-          "relevance": {
-            "scoreTotal": 0.1857142857733371,
-            "recencyScore": 0.035714285773337115,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0.05,
-            "penalty": 0,
-            "matchedKeywords": [
-              "shopping"
-            ]
-          },
-          "rerankWhy": "Shopify's growth highlights trends in ecommerce",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary:\nIn 2025, Shopify experienced its best year yet, marked by record sales growth, significant enterprise brand acquisitions, and a partnership with OpenAI, solidifying its position as a key player in AI-driven shopping infrastructure."
-        },
-        {
-          "id": "q9y5dn",
-          "title": "What shaped retail’s holiday season in 2025",
-          "url": "https://www.retaildive.com/news/retail-holiday-season-trends-2025-generative-ai-tariffs/808338/",
-          "source": "Retail Dive",
-          "published_at": "2026-01-06T12:00:00.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "It was a year of AI-generated gift recommendations, tariff upheaval and increased financial stress on shoppers.",
-          "relevance": {
-            "scoreTotal": 0.32023809560224553,
-            "recencyScore": 0.22023809560224553,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Insights into holiday shopping trends are valuable",
-          "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated gift recommendations, tariff upheaval, and financial stress on shoppers were key factors shaping the retail industry during the 2025 holiday season, as reported by Retail Dive in 2026."
-        },
-        {
-          "id": "az00l6",
-          "title": "Retail’s data moment: Why trusted customer data is the new competitive edge",
-          "url": "https://www.retaildive.com/spons/retails-data-moment-why-trusted-customer-data-is-the-new-competitive-edge/805619/",
-          "source": "Retail Dive",
-          "published_at": "2026-01-05T10:00:00.000Z",
-          "ingested_at": "2026-01-05T19:18:58.166Z",
-          "snippet": "Shopper expectations are rising, channels are multiplying and AI is redefining how, where and why people buy.",
-          "relevance": {
-            "scoreTotal": 0.1654761905844514,
-            "recencyScore": 0.06547619058445138,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Customer data is essential for competitive advantage",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary:\nThe article from Retail Dive published on January 5, 2026, discusses how shopper expectations are increasing, channels are diversifying, and AI is reshaping the retail landscape by redefining consumer purchasing behavior."
-        },
-        {
-          "id": "g52p5n",
-          "title": "Retailers like Kroger, CVS plan many more screens for in-store ads in 2026",
-          "url": "https://www.modernretail.co/marketing/retailers-like-kroger-cvs-plan-many-more-screens-for-in-store-ads-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2026-01-06T05:00:00.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "In 2026, retailers like Kroger and CVS are planning to install more screens in more stores to display advertising and other content -- an evolution of what has historically been limited to small experiments.",
-          "relevance": {
-            "scoreTotal": 0.07857142886668556,
-            "recencyScore": 0.17857142886668556,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0.2,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "In-store advertising evolution reflects retail tech trends",
-          "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary:\nRetailers such as Kroger and CVS are set to increase the number of in-store screens for advertising and content display in 2026, moving beyond small-scale trials."
-        },
-        {
-          "id": "bm0v5",
-          "title": "Could Nike sell Converse?",
-          "url": "https://www.retaildive.com/news/nike-sell-converse-brand/808858/",
-          "source": "Retail Dive",
-          "published_at": "2026-01-06T17:26:00.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "Revenue declines and a 44% drop in demand creation may indicate it’s time to divest the brand, according to BNP Paribas.",
-          "relevance": {
-            "scoreTotal": 0.35257936549698965,
-            "recencyScore": 0.25257936549698967,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Nike's potential divestment impacts retail strategy",
+          "rerankWhy": "Concerns over Amazon's AI tool impact on brand control",
           "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nBNP Paribas suggests that Nike may consider selling Converse due to revenue declines and a significant drop in demand creation, raising questions about the brand's future."
+          "aiSummary": "AI-Generated Summary:\nBrands are expressing frustration over Amazon's \"Buy for Me\" AI tool featuring their products without permission, leading to concerns about brand control, customer trust, and the influence of AI on shopping experiences."
         },
         {
-          "id": "54bc1h",
-          "title": "Selena Gomez’s Rare Beauty to launch at Ulta",
-          "url": "https://www.retaildive.com/news/selena-gomez-rare-beauty-ulta-launch/808847/",
+          "id": "v8fgw8",
+          "title": "Target grows wellness assortment, again",
+          "url": "https://www.retaildive.com/news/target-expands-wellness-assortment/808969/",
           "source": "Retail Dive",
-          "published_at": "2026-01-06T17:04:00.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "The beauty brand will be available online and at the retailer's stores starting in February, with exclusive offerings and a donation campaign.",
+          "published_at": "2026-01-07T17:10:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "Following a similar play last year, the mass retailer is expanding the product category by 30% with a focus on offering \"thousands\" of items for under $10.",
           "relevance": {
-            "scoreTotal": 0.3503968258108413,
-            "recencyScore": 0.25039682581084133,
+            "scoreTotal": 0.493849207000412,
+            "recencyScore": 0.39384920700041204,
             "sourceWeight": 0.1,
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "New product launches at Ulta show retail dynamics",
+          "rerankWhy": "Target's wellness assortment expansion reflects retail trends",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-Generated Summary:\nSelena Gomez's Rare Beauty will debut at Ulta in February, offering exclusive products and a donation campaign."
+          "aiSummary": "AI-generated summary:\nTarget is increasing its wellness assortment by 30%, aiming to provide \"thousands\" of items priced under $10, following a previous expansion in the product category."
         }
       ]
     },
     "Luxury_and_Consumer": {
-      "total": 5,
+      "total": 10,
       "top": [
+        {
+          "id": "hsqnmy",
+          "title": "Fashion and beauty brands are expanding their partnerships with female college athletes",
+          "url": "https://www.modernretail.co/marketing/fashion-and-beauty-brands-are-expanding-their-partnerships-with-female-college-athletes/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-08T05:00:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "Brands in the beauty and fashion space are extending NIL deals beyond one-off posts with female college athletes and even working with entire athletic departments.",
+          "relevance": {
+            "scoreTotal": 0.6142857150533825,
+            "recencyScore": 0.46428571505338245,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "rerankWhy": "Highlights trend of brands partnering with athletes",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nFashion and beauty brands are increasingly forming partnerships with female college athletes, moving beyond one-off posts to collaborate with entire athletic departments, as reported by Modern Retail on January 8, 2026."
+        },
+        {
+          "id": "9dsx7jm",
+          "title": "Holders of $895-a-Year AmEx Card Are Rushing to Spend Saks Perk",
+          "url": "https://www.businessoffashion.com/news/retail/holders-of-895-a-year-amex-card-are-rushing-to-spend-saks-perk/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-08T19:33:41.206Z",
+          "ingested_at": "2026-01-08T19:33:41.206Z",
+          "relevance": {
+            "scoreTotal": 0.5509609896675942,
+            "recencyScore": 0.5509609896675942,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Discusses luxury cardholders leveraging exclusive perks",
+          "rerankConfidence": 0.85
+        },
+        {
+          "id": "cexw26f",
+          "title": "Tommy Hilfiger Launches Global Partnership With Liverpool FC",
+          "url": "https://www.businessoffashion.com/news/sports/tommy-hilfiger-launches-formalwear-partnership-with-liverpool-fc/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-08T19:33:41.204Z",
+          "ingested_at": "2026-01-08T19:33:41.205Z",
+          "relevance": {
+            "scoreTotal": 0.5509609863607159,
+            "recencyScore": 0.5509609863607159,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Showcases luxury brand collaboration with sports",
+          "rerankConfidence": 0.8
+        },
+        {
+          "id": "vz2gl8",
+          "title": "S&P Global Ratings downgrades Saks Global on missed interest payment",
+          "url": "https://www.retaildive.com/news/saks-global-downgraded-missed-debt-interest-payment-sp-global-ratings/809060/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-08T15:35:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "The luxury giant is unlikely to make good within the grace period or achieve promised savings from last year’s $2.7 billion merger, the analysts said.",
+          "relevance": {
+            "scoreTotal": 0.47728174690357433,
+            "recencyScore": 0.5272817469035743,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "luxury"
+            ]
+          },
+          "rerankWhy": "Covers financial struggles of a luxury giant",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-generated summary:\nS&P Global Ratings downgraded Saks Global due to a missed interest payment, casting doubt on the company's ability to meet financial obligations and deliver on merger-related savings."
+        },
         {
           "id": "iqyctn",
           "title": "New Car Sales Are Rising Thanks to Purchases by the Well-Off",
@@ -350,63 +432,9 @@
               "affluent"
             ]
           },
-          "rerankWhy": "Highlights affluent consumer behavior in auto sales",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nAffluent Americans are driving the rise in new car sales as prices and interest rates for auto loans increase, according to analysts."
-        },
-        {
-          "id": "5fh0tkq",
-          "title": "China Travel Curbs Hit Japan Duty-Free Sales in December",
-          "url": "https://www.businessoffashion.com/news/global-markets/china-travel-curbs-hit-japan-duty-free-sales-in-december/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-06T20:27:18.071Z",
-          "ingested_at": "2026-01-06T20:27:18.071Z",
-          "relevance": {
-            "scoreTotal": 0.27056559403201985,
-            "recencyScore": 0.27056559403201985,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Impact of travel restrictions on luxury retail",
-          "rerankConfidence": 0.85
-        },
-        {
-          "id": "c71a3e4",
-          "title": "Report: Saks in Talks for $1 Billion Bankruptcy Loan to Keep Doors Open",
-          "url": "https://www.businessoffashion.com/news/retail/report-saks-in-talks-for-1-billion-bankruptcy-loan-to-keep-doors-open/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-06T20:27:18.071Z",
-          "ingested_at": "2026-01-06T20:27:18.071Z",
-          "relevance": {
-            "scoreTotal": 0.27056559403201985,
-            "recencyScore": 0.27056559403201985,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Significant financial struggles of a luxury retailer",
-          "rerankConfidence": 0.8
-        },
-        {
-          "id": "gfoauet",
-          "title": "Vestiaire Collective Co-Founder Exits",
-          "url": "https://www.businessoffashion.com/news/retail/vestiaire-collective-co-founder-exits/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-06T20:27:18.069Z",
-          "ingested_at": "2026-01-06T20:27:18.071Z",
-          "relevance": {
-            "scoreTotal": 0.2705655907251415,
-            "recencyScore": 0.2705655907251415,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Leadership changes in a luxury resale platform",
-          "rerankConfidence": 0.75
+          "rerankWhy": "Indicates rising luxury car sales among affluent",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-Generated Summary:\nNew car sales are increasing among wealthy Americans due to rising prices and interest rates for auto loans, according to analysts."
         },
         {
           "id": "83kzzv",
@@ -426,15 +454,53 @@
               "brand"
             ]
           },
-          "rerankWhy": "Potential sale of a prominent beauty brand",
-          "rerankConfidence": 0.7,
+          "rerankWhy": "Reports on potential sale of a beauty brand",
+          "rerankConfidence": 0.65,
           "aiSummary": "AI-Generated Summary:\nPat McGrath Labs is up for sale, with bids due by Jan. 26 and a public auction for the beauty brand's assets scheduled for Jan. 27."
+        },
+        {
+          "id": "dhbx9zi",
+          "title": "The Face Names Jonny Lu Creative Director, Editor-in-Chief Matthew Whitehouse to Exit",
+          "url": "https://www.businessoffashion.com/news/media/the-face-names-jonny-lu-creative-director-editor-in-chief-matthew-whitehouse-to-exit/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-08T19:08:59.175Z",
+          "ingested_at": "2026-01-08T19:08:59.176Z",
+          "relevance": {
+            "scoreTotal": 0.548510541581532,
+            "recencyScore": 0.548510541581532,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Informs about leadership changes in a fashion publication",
+          "rerankConfidence": 0.6
         }
       ]
     },
     "Jewellery_Industry": {
-      "total": 4,
+      "total": 5,
       "top": [
+        {
+          "id": "7jveuni",
+          "title": "De Beers Bets on India’s Rich to Boost Natural Diamond Demand",
+          "url": "https://www.businessoffashion.com/news/luxury/de-beers-bets-on-indias-rich-to-boost-natural-diamond-demand/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-08T19:33:41.206Z",
+          "ingested_at": "2026-01-08T19:33:41.206Z",
+          "relevance": {
+            "scoreTotal": 0.6009609896675943,
+            "recencyScore": 0.5509609896675942,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "diamond"
+            ]
+          },
+          "rerankWhy": "Highlights De Beers' strategy in a key market",
+          "rerankConfidence": 0.9
+        },
         {
           "id": "vxhu43",
           "title": "Jewellery designer Solange Azagury-Partridge receives MBE",
@@ -454,9 +520,9 @@
               "jeweller"
             ]
           },
-          "rerankWhy": "Recognition of a prominent jewellery designer's achievements",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary: Jewellery designer Solange Azagury-Partridge has been honored with an MBE for her contributions to design, presented by King Charles III and members of the royal family. She operates her own brand, Solange, based in London."
+          "rerankWhy": "Recognizes a prominent designer's achievements",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary: British jewellery designer Solange Azagury-Partridge has been honored with an MBE for her contributions to design, presented by King Charles III and members of the royal family. Azagury-Partridge operates her own brand, Solange, based in London."
         },
         {
           "id": "t4qkp2",
@@ -476,9 +542,9 @@
               "jeweller"
             ]
           },
-          "rerankWhy": "Tiffany's campaign highlights cultural significance in jewellery",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nTiffany & Co has launched its 2026 Chinese New Year campaign featuring a Pegasus motif inspired by Jean Schlumberger's imaginative world. The campaign combines the motif with the House's iconic designs to celebrate the new year."
+          "rerankWhy": "Showcases Tiffany's marketing for a major event",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary: Tiffany & Co's 2026 Chinese New Year campaign features a Pegasus motif inspired by a brooch created by Nathalie Verdeille, chief artistic officer, and rooted in the world of Jean Schlumberger."
         },
         {
           "id": "v7ghaz",
@@ -498,9 +564,9 @@
               "jeweller"
             ]
           },
-          "rerankWhy": "Inflation impacts on jewellery pricing and retail",
-          "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary: Inflation rates are on the rise in 2026, with shop price inflation reaching 0.7% year on year in December according to the British Retail Consortium. This trend is expected to continue in the jewellery industry."
+          "rerankWhy": "Discusses economic factors affecting the industry",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-generated summary: In 2026, inflation rates are on the rise in the jewellery industry, with shop price inflation increasing to 0.7% year on year in December according to the British Retail Consortium."
         },
         {
           "id": "uh0we",
@@ -521,9 +587,9 @@
               "jeweller"
             ]
           },
-          "rerankWhy": "Indie retailers' role in the evolving jewellery market",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary: Independent retailers in the jewellery industry are praised for their resilience and adaptability in the face of changing consumer behaviors, economic challenges, and technological advancements, with a focus on innovation and experimentation."
+          "rerankWhy": "Explores the role of indie retailers in the market",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-generated summary: Independent retailers in the jewellery industry have shown resilience and adaptability in the face of challenges, continuing to innovate and experiment despite changing consumer behaviors and economic pressures. They are expected to play a significant role in shaping the high street in 2026."
         }
       ]
     }

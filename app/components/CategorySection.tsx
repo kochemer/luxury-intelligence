@@ -36,32 +36,37 @@ export default function CategorySection({
     <section 
       id={id}
       className={isGrid 
-        ? "bg-white rounded-lg border border-gray-100 p-4 md:p-7 scroll-mt-24" 
-        : "mb-12 pb-12 border-b border-gray-200 last:border-b-0 last:pb-0 last:mb-0 scroll-mt-24"
+        ? "bg-white rounded-lg border border-gray-100 p-4 md:p-7 scroll-mt-24 relative" 
+        : "mb-12 pb-12 border-b border-gray-200 last:border-b-0 last:pb-0 last:mb-0 scroll-mt-24 relative"
       }
     >
-      {/* Section Header: Title (left) and Count Badge (right) */}
-      <div className="flex items-baseline justify-between mb-5 md:mb-6">
+      {/* Count Badge - Absolute top right */}
+      {count > 0 && (
+        <div className="absolute top-0 right-0 flex flex-col items-end" style={{ 
+          paddingTop: isGrid ? '1rem' : '0',
+          paddingRight: isGrid ? '1.75rem' : '0',
+          top: '0',
+          right: '0',
+        }}>
+          <span className="px-3 py-1 text-xs font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-md">
+            {count}
+          </span>
+          <span className="text-[10px] text-gray-400 leading-tight mt-0.5">
+            # of articles processed
+          </span>
+        </div>
+      )}
+      {/* Section Header: Title (left) */}
+      <div className="mb-3 md:mb-4" style={{ paddingRight: count > 0 ? '5rem' : '0' }}>
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">{title}</h2>
-        {count > 0 && (
-          <div className="flex flex-col items-end ml-4 flex-shrink-0">
-            <span className="px-3 py-1 text-xs font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-md">
-              {count}
-            </span>
-            <span className="text-[10px] text-gray-400 leading-tight mt-0.5">
-              # of articles processed
-            </span>
-          </div>
+        {/* Optional Description */}
+        {description && (
+          <p className="text-sm md:text-base text-gray-600 mt-1 md:mt-1.5 leading-relaxed italic">{description}</p>
         )}
       </div>
 
-      {/* Optional Description */}
-      {description && (
-        <p className="text-base md:text-lg text-gray-600 mb-4 md:mb-5 leading-relaxed">{description}</p>
-      )}
-
       {/* Articles List */}
-      <div className="space-y-4 md:space-y-5">
+      <div className="space-y-3 md:space-y-3.5">
         {articles.length > 0 ? (
           articles.map((article) => (
             <ArticleCard

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import AmplitudeInit from "./components/AmplitudeInit";
+import LanguageSwitcher from "./components/LanguageSwitcher";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -48,29 +49,40 @@ export default function RootLayout({
           className="sticky top-0 z-30 bg-white/85 backdrop-blur border-b border-gray-200"
           style={{
             boxShadow: "0 1px 10px 0 rgba(0,0,0,0.03)",
+            position: 'relative',
           }}
         >
+          {/* Language Switcher - Absolute top right */}
+          <div className="absolute top-0 right-0 z-40 px-4 sm:px-6 py-2">
+            <LanguageSwitcher />
+          </div>
+          {/* Luxury Intelligence - Absolute top left */}
+          <div className="absolute top-0 left-0 z-40 px-4 sm:px-6 py-2">
+            <span
+              className="font-bold text-lg sm:text-xl tracking-tight"
+              style={{ letterSpacing: "-0.01em" }}
+            >
+              Luxury Intelligence
+            </span>
+          </div>
           <nav className="max-w-3xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
             <div className="flex items-center gap-2">
-              <span
-                className="font-bold text-lg sm:text-xl tracking-tight"
-                style={{ letterSpacing: "-0.01em" }}
-              >
-                Luxury Intelligence
-              </span>
+              {/* Spacer to balance layout */}
             </div>
-            <ul className="flex gap-3 sm:gap-5 text-sm sm:text-base font-medium">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="hover:underline focus-visible:underline transition-colors px-1 py-0.5 rounded"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="flex items-center gap-4">
+              <ul className="flex gap-3 sm:gap-5 text-sm sm:text-base font-medium">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="hover:underline focus-visible:underline transition-colors px-1 py-0.5 rounded"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
         </header>
 
@@ -81,26 +93,26 @@ export default function RootLayout({
 
         {/* Footer */}
         <footer className="mt-6 border-t border-gray-200 py-6 text-xs text-gray-500 bg-white/80 w-full">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
-            <div>
-              <span className="font-medium">AI-assisted summaries</span> &mdash; Not investment or business advice.
-            </div>
-            <div className="flex gap-4 items-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-2" style={{ whiteSpace: 'nowrap' }}>
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="hover:underline"
+                  className="hover:underline whitespace-nowrap"
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 href="/methodology"
-                className="hover:underline"
+                className="hover:underline whitespace-nowrap"
               >
                 How this is curated
               </Link>
+            </div>
+            <div className="text-center">
+              <span className="font-medium">AI-assisted summaries</span> &mdash; Not investment or business advice. Website built and maintained by AK.
             </div>
           </div>
         </footer>

@@ -118,6 +118,7 @@ export default function TopNSelector() {
           {n}
         </button>
       ))}
+      <span className="text-xs text-gray-500 ml-1">per category</span>
     </div>
   );
 }
