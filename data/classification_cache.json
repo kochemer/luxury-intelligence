@@ -124,5 +124,26 @@
     "rationale": "The article focuses on Amazon's AI-powered assistant Alexa and its new features, emphasizing shopping and smart home controls, aligning with AI-driven business decisions and AI personalization.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-08T19:34:29.226Z"
+  },
+  "https://www.digitalcommerce360.com/2026/01/07/swap-series-c-funding-100-million-us-expansion": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article discusses funding for an expansion of an end-to-end commerce platform in the U.S., indicating a focus on ecommerce and retail technology.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-08T21:07:08.140Z"
+  },
+  "https://www.retaildive.com/news/elf-beauty-roblox-makeup-experience/808613": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article focuses on a cosmetics company launching a virtual makeup experience on a gaming platform to attract specific shopper demographics, aligning with ecommerce and retail technology trends.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-08T21:19:46.816Z"
+  },
+  "https://www.retaildive.com/news/amazon-website-alexa-online/808825": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article discusses the integration of AI technology (Alexa) into an online platform, focusing on AI-driven customer interactions and conversations.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-08T21:32:06.692Z"
   }
 }

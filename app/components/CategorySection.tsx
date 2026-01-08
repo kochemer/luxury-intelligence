@@ -48,7 +48,7 @@ export default function CategorySection({
           top: '0',
           right: '0',
         }}>
-          <span className="px-3 py-1 text-xs font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-md">
+          <span className="text-xs font-medium text-gray-700">
             {count}
           </span>
           <span className="text-[10px] text-gray-400 leading-tight mt-0.5">

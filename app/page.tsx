@@ -26,6 +26,9 @@ type WeeklyDigest = {
   endISO: string;
   builtAtISO?: string;
   builtAtLocal?: string;
+  coverImageUrl?: string;
+  coverImageAlt?: string;
+  coverKeywords?: string[];
   totals: {
     total: number;
     byTopic: {
@@ -236,42 +239,62 @@ export default async function Home() {
         </section>
       ) : (
       <>
-        {/* Weekly Digest Summary / Meta */}
-        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6 pb-6 border-b border-gray-200">
-          <div className="flex items-baseline justify-between flex-wrap gap-4">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-1">
-                Week {digest.weekLabel}
-              </h2>
-              <p className="text-sm md:text-base text-gray-500">
-                {formatDate(digest.startISO)} to {formatDate(digest.endISO)}
-                {digest.builtAtLocal && (
-                  <span className="ml-2">• Built {digest.builtAtLocal}</span>
-                )}
-              </p>
+        {/* This Week's Cover */}
+        {digest.coverImageUrl && (
+          <section className="w-full max-w-[1404px] lg:max-w-[1638px] 2xl:max-w-[1825px] mx-auto px-4 md:px-8 mb-4 md:mb-5">
+            <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
+              <div className="flex items-center justify-between flex-wrap gap-3 mb-3 md:mb-4">
+                <h3 className="text-base md:text-lg font-semibold text-gray-900">
+                  This week&apos;s cover
+                </h3>
+                <div className="flex items-center gap-3 flex-wrap text-xs md:text-sm text-gray-600">
+                  <span>
+                    {formatDate(digest.startISO)} to {formatDate(digest.endISO)}
+                    {digest.builtAtLocal && (
+                      <span className="ml-1">• Built {digest.builtAtLocal}</span>
+                    )}
+                  </span>
+                </div>
+              </div>
+              <div className="relative w-full rounded-lg overflow-hidden" style={{ height: '432px' }}>
+                <img
+                  src={digest.coverImageUrl}
+                  alt={digest.coverImageAlt || `Weekly digest cover for ${digest.weekLabel}`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-black bg-opacity-50 px-6 md:px-8 py-3 md:py-4 rounded-lg">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
+                      Week {digest.weekLabel}
+                    </h2>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="text-right">
-              <p className="text-sm md:text-base text-gray-500">
-                {digest.totals.total} articles processed this week
-              </p>
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Category Jump Navigation */}
         <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6">
           <div className="flex flex-col items-center gap-4">
-            <nav className="flex flex-wrap gap-2 justify-center" aria-label="Category navigation">
-              {CATEGORY_CARDS.map(cat => (
-                <a
-                  key={cat.anchorId}
-                  href={`#${cat.anchorId}`}
-                  className="px-4 py-2 text-sm font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-full hover:bg-gray-100 hover:border-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
-                >
-                  {cat.title}
-                </a>
-              ))}
-            </nav>
+            <div className="flex items-center justify-between w-full flex-wrap gap-4">
+              <nav className="flex flex-wrap gap-2 justify-center flex-1" aria-label="Category navigation">
+                {CATEGORY_CARDS.map(cat => (
+                  <a
+                    key={cat.anchorId}
+                    href={`#${cat.anchorId}`}
+                    className="px-4 py-2 text-sm font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-full hover:bg-gray-100 hover:border-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
+                  >
+                    {cat.title}
+                  </a>
+                ))}
+              </nav>
+              <div className="text-right">
+                <p className="text-sm md:text-base text-gray-500 whitespace-nowrap">
+                  {digest.totals.total} articles processed this week
+                </p>
+              </div>
+            </div>
             <div className="flex justify-center">
               <Suspense fallback={<div className="h-6 w-20" />}>
                 <TopNSelector />

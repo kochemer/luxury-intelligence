@@ -25,6 +25,9 @@ type WeeklyDigest = {
   endISO: string;
   builtAtISO?: string;
   builtAtLocal?: string;
+  coverImageUrl?: string;
+  coverImageAlt?: string;
+  coverKeywords?: string[];
   totals: {
     total: number;
     byTopic: {
@@ -125,7 +128,7 @@ export default async function WeekPage({
                 Weekly Brief: {digest.weekLabel}
               </h1>
               <p className="text-base md:text-lg text-gray-600 mb-2">
-                Period: {startDate} to {endDate} ({digest.tz})
+                Period: {startDate} to {endDate}
               </p>
               {digest.builtAtLocal && (
                 <p className="text-sm text-gray-500 mb-2">
@@ -144,6 +147,24 @@ export default async function WeekPage({
           </div>
         </div>
       </header>
+
+      {/* This Week's Cover */}
+      {digest.coverImageUrl && (
+        <section className="mb-8 md:mb-10">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
+              This week&apos;s cover
+            </h2>
+            <div className="relative w-full rounded-lg overflow-hidden" style={{ height: '432px' }}>
+              <img
+                src={digest.coverImageUrl}
+                alt={digest.coverImageAlt || `Weekly digest cover for ${digest.weekLabel}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 md:mb-16">
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">

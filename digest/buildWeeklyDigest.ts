@@ -334,6 +334,9 @@ export type WeeklyDigest = {
   endISO: string;
   builtAtISO?: string;
   builtAtLocal?: string;
+  coverImageUrl?: string;
+  coverImageAlt?: string;
+  coverKeywords?: string[];
   totals: {
     total: number;
     byTopic: {
@@ -499,6 +502,12 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
   const builtAtISO = now.toISO();
   const builtAtLocal = now.toFormat('yyyy-MM-dd HH:mm:ss');
 
+  // Cover image fields will be set by the main build script after image generation
+  // Default to placeholder if generation fails
+  const coverImageUrl = `/weekly-images/placeholder.svg`;
+  const coverImageAlt = `Weekly digest cover for ${weekLabel}`;
+  const coverKeywords: string[] = [];
+
   return {
     weekLabel,
     tz: "Europe/Copenhagen",
@@ -506,6 +515,9 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
     endISO,
     builtAtISO: builtAtISO || undefined,
     builtAtLocal,
+    coverImageUrl,
+    coverImageAlt,
+    coverKeywords,
     totals,
     topics,
   };

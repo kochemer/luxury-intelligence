@@ -5,6 +5,8 @@ import { DateTime } from 'luxon';
 import { buildWeeklyDigest } from '../digest/buildWeeklyDigest';
 import { getTopicTotalsDisplayName, type TopicTotalsKey } from '../utils/topicNames';
 import { generateSummariesForDigest } from '../digest/generateSummaries';
+import { generateWeeklyCoverImage } from '../digest/generateCoverImage';
+import { getTopicDisplayName } from '../utils/topicNames';
 
 // --- Environment Variable Loading for CLI ---
 import { parse } from 'dotenv';
@@ -70,29 +72,50 @@ function getCurrentWeek(): string {
 }
 
 /**
- * Parse CLI arguments for --week flag
+ * Parse CLI arguments for --week, --regenCover, and --coverStyle flags
  */
-function parseArgs(): string {
+function parseArgs(): { weekLabel: string; regenCover: boolean; coverStyle: 'realistic' | 'illustration' } {
   const args = process.argv.slice(2);
+  let weekLabel: string | null = null;
+  let regenCover = false;
+  let coverStyle: 'realistic' | 'illustration' = 'realistic';
+  
   for (const arg of args) {
     if (arg.startsWith('--week=')) {
-      const weekLabel = arg.split('=')[1];
+      weekLabel = arg.split('=')[1];
       // Validate format
       if (!/^\d{4}-W\d{1,2}$/.test(weekLabel)) {
         console.error(`Invalid week format: ${weekLabel}. Expected YYYY-W## (e.g. 2025-W52)`);
         process.exit(1);
       }
-      return weekLabel;
+    } else if (arg === '--regenCover' || arg === '--regenCover=true') {
+      regenCover = true;
+    } else if (arg.startsWith('--coverStyle=')) {
+      const style = arg.split('=')[1];
+      if (style === 'realistic' || style === 'illustration') {
+        coverStyle = style;
+      } else {
+        console.warn(`Invalid cover style: ${style}. Using default: realistic`);
+      }
     }
   }
-  // Default to current week
-  return getCurrentWeek();
+  
+  return {
+    weekLabel: weekLabel || getCurrentWeek(),
+    regenCover,
+    coverStyle,
+  };
 }
 
 async function main() {
-  const weekLabel = parseArgs();
+  const { weekLabel, regenCover, coverStyle } = parseArgs();
   
-  console.log(`Building digest for week: ${weekLabel}\n`);
+  console.log(`Building digest for week: ${weekLabel}`);
+  if (regenCover) {
+    console.log(`  (regenerating cover image if it exists, style: ${coverStyle})\n`);
+  } else {
+    console.log(`  (cover style: ${coverStyle})\n`);
+  }
   
   try {
     // Build the digest
@@ -109,6 +132,44 @@ async function main() {
     console.log(`  Succeeded: ${stats.succeeded}`);
     console.log(`  Skipped (no snippet): ${stats.skipped}`);
     console.log(`  Failed: ${stats.failed}`);
+    console.log('');
+    
+    // Generate cover image
+    console.log('Generating cover image...');
+    const categories = [
+      {
+        name: getTopicDisplayName('AI_and_Strategy'),
+        articles: digest.topics.AI_and_Strategy.top.map(a => ({ title: a.title, source: a.source })),
+      },
+      {
+        name: getTopicDisplayName('Ecommerce_Retail_Tech'),
+        articles: digest.topics.Ecommerce_Retail_Tech.top.map(a => ({ title: a.title, source: a.source })),
+      },
+      {
+        name: getTopicDisplayName('Luxury_and_Consumer'),
+        articles: digest.topics.Luxury_and_Consumer.top.map(a => ({ title: a.title, source: a.source })),
+      },
+      {
+        name: getTopicDisplayName('Jewellery_Industry'),
+        articles: digest.topics.Jewellery_Industry.top.map(a => ({ title: a.title, source: a.source })),
+      },
+    ];
+    
+    const coverResult = await generateWeeklyCoverImage(weekLabel, categories, regenCover, coverStyle);
+    
+    // Update digest with cover image info
+    if (coverResult.success && coverResult.imagePath) {
+      digest.coverImageUrl = coverResult.imagePath;
+      digest.coverImageAlt = `Weekly cover illustration for ${weekLabel}`;
+      digest.coverKeywords = coverResult.keywords;
+      console.log(`✓ Cover image: ${coverResult.imagePath}`);
+    } else {
+      // Fallback to placeholder
+      digest.coverImageUrl = '/weekly-images/placeholder.svg';
+      digest.coverImageAlt = `Weekly digest cover for ${weekLabel}`;
+      digest.coverKeywords = [];
+      console.log('⚠ Using placeholder cover image');
+    }
     console.log('');
     
     // Ensure output directory exists

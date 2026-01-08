@@ -37,7 +37,7 @@ export default function ArticleCard({
         className="block pt-4 md:pt-5 no-underline text-inherit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
       >
         {/* Title */}
-        <div className="mb-1 md:mb-1.5 font-semibold text-base md:text-lg leading-snug text-blue-900">
+        <div className="mb-1 md:mb-1.5 font-semibold text-base md:text-lg leading-snug text-blue-800">
           {title}
         </div>
 
