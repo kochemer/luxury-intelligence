@@ -3,10 +3,41 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { DateTime } from 'luxon';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import DigestClientView from '../../components/DigestClientView';
 import TopNSelector from '../../components/TopNSelector';
 import { getTopicTotalsDisplayName } from '../../../utils/topicNames';
 import { formatDate } from '../../../utils/formatDate';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://luxury-intelligence.vercel.app";
+
+export async function generateMetadata({ params }: { params: Promise<{ weekLabel: string }> }): Promise<Metadata> {
+  const { weekLabel } = await params;
+  
+  // Load digest to get cover image if available
+  const digest = await loadDigest(weekLabel);
+  const ogImage = digest?.coverImageUrl 
+    ? `${siteUrl}${digest.coverImageUrl}`
+    : `${siteUrl}/og-default.svg`;
+  
+  return {
+    title: `Week ${weekLabel} – AI, Ecommerce & Luxury Industry Digest`,
+    description: `Curated overview of the most relevant AI, ecommerce, luxury and jewellery industry news for week ${weekLabel}. Handpicked articles with AI summaries.`,
+    alternates: {
+      canonical: `/week/${weekLabel}`,
+    },
+    openGraph: {
+      title: `Week ${weekLabel} – AI, Ecommerce & Luxury Industry Digest`,
+      description: `Curated overview of the most relevant AI, ecommerce, luxury and jewellery industry news for week ${weekLabel}. Handpicked articles with AI summaries.`,
+      images: [ogImage],
+    },
+    twitter: {
+      title: `Week ${weekLabel} – AI, Ecommerce & Luxury Industry Digest`,
+      description: `Curated overview of the most relevant AI, ecommerce, luxury and jewellery industry news for week ${weekLabel}. Handpicked articles with AI summaries.`,
+      images: [ogImage],
+    },
+  };
+}
 
 type Article = {
   id: string;

@@ -183,10 +183,6 @@ export default async function HomeES() {
             <Link href="/support" className="text-sm md:text-base text-gray-200 hover:text-white underline">
               Soporte
             </Link>
-            <span className="text-gray-300 text-sm">•</span>
-            <Link href="/methodology" className="text-sm md:text-base text-gray-200 hover:text-white underline">
-              Cómo se cura esto
-            </Link>
           </div>
         </div>
       </section>

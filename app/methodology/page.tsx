@@ -1,4 +1,25 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://luxury-intelligence.vercel.app";
+
+export const metadata: Metadata = {
+  title: 'Methodology – How Luxury Intelligence is curated',
+  description: 'How the weekly AI, ecommerce, luxury and jewellery digest is collected, ranked and summarized.',
+  alternates: {
+    canonical: '/methodology',
+  },
+  openGraph: {
+    title: 'Methodology – How Luxury Intelligence is curated',
+    description: 'How the weekly AI, ecommerce, luxury and jewellery digest is collected, ranked and summarized.',
+    images: [`${siteUrl}/og-default.svg`],
+  },
+  twitter: {
+    title: 'Methodology – How Luxury Intelligence is curated',
+    description: 'How the weekly AI, ecommerce, luxury and jewellery digest is collected, ranked and summarized.',
+    images: [`${siteUrl}/og-default.svg`],
+  },
+};
 
 export default function MethodologyPage() {
   return (
@@ -23,12 +44,6 @@ export default function MethodologyPage() {
         padding: 0,
         borderBottom: '1px solid #e5e7eb'
       }}>
-        <div style={{
-          position: 'absolute',
-          zIndex: 0,
-          top: 0, left: 0, width: '100%', height: '100%',
-        }}>
-        </div>
         <div className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8" style={{
           position: 'relative',
           zIndex: 2,
@@ -39,104 +54,121 @@ export default function MethodologyPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-3" style={{
             textShadow: '0 1px 4px rgba(18,30,49,0.15)'
           }}>
-            How This Is Curated
+            Methodology
           </h1>
           <div className="text-base md:text-lg text-gray-100 leading-relaxed max-w-xl mx-auto">
-            How we select, rank, and summarize content each week
+            How the weekly digest is produced
           </div>
         </div>
       </section>
 
       {/* Content Section */}
-      <section className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16">
-        {/* What This Is */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8 mb-12 md:mb-16">
+      <section className="max-w-3xl mx-auto px-4 md:px-6 py-12 md:py-16">
+        {/* What this site is */}
+        <div className="mb-10 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-            What This Is
+            What this site is
           </h2>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-3">
-            A weekly curated brief across four topics: <strong className="text-gray-900">AI & Strategy</strong>, 
-            <strong className="text-gray-900"> Ecommerce & Retail Tech</strong>, <strong className="text-gray-900"> Luxury & Consumer</strong>, 
-            and <strong className="text-gray-900"> Jewellery Industry</strong>.
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-3">
+            A weekly curated industry intelligence digest covering <strong className="text-gray-900">AI & Strategy</strong>, <strong className="text-gray-900">Ecommerce & Retail Tech</strong>, <strong className="text-gray-900">Luxury & Consumer</strong>, and <strong className="text-gray-900">Jewellery Industry</strong>.
           </p>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed">
             Each week, we select the most relevant articles, generate concise summaries, and present them in an easy-to-scan format.
           </p>
         </div>
 
-        {/* Sources */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8 mb-12 md:mb-16">
+        {/* How articles are collected */}
+        <div className="mb-10 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-            Sources
+            How articles are collected
           </h2>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-3">
-            We monitor RSS feeds and selected web pages from trusted industry publications, news sites, and expert blogs. 
-            Articles are automatically ingested on a regular schedule.
+          <ul className="space-y-3 text-base md:text-lg text-gray-700 leading-relaxed">
+            <li>
+              <strong className="text-gray-900">Sources:</strong> RSS feeds and selected web pages from trusted industry publications, news sites, and expert blogs.
+            </li>
+            <li>
+              <strong className="text-gray-900">Ingestion:</strong> Articles are automatically ingested on a regular schedule using an append-only system.
+            </li>
+            <li>
+              <strong className="text-gray-900">Deduplication:</strong> Duplicate articles are automatically identified and filtered to ensure each article appears only once.
+            </li>
+          </ul>
+        </div>
+
+        {/* How articles are selected */}
+        <div className="mb-10 md:mb-12">
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
+            How articles are selected
+          </h2>
+          <ul className="space-y-3 text-base md:text-lg text-gray-700 leading-relaxed">
+            <li>
+              <strong className="text-gray-900">Weekly window:</strong> Monday through Sunday, Europe/Copenhagen timezone. Each digest covers articles published during that week.
+            </li>
+            <li>
+              <strong className="text-gray-900">Categorization:</strong> Articles are classified into one of four topic categories using LLM-assisted classification.
+            </li>
+            <li>
+              <strong className="text-gray-900">Ranking:</strong> Articles are scored based on relevance, recency, and source diversity. Diversity guards prevent over-representation of a single source.
+            </li>
+            <li>
+              <strong className="text-gray-900">Top-N selection:</strong> The highest-scoring articles in each category are selected and published per category.
+            </li>
+          </ul>
+        </div>
+
+        {/* How AI is used */}
+        <div className="mb-10 md:mb-12">
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
+            How AI is used
+          </h2>
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
+            AI is used in two ways:
           </p>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            Know a source we should include? <Link href="/feedback" className="text-blue-600 hover:text-blue-800 underline">Suggest a source</Link>.
+          <ul className="space-y-3 text-base md:text-lg text-gray-700 leading-relaxed mb-4">
+            <li>
+              <strong className="text-gray-900">Categorization:</strong> LLM-assisted classification helps assign articles to the appropriate topic category.
+            </li>
+            <li>
+              <strong className="text-gray-900">Summaries:</strong> Short summaries are generated when article snippets are available, using only the title, source, publication date, and snippet.
+            </li>
+          </ul>
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-3">
+            <strong className="text-gray-900">What AI does not do:</strong>
+          </p>
+          <ul className="space-y-2 text-base md:text-lg text-gray-700 leading-relaxed mb-4">
+            <li>• Full-article scraping or rewriting</li>
+            <li>• Accessing paywalled content</li>
+            <li>• Making editorial decisions (selection and ranking are algorithmic)</li>
+          </ul>
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+            AI inputs are limited to metadata (title, source, date, snippet) and deterministic settings are used where possible to ensure consistency and explainability.
           </p>
         </div>
 
-        {/* How Items Are Chosen */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8 mb-12 md:mb-16">
+        {/* Transparency & feedback */}
+        <div className="mb-10 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-            How Items Are Chosen
+            Transparency & feedback
           </h2>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-3">
-            Articles are classified into one of four topic categories and scored based on <strong className="text-gray-900">relevance</strong>, 
-            <strong className="text-gray-900"> recency</strong>, and <strong className="text-gray-900">source quality</strong>.
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-3">
+            Article selection is <strong className="text-gray-900">AI-augmented, explainable-first</strong>. We prioritize transparency in how articles are collected, categorized, and ranked.
           </p>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-3">
-            We apply diversity guards to avoid over-representing a single source, and articles that appear to be sponsored content or press releases receive lower scores.
-          </p>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            The highest-scoring articles in each category are selected for the weekly brief.
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+            Questions, suggestions, or want to suggest a source? <Link href="/feedback" className="text-blue-700 hover:text-blue-800 underline font-medium">Share your feedback</Link>.
           </p>
         </div>
 
-        {/* What AI Does */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8 mb-12 md:mb-16">
+        {/* Update cadence */}
+        <div className="mb-10 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-            What AI Does
+            Update cadence
           </h2>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-3">
-            AI generates summaries from the article's title, source, publication date, and available snippet or excerpt. 
-            We do not scrape or read full articles.
-          </p>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-3">
-            Summaries are designed to help you quickly assess relevance, but they may miss important nuances or contain inaccuracies. 
-            Always refer to the original article for complete information.
-          </p>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            AI is used only for summarization. Selection, ranking, and categorization are done algorithmically based on metadata and scoring rules.
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+            Updated weekly. New briefs are published each week covering Monday through Sunday (CET timezone). Past weekly briefs are available in the <Link href="/archive" className="text-blue-700 hover:text-blue-800 underline">archive</Link>.
           </p>
         </div>
 
-        {/* Updates & Archive */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8 mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-            Updates & Archive
-          </h2>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-3">
-            New briefs are published weekly, covering Monday through Sunday (CET timezone). Each brief includes articles published during that week.
-          </p>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            Past weekly briefs are available in the <Link href="/archive" className="text-blue-600 hover:text-blue-800 underline">archive</Link>.
-          </p>
-        </div>
-
-        {/* Feedback */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8 mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-            Feedback
-          </h2>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-            Questions, suggestions, or issues? <Link href="/feedback" className="text-blue-600 hover:text-blue-800 underline">Share your feedback</Link>.
-          </p>
-        </div>
-
-        {/* Disclaimer */}
+        {/* Footer note */}
         <div className="border-t border-gray-200 pt-6 mt-8">
           <p className="text-sm text-gray-500 text-center">
             Not affiliated with any publishers. Links go to original sources.
@@ -146,6 +178,3 @@ export default function MethodologyPage() {
     </main>
   );
 }
-
-
-

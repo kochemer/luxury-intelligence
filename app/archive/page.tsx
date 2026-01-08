@@ -15,6 +15,27 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import { DateTime } from 'luxon';
+import type { Metadata } from 'next';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://luxury-intelligence.vercel.app";
+
+export const metadata: Metadata = {
+  title: 'Archive – Weekly AI & Luxury Industry Digests',
+  description: 'Browse the complete archive of weekly AI, ecommerce, luxury and jewellery industry digests. Access all past curated intelligence briefs and weekly summaries.',
+  alternates: {
+    canonical: '/archive',
+  },
+  openGraph: {
+    title: 'Archive – Weekly AI & Luxury Industry Digests',
+    description: 'Browse the complete archive of weekly AI, ecommerce, luxury and jewellery industry digests. Access all past curated intelligence briefs and weekly summaries.',
+    images: [`${siteUrl}/og-default.svg`],
+  },
+  twitter: {
+    title: 'Archive – Weekly AI & Luxury Industry Digests',
+    description: 'Browse the complete archive of weekly AI, ecommerce, luxury and jewellery industry digests. Access all past curated intelligence briefs and weekly summaries.',
+    images: [`${siteUrl}/og-default.svg`],
+  },
+};
 
 async function getAvailableDigests(): Promise<string[]> {
   try {

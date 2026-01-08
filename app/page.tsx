@@ -4,10 +4,31 @@ import { DateTime } from 'luxon';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import DigestClientView from './components/DigestClientView';
 import TopNSelector from './components/TopNSelector';
 import { TopicKey } from '../utils/topicNames';
 import { formatDate } from '../utils/formatDate';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://luxury-intelligence.vercel.app";
+
+export const metadata: Metadata = {
+  title: 'Weekly AI, Ecommerce & Luxury Industry Digest',
+  description: 'A weekly curated digest covering AI & strategy, ecommerce and retail technology, luxury and jewellery industry news. Updated every week.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Weekly AI, Ecommerce & Luxury Industry Digest',
+    description: 'A weekly curated digest covering AI & strategy, ecommerce and retail technology, luxury and jewellery industry news. Updated every week.',
+    images: [`${siteUrl}/og-default.svg`],
+  },
+  twitter: {
+    title: 'Weekly AI, Ecommerce & Luxury Industry Digest',
+    description: 'A weekly curated digest covering AI & strategy, ecommerce and retail technology, luxury and jewellery industry news. Updated every week.',
+    images: [`${siteUrl}/og-default.svg`],
+  },
+};
 
 type Article = {
   id: string;
@@ -200,10 +221,6 @@ export default async function Home() {
             <span className="text-gray-300 text-sm">•</span>
             <Link href="/support" className="text-sm md:text-base text-gray-200 hover:text-white underline">
               Support
-            </Link>
-            <span className="text-gray-300 text-sm">•</span>
-            <Link href="/methodology" className="text-sm md:text-base text-gray-200 hover:text-white underline">
-              How this is curated
             </Link>
           </div>
         </div>

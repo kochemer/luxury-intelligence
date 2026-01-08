@@ -18,15 +18,29 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://luxury-intelligence.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Luxury Intelligence",
   description: "Luxury Ecommerce, Retail Technology & AI - Curated intelligence and AI-assisted summaries for luxury, ecommerce, and retail tech.",
+  openGraph: {
+    siteName: "Luxury Intelligence",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/archive", label: "Archive" },
   { href: "/subscribe", label: "Subscribe" },
+  { href: "/methodology", label: "Methodology" },
   { href: "/about", label: "About" },
   { href: "/support", label: "Support" },
   { href: "/feedback", label: "Feedback" },
@@ -104,12 +118,6 @@ export default function RootLayout({
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/methodology"
-                className="hover:underline whitespace-nowrap"
-              >
-                How this is curated
-              </Link>
             </div>
             <div className="text-center">
               <span className="font-medium">AI-assisted summaries</span> &mdash; Not investment or business advice. Website built and maintained by AK.
