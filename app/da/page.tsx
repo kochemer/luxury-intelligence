@@ -4,31 +4,10 @@ import { DateTime } from 'luxon';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Suspense } from 'react';
-import type { Metadata } from 'next';
-import DigestClientView from './components/DigestClientView';
-import TopNSelector from './components/TopNSelector';
-import { TopicKey } from '../utils/topicNames';
-import { formatDate, formatDateRange, formatDateTime } from '../utils/formatDate';
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://luxury-intelligence.vercel.app";
-
-export const metadata: Metadata = {
-  title: 'Weekly AI, Ecommerce & Luxury Industry Digest',
-  description: 'A weekly curated digest covering AI & strategy, ecommerce and retail technology, luxury and jewellery industry news. Updated every week.',
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'Weekly AI, Ecommerce & Luxury Industry Digest',
-    description: 'A weekly curated digest covering AI & strategy, ecommerce and retail technology, luxury and jewellery industry news. Updated every week.',
-    images: [`${siteUrl}/og-default.svg`],
-  },
-  twitter: {
-    title: 'Weekly AI, Ecommerce & Luxury Industry Digest',
-    description: 'A weekly curated digest covering AI & strategy, ecommerce and retail technology, luxury and jewellery industry news. Updated every week.',
-    images: [`${siteUrl}/og-default.svg`],
-  },
-};
+import DigestClientView from '../components/DigestClientView';
+import TopNSelector from '../components/TopNSelector';
+import { TopicKey } from '../../utils/topicNames';
+import { formatDate } from '../../utils/formatDate';
 
 type Article = {
   id: string;
@@ -100,43 +79,43 @@ const CATEGORY_CARDS: Array<{
   {
     key: 'Ecommerce_Retail_Tech',
     color: '#264653',
-    title: 'Ecommerce & Retail Tech',
-    desc: 'Breakthroughs and trends shaping online commerce, retail, and emerging tech.',
+    title: 'E-handel & Detailhandel Tech',
+    desc: 'Fremskridt og tendenser, der former online handel, detailhandel og nye teknologier.',
     countBy: 'EcommerceRetail',
-    topInfo: 'Top 7 articles by recency',
+    topInfo: 'Top 7 artikler efter nylighed',
     anchorId: 'ecommerce-retail-tech',
   },
   {
     key: 'Jewellery_Industry',
     color: '#be8b36',
-    title: 'Jewellery Industry',
-    desc: 'Key updates and articles across jewellery brands, trade, and supply chain.',
+    title: 'Smykkeindustrien',
+    desc: 'Vigtige opdateringer og artikler om smykkemærker, handel og forsyningskæde.',
     countBy: 'Jewellery',
-    topInfo: 'Top 7 articles by recency',
+    topInfo: 'Top 7 artikler efter nylighed',
     anchorId: 'jewellery-industry',
   },
   {
     key: 'AI_and_Strategy',
     color: '#25505f',
-    title: 'AI & Strategy',
-    desc: 'The latest advances and strategies in artificial intelligence and business transformation.',
+    title: 'AI & Strategi',
+    desc: 'De seneste fremskridt og strategier inden for kunstig intelligens og forretningstransformation.',
     countBy: 'AIStrategy',
-    topInfo: 'Top 7 articles by relevance',
+    topInfo: 'Top 7 artikler efter relevans',
     anchorId: 'ai-strategy',
   },
   {
     key: 'Luxury_and_Consumer',
     color: '#6b2d5c',
-    title: 'Luxury & Consumer',
-    desc: 'Innovations and changes in luxury and wider consumer products, experiences, and brands.',
+    title: 'Luksus & Forbrug',
+    desc: 'Innovationer og ændringer i luksus og bredere forbrugerprodukter, oplevelser og mærker.',
     countBy: 'LuxuryConsumer',
-    topInfo: 'Top 7 articles by recency',
+    topInfo: 'Top 7 artikler efter nylighed',
     anchorId: 'luxury-consumer',
   },
 ];
 
 
-export default async function Home() {
+export default async function HomeDA() {
   const weekLabel = getCurrentWeek();
   const digest = await loadDigest(weekLabel);
 
@@ -160,21 +139,6 @@ export default async function Home() {
         padding: 0,
         borderBottom: '1px solid #e5e7eb'
       }}>
-        {/* Temporarily commented out - image file missing
-        <div style={{
-          position: 'absolute',
-          zIndex: 0,
-          top: 0, left: 0, width: '100%', height: '100%',
-        }}>
-            <Image
-              src="/hero-digest.jpg"
-              alt="Weekly Digest Hero"
-              priority
-              fill
-              style={{ objectFit: 'cover', objectPosition: 'center center', filter: 'brightness(0.75) blur(0.3px)', opacity: 0.4 }}
-            />
-        </div>
-        */}
         <div className="w-full max-w-[1400px] lg:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 md:px-8" style={{
           position: 'relative',
           zIndex: 2,
@@ -188,10 +152,10 @@ export default async function Home() {
             Luxury Intelligence
           </h1>
           <div className="text-base md:text-lg text-gray-100 leading-relaxed max-w-xl mx-auto mb-3">
-            Weekly intelligence across AI, ecommerce, luxury, and jewellery.
+            Ugentlig intelligens om AI, e-handel, luksus og smykker.
           </div>
           <p className="text-sm md:text-base text-gray-300 mb-5">
-            Curated articles, signals, and context — handpicked and summarised by AI agents each week.
+            Kurerede artikler, signaler og kontekst — udvalgt og sammenfattet af AI-agenter hver uge.
           </p>
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, flexWrap: 'wrap'}}>
             <Link
@@ -208,15 +172,15 @@ export default async function Home() {
                 boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
               }}
             >
-              Subscribe (email digest)
+              Abonner (email-oversigt)
             </Link>
             <span className="text-gray-300 text-sm">•</span>
             <Link href="/archive" className="text-sm md:text-base text-gray-200 hover:text-white underline">
-              Browse archive
+              Gennemse arkiv
             </Link>
             <span className="text-gray-300 text-sm">•</span>
             <Link href="/about" className="text-sm md:text-base text-gray-200 hover:text-white underline">
-              About
+              Om
             </Link>
             <span className="text-gray-300 text-sm">•</span>
             <Link href="/support" className="text-sm md:text-base text-gray-200 hover:text-white underline">
@@ -240,8 +204,8 @@ export default async function Home() {
           textAlign: 'center',
           boxShadow: '0 2px 12px 0 rgba(200,170,100,0.04)'
         }}>
-          <h2 style={{margin: '0 0 1rem 0', fontSize: '1.6rem', fontWeight: 600}}>Digest not built yet</h2>
-          <p style={{marginBottom:'1.1rem'}}>No latest digest found for this week.</p>
+          <h2 style={{margin: '0 0 1rem 0', fontSize: '1.6rem', fontWeight: 600}}>Oversigt endnu ikke bygget</h2>
+          <p style={{marginBottom:'1.1rem'}}>Ingen oversigt fundet for denne uge.</p>
           <div style={{marginBottom:'1.5rem'}}>
             <span style={{
               background: '#fff4ca',
@@ -262,13 +226,13 @@ export default async function Home() {
             <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
               <div className="flex items-center justify-between flex-wrap gap-3 mb-3 md:mb-4">
                 <h3 className="text-base md:text-lg font-semibold text-gray-900">
-                  This week&apos;s cover
+                  Denne uges omslag
                 </h3>
                 <div className="flex items-center gap-3 flex-wrap text-xs md:text-sm text-gray-600">
                   <span>
-                    {formatDateRange(digest.startISO, digest.endISO)}
-                    {digest.builtAtISO && (
-                      <span className="ml-4">• Built {formatDateTime(digest.builtAtISO)}</span>
+                    {formatDate(digest.startISO)} til {formatDate(digest.endISO)}
+                    {digest.builtAtLocal && (
+                      <span className="ml-1">• Bygget {digest.builtAtLocal}</span>
                     )}
                   </span>
                 </div>
@@ -276,13 +240,13 @@ export default async function Home() {
               <div className="relative w-full rounded-lg overflow-hidden" style={{ height: '432px' }}>
                 <img
                   src={digest.coverImageUrl}
-                  alt={digest.coverImageAlt || `Weekly digest cover for ${digest.weekLabel}`}
+                  alt={digest.coverImageAlt || `Ugentlig oversigt omslag for ${digest.weekLabel}`}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="bg-black bg-opacity-50 px-6 md:px-8 py-3 md:py-4 rounded-lg">
                     <h2 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
-                      Week {digest.weekLabel}
+                      Uge {digest.weekLabel}
                     </h2>
                   </div>
                 </div>
@@ -291,27 +255,42 @@ export default async function Home() {
           </section>
         )}
 
+        {/* Weekly Digest Summary / Meta */}
+        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6 pb-6 border-b border-gray-200">
+          <div className="flex items-baseline justify-between flex-wrap gap-4">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-1">
+                Uge {digest.weekLabel}
+              </h2>
+              <p className="text-sm md:text-base text-gray-500">
+                {formatDate(digest.startISO)} til {formatDate(digest.endISO)}
+                {digest.builtAtLocal && (
+                  <span className="ml-2">• Bygget {digest.builtAtLocal}</span>
+                )}
+              </p>
+            </div>
+            <div className="text-right">
+              <p className="text-sm md:text-base text-gray-500">
+                {digest.totals.total} artikler behandlet denne uge
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Category Jump Navigation */}
         <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6">
           <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center justify-between w-full flex-wrap gap-4">
-              <nav className="flex flex-wrap gap-2 justify-center flex-1" aria-label="Category navigation">
-                {CATEGORY_CARDS.map(cat => (
-                  <a
-                    key={cat.anchorId}
-                    href={`#${cat.anchorId}`}
-                    className="px-4 py-2 text-sm font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-full hover:bg-gray-100 hover:border-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
-                  >
-                    {cat.title}
-                  </a>
-                ))}
-              </nav>
-              <div className="text-right">
-                <p className="text-sm md:text-base text-gray-500 whitespace-nowrap">
-                  {digest.totals.total} articles processed this week
-                </p>
-              </div>
-            </div>
+            <nav className="flex flex-wrap gap-2 justify-center" aria-label="Kategorinavigation">
+              {CATEGORY_CARDS.map(cat => (
+                <a
+                  key={cat.anchorId}
+                  href={`#${cat.anchorId}`}
+                  className="px-4 py-2 text-sm font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-full hover:bg-gray-100 hover:border-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
+                >
+                  {cat.title}
+                </a>
+              ))}
+            </nav>
             <div className="flex justify-center">
               <Suspense fallback={<div className="h-6 w-20" />}>
                 <TopNSelector />
@@ -339,3 +318,4 @@ export default async function Home() {
     </main>
   );
 }
+

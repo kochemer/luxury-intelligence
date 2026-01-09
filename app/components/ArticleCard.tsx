@@ -94,7 +94,7 @@ export default function ArticleCard({
               overflow: 'hidden',
             }}
           >
-            <span className="text-xs text-gray-500 font-medium">AI summary: </span>{cleanSummary}
+            <span className="text-sm md:text-base text-gray-600">AI summary: </span>{cleanSummary}
           </div>
         </div>
       )}

@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import DigestClientView from '../../components/DigestClientView';
 import TopNSelector from '../../components/TopNSelector';
 import { getTopicTotalsDisplayName } from '../../../utils/topicNames';
-import { formatDate } from '../../../utils/formatDate';
+import { formatDate, formatDateRange, formatDateTime } from '../../../utils/formatDate';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://luxury-intelligence.vercel.app";
 
@@ -138,8 +138,7 @@ export default async function WeekPage({
     );
   }
 
-  const startDate = formatDate(digest.startISO);
-  const endDate = formatDate(digest.endISO);
+  const dateRange = formatDateRange(digest.startISO, digest.endISO);
 
   return (
     <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16">
@@ -159,11 +158,11 @@ export default async function WeekPage({
                 Weekly Brief: {digest.weekLabel}
               </h1>
               <p className="text-base md:text-lg text-gray-600 mb-2">
-                Period: {startDate} to {endDate}
+                Period: {dateRange}
               </p>
-              {digest.builtAtLocal && (
+              {digest.builtAtISO && (
                 <p className="text-sm text-gray-500 mb-2">
-                  Last built: {digest.builtAtLocal} ({digest.tz})
+                  Last built: {formatDateTime(digest.builtAtISO)} ({digest.tz})
                 </p>
               )}
               <p className="text-base md:text-lg text-gray-600">

@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Luxury Intelligence",
   description: "Luxury Ecommerce, Retail Technology & AI - Curated intelligence and AI-assisted summaries for luxury, ecommerce, and retail tech.",
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/favicon.png",
+  },
   openGraph: {
     siteName: "Luxury Intelligence",
     type: "website",

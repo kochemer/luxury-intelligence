@@ -1186,5 +1186,629 @@
     ],
     "cached_at": "2026-01-08T21:32:25.785Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:9989fe590665": {
+    "selected": [
+      {
+        "id": "3",
+        "rank": 1,
+        "why": "Significant funding news for a major AI competitor",
+        "confidence": 0.9
+      },
+      {
+        "id": "4",
+        "rank": 2,
+        "why": "Insightful interview on AI infrastructure development",
+        "confidence": 0.85
+      },
+      {
+        "id": "0",
+        "rank": 3,
+        "why": "Regulatory implications of AI acquisitions in China",
+        "confidence": 0.8
+      },
+      {
+        "id": "1",
+        "rank": 4,
+        "why": "Exploration of AI's creative capabilities in theater",
+        "confidence": 0.75
+      },
+      {
+        "id": "11",
+        "rank": 5,
+        "why": "Major investment in AI by a leading company",
+        "confidence": 0.7
+      },
+      {
+        "id": "7",
+        "rank": 6,
+        "why": "Large funding round highlights AI market dynamics",
+        "confidence": 0.65
+      },
+      {
+        "id": "10",
+        "rank": 7,
+        "why": "Event focused on evolving AI marketing strategies",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T15:32:41.007Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:8cd4a86dc377": {
+    "selected": [
+      {
+        "id": "1",
+        "rank": 1,
+        "why": "Target faces potential changes from activist investors",
+        "confidence": 0.9
+      },
+      {
+        "id": "10",
+        "rank": 2,
+        "why": "Significant funding for a Shopify competitor highlights market dynamics",
+        "confidence": 0.85
+      },
+      {
+        "id": "7",
+        "rank": 3,
+        "why": "New B2B ecommerce platform update addresses complex selling needs",
+        "confidence": 0.8
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "why": "E.l.f. Beauty's innovative approach targets younger consumers",
+        "confidence": 0.75
+      },
+      {
+        "id": "3",
+        "rank": 5,
+        "why": "Amazon's holiday recap silence marks a significant shift",
+        "confidence": 0.7
+      },
+      {
+        "id": "5",
+        "rank": 6,
+        "why": "Target's wellness expansion reflects changing consumer preferences",
+        "confidence": 0.65
+      },
+      {
+        "id": "19",
+        "rank": 7,
+        "why": "Holiday ecommerce spending data reveals consumer trends",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T15:32:46.766Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:0b30bfcd6e0e": {
+    "selected": [
+      {
+        "id": "3",
+        "rank": 1,
+        "why": "Significant funding news for a leading AI startup",
+        "confidence": 0.9
+      },
+      {
+        "id": "4",
+        "rank": 2,
+        "why": "Insightful interview on AI infrastructure development",
+        "confidence": 0.85
+      },
+      {
+        "id": "0",
+        "rank": 3,
+        "why": "Regulatory implications of AI acquisitions in China",
+        "confidence": 0.8
+      },
+      {
+        "id": "1",
+        "rank": 4,
+        "why": "Exploration of AI's creative capabilities in theater",
+        "confidence": 0.75
+      },
+      {
+        "id": "11",
+        "rank": 5,
+        "why": "Major investment in AI by a leading company",
+        "confidence": 0.7
+      },
+      {
+        "id": "7",
+        "rank": 6,
+        "why": "Large funding round highlights AI market dynamics",
+        "confidence": 0.65
+      },
+      {
+        "id": "19",
+        "rank": 7,
+        "why": "Strategic licensing deal showcasing AI technology trends",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:02:52.513Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:a1d2fae89405": {
+    "selected": [
+      {
+        "id": "1",
+        "rank": 1,
+        "why": "Target faces potential changes from activist investors",
+        "confidence": 0.9
+      },
+      {
+        "id": "10",
+        "rank": 2,
+        "why": "Significant funding for a Shopify competitor highlights market dynamics",
+        "confidence": 0.85
+      },
+      {
+        "id": "7",
+        "rank": 3,
+        "why": "New B2B ecommerce platform update addresses complex selling models",
+        "confidence": 0.8
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "why": "E.l.f. Beauty's virtual experience targets younger consumers",
+        "confidence": 0.75
+      },
+      {
+        "id": "3",
+        "rank": 5,
+        "why": "Amazon's holiday recap silence marks a significant shift",
+        "confidence": 0.7
+      },
+      {
+        "id": "5",
+        "rank": 6,
+        "why": "Target's wellness assortment expansion reflects consumer trends",
+        "confidence": 0.65
+      },
+      {
+        "id": "15",
+        "rank": 7,
+        "why": "Concerns over Amazon's AI tool impact on brand control",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:02:58.896Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Luxury_and_Consumer:d9875aba2667": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Highlights partnerships in luxury fashion and sports",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Discusses consumer behavior related to luxury perks",
+        "confidence": 0.85
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "Explores luxury brand partnerships in sports",
+        "confidence": 0.8
+      },
+      {
+        "id": "5",
+        "rank": 4,
+        "why": "Covers financial issues of a luxury brand",
+        "confidence": 0.75
+      },
+      {
+        "id": "6",
+        "rank": 5,
+        "why": "Shows trends in luxury car purchases",
+        "confidence": 0.7
+      },
+      {
+        "id": "4",
+        "rank": 6,
+        "why": "Informs on leadership changes in a fashion publication",
+        "confidence": 0.65
+      },
+      {
+        "id": "8",
+        "rank": 7,
+        "why": "Indicates market activity in the beauty sector",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:03:05.873Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:66b60040e2d2": {
+    "selected": [
+      {
+        "id": "3",
+        "rank": 1,
+        "why": "China's investigation impacts AI acquisition strategies",
+        "confidence": 0.9
+      },
+      {
+        "id": "10",
+        "rank": 2,
+        "why": "Insights on AI infrastructure development for labs",
+        "confidence": 0.85
+      },
+      {
+        "id": "6",
+        "rank": 3,
+        "why": "Walmart's AI strategies reflect retail innovation",
+        "confidence": 0.8
+      },
+      {
+        "id": "8",
+        "rank": 4,
+        "why": "Anthropic's funding talks highlight AI market dynamics",
+        "confidence": 0.75
+      },
+      {
+        "id": "4",
+        "rank": 5,
+        "why": "AI's creative potential explored through Molière",
+        "confidence": 0.7
+      },
+      {
+        "id": "1",
+        "rank": 6,
+        "why": "Ex-CEO's support for innovative telescope project",
+        "confidence": 0.65
+      },
+      {
+        "id": "12",
+        "rank": 7,
+        "why": "Spangle AI's funding shows ecommerce AI growth",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:07:38.242Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:09a8d99cbd09": {
+    "selected": [
+      {
+        "id": "1",
+        "rank": 1,
+        "why": "Amazon's updated Dash Carts enhance shopping experience",
+        "confidence": 0.9
+      },
+      {
+        "id": "5",
+        "rank": 2,
+        "why": "Key retail trends for 2026 are highlighted",
+        "confidence": 0.85
+      },
+      {
+        "id": "12",
+        "rank": 3,
+        "why": "Cloudfy's B2B platform update is significant for ecommerce",
+        "confidence": 0.8
+      },
+      {
+        "id": "0",
+        "rank": 4,
+        "why": "Fractional talent marketplace is innovative for ecommerce",
+        "confidence": 0.75
+      },
+      {
+        "id": "15",
+        "rank": 5,
+        "why": "Swap's funding indicates competitive ecommerce landscape",
+        "confidence": 0.7
+      },
+      {
+        "id": "20",
+        "rank": 6,
+        "why": "Concerns over Amazon's AI tool impact on brands",
+        "confidence": 0.65
+      },
+      {
+        "id": "25",
+        "rank": 7,
+        "why": "Holiday ecommerce spending data is crucial for insights",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:07:47.370Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Luxury_and_Consumer:c749b8fe708a": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Starbucks' partnership highlights luxury brand collaborations",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Olaplex's potential takeover reflects market interest in beauty",
+        "confidence": 0.85
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "Expansion of partnerships with athletes shows luxury brand strategy",
+        "confidence": 0.8
+      },
+      {
+        "id": "3",
+        "rank": 4,
+        "why": "AmEx cardholders' spending behavior indicates luxury market trends",
+        "confidence": 0.75
+      },
+      {
+        "id": "4",
+        "rank": 5,
+        "why": "Tommy Hilfiger's partnership with Liverpool FC merges sports and luxury",
+        "confidence": 0.7
+      },
+      {
+        "id": "7",
+        "rank": 6,
+        "why": "Saks' financial issues impact luxury retail landscape",
+        "confidence": 0.65
+      },
+      {
+        "id": "9",
+        "rank": 7,
+        "why": "Saks' bankruptcy loan talks signal challenges in luxury sector",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:07:54.197Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:70dd0544458f": {
+    "selected": [
+      {
+        "id": "3",
+        "rank": 1,
+        "why": "China's investigation impacts AI acquisition strategies",
+        "confidence": 0.9
+      },
+      {
+        "id": "5",
+        "rank": 2,
+        "why": "Walmart's AI strategy reflects retail industry trends",
+        "confidence": 0.85
+      },
+      {
+        "id": "9",
+        "rank": 3,
+        "why": "Interview on AI infrastructure is highly relevant",
+        "confidence": 0.8
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "why": "AI's ability to mimic classic literature is unique",
+        "confidence": 0.75
+      },
+      {
+        "id": "7",
+        "rank": 5,
+        "why": "Anthropic's funding talks indicate market confidence",
+        "confidence": 0.7
+      },
+      {
+        "id": "1",
+        "rank": 6,
+        "why": "Start-up approach to telescopes shows innovative AI use",
+        "confidence": 0.65
+      },
+      {
+        "id": "10",
+        "rank": 7,
+        "why": "LG's AI focus highlights corporate strategy shifts",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:09:52.144Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:7072abfbd6c1": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Focuses on fractional talent in ecommerce",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Updates on smart cart technology at Whole Foods",
+        "confidence": 0.85
+      },
+      {
+        "id": "6",
+        "rank": 3,
+        "why": "Highlights key retail trends for 2026",
+        "confidence": 0.8
+      },
+      {
+        "id": "16",
+        "rank": 4,
+        "why": "Significant funding for a Shopify competitor",
+        "confidence": 0.75
+      },
+      {
+        "id": "13",
+        "rank": 5,
+        "why": "New B2B ecommerce platform update announced",
+        "confidence": 0.7
+      },
+      {
+        "id": "21",
+        "rank": 6,
+        "why": "Concerns over Amazon's AI tool and brand control",
+        "confidence": 0.65
+      },
+      {
+        "id": "26",
+        "rank": 7,
+        "why": "Insights on holiday ecommerce spending trends",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:09:59.756Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Luxury_and_Consumer:710422550458": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Starbucks' partnership highlights luxury brand collaborations",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Olaplex's potential takeover reflects market interest in beauty",
+        "confidence": 0.85
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "Expansion of partnerships with athletes shows luxury brand strategy",
+        "confidence": 0.8
+      },
+      {
+        "id": "3",
+        "rank": 4,
+        "why": "AmEx cardholders' spending behavior indicates luxury market trends",
+        "confidence": 0.75
+      },
+      {
+        "id": "4",
+        "rank": 5,
+        "why": "Tommy Hilfiger's partnership with Liverpool FC merges sports and fashion",
+        "confidence": 0.7
+      },
+      {
+        "id": "7",
+        "rank": 6,
+        "why": "Saks' financial struggles impact luxury retail landscape",
+        "confidence": 0.65
+      },
+      {
+        "id": "12",
+        "rank": 7,
+        "why": "Pat McGrath Labs seeking a buyer highlights beauty market dynamics",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:10:10.827Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:9e23253ac536": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Significant funding talks indicate market confidence in AI",
+        "confidence": 0.9
+      },
+      {
+        "id": "4",
+        "rank": 2,
+        "why": "Large investment reflects growing AI sector interest",
+        "confidence": 0.85
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "why": "New AI chips could impact autonomous vehicle strategies",
+        "confidence": 0.8
+      },
+      {
+        "id": "5",
+        "rank": 4,
+        "why": "Regulatory scrutiny highlights AI's global implications",
+        "confidence": 0.75
+      },
+      {
+        "id": "2",
+        "rank": 5,
+        "why": "Controversy around AI-generated content raises ethical concerns",
+        "confidence": 0.7
+      },
+      {
+        "id": "1",
+        "rank": 6,
+        "why": "Explores AI's creative potential in literature",
+        "confidence": 0.65
+      },
+      {
+        "id": "28",
+        "rank": 7,
+        "why": "Insights on retail AI investments for 2026",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:26:12.700Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:15d584c8a480": {
+    "selected": [
+      {
+        "id": "1",
+        "rank": 1,
+        "why": "Concerns over brand control on Amazon are critical",
+        "confidence": 0.9
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "why": "Shopify's growth highlights trends in ecommerce",
+        "confidence": 0.85
+      },
+      {
+        "id": "25",
+        "rank": 3,
+        "why": "Customer data is essential for competitive advantage",
+        "confidence": 0.8
+      },
+      {
+        "id": "7",
+        "rank": 4,
+        "why": "Holiday sales growth insights are valuable for retailers",
+        "confidence": 0.75
+      },
+      {
+        "id": "26",
+        "rank": 5,
+        "why": "Funding for a Shopify competitor indicates market dynamics",
+        "confidence": 0.7
+      },
+      {
+        "id": "8",
+        "rank": 6,
+        "why": "B2B ecommerce platform updates are relevant for businesses",
+        "confidence": 0.65
+      },
+      {
+        "id": "15",
+        "rank": 7,
+        "why": "Smart cart updates reflect innovation in retail tech",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T16:26:18.828Z",
+    "model": "gpt-4o-mini"
   }
 }

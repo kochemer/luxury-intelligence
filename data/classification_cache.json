@@ -145,5 +145,40 @@
     "rationale": "The article discusses the integration of AI technology (Alexa) into an online platform, focusing on AI-driven customer interactions and conversations.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-08T21:32:06.692Z"
+  },
+  "https://www.businessoffashion.com/news/retail/vestiaire-collective-co-founder-exits": {
+    "category": "Luxury_and_Consumer",
+    "confidence": 0.85,
+    "rationale": "The article focuses on a co-founder's exit from Vestiaire Collective, which is more aligned with luxury consumer behavior and brand strategy.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T15:32:35.238Z"
+  },
+  "https://www.modernretail.co/operations/figs-is-building-more-stores-around-its-medical-community?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article discusses Figs' strategy of setting up stores near medical centers and universities to cater to its core clientele, indicating a focus on retail tech and customer proximity.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T16:02:46.837Z"
+  },
+  "https://www.practicalecommerce.com/new-ecommerce-tools-january-7-2026": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article focuses on new ecommerce tools and services for marketing, advertising, and fulfillment networks, aligning with the Ecommerce_Retail_Tech category.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T16:07:32.267Z"
+  },
+  "https://stratechery.com/2026/an-interview-with-jeremie-eliahou-ontiveros-and-ajey-pandey-about-building-power-for-ai": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article focuses on AI labs and hyperscalers leveraging demand to build new electrical infrastructure for AI, aligning with the AI and technology strategy theme.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T16:09:46.939Z"
+  },
+  "https://www.businessoffashion.com/news/beauty/olaplex-takeover-offer-henkel": {
+    "category": "Luxury_and_Consumer",
+    "confidence": 0.85,
+    "rationale": "The article focuses on a luxury brand (Olaplex) attracting a takeover offer, which falls under luxury brand strategy and consumer behavior.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T16:26:06.494Z"
   }
 }

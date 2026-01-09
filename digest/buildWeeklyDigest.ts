@@ -182,7 +182,7 @@ function calculateRelevanceScore(
   weekStart: number,
   weekEnd: number
 ): RelevanceScore {
-  // Recency score (0..1)
+  // Recency score (0..1) - calculated but not included in total score
   const recencyScore = calculateRecencyScore(article.published_at, weekStart, weekEnd);
   
   // Source weight (default 0)
@@ -194,8 +194,8 @@ function calculateRelevanceScore(
   // Penalty
   const penalty = calculatePenalty(article);
   
-  // Total score
-  const scoreTotal = recencyScore + sourceWeight + keywordBoost - penalty;
+  // Total score (recency removed - all articles in week treated equally)
+  const scoreTotal = sourceWeight + keywordBoost - penalty;
   
   return {
     scoreTotal,
