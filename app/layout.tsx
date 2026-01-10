@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     ],
     apple: "/favicon.png",
   },
+  verification: {
+    google: "nCj2_xV15p2YQcO56omcCNw8q3VVE3L7Fa1uHasUGjg",
+  },
   openGraph: {
     siteName: "Luxury Intelligence",
     type: "website",
