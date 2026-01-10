@@ -337,6 +337,9 @@ export type WeeklyDigest = {
   coverImageUrl?: string;
   coverImageAlt?: string;
   coverKeywords?: string[];
+  keyThemes?: string[];
+  oneSentenceSummary?: string;
+  introParagraph?: string;
   totals: {
     total: number;
     byTopic: {

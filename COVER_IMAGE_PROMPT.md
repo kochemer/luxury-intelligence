@@ -62,3 +62,4 @@ The image generation is idempotent:
 - Use `--regenCover` flag to force regeneration
 - This prevents unnecessary API calls and costs
 
+

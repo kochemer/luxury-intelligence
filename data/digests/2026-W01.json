@@ -3,66 +3,37 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2025-12-28T23:00:00.000Z",
   "endISO": "2026-01-04T22:59:59.999Z",
-  "builtAtISO": "2026-01-04T17:26:48.844+01:00",
-  "builtAtLocal": "2026-01-04 17:26:48",
+  "builtAtISO": "2026-01-09T22:57:21.453+01:00",
+  "builtAtLocal": "2026-01-09 22:57:21",
+  "coverImageUrl": "/weekly-images/2026-W01.png",
+  "coverImageAlt": "Weekly cover illustration for 2026-W01",
+  "coverKeywords": [
+    "ukraine",
+    "arsenal",
+    "killer",
+    "drones",
+    "being",
+    "born",
+    "against",
+    "russia",
+    "billionaires",
+    "boom",
+    "schools",
+    "embrace"
+  ],
   "totals": {
-    "total": 81,
+    "total": 86,
     "byTopic": {
-      "AIStrategy": 37,
+      "AIStrategy": 38,
       "EcommerceRetail": 37,
       "LuxuryConsumer": 5,
-      "Jewellery": 2
+      "Jewellery": 6
     }
   },
   "topics": {
     "AI_and_Strategy": {
-      "total": 37,
+      "total": 38,
       "top": [
-        {
-          "id": "p162sc",
-          "title": "As Schools Embrace A.I. Tools, Skeptics Raise Concerns",
-          "url": "https://www.nytimes.com/2026/01/02/technology/school-ai-chatgpt-estonia-iceland.html",
-          "source": "NYTimes Technology",
-          "published_at": "2026-01-02T14:29:46.000Z",
-          "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "More governments are rolling out chatbots in schools. Some experts warn the tools could erode teaching and learning.",
-          "relevance": {
-            "scoreTotal": 0.9136673291396616,
-            "recencyScore": 0.6636673291396616,
-            "sourceWeight": 0.15,
-            "keywordBoost": 0.1,
-            "penalty": 0,
-            "matchedKeywords": [
-              "ai",
-              "chatbot"
-            ]
-          },
-          "rerankWhy": "Highlights concerns over AI in education",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary:\nGovernments are implementing chatbots in schools, but experts caution that these tools may have negative impacts on teaching and learning."
-        },
-        {
-          "id": "qw1abf",
-          "title": "The Modern Retail Podcast’s 2026 predictions",
-          "url": "https://www.modernretail.co/operations/the-modern-retail-podcasts-2026-predictions/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2026-01-03T05:00:00.000Z",
-          "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "For 2026, the Modern Retail staff predicts more AI shopping and more creator economy shakeups. Plus, a look at what brands could sell next year.",
-          "relevance": {
-            "scoreTotal": 0.9000000012400794,
-            "recencyScore": 0.7500000012400794,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0.05,
-            "penalty": 0,
-            "matchedKeywords": [
-              "ai"
-            ]
-          },
-          "rerankWhy": "Discusses AI's impact on retail strategies",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary:\nThe Modern Retail staff predicts increased AI shopping, creator economy shakeups, and potential new product offerings for brands in 2026."
-        },
         {
           "id": "9ji3hg",
           "title": "In Ukraine, an Arsenal of Killer A.I. Drones Is Being Born in War Against Russia",
@@ -72,7 +43,7 @@
           "ingested_at": "2026-01-04T13:39:00.323Z",
           "snippet": "As the war grinds on, sophisticated Russian defenses have pushed Ukraine to develop a frightening new weapon: semiautonomous killing machines.",
           "relevance": {
-            "scoreTotal": 0.5928769847765823,
+            "scoreTotal": 0.2,
             "recencyScore": 0.39287698477658234,
             "sourceWeight": 0.15,
             "keywordBoost": 0.05,
@@ -81,77 +52,9 @@
               "ai"
             ]
           },
-          "rerankWhy": "Explores military applications of AI in Ukraine",
-          "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary:\nUkraine is developing semiautonomous killer drones in response to sophisticated Russian defenses during the ongoing war, as reported by NYTimes Technology in December 2025."
-        },
-        {
-          "id": "26j9cr",
-          "title": "Amazon accelerates AI and data center spending with multibillion-dollar commitments",
-          "url": "https://www.digitalcommerce360.com/2026/01/02/amazon-ai-data-center-multibillion-dollar-commitments/",
-          "source": "Digital Commerce 360",
-          "published_at": "2026-01-02T18:02:05.000Z",
-          "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "Amazon.com Inc. is sharply increasing its spending on artificial intelligence and data center infrastructure, committing tens of billions of dollars to expand cloud capacity as demand for AI computing accelerates across government and commercial markets. The company’s cloud unit, Amazon Web Services, is leading the investments. Executives have said AWS will account for most Amazon’s […]\nThe post Amazon accelerates AI and data center spending with multibillion-dollar commitments appeared first on...",
-          "relevance": {
-            "scoreTotal": 0.6347304905501496,
-            "recencyScore": 0.6847304905501497,
-            "sourceWeight": 0,
-            "keywordBoost": 0.15000000000000002,
-            "penalty": 0.2,
-            "matchedKeywords": [
-              "ai",
-              "data",
-              "artificial intelligence"
-            ]
-          },
-          "rerankWhy": "Details Amazon's significant AI investments",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary: Amazon is ramping up its investment in artificial intelligence and data center infrastructure, with a focus on expanding cloud capacity to meet the growing demand for AI computing in government and commercial markets. Amazon Web Services (AWS) is spearheading these multibillion-dollar commitments."
-        },
-        {
-          "id": "pd8wix",
-          "title": "The Psychology of AI SERPs and Shopping",
-          "url": "https://www.practicalecommerce.com/the-psychology-of-ai-serps-and-shopping",
-          "source": "Practical Ecommerce",
-          "published_at": "2025-12-29T10:00:37.000Z",
-          "ingested_at": "2025-12-30T17:19:14.042Z",
-          "snippet": "The rise of \"zero-click\" searches may signal the coming effect of AI shopping on product discovery and decision-making.\nThe post The Psychology of AI SERPs and Shopping appeared first on Practical Ecommerce.",
-          "relevance": {
-            "scoreTotal": 0.2155373678332298,
-            "recencyScore": 0.06553736783322978,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0.05,
-            "penalty": 0,
-            "matchedKeywords": [
-              "ai"
-            ]
-          },
-          "rerankWhy": "Analyzes AI's influence on shopping behavior",
-          "rerankConfidence": 0.7,
-          "aiSummary": "AI-driven \"zero-click\" searches are changing the landscape of product discovery and decision-making, hinting at the impact of AI on shopping behavior."
-        },
-        {
-          "id": "sjl53v",
-          "title": "3 SEO Predictions for 2026",
-          "url": "https://www.practicalecommerce.com/3-seo-predictions-for-2026",
-          "source": "Practical Ecommerce",
-          "published_at": "2025-12-30T20:10:58.000Z",
-          "ingested_at": "2025-12-30T20:58:31.247Z",
-          "snippet": "Generative AI increasingly dominates search results through AI Overviews and AI Mode, rendering traditional optimization ineffective.\nThe post 3 SEO Predictions for 2026 appeared first on Practical Ecommerce.",
-          "relevance": {
-            "scoreTotal": 0.21894510626479013,
-            "recencyScore": 0.2689451062647902,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0.05,
-            "penalty": 0.2,
-            "matchedKeywords": [
-              "ai"
-            ]
-          },
-          "rerankWhy": "Predicts generative AI's effect on SEO",
-          "rerankConfidence": 0.65,
-          "aiSummary": "AI is predicted to dominate search results in 2026 with the rise of AI Overviews and AI Mode, making traditional SEO tactics less effective."
+          "rerankWhy": "Highlights AI's role in modern warfare strategies",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nUkraine is developing semiautonomous killer drones in response to advanced Russian defenses during the ongoing war, as reported by NYTimes Technology in December 2025."
         },
         {
           "id": "337gjj",
@@ -162,7 +65,7 @@
           "ingested_at": "2025-12-30T12:26:38.325Z",
           "snippet": "Just like past tech booms, the latest frenzy has produced a group of billionaires — at least on paper — from smaller start-ups.",
           "relevance": {
-            "scoreTotal": 0.3422139552615971,
+            "scoreTotal": 0.2,
             "recencyScore": 0.14221395526159714,
             "sourceWeight": 0.15,
             "keywordBoost": 0.05,
@@ -171,9 +74,122 @@
               "ai"
             ]
           },
-          "rerankWhy": "Covers the rise of billionaires in AI",
+          "rerankWhy": "Explores the economic impact of AI billionaires",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary:\nThe AI boom has created a new group of billionaires from smaller start-ups, following the pattern of past tech booms."
+        },
+        {
+          "id": "p162sc",
+          "title": "As Schools Embrace A.I. Tools, Skeptics Raise Concerns",
+          "url": "https://www.nytimes.com/2026/01/02/technology/school-ai-chatgpt-estonia-iceland.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-01-02T14:29:46.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "More governments are rolling out chatbots in schools. Some experts warn the tools could erode teaching and learning.",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0.6636673291396616,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "chatbot"
+            ]
+          },
+          "rerankWhy": "Discusses concerns about AI in education",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary:\nGovernments are implementing chatbots in schools, but experts caution that these tools may have negative impacts on teaching and learning."
+        },
+        {
+          "id": "pd8wix",
+          "title": "The Psychology of AI SERPs and Shopping",
+          "url": "https://www.practicalecommerce.com/the-psychology-of-ai-serps-and-shopping",
+          "source": "Practical Ecommerce",
+          "published_at": "2025-12-29T10:00:37.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "The rise of \"zero-click\" searches may signal the coming effect of AI shopping on product discovery and decision-making.\nThe post The Psychology of AI SERPs and Shopping appeared first on Practical Ecommerce.",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0.06553736783322978,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Analyzes AI's influence on shopping behavior",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI SERPs and shopping are evolving with the rise of \"zero-click\" searches, indicating a shift in product discovery and decision-making influenced by AI technology."
+        },
+        {
+          "id": "9wmu6u",
+          "title": "Meet a U.S. Start-Up Trying to Break China’s Rare-Earth Monopoly",
+          "url": "https://www.nytimes.com/2025/12/29/business/energy-environment/rare-earth-processing-phoenix-tailings.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-29T10:00:24.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "Companies like Phoenix Tailings, which recently began producing metal in New Hampshire, are using new processing methods to compete with Chinese suppliers.",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0.06551587312419953,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Connects AI with rare-earth supply chain strategies",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-Generated Summary:\nPhoenix Tailings, a U.S. start-up, is challenging China's rare-earth monopoly by utilizing innovative processing techniques to produce metal in New Hampshire, as reported by NYTimes Technology on December 29, 2025."
+        },
+        {
+          "id": "bv2j8a",
+          "title": "The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose",
+          "url": "https://www.nytimes.com/2025/12/30/podcasts/hardfork-wirecutter-ai.html",
+          "source": "NYTimes Technology",
+          "published_at": "2025-12-30T12:00:04.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "snippet": "If you’ve ever wondered what chatbots are good for and how best to use them, this episode is for you.",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0.22024470935887022,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "chatbot"
+            ]
+          },
+          "rerankWhy": "Provides practical tips for using AI effectively",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-generated summary: The NYTimes Technology podcast episode features tips on using AI smartly, focusing on chatbots and their practical applications."
+        },
+        {
+          "id": "vssc3q",
+          "title": "Even the Sky May Not Be the Limit for A.I. Data Centers",
+          "url": "https://www.nytimes.com/2026/01/01/technology/space-data-centers-ai.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-01-01T10:00:32.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "Some tech leaders are concerned that the artificial intelligence race will exhaust available land and energy. The solution might lie in orbit.",
+          "relevance": {
+            "scoreTotal": 0.10000000000000003,
+            "recencyScore": 0.49410052991749426,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.15000000000000002,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "data",
+              "artificial intelligence",
+              "ai"
+            ]
+          },
+          "rerankWhy": "Addresses sustainability concerns in AI infrastructure",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary:\nThe AI boom has created a new group of billionaires from smaller start-ups, mirroring past tech booms, as reported by NYTimes Technology on December 29, 2025."
+          "aiSummary": "AI data centers may face limitations on land and energy, prompting some to consider moving operations to orbit to address these concerns."
         }
       ]
     },
@@ -189,7 +205,7 @@
           "ingested_at": "2026-01-04T13:39:00.323Z",
           "snippet": "Selling high-value, differentiated products with international interest can unlock meaningful growth.\nThe post When Heavy Products Make Global Sense appeared first on Practical Ecommerce.",
           "relevance": {
-            "scoreTotal": 0.7903042338629369,
+            "scoreTotal": 0.15000000000000002,
             "recencyScore": 0.6403042338629369,
             "sourceWeight": 0.1,
             "keywordBoost": 0.05,
@@ -198,29 +214,9 @@
               "ecommerce"
             ]
           },
-          "rerankWhy": "Focuses on international growth for heavy products",
+          "rerankWhy": "Focuses on global growth opportunities for heavy products",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary: Selling high-value, differentiated products with international interest can lead to significant growth in ecommerce, as discussed in the Practical Ecommerce article \"When Heavy Products Make Global Sense.\""
-        },
-        {
-          "id": "9ducqp",
-          "title": "GigaCloud buys New Classic Home Furnishings for $18 million",
-          "url": "https://www.digitalcommerce360.com/2026/01/02/gigacloud-18-million-acquisition-new-classic-home-furnishings/",
-          "source": "Digital Commerce 360",
-          "published_at": "2026-01-02T17:22:37.000Z",
-          "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "GigaCloud Technology Inc. said it has completed the acquisition of New Classic Home Furnishings, a U.S.-based distributor serving the home furnishings market. New Classic was founded more than 25 years ago and is based in Fontana, California. The distributor serves more than 1,000 retail customers and offers over 2,000 SKUs across home furnishings categories. GigaCloud […]\nThe post GigaCloud buys New Classic Home Furnishings for $18 million appeared first on Digital Commerce 360.",
-          "relevance": {
-            "scoreTotal": 0.6808151466283319,
-            "recencyScore": 0.6808151466283319,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "Highlights significant acquisition in home furnishings market",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary: GigaCloud Technology Inc. has acquired New Classic Home Furnishings for $18 million, a U.S.-based distributor with over 25 years of experience in the home furnishings market, serving more than 1,000 retail customers and offering over 2,000 SKUs."
+          "aiSummary": "AI-generated summary: Selling high-value, differentiated products with international appeal can lead to significant growth opportunities in the ecommerce sector, as discussed in Practical Ecommerce's article \"When Heavy Products Make Global Sense.\""
         },
         {
           "id": "c5sl3i",
@@ -231,105 +227,116 @@
           "ingested_at": "2026-01-04T13:39:00.323Z",
           "snippet": "How retailers can tap digital tools to turn small businesses into big revenue.",
           "relevance": {
-            "scoreTotal": 0.5940476198644967,
+            "scoreTotal": 0.1,
             "recencyScore": 0.49404761986449675,
             "sourceWeight": 0.1,
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Discusses digital tools for SMB growth in retail",
-          "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary:\nRetailers are leveraging digital tools to transform small businesses into sources of significant revenue growth, tapping into the potential of the long tail."
+          "rerankWhy": "Explores digital tools for SMB growth in retail",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary:\nRetailers are utilizing digital tools to transform small businesses into sources of significant revenue, highlighting the potential for scalable growth in the retail sector."
         },
         {
-          "id": "po0y2o",
-          "title": "US holiday 2025 retail spending up 3.9pc: Mastercard",
-          "url": "https://www.luxurydaily.com/us-holiday-2025-retail-spending-up-3-9pc-mastercard/",
-          "source": "Luxury Daily - Research",
-          "published_at": "2026-01-02T09:45:11.000Z",
-          "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "Bricks-and-mortar and online sales both rose, with the clothing and restaurant industries seeing the highest increases in demand during the seasonal rush.",
+          "id": "xrh5uj",
+          "title": "The winners and losers of tariffs",
+          "url": "https://www.modernretail.co/operations/the-winners-and-losers-of-tariffs/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-29T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "This year, tariffs kicked in at their highest rate since the Great Depression, completely upending the retail industry. In turn, Modern Retail rounded up the biggest winners and losers of all the changes in tariff policy this year.",
           "relevance": {
-            "scoreTotal": 0.6354348555480074,
-            "recencyScore": 0.6354348555480074,
+            "scoreTotal": 0.1,
+            "recencyScore": 0.035714285773337115,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Analyzes impact of tariffs on retail industry",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary:\nIn 2025, tariffs had a significant impact on the retail industry, with Modern Retail highlighting the major winners and losers of the changes in tariff policy."
+        },
+        {
+          "id": "501hss",
+          "title": "The Modern Retail guide to what’s in and what’s out in 2026",
+          "url": "https://www.modernretail.co/marketing/the-modern-retail-guide-to-whats-in-and-whats-out-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-31T05:00:00.000Z",
+          "ingested_at": "2025-12-31T07:41:21.690Z",
+          "snippet": "Big workout pants, fiber and thrifting are just some of the trends that will dominate 2026, Modern Retail predicts in its annual In/Out list.",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0.321428571960034,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Highlights upcoming retail trends for 2026",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-Generated Summary:\nModern Retail's 2026 In/Out list predicts trends like big workout pants, fiber, and thrifting to dominate the year in ecommerce and retail tech."
+        },
+        {
+          "id": "6erx5k",
+          "title": "The revenge of the ’90s mall brand",
+          "url": "https://www.modernretail.co/operations/the-revenge-of-the-90s-mall-brand/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-30T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Brands known for their heyday in the ‘90s, like Gap and Victoria's Secret, have used 2025 to mount turnaround plans. But staging a successful comeback after years of a battered reputation takes more than a few quarters of growth.",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0.17857142886668556,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Discusses revival strategies for 90s mall brands",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-Generated Summary:\nIn 2025, '90s mall brands like Gap and Victoria's Secret are attempting comebacks, but success requires more than just short-term growth."
+        },
+        {
+          "id": "avjg8h",
+          "title": "How brands shifted marketing and media strategies through the year of tariffs",
+          "url": "https://www.modernretail.co/marketing/how-brands-shifted-marketing-and-media-strategies-through-the-year-of-tariffs/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2025-12-29T05:00:00.000Z",
+          "ingested_at": "2025-12-30T17:19:14.042Z",
+          "snippet": "Marketers share how they navigated the maze of tariffs and regulatory changes this year.",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0.035714285773337115,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Insights on marketing strategies amid tariff changes",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-generated summary:\nMarketers discuss their strategies for adapting to tariffs and regulatory changes in the ecommerce and retail tech industry throughout the year."
+        },
+        {
+          "id": "qkln1i",
+          "title": "Coupang faces new U.S. lawsuit as fallout widens from massive data breach",
+          "url": "https://www.digitalcommerce360.com/2025/12/30/coupang-us-lawsuit-fallout-massive-data-breach/",
+          "source": "Digital Commerce 360",
+          "published_at": "2025-12-30T21:36:29.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "Coupang Inc. is confronting a growing backlash over one of the country’s largest data breaches in history, culminating in a newly announced U.S. securities lawsuit that accuses the company of failing to timely inform investors about the cybersecurity incident. The lawsuit in the U.S. District Court for the Northern District of California targets the company’s […]\nThe post Coupang faces new U.S. lawsuit as fallout widens from massive data breach appeared first on Digital Commerce 360.",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0.27742890257511393,
             "sourceWeight": 0,
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Reports on retail spending trends during holidays",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-Generated Summary:\nAccording to Mastercard, US holiday retail spending in 2025 increased by 3.9%, with both brick-and-mortar and online sales rising. The clothing and restaurant industries experienced the highest boosts in demand during the festive season rush."
-        },
-        {
-          "id": "hwetf9",
-          "title": "New rules: Privacy laws reshape ecommerce compliance for B2B sellers",
-          "url": "https://www.digitalcommerce360.com/2026/01/02/privacy-laws-b2b-ecommerce-compliance-2026/",
-          "source": "Digital Commerce 360",
-          "published_at": "2026-01-02T17:43:04.000Z",
-          "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "As the calendar flipped to 2026, a fresh layer of regulatory complexity landed on the desks of B2B ecommerce leaders across the United States. Three states — Indiana, Kentucky, and Rhode Island — ushered in comprehensive consumer data privacy laws, marking the latest chapter in a fast-evolving state-level privacy landscape that now covers two dozen […]\nThe post New rules: Privacy laws reshape ecommerce compliance for B2B sellers appeared first on Digital Commerce 360.",
-          "relevance": {
-            "scoreTotal": 0.5328439164729561,
-            "recencyScore": 0.6828439164729562,
-            "sourceWeight": 0,
-            "keywordBoost": 0.05,
-            "penalty": 0.2,
-            "matchedKeywords": [
-              "ecommerce"
-            ]
-          },
-          "rerankWhy": "Covers new privacy laws affecting B2B ecommerce",
-          "rerankConfidence": 0.7,
-          "aiSummary": "AI-generated summary: New privacy laws in Indiana, Kentucky, and Rhode Island are reshaping compliance requirements for B2B ecommerce sellers in the United States, adding to the evolving state-level privacy landscape."
-        },
-        {
-          "id": "m6kq5j",
-          "title": "Ecommerce faces a structural reckoning in 2026",
-          "url": "https://www.digitalcommerce360.com/2025/12/30/ecommerce-faces-a-structural-reckoning-in-2026/",
-          "source": "Digital Commerce 360",
-          "published_at": "2025-12-30T21:09:15.000Z",
-          "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "Ecommerce is entering 2026 in what executives describe as a structural reset, driven by the rise of artificial intelligence (AI)-powered shopping, autonomous network operations and tariff changes that are reshaping supply chains. Instead of incremental digital upgrades, companies are preparing for a year in which competitiveness hinges on the speed of operational change, the quality […]\nThe post Ecommerce faces a structural reckoning in 2026 appeared first on Digital Commerce 360.",
-          "relevance": {
-            "scoreTotal": 0.17472718299392725,
-            "recencyScore": 0.27472718299392723,
-            "sourceWeight": 0,
-            "keywordBoost": 0.1,
-            "penalty": 0.2,
-            "matchedKeywords": [
-              "ecommerce",
-              "shopping"
-            ]
-          },
-          "rerankWhy": "Analyzes structural changes in ecommerce landscape",
-          "rerankConfidence": 0.65,
-          "aiSummary": "AI-generated summary: Ecommerce is undergoing a structural reset in 2026 due to AI-powered shopping, autonomous network operations, and tariff changes reshaping supply chains, leading companies to focus on operational agility for competitiveness."
-        },
-        {
-          "id": "dcx2pl",
-          "title": "Kroger partner Ocado Group ends exclusivity agreements with U.S. supermarkets",
-          "url": "https://www.digitalcommerce360.com/2025/12/30/kroger-partner-ocado-group-ends-exclusivity-agreements-us-supermarkets/",
-          "source": "Digital Commerce 360",
-          "published_at": "2025-12-30T20:28:45.000Z",
-          "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "Just weeks after Kroger agreed to make a one-time $350 million payment to Ocado Group, the warehouse technology provider announced that exclusivity terms had ended with the grocer and other companies internationally. Kroger’s latest deal with Ocado followed recent fulfillment strategy changes that were addressed alongside Kroger’s latest earnings results for its fiscal third quarter. […]\nThe post Kroger partner Ocado Group ends exclusivity agreements with U.S. supermarkets appeared first on Digi...",
-          "relevance": {
-            "scoreTotal": 0.22070932584442682,
-            "recencyScore": 0.2707093258444268,
-            "sourceWeight": 0,
-            "keywordBoost": 0.15000000000000002,
-            "penalty": 0.2,
-            "matchedKeywords": [
-              "payment",
-              "fulfillment",
-              "warehouse"
-            ]
-          },
-          "rerankWhy": "Details changes in exclusivity agreements impacting retail",
+          "rerankWhy": "Coupang's data breach lawsuit impacts ecommerce trust",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary: Ocado Group has terminated exclusivity agreements with U.S. supermarkets, including Kroger, following a $350 million payment. This decision comes after recent fulfillment strategy changes and Kroger's fiscal third-quarter earnings results."
+          "aiSummary": "AI-Generated Summary:\nCoupang is facing a new U.S. lawsuit related to a massive data breach, with accusations of failing to inform investors promptly about the cybersecurity incident. The lawsuit targets the company in the U.S. District Court for the Northern District of California."
         }
       ]
     },
@@ -345,7 +352,7 @@
           "ingested_at": "2026-01-04T13:39:00.323Z",
           "snippet": "Executive Chairman Richard Baker is taking over the top position at the luxury retailer as bankruptcy speculation swirls.",
           "relevance": {
-            "scoreTotal": 0.818650794756367,
+            "scoreTotal": 0.15000000000000002,
             "recencyScore": 0.668650794756367,
             "sourceWeight": 0.1,
             "keywordBoost": 0.05,
@@ -356,7 +363,7 @@
           },
           "rerankWhy": "CEO exit amidst bankruptcy speculation is significant news",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nSaks Global CEO Marc Metrick exits, with Executive Chairman Richard Baker stepping in amid bankruptcy speculation at the luxury retailer."
+          "aiSummary": "AI-Generated Summary:\nSaks Global CEO Marc Metrick has exited the company, with Executive Chairman Richard Baker stepping in amid bankruptcy speculation at the luxury retailer."
         },
         {
           "id": "bvf7if",
@@ -367,7 +374,7 @@
           "ingested_at": "2025-12-30T17:30:50.941Z",
           "snippet": "Ducking overtourism and uncomfortable temperatures, discerning clients are increasingly willing to adventure out of season; the high-end hospitality network expects the trend to take full effect in 2026.",
           "relevance": {
-            "scoreTotal": -0.03593584645492037,
+            "scoreTotal": -0.1,
             "recencyScore": 0.06406415354507962,
             "sourceWeight": 0,
             "keywordBoost": 0.1,
@@ -379,7 +386,7 @@
           },
           "rerankWhy": "Insights on luxury travel trends are highly relevant",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and uncomfortable temperatures, with Virtuoso predicting this trend to shape the next 12 months of luxury travel in 2026."
+          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and uncomfortable temperatures, with Virtuoso predicting this trend to drive luxury travel in the next 12 months."
         },
         {
           "id": "v0vq6o",
@@ -389,7 +396,7 @@
           "published_at": "2025-12-30T15:00:56.000Z",
           "ingested_at": "2025-12-30T17:15:32.891Z",
           "relevance": {
-            "scoreTotal": 0.23818783108165978,
+            "scoreTotal": 0,
             "recencyScore": 0.23818783108165978,
             "sourceWeight": 0,
             "keywordBoost": 0,
@@ -407,7 +414,7 @@
           "published_at": "2025-12-30T12:46:52.000Z",
           "ingested_at": "2025-12-30T17:15:32.891Z",
           "relevance": {
-            "scoreTotal": 0.22488756650940406,
+            "scoreTotal": 0,
             "recencyScore": 0.22488756650940406,
             "sourceWeight": 0,
             "keywordBoost": 0,
@@ -425,7 +432,7 @@
           "published_at": "2025-12-30T11:13:30.000Z",
           "ingested_at": "2025-12-30T12:26:38.325Z",
           "relevance": {
-            "scoreTotal": 0.21562500035652282,
+            "scoreTotal": 0,
             "recencyScore": 0.21562500035652282,
             "sourceWeight": 0,
             "keywordBoost": 0,
@@ -438,25 +445,95 @@
       ]
     },
     "Jewellery_Industry": {
-      "total": 2,
+      "total": 6,
       "top": [
         {
-          "id": "9kspfq",
-          "title": "Charm Ruby – Glamorous Terminal Libraries for Ruby",
-          "url": "https://charm-ruby.dev/",
-          "source": "Hacker News",
-          "published_at": "2025-12-30T07:36:38.000Z",
-          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "id": "sb4im",
+          "title": "Cartier UK sales top £250 million for the first time",
+          "url": "https://www.professionaljeweller.com/cartier-uk-sales-top-250-million/",
+          "source": "Professional Jeweller",
+          "published_at": "2026-01-02T11:04:12.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Cartier has grown at twice the pace of its parent company, Richemont, in the UK, the company’s latest published accounts show. Sales in the UK rose by 11% to £251 million in the financial year that ended in March 2025. Operating profit increased by 25% to £15 million. Richemont, excluding Cartier, reports separately. Its UK […]\nThe post Cartier UK sales top £250 million for the first time appeared first on Professional Jeweller.",
           "relevance": {
-            "scoreTotal": 0.19411045005639954,
-            "recencyScore": 0.19411045005639954,
-            "sourceWeight": 0,
-            "keywordBoost": 0,
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0.6432738105874236,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
             "penalty": 0,
-            "matchedKeywords": []
+            "matchedKeywords": [
+              "jeweller"
+            ]
           },
-          "rerankWhy": "Relevant to jewellery design and technology",
-          "rerankConfidence": 0.9
+          "rerankWhy": "Significant sales growth for a luxury brand",
+          "rerankConfidence": 0.9,
+          "aiSummary": "In the financial year ending in March 2025, Cartier's UK sales surpassed £250 million for the first time, with an 11% increase in sales and a 25% rise in operating profit. This growth outpaced its parent company, Richemont, in the UK."
+        },
+        {
+          "id": "ej7s9i",
+          "title": "Pragnell sales top £100 million for first time",
+          "url": "https://www.professionaljeweller.com/pragnell-sales-top-100-million/",
+          "source": "Professional Jeweller",
+          "published_at": "2026-01-02T11:56:39.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Pragnell delivered record sales of £100.5 million in its 2024-25 financial year but rising costs, including investment in expanding its retail network, continued to weigh on operating profit. While revenue rose by 6% for the 12 months to May 2025, operating profit declined by 11% to £8 million and is down from a peak of […]\nThe post Pragnell sales top £100 million for first time appeared first on Professional Jeweller.",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0.6484771836119001,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jeweller"
+            ]
+          },
+          "rerankWhy": "Record sales highlight market trends",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary: Pragnell achieved over £100 million in sales for the first time in its 2024-25 financial year, with a 6% revenue increase. However, operating profit decreased by 11% to £8 million due to rising costs and expansion investments."
+        },
+        {
+          "id": "shry60",
+          "title": "Laings sales rise to £74m but profit squeeze continues",
+          "url": "https://www.professionaljeweller.com/laings-sales-rise-but-profit-squeeze/",
+          "source": "Professional Jeweller",
+          "published_at": "2026-01-02T11:52:07.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Laings has increased sales by 7.7% to £73.7 million in the 12 months ended May 2025. Operating profit dropped by over 40% to £1.9 million, a third consecutive year of falling returns since a peak of £5.8 million in 2021-22. Laings has four large multibrand showrooms in Glasgow, Edinburgh, Cardiff and Southampton in addition to […]\nThe post Laings sales rise to £74m but profit squeeze continues appeared first on Professional Jeweller.",
+          "relevance": {
+            "scoreTotal": -0.04999999999999999,
+            "recencyScore": 0.648027448161421,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "jeweller"
+            ]
+          },
+          "rerankWhy": "Sales increase despite profit decline",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary: Laings' sales have increased to £73.7 million, but their operating profit has dropped by over 40% to £1.9 million, marking a third consecutive year of declining returns."
+        },
+        {
+          "id": "816c5b",
+          "title": "INTERVIEW: Watches of Switzerland CEO reinforces the group’s philanthropic priorities",
+          "url": "https://www.professionaljeweller.com/watches-of-switzerland-philanthropy/",
+          "source": "Professional Jeweller",
+          "published_at": "2026-01-02T10:37:10.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Fresh from winning the King’s Trust Individual Impact Award, Watches of Switzerland CEO Brian Duffy reflects on the company’s philanthropic initiatives, purpose-inspired leadership and driving measurable change for young people. WatchPro (WP): What was the thinking behind establishing a philanthropic arm for the company? Brian Duffy (BD): The Watches of Switzerland Group Foundation was created […]\nThe post INTERVIEW: Watches of Switzerland CEO reinforces the group’s philanthropic priorities appe...",
+          "relevance": {
+            "scoreTotal": -0.04999999999999999,
+            "recencyScore": 0.640591932276111,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "watch"
+            ]
+          },
+          "rerankWhy": "CEO's insights on philanthropy in luxury",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-generated summary: Watches of Switzerland CEO Brian Duffy discusses the company's philanthropic initiatives and purpose-inspired leadership, including the establishment of the Watches of Switzerland Group Foundation to drive measurable change for young people."
         },
         {
           "id": "slsn2b",
@@ -466,17 +543,44 @@
           "published_at": "2025-12-29T19:30:47.000Z",
           "ingested_at": "2025-12-30T12:26:38.325Z",
           "relevance": {
-            "scoreTotal": 0.1221015213659086,
+            "scoreTotal": 0,
             "recencyScore": 0.1221015213659086,
             "sourceWeight": 0,
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Explores historical techniques impacting jewellery",
-          "rerankConfidence": 0.85
+          "rerankWhy": "Historical context relevant to craftsmanship",
+          "rerankConfidence": 0.5
+        },
+        {
+          "id": "9kspfq",
+          "title": "Charm Ruby – Glamorous Terminal Libraries for Ruby",
+          "url": "https://charm-ruby.dev/",
+          "source": "Hacker News",
+          "published_at": "2025-12-30T07:36:38.000Z",
+          "ingested_at": "2025-12-30T12:26:38.325Z",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0.19411045005639954,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Innovative technology in jewellery design",
+          "rerankConfidence": 0.5
         }
       ]
     }
-  }
+  },
+  "keyThemes": [
+    "Cartier UK sales",
+    "Pragnell record sales",
+    "profit squeeze",
+    "Coupang data breach",
+    "AI shopping psychology"
+  ],
+  "oneSentenceSummary": "Cartier UK sales surpassed £250 million while Pragnell faced a profit squeeze despite record sales of £100.5 million.",
+  "introParagraph": "Cartier reports UK sales exceeding £250 million, reflecting strong demand in the luxury sector.  In contrast, Pragnell experiences a profit squeeze despite achieving record sales of £100. 5 million."
 }

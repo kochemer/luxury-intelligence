@@ -50,6 +50,9 @@ type WeeklyDigest = {
   coverImageUrl?: string;
   coverImageAlt?: string;
   coverKeywords?: string[];
+  keyThemes?: string[];
+  oneSentenceSummary?: string;
+  introParagraph?: string;
   totals: {
     total: number;
     byTopic: {
@@ -71,6 +74,14 @@ function getCurrentWeek(): string {
   const now = DateTime.now().setZone('Europe/Copenhagen');
   const year = now.year;
   const weekNumber = now.weekNumber;
+  return `${year}-W${weekNumber.toString().padStart(2, '0')}`;
+}
+
+function getPreviousWeek(): string {
+  const now = DateTime.now().setZone('Europe/Copenhagen');
+  const previousWeek = now.minus({ weeks: 1 });
+  const year = previousWeek.year;
+  const weekNumber = previousWeek.weekNumber;
   return `${year}-W${weekNumber.toString().padStart(2, '0')}`;
 }
 
@@ -137,7 +148,7 @@ const CATEGORY_CARDS: Array<{
 
 
 export default async function Home() {
-  const weekLabel = getCurrentWeek();
+  const weekLabel = getPreviousWeek();
   const digest = await loadDigest(weekLabel);
 
   // HERO section (always present)
@@ -334,6 +345,31 @@ export default async function Home() {
         }>
           <DigestClientView digest={digest} categoryCards={CATEGORY_CARDS} variant="home" />
         </Suspense>
+
+        {/* Key Themes Summary (Home Page) */}
+        {(digest.keyThemes && digest.keyThemes.length > 0) || digest.oneSentenceSummary ? (
+          <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6">
+            <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
+              {digest.oneSentenceSummary && (
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-3">
+                  {digest.oneSentenceSummary}
+                </p>
+              )}
+              {digest.keyThemes && digest.keyThemes.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {digest.keyThemes.slice(0, 3).map((theme, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200"
+                    >
+                      {theme}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        ) : null}
       </>
       )}
     </main>

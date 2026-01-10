@@ -103,3 +103,4 @@ Uses `NEXT_PUBLIC_SITE_URL` if set, otherwise falls back to:
 ✅ No query params in canonical URLs
 ✅ Dynamic OG images for week pages (uses cover image when available)
 
+

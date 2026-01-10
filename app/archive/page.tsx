@@ -16,6 +16,8 @@ import path from 'path';
 import Link from 'next/link';
 import { DateTime } from 'luxon';
 import type { Metadata } from 'next';
+import JsonLd from '../components/JsonLd';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://luxury-intelligence.vercel.app";
 
@@ -66,15 +68,40 @@ function formatWeekLabel(weekLabel: string): string {
 export default async function ArchivePage() {
   const digests = await getAvailableDigests();
 
+  // Build BreadcrumbList JSON-LD schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${siteUrl}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Archive",
+        item: `${siteUrl}/archive`,
+      },
+    ],
+  };
+
   return (
-    <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16">
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <div className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16">
       <header className="mb-12 md:mb-16">
+        <Breadcrumbs
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Archive' },
+          ]}
+        />
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
           Digest Archive
         </h1>
-        <Link href="/" className="text-blue-600 hover:text-blue-800 underline text-sm md:text-base">
-          ← Back to Home
-        </Link>
       </header>
 
       {digests.length > 0 ? (
@@ -104,6 +131,7 @@ export default async function ArchivePage() {
           No digests available yet. Run <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">npx tsx scripts/buildWeeklyDigest.ts</code> to create digests.
         </p>
       )}
-    </div>
+      </div>
+    </>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import AmplitudeInit from "./components/AmplitudeInit";
 import LanguageSwitcher from "./components/LanguageSwitcher";
+import JsonLd from "./components/JsonLd";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -65,6 +66,20 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
         style={{ fontFamily: "var(--font-geist-sans)", minHeight: "100vh", display: "flex", flexDirection: "column" }}
       >
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Luxury Intelligence",
+            url: siteUrl,
+            description: "Luxury Ecommerce, Retail Technology & AI - Curated intelligence and AI-assisted summaries for luxury, ecommerce, and retail tech.",
+            inLanguage: "en",
+            publisher: {
+              "@type": "Organization",
+              name: "Luxury Intelligence",
+            },
+          }}
+        />
         <AmplitudeInit />
         {/* Sticky Header */}
         <header

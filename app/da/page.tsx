@@ -29,6 +29,9 @@ type WeeklyDigest = {
   coverImageUrl?: string;
   coverImageAlt?: string;
   coverKeywords?: string[];
+  keyThemes?: string[];
+  oneSentenceSummary?: string;
+  introParagraph?: string;
   totals: {
     total: number;
     byTopic: {
@@ -50,6 +53,14 @@ function getCurrentWeek(): string {
   const now = DateTime.now().setZone('Europe/Copenhagen');
   const year = now.year;
   const weekNumber = now.weekNumber;
+  return `${year}-W${weekNumber.toString().padStart(2, '0')}`;
+}
+
+function getPreviousWeek(): string {
+  const now = DateTime.now().setZone('Europe/Copenhagen');
+  const previousWeek = now.minus({ weeks: 1 });
+  const year = previousWeek.year;
+  const weekNumber = previousWeek.weekNumber;
   return `${year}-W${weekNumber.toString().padStart(2, '0')}`;
 }
 
@@ -116,7 +127,7 @@ const CATEGORY_CARDS: Array<{
 
 
 export default async function HomeDA() {
-  const weekLabel = getCurrentWeek();
+  const weekLabel = getPreviousWeek();
   const digest = await loadDigest(weekLabel);
 
   // HERO section (always present)
@@ -318,4 +329,5 @@ export default async function HomeDA() {
     </main>
   );
 }
+
 

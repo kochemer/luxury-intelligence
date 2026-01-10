@@ -68,3 +68,4 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [homeEntry, archiveEntry, ...weekEntries];
 }
 
+

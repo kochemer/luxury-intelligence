@@ -102,3 +102,4 @@ npx tsx scripts/buildWeeklyDigest.ts --week=2026-W02 --regenCover=true --coverSt
 5. **Quality assurance** - File size sanity check prevents serving bad images
 6. **Style flexibility** - Optional illustration fallback style
 
+

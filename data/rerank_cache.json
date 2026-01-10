@@ -1810,5 +1810,143 @@
     ],
     "cached_at": "2026-01-09T16:26:18.828Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W01:AI_and_Strategy:70060cbf7f12": {
+    "selected": [
+      {
+        "id": "5",
+        "rank": 1,
+        "why": "Highlights AI's role in modern warfare strategies",
+        "confidence": 0.9
+      },
+      {
+        "id": "3",
+        "rank": 2,
+        "why": "Explores the economic impact of AI billionaires",
+        "confidence": 0.85
+      },
+      {
+        "id": "0",
+        "rank": 3,
+        "why": "Discusses concerns about AI in education",
+        "confidence": 0.8
+      },
+      {
+        "id": "8",
+        "rank": 4,
+        "why": "Analyzes AI's influence on shopping behavior",
+        "confidence": 0.75
+      },
+      {
+        "id": "1",
+        "rank": 5,
+        "why": "Connects AI with rare-earth supply chain strategies",
+        "confidence": 0.7
+      },
+      {
+        "id": "4",
+        "rank": 6,
+        "why": "Provides practical tips for using AI effectively",
+        "confidence": 0.65
+      },
+      {
+        "id": "10",
+        "rank": 7,
+        "why": "Addresses sustainability concerns in AI infrastructure",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T20:29:54.983Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Ecommerce_Retail_Tech:8fd7b9bde8af": {
+    "selected": [
+      {
+        "id": "1",
+        "rank": 1,
+        "why": "Focuses on global growth opportunities for heavy products",
+        "confidence": 0.9
+      },
+      {
+        "id": "7",
+        "rank": 2,
+        "why": "Explores digital tools for SMB growth in retail",
+        "confidence": 0.85
+      },
+      {
+        "id": "6",
+        "rank": 3,
+        "why": "Analyzes impact of tariffs on retail industry",
+        "confidence": 0.8
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "why": "Highlights upcoming retail trends for 2026",
+        "confidence": 0.75
+      },
+      {
+        "id": "5",
+        "rank": 5,
+        "why": "Discusses revival strategies for 90s mall brands",
+        "confidence": 0.7
+      },
+      {
+        "id": "3",
+        "rank": 6,
+        "why": "Insights on marketing strategies amid tariff changes",
+        "confidence": 0.65
+      },
+      {
+        "id": "18",
+        "rank": 7,
+        "why": "Coupang's data breach lawsuit impacts ecommerce trust",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-09T20:30:02.994Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Jewellery_Industry:1708c68269b8": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Significant sales growth for a luxury brand",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Record sales highlight market trends",
+        "confidence": 0.85
+      },
+      {
+        "id": "4",
+        "rank": 3,
+        "why": "Sales increase despite profit decline",
+        "confidence": 0.8
+      },
+      {
+        "id": "5",
+        "rank": 4,
+        "why": "CEO's insights on philanthropy in luxury",
+        "confidence": 0.75
+      },
+      {
+        "id": "2",
+        "rank": 5,
+        "why": "Historical context relevant to craftsmanship",
+        "confidence": 0.5
+      },
+      {
+        "id": "3",
+        "rank": 6,
+        "why": "Innovative technology in jewellery design",
+        "confidence": 0.5
+      }
+    ],
+    "cached_at": "2026-01-09T20:30:07.921Z",
+    "model": "gpt-4o-mini"
   }
 }

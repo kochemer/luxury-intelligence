@@ -180,5 +180,54 @@
     "rationale": "The article focuses on a luxury brand (Olaplex) attracting a takeover offer, which falls under luxury brand strategy and consumer behavior.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-09T16:26:06.494Z"
+  },
+  "https://www.digitalcommerce360.com/2025/12/30/ecommerce-faces-a-structural-reckoning-in-2026": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article primarily focuses on the structural changes in ecommerce, driven by AI-powered shopping and operational shifts, indicating a focus on ecommerce platforms and technology.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T20:29:48.117Z"
+  },
+  "https://www.nytimes.com/2026/01/02/technology/school-ai-chatgpt-estonia-iceland.html": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article discusses the use of AI tools in schools and the concerns raised by experts, aligning with the AI and its impact on education.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T20:48:31.161Z"
+  },
+  "https://keithburgun.net/outside-dungeon-town-integrating-the-three-places-in-videogames": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article discusses integrating different places in video games, which aligns with AI algorithms and strategies used in game development.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T20:52:36.085Z"
+  },
+  "https://www.practicalecommerce.com/2025-top-25-our-most-popular-posts": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article focuses on the popularity of AI-related posts, indicating a primary focus on artificial intelligence and machine learning.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T21:03:46.984Z"
+  },
+  "https://www.modernretail.co/marketing/the-modern-retail-guide-to-whats-in-and-whats-out-in-2026?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article discusses retail trends for 2026, focusing on consumer behavior and retail industry insights.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T21:18:50.862Z"
+  },
+  "https://www.professionaljeweller.com/laings-sales-rise-but-profit-squeeze": {
+    "category": "Jewellery_Industry",
+    "confidence": 0.9,
+    "rationale": "The article focuses on the financial performance of Laings, a jewelry company, indicating sales rise and profit squeeze, aligning with the jewelry industry sector.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T21:57:02.423Z"
+  },
+  "https://arstechnica.com/science/2025/12/a-quirky-guide-to-myths-and-lore-based-in-actual-science": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article does not seem to focus on Ecommerce, Luxury, or Jewelry, but rather on myths and lore based in actual science, which aligns more with AI and science-related topics.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-09T21:57:21.447Z"
   }
 }

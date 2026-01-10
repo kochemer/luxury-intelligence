@@ -6,6 +6,8 @@ import { buildWeeklyDigest } from '../digest/buildWeeklyDigest';
 import { getTopicTotalsDisplayName, type TopicTotalsKey } from '../utils/topicNames';
 import { generateSummariesForDigest } from '../digest/generateSummaries';
 import { generateWeeklyCoverImage } from '../digest/generateCoverImage';
+import { generateThemesForDigest } from '../digest/generateThemes';
+import { generateIntroForDigest } from '../digest/generateIntro';
 import { getTopicDisplayName } from '../utils/topicNames';
 
 // --- Environment Variable Loading for CLI ---
@@ -72,13 +74,15 @@ function getCurrentWeek(): string {
 }
 
 /**
- * Parse CLI arguments for --week, --regenCover, and --coverStyle flags
+ * Parse CLI arguments for --week, --regenCover, --coverStyle, --regenThemes, and --regenIntro flags
  */
-function parseArgs(): { weekLabel: string; regenCover: boolean; coverStyle: 'realistic' | 'illustration' } {
+function parseArgs(): { weekLabel: string; regenCover: boolean; coverStyle: 'realistic' | 'illustration'; regenThemes: boolean; regenIntro: boolean } {
   const args = process.argv.slice(2);
   let weekLabel: string | null = null;
   let regenCover = false;
   let coverStyle: 'realistic' | 'illustration' = 'realistic';
+  let regenThemes = false;
+  let regenIntro = false;
   
   for (const arg of args) {
     if (arg.startsWith('--week=')) {
@@ -97,6 +101,10 @@ function parseArgs(): { weekLabel: string; regenCover: boolean; coverStyle: 'rea
       } else {
         console.warn(`Invalid cover style: ${style}. Using default: realistic`);
       }
+    } else if (arg === '--regenThemes' || arg === '--regenThemes=true') {
+      regenThemes = true;
+    } else if (arg === '--regenIntro' || arg === '--regenIntro=true') {
+      regenIntro = true;
     }
   }
   
@@ -104,18 +112,27 @@ function parseArgs(): { weekLabel: string; regenCover: boolean; coverStyle: 'rea
     weekLabel: weekLabel || getCurrentWeek(),
     regenCover,
     coverStyle,
+    regenThemes,
+    regenIntro,
   };
 }
 
 async function main() {
-  const { weekLabel, regenCover, coverStyle } = parseArgs();
+  const { weekLabel, regenCover, coverStyle, regenThemes, regenIntro } = parseArgs();
   
   console.log(`Building digest for week: ${weekLabel}`);
   if (regenCover) {
-    console.log(`  (regenerating cover image if it exists, style: ${coverStyle})\n`);
+    console.log(`  (regenerating cover image if it exists, style: ${coverStyle})`);
   } else {
-    console.log(`  (cover style: ${coverStyle})\n`);
+    console.log(`  (cover style: ${coverStyle})`);
   }
+  if (regenThemes) {
+    console.log(`  (regenerating themes)`);
+  }
+  if (regenIntro) {
+    console.log(`  (regenerating intro paragraph)`);
+  }
+  console.log('');
   
   try {
     // Build the digest
@@ -132,6 +149,35 @@ async function main() {
     console.log(`  Succeeded: ${stats.succeeded}`);
     console.log(`  Skipped (no snippet): ${stats.skipped}`);
     console.log(`  Failed: ${stats.failed}`);
+    console.log('');
+    
+    // Generate themes (after summaries, so we have final article selection)
+    console.log('Generating key themes...');
+    const themeResult = await generateThemesForDigest(digest, regenThemes);
+    if (themeResult) {
+      digest.keyThemes = themeResult.keyThemes;
+      digest.oneSentenceSummary = themeResult.oneSentenceSummary;
+      console.log(`✓ Generated ${themeResult.keyThemes.length} themes`);
+      console.log(`  Summary: ${themeResult.oneSentenceSummary}`);
+    } else {
+      // Set empty arrays if generation fails (non-breaking)
+      digest.keyThemes = [];
+      digest.oneSentenceSummary = undefined;
+      console.log('⚠ Theme generation failed, continuing without themes');
+    }
+    console.log('');
+    
+    // Generate intro paragraph (after themes, so we can use them as context)
+    console.log('Generating intro paragraph...');
+    const introResult = await generateIntroForDigest(digest, regenIntro);
+    if (introResult) {
+      digest.introParagraph = introResult.introParagraph;
+      console.log(`✓ Generated intro paragraph`);
+    } else {
+      // Set empty string if generation fails (non-breaking)
+      digest.introParagraph = '';
+      console.log('⚠ Intro generation failed, continuing without intro paragraph');
+    }
     console.log('');
     
     // Generate cover image

@@ -14,6 +14,7 @@ import path from 'path';
 import { DateTime } from 'luxon';
 import { buildWeeklyDigest } from '@/digest/buildWeeklyDigest';
 import { generateSummariesForDigest } from '@/digest/generateSummaries';
+import { generateThemesForDigest } from '@/digest/generateThemes';
 import { parse } from 'dotenv';
 
 // Load environment variables from .env.local if OPENAI_API_KEY is not already set
@@ -71,6 +72,19 @@ export async function POST() {
     console.log('API: Generating AI summaries for articles...');
     const stats = await generateSummariesForDigest(digest);
     console.log(`API: Summary generation complete - Succeeded: ${stats.succeeded}, Skipped: ${stats.skipped}, Failed: ${stats.failed}`);
+
+    // Generate themes
+    console.log('API: Generating key themes...');
+    const themeResult = await generateThemesForDigest(digest, false);
+    if (themeResult) {
+      digest.keyThemes = themeResult.keyThemes;
+      digest.oneSentenceSummary = themeResult.oneSentenceSummary;
+      console.log(`API: Generated ${themeResult.keyThemes.length} themes`);
+    } else {
+      digest.keyThemes = [];
+      digest.oneSentenceSummary = undefined;
+      console.log('API: Theme generation failed, continuing without themes');
+    }
 
     const outputDir = path.join(process.cwd(), 'data', 'digests');
     await fs.mkdir(outputDir, { recursive: true });

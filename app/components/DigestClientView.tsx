@@ -48,6 +48,12 @@ type WeeklyDigest = {
   endISO: string;
   builtAtISO?: string;
   builtAtLocal?: string;
+  coverImageUrl?: string;
+  coverImageAlt?: string;
+  coverKeywords?: string[];
+  keyThemes?: string[];
+  oneSentenceSummary?: string;
+  introParagraph?: string;
   totals: {
     total: number;
     byTopic: {
