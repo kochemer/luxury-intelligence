@@ -290,11 +290,11 @@ async function selectTopN(
     return a.article.url.localeCompare(b.article.url);
   });
   
-  // Get candidates: top N articles by deterministic score (default 30, min 25, max 40)
+  // Get candidates: top N articles by deterministic score (default 100, min 25, max 100)
   // Use all available if fewer than 25, but still try to rerank if >= 7
   const candidateCount = articlesWithScores.length < 25
     ? articlesWithScores.length
-    : Math.min(30, articlesWithScores.length, 40);
+    : Math.min(100, articlesWithScores.length);
   const candidates = articlesWithScores.slice(0, candidateCount).map(item => ({
     ...item.article,
     relevance: item.relevance,

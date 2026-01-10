@@ -229,5 +229,12 @@
     "rationale": "The article does not seem to focus on Ecommerce, Luxury, or Jewelry, but rather on myths and lore based in actual science, which aligns more with AI and science-related topics.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-09T21:57:21.447Z"
+  },
+  "https://www.businessoffashion.com/articles/retail/claires-and-the-original-factory-shop-near-collapse": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article discusses the potential collapse of retail stores, which falls under the Ecommerce_Retail_Tech category.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-10T22:12:51.758Z"
   }
 }

@@ -3,8 +3,8 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2026-01-04T23:00:00.000Z",
   "endISO": "2026-01-11T22:59:59.999Z",
-  "builtAtISO": "2026-01-09T17:26:18.840+01:00",
-  "builtAtLocal": "2026-01-09 17:26:18",
+  "builtAtISO": "2026-01-10T23:13:06.456+01:00",
+  "builtAtLocal": "2026-01-10 23:13:06",
   "coverImageUrl": "/weekly-images/2026-W02.png",
   "coverImageAlt": "Weekly cover illustration for 2026-W02",
   "coverKeywords": [
@@ -15,24 +15,24 @@
     "funding",
     "billion",
     "valuation",
-    "elon",
-    "musk",
-    "raises",
     "nvidia",
-    "details"
+    "details",
+    "chips",
+    "autonomous",
+    "project"
   ],
   "totals": {
-    "total": 105,
+    "total": 120,
     "byTopic": {
-      "AIStrategy": 35,
-      "EcommerceRetail": 52,
-      "LuxuryConsumer": 13,
+      "AIStrategy": 42,
+      "EcommerceRetail": 59,
+      "LuxuryConsumer": 14,
       "Jewellery": 5
     }
   },
   "topics": {
     "AI_and_Strategy": {
-      "total": 35,
+      "total": 42,
       "top": [
         {
           "id": "y0hb6z",
@@ -53,31 +53,9 @@
               "artificial intelligence"
             ]
           },
-          "rerankWhy": "Significant funding talks indicate market confidence in AI",
+          "rerankWhy": "Significant funding talks indicate market confidence in AI startups",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nAnthropic, an AI start-up rivaling OpenAI, is reportedly in discussions to secure funding at a valuation of $350 billion, with plans to raise approximately $10 billion and potential considerations for an initial public offering."
-        },
-        {
-          "id": "986ene",
-          "title": "Elon Musk’s xAI Raises $20 Billion",
-          "url": "https://www.nytimes.com/2026/01/06/technology/xai-elon-musk-funding.html",
-          "source": "NYTimes Technology",
-          "published_at": "2026-01-06T21:43:54.000Z",
-          "ingested_at": "2026-01-08T19:08:50.518Z",
-          "snippet": "The funding is part of an A.I. frenzy, as investors aggressively plow enormous sums into fast-growing start-ups at sky-high valuations.",
-          "relevance": {
-            "scoreTotal": 0.2,
-            "recencyScore": 0.2781646829996109,
-            "sourceWeight": 0.15,
-            "keywordBoost": 0.05,
-            "penalty": 0,
-            "matchedKeywords": [
-              "ai"
-            ]
-          },
-          "rerankWhy": "Large investment reflects growing AI sector interest",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary: Elon Musk's xAI has raised $20 billion as part of the A.I. frenzy, with investors investing heavily in fast-growing start-ups at high valuations."
+          "aiSummary": "AI-Generated Summary:\nAnthropic, an AI start-up rivaling OpenAI, is reportedly seeking funding at a $350 billion valuation, with plans to raise $10 billion and potentially go public."
         },
         {
           "id": "qjagft",
@@ -97,9 +75,31 @@
               "ai"
             ]
           },
-          "rerankWhy": "New AI chips could impact autonomous vehicle strategies",
+          "rerankWhy": "Nvidia's new AI chips impact automotive and tech industries",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-Generated Summary:\nNvidia unveils new AI chips at CES conference, promising increased efficiency and power, with shipments starting later this year."
+        },
+        {
+          "id": "986ene",
+          "title": "Elon Musk’s xAI Raises $20 Billion",
+          "url": "https://www.nytimes.com/2026/01/06/technology/xai-elon-musk-funding.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-01-06T21:43:54.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "The funding is part of an A.I. frenzy, as investors aggressively plow enormous sums into fast-growing start-ups at sky-high valuations.",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0.2781646829996109,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "rerankWhy": "Elon Musk's xAI funding reflects growing AI investment trends",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nNvidia unveiled new A.I. chips at CES for autonomous cars in collaboration with Mercedes, set to ship later this year."
+          "aiSummary": "AI-generated summary:\nElon Musk's xAI secures $20 billion in funding amid a surge in A.I. investments with high valuations for fast-growing start-ups."
         },
         {
           "id": "txrdd1",
@@ -119,7 +119,7 @@
               "ai"
             ]
           },
-          "rerankWhy": "Regulatory scrutiny highlights AI's global implications",
+          "rerankWhy": "China's investigation highlights regulatory scrutiny in AI acquisitions",
           "rerankConfidence": 0.75,
           "aiSummary": "AI-Generated Summary:\nChina is investigating Meta's acquisition of the AI start-up Manus to determine compliance with export and investment rules, as Manus has Chinese roots."
         },
@@ -142,9 +142,9 @@
               "chatbot"
             ]
           },
-          "rerankWhy": "Controversy around AI-generated content raises ethical concerns",
+          "rerankWhy": "Grok's controversy raises ethical concerns in AI image generation",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary:\nElon Musk's A.I. chatbot Grok faced backlash for generating sexualized images of real people, leading to restrictions on access to such content on social media."
+          "aiSummary": "AI-Generated Summary:\nElon Musk's chatbot Grok faced backlash for generating sexualized images of real people, leading to restrictions on access to these images on social media."
         },
         {
           "id": "zekg2j",
@@ -165,36 +165,38 @@
               "ai"
             ]
           },
-          "rerankWhy": "Explores AI's creative potential in literature",
+          "rerankWhy": "AI's cultural impact explored through Molière's themes",
           "rerankConfidence": 0.65,
-          "aiSummary": "AI researchers at Sorbonne University have trained artificial intelligence to mimic the themes, structures, and humor of French playwright Molière, resulting in a new play."
+          "aiSummary": "AI-generated summary:\nResearchers at Sorbonne University have trained AI to mimic Molière's wit, resulting in a new play that captures the French playwright's themes, structures, and sense of humor."
         },
         {
-          "id": "3b7k9w",
-          "title": "Retail leaders at Target, Lowe’s and more on the AI investments they’re plotting for 2026",
-          "url": "https://www.modernretail.co/technology/retail-leaders-at-target-lowes-and-more-on-the-ai-investments-theyre-plotting-for-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2026-01-09T05:00:00.000Z",
-          "ingested_at": "2026-01-09T16:05:07.985Z",
-          "snippet": "Modern Retail’s editorial team surveyed a half-dozen retail leaders, ranging from vice presidents at big corporations like Target and Lowe’s to founders of digitally native startups, to talk about how they plan to incorporate AI into their businesses in 2026.",
+          "id": "cxfw42",
+          "title": "Microsoft introduces agentic AI tools to automate retail and B2B commerce operations",
+          "url": "https://www.digitalcommerce360.com/2026/01/09/microsoft-copilot-checkout-agentic-ai-tools/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-09T17:25:26.000Z",
+          "ingested_at": "2026-01-10T22:12:17.260Z",
+          "snippet": "Microsoft has announced a new set of agentic artificial intelligence (AI) tools to Copilot aimed at automating core retail and B2B commerce functions, including digital checkout, product data management, merchandising and store operations. The company said it designed the agentic AI tools, which it’s delivering through Microsoft Copilot and Copilot Studio, to reduce manual work, […]\nThe post Microsoft introduces agentic AI tools to automate retail and B2B commerce operations appeared first on Di...",
           "relevance": {
-            "scoreTotal": -0.04999999999999999,
-            "recencyScore": 0.607142858146731,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0.05,
-            "penalty": 0.2,
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0.6810945778457251,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "penalty": 0,
             "matchedKeywords": [
-              "ai"
+              "ai",
+              "artificial intelligence",
+              "data"
             ]
           },
-          "rerankWhy": "Insights on retail AI investments for 2026",
+          "rerankWhy": "Microsoft's new tools enhance AI's role in retail operations",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary: Retail leaders from companies like Target and Lowe's, as well as digitally native startups, discuss their AI investment plans for 2026 in a survey conducted by Modern Retail."
+          "aiSummary": "AI-generated summary: Microsoft has unveiled agentic AI tools through Copilot to automate retail and B2B commerce operations, focusing on tasks like digital checkout and product data management to reduce manual work."
         }
       ]
     },
     "Ecommerce_Retail_Tech": {
-      "total": 52,
+      "total": 59,
       "top": [
         {
           "id": "g1nusq",
@@ -214,9 +216,9 @@
               "shopping"
             ]
           },
-          "rerankWhy": "Concerns over brand control on Amazon are critical",
+          "rerankWhy": "Concerns over brand control on Amazon's platform",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nBrands are expressing frustration as Amazon's \"Buy for Me\" AI tool showcases their products without consent, prompting merchants to opt out post-listing and sparking worries about brand management, consumer confidence, and the influence of AI in shopping."
+          "aiSummary": "AI-Generated Summary:\nOnline merchants are unhappy with Amazon's \"Buy for Me\" AI tool for featuring their products without permission, leading to concerns about brand control and customer trust in ecommerce."
         },
         {
           "id": "fmuena",
@@ -236,7 +238,7 @@
               "shopping"
             ]
           },
-          "rerankWhy": "Shopify's growth highlights trends in ecommerce",
+          "rerankWhy": "Shopify's record growth highlights ecommerce trends",
           "rerankConfidence": 0.85,
           "aiSummary": "AI-Generated Summary:\nIn 2025, Shopify experienced its best year yet, marked by record sales growth, significant enterprise brand victories, and a partnership with OpenAI, solidifying its role as essential infrastructure for AI-powered shopping."
         },
@@ -256,9 +258,9 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Customer data is essential for competitive advantage",
+          "rerankWhy": "Importance of customer data in retail competition",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary:\nIn the world of retail, trusted customer data is becoming crucial for gaining a competitive edge as shopper expectations evolve, channels expand, and AI reshapes the shopping experience."
+          "aiSummary": "AI-generated summary:\nThe article from Retail Dive published on 2026-01-05 discusses how shopper expectations are increasing, channels are diversifying, and AI is reshaping the retail landscape by redefining consumer purchasing behaviors."
         },
         {
           "id": "17dj70",
@@ -278,31 +280,29 @@
               "shopping"
             ]
           },
-          "rerankWhy": "Holiday sales growth insights are valuable for retailers",
+          "rerankWhy": "Holiday retail sales growth insights from Visa, Mastercard",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-Generated Summary:\nVisa and Mastercard report approximately 4% growth in US holiday retail sales for 2025, with consumers utilizing various channels for shopping to secure deals and enhance convenience."
+          "aiSummary": "AI-Generated Summary:\nVisa and Mastercard report approximately 4% growth in US holiday retail sales for 2025, with consumers shopping through various channels to find deals and enhance convenience."
         },
         {
-          "id": "jzjggr",
-          "title": "Shopify competitor Swap raises $100M six months after raising $40M",
-          "url": "https://techcrunch.com/2026/01/07/shopify-competitor-swap-raises-100m-six-months-after-raising-40m/",
-          "source": "TechCrunch Ecommerce",
-          "published_at": "2026-01-07T19:10:33.000Z",
+          "id": "md120o",
+          "title": "At CES, Omnicom Media says Walmart purchase insights help it make better use of Meta’s influencer followers",
+          "url": "https://www.modernretail.co/marketing/at-ces-omnicom-media-says-walmart-purchase-insights-help-it-make-better-use-of-metas-influencer-followers/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-07T05:00:00.000Z",
           "ingested_at": "2026-01-08T19:08:50.518Z",
-          "snippet": "VC firms DST Global and Iconiq are piling into e-commerce startup Swap Commerce, which is going up against Shopify.",
+          "snippet": "The partnership connects Walmart customer purchase data with Meta’s raft of influencers (via Instagram) to empower Creo to help brands identify potential creator partners.",
           "relevance": {
-            "scoreTotal": 0.05,
-            "recencyScore": 0.4058085324170115,
-            "sourceWeight": 0,
-            "keywordBoost": 0.05,
+            "scoreTotal": 0.1,
+            "recencyScore": 0.321428571960034,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
             "penalty": 0,
-            "matchedKeywords": [
-              "e-commerce"
-            ]
+            "matchedKeywords": []
           },
-          "rerankWhy": "Funding for a Shopify competitor indicates market dynamics",
+          "rerankWhy": "Walmart's use of purchase insights for influencer marketing",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary:\nSwap Commerce, a Shopify competitor, has raised $100M from VC firms DST Global and Iconiq, just six months after securing $40M in funding. The e-commerce startup is gaining traction in the market."
+          "aiSummary": "AI-Generated Summary:\nOmnicom Media leverages Walmart purchase data and Meta's influencers to assist brands in identifying potential creator partners, as discussed at CES."
         },
         {
           "id": "z1dhyr",
@@ -323,34 +323,38 @@
               "platform"
             ]
           },
-          "rerankWhy": "B2B ecommerce platform updates are relevant for businesses",
+          "rerankWhy": "Cloudfy's B2B ecommerce platform update is significant",
           "rerankConfidence": 0.65,
           "aiSummary": "AI-Generated Summary:\nCloudfy has released Cloudfy Enterprise v5, an updated B2B ecommerce platform with a modular API-first architecture for seamless integration with enterprise systems, allowing customers to customize ecommerce capabilities without replacing existing infrastructure."
         },
         {
-          "id": "v2uqjk",
-          "title": "Amazon to roll out updated Dash Carts to more Whole Foods stores",
-          "url": "https://www.retaildive.com/news/amazon-updates-smart-carts-whole-foods-rollout/809112/",
-          "source": "Retail Dive",
-          "published_at": "2026-01-09T15:26:00.000Z",
-          "ingested_at": "2026-01-09T16:05:07.985Z",
-          "snippet": "The latest version of the smart carts, which includes a real-time savings tracker, will expand to more than 25 of the specialty grocer’s locations this year.",
+          "id": "gkhl1z",
+          "title": "New Ecommerce Tools: January 7, 2026",
+          "url": "https://www.practicalecommerce.com/new-ecommerce-tools-january-7-2026",
+          "source": "Practical Ecommerce",
+          "published_at": "2026-01-07T12:51:51.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "This week: new products and services for marketing and advertising, livestreams, pop-up and form builders, fulfillment networks, AI voice agents, agentic commerce, and reverse logistics.\nThe post New Ecommerce Tools: January 7, 2026 appeared first on Practical Ecommerce.",
           "relevance": {
-            "scoreTotal": 0.1,
-            "recencyScore": 0.6692460328525893,
+            "scoreTotal": 0.04999999999999999,
+            "recencyScore": 0.36823908791044824,
             "sourceWeight": 0.1,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
+            "keywordBoost": 0.15000000000000002,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ecommerce",
+              "fulfillment",
+              "logistics"
+            ]
           },
-          "rerankWhy": "Smart cart updates reflect innovation in retail tech",
+          "rerankWhy": "New ecommerce tools for marketing and logistics",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-Generated Summary:\nAmazon will introduce updated Dash Carts with a real-time savings tracker to over 25 Whole Foods stores in 2026, as reported by Retail Dive on January 9th."
+          "aiSummary": "AI-Generated Summary: Practical Ecommerce's article highlights new ecommerce tools for marketing, advertising, livestreams, pop-up and form builders, fulfillment networks, AI voice agents, agentic commerce, and reverse logistics as of January 7, 2026."
         }
       ]
     },
     "Luxury_and_Consumer": {
-      "total": 13,
+      "total": 14,
       "top": [
         {
           "id": "iqyctn",
@@ -370,9 +374,9 @@
               "affluent"
             ]
           },
-          "rerankWhy": "Starbucks' partnership highlights luxury brand collaborations",
+          "rerankWhy": "Highlights affluent consumer trends in auto sales",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary:\nNew car sales are increasing among wealthy Americans due to rising prices and interest rates for auto loans, according to analysts."
+          "aiSummary": "AI-Generated Summary:\nAffluent Americans are driving the rise in new car sales, attributed to increasing prices and interest rates for auto loans, according to analysts."
         },
         {
           "id": "hsqnmy",
@@ -392,9 +396,9 @@
               "brand"
             ]
           },
-          "rerankWhy": "Olaplex's potential takeover reflects market interest in beauty",
+          "rerankWhy": "Focuses on luxury brand partnerships with athletes",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nFashion and beauty brands are increasingly forming long-term partnerships with female college athletes, moving beyond one-off posts to collaborate with entire athletic departments, as reported by Modern Retail on January 8, 2026."
+          "aiSummary": "AI-Generated Summary:\nFashion and beauty brands are increasingly forming partnerships with female college athletes, moving beyond individual posts to collaborate with entire athletic departments, as reported by Modern Retail on January 8, 2026."
         },
         {
           "id": "nzzbxc",
@@ -414,29 +418,9 @@
               "brand"
             ]
           },
-          "rerankWhy": "Expansion of partnerships with athletes shows luxury brand strategy",
+          "rerankWhy": "Showcases Starbucks' luxury brand collaborations",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nStarbucks is starting 2026 with new brand partnerships, including one with Khloé Kardashian's Khloud popcorn, to offer trendy items and relevant pop culture collaborations."
-        },
-        {
-          "id": "q3ddix",
-          "title": "California Tech Executives Plot Against Rep. Ro Khanna Over Support of Wealth Tax",
-          "url": "https://www.nytimes.com/2026/01/07/us/politics/ro-khanna-california-wealth-tax.html",
-          "source": "NYTimes Technology",
-          "published_at": "2026-01-07T18:19:53.000Z",
-          "ingested_at": "2026-01-08T19:08:50.518Z",
-          "snippet": "It’s hard right now to be a progressive Democrat in the heart of America’s tech industry.",
-          "relevance": {
-            "scoreTotal": 0.15,
-            "recencyScore": 0.40078207738224547,
-            "sourceWeight": 0.15,
-            "keywordBoost": 0,
-            "penalty": 0,
-            "matchedKeywords": []
-          },
-          "rerankWhy": "AmEx cardholders' spending behavior indicates luxury market trends",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-Generated Summary:\nCalifornia tech executives are organizing against Rep. Ro Khanna due to his support for a wealth tax, highlighting challenges for progressive Democrats in the tech industry."
+          "aiSummary": "AI-Generated Summary:\nStarbucks is starting 2026 by expanding its brand partnerships, including a collaboration with Khloé Kardashian's Khloud popcorn, to offer trendy items and relevant pop culture tie-ins."
         },
         {
           "id": "83kzzv",
@@ -456,49 +440,63 @@
               "brand"
             ]
           },
-          "rerankWhy": "Tommy Hilfiger's partnership with Liverpool FC merges sports and fashion",
-          "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary:\nPat McGrath Labs is up for sale, with bids due by Jan. 26 and a public auction for the beauty brand's assets scheduled for Jan. 27, as reported by Retail Dive on January 5, 2026."
+          "rerankWhy": "Discusses potential sale of a luxury beauty brand",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-Generated Summary:\nPat McGrath Labs is looking for a buyer, with bids due by Jan. 26 and a public auction for the beauty brand's assets scheduled for Jan. 27."
         },
         {
-          "id": "dhbx9zi",
-          "title": "The Face Names Jonny Lu Creative Director, Editor-in-Chief Matthew Whitehouse to Exit",
-          "url": "https://www.businessoffashion.com/news/media/the-face-names-jonny-lu-creative-director-editor-in-chief-matthew-whitehouse-to-exit/",
+          "id": "9dsx7jm",
+          "title": "Holders of $895-a-Year AmEx Card Are Rushing to Spend Saks Perk",
+          "url": "https://www.businessoffashion.com/news/retail/holders-of-895-a-year-amex-card-are-rushing-to-spend-saks-perk/",
           "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-08T19:08:59.175Z",
-          "ingested_at": "2026-01-08T19:08:59.176Z",
+          "published_at": "2026-01-08T19:33:41.206Z",
+          "ingested_at": "2026-01-08T19:33:41.206Z",
           "relevance": {
             "scoreTotal": 0,
-            "recencyScore": 0.548510541581532,
+            "recencyScore": 0.5509609896675942,
             "sourceWeight": 0,
             "keywordBoost": 0,
             "penalty": 0,
             "matchedKeywords": []
           },
-          "rerankWhy": "Saks' financial struggles impact luxury retail landscape",
+          "rerankWhy": "Explores consumer behavior with luxury card perks",
+          "rerankConfidence": 0.7
+        },
+        {
+          "id": "c71a3e4",
+          "title": "Report: Saks in Talks for $1 Billion Bankruptcy Loan to Keep Doors Open",
+          "url": "https://www.businessoffashion.com/news/retail/report-saks-in-talks-for-1-billion-bankruptcy-loan-to-keep-doors-open/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-06T20:27:18.071Z",
+          "ingested_at": "2026-01-06T20:27:18.071Z",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0.27056559403201985,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "rerankWhy": "Reports on financial struggles of a luxury retailer",
           "rerankConfidence": 0.65
         },
         {
-          "id": "vz2gl8",
-          "title": "S&P Global Ratings downgrades Saks Global on missed interest payment",
-          "url": "https://www.retaildive.com/news/saks-global-downgraded-missed-debt-interest-payment-sp-global-ratings/809060/",
-          "source": "Retail Dive",
-          "published_at": "2026-01-08T15:35:00.000Z",
-          "ingested_at": "2026-01-08T19:08:50.518Z",
-          "snippet": "The luxury giant is unlikely to make good within the grace period or achieve promised savings from last year’s $2.7 billion merger, the analysts said.",
+          "id": "cexw26f",
+          "title": "Tommy Hilfiger Launches Global Partnership With Liverpool FC",
+          "url": "https://www.businessoffashion.com/news/sports/tommy-hilfiger-launches-formalwear-partnership-with-liverpool-fc/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-08T19:33:41.204Z",
+          "ingested_at": "2026-01-08T19:33:41.205Z",
           "relevance": {
-            "scoreTotal": -0.04999999999999999,
-            "recencyScore": 0.5272817469035743,
-            "sourceWeight": 0.1,
-            "keywordBoost": 0.05,
-            "penalty": 0.2,
-            "matchedKeywords": [
-              "luxury"
-            ]
+            "scoreTotal": 0,
+            "recencyScore": 0.5509609863607159,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
           },
-          "rerankWhy": "Pat McGrath Labs seeking a buyer highlights beauty market dynamics",
-          "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary:\nS&P Global Ratings downgraded Saks Global due to a missed interest payment, casting doubt on the company's ability to fulfill financial obligations and achieve merger-related savings."
+          "rerankWhy": "Covers a global partnership in luxury fashion",
+          "rerankConfidence": 0.6
         }
       ]
     },
@@ -526,7 +524,7 @@
           },
           "rerankWhy": "Highlights De Beers' strategy in a key market",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary: Jewellery designer Solange Azagury-Partridge has been awarded an MBE for her contributions to design, presented by King Charles III. She runs her own brand, Solange, based in London."
+          "aiSummary": "AI-generated summary: Jewellery designer Solange Azagury-Partridge has been honored with an MBE for her contributions to design, presented by King Charles III and members of the royal family. Azagury-Partridge operates her own brand, Solange, based in London."
         },
         {
           "id": "v7ghaz",
@@ -548,7 +546,7 @@
           },
           "rerankWhy": "Recognizes a prominent designer's achievements",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary: Inflation rates are on the rise in 2026, with shop price inflation increasing to 0.7% year on year in December according to the British Retail Consortium. This trend is expected to persist in the jewellery industry."
+          "aiSummary": "AI-generated summary: Inflation rates are on the rise in 2026, with shop price inflation reaching 0.7% year on year in December according to the British Retail Consortium. This trend is expected to continue, impacting the jewellery industry."
         },
         {
           "id": "7jveuni",
@@ -590,7 +588,7 @@
           },
           "rerankWhy": "Discusses economic factors affecting the industry",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary: Tiffany & Co has launched its 2026 Chinese New Year campaign, incorporating a Pegasus motif inspired by a brooch designed by Nathalie Verdeille and Jean Schlumberger. The campaign aims to celebrate the new year with a blend of traditional and innovative designs."
+          "aiSummary": "Tiffany & Co's 2026 Chinese New Year campaign features a Pegasus motif inspired by Jean Schlumberger's imaginative world, marking the arrival of the new year. The campaign showcases the House's celebrated designs under the artistic direction of Nathalie Verdeille."
         },
         {
           "id": "uh0we",
@@ -613,9 +611,18 @@
           },
           "rerankWhy": "Explores the role of indie retailers in the market",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-generated summary: Independent retailers in the jewellery industry have shown resilience and adaptability in the face of challenges, shaping the high street with innovation and experimentation in 2026."
+          "aiSummary": "AI-Generated Summary: Independent retailers in the jewellery industry have shown resilience and adaptability in the face of changing consumer behaviors, economic pressures, and new technologies. Their innovation and experimentation will continue to shape the high street in 2026."
         }
       ]
     }
-  }
+  },
+  "keyThemes": [
+    "Nvidia AI chips",
+    "Shopify record sales",
+    "agentic AI tools",
+    "inflation impact",
+    "De Beers diamond demand"
+  ],
+  "oneSentenceSummary": "Nvidia's new A.I. chips and Shopify's record sales growth highlight significant advancements in technology and retail performance this week.",
+  "introParagraph": "Nvidia releases new AI chips that enhance computational capabilities, while Shopify reports record sales growth, reflecting trends in ecommerce. The jewellery industry sees a shift in demand for De Beers diamonds amid ongoing inflation concerns."
 }

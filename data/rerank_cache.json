@@ -1948,5 +1948,149 @@
     ],
     "cached_at": "2026-01-09T20:30:07.921Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:eb56bdab8092": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Significant funding talks indicate market confidence in AI startups",
+        "confidence": 0.9
+      },
+      {
+        "id": "3",
+        "rank": 2,
+        "why": "Nvidia's new AI chips impact automotive and tech industries",
+        "confidence": 0.85
+      },
+      {
+        "id": "4",
+        "rank": 3,
+        "why": "Elon Musk's xAI funding reflects growing AI investment trends",
+        "confidence": 0.8
+      },
+      {
+        "id": "5",
+        "rank": 4,
+        "why": "China's investigation highlights regulatory scrutiny in AI acquisitions",
+        "confidence": 0.75
+      },
+      {
+        "id": "2",
+        "rank": 5,
+        "why": "Grok's controversy raises ethical concerns in AI image generation",
+        "confidence": 0.7
+      },
+      {
+        "id": "1",
+        "rank": 6,
+        "why": "AI's cultural impact explored through Molière's themes",
+        "confidence": 0.65
+      },
+      {
+        "id": "10",
+        "rank": 7,
+        "why": "Microsoft's new tools enhance AI's role in retail operations",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-10T22:12:56.434Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:083980ce2b62": {
+    "selected": [
+      {
+        "id": "1",
+        "rank": 1,
+        "why": "Concerns over brand control on Amazon's platform",
+        "confidence": 0.9
+      },
+      {
+        "id": "2",
+        "rank": 2,
+        "why": "Shopify's record growth highlights ecommerce trends",
+        "confidence": 0.85
+      },
+      {
+        "id": "31",
+        "rank": 3,
+        "why": "Importance of customer data in retail competition",
+        "confidence": 0.8
+      },
+      {
+        "id": "7",
+        "rank": 4,
+        "why": "Holiday retail sales growth insights from Visa, Mastercard",
+        "confidence": 0.75
+      },
+      {
+        "id": "10",
+        "rank": 5,
+        "why": "Walmart's use of purchase insights for influencer marketing",
+        "confidence": 0.7
+      },
+      {
+        "id": "8",
+        "rank": 6,
+        "why": "Cloudfy's B2B ecommerce platform update is significant",
+        "confidence": 0.65
+      },
+      {
+        "id": "34",
+        "rank": 7,
+        "why": "New ecommerce tools for marketing and logistics",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-10T22:13:01.376Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Luxury_and_Consumer:233c8203c5eb": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Highlights affluent consumer trends in auto sales",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Focuses on luxury brand partnerships with athletes",
+        "confidence": 0.85
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "Showcases Starbucks' luxury brand collaborations",
+        "confidence": 0.8
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "why": "Discusses potential sale of a luxury beauty brand",
+        "confidence": 0.75
+      },
+      {
+        "id": "9",
+        "rank": 5,
+        "why": "Explores consumer behavior with luxury card perks",
+        "confidence": 0.7
+      },
+      {
+        "id": "10",
+        "rank": 6,
+        "why": "Reports on financial struggles of a luxury retailer",
+        "confidence": 0.65
+      },
+      {
+        "id": "12",
+        "rank": 7,
+        "why": "Covers a global partnership in luxury fashion",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-10T22:13:06.455Z",
+    "model": "gpt-4o-mini"
   }
 }

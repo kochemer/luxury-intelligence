@@ -35,9 +35,9 @@ const RERANK_MODEL = process.env.RERANK_MODEL || 'gpt-4o-mini';
 const TEMPERATURE = 0; // Deterministic
 const MAX_TOKENS = 2000;
 const CACHE_FILE = path.join(__dirname, '../data/rerank_cache.json');
-const CANDIDATE_DEFAULT = 30; // Default candidate pool size
+const CANDIDATE_DEFAULT = 100; // Default candidate pool size
 const CANDIDATE_MIN = 25;
-const CANDIDATE_MAX = 40;
+const CANDIDATE_MAX = 100;
 const SNIPPET_MAX_LENGTH = 350; // Truncate snippets to bound cost
 
 // Types

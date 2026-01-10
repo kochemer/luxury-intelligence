@@ -11,5 +11,18 @@
     "cached_at": "2026-01-09T21:18:54.116Z",
     "model": "gpt-4o-mini",
     "version": "2.1"
+  },
+  "2026-W02:24928b271f6c": {
+    "keyThemes": [
+      "Nvidia AI chips",
+      "Shopify record sales",
+      "agentic AI tools",
+      "inflation impact",
+      "De Beers diamond demand"
+    ],
+    "oneSentenceSummary": "Nvidia's new A.I. chips and Shopify's record sales growth highlight significant advancements in technology and retail performance this week.",
+    "cached_at": "2026-01-10T22:13:12.041Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
   }
 }
