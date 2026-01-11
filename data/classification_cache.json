@@ -250,5 +250,26 @@
     "rationale": "The article focuses on Amazon's increased spending on artificial intelligence and data center infrastructure, highlighting the company's commitment to expanding cloud capacity for AI computing across government and commercial markets.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-11T13:37:33.892Z"
+  },
+  "https://www.modernretail.co/operations/the-winners-and-losers-of-tariffs?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article discusses the impact of tariffs on the retail industry, focusing on winners and losers, which aligns with Ecommerce_Retail_Tech.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-11T13:56:04.968Z"
+  },
+  "https://www.ycombinator.com/companies/crimson/jobs/kCikzj1-founding-engineer-full-stack": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article is about a tech company hiring engineers in London, indicating a focus on technology and recruitment in the ecommerce sector.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-11T14:04:50.000Z"
+  },
+  "https://www.luxurydaily.com/visa-reports-4-2pc-rise-in-us-holiday-retail-spending": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article focuses on how artificial intelligence influenced consumer behavior during the holiday retail season.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-11T14:24:38.756Z"
   }
 }

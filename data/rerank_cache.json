@@ -2398,5 +2398,197 @@
     ],
     "cached_at": "2026-01-11T13:37:47.670Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W01:AI_and_Strategy:28ec205cf36d": {
+    "selected": [
+      {
+        "id": "20",
+        "rank": 1,
+        "why": "Insights on AI's impact on holiday retail spending",
+        "confidence": 0.9
+      },
+      {
+        "id": "30",
+        "rank": 2,
+        "why": "Explores AI's influence on product discovery",
+        "confidence": 0.85
+      },
+      {
+        "id": "29",
+        "rank": 3,
+        "why": "Generative AI's effect on SEO and search results",
+        "confidence": 0.8
+      },
+      {
+        "id": "21",
+        "rank": 4,
+        "why": "Predictions on AI shopping trends for 2026",
+        "confidence": 0.75
+      },
+      {
+        "id": "19",
+        "rank": 5,
+        "why": "Amazon's AI investments impact on retail landscape",
+        "confidence": 0.7
+      },
+      {
+        "id": "22",
+        "rank": 6,
+        "why": "Highlights new billionaires from the AI boom",
+        "confidence": 0.65
+      },
+      {
+        "id": "28",
+        "rank": 7,
+        "why": "Popular posts on AI trends in retail from 2025",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-11T13:56:13.344Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Ecommerce_Retail_Tech:1d0ef8756840": {
+    "selected": [
+      {
+        "id": "10",
+        "rank": 1,
+        "why": "Highlights major retail mergers impacting industry dynamics",
+        "confidence": 0.9
+      },
+      {
+        "id": "13",
+        "rank": 2,
+        "why": "Discusses structural changes in ecommerce for 2026",
+        "confidence": 0.85
+      },
+      {
+        "id": "15",
+        "rank": 3,
+        "why": "Explores last-mile delivery partnerships improving fulfillment",
+        "confidence": 0.8
+      },
+      {
+        "id": "25",
+        "rank": 4,
+        "why": "Analyzes winners and losers from tariff impacts",
+        "confidence": 0.75
+      },
+      {
+        "id": "20",
+        "rank": 5,
+        "why": "Details marketing strategies adapted to tariff changes",
+        "confidence": 0.7
+      },
+      {
+        "id": "24",
+        "rank": 6,
+        "why": "Examines turnaround strategies of struggling brands",
+        "confidence": 0.65
+      },
+      {
+        "id": "19",
+        "rank": 7,
+        "why": "Provides insights on holiday retail spending trends",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-11T13:56:21.377Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:AI_and_Strategy:9c13262a4b17": {
+    "selected": [
+      {
+        "id": "30",
+        "rank": 1,
+        "why": "Explores AI's impact on shopping behavior and discovery",
+        "confidence": 0.9
+      },
+      {
+        "id": "29",
+        "rank": 2,
+        "why": "Discusses generative AI's influence on SEO strategies",
+        "confidence": 0.85
+      },
+      {
+        "id": "19",
+        "rank": 3,
+        "why": "Highlights Amazon's significant AI investments affecting retail",
+        "confidence": 0.8
+      },
+      {
+        "id": "20",
+        "rank": 4,
+        "why": "Reports on holiday spending influenced by AI",
+        "confidence": 0.75
+      },
+      {
+        "id": "28",
+        "rank": 5,
+        "why": "Summarizes popular AI-related content relevant to ecommerce",
+        "confidence": 0.7
+      },
+      {
+        "id": "22",
+        "rank": 6,
+        "why": "Analyzes new billionaires from the AI boom, relevant to retail",
+        "confidence": 0.65
+      },
+      {
+        "id": "17",
+        "rank": 7,
+        "why": "Discusses AI's economic impact, relevant for retail strategy",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-11T14:24:43.648Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Ecommerce_Retail_Tech:093f2c85aeae": {
+    "selected": [
+      {
+        "id": "10",
+        "rank": 1,
+        "why": "Highlights major retail mergers impacting industry dynamics",
+        "confidence": 0.9
+      },
+      {
+        "id": "13",
+        "rank": 2,
+        "why": "Discusses structural changes in ecommerce landscape",
+        "confidence": 0.85
+      },
+      {
+        "id": "15",
+        "rank": 3,
+        "why": "Explores last-mile delivery partnerships enhancing fulfillment",
+        "confidence": 0.8
+      },
+      {
+        "id": "11",
+        "rank": 4,
+        "why": "Coupang's data breach impacts investor trust and compliance",
+        "confidence": 0.75
+      },
+      {
+        "id": "20",
+        "rank": 5,
+        "why": "Insights on marketing strategies amid tariff changes",
+        "confidence": 0.7
+      },
+      {
+        "id": "26",
+        "rank": 6,
+        "why": "Analyzes winners and losers from tariff policies",
+        "confidence": 0.65
+      },
+      {
+        "id": "29",
+        "rank": 7,
+        "why": "Introduces new ecommerce tools for operational efficiency",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-11T14:24:48.034Z",
+    "model": "gpt-4o-mini"
   }
 }

@@ -50,5 +50,31 @@
     "cached_at": "2026-01-11T13:37:53.099Z",
     "model": "gpt-4o-mini",
     "version": "2.1"
+  },
+  "2026-W01:777f58809caf": {
+    "keyThemes": [
+      "Cartier UK sales",
+      "AI-powered shopping",
+      "structural reckoning",
+      "Pragnell record sales",
+      "profit squeeze"
+    ],
+    "oneSentenceSummary": "Cartier UK sales exceeded £250 million while ecommerce faces structural reckoning due to AI-powered shopping and tariff changes.",
+    "cached_at": "2026-01-11T13:56:26.456Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W01:d56b58f4ed14": {
+    "keyThemes": [
+      "Cartier UK sales",
+      "Pragnell record sales",
+      "profit squeeze",
+      "AI-powered shopping",
+      "Coupang data breach"
+    ],
+    "oneSentenceSummary": "Cartier UK sales exceeded £250 million while Pragnell faced profit squeeze despite record sales of £100.5 million in 2024-25.",
+    "cached_at": "2026-01-11T14:24:52.181Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
   }
 }

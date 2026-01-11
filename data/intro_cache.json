@@ -22,5 +22,17 @@
     "cached_at": "2026-01-11T13:37:54.787Z",
     "model": "gpt-4o-mini",
     "version": "1.0"
+  },
+  "2026-W01:777f58809caf": {
+    "introParagraph": "Cartier UK reports sales exceeding £250 million, reflecting strong performance in the luxury sector. Meanwhile, the ecommerce landscape faces a structural reckoning influenced by AI-powered shopping and recent tariff changes. Pragnell also announces record sales, highlighting ongoing shifts in the jewellery industry.",
+    "cached_at": "2026-01-11T13:56:28.101Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W01:d56b58f4ed14": {
+    "introParagraph": "Cartier UK reports sales exceeding £250 million, reflecting strong performance in the luxury market.  In contrast, Pragnell experiences a profit squeeze despite achieving record sales of £100. 5 million for the 2024-25 period.",
+    "cached_at": "2026-01-11T14:24:53.697Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
   }
 }

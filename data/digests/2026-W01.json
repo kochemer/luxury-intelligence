@@ -3,57 +3,37 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2025-12-28T23:00:00.000Z",
   "endISO": "2026-01-04T22:59:59.999Z",
-  "builtAtISO": "2026-01-11T14:37:47.671+01:00",
-  "builtAtLocal": "2026-01-11 14:37:47",
+  "builtAtISO": "2026-01-11T15:24:48.038+01:00",
+  "builtAtLocal": "2026-01-11 15:24:48",
   "coverImageUrl": "/weekly-images/2026-W01.png",
   "coverImageAlt": "Weekly cover illustration for 2026-W01",
   "coverKeywords": [
-    "visa",
-    "reports",
-    "rise",
-    "holiday",
+    "recap",
+    "biggest",
     "retail",
-    "spending",
-    "psychology",
-    "serps",
-    "shopping",
-    "predictions",
+    "mergers",
+    "acquisitions",
+    "2025",
+    "ecommerce",
+    "faces",
+    "structural",
+    "reckoning",
     "2026",
-    "recap"
+    "cartier"
   ],
   "totals": {
     "total": 86,
     "byTopic": {
-      "AIStrategy": 38,
-      "EcommerceRetail": 37,
+      "AIStrategy": 37,
+      "EcommerceRetail": 38,
       "LuxuryConsumer": 5,
       "Jewellery": 6
     }
   },
   "topics": {
     "AI_and_Strategy": {
-      "total": 38,
+      "total": 37,
       "top": [
-        {
-          "id": "d4uov3",
-          "title": "Visa reports 4.2pc rise in US holiday retail spending",
-          "url": "https://www.luxurydaily.com/visa-reports-4-2pc-rise-in-us-holiday-retail-spending/",
-          "source": "Luxury Daily - Research",
-          "published_at": "2026-01-02T20:36:17.000Z",
-          "ingested_at": "2026-01-05T19:18:58.166Z",
-          "snippet": "Findings indicate artificial intelligence influenced consumer behavior during the season, shaping how shoppers discovered products and compared prices.",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Insights on AI's impact on holiday retail spending",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary:\nVisa's report shows a 4.2% increase in US holiday retail spending, with artificial intelligence playing a significant role in shaping consumer behavior by influencing product discovery and price comparisons."
-        },
         {
           "id": "pd8wix",
           "title": "The Psychology of AI SERPs and Shopping",
@@ -70,9 +50,9 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Explores AI's influence on product discovery",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-driven \"zero-click\" searches are changing the landscape of product discovery and decision-making, hinting at the impact of AI on shopping behavior."
+          "rerankWhy": "Explores AI's impact on shopping behavior and discovery",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI SERPs are impacting shopping behaviors with the rise of \"zero-click\" searches, suggesting a shift in product discovery and decision-making influenced by AI technology."
         },
         {
           "id": "sjl53v",
@@ -93,9 +73,9 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Generative AI's effect on SEO and search results",
-          "rerankConfidence": 0.8,
-          "aiSummary": "AI is predicted to dominate search results in 2026 with the rise of Generative AI and AI Overviews, making traditional optimization less effective."
+          "rerankWhy": "Discusses generative AI's influence on SEO strategies",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI is predicted to dominate search results in 2026 with the rise of AI Overviews and AI Mode, making traditional SEO strategies less effective."
         },
         {
           "id": "26j9cr",
@@ -116,18 +96,18 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Amazon's AI investments impact retail infrastructure",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary:\nAmazon is significantly boosting its investment in AI and data center infrastructure, with a focus on expanding cloud capacity to meet the growing demand for AI computing in government and commercial sectors. Amazon Web Services (AWS) is spearheading these multibillion-dollar commitments."
+          "rerankWhy": "Highlights Amazon's significant AI investments affecting retail",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary:\nAmazon is significantly boosting its investments in artificial intelligence and data center infrastructure, with a focus on expanding cloud capacity to meet the growing demand for AI computing in government and commercial sectors. The company's cloud unit, Amazon Web Services, is spearheading these multibillion-dollar commitments."
         },
         {
-          "id": "qw1abf",
-          "title": "The Modern Retail Podcast’s 2026 predictions",
-          "url": "https://www.modernretail.co/operations/the-modern-retail-podcasts-2026-predictions/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2026-01-03T05:00:00.000Z",
-          "ingested_at": "2026-01-04T13:39:00.323Z",
-          "snippet": "For 2026, the Modern Retail staff predicts more AI shopping and more creator economy shakeups. Plus, a look at what brands could sell next year.",
+          "id": "d4uov3",
+          "title": "Visa reports 4.2pc rise in US holiday retail spending",
+          "url": "https://www.luxurydaily.com/visa-reports-4-2pc-rise-in-us-holiday-retail-spending/",
+          "source": "Luxury Daily - Research",
+          "published_at": "2026-01-02T20:36:17.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Findings indicate artificial intelligence influenced consumer behavior during the season, shaping how shoppers discovered products and compared prices.",
           "gate": {
             "eligible": true,
             "reasons": [
@@ -136,9 +116,9 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Predictions on AI shopping trends for 2026",
-          "rerankConfidence": 0.7,
-          "aiSummary": "AI-generated summary:\nThe Modern Retail staff predicts increased AI shopping, disruptions in the creator economy, and potential shifts in brands' offerings for 2026."
+          "rerankWhy": "Reports on holiday spending influenced by AI",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-generated summary:\nVisa's report shows a 4.2% increase in US holiday retail spending, with artificial intelligence playing a significant role in shaping consumer behavior by influencing product discovery and price comparisons."
         },
         {
           "id": "d7laqg",
@@ -159,18 +139,18 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Highlights popular AI-related content from 2025",
-          "rerankConfidence": 0.65,
-          "aiSummary": "AI-generated summary: In 2025, Practical Ecommerce's top 25 most popular posts were predominantly focused on AI, with 17 out of the 25 articles addressing this topic."
+          "rerankWhy": "Summarizes popular AI-related content relevant to ecommerce",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-generated summary: Practical Ecommerce's top 25 most popular posts of 2025 were predominantly focused on AI, with 17 out of the 25 articles addressing artificial intelligence and its strategic implications."
         },
         {
-          "id": "bv2j8a",
-          "title": "The Wirecutter Show: Tips for Using A.I. Smartly With Kevin Roose",
-          "url": "https://www.nytimes.com/2025/12/30/podcasts/hardfork-wirecutter-ai.html",
+          "id": "337gjj",
+          "title": "The New Billionaires of the A.I. Boom",
+          "url": "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html",
           "source": "NYTimes Technology",
-          "published_at": "2025-12-30T12:00:04.000Z",
+          "published_at": "2025-12-29T22:53:31.000Z",
           "ingested_at": "2025-12-30T12:26:38.325Z",
-          "snippet": "If you’ve ever wondered what chatbots are good for and how best to use them, this episode is for you.",
+          "snippet": "Just like past tech booms, the latest frenzy has produced a group of billionaires — at least on paper — from smaller start-ups.",
           "gate": {
             "eligible": true,
             "reasons": [
@@ -179,14 +159,37 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Practical tips for using AI in retail contexts",
+          "rerankWhy": "Analyzes new billionaires from the AI boom, relevant to retail",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-generated summary:\nThe AI boom has created a new group of billionaires from smaller start-ups, similar to past tech booms, as reported by NYTimes Technology on December 29, 2025."
+        },
+        {
+          "id": "vyjjdb",
+          "title": "The Top Five MIT SMR Videos of 2025",
+          "url": "https://sloanreview.mit.edu/article/the-top-five-mit-smr-videos-of-2025/",
+          "source": "MIT Sloan Management Review – AI",
+          "published_at": "2025-12-29T12:00:26.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "Our most-watched video of the year took on a tough topic: the hype surrounding artificial intelligence. MIT economist and Nobel laureate Daron Acemoglu grabbed readers’ attention with his no-nonsense take on what AI will and won’t do to the modern economy and employment — earning hundreds of thousands of views and sparking a spirited discussion […]",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "Discusses AI's economic impact, relevant for retail strategy",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary:\n\"The Wirecutter Show episode with Kevin Roose discusses the benefits of chatbots and offers tips on using AI smartly.\""
+          "aiSummary": "AI-Generated Summary:\nMIT Sloan Management Review's top video of 2025 featured economist Daron Acemoglu discussing the impact of artificial intelligence on the economy and employment, sparking a lively debate among viewers."
         }
       ]
     },
     "Ecommerce_Retail_Tech": {
-      "total": 37,
+      "total": 38,
       "top": [
         {
           "id": "9xed68",
@@ -209,7 +212,7 @@
           },
           "rerankWhy": "Highlights major retail mergers impacting industry dynamics",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary: In 2025, major players in online retail, fulfillment, and technology engaged in mergers and acquisitions, reshaping the industry landscape for 2026. While some deals were due to bankruptcies, many were strategic expansions."
+          "aiSummary": "AI-generated summary:\nIn 2025, major players in online retail, fulfillment, and technology engaged in mergers and acquisitions, reshaping the retail industry for 2026. Some deals were driven by bankruptcies, while others focused on expansion strategies."
         },
         {
           "id": "m6kq5j",
@@ -230,9 +233,9 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Discusses structural changes in ecommerce for 2026",
+          "rerankWhy": "Discusses structural changes in ecommerce landscape",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary: Ecommerce is undergoing a structural reset in 2026 due to AI-powered shopping, autonomous network operations, and tariff changes reshaping supply chains, leading companies to prioritize operational agility for competitiveness."
+          "aiSummary": "AI-generated summary: Ecommerce is undergoing a structural reset in 2026 due to AI-powered shopping, autonomous network operations, and tariff changes reshaping supply chains, leading companies to focus on operational agility for competitiveness."
         },
         {
           "id": "70vuel",
@@ -258,6 +261,26 @@
           "aiSummary": "AI-generated summary:\nIn 2025, U.S. retailers have utilized last-mile delivery partnerships to enhance fulfillment networks, leveraging physical stores as key assets. Leading online retailers have started utilizing services like Instacart, DoorDash, and Uber Eats for delivery."
         },
         {
+          "id": "qkln1i",
+          "title": "Coupang faces new U.S. lawsuit as fallout widens from massive data breach",
+          "url": "https://www.digitalcommerce360.com/2025/12/30/coupang-us-lawsuit-fallout-massive-data-breach/",
+          "source": "Digital Commerce 360",
+          "published_at": "2025-12-30T21:36:29.000Z",
+          "ingested_at": "2026-01-04T13:39:00.323Z",
+          "snippet": "Coupang Inc. is confronting a growing backlash over one of the country’s largest data breaches in history, culminating in a newly announced U.S. securities lawsuit that accuses the company of failing to timely inform investors about the cybersecurity incident. The lawsuit in the U.S. District Court for the Northern District of California targets the company’s […]\nThe post Coupang faces new U.S. lawsuit as fallout widens from massive data breach appeared first on Digital Commerce 360.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Coupang's data breach impacts investor trust and compliance",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-generated summary:\nCoupang is facing a new U.S. lawsuit related to a massive data breach, with accusations of failing to inform investors promptly about the cybersecurity incident. The lawsuit was filed in the U.S. District Court for the Northern District of California."
+        },
+        {
           "id": "avjg8h",
           "title": "How brands shifted marketing and media strategies through the year of tariffs",
           "url": "https://www.modernretail.co/marketing/how-brands-shifted-marketing-and-media-strategies-through-the-year-of-tariffs/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
@@ -274,8 +297,8 @@
             "tier": "med"
           },
           "rerankWhy": "Insights on marketing strategies amid tariff changes",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary:\nMarketers discuss their strategies for adapting to tariffs and regulatory changes in the ecommerce and retail tech industry throughout the year."
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-generated summary: Marketers discuss their strategies for adapting to tariffs and regulatory changes in the ecommerce and retail tech industry throughout the year."
         },
         {
           "id": "xrh5uj",
@@ -293,29 +316,9 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Analyzes winners and losers from tariff impacts",
-          "rerankConfidence": 0.7,
-          "aiSummary": "AI-generated summary: In 2025, tariffs had a significant impact on the retail industry, with Modern Retail highlighting the major winners and losers of the changes in tariff policy."
-        },
-        {
-          "id": "6erx5k",
-          "title": "The revenge of the ’90s mall brand",
-          "url": "https://www.modernretail.co/operations/the-revenge-of-the-90s-mall-brand/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2025-12-30T05:00:00.000Z",
-          "ingested_at": "2025-12-30T17:19:14.042Z",
-          "snippet": "Brands known for their heyday in the ‘90s, like Gap and Victoria's Secret, have used 2025 to mount turnaround plans. But staging a successful comeback after years of a battered reputation takes more than a few quarters of growth.",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Examines turnaround strategies of 90s mall brands",
+          "rerankWhy": "Analyzes winners and losers from tariff policies",
           "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nIn 2025, '90s mall brands like Gap and Victoria's Secret are working on turnaround plans to revive their reputation, but success requires more than just short-term growth."
+          "aiSummary": "AI-generated summary: In 2025, tariffs reached their highest rate since the Great Depression, causing significant disruptions in the retail industry. Modern Retail identifies the major winners and losers of the changes in tariff policy this year."
         },
         {
           "id": "ny3hg2",
@@ -333,9 +336,9 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Introduces new ecommerce tools for business growth",
+          "rerankWhy": "Introduces new ecommerce tools for operational efficiency",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-Generated Summary: Practical Ecommerce's article on December 31, 2025, highlights new ecommerce tools for mobile apps, hosting, business accelerators, avatars, review management, email marketing, agentic commerce, and video creation."
+          "aiSummary": "AI-Generated Summary: Practical Ecommerce's article highlights new ecommerce tools for mobile apps, hosting, business accelerators, avatars, review management, email marketing, agentic commerce, and video creation as of December 31, 2025."
         }
       ]
     },
@@ -378,7 +381,7 @@
           },
           "rerankWhy": "Insights on luxury travel trends are highly relevant",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nSaks Global CEO Marc Metrick has exited, with Executive Chairman Richard Baker stepping in amid bankruptcy speculation at the luxury retailer."
+          "aiSummary": "AI-generated summary:\nSaks Global CEO Marc Metrick exits, with Executive Chairman Richard Baker assuming the top position amidst bankruptcy speculation at the luxury retailer."
         },
         {
           "id": "ikl06u",
@@ -437,7 +440,7 @@
           },
           "rerankWhy": "Sanctioned judge's case may influence luxury legal markets",
           "rerankConfidence": 0.3,
-          "aiSummary": "AI-Generated Summary:\nLuxury travelers are opting for off-peak trips to avoid crowds and uncomfortable temperatures, with Virtuoso predicting this trend to drive the next 12 months of luxury travel in 2026."
+          "aiSummary": "AI-Generated Summary:\nVirtuoso predicts that luxury travelers will prioritize crowd avoidance and off-peak trips in the next year, seeking to escape overtourism and uncomfortable temperatures by venturing out of season."
         }
       ]
     },
@@ -462,7 +465,7 @@
           },
           "rerankWhy": "Highlights significant sales growth in luxury retail",
           "rerankConfidence": 0.9,
-          "aiSummary": "In the financial year ending in March 2025, Cartier's UK sales surpassed £250 million for the first time, with an 11% increase in sales and a 25% rise in operating profit. The brand outpaced its parent company, Richemont, in growth in the UK market."
+          "aiSummary": "AI-Generated Summary: Cartier's UK sales surpassed £250 million for the first time, growing at twice the pace of its parent company, Richemont. Sales rose by 11% to £251 million in the financial year ending March 2025, with operating profit increasing by 25% to £15 million."
         },
         {
           "id": "ej7s9i",
@@ -482,7 +485,7 @@
           },
           "rerankWhy": "Reports record sales amidst rising costs in retail",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary: Pragnell achieved sales exceeding £100 million for the first time in the 2024-25 financial year, with a 6% revenue increase but an 11% decline in operating profit due to rising costs and retail network expansion."
+          "aiSummary": "AI-generated summary: Pragnell achieved record sales of £100.5 million in the 2024-25 financial year, with a 6% revenue increase. However, operating profit declined by 11% to £8 million due to rising costs and investments in expanding its retail network."
         },
         {
           "id": "shry60",
@@ -505,7 +508,7 @@
           },
           "rerankWhy": "Discusses sales increase but profit decline in retail",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary: Laings' sales increased to £73.7 million in the 12 months ended May 2025, but operating profit dropped by over 40% to £1.9 million, marking a third consecutive year of declining returns."
+          "aiSummary": "AI-generated summary: Laings' sales increased to £73.7 million, but operating profit dropped by over 40% to £1.9 million in the 12 months ended May 2025, marking a third consecutive year of declining returns."
         },
         {
           "id": "9kspfq",
@@ -551,8 +554,8 @@
     "Pragnell record sales",
     "profit squeeze",
     "AI-powered shopping",
-    "last-mile delivery partnerships"
+    "Coupang data breach"
   ],
-  "oneSentenceSummary": "Cartier UK sales exceeded £250 million while Pragnell faced a profit squeeze despite record sales of £100.5 million.",
-  "introParagraph": "Cartier reports UK sales exceeding £250 million, reflecting strong demand in the luxury sector.  In contrast, Pragnell experiences a profit squeeze despite achieving record sales of £100. 5 million."
+  "oneSentenceSummary": "Cartier UK sales exceeded £250 million while Pragnell faced profit squeeze despite record sales of £100.5 million in 2024-25.",
+  "introParagraph": "Cartier UK reports sales exceeding £250 million, reflecting strong performance in the luxury market.  In contrast, Pragnell experiences a profit squeeze despite achieving record sales of £100. 5 million for the 2024-25 period."
 }

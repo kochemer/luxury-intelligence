@@ -181,27 +181,41 @@ async function main() {
     console.log('');
     
     // Generate cover image
-    console.log('Generating cover image...');
-    const categories = [
-      {
-        name: getTopicDisplayName('AI_and_Strategy'),
-        articles: digest.topics.AI_and_Strategy.top.map(a => ({ title: a.title, source: a.source })),
-      },
-      {
-        name: getTopicDisplayName('Ecommerce_Retail_Tech'),
-        articles: digest.topics.Ecommerce_Retail_Tech.top.map(a => ({ title: a.title, source: a.source })),
-      },
-      {
-        name: getTopicDisplayName('Luxury_and_Consumer'),
-        articles: digest.topics.Luxury_and_Consumer.top.map(a => ({ title: a.title, source: a.source })),
-      },
-      {
-        name: getTopicDisplayName('Jewellery_Industry'),
-        articles: digest.topics.Jewellery_Industry.top.map(a => ({ title: a.title, source: a.source })),
-      },
-    ];
+    // AUTHORITATIVE SOURCE: Use ONLY top 1-2 articles from Ecommerce & Retail Tech and Jewellery Industry
+    // These are the exact articles displayed on the homepage, ensuring the cover image matches what users see
+    console.log('Generating cover image from homepage top articles...');
     
-    const coverResult = await generateWeeklyCoverImage(weekLabel, categories, regenCover, coverStyle);
+    const homepageTopArticles: Array<{
+      title: string;
+      source?: string;
+      snippet?: string;
+      aiSummary?: string;
+      rerankWhy?: string;
+    }> = [];
+    
+    // Add top 1-2 from Ecommerce & Retail Tech
+    const ecommerceTop = digest.topics.Ecommerce_Retail_Tech.top.slice(0, 2);
+    homepageTopArticles.push(...ecommerceTop.map(a => ({
+      title: a.title,
+      source: a.source,
+      snippet: a.snippet,
+      aiSummary: (a as any).aiSummary,
+      rerankWhy: (a as any).rerankWhy,
+    })));
+    
+    // Add top 1-2 from Jewellery Industry
+    const jewelleryTop = digest.topics.Jewellery_Industry.top.slice(0, 2);
+    homepageTopArticles.push(...jewelleryTop.map(a => ({
+      title: a.title,
+      source: a.source,
+      snippet: a.snippet,
+      aiSummary: (a as any).aiSummary,
+      rerankWhy: (a as any).rerankWhy,
+    })));
+    
+    console.log(`  Using ${homepageTopArticles.length} homepage articles: ${homepageTopArticles.map(a => a.title).join(', ')}`);
+    
+    const coverResult = await generateWeeklyCoverImage(weekLabel, homepageTopArticles, regenCover, coverStyle);
     
     // Update digest with cover image info
     if (coverResult.success && coverResult.imagePath) {
