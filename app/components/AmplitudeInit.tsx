@@ -30,6 +30,10 @@ export default function AmplitudeInit() {
         serverZone: 'EU',
         analytics: {
           autocapture: true,
+          defaultTracking: {
+            pageViews: true,
+            sessions: true,
+          },
         },
         sessionReplay: {
           sampleRate: 1,

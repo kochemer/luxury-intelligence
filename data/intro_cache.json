@@ -10,5 +10,17 @@
     "cached_at": "2026-01-10T22:13:13.204Z",
     "model": "gpt-4o-mini",
     "version": "1.0"
+  },
+  "2026-W02:bec742501120": {
+    "introParagraph": "Microsoft's agentic AI tools are influencing retail strategies as companies navigate inflation pressures. Saks is seeking a bankruptcy loan to stabilize its financial situation, while Walmart implements AI strategies to enhance its operations. In the luxury sector, De Beers reports a shift in diamond demand amid changing consumer preferences.",
+    "cached_at": "2026-01-11T13:36:26.199Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W01:f1d91b0dbda5": {
+    "introParagraph": "Cartier reports UK sales exceeding £250 million, reflecting strong demand in the luxury sector.  In contrast, Pragnell experiences a profit squeeze despite achieving record sales of £100. 5 million.",
+    "cached_at": "2026-01-11T13:37:54.787Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
   }
 }

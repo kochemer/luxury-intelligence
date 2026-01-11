@@ -2092,5 +2092,311 @@
     ],
     "cached_at": "2026-01-10T22:13:06.455Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:5275da6febea": {
+    "selected": [
+      {
+        "id": "12",
+        "rank": 1,
+        "why": "New AI tools for retail operations enhance efficiency",
+        "confidence": 0.9
+      },
+      {
+        "id": "9",
+        "rank": 2,
+        "why": "Walmart's AI strategies provide actionable insights for retail",
+        "confidence": 0.85
+      },
+      {
+        "id": "37",
+        "rank": 3,
+        "why": "Consumer interactions with AI in retail are increasing",
+        "confidence": 0.8
+      },
+      {
+        "id": "38",
+        "rank": 4,
+        "why": "Insights on AI's impact during the holiday season",
+        "confidence": 0.8
+      },
+      {
+        "id": "7",
+        "rank": 5,
+        "why": "Amazon's Alexa+ enhances shopping experience through AI",
+        "confidence": 0.75
+      },
+      {
+        "id": "6",
+        "rank": 6,
+        "why": "CVS's AI strategy improves customer engagement and growth",
+        "confidence": 0.7
+      },
+      {
+        "id": "19",
+        "rank": 7,
+        "why": "Retail leaders' AI investments highlight future trends",
+        "confidence": 0.65
+      }
+    ],
+    "cached_at": "2026-01-11T13:36:04.245Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:5f38000f0f4c": {
+    "selected": [
+      {
+        "id": "1",
+        "rank": 1,
+        "why": "Highlights financial struggles of major retailers",
+        "confidence": 0.9
+      },
+      {
+        "id": "5",
+        "rank": 2,
+        "why": "Discusses potential bankruptcy impacts on retail",
+        "confidence": 0.85
+      },
+      {
+        "id": "4",
+        "rank": 3,
+        "why": "Analyzes demand drop affecting retail sales",
+        "confidence": 0.8
+      },
+      {
+        "id": "3",
+        "rank": 4,
+        "why": "Shows profit surge and growth forecasts",
+        "confidence": 0.75
+      },
+      {
+        "id": "46",
+        "rank": 5,
+        "why": "Reports significant holiday e-commerce spending growth",
+        "confidence": 0.7
+      },
+      {
+        "id": "58",
+        "rank": 6,
+        "why": "Provides insights on holiday retail sales trends",
+        "confidence": 0.65
+      },
+      {
+        "id": "2",
+        "rank": 7,
+        "why": "Explores fast fashion's expansion in emerging markets",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-11T13:36:10.734Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Luxury_and_Consumer:f698c262379c": {
+    "selected": [
+      {
+        "id": "3",
+        "rank": 1,
+        "why": "Insights on customer spending behavior with loyalty perks",
+        "confidence": 0.9
+      },
+      {
+        "id": "6",
+        "rank": 2,
+        "why": "Highlights partnerships enhancing brand visibility and engagement",
+        "confidence": 0.85
+      },
+      {
+        "id": "12",
+        "rank": 3,
+        "why": "Discusses financial challenges impacting luxury retail operations",
+        "confidence": 0.8
+      },
+      {
+        "id": "11",
+        "rank": 4,
+        "why": "Details on auction process affecting a major beauty brand",
+        "confidence": 0.75
+      },
+      {
+        "id": "4",
+        "rank": 5,
+        "why": "Leadership changes impacting a key resale platform",
+        "confidence": 0.7
+      },
+      {
+        "id": "7",
+        "rank": 6,
+        "why": "Explores brand partnerships aligning with consumer trends",
+        "confidence": 0.65
+      },
+      {
+        "id": "1",
+        "rank": 7,
+        "why": "Impact of travel restrictions on duty-free sales",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-11T13:36:15.994Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Jewellery_Industry:aa4075ddfb14": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "Focuses on boosting diamond demand in retail",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Discusses inflation impact on retail pricing",
+        "confidence": 0.85
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "Highlights indie retailers' adaptability and innovation",
+        "confidence": 0.8
+      },
+      {
+        "id": "3",
+        "rank": 4,
+        "why": "Recognizes a designer's influence in the industry",
+        "confidence": 0.75
+      }
+    ],
+    "cached_at": "2026-01-11T13:36:20.006Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:AI_and_Strategy:0452b8ac5f22": {
+    "selected": [
+      {
+        "id": "20",
+        "rank": 1,
+        "why": "Insights on AI's impact on holiday retail spending",
+        "confidence": 0.9
+      },
+      {
+        "id": "31",
+        "rank": 2,
+        "why": "Explores AI's influence on product discovery",
+        "confidence": 0.85
+      },
+      {
+        "id": "30",
+        "rank": 3,
+        "why": "Generative AI's effect on SEO and search results",
+        "confidence": 0.8
+      },
+      {
+        "id": "19",
+        "rank": 4,
+        "why": "Amazon's AI investments impact retail infrastructure",
+        "confidence": 0.75
+      },
+      {
+        "id": "21",
+        "rank": 5,
+        "why": "Predictions on AI shopping trends for 2026",
+        "confidence": 0.7
+      },
+      {
+        "id": "29",
+        "rank": 6,
+        "why": "Highlights popular AI-related content from 2025",
+        "confidence": 0.65
+      },
+      {
+        "id": "24",
+        "rank": 7,
+        "why": "Practical tips for using AI in retail contexts",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-11T13:37:38.571Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Ecommerce_Retail_Tech:5d34f6df978a": {
+    "selected": [
+      {
+        "id": "10",
+        "rank": 1,
+        "why": "Highlights major retail mergers impacting industry dynamics",
+        "confidence": 0.9
+      },
+      {
+        "id": "13",
+        "rank": 2,
+        "why": "Discusses structural changes in ecommerce for 2026",
+        "confidence": 0.85
+      },
+      {
+        "id": "15",
+        "rank": 3,
+        "why": "Explores last-mile delivery partnerships enhancing fulfillment",
+        "confidence": 0.8
+      },
+      {
+        "id": "20",
+        "rank": 4,
+        "why": "Insights on marketing strategies amid tariff changes",
+        "confidence": 0.75
+      },
+      {
+        "id": "25",
+        "rank": 5,
+        "why": "Analyzes winners and losers from tariff impacts",
+        "confidence": 0.7
+      },
+      {
+        "id": "24",
+        "rank": 6,
+        "why": "Examines turnaround strategies of 90s mall brands",
+        "confidence": 0.65
+      },
+      {
+        "id": "28",
+        "rank": 7,
+        "why": "Introduces new ecommerce tools for business growth",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-11T13:37:43.683Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W01:Jewellery_Industry:e4b141b1d4d7": {
+    "selected": [
+      {
+        "id": "2",
+        "rank": 1,
+        "why": "Highlights significant sales growth in luxury retail",
+        "confidence": 0.9
+      },
+      {
+        "id": "4",
+        "rank": 2,
+        "why": "Reports record sales amidst rising costs in retail",
+        "confidence": 0.85
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "why": "Discusses sales increase but profit decline in retail",
+        "confidence": 0.8
+      },
+      {
+        "id": "1",
+        "rank": 4,
+        "why": "Focuses on technology but lacks retail application",
+        "confidence": 0.75
+      },
+      {
+        "id": "0",
+        "rank": 5,
+        "why": "Not relevant to retail or ecommerce insights",
+        "confidence": 0.7
+      }
+    ],
+    "cached_at": "2026-01-11T13:37:47.670Z",
+    "model": "gpt-4o-mini"
   }
 }

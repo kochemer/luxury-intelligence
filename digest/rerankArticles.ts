@@ -47,9 +47,13 @@ type CandidateArticle = {
   source: string;
   date: string;
   snippet?: string;
-  existingScore: number;
-  isSponsored?: boolean;
   url: string; // for deduplication check
+  flags?: {
+    sponsored?: boolean;
+    pressRelease?: boolean;
+    controversialSuspected?: boolean;
+  };
+  tier?: "high" | "med" | "low"; // Optional category-match tier (not for ranking)
 };
 
 type RerankResult = {
@@ -182,12 +186,17 @@ function buildRerankPrompt(
 ): string {
   const candidateList = candidates.map((c, idx) => {
     const snippet = truncateSnippet(c.snippet, SNIPPET_MAX_LENGTH);
-    const sponsored = c.isSponsored ? ' [SPONSORED]' : '';
-    return `${idx}. ${c.title}${sponsored}
+    const flags: string[] = [];
+    if (c.flags?.sponsored || c.flags?.pressRelease) flags.push('[SPONSORED/PRESS RELEASE]');
+    if (c.flags?.controversialSuspected) flags.push('[CONTROVERSY FLAGGED - REVIEW]');
+    const flagStr = flags.length > 0 ? ` ${flags.join(' ')}` : '';
+    const tierStr = c.tier ? ` [Tier: ${c.tier}]` : '';
+    
+    return `${idx}. ${c.title}${flagStr}${tierStr}
    Source: ${c.source}
    Date: ${c.date}
-   Score: ${c.existingScore.toFixed(3)}
-   ${snippet ? `Snippet: ${snippet}` : ''}`;
+   ${snippet ? `Snippet: ${snippet}` : ''}
+   URL: ${c.url}`;
   }).join('\n\n');
 
   const targetCount = Math.min(7, candidates.length);
@@ -195,28 +204,71 @@ function buildRerankPrompt(
   
   return `You are selecting articles for a weekly brief in the "${categoryDisplayName}" category.
 
-Your goal is to select and rank the ${targetCount} article${targetCount > 1 ? 's' : ''} for readers interested in ${categoryDisplayName}.
+Your goal is to select and rank the ${targetCount} article${targetCount > 1 ? 's' : ''} for Pandora colleagues interested in retail/ecommerce intelligence.
 
 ${isSmallCategory 
   ? `IMPORTANT: This category has only ${candidates.length} candidate${candidates.length > 1 ? 's' : ''}. You MUST select ALL ${candidates.length} of them, ordered by importance (ranks 1-${candidates.length}).`
   : `Select the top ${targetCount} articles from the candidates below, ordered by importance (ranks 1-${targetCount}).`}
 
-Consider:
-- Relevance to ${categoryDisplayName}
-- Newsworthiness and importance
-- Diversity of sources (max 2 per source unless category has very few sources)
-- Recency (prefer recent articles)
-- Quality (avoid low-signal content like pure press releases)
-- Uniqueness (avoid duplicate topics)
+SELECTION CRITERIA (priority order):
 
-Candidate articles (already scored by recency + source quality + keywords):
+A) RELEVANCE TO PANDORA COLLEAGUES (highest priority)
+   Prioritize articles with practical implications for retail/ecommerce:
+   - Customer experience (CX), conversion optimization
+   - CRM/loyalty programs, customer retention
+   - Merchandising, product assortment, inventory
+   - Pricing/promotions, margin management
+   - Supply chain, logistics, fulfillment
+   - Store operations and digital commerce integration
+   - Analytics, experimentation, measurement
+   - AI productivity tools and governance
+
+B) RELEVANCE TO RETAIL/FASHION ECOMMERCE LANDSCAPE
+   - Must connect to commerce; deprioritize generic tech unless clearly applied to retail
+   - Focus on actionable insights for retail professionals
+
+C) INSIGHTFULNESS
+   Prefer articles with:
+   - New data, benchmarks, metrics
+   - Case studies with measurable outcomes
+   - Strong analysis and non-obvious takeaways
+   - Concrete examples and real-world applications
+   Avoid:
+   - Thin rewrites or summaries
+   - Pure announcements without analysis
+   - Vendor marketing without substance
+   - Generic thought leadership
+
+D) CONTROVERSY FILTER (hard constraint - EXCLUDE these)
+   Do NOT select articles primarily about:
+   - War/armed conflict/violence (unless directly about retail supply chain impact)
+   - Culture-war/polarizing identity politics
+   - Election horse-race politics
+   EXCEPTION: Allow policy/regulation with DIRECT retail/ecommerce/AI impact:
+   - Tariffs, trade policy affecting retail pricing/supply chain
+   - AI compliance laws (AI Act, GDPR, privacy regulation)
+   - Platform regulation with direct commerce impact
+   - Consumer protection laws affecting retail
+   Articles marked [CONTROVERSY FLAGGED - REVIEW] should be carefully evaluated against this filter.
+
+E) RECENCY
+   - All articles are from the same week; treat Monday and Friday equally
+   - No intra-week recency bias - all in-week articles are equally recent
+
+CONSTRAINTS:
+- Select exactly ${targetCount} article${targetCount > 1 ? 's' : ''} (or fewer if fewer eligible candidates)
+- Max 2 articles per source (enforce source diversity)
+- Avoid duplicates/near-duplicates of the same story/topic
+- Never select duplicates (check URLs if provided)
+
+Candidate articles (all eligible - no numeric scores provided):
 ${candidateList}
 
-Select articles for the weekly brief. Return a JSON object with this exact structure:
+Return a JSON object with this exact structure:
 {
   "selected": [
-    { "id": "0", "rank": 1, "why": "brief reason", "confidence": 0.9 },
-    { "id": "1", "rank": 2, "why": "brief reason", "confidence": 0.85 },
+    { "id": "0", "rank": 1, "why": "brief concrete reason (5-15 words)", "confidence": 0.9 },
+    { "id": "1", "rank": 2, "why": "brief concrete reason (5-15 words)", "confidence": 0.85 },
     ...
   ]
 }
@@ -224,10 +276,8 @@ Select articles for the weekly brief. Return a JSON object with this exact struc
 Rules:
 - "id" must match the candidate number (0, 1, 2, ...)
 - "rank" must be 1-N, unique, sequential (where N = number of candidates to select)
-- "why" should be a short phrase (5-15 words) explaining why this article was selected
+- "why" should be a short phrase (5-15 words) explaining why this article was selected - be concrete and specific
 - "confidence" should be 0.0-1.0
-- Never select duplicates (check URLs if provided)
-- Prefer source diversity: max 2 items per source unless category has < 4 unique sources
 - CRITICAL: Selection count must match exactly:
   - You must return exactly ${targetCount} item${targetCount > 1 ? 's' : ''} in the "selected" array
 ${isSmallCategory ? `- For this small category with ${candidates.length} candidates, select ALL ${candidates.length} candidates (ids 0-${candidates.length - 1})` : ''}
@@ -437,17 +487,24 @@ export async function rerankArticles<T extends Article & { snippet?: string }>(
   // For 2-6 candidates, allow reranking (will return all candidates, max 7)
   // For 7+ candidates, rerank and return top 7
 
-  // Build candidate list with bounded fields
-  const candidateList: CandidateArticle[] = candidates.map((article, idx) => ({
-    id: idx.toString(),
-    title: article.title,
-    source: article.source,
-    date: article.published_at ? new Date(article.published_at).toLocaleDateString() : '',
-    snippet: article.snippet,
-    existingScore: (article as any).relevance?.scoreTotal || 0,
-    isSponsored: (article as any).relevance?.penalty && (article as any).relevance.penalty > 0,
-    url: article.url,
-  }));
+  // Build candidate list with bounded fields (no scores, just flags and metadata)
+  const candidateList: CandidateArticle[] = candidates.map((article, idx) => {
+    const gate = (article as any).gate;
+    return {
+      id: idx.toString(),
+      title: article.title,
+      source: article.source,
+      date: article.published_at ? new Date(article.published_at).toLocaleDateString() : '',
+      snippet: article.snippet,
+      url: article.url,
+      flags: gate?.flags ? {
+        sponsored: gate.flags.sponsored,
+        pressRelease: gate.flags.pressRelease,
+        controversialSuspected: gate.flags.controversialSuspected,
+      } : undefined,
+      tier: gate?.tier,
+    };
+  });
 
   stats.total_candidates += candidateList.length;
 

@@ -24,5 +24,31 @@
     "cached_at": "2026-01-10T22:13:12.041Z",
     "model": "gpt-4o-mini",
     "version": "2.1"
+  },
+  "2026-W02:bec742501120": {
+    "keyThemes": [
+      "Microsoft agentic AI tools",
+      "Saks bankruptcy loan",
+      "inflation pressures",
+      "Walmart AI strategies",
+      "De Beers diamond demand"
+    ],
+    "oneSentenceSummary": "Microsoft's agentic AI tools and inflation pressures are reshaping retail strategies as companies like Saks seek financial stability.",
+    "cached_at": "2026-01-11T13:36:24.532Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W01:f1d91b0dbda5": {
+    "keyThemes": [
+      "Cartier UK sales",
+      "Pragnell record sales",
+      "profit squeeze",
+      "AI-powered shopping",
+      "last-mile delivery partnerships"
+    ],
+    "oneSentenceSummary": "Cartier UK sales exceeded £250 million while Pragnell faced a profit squeeze despite record sales of £100.5 million.",
+    "cached_at": "2026-01-11T13:37:53.099Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
   }
 }

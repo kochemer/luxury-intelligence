@@ -19,48 +19,10 @@ const __dirname = path.dirname(__filename);
 const TOP_N = 7;
 const MAX_PER_SOURCE = 3; // Diversity guard: max articles per source in top N
 
-// --- Relevance Ranking Configuration ---
+// --- Article Gating Configuration ---
 
 /**
- * Source weights: positive values boost articles from these sources
- * Default weight is 0 for sources not listed
- */
-const SOURCE_WEIGHTS: Record<string, number> = {
-  "Jeweller - Business News": 0.1,
-  "Professional Jeweller": 0.1,
-  "NYTimes Technology": 0.15,
-  "Modern Retail": 0.1,
-  "Practical Ecommerce": 0.1,
-  "Retail Dive": 0.1,
-  "Harvard Business Review (Technology & AI)": 0.15,
-  "McKinsey & Company: Artificial Intelligence": 0.15,
-};
-
-/**
- * Topic-specific keywords for boosting relevance
- * Case-insensitive matching in title and snippet
- */
-const TOPIC_KEYWORDS: Record<Topic, string[]> = {
-  "AI_and_Strategy": [
-    "artificial intelligence", "ai", "machine learning", "ml", "strategy", "automation",
-    "personalization", "recommendation", "chatbot", "analytics", "insights", "data"
-  ],
-  "Ecommerce_Retail_Tech": [
-    "ecommerce", "e-commerce", "online retail", "shopping", "checkout", "payment",
-    "platform", "marketplace", "fulfillment", "logistics", "warehouse", "inventory", "retail tech"
-  ],
-  "Luxury_and_Consumer": [
-    "luxury", "premium", "high-end", "consumer", "behavior", "spending", "demand",
-    "brand", "heritage", "exclusive", "aspirational", "affluent"
-  ],
-  "Jewellery_Industry": [
-    "jewellery", "jewelry", "diamond", "gem", "precious metal", "gold", "silver",
-    "retailer", "jeweller", "hallmark", "assay", "watch", "timepiece"
-  ],
-};
-
-/**
- * Low-signal markers that trigger penalties
+ * Low-signal markers that indicate sponsored/press release content
  * Case-insensitive matching in title and snippet
  */
 const LOW_SIGNAL_MARKERS = [
@@ -68,10 +30,25 @@ const LOW_SIGNAL_MARKERS = [
   "paid content", "sponsored content", "ad", "promo"
 ];
 
-// Keyword boost per match (small boost)
-const KEYWORD_BOOST_PER_MATCH = 0.05;
-// Penalty per low-signal marker found
-const LOW_SIGNAL_PENALTY = 0.2;
+/**
+ * Controversy markers - exclude articles primarily about these topics
+ */
+const CONTROVERSY_MARKERS = {
+  war: ["war", "armed conflict", "violence", "military action", "combat", "battle", "invasion", "attack", "bombing", "drone strike"],
+  cultureWar: ["culture war", "identity politics", "woke", "cancel culture", "political correctness", "gender ideology", "critical race theory"],
+  election: ["election", "campaign", "polling", "voter", "candidate", "primary", "debate", "ballot", "electoral"],
+};
+
+/**
+ * Policy/regulation allowlist terms - these are allowed even if they mention controversy markers
+ * Must be directly related to retail/ecommerce/AI impact
+ */
+const POLICY_ALLOWLIST = [
+  "tariff", "tariffs", "trade policy", "trade war", "trade agreement",
+  "regulation", "regulatory", "compliance", "AI Act", "GDPR", "privacy law",
+  "data protection", "platform regulation", "antitrust", "competition law",
+  "consumer protection", "retail regulation", "ecommerce regulation"
+];
 
 /**
  * Normalize a title for deduplication:
@@ -109,107 +86,152 @@ function dedupeArticles(articles: Article[]): Article[] {
 }
 
 /**
- * Relevance score breakdown for explainability
+ * Article gating result - determines eligibility, not ranking
  */
-type RelevanceScore = {
-  scoreTotal: number;
-  recencyScore: number;
-  sourceWeight: number;
-  keywordBoost: number;
-  penalty: number;
-  matchedKeywords: string[];
+type ArticleGate = {
+  eligible: boolean;
+  reasons: string[];
+  flags: {
+    sponsored?: boolean;
+    pressRelease?: boolean;
+    duplicateOf?: string;
+    offCategory?: boolean;
+    controversial?: boolean;
+    controversialSuspected?: boolean;
+  };
+  tier?: "high" | "med" | "low"; // Optional category-match tier (not for ranking)
 };
 
 /**
- * Article with relevance scoring (only added to selected top items)
+ * Article with gating information (only added to selected top items)
  */
-type ArticleWithRelevance = Article & {
-  relevance?: RelevanceScore;
+type ArticleWithGate = Article & {
+  gate?: ArticleGate;
 };
 
 /**
- * Calculate recency score: map publishedAt within week to 0..1 (newest=1)
+ * Check if text contains any of the given markers (case-insensitive)
  */
-function calculateRecencyScore(publishedAt: string, weekStart: number, weekEnd: number): number {
-  if (!publishedAt) return 0;
-  const articleTime = new Date(publishedAt).getTime();
-  if (isNaN(articleTime) || articleTime < weekStart || articleTime > weekEnd) return 0;
-  
-  // Normalize to 0..1 where newest (weekEnd) = 1, oldest (weekStart) = 0
-  const weekDuration = weekEnd - weekStart;
-  if (weekDuration === 0) return 1;
-  return (articleTime - weekStart) / weekDuration;
-}
-
-/**
- * Find matched keywords in text (case-insensitive)
- */
-function findMatchedKeywords(text: string, keywords: string[]): string[] {
+function containsMarkers(text: string, markers: string[]): boolean {
   const lowerText = text.toLowerCase();
-  return keywords.filter(keyword => lowerText.includes(keyword.toLowerCase()));
+  return markers.some(marker => lowerText.includes(marker.toLowerCase()));
 }
 
 /**
- * Calculate keyword boost based on topic-specific keywords
+ * Check if text contains any allowlist terms (case-insensitive)
  */
-function calculateKeywordBoost(article: Article, topic: Topic): { boost: number; matched: string[] } {
-  const keywords = TOPIC_KEYWORDS[topic] || [];
-  const titleMatches = findMatchedKeywords(article.title, keywords);
-  const snippetMatches = article.snippet ? findMatchedKeywords(article.snippet, keywords) : [];
+function containsAllowlist(text: string, allowlist: string[]): boolean {
+  const lowerText = text.toLowerCase();
+  return allowlist.some(term => lowerText.includes(term.toLowerCase()));
+}
+
+/**
+ * Detect controversy in article content
+ * Returns: { isControversial: boolean, isSuspected: boolean }
+ */
+function detectControversy(article: Article): { isControversial: boolean; isSuspected: boolean } {
+  const text = `${article.title} ${article.snippet || ''}`;
+  const lowerText = text.toLowerCase();
   
-  // Combine and deduplicate
-  const allMatches = Array.from(new Set([...titleMatches, ...snippetMatches]));
-  const boost = allMatches.length * KEYWORD_BOOST_PER_MATCH;
+  // Check for policy allowlist first - if found, allow even if controversy markers present
+  const hasPolicyContext = containsAllowlist(text, POLICY_ALLOWLIST);
   
-  return { boost, matched: allMatches };
+  // Check each controversy category
+  const hasWar = containsMarkers(text, CONTROVERSY_MARKERS.war);
+  const hasCultureWar = containsMarkers(text, CONTROVERSY_MARKERS.cultureWar);
+  const hasElection = containsMarkers(text, CONTROVERSY_MARKERS.election);
+  
+  // If policy context exists, don't exclude even if controversy markers found
+  if (hasPolicyContext && (hasWar || hasCultureWar || hasElection)) {
+    return { isControversial: false, isSuspected: false };
+  }
+  
+  // If clear controversy markers without policy context, exclude
+  if (hasWar || hasCultureWar || hasElection) {
+    // Check if it's ambiguous (e.g., mentions both controversy and retail/commerce)
+    const hasRetailContext = containsMarkers(text, ["retail", "commerce", "ecommerce", "shopping", "customer", "merchant", "store", "brand"]);
+    if (hasRetailContext) {
+      // Ambiguous - mark as suspected but don't exclude deterministically
+      return { isControversial: false, isSuspected: true };
+    }
+    return { isControversial: true, isSuspected: false };
+  }
+  
+  return { isControversial: false, isSuspected: false };
 }
 
 /**
- * Calculate penalty for low-signal markers
+ * Gate an article - determine eligibility and flags (no ranking)
  */
-function calculatePenalty(article: Article): number {
-  const text = `${article.title} ${article.snippet || ''}`.toLowerCase();
-  const matches = LOW_SIGNAL_MARKERS.filter(marker => text.includes(marker.toLowerCase()));
-  return matches.length * LOW_SIGNAL_PENALTY;
-}
-
-/**
- * Calculate composite relevance score for an article
- */
-function calculateRelevanceScore(
+function gateArticle(
   article: Article,
   topic: Topic,
+  duplicateMap: Map<string, string>, // normalized title -> URL of duplicate
   weekStart: number,
   weekEnd: number
-): RelevanceScore {
-  // Recency score (0..1) - calculated but not included in total score
-  const recencyScore = calculateRecencyScore(article.published_at, weekStart, weekEnd);
+): ArticleGate {
+  const reasons: string[] = [];
+  const flags: ArticleGate['flags'] = {};
   
-  // Source weight (default 0)
-  const sourceWeight = SOURCE_WEIGHTS[article.source] || 0;
+  // Check if article is within week window
+  if (!article.published_at) {
+    return { eligible: false, reasons: ["Missing published_at"], flags };
+  }
   
-  // Keyword boost
-  const { boost: keywordBoost, matched: matchedKeywords } = calculateKeywordBoost(article, topic);
+  const articleTime = new Date(article.published_at).getTime();
+  if (isNaN(articleTime) || articleTime < weekStart || articleTime > weekEnd) {
+    return { eligible: false, reasons: ["Outside week window"], flags };
+  }
   
-  // Penalty
-  const penalty = calculatePenalty(article);
+  // Check for sponsored/press release content
+  const text = `${article.title} ${article.snippet || ''}`;
+  const lowerText = text.toLowerCase();
   
-  // Total score (recency removed - all articles in week treated equally)
-  const scoreTotal = sourceWeight + keywordBoost - penalty;
+  const isSponsored = LOW_SIGNAL_MARKERS.some(marker => lowerText.includes(marker.toLowerCase()));
+  if (isSponsored) {
+    flags.sponsored = true;
+    flags.pressRelease = true;
+    reasons.push("Sponsored/press release content");
+    // Don't exclude - let LLM decide, but flag it
+  }
+  
+  // Check for duplicates
+  const normTitle = normalizeTitle(article.title);
+  const duplicateOf = duplicateMap.get(normTitle);
+  if (duplicateOf && duplicateOf !== article.url) {
+    flags.duplicateOf = duplicateOf;
+    reasons.push("Duplicate article");
+    return { eligible: false, reasons, flags };
+  }
+  
+  // Check for controversy
+  const { isControversial, isSuspected } = detectControversy(article);
+  if (isControversial) {
+    flags.controversial = true;
+    reasons.push("Controversial topic (war/culture-war/election)");
+    return { eligible: false, reasons, flags };
+  }
+  if (isSuspected) {
+    flags.controversialSuspected = true;
+    reasons.push("Potentially controversial (flagged for LLM review)");
+  }
+  
+  // Determine tier based on category match (optional, not for ranking)
+  // This is a simple heuristic - can be refined
+  let tier: "high" | "med" | "low" = "med";
+  // For now, all eligible articles are "med" tier - LLM will do the ranking
   
   return {
-    scoreTotal,
-    recencyScore,
-    sourceWeight,
-    keywordBoost,
-    penalty,
-    matchedKeywords,
+    eligible: true,
+    reasons: reasons.length > 0 ? reasons : ["Eligible"],
+    flags,
+    tier,
   };
 }
 
 /**
  * Select top N articles deterministically (fallback for reranking)
- * Returns articles with relevance scores attached
+ * Uses simple source diversity - no scoring, just gating + diversity
  */
 function selectTopNDeterministic(
   articles: Article[],
@@ -217,43 +239,54 @@ function selectTopNDeterministic(
   topic: Topic,
   weekStart: number,
   weekEnd: number
-): ArticleWithRelevance[] {
+): ArticleWithGate[] {
   if (articles.length === 0) return [];
   
-  // Calculate scores for all articles
-  const articlesWithScores = articles.map(article => ({
+  // Build duplicate map
+  const duplicateMap = new Map<string, string>();
+  const seenTitles = new Map<string, string>(); // normalized title -> URL
+  for (const article of articles) {
+    const normTitle = normalizeTitle(article.title);
+    const existing = seenTitles.get(normTitle);
+    if (existing) {
+      duplicateMap.set(normTitle, existing);
+    } else {
+      seenTitles.set(normTitle, article.url);
+    }
+  }
+  
+  // Gate all articles
+  const gatedArticles = articles.map(article => ({
     article,
-    relevance: calculateRelevanceScore(article, topic, weekStart, weekEnd),
+    gate: gateArticle(article, topic, duplicateMap, weekStart, weekEnd),
   }));
   
-  // Sort by total score (descending), then by URL for determinism
-  articlesWithScores.sort((a, b) => {
-    if (Math.abs(a.relevance.scoreTotal - b.relevance.scoreTotal) > 0.0001) {
-      return b.relevance.scoreTotal - a.relevance.scoreTotal;
-    }
-    return a.article.url.localeCompare(b.article.url);
-  });
+  // Filter to eligible only
+  const eligible = gatedArticles.filter(item => item.gate.eligible);
+  
+  // Sort by URL for determinism (no scoring)
+  eligible.sort((a, b) => a.article.url.localeCompare(b.article.url));
   
   // Apply diversity guard: limit max per source, but relax if needed to fill to N
-  const selected: ArticleWithRelevance[] = [];
+  const selected: ArticleWithGate[] = [];
   const sourceCounts = new Map<string, number>();
   
-  for (let i = 0; i < articlesWithScores.length && selected.length < n; i++) {
-    const { article, relevance } = articlesWithScores[i];
+  for (let i = 0; i < eligible.length && selected.length < n; i++) {
+    const { article, gate } = eligible[i];
     const currentCount = sourceCounts.get(article.source) || 0;
     const remainingSlots = n - selected.length;
-    const remainingArticles = articlesWithScores.length - i;
+    const remainingArticles = eligible.length - i;
     
     // Check if we can add this article:
     // 1. Haven't hit the cap for this source, OR
     // 2. We need to fill remaining slots (relax cap if not enough articles from other sources)
     const canAdd = currentCount < MAX_PER_SOURCE;
-    const mustFill = remainingSlots >= remainingArticles; // If remaining slots >= remaining articles, we must take this
+    const mustFill = remainingSlots >= remainingArticles;
     
     if (canAdd || mustFill) {
       selected.push({
         ...article,
-        relevance,
+        gate,
       });
       sourceCounts.set(article.source, currentCount + 1);
     }
@@ -264,7 +297,7 @@ function selectTopNDeterministic(
 
 /**
  * Select top N articles using LLM reranking with fallback
- * Returns articles with relevance scores and optional explainability attached
+ * Returns articles with gating info and optional explainability attached
  */
 async function selectTopN(
   articles: Article[],
@@ -273,35 +306,43 @@ async function selectTopN(
   weekStart: number,
   weekEnd: number,
   weekLabel: string
-): Promise<ArticleWithRelevance[]> {
+): Promise<ArticleWithGate[]> {
   if (articles.length === 0) return [];
   
-  // Calculate scores for all articles
-  const articlesWithScores = articles.map(article => ({
-    article,
-    relevance: calculateRelevanceScore(article, topic, weekStart, weekEnd),
-  }));
-  
-  // Sort by total score (descending), then by URL for determinism
-  articlesWithScores.sort((a, b) => {
-    if (Math.abs(a.relevance.scoreTotal - b.relevance.scoreTotal) > 0.0001) {
-      return b.relevance.scoreTotal - a.relevance.scoreTotal;
+  // Build duplicate map
+  const duplicateMap = new Map<string, string>();
+  const seenTitles = new Map<string, string>(); // normalized title -> URL
+  for (const article of articles) {
+    const normTitle = normalizeTitle(article.title);
+    const existing = seenTitles.get(normTitle);
+    if (existing) {
+      duplicateMap.set(normTitle, existing);
+    } else {
+      seenTitles.set(normTitle, article.url);
     }
-    return a.article.url.localeCompare(b.article.url);
-  });
+  }
   
-  // Get candidates: top N articles by deterministic score (default 100, min 25, max 100)
-  // Use all available if fewer than 25, but still try to rerank if >= 7
-  const candidateCount = articlesWithScores.length < 25
-    ? articlesWithScores.length
-    : Math.min(100, articlesWithScores.length);
-  const candidates = articlesWithScores.slice(0, candidateCount).map(item => ({
-    ...item.article,
-    relevance: item.relevance,
+  // Gate all articles
+  const gatedArticles = articles.map(article => ({
+    article,
+    gate: gateArticle(article, topic, duplicateMap, weekStart, weekEnd),
   }));
   
-  // Fallback function: deterministic top N
-  const fallbackSelect = (arts: ArticleWithRelevance[]) => {
+  // Filter to eligible only
+  const eligible = gatedArticles.filter(item => item.gate.eligible);
+  
+  // Sort by URL for determinism (no scoring - LLM will do ranking)
+  eligible.sort((a, b) => a.article.url.localeCompare(b.article.url));
+  
+  // Get candidates: all eligible articles (up to 100 max for cost control)
+  const candidateCount = Math.min(100, eligible.length);
+  const candidates = eligible.slice(0, candidateCount).map(item => ({
+    ...item.article,
+    gate: item.gate,
+  }));
+  
+  // Fallback function: deterministic top N (simple diversity-based)
+  const fallbackSelect = (arts: ArticleWithGate[]) => {
     return selectTopNDeterministic(arts, n, topic, weekStart, weekEnd);
   };
   
@@ -350,10 +391,10 @@ export type WeeklyDigest = {
     };
   };
   topics: {
-    AI_and_Strategy: { total: number; top: ArticleWithRelevance[] };
-    Ecommerce_Retail_Tech: { total: number; top: ArticleWithRelevance[] };
-    Luxury_and_Consumer: { total: number; top: ArticleWithRelevance[] };
-    Jewellery_Industry: { total: number; top: ArticleWithRelevance[] };
+    AI_and_Strategy: { total: number; top: ArticleWithGate[] };
+    Ecommerce_Retail_Tech: { total: number; top: ArticleWithGate[] };
+    Luxury_and_Consumer: { total: number; top: ArticleWithGate[] };
+    Jewellery_Industry: { total: number; top: ArticleWithGate[] };
   };
 };
 
