@@ -59,42 +59,49 @@ async function fetchHtml(url: string, fetchDir: string): Promise<string | null> 
   }
 
   try {
-    // Wrap fetch with timeout (15 seconds total)
-    const fetchPromise = fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.9'
-      },
-      timeout: 10000, // 10 second timeout for connection
-      redirect: 'follow'
-    });
+    // Use AbortController for timeout (15 seconds total)
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept-Language': 'en-US,en;q=0.9'
+        },
+        signal: controller.signal,
+        redirect: 'follow'
+      });
+      
+      clearTimeout(timeoutId);
 
-    const response = await withTimeout(
-      fetchPromise,
-      15000,
-      `Fetch timeout for ${url}`
-    );
+      if (!response.ok) {
+        console.warn(`[Fetch] Failed to fetch ${url}: ${response.status}`);
+        return null;
+      }
 
-    if (!response.ok) {
-      console.warn(`[Fetch] Failed to fetch ${url}: ${response.status}`);
-      return null;
+      // Wrap text() call with timeout (10 seconds)
+      const html = await withTimeout(
+        response.text(),
+        10000,
+        `Text extraction timeout for ${url}`
+      );
+      
+      // Save to cache
+      await fs.mkdir(fetchDir, { recursive: true });
+      await fs.writeFile(htmlPath, html, 'utf-8');
+      
+      return html;
+    } finally {
+      clearTimeout(timeoutId);
     }
-
-    // Wrap text() call with timeout (10 seconds)
-    const html = await withTimeout(
-      response.text(),
-      10000,
-      `Text extraction timeout for ${url}`
-    );
-    
-    // Save to cache
-    await fs.mkdir(fetchDir, { recursive: true });
-    await fs.writeFile(htmlPath, html, 'utf-8');
-    
-    return html;
   } catch (error: any) {
-    console.warn(`[Fetch] Error fetching ${url}: ${error.message}`);
+    if (error.name === 'AbortError') {
+      console.warn(`[Fetch] Timeout fetching ${url} after 15s`);
+    } else {
+      console.warn(`[Fetch] Error fetching ${url}: ${error.message}`);
+    }
     return null;
   }
 }
