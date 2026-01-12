@@ -11,7 +11,8 @@
     "discover": "tsx scripts/discoverWeekly.ts",
     "print-yield": "tsx scripts/printSourceYield.ts",
     "validate:feeds": "tsx scripts/validateFeeds.ts",
-    "cover": "tsx scripts/regenerateCover.ts"
+    "cover": "tsx scripts/regenerateCover.ts",
+    "podcast": "tsx scripts/buildWeeklyPodcast.ts"
   },
   "dependencies": {
     "@amplitude/unified": "^1.0.0-beta.9",

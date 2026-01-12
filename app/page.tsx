@@ -97,6 +97,27 @@ async function loadDigest(weekLabel: string): Promise<WeeklyDigest | null> {
   }
 }
 
+type PodcastMetadata = {
+  week: string;
+  audioPath: string;
+  model: string;
+  voice: string;
+  generatedAt: string;
+  duration?: number;
+};
+
+async function loadLatestPodcast(): Promise<PodcastMetadata | null> {
+  try {
+    const weekLabel = getPreviousWeek();
+    const podcastPath = path.join(process.cwd(), 'data', 'weeks', weekLabel, 'podcast.json');
+    const raw = await fs.readFile(podcastPath, 'utf-8');
+    return JSON.parse(raw) as PodcastMetadata;
+  } catch {
+    // Fail silently if podcast doesn't exist
+    return null;
+  }
+}
+
 // Category UI meta data (title, short desc, topicKey, N)
 // Ordered for display: Ecommerce, Jewellery, AI, Luxury
 const CATEGORY_CARDS: Array<{
@@ -150,6 +171,7 @@ const CATEGORY_CARDS: Array<{
 export default async function Home() {
   const weekLabel = getPreviousWeek();
   const digest = await loadDigest(weekLabel);
+  const podcast = await loadLatestPodcast();
 
   // HERO section (always present)
   return (
@@ -158,11 +180,12 @@ export default async function Home() {
       fontFamily: 'system-ui, Arial, sans-serif',
       background: '#f7f9fb',
     }}>
+
       {/* HERO */}
       <section className="mb-6" style={{
         position: 'relative',
         width: '100%',
-        minHeight: 240,
+        minHeight: 180,
         background: 'linear-gradient(120deg,#6b2d5c 50%, #8b4a7a 100%)',
         overflow: 'hidden',
         display: 'flex',
@@ -204,36 +227,6 @@ export default async function Home() {
           <p className="text-sm md:text-base text-gray-300 mb-5">
             Curated articles, signals, and context — handpicked and summarised by AI agents each week.
           </p>
-          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, flexWrap: 'wrap'}}>
-            <Link
-              href="/subscribe"
-              style={{
-                fontWeight: 600,
-                color: '#06244c',
-                background: '#fed236',
-                borderRadius: 4,
-                padding: '0.6rem 1.4rem',
-                textDecoration: 'none',
-                transition: 'background 0.2s',
-                fontSize: '1rem',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
-              }}
-            >
-              Subscribe (email digest)
-            </Link>
-            <span className="text-gray-300 text-sm">•</span>
-            <Link href="/archive" className="text-sm md:text-base text-gray-200 hover:text-white underline">
-              Browse archive
-            </Link>
-            <span className="text-gray-300 text-sm">•</span>
-            <Link href="/about" className="text-sm md:text-base text-gray-200 hover:text-white underline">
-              About
-            </Link>
-            <span className="text-gray-300 text-sm">•</span>
-            <Link href="/support" className="text-sm md:text-base text-gray-200 hover:text-white underline">
-              Support
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -298,6 +291,32 @@ export default async function Home() {
                   </div>
                 </div>
               </div>
+              
+              {/* Weekly Podcast Player - Inside same pane */}
+              {podcast && (
+                <div className="mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-200">
+                  <div className="mb-3">
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900">
+                      🎧 Weekly Luxury Intelligence Podcast · ~20 min
+                    </h3>
+                    <p className="text-sm text-gray-600 italic mt-2">
+                      Listen to this week&apos;s key ecommerce, jewellery & luxury stories
+                    </p>
+                  </div>
+                  <audio
+                    controls
+                    preload="none"
+                    className="w-full"
+                    style={{
+                      height: '48px',
+                      borderRadius: '6px',
+                    }}
+                  >
+                    <source src={podcast.audioPath} type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+              )}
             </div>
           </section>
         )}
@@ -350,23 +369,25 @@ export default async function Home() {
         {(digest.keyThemes && digest.keyThemes.length > 0) || digest.oneSentenceSummary ? (
           <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6">
             <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
-              {digest.oneSentenceSummary && (
-                <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-3">
-                  {digest.oneSentenceSummary}
-                </p>
-              )}
-              {digest.keyThemes && digest.keyThemes.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {digest.keyThemes.slice(0, 3).map((theme, idx) => (
-                    <span
-                      key={idx}
-                      className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200"
-                    >
-                      {theme}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <div className="text-center">
+                {digest.oneSentenceSummary && (
+                  <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
+                    {digest.oneSentenceSummary}
+                  </p>
+                )}
+                {digest.keyThemes && digest.keyThemes.length > 0 && (
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {digest.keyThemes.map((theme, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200"
+                      >
+                        {theme}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </section>
         ) : null}

@@ -121,6 +121,25 @@ export default function RootLayout({
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link
+                    href="/subscribe"
+                    style={{
+                      fontWeight: 600,
+                      color: '#06244c',
+                      background: '#fed236',
+                      borderRadius: 4,
+                      padding: '0.5rem 1.2rem',
+                      textDecoration: 'none',
+                      transition: 'background 0.2s',
+                      fontSize: '0.9rem',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    Subscribe
+                  </Link>
+                </li>
               </ul>
             </div>
           </nav>

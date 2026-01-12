@@ -45,3 +45,9 @@ scripts/*.js
 
 # discovery cache files (may contain secrets from scraped websites)
 data/weeks/*/discovery/fetch/*.html
+
+# FFmpeg binaries (platform-specific, users should download separately)
+tools/ffmpeg/ffmpeg
+tools/ffmpeg/ffmpeg.exe
+tools/ffmpeg/ffprobe
+tools/ffmpeg/ffprobe.exe
