@@ -141,5 +141,44 @@
     "cached_at": "2026-01-11T22:00:17.018Z",
     "model": "gpt-4o-mini",
     "version": "2.1"
+  },
+  "2026-W02:b38965940193": {
+    "keyThemes": [
+      "Walmart AI strategies",
+      "De Beers diamond demand",
+      "agentic AI tools",
+      "inflationary pressures",
+      "retail sales growth"
+    ],
+    "oneSentenceSummary": "Walmart's AI strategies and De Beers' focus on India highlight significant shifts in retail and luxury sectors amid rising inflation.",
+    "cached_at": "2026-01-12T06:34:48.336Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W02:fe4a72043d7b": {
+    "keyThemes": [
+      "Walmart AI strategies",
+      "Saks Global financial struggles",
+      "inflation pressures",
+      "agentic commerce tools",
+      "Spangle AI funding"
+    ],
+    "oneSentenceSummary": "Walmart's AI strategies and Saks Global's financial struggles highlight contrasting developments in retail and luxury sectors amid inflation pressures.",
+    "cached_at": "2026-01-12T06:39:10.271Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W02:071b7f26e038": {
+    "keyThemes": [
+      "Walmart AI strategies",
+      "De Beers diamond demand",
+      "inflation pressures",
+      "agentic commerce tools",
+      "retail profitability"
+    ],
+    "oneSentenceSummary": "Walmart's AI strategies and inflation pressures are reshaping retail dynamics as De Beers targets India's affluent market for diamond demand.",
+    "cached_at": "2026-01-12T07:00:45.840Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
   }
 }

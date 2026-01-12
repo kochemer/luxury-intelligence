@@ -64,5 +64,23 @@
     "cached_at": "2026-01-11T22:00:18.266Z",
     "model": "gpt-4o-mini",
     "version": "1.0"
+  },
+  "2026-W02:b38965940193": {
+    "introParagraph": "Walmart implements new AI strategies to enhance its operations as retail sales show growth despite inflationary pressures. Meanwhile, De Beers focuses on increasing diamond demand in India, reflecting shifts in the luxury market.",
+    "cached_at": "2026-01-12T06:34:49.428Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W02:fe4a72043d7b": {
+    "introParagraph": "Walmart implements new AI strategies to enhance its operations, while Saks Global faces financial challenges amid ongoing inflation pressures. The retail and luxury sectors continue to navigate these contrasting developments, with a focus on agentic commerce tools and recent funding for Spangle AI.",
+    "cached_at": "2026-01-12T06:39:12.087Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W02:071b7f26e038": {
+    "introParagraph": "Walmart implements AI strategies to address inflation pressures affecting retail profitability. Meanwhile, De Beers focuses on the affluent market in India to boost diamond demand amid changing consumer preferences.",
+    "cached_at": "2026-01-12T07:00:47.454Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
   }
 }

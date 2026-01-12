@@ -1,0 +1,33 @@
+{
+  "conceptTitle": "luxury-retail-contrast",
+  "oneSentenceConcept": "In a luxury jewelry boutique, a retail manager checks diamond inventory on paper while a wealthy customer examines a diamond with a smartphone flashlight.",
+  "visualAnchors": {
+    "location": "luxury jewelry boutique in Mumbai",
+    "subjects": [
+      "luxury retail manager",
+      "affluent customer"
+    ],
+    "props": [
+      "diamond display case",
+      "smartphone",
+      "clipboard with inventory papers"
+    ],
+    "action": "retail manager reviewing inventory papers, customer using smartphone flashlight to examine diamonds"
+  },
+  "humorNote": "Subtle irony in mixing high-tech consumer behavior with low-tech operational reality",
+  "boringnessBreaker": {
+    "selected": [
+      "B",
+      "F"
+    ],
+    "executionNote": "Operational reality with paper and pen in a luxury setting while consumer uses high-tech solutions; fingerprints visible on the glass case hint at recent use."
+  },
+  "finalImagePrompt": "Photograph of a luxury jewelry boutique in Mumbai, featuring a retail manager checking diamond inventory on paper and a wealthy customer using a smartphone flashlight to examine a diamond. The scene is captured in a wide horizontal banner format with all key elements in the central band, safe vertical margins, and horizontally expansive composition. Use natural lighting to emphasize real reflections and imperfections in the glass display case. Ensure a candid, mid-action feel with no text, signage, or screens visible, and focus on real materials to capture editorial realism. Avoid stock photo aesthetics, ensuring the scene is dynamic and human.",
+  "negativePrompt": [
+    "text, letters, numbers, signage, labels",
+    "screens, UI, dashboards, holograms, floating icons",
+    "logos, brands, watermarks",
+    "cartoon, illustration, CGI, 3D render, anime"
+  ],
+  "confidence": 0.8
+}

@@ -3166,5 +3166,245 @@
     ],
     "cached_at": "2026-01-11T22:00:10.628Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:5b40c0d15a64": {
+    "selected": [
+      {
+        "id": "10",
+        "rank": 1,
+        "why": "Walmart's AI strategies directly impact retail operations",
+        "confidence": 0.9
+      },
+      {
+        "id": "13",
+        "rank": 2,
+        "why": "Microsoft's tools automate key retail functions",
+        "confidence": 0.85
+      },
+      {
+        "id": "38",
+        "rank": 3,
+        "why": "Consumer interactions with AI in retail are growing",
+        "confidence": 0.8
+      },
+      {
+        "id": "36",
+        "rank": 4,
+        "why": "Insights on AI's impact from holiday sales data",
+        "confidence": 0.75
+      },
+      {
+        "id": "12",
+        "rank": 5,
+        "why": "Spangle AI's funding supports ecommerce AI infrastructure",
+        "confidence": 0.7
+      },
+      {
+        "id": "8",
+        "rank": 6,
+        "why": "Amazon's Alexa+ enhances customer shopping experience",
+        "confidence": 0.65
+      },
+      {
+        "id": "19",
+        "rank": 7,
+        "why": "AI checkout trends indicate future retail shifts",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-12T06:34:35.841Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:efe03ba96ea4": {
+    "selected": [
+      {
+        "id": "46",
+        "rank": 1,
+        "why": "Highlights significant holiday ecommerce spending growth",
+        "confidence": 0.9
+      },
+      {
+        "id": "54",
+        "rank": 2,
+        "why": "Identifies key retail trends for 2026",
+        "confidence": 0.85
+      },
+      {
+        "id": "20",
+        "rank": 3,
+        "why": "Discusses in-store advertising expansion plans",
+        "confidence": 0.8
+      },
+      {
+        "id": "3",
+        "rank": 4,
+        "why": "Reports on profit surge impacting retail forecasts",
+        "confidence": 0.75
+      },
+      {
+        "id": "1",
+        "rank": 5,
+        "why": "Examines financial struggles of notable retailers",
+        "confidence": 0.7
+      },
+      {
+        "id": "4",
+        "rank": 6,
+        "why": "Analyzes demand drop affecting retail sales",
+        "confidence": 0.65
+      },
+      {
+        "id": "59",
+        "rank": 7,
+        "why": "Provides insights on holiday sales growth metrics",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-12T06:34:39.209Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Luxury_and_Consumer:b247292ed10a": {
+    "selected": [
+      {
+        "id": "4",
+        "rank": 1,
+        "why": "Insights on customer spending behavior and loyalty programs",
+        "confidence": 0.9
+      },
+      {
+        "id": "14",
+        "rank": 2,
+        "why": "Impact of financial issues on luxury retail operations",
+        "confidence": 0.85
+      },
+      {
+        "id": "8",
+        "rank": 3,
+        "why": "Emerging trends in partnerships with female athletes",
+        "confidence": 0.8
+      },
+      {
+        "id": "5",
+        "rank": 4,
+        "why": "Bankruptcy loan talks highlight retail financial challenges",
+        "confidence": 0.75
+      },
+      {
+        "id": "6",
+        "rank": 5,
+        "why": "Leadership changes affecting strategic direction of retail",
+        "confidence": 0.7
+      },
+      {
+        "id": "1",
+        "rank": 6,
+        "why": "Travel restrictions impacting duty-free sales in Japan",
+        "confidence": 0.65
+      },
+      {
+        "id": "11",
+        "rank": 7,
+        "why": "Affluent consumer behavior influencing new car sales",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-12T06:34:44.203Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:AI_and_Strategy:c8e3d19e72b2": {
+    "selected": [
+      {
+        "id": "22",
+        "rank": 1,
+        "why": "Focuses on AI-driven pricing and assortment optimization",
+        "confidence": 0.9
+      },
+      {
+        "id": "10",
+        "rank": 2,
+        "why": "Insights on Walmart's AI strategies for ecommerce",
+        "confidence": 0.85
+      },
+      {
+        "id": "13",
+        "rank": 3,
+        "why": "Microsoft's tools for automating retail operations",
+        "confidence": 0.8
+      },
+      {
+        "id": "40",
+        "rank": 4,
+        "why": "Consumer interaction with AI customer service insights",
+        "confidence": 0.75
+      },
+      {
+        "id": "12",
+        "rank": 5,
+        "why": "Funding for AI infrastructure in ecommerce",
+        "confidence": 0.7
+      },
+      {
+        "id": "39",
+        "rank": 6,
+        "why": "Amazon's new Alexa+ web experience for shopping",
+        "confidence": 0.65
+      },
+      {
+        "id": "38",
+        "rank": 7,
+        "why": "Early signals of AI impact on holiday sales",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-12T07:00:35.452Z",
+    "model": "gpt-4o-mini"
+  },
+  "2026-W02:Ecommerce_Retail_Tech:4262c7d92576": {
+    "selected": [
+      {
+        "id": "45",
+        "rank": 1,
+        "why": "Highlights significant holiday ecommerce spending growth",
+        "confidence": 0.9
+      },
+      {
+        "id": "1",
+        "rank": 2,
+        "why": "Discusses financial struggles of major retailers",
+        "confidence": 0.85
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "why": "Shows positive profit trends in retail sector",
+        "confidence": 0.8
+      },
+      {
+        "id": "4",
+        "rank": 4,
+        "why": "Addresses demand drop impacting retail sales",
+        "confidence": 0.8
+      },
+      {
+        "id": "20",
+        "rank": 5,
+        "why": "Explores in-store advertising strategies for retailers",
+        "confidence": 0.75
+      },
+      {
+        "id": "53",
+        "rank": 6,
+        "why": "Identifies key retail trends for 2026",
+        "confidence": 0.7
+      },
+      {
+        "id": "57",
+        "rank": 7,
+        "why": "Focuses on expanding wellness product assortments",
+        "confidence": 0.65
+      }
+    ],
+    "cached_at": "2026-01-12T07:00:40.917Z",
+    "model": "gpt-4o-mini"
   }
 }

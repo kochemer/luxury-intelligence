@@ -25,6 +25,27 @@ function hashUrl(url: string): string {
   return crypto.createHash('sha256').update(url).digest('hex').substring(0, 16);
 }
 
+/**
+ * Create a timeout promise that rejects after specified milliseconds
+ */
+function createTimeout(ms: number): Promise<never> {
+  return new Promise((_, reject) => {
+    setTimeout(() => reject(new Error(`Operation timed out after ${ms}ms`)), ms);
+  });
+}
+
+/**
+ * Wrap a promise with a timeout
+ */
+async function withTimeout<T>(promise: Promise<T>, ms: number, errorMessage: string): Promise<T> {
+  return Promise.race([
+    promise,
+    createTimeout(ms).then(() => {
+      throw new Error(errorMessage);
+    })
+  ]);
+}
+
 async function fetchHtml(url: string, fetchDir: string): Promise<string | null> {
   const hash = hashUrl(url);
   const htmlPath = path.join(fetchDir, `${hash}.html`);
@@ -38,22 +59,34 @@ async function fetchHtml(url: string, fetchDir: string): Promise<string | null> 
   }
 
   try {
-    const response = await fetch(url, {
+    // Wrap fetch with timeout (15 seconds total)
+    const fetchPromise = fetch(url, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9'
       },
-      timeout: 10000, // 10 second timeout
+      timeout: 10000, // 10 second timeout for connection
       redirect: 'follow'
     });
+
+    const response = await withTimeout(
+      fetchPromise,
+      15000,
+      `Fetch timeout for ${url}`
+    );
 
     if (!response.ok) {
       console.warn(`[Fetch] Failed to fetch ${url}: ${response.status}`);
       return null;
     }
 
-    const html = await response.text();
+    // Wrap text() call with timeout (10 seconds)
+    const html = await withTimeout(
+      response.text(),
+      10000,
+      `Text extraction timeout for ${url}`
+    );
     
     // Save to cache
     await fs.mkdir(fetchDir, { recursive: true });
@@ -189,49 +222,66 @@ async function extractArticle(
     // Continue to extract
   }
 
-  // Fetch HTML
-  const html = await fetchHtml(searchResult.url, fetchDir);
-  if (!html) {
+  try {
+    // Wrap entire extraction with timeout (30 seconds total per article)
+    return await withTimeout(
+      (async () => {
+        // Fetch HTML
+        const html = await fetchHtml(searchResult.url, fetchDir);
+        if (!html) {
+          return null;
+        }
+
+        // Extract text (wrap with timeout in case cheerio processing hangs)
+        const extractPromise = Promise.resolve(extractText(html, searchResult.url));
+        const { text, title: extractedTitle, author, date } = await withTimeout(
+          extractPromise,
+          5000,
+          `Text extraction processing timeout for ${searchResult.url}`
+        );
+        
+        // Use search result title if extracted title is too short
+        const finalTitle = extractedTitle.length > 10 ? extractedTitle : searchResult.title;
+        
+        // Count words
+        const wordCount = text.split(/\s+/).filter(w => w.length > 0).length;
+        
+        // Validate
+        if (!isEnglish(text)) {
+          console.warn(`[Extract] Non-English content: ${searchResult.url}`);
+          return null;
+        }
+        
+        if (!isArticle(text, wordCount)) {
+          console.warn(`[Extract] Not an article (${wordCount} words): ${searchResult.url}`);
+          return null;
+        }
+
+        const extracted: ExtractedArticle = {
+          url: searchResult.url,
+          title: finalTitle,
+          snippet: searchResult.snippet,
+          domain: searchResult.domain,
+          publishedDate: date || searchResult.publishedDate,
+          extractedText: text.substring(0, 5000), // Limit extracted text length
+          wordCount,
+          author,
+          hash
+        };
+
+        // Save to cache
+        await fs.mkdir(extractedDir, { recursive: true });
+        await fs.writeFile(extractedPath, JSON.stringify(extracted, null, 2), 'utf-8');
+
+        return extracted;
+      })(),
+      30000, // 30 second total timeout per article
+      `Article extraction timeout for ${searchResult.url}`
+    );
+  } catch (error: any) {
+    console.warn(`[Extract] Error extracting ${searchResult.url}: ${error.message}`);
     return null;
   }
-
-  // Extract text
-  const { text, title: extractedTitle, author, date } = extractText(html, searchResult.url);
-  
-  // Use search result title if extracted title is too short
-  const finalTitle = extractedTitle.length > 10 ? extractedTitle : searchResult.title;
-  
-  // Count words
-  const wordCount = text.split(/\s+/).filter(w => w.length > 0).length;
-  
-  // Validate
-  if (!isEnglish(text)) {
-    console.warn(`[Extract] Non-English content: ${searchResult.url}`);
-    return null;
-  }
-  
-  if (!isArticle(text, wordCount)) {
-    console.warn(`[Extract] Not an article (${wordCount} words): ${searchResult.url}`);
-    return null;
-  }
-
-  const extracted: ExtractedArticle = {
-    url: searchResult.url,
-    title: finalTitle,
-    snippet: searchResult.snippet,
-    domain: searchResult.domain,
-    publishedDate: date || searchResult.publishedDate,
-    extractedText: text.substring(0, 5000), // Limit extracted text length
-    wordCount,
-    author,
-    hash
-  };
-
-  // Save to cache
-  await fs.mkdir(extractedDir, { recursive: true });
-  await fs.writeFile(extractedPath, JSON.stringify(extracted, null, 2), 'utf-8');
-
-  return extracted;
 }
 
 export async function fetchAndExtractArticles(
@@ -252,14 +302,58 @@ export async function fetchAndExtractArticles(
   }
 
   const extracted: ExtractedArticle[] = [];
+  const progressPath = path.join(discoveryDir, 'extraction-progress.json');
+
+  // Try to load progress if exists (for resuming)
+  let processedHashes = new Set<string>();
+  try {
+    const progress = JSON.parse(await fs.readFile(progressPath, 'utf-8'));
+    if (Array.isArray(progress.processedHashes)) {
+      processedHashes = new Set(progress.processedHashes);
+      console.log(`[Extract] Resuming: ${processedHashes.size} articles already processed`);
+    }
+  } catch {
+    // No progress file, start fresh
+  }
 
   for (let i = 0; i < searchResults.length; i++) {
     const result = searchResults[i];
+    const hash = hashUrl(result.url);
+    
+    // Skip if already processed
+    if (processedHashes.has(hash)) {
+      // Try to load from cache
+      try {
+        const cached = JSON.parse(await fs.readFile(path.join(extractedDir, `${hash}.json`), 'utf-8'));
+        extracted.push(cached);
+        continue;
+      } catch {
+        // Cache missing, reprocess
+      }
+    }
+
     console.log(`[Extract] Processing ${i + 1}/${searchResults.length}: ${result.title.substring(0, 50)}...`);
     
-    const article = await extractArticle(result, fetchDir, extractedDir);
-    if (article) {
-      extracted.push(article);
+    try {
+      const article = await extractArticle(result, fetchDir, extractedDir);
+      if (article) {
+        extracted.push(article);
+      }
+      
+      // Mark as processed
+      processedHashes.add(hash);
+      
+      // Save progress every 10 articles
+      if ((i + 1) % 10 === 0) {
+        await fs.writeFile(progressPath, JSON.stringify({
+          processedHashes: Array.from(processedHashes),
+          lastProcessed: i + 1,
+          total: searchResults.length
+        }, null, 2), 'utf-8');
+      }
+    } catch (error: any) {
+      console.error(`[Extract] Failed to process ${result.url}: ${error.message}`);
+      // Continue to next article instead of stopping
     }
     
     // Rate limiting
@@ -271,6 +365,13 @@ export async function fetchAndExtractArticles(
   // Save candidates
   await fs.mkdir(discoveryDir, { recursive: true });
   await fs.writeFile(candidatesPath, JSON.stringify(extracted, null, 2), 'utf-8');
+  
+  // Clean up progress file
+  try {
+    await fs.unlink(progressPath);
+  } catch {
+    // Ignore if doesn't exist
+  }
 
   return extracted;
 }

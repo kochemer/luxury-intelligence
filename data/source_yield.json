@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-10T22:12:25.765Z",
+  "timestamp": "2026-01-12T06:58:49.464Z",
   "sources": [
     {
       "sourceName": "Jeweller - Business News",
@@ -78,9 +78,9 @@
       "type": "rss",
       "itemsFetched": 10,
       "itemsParsed": 10,
-      "newArticlesAdded": 5,
-      "duplicates": 5,
-      "yieldPct": 50
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
     },
     {
       "sourceName": "Practical Ecommerce",
@@ -96,9 +96,9 @@
       "type": "rss",
       "itemsFetched": 10,
       "itemsParsed": 10,
-      "newArticlesAdded": 1,
-      "duplicates": 9,
-      "yieldPct": 10
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
     },
     {
       "sourceName": "TechCrunch Ecommerce",
@@ -114,18 +114,18 @@
       "type": "rss",
       "itemsFetched": 10,
       "itemsParsed": 10,
-      "newArticlesAdded": 5,
-      "duplicates": 5,
-      "yieldPct": 50
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
     },
     {
       "sourceName": "NYTimes Technology",
       "type": "rss",
       "itemsFetched": 20,
       "itemsParsed": 20,
-      "newArticlesAdded": 3,
-      "duplicates": 17,
-      "yieldPct": 15
+      "newArticlesAdded": 0,
+      "duplicates": 20,
+      "yieldPct": 0
     },
     {
       "sourceName": "MIT Sloan Management Review – AI",
@@ -150,9 +150,9 @@
       "type": "rss",
       "itemsFetched": 10,
       "itemsParsed": 10,
-      "newArticlesAdded": 1,
-      "duplicates": 9,
-      "yieldPct": 10
+      "newArticlesAdded": 0,
+      "duplicates": 10,
+      "yieldPct": 0
     },
     {
       "sourceName": "BoF - News (The News in Brief)",
@@ -167,8 +167,8 @@
   "summary": {
     "totalSources": 18,
     "totalItemsFetched": 268,
-    "totalNewArticles": 15,
-    "totalDuplicates": 253,
-    "overallYieldPct": 5.597014925373134
+    "totalNewArticles": 0,
+    "totalDuplicates": 268,
+    "overallYieldPct": 0
   }
 }

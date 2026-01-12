@@ -33,5 +33,26 @@
     "rationale": "The article focuses on Walmart's preparation for the AI era with the addition of a tech veteran to the board, indicating a strategic move towards AI implementation.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-11T21:59:55.967Z"
+  },
+  "https://www.practicalecommerce.com/new-ecommerce-tools-january-7-2026": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article focuses on new ecommerce tools and services for marketing, advertising, and fulfillment networks, indicating a primary focus on ecommerce and retail technology.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-12T06:34:30.856Z"
+  },
+  "https://www.businessoffashion.com/news/media/the-face-names-jonny-lu-creative-director-editor-in-chief-matthew-whitehouse-to-exit": {
+    "category": "Luxury_and_Consumer",
+    "confidence": 0.85,
+    "rationale": "The article focuses on changes in leadership roles within a luxury fashion publication, indicating a shift in luxury brand strategy and potentially consumer insights.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-12T06:39:05.414Z"
+  },
+  "https://www.nytimes.com/2026/01/08/theater/moliere-ai-sorbonne-the-astrologer.html": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article focuses on artificial intelligence being used to imitate a playwright's themes and sense of humor, aligning with AI and machine learning applications.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-12T07:00:16.224Z"
   }
 }

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # generated javascript wrappers (use tsx to run .ts files directly)
 scripts/*.js
+
+# discovery cache files (may contain secrets from scraped websites)
+data/weeks/*/discovery/fetch/*.html
