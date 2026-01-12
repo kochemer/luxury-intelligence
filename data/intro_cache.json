@@ -34,5 +34,35 @@
     "cached_at": "2026-01-11T14:24:53.697Z",
     "model": "gpt-4o-mini",
     "version": "1.0"
+  },
+  "2026-W02:5b701a1c6e23": {
+    "introParagraph": "Walmart implements new AI strategies to enhance its retail operations as Spangle AI secures funding to expand its offerings in the ecommerce sector. These developments occur against a backdrop of inflation pressures and a focus on agentic commerce tools, which aim to support retail sales growth.",
+    "cached_at": "2026-01-11T16:31:25.451Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W02:c342f3ca6621": {
+    "introParagraph": "Microsoft's agentic AI tools and Walmart's AI strategies are influencing retail operations as companies adapt to inflationary pressures and changing consumer preferences. CVS Health is implementing a digital strategy to enhance its services, while Saks is in discussions regarding a bankruptcy loan.",
+    "cached_at": "2026-01-11T20:50:43.731Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W01:a1bd337bdf73": {
+    "introParagraph": "Cartier UK reports sales exceeding £250 million, reflecting strong performance in the luxury sector. Meanwhile, the ecommerce landscape faces a structural reckoning as AI-powered shopping and tariff impacts reshape consumer behavior. Pragnell also announces record sales, highlighting ongoing trends in the jewellery industry.",
+    "cached_at": "2026-01-11T20:53:35.349Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W02:89d6b5fba5a7": {
+    "introParagraph": "Walmart implements new AI strategies to enhance its operations in the retail sector. Meanwhile, Spangle AI secures funding to further develop its ecommerce technology. These developments occur against a backdrop of inflation pressures affecting the industry.",
+    "cached_at": "2026-01-11T21:51:38.266Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W02:82009e95c938": {
+    "introParagraph": "Walmart implements AI strategies to address changing consumer behaviors amid rising inflation pressures. Fast Retailing reports profits as the retail landscape evolves, while De Beers sees a shift in diamond demand within the luxury and consumer sectors.",
+    "cached_at": "2026-01-11T22:00:18.266Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
   }
 }

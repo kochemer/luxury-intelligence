@@ -2,6 +2,8 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import OpenAI from 'openai';
+import fetch from 'node-fetch';
+import { generateCoverScenePrompt, type ArticleInput, type Variant } from './sceneDirector';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,6 +14,7 @@ type Article = {
   snippet?: string;
   aiSummary?: string;
   rerankWhy?: string;
+  sponsored?: boolean;
 };
 
 /**
@@ -158,10 +161,15 @@ Photography style:
 - Editorial realism (Financial Times / WSJ Magazine / Vogue Business)
 
 Composition:
-- One clear focal subject
+- Wide, horizontally expansive banner format (target 3:1 or wider aspect ratio)
+- Vertically minimal height - all important visual elements must be placed in the central horizontal band
+- Safe margins at top and bottom - no critical content near vertical edges
+- One clear focal subject in the central horizontal band
 - Secondary elements add context but do not compete
 - Clean background, no clutter
 - Looks like a real photo taken in a real location
+- Composition must work when displayed in a wide, shallow container
+- Avoid vertical stacking, tall elements, or content that extends to top/bottom edges
 
 Tone:
 - Intelligent
@@ -383,44 +391,69 @@ function extractKeywords(titles: string[]): string[] {
 }
 
 /**
- * Generate a cover image using OpenAI DALL-E
+ * Generate a cover image using OpenAI GPT Image
  */
 async function generateCoverImage(
   prompt: string,
   outputPath: string,
   apiKey: string
-): Promise<boolean> {
+): Promise<{ success: boolean; size?: string; model?: string }> {
   try {
     const openai = new OpenAI({ apiKey });
     
-    console.log('Generating cover image with DALL-E...');
+    console.log('Generating cover image with GPT Image...');
     
-    const response = await openai.images.generate({
-      model: 'dall-e-3',
-      prompt: prompt,
-      n: 1,
-      size: '1792x1024', // Wider format, better for magazine covers
-      quality: 'hd', // Highest quality available
-      response_format: 'url',
-    });
+    // GPT Image model name
+    const model = 'gpt-image-1.5';
+    
+    // Try 1536x1024 first (wide format for cover), fallback to 1024x1024 if not supported
+    let size: "1536x1024" | "1024x1024" = '1536x1024';
+    let response;
+    
+    try {
+      response = await openai.images.generate({
+        model: model,
+        prompt: prompt,
+        n: 1,
+        size: size,
+      });
+    } catch (sizeError: any) {
+      // If size not supported, try fallback
+      if (sizeError.message?.includes('size') || sizeError.message?.includes('dimension') || sizeError.message?.includes('Invalid value')) {
+        console.warn(`Size ${size} not supported, falling back to 1024x1024`);
+        size = '1024x1024';
+        response = await openai.images.generate({
+          model: model,
+          prompt: prompt,
+          n: 1,
+          size: size,
+        });
+      } else {
+        throw sizeError;
+      }
+    }
     
     if (!response.data || response.data.length === 0) {
-      throw new Error('No image data returned from DALL-E');
+      throw new Error('No image data returned from GPT Image');
     }
     
-    const imageUrl = response.data[0]?.url;
-    if (!imageUrl) {
-      throw new Error('No image URL returned from DALL-E');
-    }
+    const imageData = response.data[0];
+    let buffer: Buffer;
     
-    // Download the image
-    const imageResponse = await fetch(imageUrl);
-    if (!imageResponse.ok) {
-      throw new Error(`Failed to download image: ${imageResponse.statusText}`);
+    // Handle both URL and base64 responses
+    if (imageData.url) {
+      // Download image from URL
+      const imageResponse = await fetch(imageData.url);
+      if (!imageResponse.ok) {
+        throw new Error(`Failed to download image from URL: ${imageResponse.statusText}`);
+      }
+      buffer = Buffer.from(await imageResponse.arrayBuffer());
+    } else if (imageData.b64_json) {
+      // Decode base64 to buffer
+      buffer = Buffer.from(imageData.b64_json, 'base64');
+    } else {
+      throw new Error('No image data (URL or base64) returned from GPT Image');
     }
-    
-    const imageBuffer = await imageResponse.arrayBuffer();
-    const buffer = Buffer.from(imageBuffer);
     
     // Sanity check: if file is too small (< 50KB), treat as failure
     const fileSizeKB = buffer.length / 1024;
@@ -435,31 +468,101 @@ async function generateCoverImage(
     // Write PNG file
     await fs.writeFile(outputPath, buffer);
     
-    console.log(`✓ Cover image saved to: ${outputPath} (${fileSizeKB.toFixed(1)}KB)`);
-    return true;
+    console.log(`✓ Cover image saved to: ${outputPath} (${fileSizeKB.toFixed(1)}KB, size: ${size})`);
+    return { success: true, size, model };
   } catch (error) {
     console.error('Error generating cover image:', error);
-    return false;
+    return { success: false };
   }
 }
 
 /**
- * Generate cover image for a weekly digest
+ * Harden prompt with ultra-photorealism enforcement and anti-text guarantees
  */
+function hardenPromptForPhotorealism(prompt: string): string {
+  return `${prompt}
+
+PHOTOREALISM ENFORCEMENT:
+- Ultra photorealistic editorial photograph, shot on a real DSLR or medium-format camera.
+- Natural lighting, realistic skin texture, realistic reflections, realistic materials, real physics.
+- Candid editorial realism; avoid stock-photo staging.
+
+ANTI-CARTOON / ANTI-CGI:
+- No illustration, no cartoon, no anime, no 3D render, no CGI, no synthetic look.
+
+NO-TEXT GUARANTEE:
+- Absolutely no text, letters, numbers, typography, signage, labels, price tags.
+- No screens, dashboards, UI, holograms, floating icons, charts.
+- Avoid any objects that commonly contain text (posters, newspapers, packaging, storefront signs). If unavoidable, they must be fully out of focus and unreadable.`;
+}
+
 /**
- * Generate cover image for a weekly digest
+ * Add banner composition constraints to ensure wide, shallow hero image format
+ */
+function addBannerCompositionConstraints(prompt: string): string {
+  const hardened = hardenPromptForPhotorealism(prompt);
+  return `${hardened}
+
+COMPOSITION FOR WIDE HERO BANNER (CRITICAL):
+- Wide, horizontally expansive banner format (target 3:1 or wider aspect ratio)
+- Vertically minimal height - all important visual elements must be placed in the central horizontal band
+- Safe margins at top and bottom - no critical content near vertical edges
+- Composition must work when displayed in a wide, shallow container
+- Avoid vertical stacking, tall elements, or content that extends to top/bottom edges`;
+}
+
+/**
+ * Integrate negative prompt constraints into the main prompt
+ * (GPT Image doesn't support separate negative prompts, so we include them in the main prompt)
+ */
+function integrateNegativePrompt(mainPrompt: string, negativePrompts: string[]): string {
+  if (negativePrompts.length === 0) {
+    return addBannerCompositionConstraints(mainPrompt);
+  }
+  
+  const negativeText = negativePrompts.join(', ');
+  const withNegative = `${mainPrompt}
+
+CRITICAL CONSTRAINTS (must be strictly avoided):
+- ${negativeText}`;
+  
+  return addBannerCompositionConstraints(withNegative);
+}
+
+/**
+ * Persist scene director output to cover-scene.json
+ */
+async function persistSceneOutput(weekLabel: string, sceneOutput: any): Promise<void> {
+  try {
+    const sceneDir = path.join(__dirname, '../data/weeks', weekLabel);
+    await fs.mkdir(sceneDir, { recursive: true });
+    const scenePath = path.join(sceneDir, 'cover-scene.json');
+    await fs.writeFile(scenePath, JSON.stringify(sceneOutput, null, 2), 'utf-8');
+    console.log(`✓ Scene director output saved to: ${scenePath}`);
+  } catch (error) {
+    console.warn(`⚠ Failed to save scene output: ${(error as Error).message}`);
+  }
+}
+
+/**
+ * Generate cover image for a weekly digest using 2-step pipeline:
+ * 1. Scene Director (LLM) generates final image prompt
+ * 2. GPT Image renders the image
+ * 
  * @param weekLabel - Week label (e.g., "2026-W01")
  * @param homepageTopArticles - Top 1-2 articles from Ecommerce & Retail Tech and Jewellery Industry (the exact articles shown on homepage)
  * @param regenCover - Force regeneration even if image exists
  * @param coverStyle - Deprecated, always uses realistic now
+ * @param variant - 'safe' for conservative, 'fun' for more creative (default: 'safe')
  * @returns Success status, image path, and keywords
  */
 export async function generateWeeklyCoverImage(
   weekLabel: string,
   homepageTopArticles: HomepageTopArticles,
   regenCover: boolean = false,
-  coverStyle: 'realistic' | 'illustration' = 'realistic' // Deprecated, always uses realistic now
-): Promise<{ success: boolean; imagePath?: string; keywords: string[] }> {
+  coverStyle: 'realistic' | 'illustration' = 'realistic', // Deprecated, always uses realistic now
+  variant: Variant = 'safe'
+): Promise<{ success: boolean; imagePath?: string; keywords: string[]; prompt?: string }> {
   const imagePath = path.join(__dirname, '../public/weekly-images', `${weekLabel}.png`);
   
   // Check if image already exists (idempotency)
@@ -485,11 +588,45 @@ export async function generateWeeklyCoverImage(
     }
   }
   
-  // Build prompt from homepage articles ONLY
-  const prompt = buildImagePrompt(homepageTopArticles);
+  // Step 1: Scene Director generates the final image prompt
+  console.log(`[Cover Generation] Step 1: Scene Director generating prompt (variant: ${variant})...`);
+  
+  const articleInputs: ArticleInput[] = homepageTopArticles.map(article => ({
+    title: article.title,
+    source: article.source,
+    snippet: article.snippet,
+    aiSummary: article.aiSummary,
+    rerankWhy: article.rerankWhy,
+    sponsored: article.sponsored
+  }));
+  
+  let sceneOutput;
+  try {
+    sceneOutput = await generateCoverScenePrompt(weekLabel, articleInputs, variant);
+  } catch (error) {
+    console.error(`[Cover Generation] Scene Director failed: ${(error as Error).message}`);
+    // Fallback to old prompt builder
+    console.log('[Cover Generation] Falling back to legacy prompt builder...');
+    const fallbackPrompt = buildImagePrompt(homepageTopArticles);
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      console.warn('OPENAI_API_KEY not found, skipping cover image generation');
+      return { success: false, keywords: [], prompt: fallbackPrompt };
+    }
+    const fallbackResult = await generateCoverImage(fallbackPrompt, imagePath, apiKey);
+    const titles = homepageTopArticles.map(a => a.title);
+    const keywords = extractKeywords(titles);
+    return { success: fallbackResult.success, imagePath: fallbackResult.success ? `/weekly-images/${weekLabel}.png` : undefined, keywords, prompt: fallbackPrompt };
+  }
+  
+  // Persist scene director output
+  await persistSceneOutput(weekLabel, sceneOutput);
+  
+  // Step 2: Integrate negative prompt into main prompt (GPT Image doesn't support separate negative prompts)
+  const finalPrompt = integrateNegativePrompt(sceneOutput.finalImagePrompt, sceneOutput.negativePrompt);
   
   // Safety guard: check if prompt is too abstract
-  if (prompt.length < 200) {
+  if (finalPrompt.length < 200) {
     console.warn('Generated prompt seems too short, may be too abstract');
   }
   
@@ -497,20 +634,54 @@ export async function generateWeeklyCoverImage(
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     console.warn('OPENAI_API_KEY not found, skipping cover image generation');
-    return { success: false, keywords: [] };
+    return { success: false, keywords: [], prompt: finalPrompt };
   }
   
-  // Generate image
-  const success = await generateCoverImage(prompt, imagePath, apiKey);
+  // Step 3: Generate image with GPT Image
+  console.log(`[Cover Generation] Step 2: GPT Image rendering image...`);
+  const imageResult = await generateCoverImage(finalPrompt, imagePath, apiKey);
   
-  if (success) {
+  if (imageResult.success) {
+    // Persist debugging artifacts to cover-input.json
+    const coverInputDir = path.join(__dirname, '../data/weeks', weekLabel);
+    await fs.mkdir(coverInputDir, { recursive: true });
+    const coverInputPath = path.join(coverInputDir, 'cover-input.json');
+    
+    // Load existing cover-input.json if it exists, or create new
+    let coverInputData: any = {};
+    try {
+      const existing = await fs.readFile(coverInputPath, 'utf-8');
+      coverInputData = JSON.parse(existing);
+    } catch {
+      // File doesn't exist, start fresh
+      coverInputData = {
+        weekLabel,
+        homepageTopArticles: homepageTopArticles.map(a => ({
+          title: a.title,
+          source: a.source,
+          snippet: a.snippet,
+          aiSummary: a.aiSummary,
+          rerankWhy: a.rerankWhy,
+        })),
+      };
+    }
+    
+    // Add debugging artifacts
+    coverInputData.model = imageResult.model || 'gpt-image-1.5';
+    coverInputData.finalPrompt = finalPrompt;
+    coverInputData.imageSize = imageResult.size || '1792x1024';
+    coverInputData.outputPath = `/weekly-images/${weekLabel}.png`;
+    coverInputData.generatedAt = new Date().toISOString();
+    
+    await fs.writeFile(coverInputPath, JSON.stringify(coverInputData, null, 2), 'utf-8');
+    
     // Extract keywords for return (from homepage articles only)
     const titles = homepageTopArticles.map(a => a.title);
     const keywords = extractKeywords(titles);
     
-    return { success: true, imagePath: `/weekly-images/${weekLabel}.png`, keywords };
+    return { success: true, imagePath: `/weekly-images/${weekLabel}.png`, keywords, prompt: finalPrompt };
   } else {
-    return { success: false, keywords: [] };
+    return { success: false, keywords: [], prompt: finalPrompt };
   }
 }
 

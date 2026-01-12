@@ -74,13 +74,14 @@ function getCurrentWeek(): string {
 }
 
 /**
- * Parse CLI arguments for --week, --regenCover, --coverStyle, --regenThemes, and --regenIntro flags
+ * Parse CLI arguments for --week, --regenCover, --coverStyle, --variant, --regenThemes, and --regenIntro flags
  */
-function parseArgs(): { weekLabel: string; regenCover: boolean; coverStyle: 'realistic' | 'illustration'; regenThemes: boolean; regenIntro: boolean } {
+function parseArgs(): { weekLabel: string; regenCover: boolean; coverStyle: 'realistic' | 'illustration'; variant: 'safe' | 'fun'; regenThemes: boolean; regenIntro: boolean } {
   const args = process.argv.slice(2);
   let weekLabel: string | null = null;
   let regenCover = false;
   let coverStyle: 'realistic' | 'illustration' = 'realistic';
+  let variant: 'safe' | 'fun' = 'safe';
   let regenThemes = false;
   let regenIntro = false;
   
@@ -101,6 +102,13 @@ function parseArgs(): { weekLabel: string; regenCover: boolean; coverStyle: 'rea
       } else {
         console.warn(`Invalid cover style: ${style}. Using default: realistic`);
       }
+    } else if (arg.startsWith('--variant=')) {
+      const v = arg.split('=')[1];
+      if (v === 'safe' || v === 'fun') {
+        variant = v;
+      } else {
+        console.warn(`Invalid variant: ${v}. Using default: safe`);
+      }
     } else if (arg === '--regenThemes' || arg === '--regenThemes=true') {
       regenThemes = true;
     } else if (arg === '--regenIntro' || arg === '--regenIntro=true') {
@@ -112,19 +120,20 @@ function parseArgs(): { weekLabel: string; regenCover: boolean; coverStyle: 'rea
     weekLabel: weekLabel || getCurrentWeek(),
     regenCover,
     coverStyle,
+    variant,
     regenThemes,
     regenIntro,
   };
 }
 
 async function main() {
-  const { weekLabel, regenCover, coverStyle, regenThemes, regenIntro } = parseArgs();
+  const { weekLabel, regenCover, coverStyle, variant, regenThemes, regenIntro } = parseArgs();
   
   console.log(`Building digest for week: ${weekLabel}`);
   if (regenCover) {
-    console.log(`  (regenerating cover image if it exists, style: ${coverStyle})`);
+    console.log(`  (regenerating cover image if it exists, style: ${coverStyle}, variant: ${variant})`);
   } else {
-    console.log(`  (cover style: ${coverStyle})`);
+    console.log(`  (cover style: ${coverStyle}, variant: ${variant})`);
   }
   if (regenThemes) {
     console.log(`  (regenerating themes)`);
@@ -215,7 +224,22 @@ async function main() {
     
     console.log(`  Using ${homepageTopArticles.length} homepage articles: ${homepageTopArticles.map(a => a.title).join(', ')}`);
     
-    const coverResult = await generateWeeklyCoverImage(weekLabel, homepageTopArticles, regenCover, coverStyle);
+    const coverResult = await generateWeeklyCoverImage(weekLabel, homepageTopArticles, regenCover, coverStyle, variant);
+    
+    // Load scene director output if available
+    let sceneOutput = null;
+    try {
+      const scenePath = path.join(__dirname, '../data/weeks', weekLabel, 'cover-scene.json');
+      const sceneContent = await fs.readFile(scenePath, 'utf-8');
+      sceneOutput = JSON.parse(sceneContent);
+    } catch {
+      // Scene output not available, that's okay
+    }
+    
+    // Note: cover-input.json is now saved by generateWeeklyCoverImage with debugging artifacts
+    // (model, finalPrompt, imageSize, outputPath)
+    const coverInputPath = path.join(__dirname, '../data/weeks', weekLabel, 'cover-input.json');
+    console.log(`✓ Cover input saved to: ${coverInputPath}`);
     
     // Update digest with cover image info
     if (coverResult.success && coverResult.imagePath) {

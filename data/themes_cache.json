@@ -76,5 +76,70 @@
     "cached_at": "2026-01-11T14:24:52.181Z",
     "model": "gpt-4o-mini",
     "version": "2.1"
+  },
+  "2026-W02:5b701a1c6e23": {
+    "keyThemes": [
+      "Walmart AI strategies",
+      "Spangle AI funding",
+      "inflation pressures",
+      "agentic commerce tools",
+      "retail sales growth"
+    ],
+    "oneSentenceSummary": "Walmart's AI strategies and Spangle AI's funding highlight significant advancements in retail technology amid rising inflation and changing consumer behaviors.",
+    "cached_at": "2026-01-11T16:31:24.013Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W02:c342f3ca6621": {
+    "keyThemes": [
+      "Microsoft agentic AI tools",
+      "Walmart AI strategies",
+      "inflationary pressures",
+      "CVS Health digital strategy",
+      "Saks bankruptcy loan talks"
+    ],
+    "oneSentenceSummary": "Microsoft's agentic AI tools and Walmart's AI strategies are reshaping retail operations amid rising inflation and evolving consumer preferences.",
+    "cached_at": "2026-01-11T20:50:42.540Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W01:a1bd337bdf73": {
+    "keyThemes": [
+      "Cartier UK sales",
+      "AI-powered shopping",
+      "structural reckoning",
+      "Pragnell record sales",
+      "profit squeeze"
+    ],
+    "oneSentenceSummary": "Cartier UK sales exceeded £250 million while ecommerce faces structural reckoning due to AI-powered shopping and tariff impacts.",
+    "cached_at": "2026-01-11T20:53:33.471Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W02:89d6b5fba5a7": {
+    "keyThemes": [
+      "Walmart AI strategies",
+      "Spangle AI funding",
+      "inflation pressures",
+      "agentic commerce tools",
+      "Saks bankruptcy loan"
+    ],
+    "oneSentenceSummary": "Walmart's AI strategies and Spangle AI's funding highlight significant advancements in ecommerce technology amid rising inflation pressures.",
+    "cached_at": "2026-01-11T21:51:36.677Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W02:82009e95c938": {
+    "keyThemes": [
+      "Walmart AI strategies",
+      "agentic commerce",
+      "inflation pressures",
+      "Fast Retailing profits",
+      "De Beers diamond demand"
+    ],
+    "oneSentenceSummary": "Walmart's AI strategies and rising inflation are shaping retail dynamics as companies adapt to changing consumer behaviors and economic pressures.",
+    "cached_at": "2026-01-11T22:00:17.018Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
   }
 }

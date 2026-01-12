@@ -3,57 +3,37 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2026-01-04T23:00:00.000Z",
   "endISO": "2026-01-11T22:59:59.999Z",
-  "builtAtISO": "2026-01-11T14:36:20.008+01:00",
-  "builtAtLocal": "2026-01-11 14:36:20",
+  "builtAtISO": "2026-01-11T23:00:10.631+01:00",
+  "builtAtLocal": "2026-01-11 23:00:10",
   "coverImageUrl": "/weekly-images/2026-W02.png",
   "coverImageAlt": "Weekly cover illustration for 2026-W02",
   "coverKeywords": [
-    "microsoft",
-    "introduces",
-    "agentic",
-    "tools",
-    "automate",
-    "retail",
     "commerce",
-    "operations",
-    "ecommerce",
-    "trends",
-    "walmart",
-    "using"
+    "spend",
+    "reached",
+    "nearly",
+    "258b",
+    "holidays",
+    "shaped",
+    "retail",
+    "holiday",
+    "season",
+    "2025",
+    "beers"
   ],
   "totals": {
-    "total": 120,
+    "total": 123,
     "byTopic": {
-      "AIStrategy": 42,
-      "EcommerceRetail": 60,
+      "AIStrategy": 43,
+      "EcommerceRetail": 62,
       "LuxuryConsumer": 13,
       "Jewellery": 5
     }
   },
   "topics": {
     "AI_and_Strategy": {
-      "total": 42,
+      "total": 43,
       "top": [
-        {
-          "id": "cxfw42",
-          "title": "Microsoft introduces agentic AI tools to automate retail and B2B commerce operations",
-          "url": "https://www.digitalcommerce360.com/2026/01/09/microsoft-copilot-checkout-agentic-ai-tools/",
-          "source": "Digital Commerce 360",
-          "published_at": "2026-01-09T17:25:26.000Z",
-          "ingested_at": "2026-01-10T22:12:17.260Z",
-          "snippet": "Microsoft has announced a new set of agentic artificial intelligence (AI) tools to Copilot aimed at automating core retail and B2B commerce functions, including digital checkout, product data management, merchandising and store operations. The company said it designed the agentic AI tools, which it’s delivering through Microsoft Copilot and Copilot Studio, to reduce manual work, […]\nThe post Microsoft introduces agentic AI tools to automate retail and B2B commerce operations appeared first on Di...",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "New AI tools for retail operations enhance efficiency",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary:\nMicrosoft has unveiled agentic AI tools under Copilot to automate retail and B2B commerce tasks, such as digital checkout and product data management, aiming to streamline operations and reduce manual work."
-        },
         {
           "id": "q6zho6",
           "title": "Ecommerce Trends: How Walmart is using AI",
@@ -70,9 +50,9 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Walmart's AI strategies provide actionable insights for retail",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI is a key focus for Walmart as new CEO John Furner prepares to take over, with a focus on agentic commerce strategies and machine learning. The retail giant is looking to leverage AI across its operations to drive innovation and efficiency."
+          "rerankWhy": "Walmart's AI strategies directly impact retail operations",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-generated summary: Walmart's new CEO, John Furner, will focus on utilizing artificial intelligence and agentic commerce strategies as he takes over from Doug McMillon. The retail giant plans to incorporate agents and machine learning to transform various job roles."
         },
         {
           "id": "deu1k8",
@@ -90,18 +70,18 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Consumer interactions with AI in retail are increasing",
-          "rerankConfidence": 0.8,
+          "rerankWhy": "Consumer interactions with AI in retail are crucial insights",
+          "rerankConfidence": 0.85,
           "aiSummary": "AI-generated summary:\nA Liveops survey revealed that while most consumers had positive interactions with AI customer service during holiday shopping, they still believe human support is superior."
         },
         {
-          "id": "q9y5dn",
-          "title": "What shaped retail’s holiday season in 2025",
-          "url": "https://www.retaildive.com/news/retail-holiday-season-trends-2025-generative-ai-tariffs/808338/",
-          "source": "Retail Dive",
-          "published_at": "2026-01-06T12:00:00.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "It was a year of AI-generated gift recommendations, tariff upheaval and increased financial stress on shoppers.",
+          "id": "cxfw42",
+          "title": "Microsoft introduces agentic AI tools to automate retail and B2B commerce operations",
+          "url": "https://www.digitalcommerce360.com/2026/01/09/microsoft-copilot-checkout-agentic-ai-tools/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-09T17:25:26.000Z",
+          "ingested_at": "2026-01-10T22:12:17.260Z",
+          "snippet": "Microsoft has announced a new set of agentic artificial intelligence (AI) tools to Copilot aimed at automating core retail and B2B commerce functions, including digital checkout, product data management, merchandising and store operations. The company said it designed the agentic AI tools, which it’s delivering through Microsoft Copilot and Copilot Studio, to reduce manual work, […]\nThe post Microsoft introduces agentic AI tools to automate retail and B2B commerce operations appeared first on Di...",
           "gate": {
             "eligible": true,
             "reasons": [
@@ -110,9 +90,32 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Insights on AI's impact during the holiday season",
+          "rerankWhy": "Microsoft's AI tools automate key retail functions",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated gift recommendations, tariff upheaval, and financial stress on shoppers were key factors shaping the retail industry during the 2025 holiday season, as reported by Retail Dive in 2026."
+          "aiSummary": "AI-generated summary:\nMicrosoft has unveiled agentic AI tools through Copilot to automate retail and B2B commerce operations, focusing on tasks like digital checkout and merchandising to reduce manual work."
+        },
+        {
+          "id": "6hjslp",
+          "title": "Spangle AI raises $15 million to build agentic infrastructure for ecommerce",
+          "url": "https://www.digitalcommerce360.com/2026/01/08/spangle-ai-15-million-funding-agentic-infrastructure/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-08T19:34:27.000Z",
+          "ingested_at": "2026-01-09T16:05:07.985Z",
+          "snippet": "Spangle AI has raised $15 million in funding to expand its artificial intelligence platform that it designed to connect AI-driven product discovery with real-time online conversion. NewRoad Capital Partners led the Spangle AI funding round. Madrona, DNX Ventures, Streamlined Ventures and strategic angel investors participated as well. The financing brings Spangle’s total funding to $21 […]\nThe post Spangle AI raises $15 million to build agentic infrastructure for ecommerce appeared first on Digi...",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "Spangle AI's funding supports ecommerce AI infrastructure",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-generated summary:\nSpangle AI secured $15 million in funding to enhance its AI platform for connecting product discovery with online conversion in ecommerce. The funding round was led by NewRoad Capital Partners, with participation from Madrona, DNX Ventures, Streamlined Ventures, and strategic angel investors."
         },
         {
           "id": "t4s2qj",
@@ -130,41 +133,38 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Amazon's Alexa+ enhances shopping experience through AI",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-Generated Summary: Amazon has expanded its Alexa+ service to include a web interface, allowing users to access shopping, smart home controls, and other Alexa features. This move aims to enhance the overall experience for customers interacting with the AI assistant."
-        },
-        {
-          "id": "ospav6",
-          "title": "CVS Health details AI-driven digital strategy",
-          "url": "https://www.digitalcommerce360.com/2026/01/05/cvs-health-ai-digital-strategy/",
-          "source": "Digital Commerce 360",
-          "published_at": "2026-01-05T20:14:17.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "CVS Health has outlined a broad digital and artificial intelligence (AI) strategy aimed at simplifying health care delivery. The strategy deepens consumer engagement and supports multiyear earnings growth. It positions technology as a core driver of the company’s next phase rather than a back-office function. At its 2025 investor day in December, the health care […]\nThe post CVS Health details AI-driven digital strategy appeared first on Digital Commerce 360.",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Sponsored/press release content"
-            ],
-            "flags": {
-              "sponsored": true,
-              "pressRelease": true
-            },
-            "tier": "med"
-          },
-          "rerankWhy": "CVS's AI strategy improves customer engagement and growth",
+          "rerankWhy": "Amazon's Alexa+ enhances customer shopping experience",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-generated summary: CVS Health has revealed an AI-driven digital strategy to simplify healthcare delivery, enhance consumer engagement, and drive earnings growth. Technology is positioned as a central driver for the company's future growth rather than a back-office function."
+          "aiSummary": "AI-generated summary: Amazon has expanded its Alexa+ service to include a web interface, allowing users to access shopping, smart home controls, and other Alexa features. This move aims to enhance the overall experience for customers."
         },
         {
-          "id": "3b7k9w",
-          "title": "Retail leaders at Target, Lowe’s and more on the AI investments they’re plotting for 2026",
-          "url": "https://www.modernretail.co/technology/retail-leaders-at-target-lowes-and-more-on-the-ai-investments-theyre-plotting-for-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2026-01-09T05:00:00.000Z",
-          "ingested_at": "2026-01-09T16:05:07.985Z",
-          "snippet": "Modern Retail’s editorial team surveyed a half-dozen retail leaders, ranging from vice presidents at big corporations like Target and Lowe’s to founders of digitally native startups, to talk about how they plan to incorporate AI into their businesses in 2026.",
+          "id": "j289jj",
+          "title": "Early AI Signals from Holiday Sales",
+          "url": "https://www.practicalecommerce.com/early-ai-signals-from-holiday-sales",
+          "source": "Practical Ecommerce",
+          "published_at": "2026-01-11T12:59:25.000Z",
+          "ingested_at": "2026-01-11T21:49:10.096Z",
+          "snippet": "The raw totals for AI-driven shopping were small, but the coming impact will likely be massive.\nThe post Early AI Signals from Holiday Sales appeared first on Practical Ecommerce.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Early AI signals from holiday sales indicate future trends",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-driven shopping during the holiday season showed promising early signals, hinting at a potentially significant impact in the future."
+        },
+        {
+          "id": "t83tsr",
+          "title": "Walmart adds tech veteran to board as it preps for AI era",
+          "url": "https://www.retaildive.com/news/walmart-adds-tech-veteran-board-member-ai-era/809095/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-08T16:19:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "Shishir Mehrotra, who co-founded an AI platform and also has experience at YouTube, joins the board ahead of John Furner’s move to CEO.",
           "gate": {
             "eligible": true,
             "reasons": [
@@ -176,87 +176,15 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Retail leaders' AI investments highlight future trends",
-          "rerankConfidence": 0.65,
-          "aiSummary": "AI-generated summary: Retail leaders from companies like Target and Lowe's, as well as startup founders, discuss their AI investment plans for 2026 in a survey conducted by Modern Retail."
+          "rerankWhy": "Walmart's board changes signal commitment to AI integration",
+          "rerankConfidence": 0.6,
+          "aiSummary": "AI-Generated Summary:\nShishir Mehrotra, a tech veteran with AI platform experience and a background at YouTube, joins Walmart's board as the company prepares for the AI era, coinciding with John Furner's appointment as CEO."
         }
       ]
     },
     "Ecommerce_Retail_Tech": {
-      "total": 60,
+      "total": 62,
       "top": [
-        {
-          "id": "js33kbh",
-          "title": "Claire’s and The Original Factory Shop Near Collapse",
-          "url": "https://www.businessoffashion.com/articles/retail/claires-and-the-original-factory-shop-near-collapse/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-06T20:27:18.071Z",
-          "ingested_at": "2026-01-06T20:27:18.071Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Highlights financial struggles of major retailers",
-          "rerankConfidence": 0.9
-        },
-        {
-          "id": "c71a3e4",
-          "title": "Report: Saks in Talks for $1 Billion Bankruptcy Loan to Keep Doors Open",
-          "url": "https://www.businessoffashion.com/news/retail/report-saks-in-talks-for-1-billion-bankruptcy-loan-to-keep-doors-open/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-06T20:27:18.071Z",
-          "ingested_at": "2026-01-06T20:27:18.071Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Discusses potential bankruptcy impacts on retail",
-          "rerankConfidence": 0.85
-        },
-        {
-          "id": "dvjz2rx",
-          "title": "Primark Sales Slow as Demand Drops",
-          "url": "https://www.businessoffashion.com/news/retail/primark-sales-slow-as-demand-drops/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-09T16:05:16.359Z",
-          "ingested_at": "2026-01-09T16:05:16.361Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Analyzes demand drop affecting retail sales",
-          "rerankConfidence": 0.8
-        },
-        {
-          "id": "u8d6tei",
-          "title": "Fast Retailing Hikes Annual Forecast After Quarterly Profits Surge",
-          "url": "https://www.businessoffashion.com/news/retail/fast-retailing-hikes-annual-forecast-after-quarterly-profits-surge/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-09T16:05:16.361Z",
-          "ingested_at": "2026-01-09T16:05:16.362Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Shows profit surge and growth forecasts",
-          "rerankConfidence": 0.75
-        },
         {
           "id": "7qte5e",
           "title": "US e-commerce spend reached nearly $258B over the holidays",
@@ -276,18 +204,18 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Reports significant holiday e-commerce spending growth",
-          "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary:\nUS e-commerce spending during the holidays in 2025 reached almost $258 billion, showing a 6.8% increase from the previous year. Buy now, pay later services also saw a significant rise in usage."
+          "rerankWhy": "Highlights significant holiday ecommerce spending growth",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nAccording to Adobe Analytics data reported by Retail Dive on January 7, 2026, US e-commerce spending during the holidays rose to nearly $258 billion, showing a 6.8% increase from the previous year. The usage of buy now, pay later services also reached a new peak."
         },
         {
-          "id": "17dj70",
-          "title": "Visa, Mastercard track roughly 4% US holiday retail sales growth",
-          "url": "https://www.retaildive.com/news/visa-mastercard-holiday-retail-sales-growth/808666/",
+          "id": "q9y5dn",
+          "title": "What shaped retail’s holiday season in 2025",
+          "url": "https://www.retaildive.com/news/retail-holiday-season-trends-2025-generative-ai-tariffs/808338/",
           "source": "Retail Dive",
-          "published_at": "2026-01-06T16:00:00.000Z",
+          "published_at": "2026-01-06T12:00:00.000Z",
           "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "The 2025 holiday season saw consumers shopping across channels to land the best deals and maximize convenience, according to new reports.",
+          "snippet": "It was a year of AI-generated gift recommendations, tariff upheaval and increased financial stress on shoppers.",
           "gate": {
             "eligible": true,
             "reasons": [
@@ -296,9 +224,88 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Provides insights on holiday retail sales trends",
-          "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nVisa and Mastercard report approximately 4% growth in US holiday retail sales for 2025, indicating consumers shopped across channels for deals and convenience."
+          "rerankWhy": "Analyzes key trends shaping retail's holiday season",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated gift recommendations, tariff upheaval, and financial stress on shoppers were key factors that shaped the retail industry during the 2025 holiday season, as reported by Retail Dive on January 6, 2026."
+        },
+        {
+          "id": "g52p5n",
+          "title": "Retailers like Kroger, CVS plan many more screens for in-store ads in 2026",
+          "url": "https://www.modernretail.co/marketing/retailers-like-kroger-cvs-plan-many-more-screens-for-in-store-ads-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-06T05:00:00.000Z",
+          "ingested_at": "2026-01-06T20:27:08.720Z",
+          "snippet": "In 2026, retailers like Kroger and CVS are planning to install more screens in more stores to display advertising and other content -- an evolution of what has historically been limited to small experiments.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "Discusses in-store advertising expansion by major retailers",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-Generated Summary:\nRetailers such as Kroger and CVS are set to increase the number of in-store screens for advertising and content display in 2026, moving beyond small-scale trials."
+        },
+        {
+          "id": "s2c6b7",
+          "title": "6 retail trends to watch in 2026",
+          "url": "https://www.retaildive.com/news/retail-trends-to-watch-2026/808341/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-08T15:39:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "From pricing dynamics to the shifting state of malls, here are the trends we’ve got our eye on in 2026.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Identifies critical retail trends to watch in 2026",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-Generated Summary:\nRetail Dive highlights 6 key retail trends to watch in 2026, including pricing dynamics and the changing landscape of malls."
+        },
+        {
+          "id": "js33kbh",
+          "title": "Claire’s and The Original Factory Shop Near Collapse",
+          "url": "https://www.businessoffashion.com/articles/retail/claires-and-the-original-factory-shop-near-collapse/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-06T20:27:18.071Z",
+          "ingested_at": "2026-01-06T20:27:18.071Z",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Examines financial struggles of notable retailers",
+          "rerankConfidence": 0.75
+        },
+        {
+          "id": "u8d6tei",
+          "title": "Fast Retailing Hikes Annual Forecast After Quarterly Profits Surge",
+          "url": "https://www.businessoffashion.com/news/retail/fast-retailing-hikes-annual-forecast-after-quarterly-profits-surge/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-09T16:05:16.361Z",
+          "ingested_at": "2026-01-09T16:05:16.362Z",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Reports on Fast Retailing's profit surge and forecast",
+          "rerankConfidence": 0.7
         },
         {
           "id": "6zqb043",
@@ -315,32 +322,14 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Explores fast fashion's expansion in emerging markets",
-          "rerankConfidence": 0.6
+          "rerankWhy": "Explores fast fashion's growth in emerging markets",
+          "rerankConfidence": 0.65
         }
       ]
     },
     "Luxury_and_Consumer": {
       "total": 13,
       "top": [
-        {
-          "id": "9dsx7jm",
-          "title": "Holders of $895-a-Year AmEx Card Are Rushing to Spend Saks Perk",
-          "url": "https://www.businessoffashion.com/news/retail/holders-of-895-a-year-amex-card-are-rushing-to-spend-saks-perk/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-08T19:33:41.206Z",
-          "ingested_at": "2026-01-08T19:33:41.206Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Insights on customer spending behavior with loyalty perks",
-          "rerankConfidence": 0.9
-        },
         {
           "id": "hsqnmy",
           "title": "Fashion and beauty brands are expanding their partnerships with female college athletes",
@@ -357,9 +346,27 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Highlights partnerships enhancing brand visibility and engagement",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nFashion and beauty brands are increasingly forming partnerships with female college athletes, moving beyond one-off posts to collaborate with entire athletic departments, as reported by Modern Retail on January 8, 2026."
+          "rerankWhy": "Insights on partnerships with college athletes for brand growth",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nFashion and beauty brands are increasingly forming partnerships with female college athletes, moving beyond one-off posts to collaborating with entire athletic departments, as reported by Modern Retail on January 8, 2026."
+        },
+        {
+          "id": "9dsx7jm",
+          "title": "Holders of $895-a-Year AmEx Card Are Rushing to Spend Saks Perk",
+          "url": "https://www.businessoffashion.com/news/retail/holders-of-895-a-year-amex-card-are-rushing-to-spend-saks-perk/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-08T19:33:41.206Z",
+          "ingested_at": "2026-01-08T19:33:41.206Z",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Highlights customer behavior with AmEx card perks",
+          "rerankConfidence": 0.85
         },
         {
           "id": "vz2gl8",
@@ -380,7 +387,7 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Discusses financial challenges impacting luxury retail operations",
+          "rerankWhy": "Implications of Saks Global's financial struggles on luxury retail",
           "rerankConfidence": 0.8,
           "aiSummary": "AI-Generated Summary:\nS&P Global Ratings downgraded Saks Global due to a missed interest payment, casting doubt on the company's ability to meet financial obligations and realize expected savings from a recent merger."
         },
@@ -400,9 +407,9 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Details on auction process affecting a major beauty brand",
+          "rerankWhy": "Potential sale of Pat McGrath Labs affects beauty market dynamics",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-Generated Summary:\nPat McGrath Labs is seeking a buyer, with bids due by Jan. 26 and a public auction for the beauty brand's assets scheduled for Jan. 27, as reported by Retail Dive on January 5, 2026."
+          "aiSummary": "AI-Generated Summary:\nPat McGrath Labs is up for sale, with bids due by Jan. 26 and a public auction for the beauty brand's assets scheduled for Jan. 27."
         },
         {
           "id": "gfoauet",
@@ -419,7 +426,7 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Leadership changes impacting a key resale platform",
+          "rerankWhy": "Leadership changes at Vestiaire Collective impact resale market",
           "rerankConfidence": 0.7
         },
         {
@@ -438,17 +445,17 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Explores brand partnerships aligning with consumer trends",
+          "rerankWhy": "Starbucks' new partnerships reflect retail trend integration",
           "rerankConfidence": 0.65,
-          "aiSummary": "AI-generated summary:\nStarbucks is starting off 2026 by expanding its brand partnerships, including a collaboration with Khloé Kardashian's Khloud popcorn, to offer more trendy items and relevant pop culture tie-ins."
+          "aiSummary": "AI-Generated Summary:\nStarbucks is starting 2026 with new brand partnerships, including one with Khloé Kardashian's Khloud popcorn, to offer trendy items and relevant pop culture collaborations."
         },
         {
-          "id": "5fh0tkq",
-          "title": "China Travel Curbs Hit Japan Duty-Free Sales in December",
-          "url": "https://www.businessoffashion.com/news/global-markets/china-travel-curbs-hit-japan-duty-free-sales-in-december/",
+          "id": "cexw26f",
+          "title": "Tommy Hilfiger Launches Global Partnership With Liverpool FC",
+          "url": "https://www.businessoffashion.com/news/sports/tommy-hilfiger-launches-formalwear-partnership-with-liverpool-fc/",
           "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-06T20:27:18.071Z",
-          "ingested_at": "2026-01-06T20:27:18.071Z",
+          "published_at": "2026-01-08T19:33:41.204Z",
+          "ingested_at": "2026-01-08T19:33:41.205Z",
           "gate": {
             "eligible": true,
             "reasons": [
@@ -457,7 +464,7 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Impact of travel restrictions on duty-free sales",
+          "rerankWhy": "Tommy Hilfiger's partnership with Liverpool FC enhances brand visibility",
           "rerankConfidence": 0.6
         }
       ]
@@ -501,7 +508,7 @@
           },
           "rerankWhy": "Discusses inflation impact on retail pricing",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary: Inflation rates are on the rise in 2026, with shop price inflation increasing to 0.7% year on year in December according to the British Retail Consortium. This trend is expected to continue in the jewellery industry."
+          "aiSummary": "AI-generated summary: Inflation rates are on the rise in 2026, with shop price inflation reaching 0.7% year on year in December according to the British Retail Consortium. This trend is expected to persist in the jewellery industry."
         },
         {
           "id": "uh0we",
@@ -524,7 +531,7 @@
           },
           "rerankWhy": "Highlights indie retailers' adaptability and innovation",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary: Independent retailers in the jewellery industry have shown resilience and adaptability in the face of various challenges, including changing consumer behaviors and new technologies. Their innovation and experimentation will continue to shape the high street in 2026."
+          "aiSummary": "AI-generated summary: Independent retailers in the jewellery industry have shown resilience and adaptability in the face of challenges, shaping the high street with innovation and experimentation in 2026."
         },
         {
           "id": "vxhu43",
@@ -546,18 +553,18 @@
           },
           "rerankWhy": "Recognizes a designer's influence in the industry",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary: British jewellery designer Solange Azagury-Partridge has been awarded an MBE for her services to design, presented by King Charles III and members of the royal family. She runs her own brand, Solange, based in London."
+          "aiSummary": "AI-generated summary: Jewellery designer Solange Azagury-Partridge has been awarded an MBE for her services to design by King Charles III. She runs her own jewellery brand, Solange, based in London."
         }
       ]
     }
   },
   "keyThemes": [
-    "Microsoft agentic AI tools",
-    "Saks bankruptcy loan",
-    "inflation pressures",
     "Walmart AI strategies",
+    "agentic commerce",
+    "inflation pressures",
+    "Fast Retailing profits",
     "De Beers diamond demand"
   ],
-  "oneSentenceSummary": "Microsoft's agentic AI tools and inflation pressures are reshaping retail strategies as companies like Saks seek financial stability.",
-  "introParagraph": "Microsoft's agentic AI tools are influencing retail strategies as companies navigate inflation pressures. Saks is seeking a bankruptcy loan to stabilize its financial situation, while Walmart implements AI strategies to enhance its operations. In the luxury sector, De Beers reports a shift in diamond demand amid changing consumer preferences."
+  "oneSentenceSummary": "Walmart's AI strategies and rising inflation are shaping retail dynamics as companies adapt to changing consumer behaviors and economic pressures.",
+  "introParagraph": "Walmart implements AI strategies to address changing consumer behaviors amid rising inflation pressures. Fast Retailing reports profits as the retail landscape evolves, while De Beers sees a shift in diamond demand within the luxury and consumer sectors."
 }

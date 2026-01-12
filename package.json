@@ -8,8 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "ingest": "tsx ingestion/runIngestion.ts",
+    "discover": "tsx scripts/discoverWeekly.ts",
     "print-yield": "tsx scripts/printSourceYield.ts",
-    "validate:feeds": "tsx scripts/validateFeeds.ts"
+    "validate:feeds": "tsx scripts/validateFeeds.ts",
+    "cover": "tsx scripts/regenerateCover.ts"
   },
   "dependencies": {
     "@amplitude/unified": "^1.0.0-beta.9",

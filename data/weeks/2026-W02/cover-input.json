@@ -1,0 +1,34 @@
+{
+  "weekLabel": "2026-W02",
+  "homepageTopArticles": [
+    {
+      "title": "US e-commerce spend reached nearly $258B over the holidays",
+      "source": "Retail Dive",
+      "snippet": "Adobe Analytics data found consumer spending grew 6.8% compared to 2024, with buy now, pay later usage reaching a new high.",
+      "aiSummary": "AI-Generated Summary:\nUS e-commerce spending during the holidays in 2025 reached almost $258 billion, showing a 6.8% increase from the previous year. Buy now, pay later services also saw a surge in usage.",
+      "rerankWhy": "Highlights significant holiday e-commerce spending growth"
+    },
+    {
+      "title": "Visa, Mastercard track roughly 4% US holiday retail sales growth",
+      "source": "Retail Dive",
+      "snippet": "The 2025 holiday season saw consumers shopping across channels to land the best deals and maximize convenience, according to new reports.",
+      "aiSummary": "AI-generated summary:\nVisa and Mastercard report around 4% growth in US holiday retail sales for 2025, with consumers shopping across channels for deals and convenience.",
+      "rerankWhy": "Provides insights on holiday retail sales trends"
+    },
+    {
+      "title": "De Beers Bets on India’s Rich to Boost Natural Diamond Demand",
+      "source": "BoF - News (The News in Brief)",
+      "rerankWhy": "Focuses on boosting diamond demand in retail"
+    },
+    {
+      "title": "Inflation set to remain sticky in 2026",
+      "source": "Professional Jeweller",
+      "snippet": "As we enter into 2026, inflation rates are increasing as prices continued to edge up at the end of last year. According to the British Retail Consortium, shop price inflation picked up to 0.7% year on year in December, against growth of 0.6% in November. This is in line with the 3-month average of 0.7%. […]\nThe post Inflation set to remain sticky in 2026 appeared first on Professional Jeweller.",
+      "aiSummary": "AI-Generated Summary: Inflation rates are on the rise in 2026, with shop price inflation increasing to 0.7% year on year in December according to the British Retail Consortium. This trend is expected to persist in the jewellery industry.",
+      "rerankWhy": "Discusses inflation impact on retail pricing"
+    }
+  ],
+  "prompt": "",
+  "coverStyle": "realistic",
+  "generatedAt": "2026-01-11T16:31:25.454Z"
+}

@@ -1,275 +1,37 @@
 {
-  "https://hsu.cy/2025/12/times-new-american": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article seems to discuss fonts in the context of design, which aligns more with Ecommerce_Retail_Tech than the other categories.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T19:51:07.687Z"
-  },
-  "https://www.nytimes.com/2025/12/30/technology/personaltech/tech-jargon-ai.html": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The article focuses on decoding A.I.-driven tech lingo, indicating a primary focus on artificial intelligence and technology strategy.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T21:29:57.759Z"
-  },
-  "https://www.bloomberg.com/news/articles/2025-12-30/singapore-study-links-heavy-infant-screen-time-to-teen-anxiety": {
-    "category": "Luxury_and_Consumer",
-    "confidence": 0.85,
-    "rationale": "The article focuses on consumer behavior and the impact of screen time on teen anxiety, aligning more closely with luxury consumer insights.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T21:30:18.181Z"
-  },
-  "https://screenrant.com/stranger-things-creator-turn-off-settings-premiere": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The article discusses AI-driven recommendations or personalization in content settings.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T21:34:12.334Z"
-  },
-  "https://subseacables.blogspot.com/2025/12/the-british-empires-resilient-subsea.html": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article is likely about the historical context and technology of the British Empire's subsea telegraph network, which aligns more closely with Ecommerce_Retail_Tech.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T21:34:29.605Z"
-  },
-  "https://www.getflack.com/p/responding-to-negative-feedback": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article seems to be about product feedback and customer sentiment, which aligns with ecommerce and retail tech.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T21:37:33.821Z"
-  },
-  "https://www.zeitgeistofbytes.com/p/bye-bye-big-tech-how-i-migrated-to": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article discusses migrating to an EU stack for cost savings, which aligns with topics related to technology, cost optimization, and potentially ecommerce platforms.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T21:38:06.651Z"
-  },
-  "https://www.circusscientist.com/2025/12/29/google-is-dead-where-do-we-go-now": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The title suggests a focus on the impact of technology and potentially AI on the future direction after Google, aligning with AI and strategy themes.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T21:39:09.400Z"
-  },
-  "https://arstechnica.com/science/2025/12/looking-for-friends-lobsters-may-stumble-into-an-ecological-trap": {
-    "category": "Luxury_and_Consumer",
-    "confidence": 0.85,
-    "rationale": "The article is likely about consumer behavior or ecological traps related to luxury or affluent demographics.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T21:39:36.404Z"
-  },
-  "https://arstechnica.com/tech-policy/2025/12/china-drafts-worlds-strictest-rules-to-end-ai-encouraged-suicide-violence": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The article focuses on AI regulations related to preventing negative outcomes like suicide and violence, falling under the AI and strategy category.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T21:40:31.262Z"
-  },
-  "https://www.practicalecommerce.com/the-psychology-of-ai-serps-and-shopping": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The article discusses the impact of AI on shopping behavior and product discovery, aligning with AI-driven business decisions and AI algorithms.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T22:09:53.732Z"
-  },
-  "https://arstechnica.com/science/2025/12/did-one-line-in-a-leonardo-codex-anticipate-yakisugi": {
-    "category": "Jewellery_Industry",
-    "confidence": 0.85,
-    "rationale": "The article focuses on historical jewelry-making techniques, specifically Leonardo's wood charring method, which aligns with the Jewelry Industry category.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-03T22:14:49.721Z"
-  },
   "https://www.nytimes.com/2026/01/01/technology/space-data-centers-ai.html": {
     "category": "AI_and_Strategy",
     "confidence": 0.85,
     "rationale": "The article discusses concerns of tech leaders about the artificial intelligence race and its impact on land and energy, suggesting a solution in orbit, aligning with AI strategy and AI-driven decisions.",
     "classifier_version": "llm-v1",
-    "cached_at": "2026-01-04T13:50:19.358Z"
+    "cached_at": "2026-01-11T20:53:18.997Z"
   },
-  "https://www.digitalcommerce360.com/2025/12/31/recap-last-mile-delivery-partnerships-fulfillment-2025": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article discusses how last-mile delivery partnerships have changed fulfillment in 2025, focusing on retail technology and fulfillment networks.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-04T16:24:40.731Z"
-  },
-  "https://www.modernretail.co/operations/quitting-wasnt-an-option-how-tariffs-took-an-emotional-and-financial-toll-on-founders-in-2025?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article discusses the impact of tariffs on founders and how they had to adapt their business models, which aligns with topics related to ecommerce platforms, retail technology, and business challenges in the retail sector.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-04T16:26:48.838Z"
-  },
-  "https://www.modernretail.co/technology/2026-will-prove-whether-ai-checkout-is-here-to-stay?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss": {
+  "https://www.nytimes.com/2025/12/29/technology/new-billionaires-ai-boom.html": {
     "category": "AI_and_Strategy",
     "confidence": 0.85,
-    "rationale": "The article discusses the integration of AI technology in the checkout process and its impact on shopper behavior, aligning with AI-driven business decisions and AI platforms like ChatGPT and Perplexity.",
+    "rationale": "The article discusses the emergence of billionaires in the AI industry, indicating a focus on AI-driven business decisions and the impact of AI on the tech sector.",
     "classifier_version": "llm-v1",
-    "cached_at": "2026-01-05T19:21:15.072Z"
+    "cached_at": "2026-01-11T20:53:51.372Z"
   },
-  "https://www.practicalecommerce.com/how-404s-impact-organic-rankings": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article discusses the impact of 404 status codes on SEO, which is more related to ecommerce and website optimization.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-07T09:10:13.533Z"
-  },
-  "https://www.digitalcommerce360.com/2026/01/06/amazon-alexa-plus-web-experience-ai-assistant": {
+  "https://arstechnica.com/science/2025/12/researchers-make-neuromorphic-artificial-skin-for-robots": {
     "category": "AI_and_Strategy",
     "confidence": 0.85,
-    "rationale": "The article focuses on Amazon's AI-powered assistant Alexa and its new features, emphasizing shopping and smart home controls, aligning with AI-driven business decisions and AI personalization.",
+    "rationale": "The article focuses on the development of artificial skin for robots, which falls under artificial intelligence and technology advancements.",
     "classifier_version": "llm-v1",
-    "cached_at": "2026-01-08T19:34:29.226Z"
+    "cached_at": "2026-01-11T21:49:37.701Z"
   },
-  "https://www.digitalcommerce360.com/2026/01/07/swap-series-c-funding-100-million-us-expansion": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article discusses funding for an expansion of an end-to-end commerce platform in the U.S., indicating a focus on ecommerce and retail technology.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-08T21:07:08.140Z"
-  },
-  "https://www.retaildive.com/news/elf-beauty-roblox-makeup-experience/808613": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article focuses on a cosmetics company launching a virtual makeup experience on a gaming platform to attract specific shopper demographics, aligning with ecommerce and retail technology trends.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-08T21:19:46.816Z"
-  },
-  "https://www.retaildive.com/news/amazon-website-alexa-online/808825": {
+  "https://www.digitalcommerce360.com/2026/01/09/sps-commerce-ai-tools-supply-chain-management": {
     "category": "AI_and_Strategy",
     "confidence": 0.85,
-    "rationale": "The article discusses the integration of AI technology (Alexa) into an online platform, focusing on AI-driven customer interactions and conversations.",
+    "rationale": "The article focuses on SPS Commerce unveiling new AI software products to address supply chain volatility, aligning with AI-driven business decisions and automation in retail and manufacturing operations.",
     "classifier_version": "llm-v1",
-    "cached_at": "2026-01-08T21:32:06.692Z"
+    "cached_at": "2026-01-11T21:51:13.426Z"
   },
-  "https://www.businessoffashion.com/news/retail/vestiaire-collective-co-founder-exits": {
-    "category": "Luxury_and_Consumer",
-    "confidence": 0.85,
-    "rationale": "The article focuses on a co-founder's exit from Vestiaire Collective, which is more aligned with luxury consumer behavior and brand strategy.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T15:32:35.238Z"
-  },
-  "https://www.modernretail.co/operations/figs-is-building-more-stores-around-its-medical-community?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article discusses Figs' strategy of setting up stores near medical centers and universities to cater to its core clientele, indicating a focus on retail tech and customer proximity.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T16:02:46.837Z"
-  },
-  "https://www.practicalecommerce.com/new-ecommerce-tools-january-7-2026": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article focuses on new ecommerce tools and services for marketing, advertising, and fulfillment networks, aligning with the Ecommerce_Retail_Tech category.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T16:07:32.267Z"
-  },
-  "https://stratechery.com/2026/an-interview-with-jeremie-eliahou-ontiveros-and-ajey-pandey-about-building-power-for-ai": {
+  "https://www.retaildive.com/news/walmart-adds-tech-veteran-board-member-ai-era/809095": {
     "category": "AI_and_Strategy",
     "confidence": 0.85,
-    "rationale": "The article focuses on AI labs and hyperscalers leveraging demand to build new electrical infrastructure for AI, aligning with the AI and technology strategy theme.",
+    "rationale": "The article focuses on Walmart's preparation for the AI era with the addition of a tech veteran to the board, indicating a strategic move towards AI implementation.",
     "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T16:09:46.939Z"
-  },
-  "https://www.businessoffashion.com/news/beauty/olaplex-takeover-offer-henkel": {
-    "category": "Luxury_and_Consumer",
-    "confidence": 0.85,
-    "rationale": "The article focuses on a luxury brand (Olaplex) attracting a takeover offer, which falls under luxury brand strategy and consumer behavior.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T16:26:06.494Z"
-  },
-  "https://www.digitalcommerce360.com/2025/12/30/ecommerce-faces-a-structural-reckoning-in-2026": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article primarily focuses on the structural changes in ecommerce, driven by AI-powered shopping and operational shifts, indicating a focus on ecommerce platforms and technology.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T20:29:48.117Z"
-  },
-  "https://www.nytimes.com/2026/01/02/technology/school-ai-chatgpt-estonia-iceland.html": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The article discusses the use of AI tools in schools and the concerns raised by experts, aligning with the AI and its impact on education.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T20:48:31.161Z"
-  },
-  "https://keithburgun.net/outside-dungeon-town-integrating-the-three-places-in-videogames": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The article discusses integrating different places in video games, which aligns with AI algorithms and strategies used in game development.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T20:52:36.085Z"
-  },
-  "https://www.practicalecommerce.com/2025-top-25-our-most-popular-posts": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The article focuses on the popularity of AI-related posts, indicating a primary focus on artificial intelligence and machine learning.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T21:03:46.984Z"
-  },
-  "https://www.modernretail.co/marketing/the-modern-retail-guide-to-whats-in-and-whats-out-in-2026?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article discusses retail trends for 2026, focusing on consumer behavior and retail industry insights.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T21:18:50.862Z"
-  },
-  "https://www.professionaljeweller.com/laings-sales-rise-but-profit-squeeze": {
-    "category": "Jewellery_Industry",
-    "confidence": 0.9,
-    "rationale": "The article focuses on the financial performance of Laings, a jewelry company, indicating sales rise and profit squeeze, aligning with the jewelry industry sector.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T21:57:02.423Z"
-  },
-  "https://arstechnica.com/science/2025/12/a-quirky-guide-to-myths-and-lore-based-in-actual-science": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The article does not seem to focus on Ecommerce, Luxury, or Jewelry, but rather on myths and lore based in actual science, which aligns more with AI and science-related topics.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-09T21:57:21.447Z"
-  },
-  "https://www.businessoffashion.com/articles/retail/claires-and-the-original-factory-shop-near-collapse": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article discusses the potential collapse of retail stores, which falls under the Ecommerce_Retail_Tech category.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-10T22:12:51.758Z"
-  },
-  "https://www.digitalcommerce360.com/2026/01/06/top-15-ecommerce-trends-to-watch-in-2026": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article focuses on discussing ecommerce trends for 2026, which aligns with the Ecommerce_Retail_Tech category.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-11T13:35:57.930Z"
-  },
-  "https://www.digitalcommerce360.com/2026/01/02/amazon-ai-data-center-multibillion-dollar-commitments": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The article focuses on Amazon's increased spending on artificial intelligence and data center infrastructure, highlighting the company's commitment to expanding cloud capacity for AI computing across government and commercial markets.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-11T13:37:33.892Z"
-  },
-  "https://www.modernretail.co/operations/the-winners-and-losers-of-tariffs?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article discusses the impact of tariffs on the retail industry, focusing on winners and losers, which aligns with Ecommerce_Retail_Tech.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-11T13:56:04.968Z"
-  },
-  "https://www.ycombinator.com/companies/crimson/jobs/kCikzj1-founding-engineer-full-stack": {
-    "category": "Ecommerce_Retail_Tech",
-    "confidence": 0.85,
-    "rationale": "The article is about a tech company hiring engineers in London, indicating a focus on technology and recruitment in the ecommerce sector.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-11T14:04:50.000Z"
-  },
-  "https://www.luxurydaily.com/visa-reports-4-2pc-rise-in-us-holiday-retail-spending": {
-    "category": "AI_and_Strategy",
-    "confidence": 0.85,
-    "rationale": "The article focuses on how artificial intelligence influenced consumer behavior during the holiday retail season.",
-    "classifier_version": "llm-v1",
-    "cached_at": "2026-01-11T14:24:38.756Z"
+    "cached_at": "2026-01-11T21:59:55.967Z"
   }
 }

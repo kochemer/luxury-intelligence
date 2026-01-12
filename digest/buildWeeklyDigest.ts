@@ -399,7 +399,7 @@ export type WeeklyDigest = {
 };
 
 /**
- * Builds a weekly digest from articles in data/articles.json
+ * Builds a weekly digest from articles in data/articles.json and discovery articles for the week
  * @param weekLabel - Week in format "YYYY-W##" (e.g. "2025-W52")
  * @returns Weekly digest object with totals and topic breakdowns
  */
@@ -430,7 +430,7 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
   const startISO = weekStartCET.toISOString();
   const endISO = weekEndCET.toISOString();
   
-  // Load articles
+  // Load articles from global articles.json
   const dataPath = path.join(__dirname, '../data/articles.json');
   let articles: Article[] = [];
   try {
@@ -440,11 +440,36 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
     throw new Error(`Failed to read articles.json: ${(err as Error).message}`);
   }
   
+  // Load discovery articles for this week (if they exist)
+  const weekDir = path.join(__dirname, '../data/weeks', weekLabel);
+  const discoveryArticlesPath = path.join(weekDir, 'discoveryArticles.json');
+  let discoveryArticles: Article[] = [];
+  try {
+    const raw = await fs.readFile(discoveryArticlesPath, 'utf-8');
+    discoveryArticles = JSON.parse(raw);
+    console.log(`[Build] Loaded ${discoveryArticles.length} discovery articles for ${weekLabel}`);
+  } catch (err) {
+    // Discovery articles don't exist for this week, that's okay
+    console.log(`[Build] No discovery articles found for ${weekLabel}`);
+  }
+  
+  // Merge discovery articles with regular articles (discovery articles take precedence for duplicates)
+  const articlesByUrl = new Map<string, Article>();
+  for (const article of articles) {
+    articlesByUrl.set(article.url, article);
+  }
+  // Add discovery articles, overwriting any duplicates
+  for (const article of discoveryArticles) {
+    articlesByUrl.set(article.url, article);
+  }
+  // Convert back to array
+  const allArticles = Array.from(articlesByUrl.values());
+  
   // Filter articles to the week window (exclude those without published_at)
   const weekStart = weekStartCET.getTime();
   const weekEnd = weekEndCET.getTime();
   
-  const eligibleArticles = articles.filter(article => {
+  const eligibleArticles = allArticles.filter(article => {
     if (!article.published_at) return false;
     const dt = new Date(article.published_at);
     if (isNaN(dt.getTime())) return false;

@@ -1,0 +1,153 @@
+{
+  "2026-W01|AI_and_Strategy|": {
+    "output": {
+      "queries": [
+        "AI strategy in ecommerce site:techcrunch.com OR site:theverge.com OR site:technologyreview.com OR site:hbr.org past week",
+        "machine learning applications in fashion industry site:techcrunch.com OR site:theverge.com OR site:technologyreview.com OR site:hbr.org past week",
+        "AI tools for luxury retail site:techcrunch.com OR site:theverge.com OR site:technologyreview.com OR site:hbr.org past week",
+        "LLMs transforming the jewelry market site:techcrunch.com OR site:theverge.com OR site:technologyreview.com OR site:hbr.org past week",
+        "generative AI in retail design site:techcrunch.com OR site:theverge.com OR site:technologyreview.com OR site:hbr.org past week",
+        "AI automation trends in fashion supply chain site:techcrunch.com OR site:theverge.com OR site:technologyreview.com OR site:hbr.org past week",
+        "AI personalization in ecommerce for customer retention site:techcrunch.com OR site:theverge.com OR site:technologyreview.com OR site:hbr.org past week",
+        "AI-driven business strategy in luxury brands site:techcrunch.com OR site:theverge.com OR site:technologyreview.com OR site:hbr.org past week",
+        "recent AI innovations by Shopify or Amazon in retail site:techcrunch.com OR site:theverge.com OR site:technologyreview.com OR site:hbr.org past week"
+      ],
+      "reasoning": "The queries are designed to capture recent developments and applications of AI within specific sectors of ecommerce, retail, fashion, luxury, and jewelry. By specifying both the industry focus and the context (e.g., AI tools, generative AI, personalization), the searches target articles that explore strategic implementations and innovations. The inclusion of specific companies and publication sites ensures that the search results are relevant, recent, and credible, aligning with the sources like TechCrunch, The Verge, MIT Technology Review, and Harvard Business Review."
+    },
+    "cached_at": "2026-01-11T21:34:18.650Z",
+    "weekLabel": "2026-W01"
+  },
+  "2026-W01|Ecommerce_Retail_Tech|": {
+    "output": {
+      "queries": [
+        "latest innovations in retail technology October 2023",
+        "new developments in ecommerce platforms October 2023",
+        "recent partnerships in online fashion retail October 2023",
+        "Amazon marketplace technology updates October 2023",
+        "advancements in digital commerce for luxury brands October 2023",
+        "retail operations strategies during peak shopping seasons October 2023",
+        "Shopify new features October 2023",
+        "trends in jewellery ecommerce October 2023",
+        "AI applications in retail technology October 2023",
+        "Walmart digital commerce initiatives October 2023"
+      ],
+      "reasoning": "The queries are designed to capture the latest developments and innovations in the ecommerce and retail tech sectors by focusing on specific areas such as platforms, technology, and strategic partnerships. By including specific company names, product launches, and trends, the queries aim to filter out generic results and target news articles published within the last 7 days. Additionally, the use of precise time frames (October 2023) ensures the results are current and relevant."
+    },
+    "cached_at": "2026-01-11T21:34:22.681Z",
+    "weekLabel": "2026-W01"
+  },
+  "2026-W01|Luxury_and_Consumer|": {
+    "output": {
+      "queries": [
+        "recent developments in luxury ecommerce October 2023",
+        "Hermès latest fashion collection launch 2023",
+        "new trends in high-end retail October 2023",
+        "Chanel consumer behavior insights October 2023",
+        "Louis Vuitton luxury market analysis October 2023",
+        "impact of digital transformation on luxury brands October 2023",
+        "Ralph Lauren premium product launches October 2023",
+        "Burberry retail strategy updates October 2023",
+        "Tiffany & Co jewellery trends October 2023",
+        "Prada recent sales performance October 2023"
+      ],
+      "reasoning": "The queries are designed to capture recent articles and developments within the luxury and consumer goods sector, focusing on specific companies and trends to ensure relevance and specificity. By including both brand names and industry terms, the queries aim to yield results from reputable sources like Business of Fashion, Luxury Daily, and WWD, which frequently cover such topics. The use of 'October 2023' ensures that the search results are recent, matching the requirement for news from the last 7 days."
+    },
+    "cached_at": "2026-01-11T21:34:27.303Z",
+    "weekLabel": "2026-W01"
+  },
+  "2026-W01|Jewellery_Industry|": {
+    "output": {
+      "queries": [
+        "latest developments in diamond retail October 2023",
+        "new luxury jewelry collections from Cartier October 2023",
+        "jewelry market trends 2023 National Jeweler",
+        "impact of ecommerce on fine jewelry sales October 2023",
+        "emerging gemstone trends JCK October 2023",
+        "recent innovations in sustainable jewelry Rapaport",
+        "Tiffany & Co new jewelry line launch October 2023",
+        "influence of social media on jewelry retail sales 2023",
+        "Professional Jeweller insights on UK jewelry market October 2023",
+        "latest jewelry collaborations with fashion brands October 2023"
+      ],
+      "reasoning": "The queries are designed to capture recent articles by focusing on specific brands, market trends, and events within the last week. By including names of well-known publications and industry-specific terms, the queries aim to discover relevant and timely articles. The focus on ecommerce, sustainability, and social media reflects current industry dynamics and consumer interests."
+    },
+    "cached_at": "2026-01-11T21:34:31.140Z",
+    "weekLabel": "2026-W01"
+  },
+  "2026-W02|AI_and_Strategy|AI-powered shopping|Cartier UK sales|Pragnell record sales|last-mile delivery partnerships|profit squeeze": {
+    "output": {
+      "queries": [
+        "AI-driven personalization in luxury fashion retail October 2023",
+        "latest AI strategies in ecommerce jewelry industry",
+        "recent advancements in AI-powered last-mile delivery solutions",
+        "new AI tools transforming luxury retail experiences",
+        "impact of generative AI on luxury brand marketing strategies",
+        "latest AI applications in high-end jewelry sales",
+        "AI automation innovations in fashion ecommerce October 2023",
+        "Cartier AI strategy for enhancing UK market presence",
+        "recent developments in AI-powered shopping apps",
+        "AI's role in overcoming profit squeeze in retail"
+      ],
+      "reasoning": "The queries are designed to target specific intersections of AI and the ecommerce/retail/fashion/luxury/jewelry sectors, focusing on recent advancements and strategies. They incorporate relevant keywords and specific industry contexts to ensure the discovery of the most pertinent and recent articles. By including specific brands like Cartier and focusing on trends such as generative AI and AI-driven personalization, the queries aim to capture niche developments and strategic innovations in the industry. Each query is crafted to be specific enough to yield relevant, timely articles from authoritative sources."
+    },
+    "cached_at": "2026-01-11T21:50:38.282Z",
+    "weekLabel": "2026-W02"
+  },
+  "2026-W02|Ecommerce_Retail_Tech|AI-powered shopping|Cartier UK sales|Pragnell record sales|last-mile delivery partnerships|profit squeeze": {
+    "output": {
+      "queries": [
+        "AI-driven ecommerce platforms October 2023",
+        "latest innovations in retail technology 2023",
+        "new developments in last-mile delivery partnerships October 2023",
+        "Cartier UK digital sales strategy 2023",
+        "Pragnell jewellery sales trends October 2023",
+        "recent advancements in online shopping features 2023",
+        "impact of AI on luxury retail October 2023",
+        "emerging trends in digital commerce operations 2023",
+        "marketplace technology updates October 2023",
+        "retail profit strategies in ecommerce October 2023"
+      ],
+      "reasoning": "The queries are designed to capture the latest developments in the ecommerce and retail tech sectors, focusing on specific areas such as AI-driven platforms, recent innovations, and market trends relevant to luxury brands like Cartier and Pragnell. The aim is to find articles published in the last 7 days that discuss recent news and advancements in these areas, providing insights into how companies are adapting to new technologies and market conditions."
+    },
+    "cached_at": "2026-01-11T21:50:42.293Z",
+    "weekLabel": "2026-W02"
+  },
+  "2026-W02|Luxury_and_Consumer|AI-powered shopping|Cartier UK sales|Pragnell record sales|last-mile delivery partnerships|profit squeeze": {
+    "output": {
+      "queries": [
+        "recent developments in AI fashion retail October 2023",
+        "Cartier UK expansion plans October 2023",
+        "Pragnell jewellery sales strategy 2023",
+        "latest luxury consumer behavior trends October 2023",
+        "high-end retail profit margins 2023",
+        "new luxury brand collaborations 2023",
+        "impact of last-mile delivery on luxury brands October 2023",
+        "recent premium product launches 2023",
+        "luxury market trend reports October 2023",
+        "innovations in ecommerce for luxury brands October 2023"
+      ],
+      "reasoning": "The queries are designed to capture the latest developments in the luxury and consumer goods sector, focusing on specific companies, trends, and innovations relevant to ecommerce and retail. By specifying the timeframe and using targeted keywords, the queries aim to retrieve the most recent articles from industry-relevant sources, providing a comprehensive view of the current landscape in luxury and consumer goods."
+    },
+    "cached_at": "2026-01-11T21:50:45.920Z",
+    "weekLabel": "2026-W02"
+  },
+  "2026-W02|Jewellery_Industry|AI-powered shopping|Cartier UK sales|Pragnell record sales|last-mile delivery partnerships|profit squeeze": {
+    "output": {
+      "queries": [
+        "AI jewelry shopping trends October 2023",
+        "Cartier new collection launch October 2023",
+        "Impact of last-mile delivery on jewelry retailers October 2023",
+        "Luxury jewelry market trends October 2023",
+        "Gemstone market innovations October 2023",
+        "UK jewelry retail sales October 2023",
+        "Pragnell sales performance October 2023",
+        "Diamond sourcing ethical issues October 2023",
+        "Fine jewelry ecommerce strategies October 2023",
+        "New partnerships in jewelry industry October 2023"
+      ],
+      "reasoning": "The queries are designed to capture new developments in the jewelry industry, focusing on recent trends, market changes, and specific company activities. They target specific topics such as AI in shopping, luxury brand activities, market trends, and ethical sourcing issues relevant to the jewelry sector. By specifying October 2023 and including relevant terms like company names and industry-specific trends, the queries aim to retrieve the most current and relevant articles published in the last 7 days, specifically from reputable industry sources."
+    },
+    "cached_at": "2026-01-11T21:50:50.349Z",
+    "weekLabel": "2026-W02"
+  }
+}

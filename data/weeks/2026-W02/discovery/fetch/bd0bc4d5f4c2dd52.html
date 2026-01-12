@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.4",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),o([])},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	
+		
+<link rel="icon" type="image/x-icon" href="https://www.onerail.com/wp-content/themes/customtheme/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.onerail.com/wp-content/themes/customtheme/apple-touch-icon.png">
+	
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5HPFMKS');</script>
+<!-- End Google Tag Manager -->
+	
+
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Tech-Forward, People-First: The Future of AI in Last Mile Delivery | OneRail</title>
+<link data-rocket-preload as="style" href="https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700&#038;ver=6.9&#038;display=swap" rel="preload">
+<link href="https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700&#038;ver=6.9&#038;display=swap" media="print" onload="this.media=&#039;all&#039;" rel="stylesheet">
+<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter%3Awght%40400%3B500%3B600%3B700&#038;ver=6.9&#038;display=swap"></noscript>
+	<meta name="description" content="Everyone’s talking about AI in last mile delivery, but the human touch still matters. Learn how a hybrid model balances speed, service and empathy." />
+	<link rel="canonical" href="https://www.onerail.com/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Tech-Forward, People-First: The Future of AI in Last Mile Delivery | OneRail" />
+	<meta property="og:description" content="Everyone’s talking about AI in last mile delivery, but the human touch still matters. Learn how a hybrid model balances speed, service and empathy." />
+	<meta property="og:url" content="https://www.onerail.com/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/" />
+	<meta property="og:site_name" content="OneRail" />
+	<meta property="article:published_time" content="2025-09-11T22:22:15+00:00" />
+	<meta property="article:modified_time" content="2025-09-11T22:23:00+00:00" />
+	<meta property="og:image" content="https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-1024x683.png" />
+	<meta property="og:image:width" content="1024" />
+	<meta property="og:image:height" content="683" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="Bill Catania" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Bill Catania" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="6 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.onerail.com/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/","url":"https://www.onerail.com/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/","name":"Tech-Forward, People-First: The Future of AI in Last Mile Delivery | OneRail","isPartOf":{"@id":"https://www.onerail.com/#website"},"primaryImageOfPage":{"@id":"https://www.onerail.com/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/#primaryimage"},"image":{"@id":"https://www.onerail.com/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/#primaryimage"},"thumbnailUrl":"https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery.png","datePublished":"2025-09-11T22:22:15+00:00","dateModified":"2025-09-11T22:23:00+00:00","author":{"@id":"https://www.onerail.com/#/schema/person/f9a2c98c054257c35ee962070b65a5de"},"description":"Everyone’s talking about AI in last mile delivery, but the human touch still matters. Learn how a hybrid model balances speed, service and empathy.","breadcrumb":{"@id":"https://www.onerail.com/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.onerail.com/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.onerail.com/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/#primaryimage","url":"https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery.png","contentUrl":"https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery.png","width":1800,"height":1200,"caption":"AI in last mile delivery"},{"@type":"BreadcrumbList","@id":"https://www.onerail.com/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.onerail.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.onerail.com/blog/"},{"@type":"ListItem","position":3,"name":"Tech-Forward, People-First: The Future of AI in Last Mile Delivery"}]},{"@type":"WebSite","@id":"https://www.onerail.com/#website","url":"https://www.onerail.com/","name":"OneRail","description":"The Complete and Automated Final Mile Solution","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.onerail.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Person","@id":"https://www.onerail.com/#/schema/person/f9a2c98c054257c35ee962070b65a5de","name":"Bill Catania","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.onerail.com/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/fcba34a2f55396a0533b70bfb3b6ff1d81b2b9d73e1cb940e9f5fdeef45d7a52?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/fcba34a2f55396a0533b70bfb3b6ff1d81b2b9d73e1cb940e9f5fdeef45d7a52?s=96&d=mm&r=g","caption":"Bill Catania"},"url":"https://www.onerail.com/author/bill-catania/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//js.hs-scripts.com' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.onerail.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.onerail.com%2Ftech-forward-people-first-the-future-of-ai-in-last-mile-delivery%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.onerail.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.onerail.com%2Ftech-forward-people-first-the-future-of-ai-in-last-mile-delivery%2F&#038;format=xml" />
+<style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='wp-block-library-inline-css'>
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style><style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<link data-minify="1" rel='stylesheet' id='customtheme-style-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/style.css?ver=1767886870' media='all' />
+
+<link data-minify="1" rel='stylesheet' id='royalslider-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/library/royalslider/royalslider.css?ver=1767886870' media='all' />
+<link data-minify="1" rel='stylesheet' id='royalsliderskins-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/library/royalslider/skins/default/rs-default.css?ver=1767886870' media='all' />
+<link data-minify="1" rel='stylesheet' id='fancybox-css' href='https://www.onerail.com/wp-content/cache/min/1/npm/@fancyapps/ui/dist/fancybox.css?ver=1767886870' media='all' />
+<link data-minify="1" rel='stylesheet' id='home-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/css/home.css?ver=1767886870' media='all' />
+<link data-minify="1" rel='stylesheet' id='grid-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/css/grid.css?ver=1767886870' media='all' />
+<link data-minify="1" rel='stylesheet' id='general-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/css/general.css?ver=1767886870' media='all' />
+<link data-minify="1" rel='stylesheet' id='custom-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/css/layout.css?ver=1767886871' media='all' />
+<link data-minify="1" rel='stylesheet' id='ord-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/css/ord.css?ver=1767886871' media='all' />
+<link data-minify="1" rel='stylesheet' id='blog-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/css/blog.css?ver=1767886871' media='all' />
+<link data-minify="1" rel='stylesheet' id='responsive-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/css/responsive.css?ver=1767886871' media='all' />
+<link data-minify="1" rel='stylesheet' id='carousel-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/css/carousel.css?ver=1767886871' media='all' />
+<link data-minify="1" rel='stylesheet' id='cookie-law-info-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/plugins/webtoffee-gdpr-cookie-consent/public/css/cookie-law-info-public.css?ver=1767886871' media='all' />
+<link data-minify="1" rel='stylesheet' id='cookie-law-info-gdpr-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/plugins/webtoffee-gdpr-cookie-consent/public/css/cookie-law-info-gdpr.css?ver=1767886871' media='all' />
+<style id='cookie-law-info-gdpr-inline-css'>
+.cli-modal-content, .cli-tab-content { background-color: #ffffff; }.cli-privacy-content-text, .cli-modal .cli-modal-dialog, .cli-tab-container p, a.cli-privacy-readmore { color: #000000; }.cli-tab-header { background-color: #f2f2f2; }.cli-tab-header, .cli-tab-header a.cli-nav-link,span.cli-necessary-caption,.cli-switch .cli-slider:after { color: #000000; }.cli-switch .cli-slider:before { background-color: #ffffff; }.cli-switch input:checked + .cli-slider:before { background-color: #ffffff; }.cli-switch .cli-slider { background-color: #e3e1e8; }.cli-switch input:checked + .cli-slider { background-color: #28a745; }.cli-modal-close svg { fill: #000000; }.cli-tab-footer .wt-cli-privacy-accept-all-btn { background-color: #00acad; color: #ffffff}.cli-tab-footer .wt-cli-privacy-accept-btn { background-color: #00acad; color: #ffffff}.cli-tab-header a:before{ border-right: 1px solid #000000; border-bottom: 1px solid #000000; }
+/*# sourceURL=cookie-law-info-gdpr-inline-css */
+</style>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.onerail.com/wp-content/cache/min/1/wp-content/plugins/stop-user-enumeration/frontend/js/frontend.js?ver=1767886871" id="stop-user-enumeration-js" defer data-wp-strategy="defer"></script>
+<script data-minify="1" src="https://www.onerail.com/wp-content/cache/min/1/ajax/libs/jquery/3.4.0/jquery.min.js?ver=1767886871" id="jquery-js" data-rocket-defer defer></script>
+<script id="cookie-law-info-js-extra">
+var Cli_Data = {"nn_cookie_ids":[],"non_necessary_cookies":[],"cookielist":{"necessary":{"id":13,"status":true,"priority":0,"title":"Necessary","strict":true,"default_state":false,"ccpa_optout":false,"loadonstart":false},"functional":{"id":14,"status":true,"priority":5,"title":"Functional","strict":false,"default_state":false,"ccpa_optout":false,"loadonstart":false},"performance":{"id":15,"status":true,"priority":4,"title":"Performance","strict":false,"default_state":false,"ccpa_optout":false,"loadonstart":false},"analytics":{"id":16,"status":true,"priority":3,"title":"Analytics","strict":false,"default_state":false,"ccpa_optout":false,"loadonstart":false},"advertisement":{"id":17,"status":true,"priority":2,"title":"Advertisement","strict":false,"default_state":false,"ccpa_optout":false,"loadonstart":false},"others":{"id":18,"status":true,"priority":1,"title":"Others","strict":false,"default_state":false,"ccpa_optout":false,"loadonstart":false}},"ajax_url":"https://www.onerail.com/wp-admin/admin-ajax.php","current_lang":"en","security":"d19598e241","eu_countries":["GB"],"geoIP":"disabled","use_custom_geolocation_api":"","custom_geolocation_api":"https://geoip.cookieyes.com/geoip/checker/result.php","consentVersion":"1","strictlyEnabled":["necessary","obligatoire"],"cookieDomain":"","privacy_length":"250","ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","ccpaType":"gdpr","triggerDomRefresh":"","secure_cookies":""};
+var log_object = {"ajax_url":"https://www.onerail.com/wp-admin/admin-ajax.php"};
+//# sourceURL=cookie-law-info-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.onerail.com/wp-content/cache/min/1/wp-content/plugins/webtoffee-gdpr-cookie-consent/public/js/cookie-law-info-public.js?ver=1767886871" id="cookie-law-info-js" data-rocket-defer defer></script>
+<link rel="https://api.w.org/" href="https://www.onerail.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.onerail.com/wp-json/wp/v2/posts/21915" /><meta name="generator" content="WordPress 6.9" />
+<link rel='shortlink' href='https://www.onerail.com/?p=21915' />
+			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.33-->
+			<script type="rocketlazyloadscript" class="hsq-set-content-id" data-content-id="blog-post">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", "blog-post"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+			<link rel="pingback" href="https://www.onerail.com/xmlrpc.php"><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	
+	<!-- additional code - top -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "OneRail",
+  "url": "https://www.onerail.com/",
+  "logo": "https://www.onerail.com/wp-content/themes/customtheme/images/logo.png",
+  "sameAs": [
+    "https://www.facebook.com/OneRailapp/",
+    "https://www.linkedin.com/company/onerail-finalmile/",
+    "https://twitter.com/onerailapp",
+    "https://www.youtube.com/channel/UCYM4WygSMH7PXHz_G25Inog"
+  ]
+}
+</script>
+
+	
+	
+<link data-minify="1" rel='stylesheet' id='cookie-law-info-table-css' href='https://www.onerail.com/wp-content/cache/min/1/wp-content/plugins/webtoffee-gdpr-cookie-consent/public/css/cookie-law-info-table.css?ver=1767886871' media='all' />
+<meta name="generator" content="WP Rocket 3.20.2" data-wpr-features="wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_image_dimensions wpr_minify_css wpr_preload_links wpr_desktop" /></head>
+
+<body class="wp-singular post-template-default single single-post postid-21915 single-format-standard wp-theme-customtheme" ontouchstart="" onmouseover="">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HPFMKS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div data-rocket-location-hash="99bb46786fd5bd31bcd7bdc067ad247a" id="wrapper">
+	
+<header data-rocket-location-hash="b06e8e2b89e420e64071dce1349a8153" id="header-group">
+	
+	<div data-rocket-location-hash="a3f6c97bb575d81cdb443c06b13adc4b" class="mobile-header"><a class="ToggleMenu Open" href="#"></a>
+		<div class="logowrap"><a href="https://www.onerail.com"><img width="226" height="51" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20226%2051'%3E%3C/svg%3E" alt="OneRail" data-lazy-src="https://www.onerail.com/wp-content/themes/customtheme/images/logo.png"><noscript><img width="226" height="51" src="https://www.onerail.com/wp-content/themes/customtheme/images/logo.png" alt="OneRail"></noscript></a></div>
+ 	</div>
+	
+	<div data-rocket-location-hash="9a13f697b60e8be791f974e41582ac6b" id="header" role="banner">
+		<div data-rocket-location-hash="a71c5681b3c30e6b140882b852ae9f99" class="inner">
+				<div class="header-logo"><a href="https://www.onerail.com"></a></div> 
+		
+		<div class="top-menu">
+				<ul id="menu-top-menu" class="menu"><li id="menu-item-4125" class="default-pointer menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4125"><a href="#">Why OneRail</a>
+<ul class="sub-menu">
+	<li id="menu-item-4126" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4126"><a href="https://www.onerail.com/why-onerail/our-future-proofing-solution/">Our Future-Proofing Solution</a></li>
+	<li id="menu-item-4645" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4645"><a href="https://www.onerail.com/why-onerail/last-mile-delivery-companies-compared/">Competitor Comparison</a></li>
+	<li id="menu-item-21003" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21003"><a href="https://www.onerail.com/value-impact-calculator/">Value Impact Calculator</a></li>
+</ul>
+</li>
+<li id="menu-item-769" class="default-pointer menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-769"><a href="#">Resources</a>
+<ul class="sub-menu">
+	<li id="menu-item-848" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-848"><a href="https://www.onerail.com/resources/">Resource Center</a></li>
+	<li id="menu-item-799" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-799"><a href="https://www.onerail.com/blog/">Blog</a></li>
+	<li id="menu-item-800" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-800"><a href="/newsroom/">Newsroom</a></li>
+</ul>
+</li>
+<li id="menu-item-770" class="default-pointer menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-770"><a href="#">Company</a>
+<ul class="sub-menu">
+	<li id="menu-item-20208" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20208"><a target="_blank" href="https://trust.onerail.com/">Trust Center</a></li>
+	<li id="menu-item-782" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-782"><a href="https://www.onerail.com/about/">About</a></li>
+	<li id="menu-item-1395" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1395"><a href="https://www.onerail.com/leadership/">Leadership</a></li>
+	<li id="menu-item-7455" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7455"><a href="https://www.onerail.com/awards-and-recognition/">Recognition</a></li>
+	<li id="menu-item-7230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7230"><a href="https://www.onerail.com/sustainability/">Sustainability</a></li>
+	<li id="menu-item-8101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8101"><a href="https://www.onerail.com/team-onerail-delivers/">Social Good</a></li>
+	<li id="menu-item-7148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7148"><a href="https://www.onerail.com/partnerships/">Partnerships</a></li>
+	<li id="menu-item-780" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-780"><a href="https://www.onerail.com/careers/">Careers</a></li>
+</ul>
+</li>
+<li id="menu-item-2245" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2245"><a target="_blank" href="https://app.onerail.io/">Sign In</a></li>
+</ul>		</div>
+			
+	
+<div class="mega-menu-wrap">
+<ul class="mega-menu-nav">
+	<li><a href="#" class="">Platform</a>	
+			<div class="mega-menu">
+						<div class="mega-menu-left">
+							<p class="block_title">OmniPoint® Platform</p>
+<p>Our data-driven visibility solution is architected on the trusted Microsoft Azure platform.</p>
+							
+														<div class="mega-menu-left-link">
+								<a href="/platform/">OmniPoint® Overview</a>
+							</div>
+													</div>
+						<div class="mega-menu-content">
+														<p class="block_title">Features</p>
+													<ul>
+													<li><a href="https://www.onerail.com/platform/delivery-order-automation/">Delivery Order Automation</a></li>
+													<li><a href="https://www.onerail.com/platform/multimodal-optimization/">Multimodal Optimization</a></li>
+													<li><a href="https://www.onerail.com/platform/automated-rate-shopping/">Automated Rate Shopping</a></li>
+													<li><a href="https://www.onerail.com/platform/last-mile-delivery-tracking/">Real-time Visibility</a></li>
+													<li><a href="https://www.onerail.com/platform/customer-experience/">Customer Experience</a></li>
+													<li><a href="https://www.onerail.com/platform/actionable-data/">Actionable Data</a></li>
+													<li><a href="https://orderbot.com/">Order Management</a></li>
+													<li><a href="https://orderbot.com/">Inventory Management</a></li>
+													<li><a href="https://orderbot.com/">Product Management</a></li>
+													<li><a href="https://orderbot.com/">Reliable EDI</a></li>
+												</ul>
+						</div>
+						<div class="mega-menu-right">
+							<p class="block_title">Schedule a Demo</p>
+<p>See OneRail in action, and take the first step toward a connected supply chain.</p>
+														<div class="mega-menu-right-link">
+								<a href="/request-demo/">Schedule Now</a>
+							</div>
+													</div>
+		</div>
+		</li>
+	<li><a href="https://www.onerail.com/delivery-network/" class="single-link">Network</a>	
+		</li>
+	<li><a href="#" class="">Services</a>	
+			<div class="mega-menu">
+						<div class="mega-menu-left">
+							<p class="block_title">Services</p>
+<p>Optimize your last mile with customized solutions that easily slide into your existing stack for a quick time-to-value.</p>
+							
+													</div>
+						<div class="mega-menu-content">
+													<ul>
+													<li><a href="https://www.onerail.com/services/value-analysis/">Value Analysis</a></li>
+													<li><a href="https://www.onerail.com/services/step-by-step-implementation/">Step-by-Step Implementation</a></li>
+													<li><a href="https://www.onerail.com/services/exceptions-assist/">Exceptions Assist&trade;</a></li>
+												</ul>
+						</div>
+						<div class="mega-menu-right">
+							<p class="block_title">Get Started</p>
+<p>Dig into the details with a no-risk Value Analysis.</p>
+														<div class="mega-menu-right-link">
+								<a href="/request-demo/">Get in Touch</a>
+							</div>
+													</div>
+		</div>
+		</li>
+	<li><a href="#" class="">Industries</a>	
+			<div class="mega-menu">
+						<div class="mega-menu-left">
+							<p class="block_title">Industries</p>
+<p>The world&#8217;s largest brands across major industries rely on our adaptable, scalable delivery solution.</p>
+							
+													</div>
+						<div class="mega-menu-content">
+													<ul>
+													<li><a href="https://www.onerail.com/industries/retail/">Retail</a></li>
+													<li><a href="https://www.onerail.com/specialty-retailers/">Specialty Retail</a></li>
+													<li><a href="https://www.onerail.com/industries/last-mile-food-delivery/">Food & Grocery</a></li>
+													<li><a href="https://www.onerail.com/industries/product-manufacturer/">Product Manufacturer</a></li>
+													<li><a href="https://www.onerail.com/industries/wholesale-distributor/">Wholesale Distributor</a></li>
+													<li><a href="https://www.onerail.com/industries/health-care-network/">Health Care Network</a></li>
+													<li><a href="https://www.onerail.com/industries/3pl/">3PL</a></li>
+												</ul>
+						</div>
+						<div class="mega-menu-right">
+							<p class="block_title">TMS White Paper</p>
+<p>Learn what’s missing from your TMS, and what customers are looking for in last mile delivery.</p>
+														<div class="mega-menu-right-link">
+								<a href="https://www.onerail.com/transportation-management-systems/" target="_blank">Get Free Access</a>
+							</div>
+													</div>
+		</div>
+		</li>
+	<li class="request-demo"><a href="/request-demo/">Let's Talk</a></li>
+</ul>
+</div>
+	
+
+
+
+			
+
+		
+		
+				
+		</div>
+		</div>
+	
+	
+	
+	
+</header>
+	
+<div data-rocket-location-hash="95cf2c4b28eed4ee12696549c05f4ecd" id="headerspacer"></div>
+
+
+<article data-rocket-location-hash="af4b033a0e94ac53a74b2bb05a24410d" style="overflow: hidden;">
+
+	
+
+	<main data-rocket-location-hash="25db731515c9bd125f99dcd43b8231de" id="primary" class="blog-page">
+
+		<div data-rocket-location-hash="525a6c96b387bfb54d17af7a579d6fc2" class="inner">
+			<section class="blog-left">
+				<div class="back-link"><a href="/blog/">The OneRail Industry Insights Blog</a></div>
+		
+<article id="post-21915" class="post-21915 post type-post status-publish format-standard has-post-thumbnail hentry category-artificial-intelligence tag-ai-in-last-mile-delivery tag-artificial-intelligence tag-final-mile-delivery tag-fulfillment tag-innovation tag-last-mile-delivery tag-tech tag-technology">
+	<header class="entry-header">
+		<h1 class="entry-title">Tech-Forward, People-First: The Future of AI in Last Mile Delivery</h1>			<div class="entry-meta">
+				
+								<span class="written-by">Written by Bill Catania</span>
+								<span class="posted-on">Posted on <time class="entry-date published" datetime="2025-09-11T18:22:15-04:00">September 11, 2025</time><time class="updated" datetime="2025-09-11T18:23:00-04:00">September 11, 2025</time></span>				
+				
+				<div class="addthis_inline_share_toolbox"></div>
+			</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+			<div class="post-thumb-wrap right">
+	
+			<div class="post-thumbnail">
+				<figure class="wp-caption fsmcfi-fig featured"><picture class="attachment-post-thumbnail size-post-thumbnail wp-post-image" decoding="async" fetchpriority="high">
+<source type="image/webp" data-lazy-srcset="https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery.png.webp 1800w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-300x200.png.webp 300w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-1024x683.png.webp 1024w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-768x512.png.webp 768w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-1536x1024.png.webp 1536w" sizes="(max-width: 1800px) 100vw, 1800px"/>
+<img width="1800" height="1200" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201800%201200'%3E%3C/svg%3E" alt="AI in last mile delivery" decoding="async" fetchpriority="high" data-lazy-srcset="https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery.png 1800w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-300x200.png 300w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-1024x683.png 1024w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-768x512.png 768w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-1536x1024.png 1536w" data-lazy-sizes="(max-width: 1800px) 100vw, 1800px" data-lazy-src="https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery.png"/><noscript><img width="1800" height="1200" src="https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery.png" alt="AI in last mile delivery" decoding="async" fetchpriority="high" srcset="https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery.png 1800w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-300x200.png 300w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-1024x683.png 1024w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-768x512.png 768w, https://www.onerail.com/wp-content/uploads/2025/09/AI-in-last-mile-delivery-1536x1024.png 1536w" sizes="(max-width: 1800px) 100vw, 1800px"/></noscript>
+</picture>
+</figure>			</div><!-- .post-thumbnail -->
+
+			</div>
+		
+	<div class="entry-content">
+		<p><span style="font-weight: 400;">Artificial intelligence is transforming everything from how packages are routed to how customers interact with support. In this era of innovation and transition, there’s no doubt that companies should be embracing technology. But the real question is: How do you effectively integrate AI in the last mile without losing the human element?</span></p>
+<p><span style="font-weight: 400;">Consumers today expect speed, precision and frictionless on-demand service. But they also want empathy, understanding and someone who can step in when something goes wrong. Case in point: While AI can optimize a delivery route in milliseconds, it can’t yet offer reassurance to a frustrated customer whose package didn’t arrive on time.</span></p>
+<p><span style="font-weight: 400;">The companies that are winning in this new landscape are the ones that understand this balance — those that lead with innovation but never lose sight of the human touch. Forward-thinking brands are on a mission to prove that tech-forward doesn’t mean people-last. In fact, it’s the blend of both that defines the future of last mile delivery.</span></p>
+<h2><span style="font-weight: 400;">The Innovation Imperative: Why We Automate</span></h2>
+<p><span style="font-weight: 400;">The delivery landscape has never been more competitive. Shippers are navigating a blend of challenges, including tight margins, labor constraints and rising customer expectations for speed, convenience and transparency. In this high-pressure environment, operational efficiency is </span><i><span style="font-weight: 400;">the</span></i><span style="font-weight: 400;"> survival strategy.</span></p>
+<p><span style="font-weight: 400;">That’s why AI and automation have become essential tools for gaining an edge. These technologies have emerged as solutions for unlocking new levels of reliability, scalability and customer satisfaction across the entire delivery journey.</span></p>
+<p><span style="font-weight: 400;">AI and automation are helping wholesale distributors and retailers make smart and fast decisions in a variety of ways:</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><b>Route Optimization:</b><span style="font-weight: 400;"> Finding the fastest, most cost-effective paths in real time.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Mode Selection:</b><span style="font-weight: 400;"> Automatically choosing the best delivery method based on cost, dimensions, weight, speed and SLA requirements.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Predictive Analytics:</b><span style="font-weight: 400;"> Anticipating delays, demand surges and customer needs before they happen.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Proactive Communications:</b><span style="font-weight: 400;"> Automating updates and alerts to customers and internal teams.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Inventory Management:</b><span style="font-weight: 400;"> Enabling real-time visibility and smarter fulfillment decisions.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Exception Detection:</b><span style="font-weight: 400;"> Identifying and flagging issues before they become customer-facing problems.</span></li>
+</ul>
+<p><span style="font-weight: 400;">And the industry is moving quickly to embrace these tools. The AI-enabled last mile delivery solutions market is </span><a href="https://www.researchandmarkets.com/report/global-artificial-intelligence-enabled-last-mile-delivery-market?srsltid=AfmBOooPcapRR24sfcaYfUPT2geVkhdTqUdKC_PCg5LYMTE43Uk2rsnr" target="_blank" rel="noopener"><b>experiencing rapid growth</b></a><span style="font-weight: 400;">, and many in the industry see </span><a href="https://www.gartner.com/en/articles/last-mile-delivery" target="_blank" rel="noopener"><b>AI and automation as key solutions</b></a><span style="font-weight: 400;"> for building efficiency amid complexity and maintaining margins in a world where the last mile accounts for 52% of fulfillment costs.</span></p>
+<p><span style="font-weight: 400;">In short, AI and automation are now the foundation for building a delivery network that can compete in today’s market.</span></p>
+<h2><span style="font-weight: 400;">But Tech Alone Isn’t Enough</span></h2>
+<p><span style="font-weight: 400;">While AI and automation have unlocked incredible speed and scale, they’re not without blind spots. In the race to digitize every interaction, many companies have unintentionally created a new kind of friction — one where the human touch is increasingly hard to find.</span></p>
+<p><span style="font-weight: 400;">We’ve all experienced it: a delayed delivery, an incorrect order or a last-minute change and no clear way to get help. Instead of speaking to a real person, customers are funneled into automated phone trees, chatbots or endless email loops. In many scenarios like this, frustration builds, trust erodes and brand loyalty takes a hit.</span></p>
+<p><span style="font-weight: 400;">In these moments when something falls outside the algorithm, automation alone falls short. These situations demand nuance, judgment and empathy. And yet, in many tech-driven systems, there’s no clear path for a human to step in and make it right.</span></p>
+<p><span style="font-weight: 400;">It’s a growing pain across the industry. As technology advances, so does the risk of alienating the very customers it’s meant to serve. Because when something goes wrong, people don’t want a script — they want a solution, and often, they want it from another human being.</span></p>
+<h2><span style="font-weight: 400;">Tractor Supply: High Tech Meets Human Expertise</span></h2>
+<p><span style="font-weight: 400;">Ally Smith, VP of Customer Growth &amp; Experience at OneRail, recently wrote about her team’s experience at </span><a href="https://www.onerail.com/4-takeaways-from-tractor-supplys-2025-partnership-conference/"><b>Tractor Supply’s 2025 Partnership Conference</b></a><span style="font-weight: 400;">. During the event, she made a powerful observation: Tractor Supply is building a future-ready retail model that still feels personal and local. And that’s no easy feat.</span></p>
+<p><span style="font-weight: 400;">In a time when many retailers are chasing automation for its own sake, Tractor Supply stands out by using technology to enhance rather than replace the customer experience. Same-day pickups, localized fulfillment and intelligent delivery are all in play, but these innovations are grounded in one core truth: Tractor Supply’s customers still want real connections.</span></p>
+<p><span style="font-weight: 400;">Sometimes that means walking into a store to ask a question. Other times, it means expecting a delivery that arrives not just on time, but with care. What Tractor Supply understands is that technology should serve people, not sideline them. Every digital innovation is filtered through the lens of customer trust and loyalty, especially for those in rural communities who depend on that relationship.</span></p>
+<p><span style="font-weight: 400;">David Daeschler, Executive Vice President of Data Science &amp; AI at OneRail, touched on similar dynamics during a session with </span><a href="https://doorstep.ai" target="_blank" rel="noopener"><b>Doorstep.ai</b></a><span style="font-weight: 400;"> at Home Delivery World. </span><a href="https://www.youtube.com/watch?v=F4uVfinKcoY" target="_blank" rel="noopener"><b>The session on AI, precision and the final 50 feet of the delivery process</b></a><span style="font-weight: 400;"> addressed the challenges that emerge as AI, automation and other advanced technologies become more prominent in the delivery experience. Specifically, the panel discussed how technology stops at the curb — and how the human element is still a necessary part of completing deliveries at the unit level.</span></p>
+<h2><span style="font-weight: 400;">OneRail: Automation + Human Backup When It Counts</span></h2>
+<p><span style="font-weight: 400;">At the heart of </span><a href="https://www.onerail.com/platform/"><b>OneRail’s platform</b></a><span style="font-weight: 400;"> is a sophisticated engine of automation with real-time data, predictive algorithms and intelligent mode optimization that ensure goods move from store to door with speed and precision. From selecting the best carrier to monitoring driver performance and ensuring on-time delivery, the technology hums quietly in the background, doing what it was built to do: simplify and streamline last mile delivery.</span></p>
+<p><span style="font-weight: 400;">But even the most innovative system needs a human safety net.</span></p>
+<p><span style="font-weight: 400;">That’s where </span><a href="https://www.onerail.com/services/exceptions-assist/"><b>OneRail’s Exceptions Assist™ team</b></a><span style="font-weight: 400;"> comes in — a 24/7, delivery support department that monitors deliveries in real-time and steps in when things don’t go as planned. Whether it’s a missed ETA, a route that needs to be adjusted or clarified or a customer with a unique delivery request, this team is empowered to resolve issues quickly, compassionately and personally.</span></p>
+<p><span style="font-weight: 400;">Because automation is only as strong as the human support behind it.</span></p>
+<p><span style="font-weight: 400;">In a logistics landscape where many platforms are fully self-service, OneRail stands apart. It’s about moving products while also delivering peace of mind. That means ensuring someone is always available to answer the phone, make a judgment call and go the extra mile when the system encounters an edge case.</span></p>
+<h2><span style="font-weight: 400;">The Future is a Hybrid Model: AI-Powered, Human-Led</span></h2>
+<p><span style="font-weight: 400;">The most successful logistics and retail systems of tomorrow won’t be fully automated </span><i><span style="font-weight: 400;">or</span></i><span style="font-weight: 400;"> fully manual. They’ll be hybrid by design, blending the precision of technology with the power of human connection.</span></p>
+<p><span style="font-weight: 400;">AI can and should handle the repetitive, high-volume tasks: forecasting demand, routing deliveries, calculating ETAs. But it’s that remaining 20% like exceptions that often define the customer experience. And that’s where humans still matter most.</span></p>
+<p><span style="font-weight: 400;">The brands that thrive in this environment will be the ones that use technology to amplify human strengths. That means:</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Letting machines make data-driven decisions in milliseconds — and letting people step in with empathy and creativity when it counts.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Equipping frontline associates with better tools and insights — and trusting them to build relationships that foster loyalty.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Building platforms that are not just smart, but responsive — with a human backup plan for every automated touchpoint.</span></li>
+</ul>
+<p><span style="font-weight: 400;">Being tech-forward is now a baseline rather than a differentiator. </span><a href="https://www.onerail.com/request-demo/"><b>Schedule a demo</b></a><span style="font-weight: 400;"> to discover how OneRail provides an innovative last mile delivery solution that maintains a human touch.</span></p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="https://www.onerail.com/category/artificial-intelligence/" rel="category tag">Artificial Intelligence</a></span><span class="tags-links">Tagged <a href="https://www.onerail.com/tag/ai-in-last-mile-delivery/" rel="tag">ai in last mile delivery</a>, <a href="https://www.onerail.com/tag/artificial-intelligence/" rel="tag">artificial intelligence</a>, <a href="https://www.onerail.com/tag/final-mile-delivery/" rel="tag">final mile delivery</a>, <a href="https://www.onerail.com/tag/fulfillment/" rel="tag">fulfillment</a>, <a href="https://www.onerail.com/tag/innovation/" rel="tag">innovation</a>, <a href="https://www.onerail.com/tag/last-mile-delivery/" rel="tag">last mile delivery</a>, <a href="https://www.onerail.com/tag/tech/" rel="tag">tech</a>, <a href="https://www.onerail.com/tag/technology/" rel="tag">technology</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-21915 -->
+
+	<nav class="navigation post-navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://www.onerail.com/4-takeaways-from-tractor-supplys-2025-partnership-conference/" rel="prev"><span class="nav-subtitle">Previous:</span> <span class="nav-title">4 Takeaways from Tractor Supply’s 2025 Partnership Conference</span></a></div><div class="nav-next"><a href="https://www.onerail.com/the-big-shift-in-big-bulky-delivery-5-last-mile-lessons-from-our-webinar-with-bungii/" rel="next"><span class="nav-subtitle">Next:</span> <span class="nav-title">The Big Shift in Big &#038; Bulky Delivery: 5 Last Mile Lessons From Our Webinar With Bungii</span></a></div></div>
+	</nav></section>
+			
+			<div class="blog-right">
+				
+<aside id="secondary" class="widget-area">
+	<section id="custom-post-type-search-3" class="widget widget_search"><h2 class="widget-title">Search Blog</h2><form role="search" method="get" class="search-form" action="https://www.onerail.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			<input type="hidden" name="post_type" value="post"></form></section>			<section id="custom-post-type-recent-posts-4" class="widget widget_recent_entries"><h2 class="widget-title">Recent Posts</h2>			<ul>
+													<li>
+										<a href="https://www.onerail.com/bill-catania-on-dc-velocity-how-retailers-are-rethinking-last-mile-strategies-in-2026/">Bill Catania on DC Velocity: How Retailers Are Rethinking Last Mile Strategies in 2026</a>
+														</li>
+													<li>
+										<a href="https://www.onerail.com/7-last-mile-delivery-trends-what-to-expect-in-2026/">7 Last Mile Delivery Trends: What to Expect in 2026</a>
+														</li>
+													<li>
+										<a href="https://www.onerail.com/building-resilient-last-mile-operations-in-an-unpredictable-world-key-takeaways-from-jason-mcandrews-appearance-on-thoughts-and-coffee/">Building Resilient Last Mile Operations in an Unpredictable World: Key Takeaways from Jason McAndrew’s Appearance on Thoughts and Coffee</a>
+														</li>
+													<li>
+										<a href="https://www.onerail.com/elastic-capacity-ai-visibility-the-formula-for-last-mile-success-in-2026/">Elastic Capacity, AI &#038; Visibility: The Formula for Last Mile Success in 2026</a>
+														</li>
+													<li>
+										<a href="https://www.onerail.com/why-ai-route-optimization-is-the-new-standard-for-last-mile-delivery/">Why AI Route Optimization Is the New Standard for Last Mile Delivery</a>
+														</li>
+							</ul>
+			</section><section id="custom-post-type-archives-4" class="widget widget_archive"><h2 class="widget-title">Archives</h2>			<label class="screen-reader-text">Archives</label>
+			<select name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'>
+				
+				<option value="">Select Month</option>
+					<option value='https://www.onerail.com/2026/01/'> January 2026 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2025/12/'> December 2025 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2025/11/'> November 2025 &nbsp;(2)</option>
+	<option value='https://www.onerail.com/2025/10/'> October 2025 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2025/09/'> September 2025 &nbsp;(5)</option>
+	<option value='https://www.onerail.com/2025/08/'> August 2025 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2025/07/'> July 2025 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2025/06/'> June 2025 &nbsp;(5)</option>
+	<option value='https://www.onerail.com/2025/05/'> May 2025 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2025/04/'> April 2025 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2025/03/'> March 2025 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2025/02/'> February 2025 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2024/12/'> December 2024 &nbsp;(6)</option>
+	<option value='https://www.onerail.com/2024/11/'> November 2024 &nbsp;(6)</option>
+	<option value='https://www.onerail.com/2024/10/'> October 2024 &nbsp;(10)</option>
+	<option value='https://www.onerail.com/2024/09/'> September 2024 &nbsp;(10)</option>
+	<option value='https://www.onerail.com/2024/08/'> August 2024 &nbsp;(7)</option>
+	<option value='https://www.onerail.com/2024/07/'> July 2024 &nbsp;(7)</option>
+	<option value='https://www.onerail.com/2024/06/'> June 2024 &nbsp;(9)</option>
+	<option value='https://www.onerail.com/2024/05/'> May 2024 &nbsp;(11)</option>
+	<option value='https://www.onerail.com/2024/04/'> April 2024 &nbsp;(8)</option>
+	<option value='https://www.onerail.com/2024/03/'> March 2024 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2024/02/'> February 2024 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2024/01/'> January 2024 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2023/12/'> December 2023 &nbsp;(2)</option>
+	<option value='https://www.onerail.com/2023/11/'> November 2023 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2023/10/'> October 2023 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2023/09/'> September 2023 &nbsp;(2)</option>
+	<option value='https://www.onerail.com/2023/08/'> August 2023 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2023/07/'> July 2023 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2023/06/'> June 2023 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2023/05/'> May 2023 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2023/04/'> April 2023 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2023/03/'> March 2023 &nbsp;(5)</option>
+	<option value='https://www.onerail.com/2023/02/'> February 2023 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2023/01/'> January 2023 &nbsp;(2)</option>
+	<option value='https://www.onerail.com/2022/12/'> December 2022 &nbsp;(2)</option>
+	<option value='https://www.onerail.com/2022/11/'> November 2022 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2022/10/'> October 2022 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2022/09/'> September 2022 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2022/08/'> August 2022 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2022/07/'> July 2022 &nbsp;(4)</option>
+	<option value='https://www.onerail.com/2022/06/'> June 2022 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2022/05/'> May 2022 &nbsp;(5)</option>
+	<option value='https://www.onerail.com/2022/04/'> April 2022 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2022/03/'> March 2022 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2022/02/'> February 2022 &nbsp;(6)</option>
+	<option value='https://www.onerail.com/2022/01/'> January 2022 &nbsp;(2)</option>
+	<option value='https://www.onerail.com/2021/12/'> December 2021 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2021/11/'> November 2021 &nbsp;(2)</option>
+	<option value='https://www.onerail.com/2021/10/'> October 2021 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2021/09/'> September 2021 &nbsp;(2)</option>
+	<option value='https://www.onerail.com/2021/07/'> July 2021 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2021/05/'> May 2021 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2021/04/'> April 2021 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2021/02/'> February 2021 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2021/01/'> January 2021 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2020/12/'> December 2020 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2020/11/'> November 2020 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2020/10/'> October 2020 &nbsp;(2)</option>
+	<option value='https://www.onerail.com/2020/09/'> September 2020 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2020/08/'> August 2020 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2020/07/'> July 2020 &nbsp;(3)</option>
+	<option value='https://www.onerail.com/2020/06/'> June 2020 &nbsp;(1)</option>
+	<option value='https://www.onerail.com/2020/02/'> February 2020 &nbsp;(1)</option>
+			</select>
+
+		</section><section id="custom-post-type-categories-4" class="widget widget_categories"><h2 class="widget-title">Categories</h2><label class="screen-reader-text" for="custom-post-type-categories-dropdown-4">Categories</label>
+<form action="https://www.onerail.com" method="get">
+			<select  name='category_name' id='custom-post-type-categories-dropdown-4' class='postform'>
+	<option value='-1'>Select Category</option>
+	<option class="level-0" value="api-integration">API integration&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="artificial-intelligence">Artificial Intelligence&nbsp;&nbsp;(7)</option>
+	<option class="level-0" value="company">Company&nbsp;&nbsp;(10)</option>
+	<option class="level-0" value="compliance">Compliance&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="delivery-management-software">Delivery Management Software&nbsp;&nbsp;(12)</option>
+	<option class="level-0" value="final-mile">Final Mile&nbsp;&nbsp;(50)</option>
+	<option class="level-0" value="fleet-management">Fleet Management&nbsp;&nbsp;(5)</option>
+	<option class="level-0" value="last-mile">Last Mile&nbsp;&nbsp;(90)</option>
+	<option class="level-0" value="logistics">Logistics&nbsp;&nbsp;(79)</option>
+	<option class="level-0" value="marketing">Marketing&nbsp;&nbsp;(10)</option>
+	<option class="level-0" value="miscellaneous">Miscellaneous&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="multichannel-fulfillment">Multichannel Fulfillment&nbsp;&nbsp;(14)</option>
+	<option class="level-0" value="omnichannel-fulfillment">Omnichannel Fulfillment&nbsp;&nbsp;(43)</option>
+	<option class="level-0" value="operations">Operations&nbsp;&nbsp;(28)</option>
+	<option class="level-0" value="outsourced-delivery">Outsourced Delivery&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="partners">Partners&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="retail">Retail&nbsp;&nbsp;(22)</option>
+	<option class="level-0" value="reverse-logistics">Reverse Logistics&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="same-day-delivery">Same-day delivery&nbsp;&nbsp;(8)</option>
+	<option class="level-0" value="shipping">Shipping&nbsp;&nbsp;(25)</option>
+	<option class="level-0" value="trucking">Trucking&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="wholesale">Wholesale&nbsp;&nbsp;(3)</option>
+</select>
+</form>
+<script type="rocketlazyloadscript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "custom-post-type-categories-dropdown-4" );
+	function onCatChange() {
+		if ( dropdown.options[dropdown.selectedIndex].value ) {
+			return dropdown.form.submit();
+		}
+	}
+	dropdown.onchange = onCatChange;
+})();
+/* ]]> */
+</script>
+			</section></aside><!-- #secondary -->
+			</div>
+			
+			</div>
+		
+
+	
+	</main><!-- #main -->
+	
+			</article>
+
+
+
+</div><!-- #page -->
+
+<div data-rocket-location-hash="3086b6f34145fe912c69e2a3ea3eb539" class="bottom-cta darkblue">
+<div class="inner">
+<div data-rocket-location-hash="e9b4011c71cd32d0a022bf16d7aadaa5" class="vertical-center-content">
+				<h2>See how OneRail can <br>simplify your supply chain.</h2>
+		<p><a href="/request-demo/" class="cta-btn">Let's Talk</a></p>
+</div>
+</div>
+</div>
+
+
+
+
+<div data-rocket-location-hash="907c7351f61e46dd88c8329129621397" class="footer">
+	<div class="inner">
+		<div data-rocket-location-hash="1a67056de8737c37cb15051c87db92ff" class="footer-contact-info">
+			<img width="109" height="61" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20109%2061'%3E%3C/svg%3E" alt="OneRail" data-lazy-src="https://www.onerail.com/wp-content/themes/customtheme/images/footer-logo.png"><noscript><img width="109" height="61" src="https://www.onerail.com/wp-content/themes/customtheme/images/footer-logo.png" alt="OneRail"></noscript>
+			<p class="logo-tagline">Last Mile, Delivered<span>.</span></p>
+			<ul>
+				<li class="footer-email">info@onerail.io</li>
+				<li class="footer-phone"><a href="tel:+14077926327" class="tel">(407) 792-6327</a></li>
+			</ul>
+		</div>
+		<div data-rocket-location-hash="ce6ab22192cba7d47e2f291ae974303f" class="footer-navigation">
+			<ul class="footer-menu">
+				<li class="footer-menu-title">Platform</li>
+				<li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="https://www.onerail.com/platform/delivery-order-automation/">Delivery Order Automation</a></li>
+<li id="menu-item-766" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-766"><a href="https://www.onerail.com/platform/multimodal-optimization/">Multimodal Optimization</a></li>
+<li id="menu-item-764" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-764"><a href="https://www.onerail.com/platform/automated-rate-shopping/">Automated Rate Shopping</a></li>
+<li id="menu-item-767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-767"><a href="https://www.onerail.com/platform/last-mile-delivery-tracking/">Real-time Last Mile Delivery Tracking</a></li>
+<li id="menu-item-768" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-768"><a href="https://www.onerail.com/platform/customer-experience/">Customer Experience</a></li>
+<li id="menu-item-763" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-763"><a href="https://www.onerail.com/platform/actionable-data/">Actionable Data</a></li>
+			</ul>
+			<ul class="footer-menu">
+				<li class="footer-menu-title">Resources</li>
+				<li id="menu-item-860" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-860"><a href="https://www.onerail.com/resources/">Resource Center</a></li>
+<li id="menu-item-861" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-861"><a href="https://www.onerail.com/blog/">Blog</a></li>
+<li id="menu-item-863" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-863"><a href="/newsroom">Newsroom</a></li>
+			</ul>
+			<ul class="footer-menu">
+				<li class="footer-menu-title">Company</li>
+				<li id="menu-item-20209" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20209"><a target="_blank" href="https://trust.onerail.com/">Trust Center</a></li>
+<li id="menu-item-866" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-866"><a href="https://www.onerail.com/about/">About</a></li>
+<li id="menu-item-1394" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1394"><a href="https://www.onerail.com/leadership/">Leadership</a></li>
+<li id="menu-item-7149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7149"><a href="https://www.onerail.com/partnerships/">Partnerships</a></li>
+<li id="menu-item-864" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-864"><a href="https://www.onerail.com/careers/">Careers</a></li>
+<li id="menu-item-2545" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2545"><a href="https://www.onerail.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-14287" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14287"><a target="_blank" href="https://knowledge.onerail.io/">Support</a></li>
+			</ul>
+			<ul class="footer-menu">
+				<li class="footer-menu-title">Legal</li>
+				<li id="menu-item-869" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-869"><a href="https://www.onerail.com/terms/">Terms</a></li>
+<li id="menu-item-867" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-867"><a rel="privacy-policy" href="https://www.onerail.com/privacy-policy/">Privacy Notice</a></li>
+			</ul>
+		</div>
+		<div data-rocket-location-hash="9555fd70d4b23934173d59a6bdcbcc49" class="footer-bottom">
+		<ul class="social-icons">
+			<li class="facebook"><a href="https://www.facebook.com/OneRailapp/" target="_blank"></a></li>
+				<li class="linkedin"><a href="https://www.linkedin.com/company/onerail-finalmile/" target="_blank"></a></li>
+			<li class="twitter"><a href="https://twitter.com/onerailapp" target="_blank"></a></li>
+			<li class="youtube"><a href="https://www.youtube.com/c/OneRail" target="_blank"></a></li>
+			
+		</ul>
+	
+			<p class="copyright">&copy; 2026 OneRail. All Rights Reserved. <a href="https://www.engeloneill.com" target="_blank">Website Design and Development by Engel O'Neill.</a></p>
+		</div>
+		
+
+			
+	</div>
+</div>
+
+
+
+<div data-rocket-location-hash="25e34563499592d91a826a42d5d9557b" id="side-menu">
+	<a class="ToggleMenu Close" href="#"></a>
+
+	
+<div data-rocket-location-hash="1895fdb0cdf047ce5dcf63f502b5821d" class="mega-menu-mobile">
+	<div data-rocket-location-hash="8d582f884d88397405605223c3213bec" class="mobile-menu-block">
+		<a href="#" class="mobile_mega_menu_item_title ">Platform</a>
+				<div class="mobile_menu_block_content">
+			<div class="mobile_menu_top_content">
+				<p class="block_title">OmniPoint® Platform</p>
+<p>Our data-driven visibility solution is architected on the trusted Microsoft Azure platform.</p>
+				
+								<div class="mobile_menu_top_link">
+				<a href="/platform/">OmniPoint® Overview</a>
+				</div>
+							</div>
+			
+			<div class="mobile_menu_nav">
+							<p class="block_title">Features</p>
+						<ul>
+							<li class="menu-item"><a href="https://www.onerail.com/platform/delivery-order-automation/">Delivery Order Automation</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/platform/multimodal-optimization/">Multimodal Optimization</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/platform/automated-rate-shopping/">Automated Rate Shopping</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/platform/last-mile-delivery-tracking/">Real-time Visibility</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/platform/customer-experience/">Customer Experience</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/platform/actionable-data/">Actionable Data</a></li>
+							<li class="menu-item"><a href="https://orderbot.com/">Order Management</a></li>
+							<li class="menu-item"><a href="https://orderbot.com/">Inventory Management</a></li>
+							<li class="menu-item"><a href="https://orderbot.com/">Product Management</a></li>
+							<li class="menu-item"><a href="https://orderbot.com/">Reliable EDI</a></li>
+						</ul></li>
+			</ul>
+			</div>
+	
+	
+			<div class="mobile_menu_bottom_content">
+				<p class="block_title">Schedule a Demo</p>
+<p>See OneRail in action, and take the first step toward a connected supply chain.</p>
+				
+								<div class="mobile_menu_bottom_link">
+				<a href="/request-demo/">Schedule Now</a>
+				</div>
+							</div>
+		</div>
+			</div>
+	
+	<div data-rocket-location-hash="b792fa4e659ed3f45739f8674d82edd0" class="mobile-menu-block">
+		<a href="https://www.onerail.com/delivery-network/" class="mobile_mega_menu_item_title single-link">Network</a>
+			</div>
+	
+	<div data-rocket-location-hash="69ffd61fdaade38866bfe8e5dc78ad2d" class="mobile-menu-block">
+		<a href="#" class="mobile_mega_menu_item_title ">Services</a>
+				<div class="mobile_menu_block_content">
+			<div class="mobile_menu_top_content">
+				<p class="block_title">Services</p>
+<p>Optimize your last mile with customized solutions that easily slide into your existing stack for a quick time-to-value.</p>
+				
+							</div>
+			
+			<div class="mobile_menu_nav">
+						<ul>
+							<li class="menu-item"><a href="https://www.onerail.com/services/value-analysis/">Value Analysis</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/services/step-by-step-implementation/">Step-by-Step Implementation</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/services/exceptions-assist/">Exceptions Assist&trade;</a></li>
+						</ul></li>
+			</ul>
+			</div>
+	
+	
+			<div class="mobile_menu_bottom_content">
+				<p class="block_title">Get Started</p>
+<p>Dig into the details with a no-risk Value Analysis.</p>
+				
+								<div class="mobile_menu_bottom_link">
+				<a href="/request-demo/">Get in Touch</a>
+				</div>
+							</div>
+		</div>
+			</div>
+	
+	<div data-rocket-location-hash="637735f67efcc63f8eb5aa2d2c6ec844" class="mobile-menu-block">
+		<a href="#" class="mobile_mega_menu_item_title ">Industries</a>
+				<div class="mobile_menu_block_content">
+			<div class="mobile_menu_top_content">
+				<p class="block_title">Industries</p>
+<p>The world&#8217;s largest brands across major industries rely on our adaptable, scalable delivery solution.</p>
+				
+							</div>
+			
+			<div class="mobile_menu_nav">
+						<ul>
+							<li class="menu-item"><a href="https://www.onerail.com/industries/retail/">Retail</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/specialty-retailers/">Specialty Retail</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/industries/last-mile-food-delivery/">Food & Grocery</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/industries/product-manufacturer/">Product Manufacturer</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/industries/wholesale-distributor/">Wholesale Distributor</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/industries/health-care-network/">Health Care Network</a></li>
+							<li class="menu-item"><a href="https://www.onerail.com/industries/3pl/">3PL</a></li>
+						</ul></li>
+			</ul>
+			</div>
+	
+	
+			<div class="mobile_menu_bottom_content">
+				<p class="block_title">TMS White Paper</p>
+<p>Learn what’s missing from your TMS, and what customers are looking for in last mile delivery.</p>
+				
+								<div class="mobile_menu_bottom_link">
+				<a href="https://www.onerail.com/transportation-management-systems/" target="_blank">Get Free Access</a>
+				</div>
+							</div>
+		</div>
+			</div>
+	
+	
+
+<a href="/request-demo/" class="mobile-btn">Let's Talk</a>
+</div>
+
+
+
+
+	
+	
+	
+	
+
+
+<ul id="mobilemenu2" class="mobile-menu"><li class="default-pointer menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4125"><a href="#">Why OneRail</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4126"><a href="https://www.onerail.com/why-onerail/our-future-proofing-solution/">Our Future-Proofing Solution</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4645"><a href="https://www.onerail.com/why-onerail/last-mile-delivery-companies-compared/">Competitor Comparison</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21003"><a href="https://www.onerail.com/value-impact-calculator/">Value Impact Calculator</a></li>
+</ul>
+</li>
+<li class="default-pointer menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-769"><a href="#">Resources</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-848"><a href="https://www.onerail.com/resources/">Resource Center</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-799"><a href="https://www.onerail.com/blog/">Blog</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-800"><a href="/newsroom/">Newsroom</a></li>
+</ul>
+</li>
+<li class="default-pointer menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-770"><a href="#">Company</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20208"><a target="_blank" href="https://trust.onerail.com/">Trust Center</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-782"><a href="https://www.onerail.com/about/">About</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1395"><a href="https://www.onerail.com/leadership/">Leadership</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7455"><a href="https://www.onerail.com/awards-and-recognition/">Recognition</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7230"><a href="https://www.onerail.com/sustainability/">Sustainability</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8101"><a href="https://www.onerail.com/team-onerail-delivers/">Social Good</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7148"><a href="https://www.onerail.com/partnerships/">Partnerships</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-780"><a href="https://www.onerail.com/careers/">Careers</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2245"><a target="_blank" href="https://app.onerail.io/">Sign In</a></li>
+</ul>	</div>
+
+
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/customtheme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<div data-rocket-location-hash="ad85b7be902a7d91ffe8a818fd00192c" class="gtranslate_wrapper" id="gt-wrapper-86511414"></div><div class="wt-cli-cookie-bar-container" data-nosnippet="true"  data-banner-version="2.0"><!--googleoff: all--><div id="cookie-law-info-bar" role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="wt-cli-cookie-banner" data-cli-geo-loc="0" style="padding:13px 20px; text-align:left; border-color:rgb(255, 255, 255);" class="wt-cli-cookie-bar"><div class="cli-wrapper"><a style="display:inline-block; background:none; border-radius:20px; border:solid 1px #fff; color:#fff; text-align:center; font-size:12px; width:22px; height:22px; line-height:22px; margin-right:-10px; margin-top:-5px; float:right; cursor:pointer; background-color:rgba(0, 0, 0, 0); background-color:rgba(0, 0, 0, 0);" data-cli_action="accept" class="wt-cli-element cli_cookie_close_button" title="Close and Accept" role="button">X</a><span id="wt-cli-cookie-banner"><div class="cli-bar-container cli-style-v2" style="padding: 0 60px"><div class="cli-bar-message" style="padding-left:80px">OneRail uses cookies to improve the functionality and performance of this site. By continuing to use this site, you are providing us with your consent to our use of cookies on the site. <a id="wt-cli-policy-link" tabindex="0" href="/privacy-policy"  style="display:inline-block; background:none rgba(0, 0, 0, 0); border-radius:0px; text-align:left; font-size:14px; padding:5px 8px 5px 5px; margin-left:0px; line-height:16px; border:0px solid rgb(255, 255, 255); text-decoration:underline; font-weight:600;" class="wt-cli-element wt-cli-element cli-plugin-main-link"  >Learn More</a></div><div class="cli-bar-btn_container"><a id="wt-cli-reject-btn" tabindex="0" role='button' style="margin:5px 5px 5px 0px; border-radius:0px; padding:5px 10px; border-color:rgb(10, 2, 2); font-size:12px;"  class="wt-cli-element medium cli-plugin-button cli-plugin-main-button cookie_action_close_header_reject cli_action_button"  data-cli_action="reject">Reject All</a><a id="wt-cli-settings-btn" tabindex="0" role='button' style="margin:5px 5px 5px 0px; border-radius:0px; padding:5px 10px; border-color:rgb(10, 2, 2); font-size:12px;" class="wt-cli-element medium cli-plugin-button cli-plugin-main-button cli_settings_button" >Cookie Settings</a><a id="wt-cli-accept-all-btn" tabindex="0" role='button' style="margin:5px 5px 5px 20px; border-radius:0px; padding:8px 25px; border-color:rgb(255, 255, 255); font-weight:600; font-size:14px;" data-cli_action="accept_all"  class="wt-cli-element medium cli-plugin-button wt-cli-accept-all-btn cookie_action_close_header cli_action_button" >Accept All</a></div></div></span></div></div><div tabindex="0" id="cookie-law-info-again" style="display:none;"><span id="cookie_hdr_showagain">Manage consent</span></div><div class="cli-modal" id="cliSettingsPopup" role="dialog" aria-labelledby="wt-cli-privacy-title" tabindex="-1" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+    <div class="cli-modal-content cli-bar-popup">
+      <button aria-label="Close" type="button" class="cli-modal-close" id="cliModalClose">
+      <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+      <span class="wt-cli-sr-only">Close</span>
+      </button>
+        <div class="cli-modal-body">
+
+    <div class="wt-cli-element cli-container-fluid cli-tab-container">
+        <div class="cli-row">
+                            <div class="cli-col-12 cli-align-items-stretch cli-px-0">
+                    <div class="cli-privacy-overview">
+                        <h4 id='wt-cli-privacy-title'>Privacy Overview</h4>                        <div class="cli-privacy-content">
+                            <div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+                        </div>
+                        <a id="wt-cli-privacy-readmore"  tabindex="0" role="button" class="cli-privacy-readmore" data-readmore-text="Show more" data-readless-text="Show less"></a>                    </div>
+                </div>
+                        <div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container" role="tablist">
+
+                
+                                    <div class="cli-tab-section">
+                        <div class="cli-tab-header">
+                            <a id="wt-cli-tab-link-necessary" tabindex="0" role="tab" aria-expanded="false" aria-describedby="wt-cli-tab-necessary" aria-controls="wt-cli-tab-necessary" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+                                Necessary                            </a>
+                                                                                        <div class="wt-cli-necessary-checkbox">
+                                    <input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" aria-label="Necessary" data-id="checkbox-necessary" checked="checked" />
+                                    <label class="form-check-label" for="wt-cli-checkbox-necessary"> Necessary </label>
+                                </div>
+                                <span class="cli-necessary-caption">
+                                    Always Enabled                                </span>
+                                                    </div>
+                        <div class="cli-tab-content">
+                            <div id="wt-cli-tab-necessary" tabindex="0" role="tabpanel" aria-labelledby="wt-cli-tab-link-necessary" class="cli-tab-pane cli-fade" data-id="necessary">
+                            <div class="wt-cli-cookie-description">Necessary cookies are absolutely essential for the website to function properly. These cookies ensure basic functionalities and security features of the website, anonymously.
+<table class="wt-cli-element cookielawinfo-row-cat-table cookielawinfo-winter"><thead><tr><th scope="col" class="cookielawinfo-column-1">Cookie</th><th scope="col" class="cookielawinfo-column-3">Duration</th><th scope="col" class="cookielawinfo-column-4">Description</th></tr></thead><tbody><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-analytics</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Analytics".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-functional</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">The cookie is set by GDPR cookie consent to record the user consent for the cookies in the category "Functional".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-necessary</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookies is used to store the user consent for the cookies in the category "Necessary".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-others</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Other.</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">cookielawinfo-checkbox-performance</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">This cookie is set by GDPR Cookie Consent plugin. The cookie is used to store the user consent for the cookies in the category "Performance".</td></tr><tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">viewed_cookie_policy</td><td class="cookielawinfo-column-3">11 months</td><td class="cookielawinfo-column-4">The cookie is set by the GDPR Cookie Consent plugin and is used to store whether or not user has consented to the use of cookies. It does not store any personal data.</td></tr></tbody></table></div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="cli-tab-section">
+                        <div class="cli-tab-header">
+                            <a id="wt-cli-tab-link-functional" tabindex="0" role="tab" aria-expanded="false" aria-describedby="wt-cli-tab-functional" aria-controls="wt-cli-tab-functional" class="cli-nav-link cli-settings-mobile" data-target="functional" data-toggle="cli-toggle-tab">
+                                Functional                            </a>
+                                                                                        <div class="cli-switch">
+                                    <input type="checkbox" class="cli-user-preference-checkbox"  id="wt-cli-checkbox-functional" aria-label="functional" data-id="checkbox-functional" role="switch" aria-controls="wt-cli-tab-link-functional" aria-labelledby="wt-cli-tab-link-functional"  />
+                                    <label for="wt-cli-checkbox-functional" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">functional</span></label>
+                                </div>
+                                                    </div>
+                        <div class="cli-tab-content">
+                            <div id="wt-cli-tab-functional" tabindex="0" role="tabpanel" aria-labelledby="wt-cli-tab-link-functional" class="cli-tab-pane cli-fade" data-id="functional">
+                            <div class="wt-cli-cookie-description">Functional cookies help to perform certain functionalities like sharing the content of the website on social media platforms, collect feedbacks, and other third-party features.
+</div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="cli-tab-section">
+                        <div class="cli-tab-header">
+                            <a id="wt-cli-tab-link-performance" tabindex="0" role="tab" aria-expanded="false" aria-describedby="wt-cli-tab-performance" aria-controls="wt-cli-tab-performance" class="cli-nav-link cli-settings-mobile" data-target="performance" data-toggle="cli-toggle-tab">
+                                Performance                            </a>
+                                                                                        <div class="cli-switch">
+                                    <input type="checkbox" class="cli-user-preference-checkbox"  id="wt-cli-checkbox-performance" aria-label="performance" data-id="checkbox-performance" role="switch" aria-controls="wt-cli-tab-link-performance" aria-labelledby="wt-cli-tab-link-performance"  />
+                                    <label for="wt-cli-checkbox-performance" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">performance</span></label>
+                                </div>
+                                                    </div>
+                        <div class="cli-tab-content">
+                            <div id="wt-cli-tab-performance" tabindex="0" role="tabpanel" aria-labelledby="wt-cli-tab-link-performance" class="cli-tab-pane cli-fade" data-id="performance">
+                            <div class="wt-cli-cookie-description">Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors.
+</div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="cli-tab-section">
+                        <div class="cli-tab-header">
+                            <a id="wt-cli-tab-link-analytics" tabindex="0" role="tab" aria-expanded="false" aria-describedby="wt-cli-tab-analytics" aria-controls="wt-cli-tab-analytics" class="cli-nav-link cli-settings-mobile" data-target="analytics" data-toggle="cli-toggle-tab">
+                                Analytics                            </a>
+                                                                                        <div class="cli-switch">
+                                    <input type="checkbox" class="cli-user-preference-checkbox"  id="wt-cli-checkbox-analytics" aria-label="analytics" data-id="checkbox-analytics" role="switch" aria-controls="wt-cli-tab-link-analytics" aria-labelledby="wt-cli-tab-link-analytics"  />
+                                    <label for="wt-cli-checkbox-analytics" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">analytics</span></label>
+                                </div>
+                                                    </div>
+                        <div class="cli-tab-content">
+                            <div id="wt-cli-tab-analytics" tabindex="0" role="tabpanel" aria-labelledby="wt-cli-tab-link-analytics" class="cli-tab-pane cli-fade" data-id="analytics">
+                            <div class="wt-cli-cookie-description">Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics the number of visitors, bounce rate, traffic source, etc.
+</div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="cli-tab-section">
+                        <div class="cli-tab-header">
+                            <a id="wt-cli-tab-link-advertisement" tabindex="0" role="tab" aria-expanded="false" aria-describedby="wt-cli-tab-advertisement" aria-controls="wt-cli-tab-advertisement" class="cli-nav-link cli-settings-mobile" data-target="advertisement" data-toggle="cli-toggle-tab">
+                                Advertisement                            </a>
+                                                                                        <div class="cli-switch">
+                                    <input type="checkbox" class="cli-user-preference-checkbox"  id="wt-cli-checkbox-advertisement" aria-label="advertisement" data-id="checkbox-advertisement" role="switch" aria-controls="wt-cli-tab-link-advertisement" aria-labelledby="wt-cli-tab-link-advertisement"  />
+                                    <label for="wt-cli-checkbox-advertisement" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">advertisement</span></label>
+                                </div>
+                                                    </div>
+                        <div class="cli-tab-content">
+                            <div id="wt-cli-tab-advertisement" tabindex="0" role="tabpanel" aria-labelledby="wt-cli-tab-link-advertisement" class="cli-tab-pane cli-fade" data-id="advertisement">
+                            <div class="wt-cli-cookie-description">Advertisement cookies are used to provide visitors with relevant ads and marketing campaigns. These cookies track visitors across websites and collect information to provide customized ads.
+</div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="cli-tab-section">
+                        <div class="cli-tab-header">
+                            <a id="wt-cli-tab-link-others" tabindex="0" role="tab" aria-expanded="false" aria-describedby="wt-cli-tab-others" aria-controls="wt-cli-tab-others" class="cli-nav-link cli-settings-mobile" data-target="others" data-toggle="cli-toggle-tab">
+                                Others                            </a>
+                                                                                        <div class="cli-switch">
+                                    <input type="checkbox" class="cli-user-preference-checkbox"  id="wt-cli-checkbox-others" aria-label="others" data-id="checkbox-others" role="switch" aria-controls="wt-cli-tab-link-others" aria-labelledby="wt-cli-tab-link-others"  />
+                                    <label for="wt-cli-checkbox-others" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">others</span></label>
+                                </div>
+                                                    </div>
+                        <div class="cli-tab-content">
+                            <div id="wt-cli-tab-others" tabindex="0" role="tabpanel" aria-labelledby="wt-cli-tab-link-others" class="cli-tab-pane cli-fade" data-id="others">
+                            <div class="wt-cli-cookie-description">Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cli-modal-footer">
+    <div class="wt-cli-element cli-container-fluid cli-tab-container">
+        <div class="cli-row">
+            <div class="cli-col-12 cli-align-items-stretch cli-px-0">
+                <div class="cli-tab-footer wt-cli-privacy-overview-actions">
+                                                            
+                                                    <a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">Save & Accept</a>
+                                                                            
+                               
+                    
+                </div>
+                                    <div class="wt-cli-ckyes-footer-section">
+                        <div class="wt-cli-ckyes-brand-logo">
+                            Powered by GDPR Cookie Compliance                            <a target="_blank" href="https://www.webtoffee.com/product/gdpr-cookie-consent/">
+                                <img width="269" height="29" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20269%2029'%3E%3C/svg%3E" alt="WebToffee Logo" data-lazy-src="https://www.onerail.com/wp-content/plugins/webtoffee-gdpr-cookie-consent/images/webtoffee-logo.svg"><noscript><img width="269" height="29" src="https://www.onerail.com/wp-content/plugins/webtoffee-gdpr-cookie-consent/images/webtoffee-logo.svg" alt="WebToffee Logo"></noscript>
+                            </a>
+                        </div>
+                    </div>
+                             </div>
+        </div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--></div>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		/* <![CDATA[ */
+			cli_cookiebar_settings='{"animate_speed_hide":"500","animate_speed_show":"500","background":"rgb(208, 2, 27)","border":"#b1a6a6c2","border_on":false,"button_1_button_colour":"rgb(255, 255, 255)","button_1_button_hover":"rgb(255, 255, 255)","button_1_link_colour":"rgb(10, 10, 10)","button_1_as_button":true,"button_1_new_win":false,"button_2_button_colour":"rgba(0, 0, 0, 0)","button_2_button_hover":"rgba(0, 0, 0, 0)","button_2_link_colour":"rgb(255, 255, 255)","button_2_as_button":false,"button_2_hidebar":false,"button_2_nofollow":false,"button_3_button_colour":"rgba(0, 0, 0, 0.2)","button_3_button_hover":"rgba(0, 0, 0, 0.2)","button_3_link_colour":"rgb(255, 255, 255)","button_3_as_button":true,"button_3_new_win":false,"button_4_button_colour":"rgba(0, 0, 0, 0.2)","button_4_button_hover":"rgba(0, 0, 0, 0.2)","button_4_link_colour":"rgb(255, 255, 255)","button_4_as_button":true,"button_7_button_colour":"rgb(255, 255, 255)","button_7_button_hover":"rgb(255, 255, 255)","button_7_link_colour":"rgb(10, 10, 10)","button_7_as_button":true,"button_7_new_win":false,"font_family":"inherit","header_fix":false,"notify_animate_hide":true,"notify_animate_show":false,"notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":false,"scroll_close_reload":false,"accept_close_reload":false,"reject_close_reload":false,"showagain_tab":false,"showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"rgb(255, 255, 255)","show_once_yn":false,"show_once":"10000","logging_on":true,"as_popup":false,"popup_overlay":true,"bar_heading_text":"","cookie_bar_as":"banner","cookie_setting_popup":true,"accept_all":true,"js_script_blocker":false,"popup_showagain_position":"bottom-right","widget_position":"left","button_1_style":[["margin","5px 5px 5px 30px"],["border-radius","0px"],["padding","8px 25px"],["border-color","rgb(255, 255, 255)"]],"button_2_style":[["display","inline-block"],["background","none rgba(0, 0, 0, 0)"],["border-radius","0px"],["text-align","left"],["font-size","14px"],["padding","5px 8px 5px 5px"],["margin-left","0px"],["line-height","16px"],["border","0px solid rgb(255, 255, 255)"],["text-decoration","underline"],["font-weight","600"]],"button_3_style":[["margin","5px 5px 5px 0px"],["border-radius","0px"],["padding","5px 10px"],["border-color","rgb(10, 2, 2)"],["font-size","12px"]],"button_4_style":[["margin","5px 5px 5px 0px"],["border-radius","0px"],["padding","5px 10px"],["border-color","rgb(10, 2, 2)"],["font-size","12px"]],"button_5_style":{"0":["display","inline-block"],"1":["background","none"],"2":["border-radius","20px"],"3":["border","solid 1px #fff"],"4":["color","#fff"],"5":["text-align","center"],"6":["font-size","12px"],"7":["width","22px"],"8":["height","22px"],"9":["line-height","22px"],"10":["margin-right","-10px"],"11":["margin-top","-5px"],"12":["float","right"],"13":["cursor","pointer"],"14":["background-color","rgba(0, 0, 0, 0)"],"17":["background-color","rgba(0, 0, 0, 0)"]},"button_7_style":[["margin","5px 5px 5px 20px"],["border-radius","0px"],["padding","8px 25px"],["border-color","rgb(255, 255, 255)"],["font-weight","600"],["font-size","14px"]],"accept_close_page_navigation":false,"button_8_button_colour":"#DEDFE0","button_8_button_hover":"#b2b2b3","button_8_link_colour":"#000000","button_8_as_button":"1","button_8_new_win":"","consent_mode":false,"google_consent_mode":false}';
+		/* ]]> */
+		</script>
+		<script id="leadin-script-loader-js-js-extra">
+var leadin_wordpress = {"userRole":"visitor","pageType":"post","leadinPluginVersion":"11.3.33"};
+//# sourceURL=leadin-script-loader-js-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.onerail.com/wp-content/cache/min/1/24110733.js?ver=1767886872" id="leadin-script-loader-js-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/roi-calculator/|/delivery-network/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://www.onerail.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/js/navigation.js?ver=1767886872" id="customtheme-navigation-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/js/global.js?ver=1767886872" id="global-js" data-rocket-defer defer></script>
+<script src="https://www.onerail.com/wp-content/themes/customtheme/js/jquery.sticky-kit.min.js?ver=1.0" id="sticky-kit-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.onerail.com/wp-content/themes/customtheme/js/waypoints.min.js?ver=1.0" id="waypoints-js" data-rocket-defer defer></script>
+<script src="https://www.onerail.com/wp-content/themes/customtheme/library/royalslider/jquery.royalslider.min.js?ver=1.0" id="royalslider-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.onerail.com/wp-content/cache/min/1/npm/@fancyapps/ui/dist/fancybox.umd.js?ver=1767886872" id="fancybox-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/js/eo.js?ver=1767886872" id="eo-js" data-rocket-defer defer></script>
+<script src="https://www.onerail.com/wp-content/themes/customtheme/js/jquery.jcarousel.min.js?ver=1.0" id="jcarousel-js" data-rocket-defer defer></script>
+<script data-minify="1" src="https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/js/jquery.jcarousel-swipe.js?ver=1767886872" id="jcarouselswipe-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/js/ord.js?ver=1767886872" id="ord-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.onerail.com/wp-content/cache/min/1/wp-content/themes/customtheme/js/carousel.js?ver=1767886872" id="carousel-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.onerail.com/wp-content/cache/min/1/wp-content/plugins/page-links-to/dist/new-tab.js?ver=1767886872" id="page-links-to-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" id="gt_widget_script_86511414-js-before">
+window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['86511414'] = {"default_language":"en","languages":["en","fr"],"url_structure":"none","flag_style":"2d","wrapper_selector":"#gt-wrapper-86511414","alt_flags":{"en":"usa"},"float_switcher_open_direction":"top","switcher_horizontal_position":"left","switcher_vertical_position":"bottom","flags_location":"\/wp-content\/plugins\/gtranslate\/flags\/"};
+//# sourceURL=gt_widget_script_86511414-js-before
+</script><script type="rocketlazyloadscript" data-rocket-src="https://www.onerail.com/wp-content/plugins/gtranslate/js/float.js?ver=6.9" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery/" data-gt-orig-domain="www.onerail.com" data-gt-widget-id="86511414" defer></script><script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.onerail.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+   $(document).ready(function(e) {
+
+	 
+	   
+	   
+	   $('.ToggleMenu').click(function(e){
+		   e.preventDefault();
+		   if($('#side-formu').hasClass('active')){
+			   $('#side-form').removeClass('active');
+		   }
+		   
+		   if($('#side-menu').hasClass('active')){
+			   $('#side-menu').removeClass('active');
+		   }else{
+			   $('#side-menu').addClass('active');
+		   }
+	   })
+	   
+    });
+});</script>
+
+<!-- additional code - top -->
+
+
+
+<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+	jQuery( document ).ready( function ( $ ) {
+		$( ".royalSlider" ).royalSlider( {
+			keyboardNavEnabled: true,
+			navigateByClick: false,
+			loop: true,
+			autoPlay: {
+				// autoplay options go here
+				enabled: true,
+				pauseOnHover: true,
+				delay: 7000
+			}
+		} );
+	} );
+});</script>
+
+
+<script type="rocketlazyloadscript">
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('a.glink').forEach(function(link) {
+    const img = link.querySelector('img');
+    const span = link.querySelector('span');
+
+    // If this link is for French, update both flag and text
+    if (img && img.src.includes('/fr.svg')) {
+      img.src = 'https://wordpress-623182-2064957.cloudwaysapps.com/wp-content/plugins/gtranslate/flags/svg/en-ca.svg';
+      img.alt = 'French (Canada)';
+      img.title = 'French (Canada)';
+    }
+
+    // Update the span text if it's showing "FR"
+    if (span && span.textContent.trim().toLowerCase() === 'fr') {
+      span.textContent = 'FR-CA'; // or French (Canada) 'Français (Canada)', 'FR-CA', etc.
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+<!-- DEMANDBASE ------------------------------------------->
+<script type="rocketlazyloadscript">
+(function(d,b,a,s,e){ var t = b.createElement(a),
+fs = b.getElementsByTagName(a)[0]; t.async=1; t.id=e; t.src=s;
+fs.parentNode.insertBefore(t, fs); })
+(window,document,'script','https://tag.demandbase.com/a4c593edb9b403e0.min.js','demandbase_js_lib');  
+</script>
+
+
+<script>var rocket_beacon_data = {"ajax_url":"https:\/\/www.onerail.com\/wp-admin\/admin-ajax.php","nonce":"a8df1bd872","url":"https:\/\/www.onerail.com\/tech-forward-people-first-the-future-of-ai-in-last-mile-delivery","is_mobile":false,"width_threshold":1600,"height_threshold":700,"delay":500,"debug":null,"status":{"atf":true,"lrc":true,"preconnect_external_domain":true},"elements":"img, video, picture, p, main, div, li, svg, section, header, span","lrc_threshold":1800,"preconnect_external_domain_elements":["link","script","iframe"],"preconnect_external_domain_exclusions":["static.cloudflareinsights.com","rel=\"profile\"","rel=\"preconnect\"","rel=\"dns-prefetch\"","rel=\"icon\""]}</script><script data-name="wpr-wpr-beacon" src='https://www.onerail.com/wp-content/plugins/wp-rocket/assets/js/wpr-beacon.min.js' async></script></body>
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+_linkedin_partner_id = "4780700";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=4780700&fmt=gif" />
+</noscript>
+
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1768130733 -->

@@ -1,0 +1,223 @@
+[
+  {
+    "url": "https://techcrunch.com/2025/11/04/shopify-says-ai-traffic-is-up-7x-since-january-ai-driven-orders-are-up-11x/",
+    "title": "Shopify says AI traffic is up 7x since January, AI-driven orders are up 11x | TechCrunch",
+    "snippet": "E-commerce software provider Shopify is bullish on AI-powered shopping agents...",
+    "domain": "techcrunch.com",
+    "publishedDate": "2025-11-04T10:20:55-08:00",
+    "rank": 1,
+    "why": "Major AI commerce growth metrics from Shopify",
+    "confidence": 0.95,
+    "category": "AI_and_Strategy"
+  },
+  {
+    "url": "https://techcrunch.com/2025/07/08/genai-as-a-shopping-assistant-set-to-explode-during-prime-day-sales/",
+    "title": "GenAI as a shopping assistant set to explode during Prime Day sales | TechCrunch",
+    "snippet": "A new report estimates that AI will be a larger-than-ever part of the online shopping process...",
+    "domain": "techcrunch.com",
+    "publishedDate": "2025-07-08T13:07:45-07:00",
+    "rank": 2,
+    "why": "Prime Day AI shopping trends and consumer behavior",
+    "confidence": 0.92,
+    "category": "Ecommerce_Retail_Tech"
+  },
+  {
+    "url": "https://techcrunch.com/2025/10/01/google-reveals-its-gemini-powered-smart-home-lineup-and-ai-strategy/",
+    "title": "Google reveals its Gemini-powered smart home lineup and AI strategy | TechCrunch",
+    "snippet": "Google reveals its Gemini-powered smart home lineup and AI strategy...",
+    "domain": "techcrunch.com",
+    "publishedDate": "2025-10-01T05:59:00-07:00",
+    "rank": 3,
+    "why": "Google's AI strategy for smart home and commerce",
+    "confidence": 0.90,
+    "category": "AI_and_Strategy"
+  },
+  {
+    "url": "https://example.com/article-4",
+    "title": "E-commerce platform launches new AI features",
+    "snippet": "A major e-commerce platform announced new AI-powered features...",
+    "domain": "example.com",
+    "publishedDate": "2025-12-15T10:00:00Z",
+    "rank": 4,
+    "why": "E-commerce platform launches new AI features",
+    "confidence": 0.88,
+    "category": "Ecommerce_Retail_Tech"
+  },
+  {
+    "url": "https://example.com/article-5",
+    "title": "Retail AI personalization trends",
+    "snippet": "New trends in AI-powered personalization for retail...",
+    "domain": "retailnews.com",
+    "publishedDate": "2025-12-14T09:00:00Z",
+    "rank": 5,
+    "why": "Retail AI personalization trends",
+    "confidence": 0.87,
+    "category": "Ecommerce_Retail_Tech"
+  },
+  {
+    "url": "https://example.com/article-6",
+    "title": "Luxury brand adopts AI for customer experience",
+    "snippet": "A leading luxury brand announced AI integration...",
+    "domain": "luxuryinsider.com",
+    "publishedDate": "2025-12-13T08:00:00Z",
+    "rank": 6,
+    "why": "Luxury brand adopts AI for customer experience",
+    "confidence": 0.85,
+    "category": "Luxury_and_Consumer"
+  },
+  {
+    "url": "https://example.com/article-7",
+    "title": "AI regulation impact on e-commerce platforms",
+    "snippet": "New AI regulations are impacting e-commerce platforms...",
+    "domain": "techpolicy.com",
+    "publishedDate": "2025-12-12T07:00:00Z",
+    "rank": 7,
+    "why": "AI regulation impact on e-commerce platforms",
+    "confidence": 0.83,
+    "category": "AI_and_Strategy"
+  },
+  {
+    "url": "https://example.com/article-8",
+    "title": "Marketplace technology innovation",
+    "snippet": "Innovations in marketplace technology are reshaping e-commerce...",
+    "domain": "ecommercetoday.com",
+    "publishedDate": "2025-12-11T06:00:00Z",
+    "rank": 8,
+    "why": "Marketplace technology innovation",
+    "confidence": 0.82,
+    "category": "Ecommerce_Retail_Tech"
+  },
+  {
+    "url": "https://example.com/article-9",
+    "title": "AI-driven retail operations optimization",
+    "snippet": "Retailers are using AI to optimize operations...",
+    "domain": "retailtech.com",
+    "publishedDate": "2025-12-10T05:00:00Z",
+    "rank": 9,
+    "why": "AI-driven retail operations optimization",
+    "confidence": 0.80,
+    "category": "Ecommerce_Retail_Tech"
+  },
+  {
+    "url": "https://example.com/article-10",
+    "title": "Consumer behavior shifts in digital commerce",
+    "snippet": "New research shows shifts in consumer behavior...",
+    "domain": "commerceinsights.com",
+    "publishedDate": "2025-12-09T04:00:00Z",
+    "rank": 10,
+    "why": "Consumer behavior shifts in digital commerce",
+    "confidence": 0.78,
+    "category": "Ecommerce_Retail_Tech"
+  },
+  {
+    "url": "https://example.com/article-11",
+    "title": "Jewelry industry digital transformation",
+    "snippet": "The jewelry industry is undergoing digital transformation...",
+    "domain": "jewelrynews.com",
+    "publishedDate": "2025-12-08T03:00:00Z",
+    "rank": 11,
+    "why": "Jewelry industry digital transformation",
+    "confidence": 0.77,
+    "category": "Jewellery_Industry"
+  },
+  {
+    "url": "https://example.com/article-12",
+    "title": "AI tools for luxury brand marketing",
+    "snippet": "Luxury brands are adopting AI tools for marketing...",
+    "domain": "luxurymarketing.com",
+    "publishedDate": "2025-12-07T02:00:00Z",
+    "rank": 12,
+    "why": "AI tools for luxury brand marketing",
+    "confidence": 0.75,
+    "category": "Luxury_and_Consumer"
+  },
+  {
+    "url": "https://example.com/article-13",
+    "title": "E-commerce platform partnerships",
+    "snippet": "Major e-commerce platforms are forming new partnerships...",
+    "domain": "platformnews.com",
+    "publishedDate": "2025-12-06T01:00:00Z",
+    "rank": 13,
+    "why": "E-commerce platform partnerships",
+    "confidence": 0.73,
+    "category": "Ecommerce_Retail_Tech"
+  },
+  {
+    "url": "https://example.com/article-14",
+    "title": "Retail technology investment trends",
+    "snippet": "Investment trends in retail technology are evolving...",
+    "domain": "retailinvestor.com",
+    "publishedDate": "2025-12-05T00:00:00Z",
+    "rank": 14,
+    "why": "Retail technology investment trends",
+    "confidence": 0.72,
+    "category": "Ecommerce_Retail_Tech"
+  },
+  {
+    "url": "https://example.com/article-15",
+    "title": "AI automation in retail operations",
+    "snippet": "AI automation is transforming retail operations...",
+    "domain": "automationtech.com",
+    "publishedDate": "2025-12-04T23:00:00Z",
+    "rank": 15,
+    "why": "AI automation in retail operations",
+    "confidence": 0.70,
+    "category": "AI_and_Strategy"
+  },
+  {
+    "url": "https://example.com/article-16",
+    "title": "Privacy regulation impact on e-commerce",
+    "snippet": "Privacy regulations are impacting e-commerce platforms...",
+    "domain": "privacytech.com",
+    "publishedDate": "2025-12-03T22:00:00Z",
+    "rank": 16,
+    "why": "Privacy regulation impact on e-commerce",
+    "confidence": 0.68,
+    "category": "Ecommerce_Retail_Tech"
+  },
+  {
+    "url": "https://example.com/article-17",
+    "title": "Luxury consumer behavior insights",
+    "snippet": "New insights into luxury consumer behavior...",
+    "domain": "luxuryinsights.com",
+    "publishedDate": "2025-12-02T21:00:00Z",
+    "rank": 17,
+    "why": "Luxury consumer behavior insights",
+    "confidence": 0.67,
+    "category": "Luxury_and_Consumer"
+  },
+  {
+    "url": "https://example.com/article-18",
+    "title": "E-commerce platform security updates",
+    "snippet": "E-commerce platforms are rolling out security updates...",
+    "domain": "securitynews.com",
+    "publishedDate": "2025-12-01T20:00:00Z",
+    "rank": 18,
+    "why": "E-commerce platform security updates",
+    "confidence": 0.65,
+    "category": "Ecommerce_Retail_Tech"
+  },
+  {
+    "url": "https://example.com/article-19",
+    "title": "AI personalization in retail",
+    "snippet": "AI personalization is becoming key in retail...",
+    "domain": "personalizationtech.com",
+    "publishedDate": "2025-11-30T19:00:00Z",
+    "rank": 19,
+    "why": "AI personalization in retail",
+    "confidence": 0.63,
+    "category": "AI_and_Strategy"
+  },
+  {
+    "url": "https://example.com/article-20",
+    "title": "Jewelry market trends and innovation",
+    "snippet": "Trends and innovations in the jewelry market...",
+    "domain": "jewelrytrends.com",
+    "publishedDate": "2025-11-29T18:00:00Z",
+    "rank": 20,
+    "why": "Jewelry market trends and innovation",
+    "confidence": 0.62,
+    "category": "Jewellery_Industry"
+  }
+]
+

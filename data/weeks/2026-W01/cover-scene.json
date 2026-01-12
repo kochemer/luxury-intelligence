@@ -1,0 +1,33 @@
+{
+  "conceptTitle": "luxury-retail-contrast",
+  "oneSentenceConcept": "In a high-end London jewelry boutique, a luxury retail manager reviews sales data on a tablet while a delivery person, dressed in casual attire, holds a jewelry box, creating a subtle contrast between luxury and everyday operations.",
+  "visualAnchors": {
+    "location": "luxury jewelry boutique in London",
+    "subjects": [
+      "luxury retail manager",
+      "delivery person"
+    ],
+    "props": [
+      "jewelry display case",
+      "tablet",
+      "jewelry box"
+    ],
+    "action": "retail manager reviewing sales data on a tablet while interacting with delivery person holding a jewelry box"
+  },
+  "humorNote": "Subtle contrast between the luxury setting and the casual delivery person",
+  "boringnessBreaker": {
+    "selected": [
+      "B",
+      "E"
+    ],
+    "executionNote": "The casual delivery person in a luxury setting underscores mild situational irony; reflection of the manager in the jewelry display case adds a framing trick."
+  },
+  "finalImagePrompt": "A photorealistic image capturing a busy luxury jewelry boutique in London. In the center, a luxury retail manager with a raised eyebrow reviews data on a tablet, subtle reflections visible in the jewelry display case. Next to them, a casually dressed delivery person holds a jewelry box, creating a mild contrast with the opulent environment. The setting includes real materials and reflections, with imperfections like fingerprints on the display glass. Use a wide-angle lens for a horizontally expansive composition, ensuring no text or logos are visible. The scene should feel candid and mid-action, avoiding a stock photo look. Ensure all visual elements are within the central horizontal band, with safe margins at the top and bottom. No vertical stacking or tall elements that might be cropped.",
+  "negativePrompt": [
+    "text, letters, numbers, signage, labels",
+    "screens, UI, dashboards, holograms, floating icons",
+    "logos, brands, watermarks",
+    "cartoon, illustration, CGI, 3D render, anime"
+  ],
+  "confidence": 0.8
+}

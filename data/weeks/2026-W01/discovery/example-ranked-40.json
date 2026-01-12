@@ -1,0 +1,363 @@
+[
+  {
+    "url": "https://techcrunch.com/2025/11/04/shopify-says-ai-traffic-is-up-7x-since-january-ai-driven-orders-are-up-11x/",
+    "rank": 1,
+    "why": "Major AI commerce growth metrics from Shopify",
+    "primaryTag": "AI",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.95
+  },
+  {
+    "url": "https://techcrunch.com/2025/07/08/genai-as-a-shopping-assistant-set-to-explode-during-prime-day-sales/",
+    "rank": 2,
+    "why": "Prime Day AI shopping trends and consumer behavior",
+    "primaryTag": "E-commerce",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.92
+  },
+  {
+    "url": "https://techcrunch.com/2025/10/01/google-reveals-its-gemini-powered-smart-home-lineup-and-ai-strategy/",
+    "rank": 3,
+    "why": "Google's AI strategy for smart home and commerce",
+    "primaryTag": "AI",
+    "insightType": "Strategic Move",
+    "controversyRisk": "none",
+    "confidence": 0.90
+  },
+  {
+    "url": "https://example.com/article-4",
+    "rank": 4,
+    "why": "E-commerce platform launches new AI features",
+    "primaryTag": "E-commerce",
+    "insightType": "Product Launch",
+    "controversyRisk": "none",
+    "confidence": 0.88
+  },
+  {
+    "url": "https://example.com/article-5",
+    "rank": 5,
+    "why": "Retail AI personalization trends",
+    "primaryTag": "Retail",
+    "insightType": "Industry Analysis",
+    "controversyRisk": "low",
+    "confidence": 0.87
+  },
+  {
+    "url": "https://example.com/article-6",
+    "rank": 6,
+    "why": "Luxury brand adopts AI for customer experience",
+    "primaryTag": "Luxury",
+    "insightType": "Strategic Move",
+    "controversyRisk": "none",
+    "confidence": 0.85
+  },
+  {
+    "url": "https://example.com/article-7",
+    "rank": 7,
+    "why": "AI regulation impact on e-commerce platforms",
+    "primaryTag": "Regulation",
+    "insightType": "Industry Analysis",
+    "controversyRisk": "low",
+    "confidence": 0.83
+  },
+  {
+    "url": "https://example.com/article-8",
+    "rank": 8,
+    "why": "Marketplace technology innovation",
+    "primaryTag": "E-commerce",
+    "insightType": "Product Launch",
+    "controversyRisk": "none",
+    "confidence": 0.82
+  },
+  {
+    "url": "https://example.com/article-9",
+    "rank": 9,
+    "why": "AI-driven retail operations optimization",
+    "primaryTag": "Retail",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.80
+  },
+  {
+    "url": "https://example.com/article-10",
+    "rank": 10,
+    "why": "Consumer behavior shifts in digital commerce",
+    "primaryTag": "E-commerce",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.78
+  },
+  {
+    "url": "https://example.com/article-11",
+    "rank": 11,
+    "why": "Jewelry industry digital transformation",
+    "primaryTag": "Jewelry",
+    "insightType": "Industry Analysis",
+    "controversyRisk": "none",
+    "confidence": 0.77
+  },
+  {
+    "url": "https://example.com/article-12",
+    "rank": 12,
+    "why": "AI tools for luxury brand marketing",
+    "primaryTag": "Luxury",
+    "insightType": "Strategic Move",
+    "controversyRisk": "none",
+    "confidence": 0.75
+  },
+  {
+    "url": "https://example.com/article-13",
+    "rank": 13,
+    "why": "E-commerce platform partnerships",
+    "primaryTag": "E-commerce",
+    "insightType": "Strategic Move",
+    "controversyRisk": "none",
+    "confidence": 0.73
+  },
+  {
+    "url": "https://example.com/article-14",
+    "rank": 14,
+    "why": "Retail technology investment trends",
+    "primaryTag": "Retail",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.72
+  },
+  {
+    "url": "https://example.com/article-15",
+    "rank": 15,
+    "why": "AI automation in retail operations",
+    "primaryTag": "AI",
+    "insightType": "Product Launch",
+    "controversyRisk": "none",
+    "confidence": 0.70
+  },
+  {
+    "url": "https://example.com/article-16",
+    "rank": 16,
+    "why": "Privacy regulation impact on e-commerce",
+    "primaryTag": "Regulation",
+    "insightType": "Industry Analysis",
+    "controversyRisk": "low",
+    "confidence": 0.68
+  },
+  {
+    "url": "https://example.com/article-17",
+    "rank": 17,
+    "why": "Luxury consumer behavior insights",
+    "primaryTag": "Luxury",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.67
+  },
+  {
+    "url": "https://example.com/article-18",
+    "rank": 18,
+    "why": "E-commerce platform security updates",
+    "primaryTag": "E-commerce",
+    "insightType": "Product Launch",
+    "controversyRisk": "none",
+    "confidence": 0.65
+  },
+  {
+    "url": "https://example.com/article-19",
+    "rank": 19,
+    "why": "AI personalization in retail",
+    "primaryTag": "AI",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.63
+  },
+  {
+    "url": "https://example.com/article-20",
+    "rank": 20,
+    "why": "Jewelry market trends and innovation",
+    "primaryTag": "Jewelry",
+    "insightType": "Industry Analysis",
+    "controversyRisk": "none",
+    "confidence": 0.62
+  },
+  {
+    "url": "https://example.com/article-21",
+    "rank": 21,
+    "why": "Retail technology startup funding",
+    "primaryTag": "Retail",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.60
+  },
+  {
+    "url": "https://example.com/article-22",
+    "rank": 22,
+    "why": "E-commerce platform expansion",
+    "primaryTag": "E-commerce",
+    "insightType": "Strategic Move",
+    "controversyRisk": "none",
+    "confidence": 0.58
+  },
+  {
+    "url": "https://example.com/article-23",
+    "rank": 23,
+    "why": "AI strategy for luxury brands",
+    "primaryTag": "Luxury",
+    "insightType": "Strategic Move",
+    "controversyRisk": "none",
+    "confidence": 0.57
+  },
+  {
+    "url": "https://example.com/article-24",
+    "rank": 24,
+    "why": "Retail operations technology trends",
+    "primaryTag": "Retail",
+    "insightType": "Industry Analysis",
+    "controversyRisk": "none",
+    "confidence": 0.55
+  },
+  {
+    "url": "https://example.com/article-25",
+    "rank": 25,
+    "why": "E-commerce AI assistant features",
+    "primaryTag": "AI",
+    "insightType": "Product Launch",
+    "controversyRisk": "none",
+    "confidence": 0.53
+  },
+  {
+    "url": "https://example.com/article-26",
+    "rank": 26,
+    "why": "Jewelry industry digital adoption",
+    "primaryTag": "Jewelry",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.52
+  },
+  {
+    "url": "https://example.com/article-27",
+    "rank": 27,
+    "why": "Luxury market consumer insights",
+    "primaryTag": "Luxury",
+    "insightType": "Industry Analysis",
+    "controversyRisk": "none",
+    "confidence": 0.50
+  },
+  {
+    "url": "https://example.com/article-28",
+    "rank": 28,
+    "why": "E-commerce platform analytics",
+    "primaryTag": "E-commerce",
+    "insightType": "Product Launch",
+    "controversyRisk": "none",
+    "confidence": 0.48
+  },
+  {
+    "url": "https://example.com/article-29",
+    "rank": 29,
+    "why": "AI regulation compliance for retail",
+    "primaryTag": "Regulation",
+    "insightType": "Industry Analysis",
+    "controversyRisk": "low",
+    "confidence": 0.47
+  },
+  {
+    "url": "https://example.com/article-30",
+    "rank": 30,
+    "why": "Retail technology innovation",
+    "primaryTag": "Retail",
+    "insightType": "Product Launch",
+    "controversyRisk": "none",
+    "confidence": 0.45
+  },
+  {
+    "url": "https://example.com/article-31",
+    "rank": 31,
+    "why": "E-commerce customer experience trends",
+    "primaryTag": "E-commerce",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.43
+  },
+  {
+    "url": "https://example.com/article-32",
+    "rank": 32,
+    "why": "AI tools for jewelry retail",
+    "primaryTag": "Jewelry",
+    "insightType": "Product Launch",
+    "controversyRisk": "none",
+    "confidence": 0.42
+  },
+  {
+    "url": "https://example.com/article-33",
+    "rank": 33,
+    "why": "Luxury brand digital strategy",
+    "primaryTag": "Luxury",
+    "insightType": "Strategic Move",
+    "controversyRisk": "none",
+    "confidence": 0.40
+  },
+  {
+    "url": "https://example.com/article-34",
+    "rank": 34,
+    "why": "Retail AI implementation case study",
+    "primaryTag": "AI",
+    "insightType": "Industry Analysis",
+    "controversyRisk": "none",
+    "confidence": 0.38
+  },
+  {
+    "url": "https://example.com/article-35",
+    "rank": 35,
+    "why": "E-commerce platform integration",
+    "primaryTag": "E-commerce",
+    "insightType": "Strategic Move",
+    "controversyRisk": "none",
+    "confidence": 0.37
+  },
+  {
+    "url": "https://example.com/article-36",
+    "rank": 36,
+    "why": "Jewelry market consumer trends",
+    "primaryTag": "Jewelry",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.35
+  },
+  {
+    "url": "https://example.com/article-37",
+    "rank": 37,
+    "why": "Luxury retail technology adoption",
+    "primaryTag": "Luxury",
+    "insightType": "Product Launch",
+    "controversyRisk": "none",
+    "confidence": 0.33
+  },
+  {
+    "url": "https://example.com/article-38",
+    "rank": 38,
+    "why": "AI commerce platform features",
+    "primaryTag": "AI",
+    "insightType": "Product Launch",
+    "controversyRisk": "none",
+    "confidence": 0.32
+  },
+  {
+    "url": "https://example.com/article-39",
+    "rank": 39,
+    "why": "E-commerce market analysis",
+    "primaryTag": "E-commerce",
+    "insightType": "Industry Analysis",
+    "controversyRisk": "none",
+    "confidence": 0.30
+  },
+  {
+    "url": "https://example.com/article-40",
+    "rank": 40,
+    "why": "Retail technology trends overview",
+    "primaryTag": "Retail",
+    "insightType": "Market Trend",
+    "controversyRisk": "none",
+    "confidence": 0.28
+  }
+]
+
