@@ -180,5 +180,57 @@
     "cached_at": "2026-01-12T07:00:45.840Z",
     "model": "gpt-4o-mini",
     "version": "2.1"
+  },
+  "2026-W03:e586af184646": {
+    "keyThemes": [
+      "Etsy AI Mode",
+      "Saks Global bankruptcy",
+      "agentic commerce",
+      "Pandora holiday sales",
+      "dynamic ecommerce pricing"
+    ],
+    "oneSentenceSummary": "Etsy's AI Mode integration and Saks Global's bankruptcy highlight the evolving landscape of ecommerce and luxury retail challenges.",
+    "cached_at": "2026-01-17T11:43:14.271Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W02:efc0e04fb20a": {
+    "keyThemes": [
+      "Walmart AI strategies",
+      "De Beers diamond demand",
+      "agentic AI tools",
+      "inflationary pressures",
+      "retail profitability"
+    ],
+    "oneSentenceSummary": "Walmart's AI strategies and De Beers' focus on India's wealthy consumers highlight significant shifts in retail and luxury sectors.",
+    "cached_at": "2026-01-17T14:46:57.291Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W03:6371fb8250d8": {
+    "keyThemes": [
+      "Saks Global bankruptcy",
+      "Agentic Commerce",
+      "AI Agents",
+      "margin compression",
+      "Etsy Google AI Mode"
+    ],
+    "oneSentenceSummary": "Saks Global's bankruptcy highlights margin compression while AI Agents and Agentic Commerce reshape retail strategies and consumer engagement.",
+    "cached_at": "2026-01-17T15:05:54.425Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W02:b8fda2cacb55": {
+    "keyThemes": [
+      "Walmart AI strategies",
+      "Saks Global bankruptcy",
+      "inflation pressures",
+      "agentic commerce",
+      "De Beers diamond demand"
+    ],
+    "oneSentenceSummary": "Walmart's AI strategies and Saks Global's financial struggles highlight contrasting developments in retail and luxury sectors amid inflation pressures.",
+    "cached_at": "2026-01-17T15:46:35.768Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
   }
 }

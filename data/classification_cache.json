@@ -54,5 +54,33 @@
     "rationale": "The article focuses on artificial intelligence being used to imitate a playwright's themes and sense of humor, aligning with AI and machine learning applications.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-12T07:00:16.224Z"
+  },
+  "https://www.retaildive.com/news/under-armour-president-americas-chief-merchandising-officer-kara-trent/809848": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article is about a personnel change within Under Armour, a retail company, indicating a focus on retail operations and management.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-17T11:42:48.282Z"
+  },
+  "https://www.nytimes.com/2026/01/06/technology/xai-elon-musk-funding.html": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article focuses on Elon Musk's xAI, which falls under artificial intelligence and technology investments.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-17T14:46:41.906Z"
+  },
+  "https://www.nytimes.com/2026/01/14/technology/ai-ideas-chat-gpt-openai.html": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article discusses the use of AI, specifically OpenAI's GPT-5, in accelerating research in math, biology, and chemistry, indicating a focus on artificial intelligence and its applications in various fields.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-17T15:05:32.730Z"
+  },
+  "https://www.digitalcommerce360.com/2026/01/08/spangle-ai-15-million-funding-agentic-infrastructure": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.85,
+    "rationale": "The article focuses on Spangle AI raising funds to expand its AI platform for ecommerce, emphasizing AI-driven product discovery and online conversion.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-17T15:46:22.572Z"
   }
 }

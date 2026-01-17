@@ -1,0 +1,636 @@
+{
+  "weekLabel": "2026-W03",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2026-01-11T23:00:00.000Z",
+  "endISO": "2026-01-18T22:59:59.999Z",
+  "builtAtISO": "2026-01-17T16:05:49.182+01:00",
+  "builtAtLocal": "2026-01-17 16:05:49",
+  "coverImageUrl": "/weekly-images/2026-W03.png",
+  "coverImageAlt": "Weekly cover illustration for 2026-W03",
+  "coverKeywords": [
+    "etsy",
+    "sell",
+    "directly",
+    "google",
+    "mode",
+    "retail",
+    "brands",
+    "tiktok",
+    "shop",
+    "rise",
+    "brings",
+    "viral"
+  ],
+  "totals": {
+    "total": 90,
+    "byTopic": {
+      "AIStrategy": 36,
+      "EcommerceRetail": 38,
+      "LuxuryConsumer": 7,
+      "Jewellery": 9
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 36,
+      "top": [
+        {
+          "id": "7y3u5s",
+          "title": "AI in Retail: Digital Workers Transform Operations | Deloitte US",
+          "url": "https://www.deloitte.com/us/en/Industries/consumer/articles/ai-retail-digital-workers-transformation.html",
+          "source": "deloitte.com",
+          "published_at": "2026-01-17T11:38:41.295Z",
+          "ingested_at": "2026-01-17T11:38:41.295Z",
+          "snippet": "Explore a blueprint to help retailers embed digital workers at scale to enable a new level of agility and intelligence. At its core, AI-sourcing introduces a powerful new workforce: digital workers. Digital workers can help retail leaders transform how their organizations manage supply chains, merch",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "Focuses on AI's role in transforming retail operations",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI in Retail: Deloitte US explores how digital workers can transform retail operations by enhancing agility and intelligence through AI-sourcing, offering a blueprint for retailers to implement at scale."
+        },
+        {
+          "id": "jgfrco",
+          "title": "GenAI reshapes CPG, retail and consumer relationships | EY - US",
+          "url": "https://www.ey.com/en_us/insights/consumer-products/how-genai-changes-the-way-cpg-and-retail-operate-and-consumers-too",
+          "source": "ey.com",
+          "published_at": "2026-01-17T11:38:41.295Z",
+          "ingested_at": "2026-01-17T11:38:41.295Z",
+          "snippet": "Brands and retailers have a lot of reputation to protect, and some pulled back on their use of publicly available large language models (LLMs)",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Explores generative AI's impact on retail relationships",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary:\nBrands and retailers are reconsidering their use of large language models (LLMs) to protect their reputation in consumer relationships, as highlighted in a recent article by EY."
+        },
+        {
+          "id": "w6kfc6",
+          "title": "Using Agentic Commerce to Improve AI Visibility for Fashion",
+          "url": "https://www.envive.ai/post/using-agentic-commerce-to-improve-ai-visibility-for-fashion",
+          "source": "envive.ai",
+          "published_at": "2026-01-17T11:38:41.295Z",
+          "ingested_at": "2026-01-17T11:38:41.295Z",
+          "snippet": "Agentic commerce describes AI systems that don't just answer questions—they take autonomous action on behalf of shoppers. These agents can research products,",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Discusses AI's autonomous actions in shopping",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary: Agentic commerce in AI systems goes beyond answering questions to taking autonomous actions for shoppers, such as researching products, to enhance visibility in the fashion industry."
+        },
+        {
+          "id": "9e5kut",
+          "title": "AI Agents & Agentic Commerce: Key Insights from PLS 2025",
+          "url": "https://www.edgardunn.com/articles/agentic-commerce-declared-the-next-big-shift",
+          "source": "edgardunn.com",
+          "published_at": "2026-01-17T11:38:41.295Z",
+          "ingested_at": "2026-01-17T11:38:41.295Z",
+          "snippet": "There were several lively discussions with merchants at Payment Leaders’ Summit (PLS) in Amsterdam which illuminated the sector’s latest challenges and opportunities with Artificial Intelligence (AI) and agentic commerce. When consumers use autonomous digital assistants, or AI agents, to search for ",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "Insights from industry summit on AI commerce",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI Agents & Agentic Commerce were key topics discussed at the Payment Leaders’ Summit in Amsterdam, shedding light on the challenges and opportunities in the sector related to Artificial Intelligence."
+        },
+        {
+          "id": "2y8oxk",
+          "title": "Artificial Intelligence in Jewelry Retail: Hype vs. Reality",
+          "url": "https://jewel360.com/blog/artificial-intelligence-in-jewelry-retail",
+          "source": "jewel360.com",
+          "published_at": "2026-01-17T11:38:41.295Z",
+          "ingested_at": "2026-01-17T11:38:41.295Z",
+          "snippet": "1. Inventory Demand Forecasting · 2. AI-Assisted Marketing Content · 3. Automated Customer Communication · 4. Product Photo Enhancement · 5.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Practical applications of AI in jewelry retail",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI in jewelry retail is being utilized for inventory demand forecasting, AI-assisted marketing content creation, automated customer communication, and product photo enhancement, according to a 2026 article on jewel360.com."
+        },
+        {
+          "id": "8e60uu",
+          "title": "Gartner: 60% of brands will use agentic AI for one-to-one engagement",
+          "url": "https://www.digitalcommerce360.com/2026/01/16/gartner-research-agentic-ai-marketing/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-16T22:27:03.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "New research from Gartner indicates two-thirds of brands will use agentic artificial intelligence (AI) to deliver personalized, one-to-one customer interactions by 2028. In a Jan. 15 report, Gartner said autonomous, agentic AI systems that can act on a user’s behalf — will increasingly replace traditional, channel-based marketing approaches. Instead of managing campaigns by email, web […]\nThe post Gartner: 60% of brands will use agentic AI for one-to-one engagement appeared first on Digital Comm...",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content",
+              "Potentially controversial (flagged for LLM review)"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true,
+              "controversialSuspected": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "Highlights future of personalized customer interactions",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-generated summary: Gartner predicts that by 2028, 60% of brands will utilize agentic AI for personalized customer interactions, replacing traditional marketing methods. This shift towards autonomous AI systems aims to enhance one-to-one engagement and streamline marketing strategies."
+        },
+        {
+          "id": "luy0ko",
+          "title": "Brands Briefing: How leaders at Fabletics, PayPal and more are thinking about the agentic AI opportunity",
+          "url": "https://www.modernretail.co/technology/brands-briefing-how-leaders-at-fabletics-paypal-and-more-are-thinking-about-the-agentic-ai-opportunity/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-13T15:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "At NRF, leaders at companies like PayPal and Fabletics acknowledged there's still a ways to go before more people trust AI to complete a transaction.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "Leaders' perspectives on AI opportunities in retail",
+          "rerankConfidence": 0.6,
+          "aiSummary": "AI-generated summary:\nLeaders at companies like PayPal and Fabletics discussed the need for increased trust in AI for completing transactions at NRF, recognizing there is still progress to be made in this area."
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 38,
+      "top": [
+        {
+          "id": "f7v3bp",
+          "title": "How Etsy will sell directly through Google’s AI Mode",
+          "url": "https://www.digitalcommerce360.com/2026/01/15/etsy-selling-through-google-ai-mode-gemini/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-15T21:04:38.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "Etsy has announced it will allow logged-in Google users in the U.S. to purchase some items from its marketplace directly through AI Mode in Google search and the Gemini app. The initiative comes as multiple leading online retailers have recently announced their own ways they will use Google’s artificial intelligence (AI) technology. Among them are […]\nThe post How Etsy will sell directly through Google’s AI Mode appeared first on Digital Commerce 360.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "Etsy's direct sales through Google AI enhance ecommerce integration",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-generated summary: Etsy will enable U.S. Google users to buy items from its marketplace through Google's AI Mode, following other online retailers utilizing Google's AI technology."
+        },
+        {
+          "id": "x8o67t",
+          "title": "For retail brands, TikTok Shop’s rise brings viral success — and disruption",
+          "url": "https://www.retaildive.com/news/retail-brands-tiktok-shops-rise-brings-viral-success-disruption/809871/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-16T17:11:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "At NRF, executives described major sales wins while acknowledging the social commerce feature is shaking up several retail fundamentals.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "TikTok Shop's impact on retail strategies is significant",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary:\nExecutives at NRF highlighted major sales successes with TikTok Shop, recognizing its disruptive impact on retail fundamentals."
+        },
+        {
+          "id": "s38u6",
+          "title": "Marketplace Briefing: Inside the marketplace strategies of Target, Best Buy and Nordstrom",
+          "url": "https://www.modernretail.co/operations/marketplace-briefing-inside-the-marketplace-strategies-of-target-best-buy-and-nordstrom/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-15T15:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "Executives from Target, Best Buy and Nordstrom say their marketplaces are playing a bigger role in how they choose products, make money and help shoppers find what they want, both online and in stores.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Insights on marketplace strategies from major retailers",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary:\nTarget, Best Buy, and Nordstrom are emphasizing their marketplaces to drive product selection, revenue generation, and customer satisfaction across online and offline channels."
+        },
+        {
+          "id": "82n1kh",
+          "title": "Saks Global files for Chapter 11 bankruptcy, receives permission to proceed with financing plan",
+          "url": "https://www.digitalcommerce360.com/2026/01/15/saks-global-files-chapter-11-bankruptcy/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-16T00:15:12.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "Just over a year after completing an acquisition of Neiman Marcus, Saks Global has filed for Chapter 11 bankruptcy protection. In a decision dated Jan. 15, a judge overseeing the case in the Southern District of Texas approved the company’s financing plans so that it could proceed. That approval came despite an objection filed by […]\nThe post Saks Global files for Chapter 11 bankruptcy, receives permission to proceed with financing plan appeared first on Digital Commerce 360.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Saks Global's bankruptcy highlights retail challenges",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-generated summary: Saks Global has filed for Chapter 11 bankruptcy after acquiring Neiman Marcus, with a judge approving its financing plans to proceed despite objections."
+        },
+        {
+          "id": "3mcrcv",
+          "title": "Walmart takes to the skies nationwide with Wing drone delivery expansion",
+          "url": "https://www.digitalcommerce360.com/2026/01/16/walmart-wing-drone-delivery-expansion/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-01-17T00:04:15.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "Seeing groceries in the sky may become much more common as Walmart and drone delivery service Wing expand their partnership. Wing announced that Walmart’s drone delivery will be expanded to 150 stores in 2026. In doing so, it will be able to reach more than 40 million Americans. Plans call for even more in 2027, […]\nThe post Walmart takes to the skies nationwide with Wing drone delivery expansion appeared first on Digital Commerce 360.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Walmart's drone delivery expansion shows logistics innovation",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-generated summary: Walmart and Wing are expanding their drone delivery partnership to reach 150 stores in 2026, aiming to serve over 40 million Americans. Plans for further expansion are in place for 2027."
+        },
+        {
+          "id": "6998tb",
+          "title": "Lawmakers Eye Dynamic Ecommerce Pricing",
+          "url": "https://www.practicalecommerce.com/lawmakers-eye-dynamic-ecommerce-pricing",
+          "source": "Practical Ecommerce",
+          "published_at": "2026-01-15T13:11:14.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "Some American legislators liken data-driven price changes to gouging. One senator requested an FTC investigation.\nThe post Lawmakers Eye Dynamic Ecommerce Pricing appeared first on Practical Ecommerce.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Dynamic pricing legislation could affect retail pricing strategies",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-generated summary: American lawmakers are concerned about data-driven price changes in ecommerce, with one senator calling for an FTC investigation into the practice."
+        },
+        {
+          "id": "jhjl6k",
+          "title": "Modern Retail Podcast: Cautious optimism at NRF around AI and shopper sentiment in 2026",
+          "url": "https://www.modernretail.co/operations/modern-retail-podcast-cautious-optimism-at-nrf-around-ai-and-shopper-sentiment-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-17T05:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "This week's Modern Retail Podcast dives into what was discussed at NRF, the retail industry's biggest conference that typically sets the tone for the year.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Podcast insights on AI and shopper sentiment are valuable",
+          "rerankConfidence": 0.6,
+          "aiSummary": "AI-Generated Summary: The Modern Retail Podcast discusses the cautious optimism surrounding AI and shopper sentiment at NRF, the retail industry's major conference in 2026."
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 7,
+      "top": [
+        {
+          "id": "lfdwsk",
+          "title": "Amazon says its Saks Global investment is ‘worthless’",
+          "url": "https://www.retaildive.com/news/amazon-saks-global-investment-worthless-bankruptcy/809749/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-15T17:33:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "The e-commerce giant’s complaints could signal a long and contentious bankruptcy process for the luxury company.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Insights on luxury investment and bankruptcy implications",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nAmazon deems its investment in Saks Global as 'worthless,' hinting at a potentially challenging bankruptcy process for the luxury retailer."
+        },
+        {
+          "id": "fdwx8l",
+          "title": "The future of luxury during the rise of AI  | Deloitte US",
+          "url": "https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/articles/future-of-luxury-during-rise-of-ai.html",
+          "source": "deloitte.com",
+          "published_at": "2026-01-17T11:38:41.295Z",
+          "ingested_at": "2026-01-17T11:38:41.295Z",
+          "snippet": "The rise of AI is reshaping the future of luxury, which may require luxury brands to adapt their strategies, embrace new tools,",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "AI's impact on luxury brand strategies discussed",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-generated summary: The future of luxury is being reshaped by the rise of AI, prompting luxury brands to adapt their strategies and embrace new tools according to Deloitte US."
+        },
+        {
+          "id": "5zavi1",
+          "title": "Beverage brands update Dry January marketing based on changing consumer habits",
+          "url": "https://www.modernretail.co/marketing/beverage-brands-update-dry-january-marketing-based-on-changing-consumer-habits/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-12T05:00:00.000Z",
+          "ingested_at": "2026-01-12T06:21:29.535Z",
+          "snippet": "Beverage brands in the nonalcoholic space are consistently tweaking their messaging to reflect consumers' drinking habits. With Dry January underway, this means using encouraging messaging that's less shameful.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Consumer behavior insights for marketing strategies",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-generated summary:\nBeverage brands in the nonalcoholic sector are adjusting their marketing strategies for Dry January to align with changing consumer behaviors, focusing on positive and supportive messaging rather than shame."
+        },
+        {
+          "id": "u861iyq",
+          "title": "Tatcha Names New CEO",
+          "url": "https://www.businessoffashion.com/news/beauty/tatcha-appoints-new-ceo/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-17T11:21:23.359Z",
+          "ingested_at": "2026-01-17T11:21:23.359Z",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Leadership change may affect brand direction",
+          "rerankConfidence": 0.75
+        },
+        {
+          "id": "qzh2wb3",
+          "title": "Diesel Names Andrea Rigogliosi New CEO",
+          "url": "https://www.businessoffashion.com/news/luxury/diesel-names-andrea-rigogliosi-new-ceo/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-17T11:21:23.359Z",
+          "ingested_at": "2026-01-17T11:21:23.359Z",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "New CEO could influence brand strategy",
+          "rerankConfidence": 0.7
+        },
+        {
+          "id": "aruzwcs",
+          "title": "CFDA Releases New York Fashion Week Schedule",
+          "url": "https://www.businessoffashion.com/news/fashion-week/cfda-releases-new-york-fashion-week-schedule-2/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-17T11:21:23.358Z",
+          "ingested_at": "2026-01-17T11:21:23.358Z",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Fashion week schedule impacts retail planning",
+          "rerankConfidence": 0.65
+        },
+        {
+          "id": "cx1lu57",
+          "title": "Italian Judge Acquits Influencer Chiara Ferragni Over Charity Fraud Claims",
+          "url": "https://www.businessoffashion.com/news/marketing-pr/italian-judge-acquits-influencer-chiara-ferragni-over-charity-fraud-claims/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-17T11:21:23.359Z",
+          "ingested_at": "2026-01-17T11:21:23.359Z",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Legal outcomes affecting influencer marketing strategies",
+          "rerankConfidence": 0.6
+        }
+      ]
+    },
+    "Jewellery_Industry": {
+      "total": 9,
+      "top": [
+        {
+          "id": "o8bb5v",
+          "title": "Tech boost for Pandora during holiday sales",
+          "url": "https://www.jewellermagazine.com/Article/14692/Tech-boost-for-Pandora-during-holiday-sales",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-01-12T13:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "Pandora has reported lower than expected sales across the past financial year, with a statement attributing the results to weakened consumer demand during the holiday season.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Insights on Pandora's holiday sales performance",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nPandora experienced lower holiday sales due to weakened consumer demand, impacting its financial performance for the year."
+        },
+        {
+          "id": "414k81",
+          "title": "India moves to protect natural diamonds; government mandate issued",
+          "url": "https://www.jewellermagazine.com/Article/14699/India-moves-to-protect-natural-diamonds-government-mandate-issued",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-01-15T13:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "The Indian gem and jewellery industry has successfully lobbied for the introduction of a national standard governing diamond terminology, reserving the term ‘diamond’ exclusively for natural diamonds and requiring explicit disclosure for laboratory-grown alternatives.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Impact of new diamond standards on retail",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-Generated Summary:\nIndia's gem and jewellery industry has secured a government mandate establishing a national standard to protect natural diamonds by reserving the term 'diamond' for them and mandating disclosure for lab-grown alternatives."
+        },
+        {
+          "id": "cay4rf",
+          "title": "Jeweller hits the streets in a bid to sell gigantic white opal",
+          "url": "https://www.jewellermagazine.com/Article/14691/Jeweller-hits-the-streets-in-a-bid-to-sell-gigantic-white-opal",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-01-12T13:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "A special report has detailed the challenges faced by a San Francisco jeweller who is attempting to sell a remarkably large opal to finance his retirement.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Case study on unique sales strategies",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-Generated Summary:\nA San Francisco jeweller is facing challenges in selling a large white opal to fund his retirement, as reported in a special feature by Jeweller - Business News."
+        },
+        {
+          "id": "f7wrq1",
+          "title": "Europe rocked by another multi-million dollar heist",
+          "url": "https://www.jewellermagazine.com/Article/14695/Europe-rocked-by-another-multi-million-dollar-heist",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-01-12T13:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "Criminals have escaped with $AUD52 million worth of cash, gold and jewellery from the vault of a German savings bank during the holiday season.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Highlights security challenges in jewellery retail",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-Generated Summary:\nCriminals stole $AUD52 million in cash, gold, and jewellery from a German savings bank's vault during the holiday season, causing a major heist in Europe's jewellery industry."
+        },
+        {
+          "id": "tmu91q",
+          "title": "Criminal gang faces court over Australian jewellery burglary",
+          "url": "https://www.jewellermagazine.com/Article/14696/Criminal-gang-faces-court-over-Australian-jewellery-burglary",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-01-12T13:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "After a staggering multi-million dollar luxury goods theft in Australia in October, investigators have arrested and charged four French individuals in relation to the crime.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Legal implications of jewellery theft cases",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-Generated Summary:\nFour French individuals have been arrested and charged in connection with a multi-million dollar luxury goods theft in Australia, leading to a criminal gang facing court over the jewellery burglary."
+        },
+        {
+          "id": "wi13zr",
+          "title": "Unique Russian diamonds reflect holiday spirit",
+          "url": "https://www.jewellermagazine.com/Article/14689/Unique-Russian-diamonds-reflect-holiday-spirit",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-01-12T13:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "Russian diamond producer Alrosa has showcased two recently unearthed diamonds that resemble Christmas ornaments in a timely and festive discovery.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Showcases unique product offerings in the market",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-Generated Summary:\nAlrosa, a Russian diamond producer, has unveiled two diamonds that bear a striking resemblance to Christmas ornaments, adding a festive touch to the jewellery industry."
+        },
+        {
+          "id": "q45wlm",
+          "title": "Pink Panthers members reportedly responsible for Greek heist",
+          "url": "https://www.jewellermagazine.com/Article/14690/Pink-Panthers-members-reportedly-responsible-for-Greek-heist",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-01-12T13:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "Two members of the legendary ‘Pink Panthers’ gang have reportedly been arrested in relation to a luxury goods heist in Greece in September.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Discusses crime impact on luxury goods sales",
+          "rerankConfidence": 0.6,
+          "aiSummary": "AI-Generated Summary:\nTwo members of the 'Pink Panthers' gang were arrested for a luxury goods heist in Greece, as reported by Jeweller - Business News on January 12, 2026."
+        }
+      ]
+    }
+  },
+  "keyThemes": [
+    "Saks Global bankruptcy",
+    "Agentic Commerce",
+    "AI Agents",
+    "margin compression",
+    "Etsy Google AI Mode"
+  ],
+  "oneSentenceSummary": "Saks Global's bankruptcy highlights margin compression while AI Agents and Agentic Commerce reshape retail strategies and consumer engagement.",
+  "introParagraph": "Saks Global files for bankruptcy, reflecting ongoing margin compression in the retail sector. Meanwhile, AI Agents and Agentic Commerce are influencing new strategies for consumer engagement, as seen with Etsy's integration of Google AI Mode."
+}

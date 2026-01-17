@@ -49,6 +49,8 @@ type DiscoveryConfig = {
   maxCandidates: number;
   selectTop: number;
   searchProvider: 'tavily' | 'bing' | 'serpapi';
+  regenDelta: boolean;
+  noDelta: boolean;
 };
 
 function parseArgs(): DiscoveryConfig {
@@ -57,6 +59,8 @@ function parseArgs(): DiscoveryConfig {
   let maxCandidates = 120;
   let selectTop = 20;
   let searchProvider: 'tavily' | 'bing' | 'serpapi' = 'tavily';
+  let regenDelta = false;
+  let noDelta = false;
 
   for (const arg of args) {
     if (arg.startsWith('--week=')) {
@@ -74,6 +78,10 @@ function parseArgs(): DiscoveryConfig {
       if (provider === 'tavily' || provider === 'bing' || provider === 'serpapi') {
         searchProvider = provider;
       }
+    } else if (arg === '--regenDelta' || arg === '--regenDelta=true') {
+      regenDelta = true;
+    } else if (arg === '--noDelta' || arg === '--noDelta=true') {
+      noDelta = true;
     }
   }
 
@@ -85,7 +93,7 @@ function parseArgs(): DiscoveryConfig {
     weekLabel = `${year}-W${weekNumber.toString().padStart(2, '0')}`;
   }
 
-  return { weekLabel, maxCandidates, selectTop, searchProvider };
+  return { weekLabel, maxCandidates, selectTop, searchProvider, regenDelta, noDelta };
 }
 
 async function main() {
@@ -108,22 +116,25 @@ async function main() {
   
   // Step 1: Generate search queries
   console.log('[Step 1] Generating search queries...');
-  const queries = await generateSearchQueries(config.weekLabel, discoveryDir);
+  const queries = await generateSearchQueries(config.weekLabel, discoveryDir, {
+    regenDelta: config.regenDelta,
+    noDelta: config.noDelta
+  });
   console.log(`✓ Generated ${Object.values(queries).flat().length} queries across ${Object.keys(queries).length} categories\n`);
 
   // Step 2: Search
   console.log('[Step 2] Searching the web...');
-  const searchResults = await searchWithTavily(queries, config.maxCandidates, discoveryDir);
+  const { results: searchResults } = await searchWithTavily(queries, config.maxCandidates, discoveryDir);
   console.log(`✓ Found ${searchResults.length} candidate URLs\n`);
 
   // Step 3: Fetch and extract
   console.log('[Step 3] Fetching and extracting articles...');
-  const extracted = await fetchAndExtractArticles(searchResults, discoveryDir);
+  const { articles: extracted } = await fetchAndExtractArticles(searchResults, discoveryDir);
   console.log(`✓ Extracted ${extracted.length} articles\n`);
 
   // Step 4: Select top articles
   console.log('[Step 4] Selecting top articles...');
-  const selected = await selectTopArticles(extracted, config.selectTop, config.weekLabel, discoveryDir);
+  const { selected } = await selectTopArticles(extracted, config.selectTop, config.weekLabel, discoveryDir);
   console.log(`✓ Selected ${selected.length} articles\n`);
 
   // Step 5: Save discovery articles separately (week-scoped)

@@ -1,233 +1,134 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import OpenAI from 'openai';
 import type { Topic } from '../classification/classifyTopics';
+import { generateDeltaQueries, type QueryDeltaConfig } from './queryDelta';
+import crypto from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const QUERY_DIRECTOR_MODEL = process.env.QUERY_DIRECTOR_MODEL || 'gpt-4o';
-const TEMPERATURE = 0.7;
-
-function getOpenAIApiKey(): string {
-  const key = process.env.OPENAI_API_KEY;
-  if (!key) {
-    throw new Error('OPENAI_API_KEY not found in environment variables');
-  }
-  return key;
+function getCategoryLabel(topic: Topic): string {
+  const labels: Record<Topic, string> = {
+    "AI_and_Strategy": "AI & Strategy",
+    "Ecommerce_Retail_Tech": "Ecommerce & Retail Tech",
+    "Luxury_and_Consumer": "Luxury & Consumer",
+    "Jewellery_Industry": "Jewellery Industry"
+  };
+  return labels[topic];
 }
 
-type QueryDirectorOutput = {
-  queries: string[];
-  reasoning: string;
-};
-
-type CacheEntry = {
-  output: QueryDirectorOutput;
-  cached_at: string;
-  weekLabel: string;
-};
-
-type QueryDirectorCache = {
-  [cacheKey: string]: CacheEntry;
-};
-
-const CACHE_FILE = path.join(__dirname, '../data/query_director_cache.json');
-
-async function loadCache(): Promise<QueryDirectorCache> {
+async function loadBaseQueries(): Promise<Record<string, string[]>> {
+  const baseQueriesPath = path.join(__dirname, 'queries.base.json');
   try {
-    const content = await fs.readFile(CACHE_FILE, 'utf-8');
+    const content = await fs.readFile(baseQueriesPath, 'utf-8');
     return JSON.parse(content);
   } catch (err: any) {
-    if (err.code === 'ENOENT') {
-      return {};
-    }
-    console.warn(`[QueryDirector] Failed to load cache: ${err.message}`);
-    return {};
+    throw new Error(`Failed to load base queries: ${err.message}`);
   }
 }
 
-async function saveCache(cache: QueryDirectorCache): Promise<void> {
-  try {
-    await fs.mkdir(path.dirname(CACHE_FILE), { recursive: true });
-    await fs.writeFile(CACHE_FILE, JSON.stringify(cache, null, 2), 'utf-8');
-  } catch (err: any) {
-    console.warn(`[QueryDirector] Failed to save cache: ${err.message}`);
-  }
+function computeHash(input: string): string {
+  return crypto.createHash('sha256').update(input).digest('hex').substring(0, 16);
 }
 
-function getCacheKey(weekLabel: string, topic: Topic, lastWeekThemes?: string[]): string {
-  const themesStr = lastWeekThemes ? lastWeekThemes.sort().join('|') : '';
-  return `${weekLabel}|${topic}|${themesStr}`;
-}
-
-async function getLastWeekThemes(weekLabel: string): Promise<string[]> {
-  try {
-    // Parse week to get previous week
-    const weekMatch = weekLabel.match(/^(\d{4})-W(\d{1,2})$/);
-    if (!weekMatch) return [];
-    
-    const year = parseInt(weekMatch[1], 10);
-    const weekNumber = parseInt(weekMatch[2], 10);
-    
-    // Get previous week
-    let prevYear = year;
-    let prevWeek = weekNumber - 1;
-    if (prevWeek < 1) {
-      prevYear = year - 1;
-      prevWeek = 52; // Approximate
-    }
-    
-    const prevWeekLabel = `${prevYear}-W${prevWeek.toString().padStart(2, '0')}`;
-    const digestPath = path.join(__dirname, '../data/digests', `${prevWeekLabel}.json`);
-    const digest = JSON.parse(await fs.readFile(digestPath, 'utf-8'));
-    return digest.keyThemes || [];
-  } catch {
-    return [];
-  }
-}
-
-function getTopicDefinition(topic: Topic): string {
-  const definitions: Record<Topic, string> = {
-    "AI_and_Strategy": "AI strategy, machine learning applications, AI tools, LLMs, generative AI, AI automation, AI personalization, AI-driven business strategy",
-    "Ecommerce_Retail_Tech": "E-commerce platforms, retail technology, online shopping, digital commerce, retail innovation, marketplace technology, retail operations",
-    "Luxury_and_Consumer": "Luxury brands, consumer goods, high-end retail, luxury market trends, premium products, luxury consumer behavior",
-    "Jewellery_Industry": "Jewelry industry, diamonds, gemstones, luxury jewelry brands, jewelry retail, jewelry market trends, fine jewelry"
-  };
-  return definitions[topic];
-}
-
-function getExampleSources(topic: Topic): string[] {
-  const examples: Record<Topic, string[]> = {
-    "AI_and_Strategy": ["TechCrunch", "The Verge", "MIT Technology Review", "Harvard Business Review"],
-    "Ecommerce_Retail_Tech": ["Retail Dive", "Modern Retail", "Internet Retailer", "Retail Wire"],
-    "Luxury_and_Consumer": ["Business of Fashion", "Luxury Daily", "Jing Daily", "WWD"],
-    "Jewellery_Industry": ["National Jeweler", "JCK", "Rapaport", "Professional Jeweller"]
-  };
-  return examples[topic];
-}
-
-async function generateQueriesForTopic(
-  topic: Topic,
-  weekLabel: string,
-  lastWeekThemes: string[]
-): Promise<QueryDirectorOutput> {
-  const cache = await loadCache();
-  const cacheKey = getCacheKey(weekLabel, topic, lastWeekThemes);
-  
-  if (cache[cacheKey]) {
-    console.log(`[QueryDirector] Cache hit for ${topic}`);
-    return cache[cacheKey].output;
-  }
-
-  const openai = new OpenAI({ apiKey: getOpenAIApiKey() });
-  const topicDef = getTopicDefinition(topic);
-  const examples = getExampleSources(topic).join(', ');
-  const themesContext = lastWeekThemes.length > 0 
-    ? `Last week's key themes: ${lastWeekThemes.join(', ')}. Use these as context but focus on NEW developments.`
-    : '';
-
-  const prompt = `You are a web search query generator for a weekly digest about ${topic}.
-
-Topic focus: ${topicDef}
-
-${themesContext}
-
-Generate 5-10 web search queries that will discover recent articles (published in the last 7 days) relevant to this topic. 
-
-Requirements:
-- Focus on ecommerce/retail/fashion/luxury/jewellery relevance
-- English language only
-- Recent news and developments (last 7 days)
-- Avoid generic queries - be specific
-- Include company names, product names, or specific trends when relevant
-- Example sources: ${examples}
-
-Return a JSON object with:
-{
-  "queries": ["query1", "query2", ...],
-  "reasoning": "Brief explanation of query strategy"
-}`;
-
-  try {
-    const response = await openai.chat.completions.create({
-      model: QUERY_DIRECTOR_MODEL,
-      messages: [
-        { role: 'system', content: 'You are a precise web search query generator. Always return valid JSON.' },
-        { role: 'user', content: prompt }
-      ],
-      temperature: TEMPERATURE,
-      response_format: { type: 'json_object' }
-    });
-
-    const content = response.choices[0]?.message?.content;
-    if (!content) {
-      throw new Error('No response from LLM');
-    }
-
-    const output = JSON.parse(content) as QueryDirectorOutput;
-    
-    // Validate
-    if (!Array.isArray(output.queries) || output.queries.length === 0) {
-      throw new Error('Invalid output: queries must be a non-empty array');
-    }
-
-    // Cache result
-    cache[cacheKey] = {
-      output,
-      cached_at: new Date().toISOString(),
-      weekLabel
-    };
-    await saveCache(cache);
-
-    return output;
-  } catch (error: any) {
-    console.error(`[QueryDirector] Error generating queries for ${topic}:`, error.message);
-    throw error;
-  }
-}
+export type QueriesOutput = {
+  baseQueries: Record<string, string[]>;
+  deltaQueries: Record<string, string[]>;
+  finalQueries: Record<Topic, string[]>;
+  baseQueriesHash: string;
+  weekLabel: string;
+  generatedAt: string;
+};
 
 export async function generateSearchQueries(
   weekLabel: string,
-  discoveryDir: string
+  discoveryDir: string,
+  config: QueryDeltaConfig = { regenDelta: false, noDelta: false }
 ): Promise<Record<Topic, string[]>> {
   const queriesPath = path.join(discoveryDir, 'queries.json');
   
-  // Check if queries already exist
-  try {
-    const existing = JSON.parse(await fs.readFile(queriesPath, 'utf-8'));
-    console.log(`[QueryDirector] Using cached queries from ${queriesPath}`);
-    return existing;
-  } catch {
-    // Continue to generate
+  // Load base queries
+  const baseQueries = await loadBaseQueries();
+  const baseQueriesHash = computeHash(JSON.stringify(baseQueries));
+  
+  // Check if queries already exist and should be reused
+  if (!config.regenDelta) {
+    try {
+      const existing = JSON.parse(await fs.readFile(queriesPath, 'utf-8')) as QueriesOutput;
+      if (existing.baseQueriesHash === baseQueriesHash) {
+        console.log(`[QueryDirector] Using cached queries from ${queriesPath}`);
+        return existing.finalQueries;
+      } else {
+        console.log(`[QueryDirector] Base queries changed (hash mismatch), regenerating queries`);
+      }
+    } catch {
+      // Continue to generate
+    }
   }
-
-  const lastWeekThemes = await getLastWeekThemes(weekLabel);
+  
+  // Generate delta queries
+  const deltaQueries = await generateDeltaQueries(weekLabel, discoveryDir, config);
+  
+  // Assemble final queries
   const topics: Topic[] = [
     "AI_and_Strategy",
     "Ecommerce_Retail_Tech",
     "Luxury_and_Consumer",
     "Jewellery_Industry"
   ];
-
-  const allQueries: Record<Topic, string[]> = {
+  
+  const finalQueries: Record<Topic, string[]> = {
     "AI_and_Strategy": [],
     "Ecommerce_Retail_Tech": [],
     "Luxury_and_Consumer": [],
     "Jewellery_Industry": []
   };
-
+  
+  const deltaQueriesByCategory: Record<string, string[]> = {};
+  
   for (const topic of topics) {
-    console.log(`[QueryDirector] Generating queries for ${topic}...`);
-    const result = await generateQueriesForTopic(topic, weekLabel, lastWeekThemes);
-    allQueries[topic] = result.queries;
+    const categoryLabel = getCategoryLabel(topic);
+    const baseQueriesForCategory = baseQueries[categoryLabel] || [];
+    const deltaQueriesForTopic = deltaQueries[topic] || [];
+    
+    if (baseQueriesForCategory.length !== 12) {
+      throw new Error(`Base queries for ${categoryLabel} must have exactly 12 queries, found ${baseQueriesForCategory.length}`);
+    }
+    
+    const combined = [...baseQueriesForCategory, ...deltaQueriesForTopic];
+    finalQueries[topic] = combined;
+    deltaQueriesByCategory[categoryLabel] = deltaQueriesForTopic;
+    
+    const baseCount = baseQueriesForCategory.length;
+    const deltaCount = deltaQueriesForTopic.length;
+    const totalCount = combined.length;
+    console.log(`[QueryDirector] ${categoryLabel}: base=${baseCount}, delta=${deltaCount}, total=${totalCount}`);
   }
-
-  // Save queries
+  
+  // Save queries with metadata
+  const output: QueriesOutput = {
+    baseQueries,
+    deltaQueries: deltaQueriesByCategory,
+    finalQueries,
+    baseQueriesHash,
+    weekLabel,
+    generatedAt: new Date().toISOString()
+  };
+  
   await fs.mkdir(discoveryDir, { recursive: true });
-  await fs.writeFile(queriesPath, JSON.stringify(allQueries, null, 2), 'utf-8');
-
-  return allQueries;
+  await fs.writeFile(queriesPath, JSON.stringify(output, null, 2), 'utf-8');
+  
+  // Print summary
+  console.log('\n=== QUERY SUMMARY ===');
+  for (const topic of topics) {
+    const categoryLabel = getCategoryLabel(topic);
+    const baseCount = baseQueries[categoryLabel]?.length || 0;
+    const deltaCount = deltaQueriesByCategory[categoryLabel]?.length || 0;
+    const totalCount = finalQueries[topic].length;
+    console.log(`${categoryLabel}: base=${baseCount}, delta=${deltaCount}, total=${totalCount}`);
+  }
+  
+  return finalQueries;
 }
 

@@ -7,6 +7,11 @@ export type Article = {
   ingested_at: string;
   snippet?: string;
   aiSummary?: string;
+  // Discovery-specific fields
+  discoveredAt?: string; // ISO timestamp when article was discovered/extracted
+  publishedDateInvalid?: boolean; // True if published_at is invalid/missing
+  usedDiscoveredAtFallback?: boolean; // True if included via discoveredAt fallback
+  sourceType?: 'rss' | 'page' | 'discovery'; // How article was ingested
 };
 
 export type SourceFeed = {

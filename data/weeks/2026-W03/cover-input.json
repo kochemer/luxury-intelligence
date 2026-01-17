@@ -1,0 +1,38 @@
+{
+  "weekLabel": "2026-W03",
+  "homepageTopArticles": [
+    {
+      "title": "How Etsy will sell directly through Google’s AI Mode",
+      "source": "Digital Commerce 360",
+      "snippet": "Etsy has announced it will allow logged-in Google users in the U.S. to purchase some items from its marketplace directly through AI Mode in Google search and the Gemini app. The initiative comes as multiple leading online retailers have recently announced their own ways they will use Google’s artificial intelligence (AI) technology. Among them are […]\nThe post How Etsy will sell directly through Google’s AI Mode appeared first on Digital Commerce 360.",
+      "aiSummary": "Etsy will enable U.S. Google users to buy items from its marketplace through AI Mode in Google search and the Gemini app. This move aligns with other online retailers utilizing Google's AI technology.",
+      "rerankWhy": "Etsy's direct sales through Google AI enhance ecommerce integration"
+    },
+    {
+      "title": "For retail brands, TikTok Shop’s rise brings viral success — and disruption",
+      "source": "Retail Dive",
+      "snippet": "At NRF, executives described major sales wins while acknowledging the social commerce feature is shaking up several retail fundamentals.",
+      "aiSummary": "AI-generated summary:\nExecutives at NRF discussed the success and disruption caused by TikTok Shop for retail brands, with major sales wins and acknowledgment of its impact on retail fundamentals.",
+      "rerankWhy": "TikTok Shop's impact on retail highlights social commerce trends"
+    },
+    {
+      "title": "Tech boost for Pandora during holiday sales",
+      "source": "Jeweller - Business News",
+      "snippet": "Pandora has reported lower than expected sales across the past financial year, with a statement attributing the results to weakened consumer demand during the holiday season.",
+      "aiSummary": "AI-Generated Summary:\nPandora experienced lower holiday sales due to weakened consumer demand, impacting their overall financial performance in the past year.",
+      "rerankWhy": "Insights on tech impact during holiday sales"
+    },
+    {
+      "title": "India moves to protect natural diamonds; government mandate issued",
+      "source": "Jeweller - Business News",
+      "snippet": "The Indian gem and jewellery industry has successfully lobbied for the introduction of a national standard governing diamond terminology, reserving the term ‘diamond’ exclusively for natural diamonds and requiring explicit disclosure for laboratory-grown alternatives.",
+      "aiSummary": "AI-Generated Summary:\nIndia's gem and jewellery industry has secured a government mandate to protect natural diamonds by enforcing a national standard that reserves the term 'diamond' for natural stones and mandates disclosure for lab-grown alternatives.",
+      "rerankWhy": "New regulations affecting diamond terminology and sales"
+    }
+  ],
+  "model": "gpt-image-1.5",
+  "finalPrompt": "A photorealistic scene in a luxury jewelry boutique in New York City, with a wide horizontal banner composition. A jewelry store manager, with a subtle raised eyebrow, discreetly checks a smartphone while presenting a natural diamond to an affluent customer. The scene should capture the interplay of luxury and technology, with real materials, authentic reflections, and no text or signage in view. Use candid lighting, a mid-action shot, and maintain a wide, horizontally expansive format with all elements in the central horizontal band, leaving safe margins at top and bottom. Avoid stock photo appearances; ensure realism and human interaction elements.\n\nCRITICAL CONSTRAINTS (must be strictly avoided):\n- text, letters, numbers, signage, labels, screens, UI, dashboards, holograms, floating icons, logos, brands, watermarks, cartoon, illustration, CGI, 3D render, anime\n\nPHOTOREALISM ENFORCEMENT:\n- Ultra photorealistic editorial photograph, shot on a real DSLR or medium-format camera.\n- Natural lighting, realistic skin texture, realistic reflections, realistic materials, real physics.\n- Candid editorial realism; avoid stock-photo staging.\n\nANTI-CARTOON / ANTI-CGI:\n- No illustration, no cartoon, no anime, no 3D render, no CGI, no synthetic look.\n\nNO-TEXT GUARANTEE:\n- Absolutely no text, letters, numbers, typography, signage, labels, price tags.\n- No screens, dashboards, UI, holograms, floating icons, charts.\n- Avoid any objects that commonly contain text (posters, newspapers, packaging, storefront signs). If unavoidable, they must be fully out of focus and unreadable.\n\nCOMPOSITION FOR WIDE HERO BANNER (CRITICAL):\n- Wide, horizontally expansive banner format (target 3:1 or wider aspect ratio)\n- Vertically minimal height - all important visual elements must be placed in the central horizontal band\n- Safe margins at top and bottom - no critical content near vertical edges\n- Composition must work when displayed in a wide, shallow container\n- Avoid vertical stacking, tall elements, or content that extends to top/bottom edges",
+  "imageSize": "1536x1024",
+  "outputPath": "/weekly-images/2026-W03.png",
+  "generatedAt": "2026-01-17T11:44:10.778Z"
+}

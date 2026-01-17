@@ -119,14 +119,20 @@ export async function mergeDiscoveryArticles(
     }
 
     // Create new discovery article
+    // Use discoveredAt from extraction if available, otherwise use current time
+    const discoveredAt = (selectedArticle as any).discoveredAt || now;
+    
     const newArticle: Article = {
       id: hashString(selectedArticle.url),
       title: selectedArticle.title,
       url: selectedArticle.url,
       source: selectedArticle.domain,
-      published_at: selectedArticle.publishedDate || now,
+      published_at: selectedArticle.publishedDate || now, // Fallback to now if missing
       ingested_at: now,
-      snippet: selectedArticle.snippet
+      snippet: selectedArticle.snippet,
+      discoveredAt: discoveredAt,
+      publishedDateInvalid: (selectedArticle as any).publishedDateInvalid || false,
+      sourceType: 'discovery'
     };
 
     newDiscoveryArticles.push(newArticle);

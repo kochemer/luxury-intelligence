@@ -3,9 +3,17 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import { parse } from 'dotenv';
 import { runRssIngestion } from "./fetchRss.js";
-import { runPageIngestion } from "./fetchPages.js";
+import { runPageIngestion, type PageIngestionStats } from "./fetchPages.js";
 import { resetYieldStats, saveYieldReport } from "./sourceYield.js";
 import { DateTime } from "luxon";
+import {
+  createEmptyReport,
+  RSS_SOURCE_CATEGORY,
+  PAGE_SOURCE_CATEGORY,
+  TOPIC_TO_CATEGORY_LABEL,
+  writeIngestionReport,
+  type IngestionReport
+} from "./ingestionReport.js";
 
 // --- Environment Variable Loading (MUST BE FIRST) ---
 const __filename = fileURLToPath(import.meta.url);
@@ -61,13 +69,68 @@ function parseArgs(): { mode: IngestionMode; weekLabel?: string } {
   return { mode, weekLabel };
 }
 
-async function runWebDiscovery(weekLabel?: string): Promise<{ added: number; updated: number }> {
+type DiscoveryIngestionStats = {
+  byTopic: Record<keyof typeof TOPIC_TO_CATEGORY_LABEL, {
+    discovery_found: number;
+    fetched_ok: number;
+    extracted_ok: number;
+    excluded: {
+      nonEnglish: number;
+      tooShort: number;
+      notArticle: number;
+      paywalled: number;
+      controversial: number;
+      duplicate: number;
+    };
+    final_candidates: number;
+  }>;
+};
+
+function getDefaultWeekLabel(): string {
+  const now = DateTime.now().setZone('Europe/Copenhagen');
+  const year = now.year;
+  const weekNumber = now.weekNumber;
+  return `${year}-W${weekNumber.toString().padStart(2, '0')}`;
+}
+
+function initDiscoveryStats(): DiscoveryIngestionStats {
+  return {
+    byTopic: {
+      "AI_and_Strategy": {
+        discovery_found: 0,
+        fetched_ok: 0,
+        extracted_ok: 0,
+        excluded: { nonEnglish: 0, tooShort: 0, notArticle: 0, paywalled: 0, controversial: 0, duplicate: 0 },
+        final_candidates: 0
+      },
+      "Ecommerce_Retail_Tech": {
+        discovery_found: 0,
+        fetched_ok: 0,
+        extracted_ok: 0,
+        excluded: { nonEnglish: 0, tooShort: 0, notArticle: 0, paywalled: 0, controversial: 0, duplicate: 0 },
+        final_candidates: 0
+      },
+      "Luxury_and_Consumer": {
+        discovery_found: 0,
+        fetched_ok: 0,
+        extracted_ok: 0,
+        excluded: { nonEnglish: 0, tooShort: 0, notArticle: 0, paywalled: 0, controversial: 0, duplicate: 0 },
+        final_candidates: 0
+      },
+      "Jewellery_Industry": {
+        discovery_found: 0,
+        fetched_ok: 0,
+        extracted_ok: 0,
+        excluded: { nonEnglish: 0, tooShort: 0, notArticle: 0, paywalled: 0, controversial: 0, duplicate: 0 },
+        final_candidates: 0
+      }
+    }
+  };
+}
+
+async function runWebDiscovery(weekLabel?: string): Promise<{ added: number; updated: number; stats: DiscoveryIngestionStats }> {
   if (!weekLabel) {
-    // Default to current week
-    const now = DateTime.now().setZone('Europe/Copenhagen');
-    const year = now.year;
-    const weekNumber = now.weekNumber;
-    weekLabel = `${year}-W${weekNumber.toString().padStart(2, '0')}`;
+    weekLabel = getDefaultWeekLabel();
   }
 
   // Import and run discovery
@@ -85,14 +148,30 @@ async function runWebDiscovery(weekLabel?: string): Promise<{ added: number; upd
   const discoveryDir = pathModule.join(weekDir, 'discovery');
 
   console.log('[Discovery] Starting web discovery...');
-  const queries = await generateSearchQueries(weekLabel, discoveryDir);
-  const searchResults = await searchWithTavily(queries, 120, discoveryDir);
-  const extracted = await fetchAndExtractArticles(searchResults, discoveryDir);
-  const selected = await selectTopArticles(extracted, 20, weekLabel, discoveryDir);
+  const stats = initDiscoveryStats();
+  const queries = await generateSearchQueries(weekLabel, discoveryDir, { regenDelta: false, noDelta: false });
+  const { results: searchResults, stats: searchStats } = await searchWithTavily(queries, 120, discoveryDir);
+  const { articles: extracted, stats: extractionStats } = await fetchAndExtractArticles(searchResults, discoveryDir);
+  const { selected, reportsByTopic } = await selectTopArticles(extracted, 20, weekLabel, discoveryDir);
   const merged = await mergeDiscoveryArticles(selected, weekLabel);
   
   console.log(`[Discovery] Saved ${merged.added} new discovery articles, ${merged.updated} updated (stored in data/weeks/${weekLabel}/discoveryArticles.json)`);
-  return merged;
+
+  for (const [topicKey, topicStats] of Object.entries(stats.byTopic)) {
+    const topic = topicKey as keyof typeof TOPIC_TO_CATEGORY_LABEL;
+    topicStats.discovery_found = searchStats[topic].discovery_found;
+    topicStats.fetched_ok = extractionStats.byTopic[topic].fetched_ok;
+    topicStats.extracted_ok = extractionStats.byTopic[topic].extracted_ok;
+    topicStats.excluded.nonEnglish = extractionStats.byTopic[topic].excluded.nonEnglish;
+    topicStats.excluded.tooShort = extractionStats.byTopic[topic].excluded.tooShort;
+    topicStats.excluded.notArticle = extractionStats.byTopic[topic].excluded.notArticle;
+    topicStats.excluded.paywalled = extractionStats.byTopic[topic].excluded.paywalled;
+    topicStats.excluded.duplicate = reportsByTopic[topic].exclusion_counts.duplicate;
+    topicStats.excluded.controversial = reportsByTopic[topic].exclusion_counts.hardControversy;
+    topicStats.final_candidates = reportsByTopic[topic].selected_count;
+  }
+
+  return { ...merged, stats };
 }
 
 async function main() {
@@ -108,29 +187,80 @@ async function main() {
     // Reset yield stats at start of ingestion
     resetYieldStats();
     
-    let rssResult = { added: 0, updated: 0 };
-    let pageAdded = 0;
-    let discoveryResult = { added: 0, updated: 0 };
+    let rssResult: { added: number; updated: number; feeds: Array<{ sourceName: string; itemsProcessed: number; newArticles: number }> } = { added: 0, updated: 0, feeds: [] };
+    let pageResult: { added: number; stats: PageIngestionStats | null } = { added: 0, stats: null };
+    let discoveryResult = { added: 0, updated: 0, stats: initDiscoveryStats() };
+    const resolvedWeekLabel = weekLabel || getDefaultWeekLabel();
 
     if (mode === 'rss' || mode === 'both') {
       rssResult = await runRssIngestion();
       console.log(`[Combined] RSS ingestion added ${rssResult.added} new articles, updated ${rssResult.updated} existing articles with snippets.`);
 
       // Integrate page ingestion here, after RSS ingestion
-      pageAdded = await runPageIngestion();
-      console.log(`[Combined] Page ingestion added ${pageAdded} new articles.`);
+      pageResult = await runPageIngestion();
+      console.log(`[Combined] Page ingestion added ${pageResult.added} new articles.`);
     }
 
     if (mode === 'webDiscovery' || mode === 'both') {
       discoveryResult = await runWebDiscovery(weekLabel);
     }
 
-    const overallTotal = rssResult.added + pageAdded + discoveryResult.added;
+    const overallTotal = rssResult.added + pageResult.added + discoveryResult.added;
     console.log(`[Combined] Ingestion complete. Total new articles added: ${overallTotal}.`);
 
     // Save yield report
     await saveYieldReport();
     console.log(`[Combined] Source yield report saved to data/source_yield.json`);
+
+    const report: IngestionReport = createEmptyReport(resolvedWeekLabel);
+    report.generatedAt = new Date().toISOString();
+
+    for (const feed of rssResult.feeds) {
+      const category = RSS_SOURCE_CATEGORY[feed.sourceName];
+      if (category) {
+        report.categories[category].rss_found += feed.newArticles;
+      }
+    }
+
+    if (pageResult.stats?.sources) {
+      for (const source of pageResult.stats.sources) {
+        const category = PAGE_SOURCE_CATEGORY[source.sourceName];
+        if (category) {
+          report.categories[category].rss_found += source.articlesKept;
+        }
+      }
+    }
+
+    for (const [topicKey, topicStats] of Object.entries(discoveryResult.stats.byTopic)) {
+      const category = TOPIC_TO_CATEGORY_LABEL[topicKey as keyof typeof TOPIC_TO_CATEGORY_LABEL];
+      const target = report.categories[category];
+      target.discovery_found += topicStats.discovery_found;
+      target.fetched_ok += topicStats.fetched_ok;
+      target.extracted_ok += topicStats.extracted_ok;
+      target.excluded.nonEnglish += topicStats.excluded.nonEnglish;
+      target.excluded.tooShort += topicStats.excluded.tooShort;
+      target.excluded.notArticle += topicStats.excluded.notArticle;
+      target.excluded.paywalled += topicStats.excluded.paywalled;
+      target.excluded.controversial += topicStats.excluded.controversial;
+      target.excluded.duplicate += topicStats.excluded.duplicate;
+      target.final_candidates += topicStats.final_candidates;
+    }
+
+    await writeIngestionReport(report);
+    console.log(`[Combined] Ingestion report saved to data/weeks/${resolvedWeekLabel}/ingestion-report.json`);
+
+    console.log('\n=== INGESTION SUMMARY ===');
+    for (const [category, stats] of Object.entries(report.categories)) {
+      const exclusions = stats.excluded;
+      const exclusionTotal = Object.values(exclusions).reduce((sum, count) => sum + count, 0);
+      const topReasons = Object.entries(exclusions)
+        .sort((a, b) => b[1] - a[1])
+        .filter(([, count]) => count > 0)
+        .slice(0, 2)
+        .map(([reason, count]) => `${reason}=${count}`);
+      const topReasonsText = topReasons.length > 0 ? topReasons.join(', ') : 'none';
+      console.log(`- ${category}: extracted_ok=${stats.extracted_ok}, excluded=${exclusionTotal}, top_exclusions=${topReasonsText}`);
+    }
 
     process.exit(0);
   } catch (err) {

@@ -1,11 +1,11 @@
 {
-  "candidate_count": 61,
-  "ranked_top_k_count": 52,
-  "selected_count": 16,
+  "candidate_count": 64,
+  "ranked_top_k_count": 58,
+  "selected_count": 19,
   "exclusion_counts": {
     "domainCap": 0,
     "duplicate": 0,
-    "hardControversy": 36,
+    "hardControversy": 38,
     "sponsored": 0
   },
   "fallback_used": {

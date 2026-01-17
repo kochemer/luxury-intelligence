@@ -36,11 +36,18 @@ async function saveArticles(articles: Article[]) {
   await fs.writeFile(DATA_PATH, JSON.stringify(articles, null, 2), 'utf-8');
 }
 
-export async function runRssIngestion(): Promise<{ added: number; updated: number }> {
+export type RssFeedStats = {
+  sourceName: string;
+  itemsProcessed: number;
+  newArticles: number;
+};
+
+export async function runRssIngestion(): Promise<{ added: number; updated: number; feeds: RssFeedStats[] }> {
   const parser = new Parser();
   const allNewArticles: Article[] = [];
   let updatedCount = 0;
   const now = new Date().toISOString();
+  const feedStats: RssFeedStats[] = [];
 
   let existingArticles = await loadArticles();
   // Use Map for easier updates
@@ -113,6 +120,7 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
             published_at: new Date(isoDate).toISOString(),
             ingested_at: now,
             snippet: truncatedSnippet || undefined,
+            sourceType: 'rss',
           };
           allNewArticles.push(article);
           feedNewArticles++;
@@ -130,6 +138,12 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
         feedDuplicates      // duplicates
       );
       
+      feedStats.push({
+        sourceName: feed.name,
+        itemsProcessed: feedItemsProcessed,
+        newArticles: feedNewArticles
+      });
+
       if (feedItemsProcessed > 0) {
         console.log(`[${feed.name}] processed ${feedItemsProcessed} items, matched ${feedItemsMatched} existing, updated ${feedItemsUpdated} with snippets`);
       }
@@ -147,7 +161,7 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
     await saveArticles(existingArticles);
   }
   
-  return { added: allNewArticles.length, updated: updatedCount };
+  return { added: allNewArticles.length, updated: updatedCount, feeds: feedStats };
 }
 
 // CLI runner - run if this file is executed directly

@@ -27,6 +27,8 @@ export type SelectedArticle = {
   snippet: string;
   domain: string;
   publishedDate?: string;
+  publishedDateInvalid?: boolean;
+  discoveredAt?: string;
   rank: number;
   why: string;
   confidence: number;
@@ -345,6 +347,8 @@ function selectFromRanked(
       snippet: candidate.snippet,
       domain: candidate.domain,
       publishedDate: candidate.publishedDate,
+      publishedDateInvalid: candidate.publishedDateInvalid,
+      discoveredAt: candidate.discoveredAt,
       rank: item.rank,
       why: item.why,
       confidence: item.confidence,
@@ -459,6 +463,8 @@ async function selectArticlesForTopic(
         snippet: article.snippet,
         domain: article.domain,
         publishedDate: article.publishedDate,
+        publishedDateInvalid: article.publishedDateInvalid,
+        discoveredAt: article.discoveredAt,
         rank: idx + 1,
         why: 'Selected by fallback (word count)',
         confidence: 0.5,
@@ -478,12 +484,14 @@ async function selectArticlesForTopic(
   }
 }
 
+export type SelectionReportsByTopic = Record<Topic, SelectionReport>;
+
 export async function selectTopArticles(
   articles: ExtractedArticle[],
   topN: number,
   weekLabel: string,
   discoveryDir: string
-): Promise<SelectedArticle[]> {
+): Promise<{ selected: SelectedArticle[]; reportsByTopic: SelectionReportsByTopic; aggregatedReport: SelectionReport }> {
   const selectedPath = path.join(discoveryDir, 'selected-top20.json');
   const reportPath = path.join(discoveryDir, 'report.json');
   
@@ -491,7 +499,64 @@ export async function selectTopArticles(
   try {
     const existing = JSON.parse(await fs.readFile(selectedPath, 'utf-8'));
     console.log(`[Select] Using cached selection from ${selectedPath}`);
-    return existing;
+    try {
+      const report = JSON.parse(await fs.readFile(reportPath, 'utf-8'));
+      if (report && report.by_topic && report.aggregated) {
+        return {
+          selected: existing,
+          reportsByTopic: report.by_topic,
+          aggregatedReport: report.aggregated
+        };
+      }
+    } catch {
+      // Ignore and fall through
+    }
+    const emptyReports: SelectionReportsByTopic = {
+      "AI_and_Strategy": {
+        candidate_count: 0,
+        ranked_top_k_count: 0,
+        selected_count: 0,
+        exclusion_counts: { domainCap: 0, duplicate: 0, hardControversy: 0, sponsored: 0 },
+        fallback_used: { domainCapRelaxed: false }
+      },
+      "Ecommerce_Retail_Tech": {
+        candidate_count: 0,
+        ranked_top_k_count: 0,
+        selected_count: 0,
+        exclusion_counts: { domainCap: 0, duplicate: 0, hardControversy: 0, sponsored: 0 },
+        fallback_used: { domainCapRelaxed: false }
+      },
+      "Luxury_and_Consumer": {
+        candidate_count: 0,
+        ranked_top_k_count: 0,
+        selected_count: 0,
+        exclusion_counts: { domainCap: 0, duplicate: 0, hardControversy: 0, sponsored: 0 },
+        fallback_used: { domainCapRelaxed: false }
+      },
+      "Jewellery_Industry": {
+        candidate_count: 0,
+        ranked_top_k_count: 0,
+        selected_count: 0,
+        exclusion_counts: { domainCap: 0, duplicate: 0, hardControversy: 0, sponsored: 0 },
+        fallback_used: { domainCapRelaxed: false }
+      }
+    };
+    if (Array.isArray(existing)) {
+      for (const item of existing) {
+        const topic = item.category as Topic | undefined;
+        if (topic && emptyReports[topic]) {
+          emptyReports[topic].selected_count += 1;
+        }
+      }
+    }
+    const aggregatedReport: SelectionReport = {
+      candidate_count: 0,
+      ranked_top_k_count: 0,
+      selected_count: existing.length,
+      exclusion_counts: { domainCap: 0, duplicate: 0, hardControversy: 0, sponsored: 0 },
+      fallback_used: { domainCapRelaxed: false }
+    };
+    return { selected: existing, reportsByTopic: emptyReports, aggregatedReport };
   } catch {
     // Continue to select
   }
@@ -522,6 +587,36 @@ export async function selectTopArticles(
   // Select top N per topic
   const allSelected: SelectedArticle[] = [];
   const allReports: SelectionReport[] = [];
+  const reportsByTopic: SelectionReportsByTopic = {
+    "AI_and_Strategy": {
+      candidate_count: 0,
+      ranked_top_k_count: 0,
+      selected_count: 0,
+      exclusion_counts: { domainCap: 0, duplicate: 0, hardControversy: 0, sponsored: 0 },
+      fallback_used: { domainCapRelaxed: false }
+    },
+    "Ecommerce_Retail_Tech": {
+      candidate_count: 0,
+      ranked_top_k_count: 0,
+      selected_count: 0,
+      exclusion_counts: { domainCap: 0, duplicate: 0, hardControversy: 0, sponsored: 0 },
+      fallback_used: { domainCapRelaxed: false }
+    },
+    "Luxury_and_Consumer": {
+      candidate_count: 0,
+      ranked_top_k_count: 0,
+      selected_count: 0,
+      exclusion_counts: { domainCap: 0, duplicate: 0, hardControversy: 0, sponsored: 0 },
+      fallback_used: { domainCapRelaxed: false }
+    },
+    "Jewellery_Industry": {
+      candidate_count: 0,
+      ranked_top_k_count: 0,
+      selected_count: 0,
+      exclusion_counts: { domainCap: 0, duplicate: 0, hardControversy: 0, sponsored: 0 },
+      fallback_used: { domainCapRelaxed: false }
+    }
+  };
   
   for (const [topic, topicArticles] of Object.entries(byTopic)) {
     if (topicArticles.length === 0) continue;
@@ -529,6 +624,7 @@ export async function selectTopArticles(
     const { selected, report } = await selectArticlesForTopic(topicArticles, topic as Topic, topN, weekLabel);
     allSelected.push(...selected);
     allReports.push(report);
+    reportsByTopic[topic as Topic] = report;
   }
 
   // Sort by rank and category
@@ -558,7 +654,7 @@ export async function selectTopArticles(
   // Save selection and report
   await fs.mkdir(discoveryDir, { recursive: true });
   await fs.writeFile(selectedPath, JSON.stringify(allSelected, null, 2), 'utf-8');
-  await fs.writeFile(reportPath, JSON.stringify(aggregatedReport, null, 2), 'utf-8');
+  await fs.writeFile(reportPath, JSON.stringify({ aggregated: aggregatedReport, by_topic: reportsByTopic }, null, 2), 'utf-8');
 
   // Print summary
   console.log('\n=== SELECTION SUMMARY ===');
@@ -575,5 +671,5 @@ export async function selectTopArticles(
   }
   console.log(`\nReport saved to: ${reportPath}`);
 
-  return allSelected;
+  return { selected: allSelected, reportsByTopic, aggregatedReport };
 }

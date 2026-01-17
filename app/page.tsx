@@ -209,6 +209,29 @@ export default async function Home() {
             />
         </div>
         */}
+        {/* Logo - Top Left */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          zIndex: 10,
+          display: 'flex',
+          alignItems: 'center',
+          padding: '1rem 0.5rem 1rem 0'
+        }}>
+          <img
+            src="/favicon.png"
+            alt="Luxury Intelligence"
+            style={{
+              height: '119%',
+              width: 'auto',
+              display: 'block',
+              filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.3))',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
         <div className="w-full max-w-[1400px] lg:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 md:px-8" style={{
           position: 'relative',
           zIndex: 2,

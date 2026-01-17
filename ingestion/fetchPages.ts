@@ -28,7 +28,7 @@ const DATA_PATH = path.join(__dirname, "../data/articles.json");
 const STATS_PATH = path.join(__dirname, "../data/page_source_stats.json");
 
 // Statistics tracking structure
-type SourceStats = {
+export type SourceStats = {
   sourceName: string;
   pagesFetched: number;
   fetchStatus: number | null;
@@ -49,7 +49,7 @@ type SourceStats = {
   }>;
 };
 
-type PageIngestionStats = {
+export type PageIngestionStats = {
   timestamp: string;
   sources: SourceStats[];
   summary: {
@@ -157,7 +157,7 @@ async function fetchWithHeaders(url: string): Promise<{ status: number, data?: s
   }
 }
 
-export async function runPageIngestion(): Promise<number> {
+export async function runPageIngestion(): Promise<{ added: number; stats: PageIngestionStats }> {
   // Load articles
   let articles: Article[] = [];
   let seenUrls = new Set<string>();
@@ -445,7 +445,8 @@ export async function runPageIngestion(): Promise<number> {
         url,
         source: page.name,
         published_at: published_at || "",
-        ingested_at: new Date().toISOString()
+        ingested_at: new Date().toISOString(),
+        sourceType: 'page'
       };
       seenUrls.add(url);
       extracted.push(article);
@@ -539,14 +540,14 @@ export async function runPageIngestion(): Promise<number> {
   await fs.writeFile(STATS_PATH, JSON.stringify(statsOutput, null, 2), "utf8");
   console.log(`\n[Stats] Page source statistics written to: ${STATS_PATH}`);
 
-  return added;
+  return { added, stats: statsOutput };
 }
 
 // CLI runner - run if this file is executed directly
 if (import.meta.url === `file://${process.argv[1]?.replace(/\\/g, '/')}` || process.argv[1]?.includes('fetchPages.ts')) {
   runPageIngestion()
-    .then(count => {
-      console.log(`Added ${count} new articles`);
+    .then(result => {
+      console.log(`Added ${result.added} new articles`);
       process.exit(0);
     })
     .catch(err => {

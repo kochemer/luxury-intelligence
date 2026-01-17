@@ -617,9 +617,8 @@ async function mixMusicWithVoice(
   // Get voice duration first
   let duration: number;
   try {
-    // Escape paths for Windows
-    const escapedVoicePath = voicePath.replace(/\\/g, '/').replace(/:/g, '\\:');
-    const { stdout: durationStr } = await execAsync(`"${ffprobePath}" -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "${escapedVoicePath}"`);
+    // Use proper Windows path quoting (no escaping needed, just quote the path)
+    const { stdout: durationStr } = await execAsync(`"${ffprobePath}" -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "${voicePath}"`);
     duration = parseFloat(durationStr.trim());
   } catch (error: any) {
     throw new Error(`Failed to get voice duration: ${error.message}`);
@@ -627,17 +626,14 @@ async function mixMusicWithVoice(
   
   const fadeOutStart = Math.max(0, duration - fadeOut);
   
-  // Escape paths for FFmpeg (Windows compatibility)
-  const escapedVoicePath = voicePath.replace(/\\/g, '/').replace(/:/g, '\\:');
-  const escapedMusicPath = musicPath.replace(/\\/g, '/').replace(/:/g, '\\:');
-  const escapedOutputPath = outputPath.replace(/\\/g, '/').replace(/:/g, '\\:');
-  
   // FFmpeg command to mix music with voice
   // - Music volume: 12% (subtle background)
   // - Fade in: 1.2s, Fade out: 1.8s
   // - Voice remains at full volume
   // - Music loops if needed but stops at voice duration
-  const command = `"${ffmpegPath}" -i "${escapedVoicePath}" -stream_loop -1 -i "${escapedMusicPath}" -filter_complex "[1:a]volume=${musicVolume},afade=t=in:ss=0:d=${fadeIn},afade=t=out:st=${fadeOutStart}:d=${fadeOut}[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=2" -c:a libmp3lame -b:a 192k -shortest "${escapedOutputPath}"`;
+  // -map flags select only audio streams (ignore video/cover art in music file)
+  // Use proper Windows path quoting (no escaping needed, just quote the paths)
+  const command = `"${ffmpegPath}" -i "${voicePath}" -stream_loop -1 -i "${musicPath}" -map 0:a -map 1:a -filter_complex "[1:a]volume=${musicVolume},afade=t=in:ss=0:d=${fadeIn},afade=t=out:st=${fadeOutStart}:d=${fadeOut}[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=2" -c:a libmp3lame -b:a 192k -shortest "${outputPath}"`;
   
   try {
     await execAsync(command);
@@ -785,9 +781,8 @@ async function generateAudio(script: PodcastScript, voice: TTSVoice, weekLabel: 
     if (!ffmpegPath) {
       throw new Error('FFmpeg not found');
     }
-    const escapedFileListPath = fileListPath.replace(/\\/g, '/').replace(/:/g, '\\:');
-    const escapedAudioPath = audioPath.replace(/\\/g, '/').replace(/:/g, '\\:');
-    await execAsync(`"${ffmpegPath}" -f concat -safe 0 -i "${escapedFileListPath}" -c copy "${escapedAudioPath}"`);
+    // Use proper Windows path quoting (no escaping needed, just quote the paths)
+    await execAsync(`"${ffmpegPath}" -f concat -safe 0 -i "${fileListPath}" -c copy "${audioPath}"`);
   } catch (error: any) {
     // Fallback: read all chunks and concatenate manually
     console.warn('[Audio] FFmpeg concat failed, using manual concatenation...');
@@ -812,8 +807,8 @@ async function generateAudio(script: PodcastScript, voice: TTSVoice, weekLabel: 
   try {
     const ffprobePath = resolveFfprobePath();
     if (ffprobePath) {
-      const escapedAudioPath = audioPath.replace(/\\/g, '/').replace(/:/g, '\\:');
-      const { stdout: durationStr } = await execAsync(`"${ffprobePath}" -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "${escapedAudioPath}"`);
+      // Use proper Windows path quoting (no escaping needed, just quote the path)
+      const { stdout: durationStr } = await execAsync(`"${ffprobePath}" -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "${audioPath}"`);
       estimatedDuration = Math.round(parseFloat(durationStr.trim()));
     } else {
       // Fallback estimation

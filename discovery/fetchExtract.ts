@@ -15,10 +15,13 @@ export type ExtractedArticle = {
   snippet: string;
   domain: string;
   publishedDate?: string;
+  publishedDateInvalid?: boolean; // True if publishedDate is invalid/missing
   extractedText: string;
   wordCount: number;
   author?: string;
   hash: string;
+  topic: SearchResult['topic'];
+  discoveredAt?: string; // ISO timestamp when article was discovered/extracted
 };
 
 function hashUrl(url: string): string {
@@ -189,34 +192,108 @@ function isEnglish(text: string): boolean {
   return asciiChars / text.length > 0.8;
 }
 
-function isArticle(text: string, wordCount: number): boolean {
-  // Must have substantial content
-  if (wordCount < 200) return false;
-  
-  // Check for common non-article patterns
-  const nonArticlePatterns = [
+/**
+ * Validate and normalize published date
+ * Returns: { valid: boolean, date: string | null, invalid: boolean }
+ */
+function validatePublishedDate(dateStr: string | undefined | null): { valid: boolean; date: string | null; invalid: boolean } {
+  if (!dateStr || dateStr.trim() === '') {
+    return { valid: false, date: null, invalid: true };
+  }
+
+  try {
+    const parsed = new Date(dateStr);
+    if (isNaN(parsed.getTime())) {
+      return { valid: false, date: null, invalid: true };
+    }
+
+    const year = parsed.getFullYear();
+    const currentYear = new Date().getFullYear();
+    
+    // Invalid if year is before 2015 (too old) or more than 1 year in future
+    if (year < 2015 || year > currentYear + 1) {
+      return { valid: false, date: null, invalid: true };
+    }
+
+    return { valid: true, date: parsed.toISOString(), invalid: false };
+  } catch {
+    return { valid: false, date: null, invalid: true };
+  }
+}
+
+const PAYWALL_PATTERNS = [
+  /login required/i,
+  /subscribe to/i
+];
+
+const NON_ARTICLE_PATTERNS = [
     /^404/i,
     /not found/i,
     /access denied/i,
-    /login required/i,
-    /subscribe to/i,
     /cookie policy/i,
     /privacy policy/i,
     /terms of service/i
-  ];
-  
-  const lowerText = text.toLowerCase();
-  for (const pattern of nonArticlePatterns) {
-    if (pattern.test(lowerText)) return false;
+];
+
+function detectNonArticleReason(text: string): "paywalled" | "notArticle" | null {
+  for (const pattern of PAYWALL_PATTERNS) {
+    if (pattern.test(text)) return "paywalled";
   }
-  
-  return true;
+  for (const pattern of NON_ARTICLE_PATTERNS) {
+    if (pattern.test(text)) return "notArticle";
+  }
+  return null;
+}
+
+function isArticle(text: string): boolean {
+  return detectNonArticleReason(text) === null;
+}
+
+type ExtractionStats = {
+  byTopic: Record<SearchResult['topic'], {
+    fetched_ok: number;
+    extracted_ok: number;
+    excluded: {
+      nonEnglish: number;
+      tooShort: number;
+      notArticle: number;
+      paywalled: number;
+    };
+  }>;
+};
+
+function initExtractionStats(): ExtractionStats {
+  return {
+    byTopic: {
+      "AI_and_Strategy": {
+        fetched_ok: 0,
+        extracted_ok: 0,
+        excluded: { nonEnglish: 0, tooShort: 0, notArticle: 0, paywalled: 0 }
+      },
+      "Ecommerce_Retail_Tech": {
+        fetched_ok: 0,
+        extracted_ok: 0,
+        excluded: { nonEnglish: 0, tooShort: 0, notArticle: 0, paywalled: 0 }
+      },
+      "Luxury_and_Consumer": {
+        fetched_ok: 0,
+        extracted_ok: 0,
+        excluded: { nonEnglish: 0, tooShort: 0, notArticle: 0, paywalled: 0 }
+      },
+      "Jewellery_Industry": {
+        fetched_ok: 0,
+        extracted_ok: 0,
+        excluded: { nonEnglish: 0, tooShort: 0, notArticle: 0, paywalled: 0 }
+      }
+    }
+  };
 }
 
 async function extractArticle(
   searchResult: SearchResult,
   fetchDir: string,
-  extractedDir: string
+  extractedDir: string,
+  stats: ExtractionStats
 ): Promise<ExtractedArticle | null> {
   const hash = hashUrl(searchResult.url);
   const extractedPath = path.join(extractedDir, `${hash}.json`);
@@ -238,6 +315,7 @@ async function extractArticle(
         if (!html) {
           return null;
         }
+        stats.byTopic[searchResult.topic].fetched_ok += 1;
 
         // Extract text (wrap with timeout in case cheerio processing hangs)
         const extractPromise = Promise.resolve(extractText(html, searchResult.url));
@@ -256,30 +334,58 @@ async function extractArticle(
         // Validate
         if (!isEnglish(text)) {
           console.warn(`[Extract] Non-English content: ${searchResult.url}`);
+          stats.byTopic[searchResult.topic].excluded.nonEnglish += 1;
           return null;
         }
         
-        if (!isArticle(text, wordCount)) {
+        if (wordCount < 200) {
+          console.warn(`[Extract] Too short (${wordCount} words): ${searchResult.url}`);
+          stats.byTopic[searchResult.topic].excluded.tooShort += 1;
+          return null;
+        }
+
+        const nonArticleReason = detectNonArticleReason(text);
+        if (nonArticleReason) {
+          if (nonArticleReason === "paywalled") {
+            stats.byTopic[searchResult.topic].excluded.paywalled += 1;
+          } else {
+            stats.byTopic[searchResult.topic].excluded.notArticle += 1;
+          }
           console.warn(`[Extract] Not an article (${wordCount} words): ${searchResult.url}`);
           return null;
         }
+
+        if (!isArticle(text)) {
+          console.warn(`[Extract] Not an article (${wordCount} words): ${searchResult.url}`);
+          stats.byTopic[searchResult.topic].excluded.notArticle += 1;
+          return null;
+        }
+
+        // Validate published date
+        const rawDate = date || searchResult.publishedDate;
+        const dateValidation = validatePublishedDate(rawDate);
+        const discoveredAt = new Date().toISOString();
 
         const extracted: ExtractedArticle = {
           url: searchResult.url,
           title: finalTitle,
           snippet: searchResult.snippet,
           domain: searchResult.domain,
-          publishedDate: date || searchResult.publishedDate,
+          publishedDate: dateValidation.date || undefined,
+          publishedDateInvalid: dateValidation.invalid,
           extractedText: text.substring(0, 5000), // Limit extracted text length
           wordCount,
           author,
-          hash
+          hash,
+          topic: searchResult.topic,
+          discoveredAt
         };
 
         // Save to cache
         await fs.mkdir(extractedDir, { recursive: true });
         await fs.writeFile(extractedPath, JSON.stringify(extracted, null, 2), 'utf-8');
 
+        stats.byTopic[searchResult.topic].extracted_ok += 1;
         return extracted;
       })(),
       30000, // 30 second total timeout per article
@@ -294,21 +400,40 @@ async function extractArticle(
 export async function fetchAndExtractArticles(
   searchResults: SearchResult[],
   discoveryDir: string
-): Promise<ExtractedArticle[]> {
+): Promise<{ articles: ExtractedArticle[]; stats: ExtractionStats }> {
   const candidatesPath = path.join(discoveryDir, 'candidates.json');
+  const statsPath = path.join(discoveryDir, 'extraction-report.json');
   const fetchDir = path.join(discoveryDir, 'fetch');
   const extractedDir = path.join(discoveryDir, 'extracted');
 
   // Check if candidates already exist
   try {
     const existing = JSON.parse(await fs.readFile(candidatesPath, 'utf-8'));
+    const hasTopic = Array.isArray(existing) && existing.every(item => item.topic);
+    if (!hasTopic) {
+      console.warn(`[Extract] Cached candidates missing topic metadata. Re-extracting.`);
+      throw new Error('Cached candidates missing topic');
+    }
     console.log(`[Extract] Using cached candidates from ${candidatesPath}`);
-    return existing;
+    try {
+      const cachedStats = JSON.parse(await fs.readFile(statsPath, 'utf-8'));
+      return { articles: existing, stats: cachedStats };
+    } catch {
+      const fallbackStats = initExtractionStats();
+      for (const item of existing) {
+        const topic = item.topic as SearchResult['topic'] | undefined;
+        if (topic && fallbackStats.byTopic[topic]) {
+          fallbackStats.byTopic[topic].extracted_ok += 1;
+        }
+      }
+      return { articles: existing, stats: fallbackStats };
+    }
   } catch {
     // Continue to extract
   }
 
   const extracted: ExtractedArticle[] = [];
+  const stats = initExtractionStats();
   const progressPath = path.join(discoveryDir, 'extraction-progress.json');
 
   // Try to load progress if exists (for resuming)
@@ -342,7 +467,7 @@ export async function fetchAndExtractArticles(
     console.log(`[Extract] Processing ${i + 1}/${searchResults.length}: ${result.title.substring(0, 50)}...`);
     
     try {
-      const article = await extractArticle(result, fetchDir, extractedDir);
+      const article = await extractArticle(result, fetchDir, extractedDir, stats);
       if (article) {
         extracted.push(article);
       }
@@ -372,6 +497,7 @@ export async function fetchAndExtractArticles(
   // Save candidates
   await fs.mkdir(discoveryDir, { recursive: true });
   await fs.writeFile(candidatesPath, JSON.stringify(extracted, null, 2), 'utf-8');
+  await fs.writeFile(statsPath, JSON.stringify(stats, null, 2), 'utf-8');
   
   // Clean up progress file
   try {
@@ -380,6 +506,6 @@ export async function fetchAndExtractArticles(
     // Ignore if doesn't exist
   }
 
-  return extracted;
+  return { articles: extracted, stats };
 }
 

@@ -1,0 +1,27 @@
+{
+  "weekLabel": "2026-W03",
+  "baseQueriesHash": "c939a2c2ddd60284",
+  "deltaQueries": {
+    "AI & Strategy": [
+      "Walmart AI strategies in inventory management",
+      "Microsoft agentic AI tools for e-commerce operations",
+      "AI-driven demand forecasting in the diamond industry"
+    ],
+    "Ecommerce & Retail Tech": [
+      "Walmart AI-driven supply chain improvements",
+      "De Beers diamond sales strategy in emerging markets",
+      "Microsoft's impact on retail through agentic AI tools"
+    ],
+    "Luxury & Consumer": [
+      "impact of AI on luxury retail profitability",
+      "recent trends in luxury jewelry market",
+      "Walmart's role in shaping future e-commerce strategies"
+    ],
+    "Jewellery Industry": [
+      "De Beers strategies in emerging markets for diamond demand",
+      "AI-driven solutions in jewelry retail pricing optimization",
+      "Impact of inflation on luxury jewelry buying patterns"
+    ]
+  },
+  "generatedAt": "2026-01-17T13:01:30.547Z"
+}

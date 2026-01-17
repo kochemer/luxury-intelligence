@@ -12,6 +12,7 @@ export type SearchResult = {
   domain: string;
   publishedDate?: string;
   score?: number;
+  topic: Topic;
 };
 
 type TavilyResponse = {
@@ -72,7 +73,8 @@ async function searchTavily(query: string, maxResults: number = 20): Promise<Sea
         snippet: result.content.substring(0, 300), // Limit snippet length
         domain: urlObj.hostname.replace('www.', ''),
         publishedDate: result.published_date,
-        score: result.score
+        score: result.score,
+        topic: 'AI_and_Strategy' as Topic // Placeholder, will be set by caller
       };
     });
   } catch (error: any) {
@@ -81,24 +83,51 @@ async function searchTavily(query: string, maxResults: number = 20): Promise<Sea
   }
 }
 
+export type SearchStats = Record<Topic, { discovery_found: number }>;
+
 export async function searchWithTavily(
   queries: Record<Topic, string[]>,
   maxCandidates: number,
   discoveryDir: string
-): Promise<SearchResult[]> {
+): Promise<{ results: SearchResult[]; stats: SearchStats }> {
   const serpResultsPath = path.join(discoveryDir, 'serp-results.json');
   
   // Check if results already exist
   try {
     const existing = JSON.parse(await fs.readFile(serpResultsPath, 'utf-8'));
+    const hasTopic = Array.isArray(existing) && existing.every(item => item.topic);
+    if (!hasTopic) {
+      console.warn(`[Search] Cached results missing topic metadata. Rebuilding search results.`);
+      throw new Error('Cached search results missing topic');
+    }
     console.log(`[Search] Using cached search results from ${serpResultsPath}`);
-    return existing;
+    const cachedStats: SearchStats = {
+      "AI_and_Strategy": { discovery_found: 0 },
+      "Ecommerce_Retail_Tech": { discovery_found: 0 },
+      "Luxury_and_Consumer": { discovery_found: 0 },
+      "Jewellery_Industry": { discovery_found: 0 }
+    };
+    if (Array.isArray(existing)) {
+      for (const item of existing) {
+        const topic = item.topic as Topic | undefined;
+        if (topic && cachedStats[topic]) {
+          cachedStats[topic].discovery_found += 1;
+        }
+      }
+    }
+    return { results: existing, stats: cachedStats };
   } catch {
     // Continue to search
   }
 
   const allResults: SearchResult[] = [];
   const seenUrls = new Set<string>();
+  const stats: SearchStats = {
+    "AI_and_Strategy": { discovery_found: 0 },
+    "Ecommerce_Retail_Tech": { discovery_found: 0 },
+    "Luxury_and_Consumer": { discovery_found: 0 },
+    "Jewellery_Industry": { discovery_found: 0 }
+  };
 
   // Search for each query
   for (const [topic, topicQueries] of Object.entries(queries)) {
@@ -111,7 +140,8 @@ export async function searchWithTavily(
         // Deduplicate by URL
         if (!seenUrls.has(result.url)) {
           seenUrls.add(result.url);
-          allResults.push(result);
+          allResults.push({ ...result, topic: topic as Topic });
+          stats[topic as Topic].discovery_found += 1;
         }
       }
       
@@ -127,6 +157,6 @@ export async function searchWithTavily(
   await fs.mkdir(discoveryDir, { recursive: true });
   await fs.writeFile(serpResultsPath, JSON.stringify(limitedResults, null, 2), 'utf-8');
 
-  return limitedResults;
+  return { results: limitedResults, stats };
 }
 

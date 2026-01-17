@@ -82,5 +82,29 @@
     "cached_at": "2026-01-12T07:00:47.454Z",
     "model": "gpt-4o-mini",
     "version": "1.0"
+  },
+  "2026-W03:e586af184646": {
+    "introParagraph": "Etsy integrates its AI Mode to enhance user experience, while Saks Global files for bankruptcy, reflecting ongoing challenges in the ecommerce and luxury retail sectors. Additionally, Pandora reports on its holiday sales performance, and the concept of agentic commerce gains traction alongside discussions on dynamic ecommerce pricing.",
+    "cached_at": "2026-01-17T11:43:15.827Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W02:efc0e04fb20a": {
+    "introParagraph": "Walmart implements new AI strategies to enhance its retail operations, while De Beers targets India's affluent consumers to boost diamond demand. These developments occur amid ongoing inflationary pressures that impact retail profitability across various sectors.",
+    "cached_at": "2026-01-17T14:46:58.256Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W03:6371fb8250d8": {
+    "introParagraph": "Saks Global files for bankruptcy, reflecting ongoing margin compression in the retail sector. Meanwhile, AI Agents and Agentic Commerce are influencing new strategies for consumer engagement, as seen with Etsy's integration of Google AI Mode.",
+    "cached_at": "2026-01-17T15:05:56.028Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W02:b8fda2cacb55": {
+    "introParagraph": "Walmart implements new AI strategies to enhance its operations, while Saks Global faces bankruptcy amid ongoing inflation pressures. These developments reflect the contrasting challenges and adaptations within the retail and luxury sectors, including the impact on consumer behavior and demand for products like diamonds from De Beers.",
+    "cached_at": "2026-01-17T15:46:37.035Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
   }
 }

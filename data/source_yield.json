@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-12T06:58:49.464Z",
+  "timestamp": "2026-01-17T15:05:15.596Z",
   "sources": [
     {
       "sourceName": "Jeweller - Business News",
@@ -121,10 +121,10 @@
     {
       "sourceName": "NYTimes Technology",
       "type": "rss",
-      "itemsFetched": 20,
-      "itemsParsed": 20,
+      "itemsFetched": 22,
+      "itemsParsed": 22,
       "newArticlesAdded": 0,
-      "duplicates": 20,
+      "duplicates": 22,
       "yieldPct": 0
     },
     {
@@ -166,9 +166,9 @@
   ],
   "summary": {
     "totalSources": 18,
-    "totalItemsFetched": 268,
+    "totalItemsFetched": 270,
     "totalNewArticles": 0,
-    "totalDuplicates": 268,
+    "totalDuplicates": 270,
     "overallYieldPct": 0
   }
 }

@@ -3,8 +3,8 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2026-01-04T23:00:00.000Z",
   "endISO": "2026-01-11T22:59:59.999Z",
-  "builtAtISO": "2026-01-12T08:00:40.921+01:00",
-  "builtAtLocal": "2026-01-12 08:00:40",
+  "builtAtISO": "2026-01-17T16:46:31.638+01:00",
+  "builtAtLocal": "2026-01-17 16:46:31",
   "coverImageUrl": "/weekly-images/2026-W02.png",
   "coverImageAlt": "Weekly cover illustration for 2026-W02",
   "coverKeywords": [
@@ -14,19 +14,19 @@
     "nearly",
     "258b",
     "holidays",
-    "claire",
-    "original",
-    "factory",
-    "shop",
-    "near",
-    "collapse"
+    "retail",
+    "trends",
+    "watch",
+    "2026",
+    "beers",
+    "bets"
   ],
   "totals": {
     "total": 124,
     "byTopic": {
       "AIStrategy": 44,
-      "EcommerceRetail": 60,
-      "LuxuryConsumer": 15,
+      "EcommerceRetail": 61,
+      "LuxuryConsumer": 14,
       "Jewellery": 5
     }
   },
@@ -55,7 +55,7 @@
           },
           "rerankWhy": "Focuses on AI-driven pricing and assortment optimization",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-driven pricing and assortment optimization can help retailers reclaim profitability by allowing them to anticipate tariff impacts and adjust pricing with precision, ensuring costs are recovered."
+          "aiSummary": "AI-driven pricing and assortment optimization can help retailers reclaim profitability by allowing them to anticipate tariff impacts and adjust pricing with precision through dynamic scenarios. This ensures costs are recovered effectively."
         },
         {
           "id": "q6zho6",
@@ -75,7 +75,7 @@
           },
           "rerankWhy": "Insights on Walmart's AI strategies for ecommerce",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI is a key focus for Walmart as new CEO John Furner prepares to take over, with a strong emphasis on agentic commerce strategies and machine learning. The retail giant is expected to leverage AI across various job roles to drive innovation and efficiency."
+          "aiSummary": "AI is a key focus for Walmart as new CEO John Furner takes over, with plans to utilize agents and machine learning in various job roles. This article from Digital Commerce 360 discusses Walmart's AI and agentic commerce strategies under the new leadership."
         },
         {
           "id": "cxfw42",
@@ -95,7 +95,7 @@
           },
           "rerankWhy": "Microsoft's tools for automating retail operations",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary: Microsoft has unveiled agentic AI tools under Copilot to automate retail and B2B commerce tasks like digital checkout and merchandising, aiming to streamline operations and reduce manual work."
+          "aiSummary": "AI-generated summary:\nMicrosoft has unveiled agentic AI tools through Copilot to automate retail and B2B commerce tasks, such as digital checkout and product data management, aiming to streamline operations and reduce manual work."
         },
         {
           "id": "deu1k8",
@@ -115,7 +115,7 @@
           },
           "rerankWhy": "Consumer interaction with AI customer service insights",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary:\nA Liveops survey revealed that while most consumers had positive interactions with AI customer service during holiday shopping, the majority still believe human support is superior."
+          "aiSummary": "AI-generated summary:\nA Liveops survey revealed that while most consumers had positive interactions with AI customer service during holiday shopping, many still believe human support is superior."
         },
         {
           "id": "6hjslp",
@@ -158,7 +158,7 @@
           },
           "rerankWhy": "Amazon's new Alexa+ web experience for shopping",
           "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nAmazon has launched a dedicated website that integrates Alexa with online activities, allowing customers to research, take action, and resume conversations with Alexa devices seamlessly."
+          "aiSummary": "AI-Generated Summary:\nAmazon has launched a dedicated website that integrates Alexa capabilities, allowing customers to research, take action, and resume conversations with Alexa devices seamlessly."
         },
         {
           "id": "j289jj",
@@ -178,12 +178,12 @@
           },
           "rerankWhy": "Early signals of AI impact on holiday sales",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-driven shopping during the holiday season showed promising early signals, with small raw totals hinting at a potentially significant future impact on the industry."
+          "aiSummary": "AI-driven shopping during the holiday season showed promising early signals, hinting at a potentially significant impact in the future."
         }
       ]
     },
     "Ecommerce_Retail_Tech": {
-      "total": 60,
+      "total": 61,
       "top": [
         {
           "id": "7qte5e",
@@ -206,84 +206,7 @@
           },
           "rerankWhy": "Highlights significant holiday ecommerce spending growth",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nAccording to Adobe Analytics data reported by Retail Dive on January 7, 2026, US e-commerce spending during the holidays increased by 6.8% from the previous year, totaling nearly $258 billion. The use of buy now, pay later services also reached a new high."
-        },
-        {
-          "id": "js33kbh",
-          "title": "Claire’s and The Original Factory Shop Near Collapse",
-          "url": "https://www.businessoffashion.com/articles/retail/claires-and-the-original-factory-shop-near-collapse/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-06T20:27:18.071Z",
-          "ingested_at": "2026-01-06T20:27:18.071Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Discusses financial struggles of major retailers",
-          "rerankConfidence": 0.85
-        },
-        {
-          "id": "u8d6tei",
-          "title": "Fast Retailing Hikes Annual Forecast After Quarterly Profits Surge",
-          "url": "https://www.businessoffashion.com/news/retail/fast-retailing-hikes-annual-forecast-after-quarterly-profits-surge/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-09T16:05:16.361Z",
-          "ingested_at": "2026-01-09T16:05:16.362Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Shows positive profit trends in retail sector",
-          "rerankConfidence": 0.8
-        },
-        {
-          "id": "dvjz2rx",
-          "title": "Primark Sales Slow as Demand Drops",
-          "url": "https://www.businessoffashion.com/news/retail/primark-sales-slow-as-demand-drops/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-09T16:05:16.359Z",
-          "ingested_at": "2026-01-09T16:05:16.361Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Addresses demand drop impacting retail sales",
-          "rerankConfidence": 0.8
-        },
-        {
-          "id": "g52p5n",
-          "title": "Retailers like Kroger, CVS plan many more screens for in-store ads in 2026",
-          "url": "https://www.modernretail.co/marketing/retailers-like-kroger-cvs-plan-many-more-screens-for-in-store-ads-in-2026/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2026-01-06T05:00:00.000Z",
-          "ingested_at": "2026-01-06T20:27:08.720Z",
-          "snippet": "In 2026, retailers like Kroger and CVS are planning to install more screens in more stores to display advertising and other content -- an evolution of what has historically been limited to small experiments.",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Sponsored/press release content"
-            ],
-            "flags": {
-              "sponsored": true,
-              "pressRelease": true
-            },
-            "tier": "med"
-          },
-          "rerankWhy": "Explores in-store advertising strategies for retailers",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-Generated Summary:\nRetailers such as Kroger and CVS are set to increase the number of in-store screens for advertising and content display in 2026, moving beyond small-scale trials."
+          "aiSummary": "AI-Generated Summary:\nUS e-commerce spending during the holidays in 2025 reached almost $258 billion, showing a 6.8% increase from the previous year, according to Adobe Analytics. Additionally, buy now, pay later services saw a surge in usage."
         },
         {
           "id": "s2c6b7",
@@ -302,17 +225,62 @@
             "tier": "med"
           },
           "rerankWhy": "Identifies key retail trends for 2026",
-          "rerankConfidence": 0.7,
+          "rerankConfidence": 0.85,
           "aiSummary": "AI-generated summary:\nRetail Dive highlights six key retail trends to watch in 2026, including pricing dynamics and the changing landscape of malls."
         },
         {
-          "id": "v8fgw8",
-          "title": "Target grows wellness assortment, again",
-          "url": "https://www.retaildive.com/news/target-expands-wellness-assortment/808969/",
+          "id": "n93dv7",
+          "title": "December sales drop over 2% at small retail businesses despite traffic bump",
+          "url": "https://www.retaildive.com/news/small-business-retailers-higher-traffic-december-sales-drop/808840/",
           "source": "Retail Dive",
-          "published_at": "2026-01-07T17:10:00.000Z",
+          "published_at": "2026-01-06T17:15:00.000Z",
+          "ingested_at": "2026-01-06T20:27:08.720Z",
+          "snippet": "Even at the holidays shoppers prioritized essentials, and inflation-adjusted discretionary sales at smaller stores fell 1.8% year on year, per Fiserv.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "Discusses sales drop despite increased traffic",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-Generated Summary:\nIn December 2026, small retail businesses experienced a sales drop of over 2% despite an increase in foot traffic, with inflation-adjusted discretionary sales falling by 1.8% compared to the previous year, according to Fiserv data reported by Retail Dive."
+        },
+        {
+          "id": "nqxcss",
+          "title": "Claire’s plans tech upgrades despite financial setbacks",
+          "url": "https://www.retaildive.com/news/claires-plans-tech-upgrades/808920/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-07T14:36:00.000Z",
           "ingested_at": "2026-01-08T19:08:50.518Z",
-          "snippet": "Following a similar play last year, the mass retailer is expanding the product category by 30% with a focus on offering \"thousands\" of items for under $10.",
+          "snippet": "The retailer will take steps to elevate customer in-store experiences by improving its technology foundation.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Sponsored/press release content"
+            ],
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
+            "tier": "med"
+          },
+          "rerankWhy": "Focuses on tech upgrades to enhance customer experience",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-Generated Summary:\nClaire's, despite facing financial setbacks, is planning to enhance customer in-store experiences through tech upgrades, as reported by Retail Dive on January 7, 2026."
+        },
+        {
+          "id": "dvjz2rx",
+          "title": "Primark Sales Slow as Demand Drops",
+          "url": "https://www.businessoffashion.com/news/retail/primark-sales-slow-as-demand-drops/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-09T16:05:16.359Z",
+          "ingested_at": "2026-01-09T16:05:16.361Z",
           "gate": {
             "eligible": true,
             "reasons": [
@@ -321,14 +289,49 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Focuses on expanding wellness product assortments",
-          "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nTarget is increasing its wellness product offerings by 30%, aiming to provide \"thousands\" of items priced under $10, following a previous expansion in the same category."
+          "rerankWhy": "Analyzes demand drop impacting Primark's sales",
+          "rerankConfidence": 0.7
+        },
+        {
+          "id": "js33kbh",
+          "title": "Claire’s and The Original Factory Shop Near Collapse",
+          "url": "https://www.businessoffashion.com/articles/retail/claires-and-the-original-factory-shop-near-collapse/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-06T20:27:18.071Z",
+          "ingested_at": "2026-01-06T20:27:18.071Z",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Examines financial struggles of Claire's and implications",
+          "rerankConfidence": 0.65
+        },
+        {
+          "id": "6zqb043",
+          "title": "Fast Fashion, Delivery Apps Tap India’s Next Billion Consumers",
+          "url": "https://www.businessoffashion.com/news/retail/fast-fashion-delivery-apps-tap-india-next-billion-consumers/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-05T19:19:07.969Z",
+          "ingested_at": "2026-01-05T19:19:07.970Z",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Explores fast fashion's expansion in India",
+          "rerankConfidence": 0.6
         }
       ]
     },
     "Luxury_and_Consumer": {
-      "total": 15,
+      "total": 14,
       "top": [
         {
           "id": "9dsx7jm",
@@ -345,8 +348,46 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Insights on customer spending behavior and loyalty programs",
+          "rerankWhy": "Insights on customer spending behavior and loyalty perks",
           "rerankConfidence": 0.9
+        },
+        {
+          "id": "c71a3e4",
+          "title": "Report: Saks in Talks for $1 Billion Bankruptcy Loan to Keep Doors Open",
+          "url": "https://www.businessoffashion.com/news/retail/report-saks-in-talks-for-1-billion-bankruptcy-loan-to-keep-doors-open/",
+          "source": "BoF - News (The News in Brief)",
+          "published_at": "2026-01-06T20:27:18.071Z",
+          "ingested_at": "2026-01-06T20:27:18.071Z",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Critical financial situation impacting retail operations",
+          "rerankConfidence": 0.85
+        },
+        {
+          "id": "hsqnmy",
+          "title": "Fashion and beauty brands are expanding their partnerships with female college athletes",
+          "url": "https://www.modernretail.co/marketing/fashion-and-beauty-brands-are-expanding-their-partnerships-with-female-college-athletes/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-08T05:00:00.000Z",
+          "ingested_at": "2026-01-08T19:08:50.518Z",
+          "snippet": "Brands in the beauty and fashion space are extending NIL deals beyond one-off posts with female college athletes and even working with entire athletic departments.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Emerging marketing strategies with college athletes",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-Generated Summary:\nFashion and beauty brands are increasingly forming partnerships with female college athletes, moving beyond one-off posts to collaborating with entire athletic departments, as reported by Modern Retail on January 8, 2026."
         },
         {
           "id": "vz2gl8",
@@ -367,18 +408,18 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Impact of financial issues on luxury retail operations",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nS&P Global Ratings downgraded Saks Global due to a missed interest payment, casting doubt on the company's ability to fulfill financial obligations and achieve merger-related savings."
+          "rerankWhy": "Impact of financial ratings on luxury retail",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-Generated Summary:\nS&P Global Ratings downgraded Saks Global due to a missed interest payment, casting doubt on the company's ability to meet financial obligations and realize expected savings from a recent merger."
         },
         {
-          "id": "hsqnmy",
-          "title": "Fashion and beauty brands are expanding their partnerships with female college athletes",
-          "url": "https://www.modernretail.co/marketing/fashion-and-beauty-brands-are-expanding-their-partnerships-with-female-college-athletes/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
-          "source": "Modern Retail",
-          "published_at": "2026-01-08T05:00:00.000Z",
-          "ingested_at": "2026-01-08T19:08:50.518Z",
-          "snippet": "Brands in the beauty and fashion space are extending NIL deals beyond one-off posts with female college athletes and even working with entire athletic departments.",
+          "id": "83kzzv",
+          "title": "Pat McGrath Labs seeks a buyer",
+          "url": "https://www.retaildive.com/news/pat-mcgrath-labs-sale-auction-hilco-global/808664/",
+          "source": "Retail Dive",
+          "published_at": "2026-01-05T15:14:00.000Z",
+          "ingested_at": "2026-01-05T19:18:58.166Z",
+          "snippet": "Bids are due to Hilco Global by Jan. 26, with a public auction for the beauty brand’s assets to be held on Jan. 27.",
           "gate": {
             "eligible": true,
             "reasons": [
@@ -387,63 +428,9 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Emerging trends in partnerships with female athletes",
-          "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nFashion and beauty brands are increasingly forming partnerships with female college athletes, moving beyond one-off posts to collaborate with entire athletic departments, as reported by Modern Retail on January 8, 2026."
-        },
-        {
-          "id": "c71a3e4",
-          "title": "Report: Saks in Talks for $1 Billion Bankruptcy Loan to Keep Doors Open",
-          "url": "https://www.businessoffashion.com/news/retail/report-saks-in-talks-for-1-billion-bankruptcy-loan-to-keep-doors-open/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-06T20:27:18.071Z",
-          "ingested_at": "2026-01-06T20:27:18.071Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Bankruptcy loan talks highlight retail financial challenges",
-          "rerankConfidence": 0.75
-        },
-        {
-          "id": "gfoauet",
-          "title": "Vestiaire Collective Co-Founder Exits",
-          "url": "https://www.businessoffashion.com/news/retail/vestiaire-collective-co-founder-exits/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-06T20:27:18.069Z",
-          "ingested_at": "2026-01-06T20:27:18.071Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Leadership changes affecting strategic direction of retail",
-          "rerankConfidence": 0.7
-        },
-        {
-          "id": "5fh0tkq",
-          "title": "China Travel Curbs Hit Japan Duty-Free Sales in December",
-          "url": "https://www.businessoffashion.com/news/global-markets/china-travel-curbs-hit-japan-duty-free-sales-in-december/",
-          "source": "BoF - News (The News in Brief)",
-          "published_at": "2026-01-06T20:27:18.071Z",
-          "ingested_at": "2026-01-06T20:27:18.071Z",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Travel restrictions impacting duty-free sales in Japan",
-          "rerankConfidence": 0.65
+          "rerankWhy": "Potential sale of a major beauty brand",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-Generated Summary:\nPat McGrath Labs is up for sale, with bids due by Jan. 26 and a public auction for the beauty brand's assets scheduled for Jan. 27."
         },
         {
           "id": "iqyctn",
@@ -461,9 +448,29 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Affluent consumer behavior influencing new car sales",
+          "rerankWhy": "Trends in affluent consumer purchasing behavior",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-Generated Summary:\nNew car sales are increasing among wealthy Americans due to rising prices and interest rates for auto loans, according to analysts."
+        },
+        {
+          "id": "nzzbxc",
+          "title": "Starbucks is kicking off 2026 with more brand partnerships",
+          "url": "https://www.modernretail.co/marketing/starbucks-is-kicking-off-2026-with-more-brand-partnerships/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-01-09T05:00:00.000Z",
+          "ingested_at": "2026-01-09T16:05:07.985Z",
+          "snippet": "With a splashy new partnership with Khloé Kardashian’s Khloud popcorn, Starbucks is marrying its strategy of offering more on-trend items with relevant pop culture partnerships.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Brand partnerships reflecting consumer trends",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-Generated Summary:\nAffluent Americans are driving the rise in new car sales as prices and interest rates for auto loans increase, according to analysts."
+          "aiSummary": "AI-Generated Summary:\nStarbucks is starting 2026 by expanding its brand partnerships, including a collaboration with Khloé Kardashian's Khloud popcorn, to offer trendy items and relevant pop culture tie-ins."
         }
       ]
     },
@@ -506,7 +513,7 @@
           },
           "rerankWhy": "Discusses inflation impact on retail pricing",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary: Inflation rates are on the rise in 2026, with shop price inflation reaching 0.7% year on year in December according to the British Retail Consortium. This trend is expected to continue in the jewellery industry."
+          "aiSummary": "AI-generated summary: Inflation rates are on the rise in 2026, with shop price inflation reaching 0.7% year on year in December, according to the British Retail Consortium. This trend is expected to continue, impacting the jewellery industry."
         },
         {
           "id": "uh0we",
@@ -529,7 +536,7 @@
           },
           "rerankWhy": "Highlights indie retailers' adaptability and innovation",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary: Independent retailers in the jewellery industry have shown resilience and adaptability in the face of challenges, shaping the high street with innovation and experimentation in 2026."
+          "aiSummary": "AI-Generated Summary: Independent retailers in the jewellery industry have shown resilience and adaptability in the face of challenges, shaping the high street in 2026 through innovation and experimentation. This article from Professional Jeweller discusses how these retailers have navigated shifting consumer behaviors, economic pressures, rising costs, and new technologies."
         },
         {
           "id": "vxhu43",
@@ -551,18 +558,18 @@
           },
           "rerankWhy": "Recognizes a designer's influence in the industry",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary: British jewellery designer Solange Azagury-Partridge has been awarded an MBE for her services to design, presented by King Charles III. She runs her own brand, Solange, based in London."
+          "aiSummary": "AI-generated summary: Jewellery designer Solange Azagury-Partridge has been honored with an MBE for her contributions to design, presented by King Charles III and members of the royal family. Azagury-Partridge operates her own brand, Solange, based in London."
         }
       ]
     }
   },
   "keyThemes": [
     "Walmart AI strategies",
-    "De Beers diamond demand",
+    "Saks Global bankruptcy",
     "inflation pressures",
-    "agentic commerce tools",
-    "retail profitability"
+    "agentic commerce",
+    "De Beers diamond demand"
   ],
-  "oneSentenceSummary": "Walmart's AI strategies and inflation pressures are reshaping retail dynamics as De Beers targets India's affluent market for diamond demand.",
-  "introParagraph": "Walmart implements AI strategies to address inflation pressures affecting retail profitability. Meanwhile, De Beers focuses on the affluent market in India to boost diamond demand amid changing consumer preferences."
+  "oneSentenceSummary": "Walmart's AI strategies and Saks Global's financial struggles highlight contrasting developments in retail and luxury sectors amid inflation pressures.",
+  "introParagraph": "Walmart implements new AI strategies to enhance its operations, while Saks Global faces bankruptcy amid ongoing inflation pressures. These developments reflect the contrasting challenges and adaptations within the retail and luxury sectors, including the impact on consumer behavior and demand for products like diamonds from De Beers."
 }

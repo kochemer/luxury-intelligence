@@ -225,5 +225,81 @@
     },
     "cached_at": "2026-01-12T06:47:08.274Z",
     "weekLabel": "2026-W03"
+  },
+  "2026-W03|AI_and_Strategy|De Beers diamond demand|Walmart AI strategies|agentic commerce tools|inflation pressures|retail profitability": {
+    "output": {
+      "queries": [
+        "AI-driven personalization in luxury retail October 2023",
+        "Generative AI applications in fashion ecommerce October 2023",
+        "Recent developments in AI automation for jewellery industry October 2023",
+        "LLMs impact on retail strategies latest news October 2023",
+        "New AI tools transforming ecommerce business strategies October 2023",
+        "AI and machine learning in retail profitability October 2023",
+        "Walmart's latest AI initiatives in retail October 2023",
+        "AI's role in managing inflation pressures in retail October 2023",
+        "Agentic commerce tools in fashion industry October 2023",
+        "Recent AI strategy shifts in luxury brands October 2023"
+      ],
+      "reasoning": "The queries focus on recent developments and applications of AI in the ecommerce, retail, fashion, luxury, and jewellery sectors, which aligns with the topic focus of AI and strategy. By referencing specific industries and potential AI applications, these queries aim to uncover detailed and relevant articles published in the last 7 days. The inclusion of company names, specific AI tools, and current trends ensures specificity and relevance to the context provided by last week's key themes."
+    },
+    "cached_at": "2026-01-17T11:32:26.854Z",
+    "weekLabel": "2026-W03"
+  },
+  "2026-W03|Ecommerce_Retail_Tech|De Beers diamond demand|Walmart AI strategies|agentic commerce tools|inflation pressures|retail profitability": {
+    "output": {
+      "queries": [
+        "new e-commerce platform launches October 2023",
+        "latest retail technology innovations October 2023",
+        "digital commerce trends October 2023",
+        "Walmart AI retail strategies October 2023",
+        "agentic commerce tools retail October 2023",
+        "impact of inflation on online shopping October 2023",
+        "retail profitability strategies October 2023",
+        "recent developments in luxury e-commerce October 2023",
+        "jewellery e-commerce trends October 2023",
+        "marketplace technology advancements October 2023"
+      ],
+      "reasoning": "The strategy focuses on recent developments and innovations in the e-commerce and retail sectors, specifically targeting new technologies and strategies that have emerged in the past week. Queries are tailored to capture specific areas of interest such as AI strategies at Walmart, agentic commerce tools, and the impact of inflation, ensuring relevance to the current business environment. The inclusion of specific terms like 'October 2023' ensures that search results are up-to-date, while the mention of sectors like luxury and jewellery e-commerce aligns with industry-specific interests."
+    },
+    "cached_at": "2026-01-17T11:32:31.096Z",
+    "weekLabel": "2026-W03"
+  },
+  "2026-W03|Luxury_and_Consumer|De Beers diamond demand|Walmart AI strategies|agentic commerce tools|inflation pressures|retail profitability": {
+    "output": {
+      "queries": [
+        "recent developments in luxury retail partnerships October 2023",
+        "new sustainability trends in high-end fashion October 2023",
+        "latest luxury consumer behavior shifts October 2023",
+        "LVMH recent market strategies October 2023",
+        "Burberry new collection launch October 2023",
+        "impact of AI on luxury ecommerce October 2023",
+        "premium consumer goods demand trends October 2023",
+        "Cartier new jewellery collection release October 2023",
+        "high-end retail response to inflation October 2023",
+        "Balenciaga innovative marketing strategies October 2023"
+      ],
+      "reasoning": "The queries are crafted to identify recent developments and specific events in the luxury and consumer goods sectors. By including precise timeframes (October 2023) and focusing on specific companies, products, and trends, the searches are likely to yield relevant and timely articles. This approach ensures coverage of new strategies, launches, and market responses, aligning with the weekly digest's focus."
+    },
+    "cached_at": "2026-01-17T11:32:34.806Z",
+    "weekLabel": "2026-W03"
+  },
+  "2026-W03|Jewellery_Industry|De Beers diamond demand|Walmart AI strategies|agentic commerce tools|inflation pressures|retail profitability": {
+    "output": {
+      "queries": [
+        "latest developments in diamond demand October 2023",
+        "emerging trends in gemstone market October 2023",
+        "luxury jewelry brands ecommerce strategies October 2023",
+        "jewelry retail market performance post-inflation 2023",
+        "impact of AI on jewelry retail industry October 2023",
+        "new jewelry collections from top brands October 2023",
+        "fine jewelry market shifts and consumer behavior 2023",
+        "De Beers diamond supply updates October 2023",
+        "Walmart jewelry retail innovations October 2023",
+        "agentic commerce in luxury jewelry industry 2023"
+      ],
+      "reasoning": "The queries are designed to capture the latest and most specific updates in the jewelry industry, focusing on new developments in diamond and gemstone markets, luxury brands' strategies, and technological influences like AI. Emphasis is placed on market trends and shifts, particularly in response to recent economic changes and innovations in retail. The inclusion of company names like De Beers and Walmart aligns with recent themes and ensures relevance to the current industry landscape."
+    },
+    "cached_at": "2026-01-17T11:32:38.296Z",
+    "weekLabel": "2026-W03"
   }
 }

@@ -8,9 +8,13 @@ import type { Article as BaseArticle, Topic } from '../classification/classifyTo
 import { classifyArticleLLM, getClassificationStats, resetClassificationStats } from '../classification/classifyWithLLM';
 import { rerankArticles, getRerankStats, resetRerankStats } from './rerankArticles';
 
-// Extended Article type that includes snippet (used in actual data)
+// Extended Article type that includes snippet and discovery fields (used in actual data)
 type Article = BaseArticle & {
   snippet?: string;
+  discoveredAt?: string;
+  publishedDateInvalid?: boolean;
+  usedDiscoveredAtFallback?: boolean;
+  sourceType?: 'rss' | 'page' | 'discovery';
 };
 
 const __filename = fileURLToPath(import.meta.url);
@@ -162,6 +166,7 @@ function detectControversy(article: Article): { isControversial: boolean; isSusp
 
 /**
  * Gate an article - determine eligibility and flags (no ranking)
+ * Implements soft week-window logic for discovery articles
  */
 function gateArticle(
   article: Article,
@@ -172,15 +177,67 @@ function gateArticle(
 ): ArticleGate {
   const reasons: string[] = [];
   const flags: ArticleGate['flags'] = {};
+  const isDiscovery = article.sourceType === 'discovery';
   
-  // Check if article is within week window
-  if (!article.published_at) {
-    return { eligible: false, reasons: ["Missing published_at"], flags };
-  }
+  // Week window check with soft logic for discovery articles
+  let withinWindow = false;
+  let usedFallback = false;
   
-  const articleTime = new Date(article.published_at).getTime();
-  if (isNaN(articleTime) || articleTime < weekStart || articleTime > weekEnd) {
-    return { eligible: false, reasons: ["Outside week window"], flags };
+  if (isDiscovery) {
+    // Soft week-window logic for discovery articles
+    const oneDayMs = 24 * 60 * 60 * 1000;
+    const softWeekStart = weekStart - oneDayMs;
+    const softWeekEnd = weekEnd + oneDayMs;
+    const maxAgeMs = 30 * 24 * 60 * 60 * 1000; // 30 days
+    const maxAgeCutoff = weekStart - maxAgeMs;
+    
+    // Try publishedAt first (if valid)
+    if (article.published_at && !article.publishedDateInvalid) {
+      const publishedTime = new Date(article.published_at).getTime();
+      if (!isNaN(publishedTime)) {
+        // Check guardrail: never include articles older than 30 days before week start
+        if (publishedTime < maxAgeCutoff) {
+          return { eligible: false, reasons: ["Too old (publishedAt < weekStart - 30 days)"], flags };
+        }
+        // Check soft window
+        if (publishedTime >= softWeekStart && publishedTime <= softWeekEnd) {
+          withinWindow = true;
+        }
+      }
+    }
+    
+    // Fallback to discoveredAt if publishedAt is invalid/missing or outside soft window
+    if (!withinWindow && article.discoveredAt) {
+      const discoveredTime = new Date(article.discoveredAt).getTime();
+      if (!isNaN(discoveredTime)) {
+        // Check guardrail: never include articles discovered too long ago
+        if (discoveredTime < maxAgeCutoff) {
+          return { eligible: false, reasons: ["Too old (discoveredAt < weekStart - 30 days)"], flags };
+        }
+        // Check if discovered within week window (strict, not soft)
+        if (discoveredTime >= weekStart && discoveredTime <= weekEnd) {
+          withinWindow = true;
+          usedFallback = true;
+          // Set published_at to discoveredAt for consistency (but flag it)
+          (article as any).published_at = article.discoveredAt;
+        }
+      }
+    }
+    
+    if (!withinWindow) {
+      return { eligible: false, reasons: ["Outside week window (discovery)"], flags };
+    }
+  } else {
+    // Strict week-window logic for RSS/page articles (unchanged)
+    if (!article.published_at) {
+      return { eligible: false, reasons: ["Missing published_at"], flags };
+    }
+    
+    const articleTime = new Date(article.published_at).getTime();
+    if (isNaN(articleTime) || articleTime < weekStart || articleTime > weekEnd) {
+      return { eligible: false, reasons: ["Outside week window"], flags };
+    }
+    withinWindow = true;
   }
   
   // Check for sponsored/press release content
@@ -220,6 +277,11 @@ function gateArticle(
   // This is a simple heuristic - can be refined
   let tier: "high" | "med" | "low" = "med";
   // For now, all eligible articles are "med" tier - LLM will do the ranking
+  
+  // Set fallback flag if used
+  if (usedFallback && isDiscovery) {
+    (article as any).usedDiscoveredAtFallback = true;
+  }
   
   return {
     eligible: true,
@@ -465,16 +527,59 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
   // Convert back to array
   const allArticles = Array.from(articlesByUrl.values());
   
-  // Filter articles to the week window (exclude those without published_at)
+  // Filter articles to the week window with soft logic for discovery articles
   const weekStart = weekStartCET.getTime();
   const weekEnd = weekEndCET.getTime();
+  const oneDayMs = 24 * 60 * 60 * 1000;
+  const maxAgeMs = 30 * 24 * 60 * 60 * 1000; // 30 days
+  const maxAgeCutoff = weekStart - maxAgeMs;
   
   const eligibleArticles = allArticles.filter(article => {
-    if (!article.published_at) return false;
-    const dt = new Date(article.published_at);
-    if (isNaN(dt.getTime())) return false;
-    const t = dt.getTime();
-    return t >= weekStart && t <= weekEnd;
+    const isDiscovery = article.sourceType === 'discovery';
+    
+    if (isDiscovery) {
+      // Soft week-window logic for discovery articles
+      const softWeekStart = weekStart - oneDayMs;
+      const softWeekEnd = weekEnd + oneDayMs;
+      
+      // Try publishedAt first (if valid)
+      if (article.published_at && !article.publishedDateInvalid) {
+        const publishedTime = new Date(article.published_at).getTime();
+        if (!isNaN(publishedTime)) {
+          // Guardrail: never include articles older than 30 days before week start
+          if (publishedTime < maxAgeCutoff) return false;
+          // Check soft window
+          if (publishedTime >= softWeekStart && publishedTime <= softWeekEnd) {
+            return true;
+          }
+        }
+      }
+      
+      // Fallback to discoveredAt if publishedAt is invalid/missing or outside soft window
+      if (article.discoveredAt) {
+        const discoveredTime = new Date(article.discoveredAt).getTime();
+        if (!isNaN(discoveredTime)) {
+          // Guardrail: never include articles discovered too long ago
+          if (discoveredTime < maxAgeCutoff) return false;
+          // Check if discovered within week window (strict, not soft)
+          if (discoveredTime >= weekStart && discoveredTime <= weekEnd) {
+            // Set published_at to discoveredAt for consistency
+            article.published_at = article.discoveredAt;
+            article.usedDiscoveredAtFallback = true;
+            return true;
+          }
+        }
+      }
+      
+      return false;
+    } else {
+      // Strict week-window logic for RSS/page articles (unchanged)
+      if (!article.published_at) return false;
+      const dt = new Date(article.published_at);
+      if (isNaN(dt.getTime())) return false;
+      const t = dt.getTime();
+      return t >= weekStart && t <= weekEnd;
+    }
   });
   
   // Classify articles and group by topic
