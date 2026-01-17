@@ -213,6 +213,7 @@ This is a RANKING task, not a strict filtering task. Rank articles by:
 - Quality and depth of content
 - Business/industry significance
 - Insight value (new information, trends, strategic implications)
+- Source quality: If relevance is similar, prefer articles from high-quality consultancy sources (McKinsey, Bain, BCG) as they typically provide strategic insights
 
 IMPORTANT: Return exactly ${targetK} ranked items unless fewer than ${targetK} candidates exist.
 
@@ -340,20 +341,21 @@ function selectFromRanked(
       continue;
     }
 
-    // Add to selected
-    selected.push({
-      url: candidate.url,
-      title: candidate.title,
-      snippet: candidate.snippet,
-      domain: candidate.domain,
-      publishedDate: candidate.publishedDate,
-      publishedDateInvalid: candidate.publishedDateInvalid,
-      discoveredAt: candidate.discoveredAt,
-      rank: item.rank,
-      why: item.why,
-      confidence: item.confidence,
-      category: topic
-    });
+      // Add to selected
+      selected.push({
+        url: candidate.url,
+        title: candidate.title,
+        snippet: candidate.snippet,
+        domain: candidate.domain,
+        publishedDate: candidate.publishedDate,
+        publishedDateInvalid: candidate.publishedDateInvalid,
+        discoveredAt: candidate.discoveredAt,
+        rank: item.rank,
+        why: item.why,
+        confidence: item.confidence,
+        category: topic,
+        sourceType: candidate.sourceType // Preserve sourceType
+      } as SelectedArticle & { sourceType?: string });
 
     domainCounts.set(domain, currentCount + 1);
     selectedTitles.push(candidate.title);
@@ -399,11 +401,14 @@ function selectFromRanked(
         snippet: candidate.snippet,
         domain: candidate.domain,
         publishedDate: candidate.publishedDate,
+        publishedDateInvalid: candidate.publishedDateInvalid,
+        discoveredAt: candidate.discoveredAt,
         rank: item.rank,
         why: item.why,
         confidence: item.confidence,
-        category: topic
-      });
+        category: topic,
+        sourceType: candidate.sourceType // Preserve sourceType
+      } as SelectedArticle & { sourceType?: string });
 
       domainCounts.set(domain, currentCount + 1);
       selectedTitles.push(candidate.title);
@@ -468,8 +473,9 @@ async function selectArticlesForTopic(
         rank: idx + 1,
         why: 'Selected by fallback (word count)',
         confidence: 0.5,
-        category: topic
-      }));
+        category: topic,
+        sourceType: article.sourceType // Preserve sourceType
+      } as SelectedArticle & { sourceType?: string }));
 
     return {
       selected: fallback,

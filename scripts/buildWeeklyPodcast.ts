@@ -234,9 +234,9 @@ async function generatePodcastScript(digest: WeeklyDigest, weekLabel: string, is
   
   // Group articles by topic for segments (only top 3 per category)
   const topicGroups = {
-    'AI & Strategy': digest.topics.AI_and_Strategy.top.slice(0, 3),
+    'Artificial Intelligence News': digest.topics.AI_and_Strategy.top.slice(0, 3),
     'E-commerce & Retail Tech': digest.topics.Ecommerce_Retail_Tech.top.slice(0, 3),
-    'Luxury & Consumer': digest.topics.Luxury_and_Consumer.top.slice(0, 3),
+    'Fashion & Luxury': digest.topics.Luxury_and_Consumer.top.slice(0, 3),
     'Jewellery Industry': digest.topics.Jewellery_Industry.top.slice(0, 3),
   };
 
@@ -278,9 +278,9 @@ Key Themes: ${digest.keyThemes?.join(', ') || 'Retail and e-commerce intelligenc
 EXACT WORD COUNT TARGETS FOR EACH SECTION (you must hit these minimums):
 1. Cold open: ${segmentWordTargets.coldOpen} words minimum
 2. Intro: ${segmentWordTargets.intro} words minimum  
-3. Segment 1 (AI & Strategy, ${topicGroups['AI & Strategy'].length} articles): ${segmentWordTargets.segment1} words minimum
+3. Segment 1 (Artificial Intelligence News, ${topicGroups['Artificial Intelligence News'].length} articles): ${segmentWordTargets.segment1} words minimum
 4. Segment 2 (E-commerce & Retail Tech, ${topicGroups['E-commerce & Retail Tech'].length} articles): ${segmentWordTargets.segment2} words minimum
-5. Segment 3 (Luxury & Consumer, ${topicGroups['Luxury & Consumer'].length} articles): ${segmentWordTargets.segment3} words minimum
+5. Segment 3 (Fashion & Luxury, ${topicGroups['Fashion & Luxury'].length} articles): ${segmentWordTargets.segment3} words minimum
 6. Segment 4 (Jewellery Industry, ${topicGroups['Jewellery Industry'].length} articles): ${segmentWordTargets.segment4} words minimum
 7. Lightning round: ${segmentWordTargets.lightning} words minimum
 8. Closing: ${segmentWordTargets.closing} words minimum
@@ -305,9 +305,9 @@ Structure:
 1. Cold open (${segmentWordTargets.coldOpen} words) - Hook with most interesting story, set the scene
 2. Intro (${segmentWordTargets.intro} words) - Welcome, week overview, what's coming, why it matters
 3. Four main segments (${segmentWordTargets.segment1} words each minimum):
-   - Segment 1: AI & Strategy - Expand each of ${topicGroups['AI & Strategy'].length} articles with full context
+   - Segment 1: Artificial Intelligence News - Expand each of ${topicGroups['Artificial Intelligence News'].length} articles with full context
    - Segment 2: E-commerce & Retail Tech - Expand each of ${topicGroups['E-commerce & Retail Tech'].length} articles with full context
-   - Segment 3: Luxury & Consumer - Expand each of ${topicGroups['Luxury & Consumer'].length} articles with full context
+   - Segment 3: Fashion & Luxury - Expand each of ${topicGroups['Fashion & Luxury'].length} articles with full context
    - Segment 4: Jewellery Industry - Expand each of ${topicGroups['Jewellery Industry'].length} articles with full context
 4. Lightning round (${segmentWordTargets.lightning} words) - Quick hits but still provide context for each
 5. Closing (${segmentWordTargets.closing} words) - Wrap up, key takeaways, next week preview

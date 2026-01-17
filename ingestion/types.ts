@@ -11,7 +11,7 @@ export type Article = {
   discoveredAt?: string; // ISO timestamp when article was discovered/extracted
   publishedDateInvalid?: boolean; // True if published_at is invalid/missing
   usedDiscoveredAtFallback?: boolean; // True if included via discoveredAt fallback
-  sourceType?: 'rss' | 'page' | 'discovery'; // How article was ingested
+  sourceType?: 'rss' | 'page' | 'discovery' | 'consultancy'; // How article was ingested
 };
 
 export type SourceFeed = {
@@ -36,4 +36,5 @@ export type SourcePage = {
     link: string;
     date?: string;
   };
+  sourceType?: 'consultancy' | 'news' | 'blog'; // Optional: categorize source type for future weighting
 };

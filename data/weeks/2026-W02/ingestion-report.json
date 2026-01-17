@@ -1,40 +1,10 @@
 {
   "week": "2026-W02",
-  "generatedAt": "2026-01-17T13:33:38.988Z",
+  "generatedAt": "2026-01-17T16:22:30.295Z",
   "categories": {
     "Jewellery Industry": {
       "rss_found": 0,
-      "discovery_found": 106,
-      "fetched_ok": 0,
-      "extracted_ok": 0,
-      "excluded": {
-        "nonEnglish": 0,
-        "tooShort": 0,
-        "notArticle": 0,
-        "paywalled": 0,
-        "controversial": 0,
-        "duplicate": 0
-      },
-      "final_candidates": 11
-    },
-    "AI & Strategy": {
-      "rss_found": 0,
-      "discovery_found": 120,
-      "fetched_ok": 102,
-      "extracted_ok": 57,
-      "excluded": {
-        "nonEnglish": 0,
-        "tooShort": 9,
-        "notArticle": 25,
-        "paywalled": 11,
-        "controversial": 0,
-        "duplicate": 0
-      },
-      "final_candidates": 5
-    },
-    "Ecommerce & Retail Tech": {
-      "rss_found": 0,
-      "discovery_found": 117,
+      "discovery_found": 0,
       "fetched_ok": 0,
       "extracted_ok": 0,
       "excluded": {
@@ -47,9 +17,39 @@
       },
       "final_candidates": 0
     },
-    "Luxury & Consumer": {
+    "Artificial Intelligence News": {
       "rss_found": 0,
-      "discovery_found": 112,
+      "discovery_found": 0,
+      "fetched_ok": 0,
+      "extracted_ok": 0,
+      "excluded": {
+        "nonEnglish": 0,
+        "tooShort": 0,
+        "notArticle": 0,
+        "paywalled": 0,
+        "controversial": 0,
+        "duplicate": 0
+      },
+      "final_candidates": 0
+    },
+    "Ecommerce & Retail Tech": {
+      "rss_found": 0,
+      "discovery_found": 0,
+      "fetched_ok": 0,
+      "extracted_ok": 0,
+      "excluded": {
+        "nonEnglish": 0,
+        "tooShort": 0,
+        "notArticle": 0,
+        "paywalled": 0,
+        "controversial": 0,
+        "duplicate": 0
+      },
+      "final_candidates": 0
+    },
+    "Fashion & Luxury": {
+      "rss_found": 0,
+      "discovery_found": 0,
       "fetched_ok": 0,
       "extracted_ok": 0,
       "excluded": {

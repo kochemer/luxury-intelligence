@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-17T15:05:15.596Z",
+  "timestamp": "2026-01-17T16:22:30.294Z",
   "sources": [
     {
       "sourceName": "Jeweller - Business News",
@@ -162,10 +162,28 @@
       "newArticlesAdded": 0,
       "duplicates": 8,
       "yieldPct": 0
+    },
+    {
+      "sourceName": "Bain - Retail & Consumer Insights",
+      "type": "page",
+      "itemsFetched": 0,
+      "itemsParsed": 0,
+      "newArticlesAdded": 0,
+      "duplicates": 0,
+      "yieldPct": 0
+    },
+    {
+      "sourceName": "Bain - Technology & AI Insights",
+      "type": "page",
+      "itemsFetched": 0,
+      "itemsParsed": 0,
+      "newArticlesAdded": 0,
+      "duplicates": 0,
+      "yieldPct": 0
     }
   ],
   "summary": {
-    "totalSources": 18,
+    "totalSources": 20,
     "totalItemsFetched": 270,
     "totalNewArticles": 0,
     "totalDuplicates": 270,

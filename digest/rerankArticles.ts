@@ -20,6 +20,7 @@ import { fileURLToPath } from 'url';
 import crypto from 'crypto';
 import OpenAI from 'openai';
 import type { Topic } from '../classification/classifyTopics';
+import { getTopicDisplayName } from '../utils/topicNames';
 import type { Article as BaseArticle } from '../classification/classifyTopics';
 
 // Extended Article type that includes snippet (used in actual data)
@@ -417,13 +418,7 @@ function validateRerankResponse(
 }
 
 function getCategoryDisplayName(category: Topic): string {
-  const names: Record<Topic, string> = {
-    'AI_and_Strategy': 'AI & Strategy',
-    'Ecommerce_Retail_Tech': 'Ecommerce & Retail Tech',
-    'Luxury_and_Consumer': 'Luxury & Consumer',
-    'Jewellery_Industry': 'Jewellery Industry',
-  };
-  return names[category];
+  return getTopicDisplayName(category);
 }
 
 /**

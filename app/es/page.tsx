@@ -108,7 +108,7 @@ const CATEGORY_CARDS: Array<{
   {
     key: 'AI_and_Strategy',
     color: '#25505f',
-    title: 'IA y Estrategia',
+    title: 'Noticias de Inteligencia Artificial',
     desc: 'Los últimos avances y estrategias en inteligencia artificial y transformación empresarial.',
     countBy: 'AIStrategy',
     topInfo: 'Top 7 artículos por relevancia',
@@ -117,7 +117,7 @@ const CATEGORY_CARDS: Array<{
   {
     key: 'Luxury_and_Consumer',
     color: '#6b2d5c',
-    title: 'Lujo y Consumo',
+    title: 'Moda y Lujo',
     desc: 'Innovaciones y cambios en lujo y productos de consumo más amplios, experiencias y marcas.',
     countBy: 'LuxuryConsumer',
     topInfo: 'Top 7 artículos por recencia',

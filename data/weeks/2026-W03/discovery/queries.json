@@ -1,6 +1,6 @@
 {
   "baseQueries": {
-    "AI & Strategy": [
+    "Artificial Intelligence News": [
       "AI tools for business automation",
       "generative AI applications in retail",
       "machine learning ecommerce personalization",
@@ -28,7 +28,7 @@
       "retail analytics platforms",
       "ecommerce customer experience tools"
     ],
-    "Luxury & Consumer": [
+    "Fashion & Luxury": [
       "luxury brand digital strategy",
       "premium consumer goods trends",
       "high-end retail innovations",
@@ -58,10 +58,44 @@
     ]
   },
   "deltaQueries": {
-    "AI & Strategy": [],
-    "Ecommerce & Retail Tech": [],
-    "Luxury & Consumer": [],
-    "Jewellery Industry": []
+    "Artificial Intelligence News": [
+      "Walmart AI logistics optimization strategies",
+      "Microsoft agentic AI impact on B2B commerce",
+      "AI-driven solutions for inflation pressure management in retail"
+    ],
+    "Ecommerce & Retail Tech": [
+      "Walmart AI impact on retail profitability",
+      "Saks bankruptcy loan developments",
+      "De Beers diamond market strategies in India"
+    ],
+    "Fashion & Luxury": [
+      "Saks bankruptcy proceedings and impact on luxury retail",
+      "AI-driven personalization in luxury fashion retail",
+      "De Beers strategies for increasing diamond demand in emerging markets"
+    ],
+    "Jewellery Industry": [
+      "AI-driven pricing strategies in jewelry retail",
+      "Saks Global bankruptcy impact on luxury jewelry sector",
+      "De Beers diamond demand strategies in emerging markets"
+    ]
+  },
+  "consultancyQueries": {
+    "Artificial Intelligence News": [
+      "site:mckinsey.com artificial intelligence strategy",
+      "site:bcg.com artificial intelligence insights"
+    ],
+    "Ecommerce & Retail Tech": [
+      "site:mckinsey.com retail consumer insights",
+      "site:bcg.com retail consumer products insights"
+    ],
+    "Fashion & Luxury": [
+      "site:mckinsey.com luxury consumer trends",
+      "site:bcg.com luxury consumer insights"
+    ],
+    "Jewellery Industry": [
+      "site:mckinsey.com luxury retail insights",
+      "site:bcg.com luxury retail insights"
+    ]
   },
   "finalQueries": {
     "AI_and_Strategy": [
@@ -76,7 +110,12 @@
       "machine learning supply chain optimization",
       "AI content generation marketing",
       "enterprise AI adoption trends",
-      "artificial intelligence competitive advantage"
+      "artificial intelligence competitive advantage",
+      "Walmart AI logistics optimization strategies",
+      "Microsoft agentic AI impact on B2B commerce",
+      "AI-driven solutions for inflation pressure management in retail",
+      "site:mckinsey.com artificial intelligence strategy",
+      "site:bcg.com artificial intelligence insights"
     ],
     "Ecommerce_Retail_Tech": [
       "ecommerce platform updates",
@@ -90,7 +129,12 @@
       "retail inventory management tech",
       "online marketplace features",
       "retail analytics platforms",
-      "ecommerce customer experience tools"
+      "ecommerce customer experience tools",
+      "Walmart AI impact on retail profitability",
+      "Saks bankruptcy loan developments",
+      "De Beers diamond market strategies in India",
+      "site:mckinsey.com retail consumer insights",
+      "site:bcg.com retail consumer products insights"
     ],
     "Luxury_and_Consumer": [
       "luxury brand digital strategy",
@@ -104,7 +148,12 @@
       "premium market trends",
       "luxury ecommerce platforms",
       "consumer goods industry news",
-      "luxury brand sustainability"
+      "luxury brand sustainability",
+      "Saks bankruptcy proceedings and impact on luxury retail",
+      "AI-driven personalization in luxury fashion retail",
+      "De Beers strategies for increasing diamond demand in emerging markets",
+      "site:mckinsey.com luxury consumer trends",
+      "site:bcg.com luxury consumer insights"
     ],
     "Jewellery_Industry": [
       "jewelry industry trends",
@@ -118,10 +167,15 @@
       "jewelry retail operations",
       "jewelry market trends",
       "luxury jewelry brands news",
-      "jewelry industry sustainability"
+      "jewelry industry sustainability",
+      "AI-driven pricing strategies in jewelry retail",
+      "Saks Global bankruptcy impact on luxury jewelry sector",
+      "De Beers diamond demand strategies in emerging markets",
+      "site:mckinsey.com luxury retail insights",
+      "site:bcg.com luxury retail insights"
     ]
   },
-  "baseQueriesHash": "c939a2c2ddd60284",
+  "baseQueriesHash": "23f7871e22b8738b",
   "weekLabel": "2026-W03",
-  "generatedAt": "2026-01-17T13:11:42.980Z"
+  "generatedAt": "2026-01-17T17:19:01.539Z"
 }

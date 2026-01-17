@@ -122,6 +122,9 @@ export async function mergeDiscoveryArticles(
     // Use discoveredAt from extraction if available, otherwise use current time
     const discoveredAt = (selectedArticle as any).discoveredAt || now;
     
+    // Preserve sourceType from extraction (consultancy vs discovery)
+    const sourceType = (selectedArticle as any).sourceType || 'discovery';
+    
     const newArticle: Article = {
       id: hashString(selectedArticle.url),
       title: selectedArticle.title,
@@ -132,7 +135,7 @@ export async function mergeDiscoveryArticles(
       snippet: selectedArticle.snippet,
       discoveredAt: discoveredAt,
       publishedDateInvalid: (selectedArticle as any).publishedDateInvalid || false,
-      sourceType: 'discovery'
+      sourceType: sourceType as 'discovery' | 'consultancy'
     };
 
     newDiscoveryArticles.push(newArticle);

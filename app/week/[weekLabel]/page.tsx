@@ -286,7 +286,7 @@ export default async function WeekPage({
     {
       key: 'AI_and_Strategy',
       color: '#25505f',
-      title: 'AI & Strategy',
+      title: 'Artificial Intelligence News',
       desc: 'The latest advances and strategies in artificial intelligence and business transformation.',
       countBy: 'AIStrategy',
       topInfo: 'Top 7 articles by relevance',
@@ -295,7 +295,7 @@ export default async function WeekPage({
     {
       key: 'Luxury_and_Consumer',
       color: '#6b2d5c',
-      title: 'Luxury & Consumer',
+      title: 'Fashion & Luxury',
       desc: 'Innovations and changes in luxury and wider consumer products, experiences, and brands.',
       countBy: 'LuxuryConsumer',
       topInfo: 'Top 7 articles by recency',

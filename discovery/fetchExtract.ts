@@ -5,9 +5,12 @@ import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
 import crypto from 'crypto';
 import type { SearchResult } from './searchProvider';
+import { isConsultancyDomain } from './consultancyDomains';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const TAVILY_EXTRACT_API_URL = 'https://api.tavily.com/extract';
 
 export type ExtractedArticle = {
   url: string;
@@ -22,6 +25,7 @@ export type ExtractedArticle = {
   hash: string;
   topic: SearchResult['topic'];
   discoveredAt?: string; // ISO timestamp when article was discovered/extracted
+  sourceType?: 'discovery' | 'consultancy'; // Tag consultancy articles
 };
 
 function hashUrl(url: string): string {
@@ -47,6 +51,67 @@ async function withTimeout<T>(promise: Promise<T>, ms: number, errorMessage: str
       throw new Error(errorMessage);
     })
   ]);
+}
+
+/**
+ * Extract content from a URL using Tavily's Extract API
+ * This is more reliable for consultancy sites that block direct fetches
+ */
+async function extractWithTavily(url: string): Promise<{ content: string; title: string; publishedDate?: string } | null> {
+  const apiKey = process.env.TAVILY_API_KEY;
+  if (!apiKey) {
+    return null;
+  }
+
+  try {
+    const response = await fetch(TAVILY_EXTRACT_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        api_key: apiKey,
+        urls: [url],
+        extract_depth: 'advanced', // Use advanced for better content extraction
+        include_images: false,
+        chunks_per_source: 3, // Limit chunks to avoid huge content
+      })
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.warn(`[Tavily Extract] Failed for ${url}: ${response.status} ${errorText}`);
+      return null;
+    }
+
+    const data = (await response.json()) as { results?: unknown[] } | unknown[];
+
+    // Tavily Extract: results[] or top-level array
+    const results = Array.isArray(data) ? data
+      : (data && typeof data === 'object' && Array.isArray((data as { results?: unknown[] }).results))
+        ? (data as { results: unknown[] }).results : [];
+    const first = results[0] as Record<string, unknown> | undefined;
+
+    if (first) {
+      // Prefer content, then raw_content
+      const content = typeof first.content === 'string' ? first.content
+        : typeof first.raw_content === 'string' ? first.raw_content
+        : '';
+      const title = typeof first.title === 'string' ? first.title : '';
+      const publishedDate = typeof first.published_date === 'string' ? first.published_date : undefined;
+
+      if (content && content.length >= 200) {
+        return { content, title, publishedDate };
+      }
+    }
+
+    // Log when we get 200 but no usable content (helps debug API response shape)
+    console.warn(`[Tavily Extract] No usable content for ${url} (results=${results.length})`);
+    return null;
+  } catch (error: any) {
+    console.warn(`[Tavily Extract] Error for ${url}:`, error.message);
+    return null;
+  }
 }
 
 async function fetchHtml(url: string, fetchDir: string): Promise<string | null> {
@@ -310,20 +375,63 @@ async function extractArticle(
     // Wrap entire extraction with timeout (30 seconds total per article)
     return await withTimeout(
       (async () => {
-        // Fetch HTML
-        const html = await fetchHtml(searchResult.url, fetchDir);
-        if (!html) {
-          return null;
-        }
-        stats.byTopic[searchResult.topic].fetched_ok += 1;
+        const isConsultancy = isConsultancyDomain(searchResult.domain);
+        let text: string;
+        let extractedTitle: string;
+        let author: string | undefined;
+        let date: string | undefined;
 
-        // Extract text (wrap with timeout in case cheerio processing hangs)
-        const extractPromise = Promise.resolve(extractText(html, searchResult.url));
-        const { text, title: extractedTitle, author, date } = await withTimeout(
-          extractPromise,
-          5000,
-          `Text extraction processing timeout for ${searchResult.url}`
-        );
+        // For consultancy domains, try Tavily extraction first (more reliable)
+        if (isConsultancy) {
+          console.log(`[Extract] Using Tavily extraction for consultancy domain: ${searchResult.url}`);
+          const tavilyResult = await extractWithTavily(searchResult.url);
+          
+          if (tavilyResult && tavilyResult.content) {
+            text = tavilyResult.content;
+            extractedTitle = tavilyResult.title || searchResult.title;
+            date = tavilyResult.publishedDate;
+            // Tavily doesn't provide author, so we'll leave it undefined
+            author = undefined;
+            stats.byTopic[searchResult.topic].fetched_ok += 1;
+          } else {
+            // Fallback to regular HTML fetch if Tavily fails
+            console.log(`[Extract] Tavily extraction failed, falling back to HTML fetch: ${searchResult.url}`);
+            const html = await fetchHtml(searchResult.url, fetchDir);
+            if (!html) {
+              return null;
+            }
+            stats.byTopic[searchResult.topic].fetched_ok += 1;
+
+            const extractPromise = Promise.resolve(extractText(html, searchResult.url));
+            const extracted = await withTimeout(
+              extractPromise,
+              5000,
+              `Text extraction processing timeout for ${searchResult.url}`
+            );
+            text = extracted.text;
+            extractedTitle = extracted.title;
+            author = extracted.author;
+            date = extracted.date;
+          }
+        } else {
+          // Regular extraction for non-consultancy domains
+          const html = await fetchHtml(searchResult.url, fetchDir);
+          if (!html) {
+            return null;
+          }
+          stats.byTopic[searchResult.topic].fetched_ok += 1;
+
+          const extractPromise = Promise.resolve(extractText(html, searchResult.url));
+          const extracted = await withTimeout(
+            extractPromise,
+            5000,
+            `Text extraction processing timeout for ${searchResult.url}`
+          );
+          text = extracted.text;
+          extractedTitle = extracted.title;
+          author = extracted.author;
+          date = extracted.date;
+        }
         
         // Use search result title if extracted title is too short
         const finalTitle = extractedTitle.length > 10 ? extractedTitle : searchResult.title;
@@ -378,7 +486,8 @@ async function extractArticle(
           author,
           hash,
           topic: searchResult.topic,
-          discoveredAt
+          discoveredAt,
+          sourceType: isConsultancy ? 'consultancy' : 'discovery'
         };
 
         // Save to cache

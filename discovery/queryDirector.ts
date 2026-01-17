@@ -3,19 +3,15 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import type { Topic } from '../classification/classifyTopics';
 import { generateDeltaQueries, type QueryDeltaConfig } from './queryDelta';
+import { getTopicDisplayName } from '../utils/topicNames';
+import { generateConsultancyQueries } from './consultancyDomains';
 import crypto from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 function getCategoryLabel(topic: Topic): string {
-  const labels: Record<Topic, string> = {
-    "AI_and_Strategy": "AI & Strategy",
-    "Ecommerce_Retail_Tech": "Ecommerce & Retail Tech",
-    "Luxury_and_Consumer": "Luxury & Consumer",
-    "Jewellery_Industry": "Jewellery Industry"
-  };
-  return labels[topic];
+  return getTopicDisplayName(topic);
 }
 
 async function loadBaseQueries(): Promise<Record<string, string[]>> {
@@ -35,16 +31,21 @@ function computeHash(input: string): string {
 export type QueriesOutput = {
   baseQueries: Record<string, string[]>;
   deltaQueries: Record<string, string[]>;
+  consultancyQueries?: Record<string, string[]>; // New: consultancy-targeted queries
   finalQueries: Record<Topic, string[]>;
   baseQueriesHash: string;
   weekLabel: string;
   generatedAt: string;
 };
 
+export type QueryDirectorConfig = QueryDeltaConfig & {
+  includeConsultancies?: boolean; // Default: true
+};
+
 export async function generateSearchQueries(
   weekLabel: string,
   discoveryDir: string,
-  config: QueryDeltaConfig = { regenDelta: false, noDelta: false }
+  config: QueryDirectorConfig = { regenDelta: false, noDelta: false, includeConsultancies: true }
 ): Promise<Record<Topic, string[]>> {
   const queriesPath = path.join(discoveryDir, 'queries.json');
   
@@ -70,6 +71,23 @@ export async function generateSearchQueries(
   // Generate delta queries
   const deltaQueries = await generateDeltaQueries(weekLabel, discoveryDir, config);
   
+  // Generate consultancy queries if enabled
+  const consultancyQueriesByCategory: Record<string, string[]> = {};
+  if (config.includeConsultancies !== false) {
+    const topics: Topic[] = [
+      "AI_and_Strategy",
+      "Ecommerce_Retail_Tech",
+      "Luxury_and_Consumer",
+      "Jewellery_Industry"
+    ];
+    for (const topic of topics) {
+      const categoryLabel = getCategoryLabel(topic);
+      const consultancyQueries = generateConsultancyQueries(topic, categoryLabel);
+      consultancyQueriesByCategory[categoryLabel] = consultancyQueries;
+    }
+    console.log(`[QueryDirector] Generated consultancy queries for all categories`);
+  }
+  
   // Assemble final queries
   const topics: Topic[] = [
     "AI_and_Strategy",
@@ -91,25 +109,29 @@ export async function generateSearchQueries(
     const categoryLabel = getCategoryLabel(topic);
     const baseQueriesForCategory = baseQueries[categoryLabel] || [];
     const deltaQueriesForTopic = deltaQueries[topic] || [];
+    const consultancyQueriesForCategory = consultancyQueriesByCategory[categoryLabel] || [];
     
     if (baseQueriesForCategory.length !== 12) {
       throw new Error(`Base queries for ${categoryLabel} must have exactly 12 queries, found ${baseQueriesForCategory.length}`);
     }
     
-    const combined = [...baseQueriesForCategory, ...deltaQueriesForTopic];
+    // Combine: base (12) + delta (3) + consultancy (2) = 17 total
+    const combined = [...baseQueriesForCategory, ...deltaQueriesForTopic, ...consultancyQueriesForCategory];
     finalQueries[topic] = combined;
     deltaQueriesByCategory[categoryLabel] = deltaQueriesForTopic;
     
     const baseCount = baseQueriesForCategory.length;
     const deltaCount = deltaQueriesForTopic.length;
+    const consultancyCount = consultancyQueriesForCategory.length;
     const totalCount = combined.length;
-    console.log(`[QueryDirector] ${categoryLabel}: base=${baseCount}, delta=${deltaCount}, total=${totalCount}`);
+    console.log(`[QueryDirector] ${categoryLabel}: base=${baseCount}, delta=${deltaCount}, consultancy=${consultancyCount}, total=${totalCount}`);
   }
   
   // Save queries with metadata
   const output: QueriesOutput = {
     baseQueries,
     deltaQueries: deltaQueriesByCategory,
+    consultancyQueries: Object.keys(consultancyQueriesByCategory).length > 0 ? consultancyQueriesByCategory : undefined,
     finalQueries,
     baseQueriesHash,
     weekLabel,
@@ -125,8 +147,9 @@ export async function generateSearchQueries(
     const categoryLabel = getCategoryLabel(topic);
     const baseCount = baseQueries[categoryLabel]?.length || 0;
     const deltaCount = deltaQueriesByCategory[categoryLabel]?.length || 0;
+    const consultancyCount = consultancyQueriesByCategory[categoryLabel]?.length || 0;
     const totalCount = finalQueries[topic].length;
-    console.log(`${categoryLabel}: base=${baseCount}, delta=${deltaCount}, total=${totalCount}`);
+    console.log(`${categoryLabel}: base=${baseCount}, delta=${deltaCount}, consultancy=${consultancyCount}, total=${totalCount}`);
   }
   
   return finalQueries;

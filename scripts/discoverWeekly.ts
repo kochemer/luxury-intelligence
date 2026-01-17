@@ -124,8 +124,9 @@ async function main() {
 
   // Step 2: Search
   console.log('[Step 2] Searching the web...');
-  const { results: searchResults } = await searchWithTavily(queries, config.maxCandidates, discoveryDir);
-  console.log(`✓ Found ${searchResults.length} candidate URLs\n`);
+  const { results: searchResults, domainBreakdown } = await searchWithTavily(queries, config.maxCandidates, discoveryDir);
+  console.log(`✓ Found ${searchResults.length} candidate URLs`);
+  console.log(`✓ Consultancy domains: ${domainBreakdown.consultancy} candidates\n`);
 
   // Step 3: Fetch and extract
   console.log('[Step 3] Fetching and extracting articles...');

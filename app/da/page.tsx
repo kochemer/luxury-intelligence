@@ -108,7 +108,7 @@ const CATEGORY_CARDS: Array<{
   {
     key: 'AI_and_Strategy',
     color: '#25505f',
-    title: 'AI & Strategi',
+    title: 'Kunstig Intelligens Nyheder',
     desc: 'De seneste fremskridt og strategier inden for kunstig intelligens og forretningstransformation.',
     countBy: 'AIStrategy',
     topInfo: 'Top 7 artikler efter relevans',
@@ -117,7 +117,7 @@ const CATEGORY_CARDS: Array<{
   {
     key: 'Luxury_and_Consumer',
     color: '#6b2d5c',
-    title: 'Luksus & Forbrug',
+    title: 'Mode & Luksus',
     desc: 'Innovationer og ændringer i luksus og bredere forbrugerprodukter, oplevelser og mærker.',
     countBy: 'LuxuryConsumer',
     topInfo: 'Top 7 artikler efter nylighed',

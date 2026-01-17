@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import OpenAI from 'openai';
 import type { Topic } from '../classification/classifyTopics';
+import { getTopicDisplayName } from '../utils/topicNames';
 import crypto from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -28,20 +29,14 @@ function getTopicDefinition(topic: Topic): string {
   const definitions: Record<Topic, string> = {
     "AI_and_Strategy": "AI strategy, machine learning applications, AI tools, LLMs, generative AI, AI automation, AI personalization, AI-driven business strategy",
     "Ecommerce_Retail_Tech": "E-commerce platforms, retail technology, online shopping, digital commerce, retail innovation, marketplace technology, retail operations",
-    "Luxury_and_Consumer": "Luxury brands, consumer goods, high-end retail, luxury market trends, premium products, luxury consumer behavior",
+    "Luxury_and_Consumer": "Luxury brands, consumer goods, high-end retail, luxury market trends, premium products, luxury consumer behavior, fashion brands",
     "Jewellery_Industry": "Jewelry industry, diamonds, gemstones, luxury jewelry brands, jewelry retail, jewelry market trends, fine jewelry"
   };
   return definitions[topic];
 }
 
 function getCategoryLabel(topic: Topic): string {
-  const labels: Record<Topic, string> = {
-    "AI_and_Strategy": "AI & Strategy",
-    "Ecommerce_Retail_Tech": "Ecommerce & Retail Tech",
-    "Luxury_and_Consumer": "Luxury & Consumer",
-    "Jewellery_Industry": "Jewellery Industry"
-  };
-  return labels[topic];
+  return getTopicDisplayName(topic);
 }
 
 async function getLastWeekDigest(weekLabel: string): Promise<{
@@ -217,13 +212,17 @@ export async function generateDeltaQueries(
           "Luxury_and_Consumer": [],
           "Jewellery_Industry": []
         };
+        // Backward compatibility: support both old and new category names
+        const categoryToTopic: Record<string, Topic> = {
+          "AI & Strategy": "AI_and_Strategy",
+          "Artificial Intelligence News": "AI_and_Strategy",
+          "Ecommerce & Retail Tech": "Ecommerce_Retail_Tech",
+          "Luxury & Consumer": "Luxury_and_Consumer",
+          "Fashion & Luxury": "Luxury_and_Consumer",
+          "Jewellery Industry": "Jewellery_Industry"
+        };
         for (const [category, queries] of Object.entries(existing.deltaQueries || {})) {
-          const topic = Object.entries({
-            "AI & Strategy": "AI_and_Strategy",
-            "Ecommerce & Retail Tech": "Ecommerce_Retail_Tech",
-            "Luxury & Consumer": "Luxury_and_Consumer",
-            "Jewellery Industry": "Jewellery_Industry"
-          }).find(([label]) => label === category)?.[1] as Topic | undefined;
+          const topic = categoryToTopic[category] as Topic | undefined;
           if (topic && Array.isArray(queries)) {
             result[topic] = queries;
           }

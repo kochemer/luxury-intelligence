@@ -96,7 +96,7 @@ function buildClassificationPrompt(article: { title: string; source: string; sni
 
 2. **Ecommerce_Retail_Tech**: Articles about online shopping, ecommerce platforms, retail technology, checkout systems, payment processing, fulfillment, logistics, omnichannel retail, marketplace platforms. Examples: "Shopify launches new features", "Retail logistics innovation", "Ecommerce conversion optimization".
 
-3. **Luxury_and_Consumer**: Articles about luxury consumer behavior, affluent demographics, luxury brand strategy, consumer insights, luxury trends, high-end market research, luxury customer journeys. Examples: "Luxury consumer spending trends", "Affluent consumer behavior", "Luxury brand loyalty".
+3. **Luxury_and_Consumer**: Articles about luxury brands, fashion brands, consumer goods, high-end retail, luxury market trends, premium products, luxury consumer behavior, fashion industry. Examples: "Luxury consumer spending trends", "Fashion brand strategy", "Luxury brand loyalty".
 
 4. **Jewellery_Industry**: Articles specifically about jewelry, diamonds, gemstones, watches, luxury jewelry brands (Cartier, Tiffany, Bulgari, etc.), jewelry retail, jewelry manufacturing, horology. Examples: "Diamond market trends", "Cartier launches new collection", "Jewelry industry news".
 

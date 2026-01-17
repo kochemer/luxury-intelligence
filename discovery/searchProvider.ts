@@ -2,6 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
 import type { Topic } from '../classification/classifyTopics';
+import { CONSULTANCY_DOMAINS, isConsultancyDomain } from './consultancyDomains';
 
 const TAVILY_API_URL = 'https://api.tavily.com/search';
 
@@ -36,8 +37,27 @@ function getTavilyApiKey(): string {
   return key;
 }
 
-async function searchTavily(query: string, maxResults: number = 20): Promise<SearchResult[]> {
+async function searchTavily(query: string, maxResults: number = 20, targetDomains?: string[]): Promise<SearchResult[]> {
   const apiKey = getTavilyApiKey();
+
+  // Extract domain from site: operator if present
+  let includeDomains: string[] = [];
+  let cleanQuery = query;
+  
+  if (query.includes('site:')) {
+    const siteMatch = query.match(/site:([^\s]+)/);
+    if (siteMatch) {
+      const domain = siteMatch[1].replace(/^https?:\/\//, '').split('/')[0].replace('www.', '');
+      includeDomains = [domain];
+      // Remove site: operator from query (Tavily will use include_domains instead)
+      cleanQuery = query.replace(/site:[^\s]+\s*/, '').trim();
+    }
+  }
+  
+  // Use provided targetDomains if available
+  if (targetDomains && targetDomains.length > 0) {
+    includeDomains = targetDomains;
+  }
 
   try {
     const response = await fetch(TAVILY_API_URL, {
@@ -47,11 +67,11 @@ async function searchTavily(query: string, maxResults: number = 20): Promise<Sea
       },
       body: JSON.stringify({
         api_key: apiKey,
-        query,
+        query: cleanQuery,
         search_depth: 'basic',
         include_answer: false,
         include_raw_content: false,
-        include_domains: [],
+        include_domains: includeDomains.length > 0 ? includeDomains : [],
         exclude_domains: [],
         max_results: maxResults,
         include_images: false
@@ -83,13 +103,22 @@ async function searchTavily(query: string, maxResults: number = 20): Promise<Sea
   }
 }
 
-export type SearchStats = Record<Topic, { discovery_found: number }>;
+export type SearchStats = Record<Topic, { 
+  discovery_found: number;
+  consultancy_found?: number; // Count of consultancy domain results
+}>;
+
+export type DomainBreakdown = {
+  total: number;
+  byDomain: Record<string, number>;
+  consultancy: number;
+};
 
 export async function searchWithTavily(
   queries: Record<Topic, string[]>,
   maxCandidates: number,
   discoveryDir: string
-): Promise<{ results: SearchResult[]; stats: SearchStats }> {
+): Promise<{ results: SearchResult[]; stats: SearchStats; domainBreakdown: DomainBreakdown }> {
   const serpResultsPath = path.join(discoveryDir, 'serp-results.json');
   
   // Check if results already exist
@@ -102,20 +131,34 @@ export async function searchWithTavily(
     }
     console.log(`[Search] Using cached search results from ${serpResultsPath}`);
     const cachedStats: SearchStats = {
-      "AI_and_Strategy": { discovery_found: 0 },
-      "Ecommerce_Retail_Tech": { discovery_found: 0 },
-      "Luxury_and_Consumer": { discovery_found: 0 },
-      "Jewellery_Industry": { discovery_found: 0 }
+      "AI_and_Strategy": { discovery_found: 0, consultancy_found: 0 },
+      "Ecommerce_Retail_Tech": { discovery_found: 0, consultancy_found: 0 },
+      "Luxury_and_Consumer": { discovery_found: 0, consultancy_found: 0 },
+      "Jewellery_Industry": { discovery_found: 0, consultancy_found: 0 }
+    };
+    const domainBreakdown: DomainBreakdown = {
+      total: 0,
+      byDomain: {},
+      consultancy: 0
     };
     if (Array.isArray(existing)) {
       for (const item of existing) {
         const topic = item.topic as Topic | undefined;
         if (topic && cachedStats[topic]) {
           cachedStats[topic].discovery_found += 1;
+          domainBreakdown.total += 1;
+          
+          const domain = item.domain || '';
+          domainBreakdown.byDomain[domain] = (domainBreakdown.byDomain[domain] || 0) + 1;
+          
+          if (isConsultancyDomain(domain)) {
+            cachedStats[topic].consultancy_found = (cachedStats[topic].consultancy_found || 0) + 1;
+            domainBreakdown.consultancy += 1;
+          }
         }
       }
     }
-    return { results: existing, stats: cachedStats };
+    return { results: existing, stats: cachedStats, domainBreakdown };
   } catch {
     // Continue to search
   }
@@ -123,10 +166,15 @@ export async function searchWithTavily(
   const allResults: SearchResult[] = [];
   const seenUrls = new Set<string>();
   const stats: SearchStats = {
-    "AI_and_Strategy": { discovery_found: 0 },
-    "Ecommerce_Retail_Tech": { discovery_found: 0 },
-    "Luxury_and_Consumer": { discovery_found: 0 },
-    "Jewellery_Industry": { discovery_found: 0 }
+    "AI_and_Strategy": { discovery_found: 0, consultancy_found: 0 },
+    "Ecommerce_Retail_Tech": { discovery_found: 0, consultancy_found: 0 },
+    "Luxury_and_Consumer": { discovery_found: 0, consultancy_found: 0 },
+    "Jewellery_Industry": { discovery_found: 0, consultancy_found: 0 }
+  };
+  const domainBreakdown: DomainBreakdown = {
+    total: 0,
+    byDomain: {},
+    consultancy: 0
   };
 
   // Search for each query
@@ -134,7 +182,17 @@ export async function searchWithTavily(
     console.log(`[Search] Searching ${topicQueries.length} queries for ${topic}...`);
     
     for (const query of topicQueries) {
-      const results = await searchTavily(query, Math.ceil(maxCandidates / topicQueries.length));
+      // Extract domain from site: operator for Tavily include_domains
+      let targetDomains: string[] | undefined;
+      if (query.includes('site:')) {
+        const siteMatch = query.match(/site:([^\s]+)/);
+        if (siteMatch) {
+          const domain = siteMatch[1].replace(/^https?:\/\//, '').split('/')[0].replace('www.', '');
+          targetDomains = [domain];
+        }
+      }
+      
+      const results = await searchTavily(query, Math.ceil(maxCandidates / topicQueries.length), targetDomains);
       
       for (const result of results) {
         // Deduplicate by URL
@@ -142,6 +200,17 @@ export async function searchWithTavily(
           seenUrls.add(result.url);
           allResults.push({ ...result, topic: topic as Topic });
           stats[topic as Topic].discovery_found += 1;
+          domainBreakdown.total += 1;
+          
+          // Track domain breakdown
+          const domain = result.domain || '';
+          domainBreakdown.byDomain[domain] = (domainBreakdown.byDomain[domain] || 0) + 1;
+          
+          // Track consultancy domains
+          if (isConsultancyDomain(domain)) {
+            stats[topic as Topic].consultancy_found = (stats[topic as Topic].consultancy_found || 0) + 1;
+            domainBreakdown.consultancy += 1;
+          }
         }
       }
       
@@ -157,6 +226,28 @@ export async function searchWithTavily(
   await fs.mkdir(discoveryDir, { recursive: true });
   await fs.writeFile(serpResultsPath, JSON.stringify(limitedResults, null, 2), 'utf-8');
 
-  return { results: limitedResults, stats };
+  // Log domain breakdown
+  console.log(`\n=== DOMAIN BREAKDOWN ===`);
+  console.log(`Total candidates: ${domainBreakdown.total}`);
+  console.log(`Consultancy domains: ${domainBreakdown.consultancy}`);
+  if (domainBreakdown.consultancy > 0) {
+    console.log(`\nTop consultancy domains:`);
+    const consultancyDomains = Object.entries(domainBreakdown.byDomain)
+      .filter(([domain]) => isConsultancyDomain(domain))
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5);
+    for (const [domain, count] of consultancyDomains) {
+      console.log(`  ${domain}: ${count}`);
+    }
+  }
+  console.log(`\nTop domains overall:`);
+  const topDomains = Object.entries(domainBreakdown.byDomain)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10);
+  for (const [domain, count] of topDomains) {
+    console.log(`  ${domain}: ${count}`);
+  }
+
+  return { results: limitedResults, stats, domainBreakdown };
 }
 
