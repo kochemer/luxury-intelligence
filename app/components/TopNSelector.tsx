@@ -102,15 +102,15 @@ export default function TopNSelector() {
 
   return (
     <div className="flex items-center gap-1">
-      <span className="text-xs text-gray-500 mr-1">Show:</span>
+      <span className="text-xs text-black/45">Show:</span>
       {VALID_N_VALUES.map((n) => (
         <button
           key={n}
           onClick={() => handleChange(n)}
-          className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
+          className={`px-1.5 py-0.5 text-xs text-black/45 rounded transition-colors cursor-pointer ${
             currentN === n
-              ? 'bg-gray-200 text-gray-900 border border-gray-300'
-              : 'bg-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50 border border-transparent'
+              ? 'bg-black/[0.04] font-medium text-black/60'
+              : 'bg-transparent hover:bg-black/[0.02] hover:text-black/50'
           }`}
           aria-label={`Show ${n} articles per category`}
           aria-pressed={currentN === n}
@@ -118,7 +118,7 @@ export default function TopNSelector() {
           {n}
         </button>
       ))}
-      <span className="text-xs text-gray-500 ml-1">per category</span>
+      <span className="text-xs text-black/45">per category</span>
     </div>
   );
 }

@@ -6,7 +6,6 @@ import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import DigestClientView from './components/DigestClientView';
 import TopNSelector from './components/TopNSelector';
-import BuildDigestButton from './components/BuildDigestButton';
 import { TopicKey } from '../utils/topicNames';
 import { formatDate, formatDateRange, formatDateTime } from '../utils/formatDate';
 
@@ -217,40 +216,79 @@ export default async function Home() {
           {/* Gradient overlay for text legibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/0" />
           
+          {/* "This week's cover" label - top left */}
+          {digest?.coverImageUrl && (
+            <div className="absolute top-6 left-6 z-20">
+              <p className="text-sm md:text-base text-white font-medium" style={{
+                textShadow: '0 1px 3px rgba(0,0,0,0.5)'
+              }}>
+                This week&apos;s cover
+              </p>
+            </div>
+          )}
+          
           {/* Hero content */}
           <div className="relative z-10 h-full flex items-center justify-center">
             <div className="w-full max-w-[1400px] lg:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 md:px-8 text-center">
-              <h1 className="font-bold mb-4 text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] text-white" style={{
-                textShadow: '0 2px 8px rgba(0,0,0,0.5)'
-              }}>
-                Luxury Intelligence
-              </h1>
-              <div className="text-gray-100 leading-relaxed max-w-5xl mx-auto mb-4 text-[1.6rem] md:text-[2rem] lg:text-[2.2rem] whitespace-nowrap" style={{
-                textShadow: '0 1px 4px rgba(0,0,0,0.3)'
-              }}>
-                Weekly intelligence across AI, ecommerce, luxury, and jewellery.
-              </div>
-              <p className="text-gray-200 mb-6 text-[1.2rem] md:text-[1.5rem] lg:text-[1.6rem] italic" style={{
-                textShadow: '0 1px 3px rgba(0,0,0,0.3)'
-              }}>
-                Curated articles, signals, and context — handpicked and summarised by AI agents each week.
-              </p>
-              {digest?.weekLabel && (
-                <div className="mt-8">
-                  <div className="inline-block bg-black/50 backdrop-blur-sm px-8 md:px-10 py-4 md:py-5 rounded-lg">
+              <div className="bg-black/20 backdrop-blur-sm rounded-2xl px-6 md:px-10 py-8 md:py-12 inline-block">
+                <h1 className="font-bold mb-4 text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] text-white" style={{
+                  textShadow: '0 2px 8px rgba(0,0,0,0.5)'
+                }}>
+                  Luxury Intelligence
+                </h1>
+                <div className="text-gray-100 leading-relaxed max-w-5xl mx-auto mb-4 text-[1.6rem] md:text-[2rem] lg:text-[2.2rem] whitespace-nowrap" style={{
+                  textShadow: '0 1px 4px rgba(0,0,0,0.3)'
+                }}>
+                  Weekly intelligence across AI, ecommerce, luxury, and jewellery.
+                </div>
+                <p className="text-gray-200 mb-6 text-[1.2rem] md:text-[1.5rem] lg:text-[1.6rem] italic" style={{
+                  textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                }}>
+                  Curated articles, signals, and context — handpicked and summarised by AI agents each week.
+                </p>
+                {digest?.weekLabel && (
+                  <div className="mt-8">
                     <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
                       Week {digest.weekLabel}
                     </h2>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-          </div>
-          
-          {/* Build digest button - top right */}
-          <div className="absolute top-4 right-4 z-20">
-            <div className="bg-black/50 backdrop-blur-sm rounded-lg px-3 py-2">
-              <BuildDigestButton />
+            
+            {/* Scroll indicator - inside hero content area */}
+            <div 
+              className="absolute bottom-32 left-1/2 pointer-events-none"
+              style={{
+                transform: 'translateX(-50%)',
+                zIndex: 50,
+                animation: 'scrollIndicator 2s ease-in-out infinite'
+              }}
+            >
+              <div className="rounded-full px-6 py-5 bg-black/30 backdrop-blur-md shadow-lg border border-white/10">
+                <svg 
+                  className="w-10 h-10 text-white opacity-80" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  {/* First chevron */}
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2.5} 
+                    d="M19 9l-7 7-7-7" 
+                  />
+                  {/* Second chevron (shifted down) */}
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2.5} 
+                    d="M19 15l-7 7-7-7" 
+                  />
+                </svg>
+              </div>
             </div>
           </div>
           
@@ -335,31 +373,43 @@ export default async function Home() {
                 </div>
               )}
 
-              {/* Category Jump Navigation - At top of panel */}
+              {/* Category Control Bar - Editorial style */}
               <div className="mb-6 md:mb-8 pb-6 md:pb-8 border-b border-gray-200 dark:border-gray-700">
-                <div className="flex flex-col items-center gap-4">
-                  <div className="flex items-center justify-center w-full flex-wrap gap-4 relative">
-                    <nav className="flex flex-wrap gap-2 justify-center" aria-label="Category navigation">
-                      {CATEGORY_CARDS.map(cat => (
-                        <a
-                          key={cat.anchorId}
-                          href={`#${cat.anchorId}`}
-                          className="px-4 py-2 text-sm font-medium border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
-                        >
-                          {cat.title}
-                        </a>
-                      ))}
-                    </nav>
-                    <div className="absolute right-0 text-right">
-                      <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
-                        {digest.totals.total} articles processed this week
-                      </p>
+                <div className="rounded-2xl border border-black/5 bg-white/70 backdrop-blur-sm px-6 py-4">
+                  <div className="flex items-center justify-between gap-6 flex-wrap">
+                    {/* Left: Category Pills (Primary) */}
+                    <div className="flex items-center gap-4 flex-1 min-w-0">
+                      <span className="text-[11px] uppercase tracking-wider text-black/40 whitespace-nowrap">
+                        Browse by category
+                      </span>
+                      <nav className="flex flex-wrap gap-2" aria-label="Category navigation">
+                        {CATEGORY_CARDS.map(cat => (
+                          <a
+                            key={cat.anchorId}
+                            href={`#${cat.anchorId}`}
+                            className="rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-black/70 hover:bg-black/[0.02] hover:border-black/15 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-black/20 focus-visible:ring-offset-1 transition-colors"
+                          >
+                            {cat.title}
+                          </a>
+                        ))}
+                      </nav>
                     </div>
-                  </div>
-                  <div className="flex justify-center">
-                    <Suspense fallback={<div className="h-6 w-20" />}>
-                      <TopNSelector />
-                    </Suspense>
+                    
+                    {/* Right: System Controls (Secondary) */}
+                    <div className="flex items-center gap-4 flex-shrink-0">
+                      <Suspense fallback={<div className="h-4 w-20" />}>
+                        <TopNSelector />
+                      </Suspense>
+                      <div className="w-px h-4 bg-black/10" />
+                      <div className="flex flex-col items-end">
+                        <span className="text-sm font-medium text-black/60">
+                          {digest.totals.total}
+                        </span>
+                        <span className="text-[11px] text-black/40">
+                          articles analysed this week
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
