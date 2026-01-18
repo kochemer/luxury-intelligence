@@ -3,31 +3,18 @@
   "tz": "Europe/Copenhagen",
   "startISO": "2026-01-11T23:00:00.000Z",
   "endISO": "2026-01-18T22:59:59.999Z",
-  "builtAtISO": "2026-01-18T20:38:54.012+01:00",
-  "builtAtLocal": "2026-01-18 20:38:54",
+  "builtAtISO": "2026-01-18T21:37:35.687+01:00",
+  "builtAtLocal": "2026-01-18 21:37:35",
   "coverImageUrl": "/weekly-images/2026-W03.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W03",
-  "coverKeywords": [
-    "adoption",
-    "outpaces",
-    "training",
-    "professionals",
-    "expect",
-    "role",
-    "changes",
-    "report",
-    "chatgpt",
-    "free",
-    "ride",
-    "ending"
-  ],
+  "coverImageAlt": "Weekly digest cover for 2026-W03",
+  "coverKeywords": [],
   "totals": {
     "total": 454,
     "byTopic": {
       "AIStrategy": 54,
-      "EcommerceRetail": 289,
+      "EcommerceRetail": 290,
       "LuxuryConsumer": 83,
-      "Jewellery": 26
+      "Jewellery": 25
     }
   },
   "topics": {
@@ -35,13 +22,32 @@
       "total": 54,
       "top": [
         {
-          "id": "ro38p0",
-          "title": "Electric Rate Shock Triggers White House Crackdown on Data Centers",
-          "url": "https://www.pymnts.com/news/artificial-intelligence/2026/electric-rate-shock-triggers-white-house-crackdown-on-data-centers/",
-          "source": "PYMNTS",
-          "published_at": "2026-01-16T23:57:24.000Z",
+          "id": "g3mhgy",
+          "title": "AI in universities: What is driving professors to develop custom assistants? ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/ai-in-universities-what-is-driving-professors-to-develop-custom-assistants/articleshow/126637353.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-01-18T04:52:39.000Z",
+          "ingested_at": "2026-01-18T13:17:00.638Z",
+          "snippet": "Universities are grappling with generative AI. Some ban it, others embrace it. Professors at George Washington University are creating custom AI teaching assistants. These tools help students with research and writing. This approach aims to teach AI literacy responsibly. It offers a controlled environment for learning.",
+          "sourceType": "rss",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "aiSummary": "AI-generated summary: Professors at George Washington University are developing custom AI teaching assistants to help students with research and writing, aiming to teach AI literacy responsibly in a controlled learning environment amidst universities' varying approaches to generative AI."
+        },
+        {
+          "id": "y1matk",
+          "title": "Alarm in Germany over AI holocaust imagery ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/alarm-in-germany-over-ai-holocaust-imagery/articleshow/126618160.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-01-17T14:41:04.000Z",
           "ingested_at": "2026-01-17T20:59:32.276Z",
-          "snippet": "The explosive growth of artificial intelligence (AI) has also led to explosive growth in electricity demand. Infrastructure is straining under the weight of that demand, and nowhere is the strain more visible than in the PJM Interconnection region.  Data centers supporting AI workloads are driving unprecedented power needs, colliding with grid limitations and pushing […]\nThe post Electric Rate Shock Triggers White House Crackdown on Data Centers appeared first on PYMNTS.com.",
+          "snippet": "Germany's government and Holocaust memorial institutions have demanded social ‍media platforms stop the spread ​of fake images which they say are distorting and trivialising ⁠history.",
           "sourceType": "rss",
           "gate": {
             "eligible": true,
@@ -54,18 +60,16 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Addresses AI's impact on electricity demand and infrastructure",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary: The White House is cracking down on data centers due to the surge in electricity demand driven by the growth of artificial intelligence, particularly in the PJM Interconnection region. Data centers supporting AI workloads are straining infrastructure and pushing power needs to unprecedented levels."
+          "aiSummary": "AI-generated summary: Germany's government and Holocaust memorial institutions are alarmed by the spread of fake images on social media platforms that distort and trivialize history, particularly related to the Holocaust."
         },
         {
-          "id": "lw2qfj",
-          "title": "Nvidia suppliers halt H200 output after China blocks chip shipments",
-          "url": "https://www.ft.com/content/02a3eb7c-684f-4e39-87b8-36e9595ef800",
-          "source": "Financial Times - Technology",
-          "published_at": "2026-01-17T01:30:05.000Z",
+          "id": "qn9m6u",
+          "title": "California AG sends letter demanding xAI stop producing deekfake content ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/california-ag-sends-letter-demanding-xai-stop-producing-deekfake-content/articleshow/126616029.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-01-17T13:25:13.000Z",
           "ingested_at": "2026-01-17T20:59:32.276Z",
-          "snippet": "Parts makers concerned about whether Beijing will allow imports of AI processors",
+          "snippet": "California ⁠Attorney General Robert Bonta on Friday sent ‌a ‌cease and desist ‌letter to xAI demanding the company stop the creation ​and distribution ​of AI-generated non-consensual ‌sexualised ‍imagery by ‍its Grok AI chatbot.",
           "sourceType": "rss",
           "gate": {
             "eligible": true,
@@ -75,18 +79,16 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Discusses tariffs affecting AI chip sales in China",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nNvidia suppliers have stopped producing H200 chips due to China's block on chip shipments, raising concerns about the import of AI processors."
+          "aiSummary": "AI-generated Summary:\nCalifornia AG Robert Bonta has issued a cease and desist letter to xAI, demanding they halt the production and distribution of AI-generated non-consensual sexualized content through their Grok AI chatbot."
         },
         {
-          "id": "iq075h",
-          "title": "White House sets tariffs to take 25% cut of Nvidia and AMD sales in China",
-          "url": "https://www.ft.com/content/14dc1527-e2ba-49d1-b223-76ddcbd26699",
-          "source": "Financial Times - Technology",
-          "published_at": "2026-01-15T04:30:43.000Z",
-          "ingested_at": "2026-01-17T20:59:32.276Z",
-          "snippet": "Levies designed to enact deal Donald Trump cut with chipmakers to allow shipments of AI processors",
+          "id": "j8wtds",
+          "title": "AGI? GPUs? Learn the definitions of the most common AI terms to enter our vocabulary",
+          "url": "https://www.businessinsider.com/ai-terms-definitions-vocabulary-2026",
+          "source": "Business Insider - Tech",
+          "published_at": "2026-01-18T09:14:01.000Z",
+          "ingested_at": "2026-01-18T13:17:00.638Z",
+          "snippet": "Companies of all sizes are looking to hire workers who know how to use AI.\nSebastien Bozon/Getty Images\n\nDo you know what LLM even is? How about a GPU? A new vocabulary has emerged with the rise of AI.\nFrom AGI to prompt engineering, new terms and concepts are being created seemingly every day.\nUse this glossary of AI-related terms to speak about this technology with authority.\n\nIt's becoming increasingly impossible to ignore AI in our everyday lives.\nThat doesn't mean it's always easy to unders...",
           "sourceType": "rss",
           "gate": {
             "eligible": true,
@@ -96,9 +98,26 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Explains tariffs impacting AI processor shipments",
-          "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nThe White House has imposed tariffs to claim 25% of Nvidia and AMD sales in China, following a deal made by Donald Trump with chipmakers to enable the shipment of AI processors."
+          "aiSummary": "AI-generated summary: A glossary of AI-related terms is essential as companies seek workers knowledgeable in AI, with terms like AGI and GPU becoming common in the evolving AI vocabulary."
+        },
+        {
+          "id": "x9y6fz",
+          "title": "Boston Dynamics CEO told us how the humanoid robot revolution begins",
+          "url": "https://www.businessinsider.com/boston-dynamics-ceo-humanoid-robot-factory-workers-hyundai-atlas-2026-1",
+          "source": "Business Insider - Tech",
+          "published_at": "2026-01-18T13:02:01.000Z",
+          "ingested_at": "2026-01-18T13:17:00.638Z",
+          "snippet": "Boston Dynamics CEO Robert Playter talked to Business Insider about how humanoid robots will transform the factory workplace.\nSophia Tung\n\nBoston Dynamics revealed the latest iteration of Atlas, a 200-pound, six-foot-tall humanoid robot.\nThe company plans to deploy Atlas on the Hyundai factory floor by 2028.\nBusiness Insider spoke to Boston Dynamics CEO Robert Playter about the new robot.\n\nIn a few years, factory employees at Hyundai's massive Georgia plant could be getting a new coworker.\nIt's ...",
+          "sourceType": "rss",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "aiSummary": "AI-Generated Summary:\nBoston Dynamics CEO Robert Playter discussed how humanoid robots, like the latest Atlas model, will revolutionize factory workplaces, with plans to deploy Atlas at Hyundai by 2028."
         },
         {
           "id": "aox32a",
@@ -120,18 +139,16 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Highlights competitive AI model training on local chips",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary: Chinese AI firm Zhipu AI has successfully trained a state-of-the-art image generation model entirely on Huawei chips, showcasing the ability of Chinese companies to develop competitive AI systems without relying on Western technology. This marks the first time a multimodal model completed its full training cycle on Chinese-made chips, highlighting advancements in AI technology in China."
+          "aiSummary": "AI firm Zhipu AI in China has successfully trained a state-of-the-art image generation model entirely on Huawei chips, showcasing the ability of Chinese companies to develop competitive AI systems without relying on Western technology. This achievement marks the first time a multimodal model has completed its full training cycle on Chinese-made chips, using Huawei's Ascend Atlas 800T A2 devices and the MindSpore AI framework."
         },
         {
-          "id": "q8oowv",
-          "title": "ClickHouse lands $15 billion valuation in AI database race ",
-          "url": "https://economictimes.indiatimes.com/tech/funding/clickhouse-lands-15-billion-valuation-in-ai-database-race/articleshow/126586056.cms",
-          "source": "Economic Times - Technology",
-          "published_at": "2026-01-16T17:02:07.000Z",
-          "ingested_at": "2026-01-17T20:59:32.276Z",
-          "snippet": "ClickHouse has raised $400 million in fresh funding, lifting its valuation to $15 billion as investor interest in AI infrastructure grows. The database firm builds real-time analytics tools used in developing AI systems and counts major tech companies among its customers. The funding will support product development, global expansion and a focus on safer AI deployment.",
+          "id": "7rc5gn",
+          "title": "Yea or nay: Will Nvidia H200 chips go to China?",
+          "url": "https://www.computerworld.com/article/4117113/yea-or-nay-will-nvidia-h200-chips-go-to-china-2.html",
+          "source": "Computerworld - Ecommerce",
+          "published_at": "2026-01-15T02:30:56.000Z",
+          "ingested_at": "2026-01-18T13:17:00.638Z",
+          "snippet": "In what appears to be a case of diplomatic mind games in action, one day after the US government issued a regulation clearing the way for Nvidia to sell its H200 artificial intelligence processors to Chinese companies on a case-by-case basis, a published report has revealed Chinese custom officers have been told not to let them into the country.\nThe ruling announced Monday by the US commerce department’s Bureau of Industry and Security (BIS), the primary agency that oversees export controls, rep...",
           "sourceType": "rss",
           "gate": {
             "eligible": true,
@@ -141,59 +158,12 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Covers funding for AI infrastructure and analytics tools",
-          "rerankConfidence": 0.7,
-          "aiSummary": "AI-generated summary:\nClickHouse, a database firm specializing in real-time analytics for AI systems, has secured $400 million in funding, reaching a valuation of $15 billion. The investment will fuel product development, global expansion, and efforts towards safer AI deployment."
-        },
-        {
-          "id": "kpjeic",
-          "title": "Sequoia targets major Anthropic investment",
-          "url": "https://www.ft.com/content/53220829-2ab2-471c-9a00-30d24beb8d48",
-          "source": "Financial Times - Technology",
-          "published_at": "2026-01-18T11:00:07.000Z",
-          "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "Silicon Valley investor to write first cheque for AI start-up after recent leadership overhaul",
-          "sourceType": "rss",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Sponsored/press release content"
-            ],
-            "flags": {
-              "sponsored": true,
-              "pressRelease": true
-            },
-            "tier": "med"
-          },
-          "rerankWhy": "Details major investment in AI startup Anthropic",
-          "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nSequoia, a Silicon Valley investor, plans to make a significant investment in an AI start-up following a recent leadership change."
-        },
-        {
-          "id": "93n1gw",
-          "title": "China will clinch the AI race ",
-          "url": "https://www.ft.com/content/d9af562c-1d37-41b7-9aa7-a838dce3f571",
-          "source": "Financial Times - Technology",
-          "published_at": "2026-01-18T12:00:08.000Z",
-          "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "Energy abundance, open-source models and manufacturing strengths will push Beijing into first place",
-          "sourceType": "rss",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "rerankWhy": "Analyzes China's potential lead in the AI race",
-          "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary:\nChina is expected to lead the AI race due to energy abundance, open-source models, and manufacturing strengths, positioning Beijing in first place."
+          "aiSummary": "AI-Generated Summary:\nThe US government allows Nvidia to sell H200 chips to Chinese companies on a case-by-case basis, but Chinese custom officers have been instructed not to allow them into the country, creating uncertainty about the chips' fate in China."
         }
       ]
     },
     "Ecommerce_Retail_Tech": {
-      "total": 289,
+      "total": 290,
       "top": [
         {
           "id": "oiynbc",
@@ -215,7 +185,7 @@
             },
             "tier": "med"
           },
-          "aiSummary": "AI adoption is surpassing training efforts in the workplace, with 71% of professionals anticipating role changes due to AI. Many feel their companies are not offering sufficient training on AI tools, leading to uncertainty about the technology's impact on their jobs."
+          "aiSummary": "AI adoption is surpassing training efforts in the workplace, with 71% of professionals anticipating role changes due to AI. Many feel their companies are not providing sufficient training on AI tools, leading to uncertainty about the technology's impact on their jobs."
         },
         {
           "id": "wd2tj9",
@@ -240,13 +210,13 @@
           "aiSummary": "AI-Generated Summary:\nOpenAI will introduce advertisements to ChatGPT users without a premium subscription, with testing set to begin in the upcoming weeks, as reported by the Economic Times on January 17, 2026."
         },
         {
-          "id": "dp23oi",
-          "title": "In a cooling job market, AI pros still hold the cards ",
-          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/in-a-cooling-job-market-ai-pros-still-hold-the-cards/articleshow/126624727.cms",
+          "id": "y0zq8k",
+          "title": "EXL eyes two new India centres as AI spend set to rise in 2026 ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/exl-eyes-two-new-india-centres-as-ai-spend-set-to-rise-in-2026/articleshow/126641297.cms",
           "source": "Economic Times - Technology",
-          "published_at": "2026-01-18T00:30:00.000Z",
+          "published_at": "2026-01-18T09:58:30.000Z",
           "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "AI professionals are getting not just multiple offers but also counter-offers from existing employers and big incentives. New job offers and counteroffers currently come with 25-70% pay hikes for AI professionals, executives at search firms and recruitment services firms said. This trend is only going to get stronger in 2026, they told ET.",
+          "snippet": "Exlservice Holdings is set to open two new centers in smaller Indian cities this year. The data and AI company aims to tap into better infrastructure and talent outside major metros. This expansion aligns with rising global IT spends focused on AI, infrastructure, and cybersecurity.",
           "sourceType": "rss",
           "gate": {
             "eligible": true,
@@ -256,7 +226,7 @@
             "flags": {},
             "tier": "med"
           },
-          "aiSummary": "AI professionals in the job market are receiving multiple offers and counteroffers with significant pay hikes of 25-70%, indicating a strong demand for their skills. This trend is expected to continue growing in 2026, according to executives in the recruitment industry. \n\nAI-generated summary."
+          "aiSummary": "AI-Generated Summary:\nEXL is planning to open two new centers in smaller Indian cities to leverage improved infrastructure and talent, aligning with the increasing global IT spending on AI, infrastructure, and cybersecurity."
         },
         {
           "id": "3h1mtn",
@@ -297,7 +267,7 @@
             },
             "tier": "med"
           },
-          "aiSummary": "AI-generated summary: Saks Global has filed for Chapter 11 bankruptcy to address its debt, with Geoffroy van Raemdonck appointed as the new CEO for restructuring. The company plans to maintain its Saks Fifth Avenue, Neiman Marcus, and Bergdorf Goodman locations with $1.75 billion in financing."
+          "aiSummary": "AI-Generated Summary:\nSaks Global has filed for Chapter 11 bankruptcy to address its debt, with Geoffroy van Raemdonck appointed as the new CEO for the restructuring. The company plans to maintain its Saks Fifth Avenue, Neiman Marcus, and Bergdorf Goodman locations with $1.75 billion in new financing."
         },
         {
           "id": "m5u6v3",
@@ -317,7 +287,7 @@
             "flags": {},
             "tier": "med"
           },
-          "aiSummary": "AI-generated summary:\n\"Instore Magazine's article \"Weekly Spiff: Know Your Customers\" emphasizes the importance of incentivizing teams to build customer databases for driving repeat business in the ecommerce and retail tech industry.\""
+          "aiSummary": "AI-generated summary:\n\"Instore Magazine's article \"Weekly Spiff: Know Your Customers\" published on 2026-01-18 discusses the importance of incentivizing teams to build databases for driving repeat business in the Ecommerce & Retail Tech sector.\""
         },
         {
           "id": "l1swwp",
@@ -337,7 +307,7 @@
             "flags": {},
             "tier": "med"
           },
-          "aiSummary": "AI-Generated Summary:\nInstore Magazine's upcoming sales meeting will focus on Product Knowledge Systems to ensure teams are well-equipped to meet customer expectations and close sales effectively in the ever-evolving ecommerce and retail tech landscape."
+          "aiSummary": "AI-Generated Summary:\nInstore Magazine's upcoming sales meeting on Jan 19-25 will focus on enhancing product knowledge systems to meet customer expectations and boost sales in the ecommerce and retail tech industry."
         }
       ]
     },
@@ -345,13 +315,13 @@
       "total": 83,
       "top": [
         {
-          "id": "w1jkxv",
-          "title": "Chanel, Gucci and Capri Holdings: The Brands Topping Saks’ Creditor List",
-          "url": "https://www.businessoffashion.com/articles/retail/chanel-gucci-and-rosen-x-the-brands-topping-saks-creditor-list/",
-          "source": "Business of Fashion - News",
-          "published_at": "2026-01-15T05:27:00.000Z",
+          "id": "uo1iow",
+          "title": "50 Cent Finalizes $124 Million USD Deal to Build a Southern Entertainment Hub in Louisiana",
+          "url": "https://hypebeast.com/2026/1/50-cent-g-unit-studios-124-million-usd-investment-shreveport-louisiana-announcement",
+          "source": "Hypebeast - Business",
+          "published_at": "2026-01-14T04:00:06.000Z",
           "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "As Saks Global enters a blockbuster Chapter 11 filing, its creditor list shows who’s exposed — and sets off a scramble for ways to recover unpaid bills.",
+          "snippet": "SummaryCurtis “50 Cent” Jackson and his G-Unit Studios have finalized a landmark $124 million USD agreement with the state of Louisiana to transform downtown Shreveport into a premier national destination for film, music, and digital media.The multi-phase redevelopment includes the modernization of the Millennium Studios campus, the renovation of the Stageworks facility for live events, and the groundbreaking construction of a \"G-Dome\" immersive venue and public green spaceSupported by $50 milli...",
           "sourceType": "rss",
           "categoryHint": "Fashion & Luxury",
           "gate": {
@@ -362,31 +332,30 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Saks' bankruptcy impacts luxury brand creditors significantly",
-          "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nSaks Global's Chapter 11 filing reveals Chanel, Gucci, and Capri Holdings as top creditors, prompting efforts to recover unpaid bills in the luxury and consumer sector."
+          "aiSummary": "AI-generated summary: 50 Cent's G-Unit Studios has secured a $124 million deal with Louisiana to revamp downtown Shreveport into a hub for film, music, and digital media, including upgrading Millennium Studios, renovating Stageworks, and building an immersive venue."
         },
         {
-          "id": "fk3t03",
-          "title": "Saks’ New CEO Brings Bankruptcy Know-How, Luxury Ties",
-          "url": "https://www.businessoffashion.com/articles/retail/saks-new-ceo-brings-bankruptcy-know-how-luxury-ties-to-struggling-retailer/",
-          "source": "Business of Fashion - News",
-          "published_at": "2026-01-15T15:36:58.000Z",
+          "id": "mm9vup",
+          "title": "Richemont Defies Market Headwinds with Record-Breaking $7.4 Billion USD Quarter",
+          "url": "https://hypebeast.com/2026/1/richemont-record-q3-205-7-billion-usd-sales-cartier-hong-kong-market-drivers-news",
+          "source": "Hypebeast - Business",
+          "published_at": "2026-01-16T07:51:30.000Z",
           "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "Geoffroy van Raemdonck, who oversaw Neiman Marcus Group’s emergence from bankruptcy, was appointed to the top job at Saks on Wednesday as part of the retailer’s Chapter 11 filing.",
+          "snippet": "SummaryRichemont achieved a record-shattering $7.43 billion USD in Q3 sales, driven by an 11 percent revenue surge that significantly outpaced analyst expectations during the 2025 holiday seasonThe conglomerate saw robust growth in the U.S. and Middle East, while the Hong Kong market emerged as a critical driver of demand, helping the jewelry division reach a 14% increase despite high gold prices and Swiss trade tariffsBrand heat was further fueled by high-profile celebrity ambassadors, includin...",
           "sourceType": "rss",
           "categoryHint": "Fashion & Luxury",
           "gate": {
             "eligible": true,
             "reasons": [
-              "Eligible"
+              "Sponsored/press release content"
             ],
-            "flags": {},
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
             "tier": "med"
           },
-          "rerankWhy": "New CEO's experience crucial for Saks' recovery",
-          "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nGeoffroy van Raemdonck, known for his role in Neiman Marcus Group's bankruptcy recovery, has been named the new CEO of Saks following the retailer's Chapter 11 filing."
+          "aiSummary": "AI-generated summary: Richemont reported a record-breaking $7.43 billion USD in Q3 sales, driven by strong revenue growth in the U.S., Middle East, and Hong Kong markets, with the jewelry division seeing a 14% increase despite challenges like high gold prices and Swiss trade tariffs. Celebrity ambassadors also contributed to the brand's success."
         },
         {
           "id": "lm6kq1",
@@ -406,40 +375,37 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Saks' debts reveal risks for luxury brands",
-          "rerankConfidence": 0.8,
           "aiSummary": "AI-Generated Summary: Saks Global's bankruptcy filing exposes debts of over $700 million USD to luxury brands like Chanel and Kering, impacting smaller designers reliant on the retailer for a significant portion of their business."
         },
         {
-          "id": "ryhd67",
-          "title": "Saks’ Bankruptcy and the Future of Luxury Retail | The Debrief",
-          "url": "https://www.businessoffashion.com/podcasts/retail/saks-bankruptcy-and-the-future-of-luxury-retail-the-debrief/",
-          "source": "Business of Fashion - News",
-          "published_at": "2026-01-15T20:03:59.000Z",
-          "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "Saks’ Chapter 11 filing listed $3.4 billion in debts, and the retailer is on its third CEO in two weeks. But the industry is cautiously optimistic about what’s coming next. BoF’s retail editor Cat Chen explains how we got here, who gets paid and what a credible turnaround must look like.",
-          "sourceType": "rss",
-          "categoryHint": "Fashion & Luxury",
+          "id": "cnj72t",
+          "title": "Apple: You (Still) Don’t Understand the Vision Pro",
+          "url": "https://stratechery.com/2026/apple-you-still-dont-understand-the-vision-pro/",
+          "source": "Stratechery",
+          "published_at": "2026-01-12T11:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "The first live sporting event was broadcast in the Vision Pro, and it's a big disappointment. The experience could be amazing, but Apple actively ruins it.",
           "gate": {
             "eligible": true,
             "reasons": [
-              "Eligible"
+              "Sponsored/press release content"
             ],
-            "flags": {},
+            "flags": {
+              "sponsored": true,
+              "pressRelease": true
+            },
             "tier": "med"
           },
-          "rerankWhy": "Analysis of Saks' bankruptcy and future implications",
-          "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nSaks filed for Chapter 11 bankruptcy with $3.4 billion in debts and has seen turnover in CEOs. Despite challenges, the luxury retail industry remains cautiously optimistic about the future."
+          "aiSummary": "AI-generated summary:\nApple's Vision Pro disappoints in broadcasting live sporting events, with the potential for an amazing experience being actively ruined by Apple."
         },
         {
-          "id": "5p8lwd",
-          "title": "Pitti Uomo Shows Fashion Industry’s Optimism Despite Choppy Conditions",
-          "url": "https://www.businessoffashion.com/articles/fashion-week/pitti-uomo-shows-fashion-industrys-optimism-despite-choppy-conditions/",
-          "source": "Business of Fashion - News",
-          "published_at": "2026-01-16T13:08:33.000Z",
+          "id": "exrs61",
+          "title": "Rihanna’s Amina Muaddi Love Affair Continues in Crispy White Anok Pumps in New York City",
+          "url": "https://wwd.com/footwear-news/shoe-trends/rihannas-amina-muaddi-white-anok-pumps-nyc-1238460849/",
+          "source": "WWD - Women's Wear Daily",
+          "published_at": "2026-01-17T23:50:14.000Z",
           "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "The bi-annual gathering in Florence drew steady numbers of foreign buyers, serving as a temperature check for the struggling fashion sector.",
+          "snippet": "She paired the patent stilettos with Balenciaga knife pants while out for A$AP Rocky’s “Don’t Be Dumb” album release.",
           "sourceType": "rss",
           "categoryHint": "Fashion & Luxury",
           "gate": {
@@ -453,18 +419,16 @@
             },
             "tier": "med"
           },
-          "rerankWhy": "Pitti Uomo showcases optimism in fashion despite challenges",
-          "rerankConfidence": 0.75,
-          "aiSummary": "AI-Generated Summary:\nThe Pitti Uomo event in Florence showcased the fashion industry's optimism despite challenges, with steady attendance from foreign buyers providing insight into the sector's current state."
+          "aiSummary": "AI-Generated Summary:\nRihanna continues her love affair with Amina Muaddi by wearing white Anok pumps in New York City, paired with Balenciaga knife pants for A$AP Rocky's album release event."
         },
         {
-          "id": "1ycwvv",
-          "title": "Fashion Is Done With Remote Work",
-          "url": "https://www.businessoffashion.com/articles/workplace-talent/five-day-office-week-fashion/",
-          "source": "Business of Fashion - News",
-          "published_at": "2026-01-16T05:30:00.000Z",
+          "id": "ns8r65",
+          "title": "Teyana Taylor Leans Into Textural Ruby Red With Tom Ford Ankle Strap Sandals in Las Vegas",
+          "url": "https://wwd.com/footwear-news/shoe-trends/teyana-taylor-tom-ford-ankle-strap-sandals-las-vegas-1238460759/",
+          "source": "WWD - Women's Wear Daily",
+          "published_at": "2026-01-17T22:05:24.000Z",
           "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "Retailers, publishers and brands are tightening return-to-office mandates as fully remote roles fall out of favour — but execution, not attendance, will determine whether the shift pays off.",
+          "snippet": "The strappy patent pair punctuated her Haider Ackermann-era Tom Ford outerwear pick for the Gymkhana Las Vegas launch.",
           "sourceType": "rss",
           "categoryHint": "Fashion & Luxury",
           "gate": {
@@ -475,18 +439,16 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Shift back to office work affects fashion industry dynamics",
-          "rerankConfidence": 0.7,
-          "aiSummary": "AI-generated summary:\nFashion industry players are moving away from remote work, with a focus on execution rather than attendance to determine success in the return-to-office transition."
+          "aiSummary": "AI-Generated Summary:\nTeyana Taylor wore Tom Ford ankle strap sandals with her Haider Ackermann-era Tom Ford outerwear at the Gymkhana Las Vegas launch, showcasing a textural ruby red look."
         },
         {
-          "id": "rt5zi",
-          "title": "Richemont Beat Expectations in Holiday Quarter",
-          "url": "https://www.businessoffashion.com/news/luxury/richemont-sales-beat-expectations-in-holiday-quarter/",
-          "source": "Business of Fashion - News",
-          "published_at": "2026-01-15T09:35:05.000Z",
+          "id": "ydk7hi",
+          "title": "Kiton, Corneliani Bring Cinematic Flair to Presentations",
+          "url": "https://wwd.com/menswear-news/mens-designer-luxury/kiton-corneliani-short-films-fall-2026-presentations-1238460580/",
+          "source": "WWD - Women's Wear Daily",
+          "published_at": "2026-01-17T18:02:40.000Z",
           "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "The Swiss group outpaced analyst forecasts with robust sales from Cartier and Van Cleef & Arpels while watch brands showed further improvement.",
+          "snippet": "The two luxury brands presented short films with their fall collections – Kiton highlighting its artisanal craftsmanship, and Corneliani turning to AI to celebrate touching life moments and \"The Gentle Man.\"",
           "sourceType": "rss",
           "categoryHint": "Fashion & Luxury",
           "gate": {
@@ -497,60 +459,96 @@
             "flags": {},
             "tier": "med"
           },
-          "rerankWhy": "Richemont's strong sales indicate luxury market resilience",
-          "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nRichemont exceeded analyst expectations in the holiday quarter with strong sales from Cartier and Van Cleef & Arpels, alongside improved performance from watch brands."
+          "aiSummary": "AI-Generated Summary:\nLuxury brands Kiton and Corneliani showcased their fall collections through cinematic short films, with Kiton focusing on artisanal craftsmanship and Corneliani using AI to celebrate life moments and \"The Gentle Man.\""
         }
       ]
     },
     "Jewellery_Industry": {
-      "total": 26,
+      "total": 25,
       "top": [
         {
-          "id": "bf7mrb",
-          "title": "Folium Unveils New Website, Marking a New Chapter for the Studio Founded by Master Goldsmith Myles Ryan",
-          "url": "https://instoremag.com/folium-unveils-new-website-marking-a-new-chapter-for-the-studio-founded-by-master-goldsmith-myles-ryan/",
-          "source": "Instore Magazine",
-          "published_at": "2026-01-15T20:40:58.000Z",
-          "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "The digital launch introduces four signature collections: Florilegia, Quadrafolium, Serpentis and Nectere, each rooted in natural architecture and hand-engraved craft.",
-          "sourceType": "rss",
-          "categoryHint": "Jewellery Industry",
+          "id": "o8bb5v",
+          "title": "Tech boost for Pandora during holiday sales",
+          "url": "https://www.jewellermagazine.com/Article/14692/Tech-boost-for-Pandora-during-holiday-sales",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-01-12T13:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "Pandora has reported lower than expected sales across the past financial year, with a statement attributing the results to weakened consumer demand during the holiday season.",
           "gate": {
             "eligible": true,
             "reasons": [
-              "Sponsored/press release content"
+              "Eligible"
             ],
-            "flags": {
-              "sponsored": true,
-              "pressRelease": true
-            },
+            "flags": {},
             "tier": "med"
           },
-          "aiSummary": "AI-Generated Summary:\nFolium, founded by master goldsmith Myles Ryan, has launched a new website showcasing four signature collections inspired by natural architecture and hand-engraved craft: Florilegia, Quadrafolium, Serpentis, and Nectere."
+          "rerankWhy": "Insights on tech impact during holiday sales",
+          "rerankConfidence": 0.9,
+          "aiSummary": "AI-Generated Summary:\nPandora experienced lower holiday sales due to weakened consumer demand, impacting their financial year results."
         },
         {
-          "id": "rxctrm",
-          "title": "Jewelers’ Horoscope: January 19-25, 2026",
-          "url": "https://instoremag.com/horoscope-jan-19-25-2026/",
-          "source": "Instore Magazine",
-          "published_at": "2026-01-18T01:00:55.000Z",
+          "id": "414k81",
+          "title": "India moves to protect natural diamonds; government mandate issued",
+          "url": "https://www.jewellermagazine.com/Article/14699/India-moves-to-protect-natural-diamonds-government-mandate-issued",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-01-15T13:00:00.000Z",
+          "ingested_at": "2026-01-17T11:21:14.827Z",
+          "snippet": "The Indian gem and jewellery industry has successfully lobbied for the introduction of a national standard governing diamond terminology, reserving the term ‘diamond’ exclusively for natural diamonds and requiring explicit disclosure for laboratory-grown alternatives.",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "New regulations affecting diamond terminology and sales",
+          "rerankConfidence": 0.85,
+          "aiSummary": "AI-Generated Summary:\nIndia's gem and jewellery industry has secured a government mandate establishing a national standard to protect natural diamonds by reserving the term 'diamond' for them and mandating disclosure for lab-grown alternatives."
+        },
+        {
+          "id": "q602ie",
+          "title": "Richemont reports strong holiday quarter, sales up 11pc",
+          "url": "https://www.luxurydaily.com/richemont-reports-strong-holiday-quarter-sales-up-11pc/",
+          "source": "Luxury Daily - Main",
+          "published_at": "2026-01-15T21:38:45.000Z",
           "ingested_at": "2026-01-18T13:17:00.638Z",
-          "snippet": "Astrological forecasts for the week ahead for jewelry store-owners, salespeople and custom jewelers.",
+          "snippet": "Jewelry maisons, including Cartier and Van Cleef & Arpels, led growth across all regions.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "gate": {
+            "eligible": true,
+            "reasons": [
+              "Eligible"
+            ],
+            "flags": {},
+            "tier": "med"
+          },
+          "rerankWhy": "Strong sales data from Richemont's jewelry brands",
+          "rerankConfidence": 0.8,
+          "aiSummary": "AI-Generated Summary:\nRichemont's jewelry maisons, such as Cartier and Van Cleef & Arpels, drove a strong holiday quarter with an 11% increase in sales across all regions."
+        },
+        {
+          "id": "6m2li1",
+          "title": "Petra Diamonds Unearths Huge 42-Carat Blue Diamond at Cullinan",
+          "url": "https://instoremag.com/petra-diamonds-unearths-huge-42-carat-blue-diamond-at-cullinan/",
+          "source": "Instore Magazine",
+          "published_at": "2026-01-16T04:40:14.000Z",
+          "ingested_at": "2026-01-18T13:17:00.638Z",
+          "snippet": "Gem, which resembles shape of Africa, expected to fetch $30m to $40m at auction.",
           "sourceType": "rss",
           "categoryHint": "Jewellery Industry",
           "gate": {
             "eligible": true,
             "reasons": [
-              "Sponsored/press release content"
+              "Eligible"
             ],
-            "flags": {
-              "sponsored": true,
-              "pressRelease": true
-            },
+            "flags": {},
             "tier": "med"
           },
-          "aiSummary": "AI-Generated Summary:\nInstore Magazine's \"Jewelers’ Horoscope: January 19-25, 2026\" provides astrological forecasts for jewelry store-owners, salespeople, and custom jewelers for the upcoming week."
+          "rerankWhy": "High-value diamond auction insights for merchandising",
+          "rerankConfidence": 0.75,
+          "aiSummary": "AI-Generated Summary:\nPetra Diamonds has discovered a large 42-carat blue diamond at the Cullinan mine, with a shape resembling Africa, and it is estimated to be sold for $30m to $40m at auction."
         },
         {
           "id": "35gmmg",
@@ -570,7 +568,9 @@
             "flags": {},
             "tier": "med"
           },
-          "aiSummary": "AI-Generated Summary:\nRetailers in the jewelry industry share their strategies for selling colored gemstones, combining gemology, folklore, and theatrical elements to attract customers."
+          "rerankWhy": "Practical selling strategies for colored gemstones",
+          "rerankConfidence": 0.7,
+          "aiSummary": "AI-Generated Summary:\nRetailers in the jewelry industry share their strategies for selling colored gemstones, which involves a mix of gemology, folklore, and theatrical techniques."
         },
         {
           "id": "hogzm3",
@@ -589,7 +589,9 @@
             "flags": {},
             "tier": "med"
           },
-          "aiSummary": "AI-Generated Summary:\nHong Kong's Financial Secretary Paul Chan announced that Hong Kong will sign an MOU with the Shanghai Gold Exchange at the Asian Financial Forum, strengthening ties in the jewellery industry."
+          "rerankWhy": "MOU impacts on gold exchange and supply chain",
+          "rerankConfidence": 0.65,
+          "aiSummary": "AI-Generated Summary:\nHong Kong's Financial Secretary Paul Chan announced that Hong Kong will sign an MOU with the Shanghai Gold Exchange at the Asian Financial Forum, enhancing cooperation in the jewellery industry."
         },
         {
           "id": "36sv84",
@@ -612,47 +614,19 @@
             },
             "tier": "med"
           },
-          "aiSummary": "AI-Generated Summary:\nAntoine Pin has departed as CEO of TAG Heuer, a major watch label under LVMH, amid challenges in the watches division and ahead of the company's Watch Week showcase in Milan."
-        },
-        {
-          "id": "r0nh9r",
-          "title": "Find it now: 2026 Jeweller Suppliers Directory",
-          "url": "https://www.jewellermagazine.com/Article/14687/Find-it-now-2026-Jeweller-Suppliers-Directory",
-          "source": "Jeweller - Business News",
-          "published_at": "2026-01-14T13:00:00.000Z",
-          "ingested_at": "2026-01-17T11:21:14.827Z",
-          "snippet": "The Jeweller Suppliers Directory is the #1 industry resource and the only one-stop-shop for jewellery buyers, retailers, designers, and key decision makers.",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "aiSummary": "AI-Generated Summary:\nThe 2026 Jeweller Suppliers Directory is the top industry resource for jewellery buyers, retailers, designers, and key decision makers, serving as a one-stop-shop for all their needs."
-        },
-        {
-          "id": "wi13zr",
-          "title": "Unique Russian diamonds reflect holiday spirit",
-          "url": "https://www.jewellermagazine.com/Article/14689/Unique-Russian-diamonds-reflect-holiday-spirit",
-          "source": "Jeweller - Business News",
-          "published_at": "2026-01-12T13:00:00.000Z",
-          "ingested_at": "2026-01-17T11:21:14.827Z",
-          "snippet": "Russian diamond producer Alrosa has showcased two recently unearthed diamonds that resemble Christmas ornaments in a timely and festive discovery.",
-          "gate": {
-            "eligible": true,
-            "reasons": [
-              "Eligible"
-            ],
-            "flags": {},
-            "tier": "med"
-          },
-          "aiSummary": "AI-Generated Summary:\nAlrosa, a Russian diamond producer, has unveiled two diamonds that resemble Christmas ornaments, adding a festive touch to the jewellery industry."
+          "rerankWhy": "Leadership changes affecting luxury watch market dynamics",
+          "rerankConfidence": 0.6,
+          "aiSummary": "AI-Generated Summary:\nAntoine Pin has departed as TAG Heuer CEO, contributing to challenges within LVMH's watch division amidst a tough market environment before the upcoming Watch Week showcase in Milan."
         }
       ]
     }
   },
-  "keyThemes": [],
-  "introParagraph": ""
+  "keyThemes": [
+    "Richemont record sales",
+    "Saks Global bankruptcy",
+    "Pandora holiday sales",
+    "Zhipu AI Huawei chips",
+    "Boston Dynamics humanoid robots"
+  ],
+  "oneSentenceSummary": "Richemont's record sales and Saks Global's bankruptcy highlight contrasting fortunes in the luxury sector amid evolving consumer demand."
 }

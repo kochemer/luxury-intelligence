@@ -284,5 +284,18 @@
     "cached_at": "2026-01-18T16:10:30.052Z",
     "model": "gpt-4o-mini",
     "version": "2.1"
+  },
+  "2026-W03:739c6ec1383a": {
+    "keyThemes": [
+      "Richemont record sales",
+      "Saks Global bankruptcy",
+      "Pandora holiday sales",
+      "Zhipu AI Huawei chips",
+      "Boston Dynamics humanoid robots"
+    ],
+    "oneSentenceSummary": "Richemont's record sales and Saks Global's bankruptcy highlight contrasting fortunes in the luxury sector amid evolving consumer demand.",
+    "cached_at": "2026-01-18T20:37:41.672Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
   }
 }

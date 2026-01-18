@@ -138,5 +138,12 @@
     "rationale": "The article discusses a partnership between HelloFresh and Scouts, focusing on meal kits and cooking skills, which falls under ecommerce and retail technology.",
     "classifier_version": "llm-v2",
     "cached_at": "2026-01-18T19:38:25.556Z"
+  },
+  "https://wwd.com/footwear-news/shoe-trends/teyana-taylor-tom-ford-ankle-strap-sandals-las-vegas-1238460759": {
+    "category": "Luxury_and_Consumer",
+    "confidence": 0.9,
+    "rationale": "The article discusses a fashion choice by Teyana Taylor, highlighting luxury footwear and high-end fashion, which aligns with the Luxury and Consumer category.",
+    "classifier_version": "llm-v2",
+    "cached_at": "2026-01-18T20:37:09.498Z"
   }
 }

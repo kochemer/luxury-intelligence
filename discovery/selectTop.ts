@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import OpenAI from 'openai';
 import type { ExtractedArticle } from './fetchExtract';
 import type { Topic } from '../classification/classifyTopics';
+import { getAllCompanyNames, getCompanyTier } from '../config/jewelleryCompanies';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +14,12 @@ const TEMPERATURE = 0.3;
 const TOP_K = 40; // Number of items to rank in LLM phase
 const MAX_CANDIDATES = 100; // Max candidates to send to LLM
 const MAX_PAYWALLED_PER_CATEGORY = parseInt(process.env.MAX_PAYWALLED_PER_CATEGORY || '1', 10); // Max paywalled articles per category
+
+// Company boost configuration (Jewellery Industry only)
+const COMPANY_TITLE_BOOST = parseInt(process.env.COMPANY_TITLE_BOOST || '6', 10);
+const COMPANY_TEXT_BOOST = parseInt(process.env.COMPANY_TEXT_BOOST || '4', 10);
+const COMPANY_SNIPPET_BOOST = parseInt(process.env.COMPANY_SNIPPET_BOOST || '2', 10);
+const MAX_COMPANY_BOOST = parseInt(process.env.MAX_COMPANY_BOOST || '10', 10);
 
 function getOpenAIApiKey(): string {
   const key = process.env.OPENAI_API_KEY;
@@ -36,6 +43,8 @@ export type SelectedArticle = {
   category: Topic;
   paywallStatus?: 'not_paywalled' | 'likely_paywalled' | 'unknown';
   paywallReason?: string;
+  matchedCompanies?: string[]; // Company names found in article
+  companyBoostScore?: number; // Total company boost applied
 };
 
 type RankedItem = {
@@ -162,6 +171,76 @@ function getTopicDefinition(topic: Topic): string {
 }
 
 /**
+ * Detect jewellery company mentions in an article
+ * Returns matched companies and boost score
+ */
+function detectJewelleryCompanies(article: ExtractedArticle): {
+  matchedCompanies: string[];
+  matchedCompanyTiers: string[];
+  companyBoostScore: number;
+} {
+  const matchedCompanies: string[] = [];
+  const matchedCompanyTiers: string[] = [];
+  let boostScore = 0;
+  
+  const companyNames = getAllCompanyNames();
+  const lowerTitle = article.title.toLowerCase();
+  const lowerText = article.extractedText.toLowerCase();
+  const lowerSnippet = (article.snippet || '').toLowerCase();
+  
+  // Check each company name
+  for (const companyName of companyNames) {
+    const lowerCompany = companyName.toLowerCase();
+    let found = false;
+    let foundInTitle = false;
+    let foundInText = false;
+    let foundInSnippet = false;
+    
+    // Check title (highest weight)
+    if (lowerTitle.includes(lowerCompany)) {
+      found = true;
+      foundInTitle = true;
+      boostScore += COMPANY_TITLE_BOOST;
+    }
+    
+    // Check full text
+    if (lowerText.includes(lowerCompany)) {
+      found = true;
+      foundInText = true;
+      if (!foundInTitle) {
+        boostScore += COMPANY_TEXT_BOOST;
+      }
+    }
+    
+    // Check snippet/summary
+    if (lowerSnippet.includes(lowerCompany)) {
+      found = true;
+      foundInSnippet = true;
+      if (!foundInTitle && !foundInText) {
+        boostScore += COMPANY_SNIPPET_BOOST;
+      }
+    }
+    
+    if (found) {
+      matchedCompanies.push(companyName);
+      const tier = getCompanyTier(companyName);
+      if (tier && !matchedCompanyTiers.includes(tier)) {
+        matchedCompanyTiers.push(tier);
+      }
+    }
+  }
+  
+  // Cap total boost
+  boostScore = Math.min(boostScore, MAX_COMPANY_BOOST);
+  
+  return {
+    matchedCompanies,
+    matchedCompanyTiers,
+    companyBoostScore: boostScore
+  };
+}
+
+/**
  * PHASE A: LLM RANKING PHASE
  * Ranks candidates without hard exclusions (except obvious sponsored content)
  * Returns TOP_K ranked items with controversy risk labels
@@ -170,19 +249,33 @@ async function rankArticlesForTopic(
   articles: ExtractedArticle[],
   topic: Topic,
   weekLabel: string
-): Promise<RankedItem[]> {
-  if (articles.length === 0) return [];
+): Promise<{ ranked: RankedItem[]; companyDataMap?: Map<string, { matchedCompanies: string[]; companyBoostScore: number }> }> {
+  if (articles.length === 0) return { ranked: [] };
 
   // Filter out only obvious sponsored/press-release content deterministically
   const filtered = articles.filter(article => !isSponsored(article));
   
   if (filtered.length === 0) {
     console.warn(`[Rank] No non-sponsored articles for ${topic}`);
-    return [];
+    return { ranked: [] };
   }
 
   // Limit to reasonable batch size for LLM
   const candidates = filtered.slice(0, MAX_CANDIDATES);
+  
+  // Detect company mentions for Jewellery Industry
+  const isJewelleryTopic = topic === 'Jewellery_Industry';
+  const companyDataMap = new Map<string, { matchedCompanies: string[]; companyBoostScore: number }>();
+  
+  if (isJewelleryTopic) {
+    for (const article of candidates) {
+      const companyData = detectJewelleryCompanies(article);
+      companyDataMap.set(article.url, {
+        matchedCompanies: companyData.matchedCompanies,
+        companyBoostScore: companyData.companyBoostScore
+      });
+    }
+  }
   
   // Build candidate list for LLM with 400-600 char excerpts
   const candidateList = candidates.map((article, idx) => {
@@ -191,6 +284,8 @@ async function rankArticlesForTopic(
     const finalExcerpt = excerpt.length < 400 && article.extractedText.length > 400
       ? article.extractedText.substring(0, 400)
       : excerpt;
+    
+    const companyData = companyDataMap.get(article.url);
     
     return {
       index: idx + 1,
@@ -201,7 +296,11 @@ async function rankArticlesForTopic(
       snippet: article.snippet,
       excerpt: finalExcerpt,
       paywallStatus: article.paywallStatus || 'unknown',
-      paywallReason: article.paywallReason
+      paywallReason: article.paywallReason,
+      ...(isJewelleryTopic && companyData ? {
+        matchedCompanies: companyData.matchedCompanies,
+        companyBoostScore: companyData.companyBoostScore
+      } : {})
     };
   });
 
@@ -214,18 +313,26 @@ Always return exactly the requested number of ranked items unless fewer candidat
 Do not be overly conservative; prefer ranking lower rather than excluding articles.
 Return valid JSON only.`;
 
-  const userPrompt = `Rank the top ${targetK} most relevant articles for a weekly digest about ${topic}.
-
-Topic focus: ${topicDef}
-
-This is a RANKING task, not a strict filtering task. Rank articles by:
-- Relevance to ${topic}
+  // Build base ranking criteria
+  let rankingCriteria = `- Relevance to ${topic}
 - Recency (prefer articles from the last 7 days)
 - Quality and depth of content
 - Business/industry significance
 - Insight value (new information, trends, strategic implications)
 - Source quality: If relevance is similar, prefer articles from high-quality consultancy sources (McKinsey, Bain, BCG) as they typically provide strategic insights
-- Paywall status: Prefer articles that are NOT paywalled. If two articles are similarly relevant, choose the non-paywalled one. Articles marked as "likely_paywalled" may have limited full-text access, which reduces their value for podcast generation and detailed analysis.
+- Paywall status: Prefer articles that are NOT paywalled. If two articles are similarly relevant, choose the non-paywalled one. Articles marked as "likely_paywalled" may have limited full-text access, which reduces their value for podcast generation and detailed analysis.`;
+
+  // Add company boost guidance for Jewellery Industry
+  if (isJewelleryTopic) {
+    rankingCriteria += `\n- Company coverage: Articles mentioning major jewellery companies (shown in "matchedCompanies" field) may be more material for industry readers. If two articles are similarly relevant and newsworthy, prefer the one that mentions major jewellery companies. However, do NOT prioritize product launch fluff or store opening announcements with no strategic signal.`;
+  }
+
+  const userPrompt = `Rank the top ${targetK} most relevant articles for a weekly digest about ${topic}.
+
+Topic focus: ${topicDef}
+
+This is a RANKING task, not a strict filtering task. Rank articles by:
+${rankingCriteria}
 
 IMPORTANT: Return exactly ${targetK} ranked items unless fewer than ${targetK} candidates exist.
 
@@ -280,7 +387,7 @@ Return exactly ${targetK} items in the ranked array, ordered by rank (1 = best).
     // Sort by rank to ensure proper order
     output.ranked.sort((a, b) => a.rank - b.rank);
     
-    return output.ranked;
+    return { ranked: output.ranked, companyDataMap: isJewelleryTopic ? companyDataMap : undefined };
   } catch (error: any) {
     console.error(`[Rank] Error ranking articles for ${topic}:`, error.message);
     throw error;
@@ -295,7 +402,8 @@ function selectFromRanked(
   ranked: RankedItem[],
   candidates: ExtractedArticle[],
   topic: Topic,
-  selectTop: number
+  selectTop: number,
+  companyDataMap?: Map<string, { matchedCompanies: string[]; companyBoostScore: number }>
 ): { selected: SelectedArticle[]; report: SelectionReport } {
   const report: SelectionReport = {
     candidate_count: candidates.length,
@@ -353,23 +461,30 @@ function selectFromRanked(
       continue;
     }
 
-      // Add to selected
-      selected.push({
-        url: candidate.url,
-        title: candidate.title,
-        snippet: candidate.snippet,
-        domain: candidate.domain,
-        publishedDate: candidate.publishedDate,
-        publishedDateInvalid: candidate.publishedDateInvalid,
-        discoveredAt: candidate.discoveredAt,
-        rank: item.rank,
-        why: item.why,
-        confidence: item.confidence,
-        category: topic,
-        sourceType: candidate.sourceType, // Preserve sourceType
-        paywallStatus: candidate.paywallStatus,
-        paywallReason: candidate.paywallReason
-      } as SelectedArticle & { sourceType?: string });
+    // Get company data if available
+    const companyData = companyDataMap?.get(candidate.url);
+    
+    // Add to selected
+    selected.push({
+      url: candidate.url,
+      title: candidate.title,
+      snippet: candidate.snippet,
+      domain: candidate.domain,
+      publishedDate: candidate.publishedDate,
+      publishedDateInvalid: candidate.publishedDateInvalid,
+      discoveredAt: candidate.discoveredAt,
+      rank: item.rank,
+      why: item.why,
+      confidence: item.confidence,
+      category: topic,
+      sourceType: candidate.sourceType, // Preserve sourceType
+      paywallStatus: candidate.paywallStatus,
+      paywallReason: candidate.paywallReason,
+      ...(companyData ? {
+        matchedCompanies: companyData.matchedCompanies,
+        companyBoostScore: companyData.companyBoostScore
+      } : {})
+    } as SelectedArticle & { sourceType?: string });
 
     domainCounts.set(domain, currentCount + 1);
     selectedTitles.push(candidate.title);
@@ -408,6 +523,9 @@ function selectFromRanked(
       const currentCount = domainCounts.get(domain) || 0;
       if (currentCount >= domainCap) continue;
 
+      // Get company data if available
+      const companyData = companyDataMap?.get(candidate.url);
+      
       // Add to selected
       selected.push({
         url: candidate.url,
@@ -423,7 +541,11 @@ function selectFromRanked(
         category: topic,
         sourceType: candidate.sourceType, // Preserve sourceType
         paywallStatus: candidate.paywallStatus,
-        paywallReason: candidate.paywallReason
+        paywallReason: candidate.paywallReason,
+        ...(companyData ? {
+          matchedCompanies: companyData.matchedCompanies,
+          companyBoostScore: companyData.companyBoostScore
+        } : {})
       } as SelectedArticle & { sourceType?: string });
 
       domainCounts.set(domain, currentCount + 1);
@@ -476,6 +598,9 @@ function selectFromRanked(
             isNearDuplicate(replacement.title, selectedTitle)
           );
           if (!isDuplicate) {
+            // Get company data if available
+            const replacementCompanyData = companyDataMap?.get(replacement.url);
+            
             selected.push({
               url: replacement.url,
               title: replacement.title,
@@ -490,7 +615,11 @@ function selectFromRanked(
               category: topic,
               sourceType: replacement.sourceType,
               paywallStatus: replacement.paywallStatus,
-              paywallReason: replacement.paywallReason
+              paywallReason: replacement.paywallReason,
+              ...(replacementCompanyData ? {
+                matchedCompanies: replacementCompanyData.matchedCompanies,
+                companyBoostScore: replacementCompanyData.companyBoostScore
+              } : {})
             } as SelectedArticle & { sourceType?: string });
             domainCounts.set(domain, currentCount + 1);
             selectedTitles.push(replacement.title);
@@ -543,12 +672,12 @@ async function selectArticlesForTopic(
   try {
     // PHASE A: LLM Ranking
     console.log(`[Rank] Ranking up to ${TOP_K} articles for ${topic} from ${articles.length} candidates...`);
-    const ranked = await rankArticlesForTopic(articles, topic, weekLabel);
+    const { ranked, companyDataMap } = await rankArticlesForTopic(articles, topic, weekLabel);
     console.log(`[Rank] LLM returned ${ranked.length} ranked items`);
 
     // PHASE B: Deterministic Selection
     console.log(`[Select] Applying constraints to select top ${topN} from ${ranked.length} ranked items...`);
-    const { selected, report } = selectFromRanked(ranked, articles, topic, topN);
+    const { selected, report } = selectFromRanked(ranked, articles, topic, topN, companyDataMap);
     
     console.log(`[Select] Selected ${selected.length} articles for ${topic}`);
     console.log(`[Select] Exclusions: domainCap=${report.exclusion_counts.domainCap}, duplicate=${report.exclusion_counts.duplicate}, hardControversy=${report.exclusion_counts.hardControversy}, sponsored=${report.exclusion_counts.sponsored}`);
@@ -557,6 +686,19 @@ async function selectArticlesForTopic(
     }
     if (report.fallback_used.domainCapRelaxed) {
       console.log(`[Select] ⚠️  Domain cap relaxed to 3`);
+    }
+    
+    // Report company coverage for Jewellery Industry
+    if (topic === 'Jewellery_Industry' && selected.length > 0) {
+      const companyArticles = selected.filter(s => s.matchedCompanies && s.matchedCompanies.length > 0);
+      const companyCount = companyArticles.length;
+      console.log(`[Select] Jewellery Top ${topN}: ${companyCount}/${selected.length} articles include Tier-1 company coverage`);
+      if (companyCount > 0) {
+        console.log(`[Select] Company coverage details:`);
+        companyArticles.forEach(article => {
+          console.log(`  - "${article.title}" (${article.matchedCompanies?.join(', ') || 'unknown'}, boost: ${article.companyBoostScore || 0})`);
+        });
+      }
     }
 
     return { selected, report };

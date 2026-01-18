@@ -4576,5 +4576,53 @@
     ],
     "cached_at": "2026-01-18T19:38:51.488Z",
     "model": "gpt-4o-mini"
+  },
+  "2026-W03:Jewellery_Industry:f98573675244": {
+    "selected": [
+      {
+        "id": "12",
+        "rank": 1,
+        "why": "Insights on tech impact during holiday sales",
+        "confidence": 0.9
+      },
+      {
+        "id": "16",
+        "rank": 2,
+        "why": "New regulations affecting diamond terminology and sales",
+        "confidence": 0.85
+      },
+      {
+        "id": "17",
+        "rank": 3,
+        "why": "Strong sales data from Richemont's jewelry brands",
+        "confidence": 0.8
+      },
+      {
+        "id": "3",
+        "rank": 4,
+        "why": "High-value diamond auction insights for merchandising",
+        "confidence": 0.75
+      },
+      {
+        "id": "2",
+        "rank": 5,
+        "why": "Practical selling strategies for colored gemstones",
+        "confidence": 0.7
+      },
+      {
+        "id": "6",
+        "rank": 6,
+        "why": "MOU impacts on gold exchange and supply chain",
+        "confidence": 0.65
+      },
+      {
+        "id": "7",
+        "rank": 7,
+        "why": "Leadership changes affecting luxury watch market dynamics",
+        "confidence": 0.6
+      }
+    ],
+    "cached_at": "2026-01-18T20:37:35.683Z",
+    "model": "gpt-4o-mini"
   }
 }

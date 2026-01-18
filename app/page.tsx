@@ -2,11 +2,11 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { DateTime } from 'luxon';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import DigestClientView from './components/DigestClientView';
 import TopNSelector from './components/TopNSelector';
+import BuildDigestButton from './components/BuildDigestButton';
 import { TopicKey } from '../utils/topicNames';
 import { formatDate, formatDateRange, formatDateTime } from '../utils/formatDate';
 
@@ -193,110 +193,130 @@ export default async function Home() {
       background: '#f7f9fb',
     }}>
 
-      {/* HERO */}
-      <section className="mb-6" style={{
-        position: 'relative',
-        width: '100%',
-        minHeight: 180,
-        background: 'linear-gradient(120deg,#6b2d5c 50%, #8b4a7a 100%)',
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 0,
-        borderBottom: '1px solid #e5e7eb'
-      }}>
-        <div className="w-full max-w-[1400px] lg:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 md:px-8" style={{
-          position: 'relative',
-          zIndex: 2,
-          color: '#fff',
-          padding: '2rem 1.5rem 1.75rem 1.5rem',
-          textAlign: 'center',
-        }}>
-          <h1 className="font-bold mb-3 text-[2.7rem] md:text-[3.6rem]" style={{
-            textShadow: '0 1px 4px rgba(18,30,49,0.15)'
-          }}>
-            Luxury Intelligence
-          </h1>
-          <div className="text-gray-100 leading-relaxed max-w-4xl mx-auto mb-3 text-[1.2rem] md:text-[1.44rem] whitespace-nowrap">
-            Weekly intelligence across AI, ecommerce, luxury, and jewellery.
-          </div>
-          <p className="text-gray-300 mb-5 text-[0.96rem] md:text-[1.152rem] italic">
-            Curated articles, signals, and context — handpicked and summarised by AI agents each week.
-          </p>
-        </div>
-      </section>
-
-      {/* If digest missing, show clear notice */}
-      {!digest ? (
-        <section style={{
-          maxWidth: 520,
-          margin: '3.5rem auto 0 auto',
-          padding: '2.5rem 1.5rem',
-          background: '#fff1e2',
-          borderRadius: 10,
-          border: '1.5px dashed #ffdfa9',
-          fontSize: '1.1rem',
-          color: '#913d00',
-          textAlign: 'center',
-          boxShadow: '0 2px 12px 0 rgba(200,170,100,0.04)'
-        }}>
-          <h2 style={{margin: '0 0 1rem 0', fontSize: '1.6rem', fontWeight: 600}}>Digest not built yet</h2>
-          <p style={{marginBottom:'1.1rem'}}>No latest digest found for this week.</p>
-          <div style={{marginBottom:'1.5rem'}}>
-            <span style={{
-              background: '#fff4ca',
-              color: '#905e19',
-              fontFamily: 'monospace',
-              padding: '0.28rem 0.46rem',
-              borderRadius: '4px',
-              fontSize: '1.04rem',
-              display:'inline-block'
-            }}>npx tsx scripts/buildWeeklyDigest.ts</span>
-          </div>
-        </section>
-      ) : (
-      <>
-        {/* This Week's Cover */}
-        {digest.coverImageUrl && (
-          <section className="w-full max-w-[1404px] lg:max-w-[1638px] 2xl:max-w-[1825px] mx-auto px-4 md:px-8 mb-4 md:mb-5">
-            <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
-              <div className="flex items-center justify-between flex-wrap gap-3 mb-3 md:mb-4">
-                <h3 className="text-base md:text-lg font-semibold text-gray-900">
-                  This week&apos;s cover
-                </h3>
-                <div className="flex items-center gap-3 flex-wrap text-xs md:text-sm text-gray-600">
-                  <span>
-                    {formatDateRange(digest.startISO, digest.endISO)}
-                    {digest.builtAtISO && (
-                      <span className="ml-4">• Built {formatDateTime(digest.builtAtISO)}</span>
-                    )}
-                  </span>
-                </div>
+      {/* STICKY FULL-SCREEN HERO */}
+      <section className="relative h-[100svh]" style={{ zIndex: 0 }}>
+        {/* Sticky layer */}
+        <div className="sticky top-0 h-[100svh] overflow-hidden">
+          {/* Cover image or gradient background */}
+          {digest?.coverImageUrl ? (
+            <img
+              src={digest.coverImageUrl}
+              alt={digest.coverImageAlt || `Weekly digest cover for ${digest?.weekLabel || 'current week'}`}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectFit: 'cover' }}
+            />
+          ) : (
+            <div 
+              className="absolute inset-0 w-full h-full"
+              style={{
+                background: 'linear-gradient(120deg,#6b2d5c 50%, #8b4a7a 100%)',
+              }}
+            />
+          )}
+          
+          {/* Gradient overlay for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/0" />
+          
+          {/* Hero content */}
+          <div className="relative z-10 h-full flex items-center justify-center">
+            <div className="w-full max-w-[1400px] lg:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 md:px-8 text-center">
+              <h1 className="font-bold mb-4 text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] text-white" style={{
+                textShadow: '0 2px 8px rgba(0,0,0,0.5)'
+              }}>
+                Luxury Intelligence
+              </h1>
+              <div className="text-gray-100 leading-relaxed max-w-5xl mx-auto mb-4 text-[1.6rem] md:text-[2rem] lg:text-[2.2rem] whitespace-nowrap" style={{
+                textShadow: '0 1px 4px rgba(0,0,0,0.3)'
+              }}>
+                Weekly intelligence across AI, ecommerce, luxury, and jewellery.
               </div>
-              <div className="relative w-full rounded-lg overflow-hidden" style={{ height: '497px' }}>
-                <img
-                  src={digest.coverImageUrl}
-                  alt={digest.coverImageAlt || `Weekly digest cover for ${digest.weekLabel}`}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-black bg-opacity-50 px-6 md:px-8 py-3 md:py-4 rounded-lg">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
+              <p className="text-gray-200 mb-6 text-[1.2rem] md:text-[1.5rem] lg:text-[1.6rem] italic" style={{
+                textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+              }}>
+                Curated articles, signals, and context — handpicked and summarised by AI agents each week.
+              </p>
+              {digest?.weekLabel && (
+                <div className="mt-8">
+                  <div className="inline-block bg-black/50 backdrop-blur-sm px-8 md:px-10 py-4 md:py-5 rounded-lg">
+                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
                       Week {digest.weekLabel}
                     </h2>
                   </div>
                 </div>
+              )}
+            </div>
+          </div>
+          
+          {/* Build digest button - top right */}
+          <div className="absolute top-4 right-4 z-20">
+            <div className="bg-black/50 backdrop-blur-sm rounded-lg px-3 py-2">
+              <BuildDigestButton />
+            </div>
+          </div>
+          
+          {/* Date range and build info - bottom right */}
+          {digest && (
+            <div className="absolute bottom-4 right-4 z-20">
+              <div className="bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2">
+                <div className="text-xs md:text-sm text-white" style={{
+                  textShadow: '0 1px 2px rgba(0,0,0,0.5)'
+                }}>
+                  <span>
+                    {formatDateRange(digest.startISO, digest.endISO)}
+                    {digest.builtAtISO && (
+                      <span className="ml-2">• Built {formatDateTime(digest.builtAtISO)}</span>
+                    )}
+                  </span>
+                </div>
               </div>
-              
-              {/* Weekly Podcast Player - Inside same pane */}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* PANELS SECTION - Overtaking Content */}
+      <section className="relative z-20 -mt-16 md:-mt-24">
+        {/* Panel Container */}
+        <div className="w-full max-w-[1400px] lg:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 md:px-8">
+          <div className="bg-white/95 dark:bg-zinc-950/90 backdrop-blur rounded-2xl shadow-lg border border-black/5 dark:border-white/10 p-6 md:p-10">
+          {/* If digest missing, show clear notice */}
+          {!digest ? (
+            <div style={{
+              maxWidth: 520,
+              margin: '3.5rem auto 0 auto',
+              padding: '2.5rem 1.5rem',
+              background: '#fff1e2',
+              borderRadius: 10,
+              border: '1.5px dashed #ffdfa9',
+              fontSize: '1.1rem',
+              color: '#913d00',
+              textAlign: 'center',
+              boxShadow: '0 2px 12px 0 rgba(200,170,100,0.04)'
+            }}>
+              <h2 style={{margin: '0 0 1rem 0', fontSize: '1.6rem', fontWeight: 600}}>Digest not built yet</h2>
+              <p style={{marginBottom:'1.1rem'}}>No latest digest found for this week.</p>
+              <div style={{marginBottom:'1.5rem'}}>
+                <span style={{
+                  background: '#fff4ca',
+                  color: '#905e19',
+                  fontFamily: 'monospace',
+                  padding: '0.28rem 0.46rem',
+                  borderRadius: '4px',
+                  fontSize: '1.04rem',
+                  display:'inline-block'
+                }}>npx tsx scripts/buildWeeklyDigest.ts</span>
+              </div>
+            </div>
+          ) : (
+            <>
+              {/* Podcast Player - At top of panel */}
               {podcast && (
-                <div className="mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-200">
+                <div className="mb-6 md:mb-8 pb-6 md:pb-8 border-b border-gray-200 dark:border-gray-700">
                   <div className="mb-3">
-                    <h3 className="text-base md:text-lg font-semibold text-gray-900">
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-gray-100">
                       🎧 Weekly Luxury Intelligence Podcast · ~12 minutes
                     </h3>
-                    <p className="text-sm text-gray-600 italic mt-2">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 italic mt-2">
                       Listen to this week&apos;s key ecommerce, jewellery & luxury stories
                     </p>
                   </div>
@@ -314,82 +334,78 @@ export default async function Home() {
                   </audio>
                 </div>
               )}
-            </div>
-          </section>
-        )}
 
-        {/* Category Jump Navigation */}
-        <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6">
-          <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center justify-center w-full flex-wrap gap-4 relative">
-              <nav className="flex flex-wrap gap-2 justify-center" aria-label="Category navigation">
-                {CATEGORY_CARDS.map(cat => (
-                  <a
-                    key={cat.anchorId}
-                    href={`#${cat.anchorId}`}
-                    className="px-4 py-2 text-sm font-medium border border-gray-200 bg-gray-50 text-gray-700 rounded-full hover:bg-gray-100 hover:border-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
-                  >
-                    {cat.title}
-                  </a>
-                ))}
-              </nav>
-              <div className="absolute right-0 text-right">
-                <p className="text-sm md:text-base text-gray-500 whitespace-nowrap">
-                  {digest.totals.total} articles processed this week
-                </p>
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <Suspense fallback={<div className="h-6 w-20" />}>
-                <TopNSelector />
-              </Suspense>
-            </div>
-          </div>
-        </section>
-
-        {/* CATEGORY SECTIONS UI - Client-side rendering with reactive TopN */}
-        <Suspense fallback={
-          <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-16 md:mb-20">
-            <div className="w-full grid grid-cols-12 gap-8 lg:gap-10">
-              {CATEGORY_CARDS.map(cat => (
-                <div key={cat.key} className="col-span-12 lg:col-span-6 w-full">
-                  <div className="bg-white rounded-lg border border-gray-100 p-4 md:p-7 h-64 animate-pulse" />
-                </div>
-              ))}
-            </div>
-          </section>
-        }>
-          <DigestClientView digest={digest} categoryCards={CATEGORY_CARDS} variant="home" />
-        </Suspense>
-
-        {/* Key Themes Summary (Home Page) */}
-        {(digest.keyThemes && digest.keyThemes.length > 0) || digest.oneSentenceSummary ? (
-          <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6">
-            <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-6">
-              <div className="text-center">
-                {digest.oneSentenceSummary && (
-                  <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
-                    {digest.oneSentenceSummary}
-                  </p>
-                )}
-                {digest.keyThemes && digest.keyThemes.length > 0 && (
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {digest.keyThemes.map((theme, idx) => (
-                      <span
-                        key={idx}
-                        className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200"
-                      >
-                        {theme}
-                      </span>
-                    ))}
+              {/* Category Jump Navigation - At top of panel */}
+              <div className="mb-6 md:mb-8 pb-6 md:pb-8 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex flex-col items-center gap-4">
+                  <div className="flex items-center justify-center w-full flex-wrap gap-4 relative">
+                    <nav className="flex flex-wrap gap-2 justify-center" aria-label="Category navigation">
+                      {CATEGORY_CARDS.map(cat => (
+                        <a
+                          key={cat.anchorId}
+                          href={`#${cat.anchorId}`}
+                          className="px-4 py-2 text-sm font-medium border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
+                        >
+                          {cat.title}
+                        </a>
+                      ))}
+                    </nav>
+                    <div className="absolute right-0 text-right">
+                      <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                        {digest.totals.total} articles processed this week
+                      </p>
+                    </div>
                   </div>
-                )}
+                  <div className="flex justify-center">
+                    <Suspense fallback={<div className="h-6 w-20" />}>
+                      <TopNSelector />
+                    </Suspense>
+                  </div>
+                </div>
               </div>
-            </div>
-          </section>
-        ) : null}
-      </>
-      )}
+
+              {/* CATEGORY SECTIONS UI - Client-side rendering with reactive TopN */}
+              <Suspense fallback={
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {CATEGORY_CARDS.map(cat => (
+                    <div key={cat.key} className="w-full">
+                      <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 p-4 md:p-7 h-64 animate-pulse" />
+                    </div>
+                  ))}
+                </div>
+              }>
+                <DigestClientView digest={digest} categoryCards={CATEGORY_CARDS} variant="home" />
+              </Suspense>
+
+              {/* Key Themes Summary (Home Page) */}
+              {(digest.keyThemes && digest.keyThemes.length > 0) || digest.oneSentenceSummary ? (
+                <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-gray-200 dark:border-gray-700">
+                  <div className="text-center">
+                    {digest.oneSentenceSummary && (
+                      <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        {digest.oneSentenceSummary}
+                      </p>
+                    )}
+                    {digest.keyThemes && digest.keyThemes.length > 0 && (
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {digest.keyThemes.map((theme, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700"
+                          >
+                            {theme}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ) : null}
+            </>
+          )}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

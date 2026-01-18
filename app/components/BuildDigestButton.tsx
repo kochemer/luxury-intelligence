@@ -45,9 +45,10 @@ export default function BuildDigestButton() {
       <button
         onClick={handleBuild}
         disabled={isBuilding}
-        className="text-xs text-gray-400 hover:text-gray-300 underline bg-transparent border-none cursor-pointer p-0 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="text-xs text-white hover:text-gray-200 underline bg-transparent border-none cursor-pointer p-0 disabled:opacity-50 disabled:cursor-not-allowed"
         style={{
           fontSize: '0.75rem',
+          textShadow: '0 1px 2px rgba(0,0,0,0.5)',
         }}
       >
         {isBuilding ? 'Building...' : 'Build digest'}
@@ -57,6 +58,7 @@ export default function BuildDigestButton() {
           className="mt-1 text-xs"
           style={{
             color: message.startsWith('Success') ? '#10b981' : '#ef4444',
+            textShadow: '0 1px 2px rgba(0,0,0,0.5)',
           }}
         >
           {message}
