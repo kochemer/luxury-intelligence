@@ -21,15 +21,6 @@ export type Article = {
 
 // --- Topic heuristics ---
 
-// Priority order for assignment if multiple match
-// AI_and_Strategy > Ecommerce_Retail_Tech > Luxury_and_Consumer > Jewellery_Industry
-const TOPIC_PRIORITY: Topic[] = [
-  "AI_and_Strategy",
-  "Ecommerce_Retail_Tech",
-  "Luxury_and_Consumer",
-  "Jewellery_Industry"
-];
-
 // Heuristic keyword lists (lowercase all for case-insensitive match)
 // Keywords should be specific enough to avoid false positives
 
@@ -40,12 +31,22 @@ const Jewellery_Industry_Keywords = [
   "de beers", "sotheby's", "graff", "piaget", "jeweler", "jeweller"
 ];
 
+// Frontier AI keywords - focused on research, model development, benchmarks, not business applications
 const AI_and_Strategy_Keywords = [
+  // Core AI/ML terms
   "ai", "artificial intelligence", "machine learning", "ml model", "llm",
-  "chatgpt", "gpt-", "openai", "generative ai", "ai personalization", "ai recommender",
-  "ai recommendation", "ai predictive", "ai-driven strategy", "ai algorithm", "ai automation", 
-  "ai data science", "computer vision", "ai nlp", "large language model", "deep learning",
-  "ai prompt", "foundation model", "neural network", "ai strategy", "ai model"
+  "chatgpt", "gpt-", "openai", "generative ai", "large language model", "deep learning",
+  "foundation model", "neural network", "ai model",
+  // Frontier AI research terms
+  "benchmark", "state of the art", "sota", "leaderboard",
+  "mmlu", "gpqa", "gsm8k", "math", "humaneval", "swe-bench", "eval", "evaluation",
+  "model release", "weights", "open-source model", "inference",
+  "scaling law", "rlhf", "dpo", "rlaif", "alignment", "evals",
+  "multimodal", "reasoning", "agent", "tool use", "planning",
+  "training compute", "h100", "b200", "tpu", "datacenter", "inference cost",
+  "funding", "revenue", "profit", "valuation", // LLM company financials
+  "anthropic", "claude", "google deepmind", "gemini", "meta ai", "llama",
+  "mistral", "cohere", "ai21", "perplexity", "xai", "grok"
 ];
 
 const Luxury_and_Consumer_Keywords = [
@@ -127,35 +128,81 @@ export function classifyTopic(article: { title: string; url: string; source: str
     return "AI_and_Strategy";
   }
   
-  // For unknown sources, use keyword-based classification
-  // Collect all matching topics (in priority order) based on keywords
-  const matches: Topic[] = [];
+  // For unknown sources, use keyword-based classification with intelligent tie-breaking
+  // Count keyword matches per category to determine strongest signal
+  const matchScores: Record<Topic, number> = {
+    "Jewellery_Industry": 0,
+    "Luxury_and_Consumer": 0,
+    "Ecommerce_Retail_Tech": 0,
+    "AI_and_Strategy": 0,
+  };
   
-  // Check AI & Strategy first (highest priority)
-  if (matchesAnyKeyword(titleAndSource, AI_and_Strategy_Keywords)) {
-    matches.push("AI_and_Strategy");
-  }
+  // Score matches (count keyword occurrences for stronger signals)
+  const text = titleAndSource;
+  const lowerText = text.toLowerCase();
   
-  // Check Ecommerce & Retail Tech
-  if (matchesAnyKeyword(titleAndSource, Ecommerce_Retail_Tech_Keywords)) {
-    matches.push("Ecommerce_Retail_Tech");
-  }
-  
-  // Check Luxury & Consumer
-  if (matchesAnyKeyword(titleAndSource, Luxury_and_Consumer_Keywords)) {
-    matches.push("Luxury_and_Consumer");
-  }
-  
-  // Check Jewellery Industry
-  if (matchesAnyKeyword(titleAndSource, Jewellery_Industry_Keywords)) {
-    matches.push("Jewellery_Industry");
-  }
-  
-  // Return first match in priority order (AI_and_Strategy > Ecommerce_Retail_Tech > Luxury_and_Consumer > Jewellery_Industry)
-  for (const priorityTopic of TOPIC_PRIORITY) {
-    if (matches.includes(priorityTopic)) {
-      return priorityTopic;
+  // Jewellery keywords (strongest signal - check first)
+  for (const kw of Jewellery_Industry_Keywords) {
+    if (matchesAnyKeyword(text, [kw])) {
+      matchScores["Jewellery_Industry"]++;
     }
+  }
+  
+  // Luxury/Consumer keywords
+  for (const kw of Luxury_and_Consumer_Keywords) {
+    if (matchesAnyKeyword(text, [kw])) {
+      matchScores["Luxury_and_Consumer"]++;
+    }
+  }
+  
+  // Ecommerce/Retail keywords
+  for (const kw of Ecommerce_Retail_Tech_Keywords) {
+    if (matchesAnyKeyword(text, [kw])) {
+      matchScores["Ecommerce_Retail_Tech"]++;
+    }
+  }
+  
+  // AI/Strategy keywords (frontier AI focus)
+  for (const kw of AI_and_Strategy_Keywords) {
+    if (matchesAnyKeyword(text, [kw])) {
+      matchScores["AI_and_Strategy"]++;
+    }
+  }
+  
+  // Intelligent tie-breaking: prioritize strongest signal
+  // If jewellery has strong match (>= 2 keywords), it wins
+  if (matchScores["Jewellery_Industry"] >= 2) {
+    return "Jewellery_Industry";
+  }
+  
+  // If fashion/luxury has strong match (>= 2 keywords), it wins
+  if (matchScores["Luxury_and_Consumer"] >= 2) {
+    return "Luxury_and_Consumer";
+  }
+  
+  // If ecommerce/retail has strong match (>= 2 keywords), it wins
+  if (matchScores["Ecommerce_Retail_Tech"] >= 2) {
+    return "Ecommerce_Retail_Tech";
+  }
+  
+  // If AI has strong match (>= 2 keywords), it wins
+  if (matchScores["AI_and_Strategy"] >= 2) {
+    return "AI_and_Strategy";
+  }
+  
+  // For single keyword matches, use specificity order (most specific first)
+  // Jewellery is most specific, then luxury, then ecommerce, then AI
+  if (matchScores["Jewellery_Industry"] > 0) {
+    return "Jewellery_Industry";
+  }
+  if (matchScores["Luxury_and_Consumer"] > 0) {
+    return "Luxury_and_Consumer";
+  }
+  if (matchScores["Ecommerce_Retail_Tech"] > 0) {
+    return "Ecommerce_Retail_Tech";
+  }
+  if (matchScores["AI_and_Strategy"] > 0) {
+    return "AI_and_Strategy";
   }
   
   // Conservative fallback: only use if there's a clear signal
@@ -171,21 +218,20 @@ export function classifyTopic(article: { title: string; url: string; source: str
     return "Ecommerce_Retail_Tech";
   }
   
-  // For Hacker News and other general tech sources: only classify if there's a weak signal
-  // Otherwise, these articles don't fit our categories well
+  // For Hacker News and other general tech sources: only classify if there's a signal
   if (sourceLower.includes("hacker news")) {
-    // Hacker News articles need at least some tech/retail signal
+    // Check for any category signal
     const weakTechSignals = ["retail", "ecommerce", "shopping", "store", "merchant", "retailer"];
     if (matchesAnyKeyword(titleAndSource, weakTechSignals)) {
       return "Ecommerce_Retail_Tech";
     }
-    // If no signal, still default to Ecommerce_Retail_Tech (required by taxonomy)
-    // but this is a catch-all for articles that don't fit our domain
+    // If no clear signal, return Ecommerce_Retail_Tech with low confidence (handled by caller)
     return "Ecommerce_Retail_Tech";
   }
   
-  // For other unknown sources, default to Ecommerce_Retail_Tech
+  // For other unknown sources with no matches, return Ecommerce_Retail_Tech as fallback
   // This should be rare - most articles should match keywords or source hints
+  // Note: Low confidence will be marked by the caller
   return "Ecommerce_Retail_Tech";
 }
 
@@ -255,7 +301,8 @@ if (import.meta.url === `file://${process.argv[1]?.replace(/\\/g, '/')}` || proc
   classifyCurrentWeekArticles()
     .then(({ weekLabel, byTopic }) => {
       console.log(weekLabel);
-      for (const topic of TOPIC_PRIORITY) {
+      const topics: Topic[] = ["Jewellery_Industry", "Luxury_and_Consumer", "Ecommerce_Retail_Tech", "AI_and_Strategy"];
+      for (const topic of topics) {
         const count = byTopic[topic].length;
         console.log(`${topic}: ${count}`);
       }

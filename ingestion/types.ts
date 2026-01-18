@@ -11,12 +11,16 @@ export type Article = {
   discoveredAt?: string; // ISO timestamp when article was discovered/extracted
   publishedDateInvalid?: boolean; // True if published_at is invalid/missing
   usedDiscoveredAtFallback?: boolean; // True if included via discoveredAt fallback
-  sourceType?: 'rss' | 'page' | 'discovery' | 'consultancy'; // How article was ingested
+  sourceType?: 'rss' | 'page' | 'discovery' | 'consultancy' | 'platform'; // How article was ingested
+  categoryHint?: 'Fashion & Luxury' | 'Jewellery Industry'; // Optional hint from RSS source (non-binding)
 };
 
 export type SourceFeed = {
   name: string;
   url: string;
+  tier?: 1 | 2 | 3 | 4 | 5 | 6; // Source tier classification
+  sourceType?: 'news' | 'retail' | 'academic' | 'specialist' | 'consultancy' | 'platform' | 'fashion_luxury' | 'jewellery'; // Source type for categorization
+  categoryHint?: 'Fashion & Luxury' | 'Jewellery Industry'; // Optional hint for classification (non-binding)
 };
 
 export type SourcePage = {

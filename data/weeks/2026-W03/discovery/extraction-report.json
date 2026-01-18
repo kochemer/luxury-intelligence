@@ -1,13 +1,13 @@
 {
   "byTopic": {
     "AI_and_Strategy": {
-      "fetched_ok": 31,
-      "extracted_ok": 0,
+      "fetched_ok": 33,
+      "extracted_ok": 1,
       "excluded": {
         "nonEnglish": 3,
         "tooShort": 10,
         "notArticle": 13,
-        "paywalled": 5
+        "paywalled": 6
       }
     },
     "Ecommerce_Retail_Tech": {

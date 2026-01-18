@@ -40,6 +40,7 @@ export type RssFeedStats = {
   sourceName: string;
   itemsProcessed: number;
   newArticles: number;
+  categoryHint?: string;
 };
 
 export async function runRssIngestion(): Promise<{ added: number; updated: number; feeds: RssFeedStats[] }> {
@@ -121,6 +122,8 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
             ingested_at: now,
             snippet: truncatedSnippet || undefined,
             sourceType: 'rss',
+            // Store categoryHint in article metadata (if available)
+            ...(feed.categoryHint ? { categoryHint: feed.categoryHint } : {}),
           };
           allNewArticles.push(article);
           feedNewArticles++;
@@ -141,7 +144,8 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
       feedStats.push({
         sourceName: feed.name,
         itemsProcessed: feedItemsProcessed,
-        newArticles: feedNewArticles
+        newArticles: feedNewArticles,
+        categoryHint: feed.categoryHint
       });
 
       if (feedItemsProcessed > 0) {

@@ -187,7 +187,7 @@ async function main() {
     // Reset yield stats at start of ingestion
     resetYieldStats();
     
-    let rssResult: { added: number; updated: number; feeds: Array<{ sourceName: string; itemsProcessed: number; newArticles: number }> } = { added: 0, updated: 0, feeds: [] };
+    let rssResult: { added: number; updated: number; feeds: Array<{ sourceName: string; itemsProcessed: number; newArticles: number; categoryHint?: string }> } = { added: 0, updated: 0, feeds: [] };
     let pageResult: { added: number; stats: PageIngestionStats | null } = { added: 0, stats: null };
     let discoveryResult = { added: 0, updated: 0, stats: initDiscoveryStats() };
     const resolvedWeekLabel = weekLabel || getDefaultWeekLabel();
@@ -248,6 +248,33 @@ async function main() {
 
     await writeIngestionReport(report);
     console.log(`[Combined] Ingestion report saved to data/weeks/${resolvedWeekLabel}/ingestion-report.json`);
+
+    // Report categoryHint breakdown
+    const categoryHintStats: Record<string, number> = {};
+    for (const feed of rssResult.feeds) {
+      if (feed.categoryHint) {
+        categoryHintStats[feed.categoryHint] = (categoryHintStats[feed.categoryHint] || 0) + feed.newArticles;
+      }
+    }
+    if (Object.keys(categoryHintStats).length > 0) {
+      console.log('\n=== CATEGORY HINT BREAKDOWN ===');
+      for (const [hint, count] of Object.entries(categoryHintStats)) {
+        console.log(`  ${hint}: ${count} articles`);
+      }
+    }
+
+    // Report top 10 sources by extracted articles
+    const topSources = [...rssResult.feeds]
+      .sort((a, b) => b.newArticles - a.newArticles)
+      .slice(0, 10)
+      .filter(f => f.newArticles > 0);
+    if (topSources.length > 0) {
+      console.log('\n=== TOP 10 RSS SOURCES BY ARTICLES ===');
+      for (const feed of topSources) {
+        const hintText = feed.categoryHint ? ` [${feed.categoryHint}]` : '';
+        console.log(`  ${feed.sourceName}: ${feed.newArticles} articles${hintText}`);
+      }
+    }
 
     console.log('\n=== INGESTION SUMMARY ===');
     for (const [category, stats] of Object.entries(report.categories)) {

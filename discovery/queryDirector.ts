@@ -5,6 +5,7 @@ import type { Topic } from '../classification/classifyTopics';
 import { generateDeltaQueries, type QueryDeltaConfig } from './queryDelta';
 import { getTopicDisplayName } from '../utils/topicNames';
 import { generateConsultancyQueries } from './consultancyDomains';
+import { generatePlatformQueries } from './platformDomains';
 import crypto from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -31,7 +32,8 @@ function computeHash(input: string): string {
 export type QueriesOutput = {
   baseQueries: Record<string, string[]>;
   deltaQueries: Record<string, string[]>;
-  consultancyQueries?: Record<string, string[]>; // New: consultancy-targeted queries
+  consultancyQueries?: Record<string, string[]>; // Tier 3: consultancy-targeted queries
+  platformQueries?: Record<string, string[]>; // Tier 4: platform-targeted queries
   finalQueries: Record<Topic, string[]>;
   baseQueriesHash: string;
   weekLabel: string;
@@ -40,12 +42,13 @@ export type QueriesOutput = {
 
 export type QueryDirectorConfig = QueryDeltaConfig & {
   includeConsultancies?: boolean; // Default: true
+  includePlatforms?: boolean; // Default: true
 };
 
 export async function generateSearchQueries(
   weekLabel: string,
   discoveryDir: string,
-  config: QueryDirectorConfig = { regenDelta: false, noDelta: false, includeConsultancies: true }
+  config: QueryDirectorConfig = { regenDelta: false, noDelta: false, includeConsultancies: true, includePlatforms: true }
 ): Promise<Record<Topic, string[]>> {
   const queriesPath = path.join(discoveryDir, 'queries.json');
   
@@ -71,7 +74,7 @@ export async function generateSearchQueries(
   // Generate delta queries
   const deltaQueries = await generateDeltaQueries(weekLabel, discoveryDir, config);
   
-  // Generate consultancy queries if enabled
+  // Generate consultancy queries if enabled (Tier 3)
   const consultancyQueriesByCategory: Record<string, string[]> = {};
   if (config.includeConsultancies !== false) {
     const topics: Topic[] = [
@@ -85,7 +88,24 @@ export async function generateSearchQueries(
       const consultancyQueries = generateConsultancyQueries(topic, categoryLabel);
       consultancyQueriesByCategory[categoryLabel] = consultancyQueries;
     }
-    console.log(`[QueryDirector] Generated consultancy queries for all categories`);
+    console.log(`[QueryDirector] Generated consultancy queries (Tier 3) for all categories`);
+  }
+
+  // Generate platform queries if enabled (Tier 4)
+  const platformQueriesByCategory: Record<string, string[]> = {};
+  if (config.includePlatforms !== false) {
+    const topics: Topic[] = [
+      "AI_and_Strategy",
+      "Ecommerce_Retail_Tech",
+      "Luxury_and_Consumer",
+      "Jewellery_Industry"
+    ];
+    for (const topic of topics) {
+      const categoryLabel = getCategoryLabel(topic);
+      const platformQueries = generatePlatformQueries(topic, categoryLabel);
+      platformQueriesByCategory[categoryLabel] = platformQueries;
+    }
+    console.log(`[QueryDirector] Generated platform queries (Tier 4) for all categories`);
   }
   
   // Assemble final queries
@@ -110,21 +130,23 @@ export async function generateSearchQueries(
     const baseQueriesForCategory = baseQueries[categoryLabel] || [];
     const deltaQueriesForTopic = deltaQueries[topic] || [];
     const consultancyQueriesForCategory = consultancyQueriesByCategory[categoryLabel] || [];
+    const platformQueriesForCategory = platformQueriesByCategory[categoryLabel] || [];
     
     if (baseQueriesForCategory.length !== 12) {
       throw new Error(`Base queries for ${categoryLabel} must have exactly 12 queries, found ${baseQueriesForCategory.length}`);
     }
     
-    // Combine: base (12) + delta (3) + consultancy (2) = 17 total
-    const combined = [...baseQueriesForCategory, ...deltaQueriesForTopic, ...consultancyQueriesForCategory];
+    // Combine: base (12) + delta (3) + consultancy (2) + platform (2) = 19 total
+    const combined = [...baseQueriesForCategory, ...deltaQueriesForTopic, ...consultancyQueriesForCategory, ...platformQueriesForCategory];
     finalQueries[topic] = combined;
     deltaQueriesByCategory[categoryLabel] = deltaQueriesForTopic;
     
     const baseCount = baseQueriesForCategory.length;
     const deltaCount = deltaQueriesForTopic.length;
     const consultancyCount = consultancyQueriesForCategory.length;
+    const platformCount = platformQueriesForCategory.length;
     const totalCount = combined.length;
-    console.log(`[QueryDirector] ${categoryLabel}: base=${baseCount}, delta=${deltaCount}, consultancy=${consultancyCount}, total=${totalCount}`);
+    console.log(`[QueryDirector] ${categoryLabel}: base=${baseCount}, delta=${deltaCount}, consultancy=${consultancyCount}, platform=${platformCount}, total=${totalCount}`);
   }
   
   // Save queries with metadata
@@ -132,6 +154,7 @@ export async function generateSearchQueries(
     baseQueries,
     deltaQueries: deltaQueriesByCategory,
     consultancyQueries: Object.keys(consultancyQueriesByCategory).length > 0 ? consultancyQueriesByCategory : undefined,
+    platformQueries: Object.keys(platformQueriesByCategory).length > 0 ? platformQueriesByCategory : undefined,
     finalQueries,
     baseQueriesHash,
     weekLabel,
@@ -148,8 +171,9 @@ export async function generateSearchQueries(
     const baseCount = baseQueries[categoryLabel]?.length || 0;
     const deltaCount = deltaQueriesByCategory[categoryLabel]?.length || 0;
     const consultancyCount = consultancyQueriesByCategory[categoryLabel]?.length || 0;
+    const platformCount = platformQueriesByCategory[categoryLabel]?.length || 0;
     const totalCount = finalQueries[topic].length;
-    console.log(`${categoryLabel}: base=${baseCount}, delta=${deltaCount}, consultancy=${consultancyCount}, total=${totalCount}`);
+    console.log(`${categoryLabel}: base=${baseCount}, delta=${deltaCount}, consultancy=${consultancyCount}, platform=${platformCount}, total=${totalCount}`);
   }
   
   return finalQueries;

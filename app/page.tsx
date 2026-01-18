@@ -118,6 +118,17 @@ async function loadLatestPodcast(): Promise<PodcastMetadata | null> {
   }
 }
 
+async function loadPodcastForWeek(weekLabel: string): Promise<PodcastMetadata | null> {
+  try {
+    const podcastPath = path.join(process.cwd(), 'data', 'weeks', weekLabel, 'podcast.json');
+    const raw = await fs.readFile(podcastPath, 'utf-8');
+    return JSON.parse(raw) as PodcastMetadata;
+  } catch {
+    // Fail silently if podcast doesn't exist
+    return null;
+  }
+}
+
 // Category UI meta data (title, short desc, topicKey, N)
 // Ordered for display: Ecommerce, Jewellery, AI, Luxury
 const CATEGORY_CARDS: Array<{
@@ -169,9 +180,10 @@ const CATEGORY_CARDS: Array<{
 
 
 export default async function Home() {
-  const weekLabel = getPreviousWeek();
+  // Show week 3 (2026-W03) - update this to getPreviousWeek() or getLatestAvailableDigest() for production
+  const weekLabel = '2026-W03';
   const digest = await loadDigest(weekLabel);
-  const podcast = await loadLatestPodcast();
+  const podcast = await loadPodcastForWeek(weekLabel);
 
   // HERO section (always present)
   return (
@@ -194,44 +206,6 @@ export default async function Home() {
         padding: 0,
         borderBottom: '1px solid #e5e7eb'
       }}>
-        {/* Temporarily commented out - image file missing
-        <div style={{
-          position: 'absolute',
-          zIndex: 0,
-          top: 0, left: 0, width: '100%', height: '100%',
-        }}>
-            <Image
-              src="/hero-digest.jpg"
-              alt="Weekly Digest Hero"
-              priority
-              fill
-              style={{ objectFit: 'cover', objectPosition: 'center center', filter: 'brightness(0.75) blur(0.3px)', opacity: 0.4 }}
-            />
-        </div>
-        */}
-        {/* Logo - Top Left */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          bottom: 0,
-          zIndex: 10,
-          display: 'flex',
-          alignItems: 'center',
-          padding: '1rem 0.5rem 1rem 0'
-        }}>
-          <img
-            src="/favicon.png"
-            alt="Luxury Intelligence"
-            style={{
-              height: '119%',
-              width: 'auto',
-              display: 'block',
-              filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.3))',
-              objectFit: 'contain'
-            }}
-          />
-        </div>
         <div className="w-full max-w-[1400px] lg:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 md:px-8" style={{
           position: 'relative',
           zIndex: 2,
@@ -239,15 +213,15 @@ export default async function Home() {
           padding: '2rem 1.5rem 1.75rem 1.5rem',
           textAlign: 'center',
         }}>
-          <h1 className="text-4xl md:text-5xl font-bold mb-3" style={{
+          <h1 className="font-bold mb-3 text-[2.7rem] md:text-[3.6rem]" style={{
             textShadow: '0 1px 4px rgba(18,30,49,0.15)'
           }}>
             Luxury Intelligence
           </h1>
-          <div className="text-base md:text-lg text-gray-100 leading-relaxed max-w-xl mx-auto mb-3">
+          <div className="text-gray-100 leading-relaxed max-w-4xl mx-auto mb-3 text-[1.2rem] md:text-[1.44rem] whitespace-nowrap">
             Weekly intelligence across AI, ecommerce, luxury, and jewellery.
           </div>
-          <p className="text-sm md:text-base text-gray-300 mb-5">
+          <p className="text-gray-300 mb-5 text-[0.96rem] md:text-[1.152rem] italic">
             Curated articles, signals, and context — handpicked and summarised by AI agents each week.
           </p>
         </div>
@@ -300,7 +274,7 @@ export default async function Home() {
                   </span>
                 </div>
               </div>
-              <div className="relative w-full rounded-lg overflow-hidden" style={{ height: '432px' }}>
+              <div className="relative w-full rounded-lg overflow-hidden" style={{ height: '497px' }}>
                 <img
                   src={digest.coverImageUrl}
                   alt={digest.coverImageAlt || `Weekly digest cover for ${digest.weekLabel}`}
@@ -320,7 +294,7 @@ export default async function Home() {
                 <div className="mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-200">
                   <div className="mb-3">
                     <h3 className="text-base md:text-lg font-semibold text-gray-900">
-                      🎧 Weekly Luxury Intelligence Podcast · ~20 min
+                      🎧 Weekly Luxury Intelligence Podcast · ~12 minutes
                     </h3>
                     <p className="text-sm text-gray-600 italic mt-2">
                       Listen to this week&apos;s key ecommerce, jewellery & luxury stories
@@ -347,8 +321,8 @@ export default async function Home() {
         {/* Category Jump Navigation */}
         <section className="w-full max-w-[1200px] lg:max-w-[1400px] 2xl:max-w-[1560px] mx-auto px-4 md:px-8 mb-4 md:mb-6">
           <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center justify-between w-full flex-wrap gap-4">
-              <nav className="flex flex-wrap gap-2 justify-center flex-1" aria-label="Category navigation">
+            <div className="flex items-center justify-center w-full flex-wrap gap-4 relative">
+              <nav className="flex flex-wrap gap-2 justify-center" aria-label="Category navigation">
                 {CATEGORY_CARDS.map(cat => (
                   <a
                     key={cat.anchorId}
@@ -359,7 +333,7 @@ export default async function Home() {
                   </a>
                 ))}
               </nav>
-              <div className="text-right">
+              <div className="absolute right-0 text-right">
                 <p className="text-sm md:text-base text-gray-500 whitespace-nowrap">
                   {digest.totals.total} articles processed this week
                 </p>

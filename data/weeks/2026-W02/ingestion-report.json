@@ -1,6 +1,6 @@
 {
   "week": "2026-W02",
-  "generatedAt": "2026-01-17T16:22:30.295Z",
+  "generatedAt": "2026-01-18T13:19:51.201Z",
   "categories": {
     "Jewellery Industry": {
       "rss_found": 0,
@@ -15,25 +15,25 @@
         "controversial": 0,
         "duplicate": 0
       },
-      "final_candidates": 0
+      "final_candidates": 11
     },
     "Artificial Intelligence News": {
-      "rss_found": 0,
-      "discovery_found": 0,
-      "fetched_ok": 0,
+      "rss_found": 44,
+      "discovery_found": 120,
+      "fetched_ok": 38,
       "extracted_ok": 0,
       "excluded": {
-        "nonEnglish": 0,
-        "tooShort": 0,
-        "notArticle": 0,
-        "paywalled": 0,
+        "nonEnglish": 1,
+        "tooShort": 4,
+        "notArticle": 17,
+        "paywalled": 16,
         "controversial": 0,
         "duplicate": 0
       },
-      "final_candidates": 0
+      "final_candidates": 5
     },
     "Ecommerce & Retail Tech": {
-      "rss_found": 0,
+      "rss_found": 20,
       "discovery_found": 0,
       "fetched_ok": 0,
       "extracted_ok": 0,

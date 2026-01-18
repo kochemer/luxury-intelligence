@@ -106,5 +106,29 @@
     "cached_at": "2026-01-17T15:46:37.035Z",
     "model": "gpt-4o-mini",
     "version": "1.0"
+  },
+  "2026-W02:8e107b32e0c4": {
+    "introParagraph": "Walmart implements new AI strategies to enhance its operations as the retail sector adapts to changing market conditions. Meanwhile, De Beers focuses on increasing demand in India, reflecting shifts in the luxury market amid rising inflation rates. The holiday ecommerce sales show trends in consumer behavior influenced by these developments.",
+    "cached_at": "2026-01-17T21:34:17.218Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W02:79752e76cff9": {
+    "introParagraph": "Nvidia introduces new AI chips that enhance processing capabilities, while Microsoft launches agentic AI tools aimed at improving customer interactions in retail. These developments are influencing retail profitability as companies navigate market challenges, including Saks' global downgrade and rising demand for De Beers products in India.",
+    "cached_at": "2026-01-18T11:50:16.044Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W02:915979e06185": {
+    "introParagraph": "Nvidia releases new AI chips that enhance computational capabilities for various applications. Meanwhile, Cartier opens a new boutique in Beverly Hills, reflecting ongoing trends in luxury retail. Additionally, Ulysse Nardin reports sales growth, and Estée Lauder sees an increase in brand sales.",
+    "cached_at": "2026-01-18T13:22:25.968Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
+  },
+  "2026-W03:2d1b2072a224": {
+    "introParagraph": "Richemont reports record sales, reflecting strong performance in the luxury sector, while Saks Global files for bankruptcy, indicating challenges in the retail market. The adoption of AI in retail continues to grow, with advancements such as the ClickHouse AI database and increased shipments of Nvidia chips supporting this trend.",
+    "cached_at": "2026-01-18T16:10:32.036Z",
+    "model": "gpt-4o-mini",
+    "version": "1.0"
   }
 }

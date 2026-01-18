@@ -599,7 +599,14 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
   // Classify articles using LLM with fallback
   // Process in batches to avoid overwhelming the API, but await all results
   const classificationPromises = eligibleArticles.map(async (article) => {
-    const result = await classifyArticleLLM(article);
+    // Pass categoryHint if available
+    const result = await classifyArticleLLM({
+      title: article.title,
+      url: article.url,
+      source: article.source,
+      snippet: article.snippet,
+      categoryHint: (article as any).categoryHint
+    });
     return { article, result };
   });
   

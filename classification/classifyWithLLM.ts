@@ -13,10 +13,11 @@ import { classifyTopic } from './classifyTopics';
 
 // --- Configuration ---
 
-const CLASSIFIER_VERSION = 'llm-v1';
-const CLASSIFIER_MODEL = process.env.CLASSIFIER_MODEL || 'gpt-3.5-turbo';
+const CLASSIFIER_VERSION = 'llm-v2'; // Updated version for frontier AI focus
+const CLASSIFIER_MODEL = process.env.CLASSIFIER_MODEL || 'gpt-4o-mini';
 const TEMPERATURE = 0; // Deterministic
 const MAX_TOKENS = 150;
+const CONFIDENCE_THRESHOLD = 0.55; // If LLM confidence < this, use keyword fallback
 const CACHE_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), '../data/classification_cache.json');
 const DRY_RUN = process.env.CLASSIFIER_DRY_RUN === 'true';
 
@@ -86,19 +87,20 @@ function getCacheKey(article: { url: string; title: string; snippet?: string }):
 
 // --- LLM Classification ---
 
-function buildClassificationPrompt(article: { title: string; source: string; snippet?: string }): string {
+function buildClassificationPrompt(article: { title: string; source: string; snippet?: string; categoryHint?: string }): string {
   const snippet = article.snippet || '';
   const snippetText = snippet.length > 500 ? snippet.substring(0, 500) + '...' : snippet;
+  const hintText = article.categoryHint ? `\n\nNote: This article comes from a source typically associated with ${article.categoryHint}. Use this as context, but classify based on the article's actual content.` : '';
   
-  return `You are a content classifier. Classify this article into exactly ONE of these 4 categories:
+  return `You are a content classifier. Classify this article into exactly ONE of these 4 categories:${hintText}
 
-1. **AI_and_Strategy**: Articles about artificial intelligence, machine learning, AI strategy, LLMs, automation, AI-driven business decisions, AI personalization, AI algorithms. Examples: "How AI is transforming retail", "LLM applications in ecommerce", "Machine learning for customer insights".
+1. **AI_and_Strategy** (Artificial Intelligence News): Articles about frontier AI research, model development, benchmarks, LLM companies, AI infrastructure, and cutting-edge AI technology. Focus on: model releases, benchmarks (MMLU, GPQA, GSM8K, etc.), training compute, inference costs, AI company news (OpenAI, Anthropic, Google DeepMind, etc.), scaling laws, alignment research, multimodal AI, reasoning capabilities, agent systems. DO NOT include: AI business applications, AI personalization for retail, AI-driven pricing strategies, AI customer service tools (these belong in Ecommerce_Retail_Tech). Examples: "GPT-5 achieves new SOTA on MMLU", "Anthropic raises $4B funding", "New scaling laws for LLM training", "Claude 3.5 Sonnet benchmark results".
 
-2. **Ecommerce_Retail_Tech**: Articles about online shopping, ecommerce platforms, retail technology, checkout systems, payment processing, fulfillment, logistics, omnichannel retail, marketplace platforms. Examples: "Shopify launches new features", "Retail logistics innovation", "Ecommerce conversion optimization".
+2. **Ecommerce_Retail_Tech**: Articles about online shopping, ecommerce platforms, retail technology, checkout systems, payment processing, fulfillment, logistics, omnichannel retail, marketplace platforms, AI applications in retail/ecommerce (personalization, pricing, recommendations, customer service). Examples: "Shopify launches new features", "Retail logistics innovation", "Ecommerce conversion optimization", "AI personalization for online stores", "Dynamic pricing algorithms for ecommerce".
 
-3. **Luxury_and_Consumer**: Articles about luxury brands, fashion brands, consumer goods, high-end retail, luxury market trends, premium products, luxury consumer behavior, fashion industry. Examples: "Luxury consumer spending trends", "Fashion brand strategy", "Luxury brand loyalty".
+3. **Luxury_and_Consumer** (Fashion & Luxury): Articles about luxury brands, fashion brands, consumer goods, high-end retail, luxury market trends, premium products, luxury consumer behavior, fashion industry. Examples: "Luxury consumer spending trends", "Fashion brand strategy", "Luxury brand loyalty", "High-end retail innovations".
 
-4. **Jewellery_Industry**: Articles specifically about jewelry, diamonds, gemstones, watches, luxury jewelry brands (Cartier, Tiffany, Bulgari, etc.), jewelry retail, jewelry manufacturing, horology. Examples: "Diamond market trends", "Cartier launches new collection", "Jewelry industry news".
+4. **Jewellery_Industry**: Articles specifically about jewelry, diamonds, gemstones, watches, luxury jewelry brands (Cartier, Tiffany, Bulgari, etc.), jewelry retail, jewelry manufacturing, horology. Examples: "Diamond market trends", "Cartier launches new collection", "Jewelry industry news", "Luxury watch market analysis".
 
 Article to classify:
 - Title: "${article.title}"
@@ -112,11 +114,11 @@ Respond with ONLY a valid JSON object in this exact format (no markdown, no expl
   "rationale": "Brief 1-sentence explanation"
 }
 
-Choose the category that best fits the article's primary focus.`;
+Choose the category that best fits the article's primary focus. Be precise: if an article is about AI business applications in retail, classify as Ecommerce_Retail_Tech, not AI_and_Strategy.`;
 }
 
 async function callLLMClassifier(
-  article: { title: string; source: string; snippet?: string }
+  article: { title: string; source: string; snippet?: string; categoryHint?: string }
 ): Promise<{ category: Topic; confidence: number; rationale?: string } | null> {
   if (DRY_RUN) {
     console.log(`[Classifier] DRY RUN: Would classify "${article.title.substring(0, 50)}..."`);
@@ -151,9 +153,9 @@ async function callLLMClassifier(
           content: prompt,
         },
       ],
-      // Note: response_format only works with certain models (gpt-4-turbo, gpt-3.5-turbo-1106+)
+      // Note: response_format works with gpt-4o-mini, gpt-4-turbo, gpt-3.5-turbo-1106+
       // For older models, we'll parse the response manually
-      ...(CLASSIFIER_MODEL.includes('gpt-4') || CLASSIFIER_MODEL.includes('1106') 
+      ...(CLASSIFIER_MODEL.includes('gpt-4') || CLASSIFIER_MODEL.includes('1106') || CLASSIFIER_MODEL.includes('gpt-4o')
         ? { response_format: { type: 'json_object' } }
         : {}),
     });
@@ -261,7 +263,7 @@ export function resetClassificationStats(): void {
 }
 
 export async function classifyArticleLLM(
-  article: { title: string; url: string; source: string; snippet?: string }
+  article: { title: string; url: string; source: string; snippet?: string; categoryHint?: string }
 ): Promise<ClassificationResult> {
   stats.total++;
 
@@ -290,6 +292,46 @@ export async function classifyArticleLLM(
   if (llmResult) {
     stats.llm_successes++;
     
+    // Confidence guardrail: if confidence < threshold, use keyword fallback with categoryHint tie-breaker
+    if (llmResult.confidence < CONFIDENCE_THRESHOLD) {
+      console.warn(
+        `[Classifier] LLM confidence ${llmResult.confidence} < ${CONFIDENCE_THRESHOLD} for "${article.title.substring(0, 50)}...", using keyword fallback`
+      );
+      
+      const keywordCategory = classifyTopic(article);
+      const keywordMatches = countKeywordMatches(article, keywordCategory);
+      
+      // If categoryHint exists and matches a valid category, use it as tie-breaker
+      let finalCategory = keywordCategory;
+      let rationale = `LLM confidence too low (${llmResult.confidence.toFixed(2)}), overridden by keyword matching (${keywordMatches} matches)`;
+      
+      if (article.categoryHint) {
+        const hintToTopic: Record<string, Topic> = {
+          'Fashion & Luxury': 'Luxury_and_Consumer',
+          'Jewellery Industry': 'Jewellery_Industry',
+        };
+        const hintTopic = hintToTopic[article.categoryHint];
+        
+        if (hintTopic && keywordMatches < 2) {
+          // If keyword matches are weak, prefer categoryHint
+          finalCategory = hintTopic;
+          rationale = `LLM confidence too low (${llmResult.confidence.toFixed(2)}), using categoryHint (${article.categoryHint}) as tie-breaker`;
+        } else if (hintTopic === keywordCategory) {
+          rationale += `, categoryHint (${article.categoryHint}) confirms keyword match`;
+        }
+      }
+      
+      // Use keyword result with low confidence
+      return {
+        category: finalCategory,
+        confidence: 0.3, // Slightly higher confidence when categoryHint is used
+        rationale,
+        classifier_version: CLASSIFIER_VERSION,
+        from_cache: false,
+        from_fallback: true,
+      };
+    }
+    
     // Save to cache
     cache[cacheKey] = {
       category: llmResult.category,
@@ -315,18 +357,61 @@ export async function classifyArticleLLM(
   stats.fallbacks++;
   
   const fallbackCategory = classifyTopic(article);
+  const keywordMatches = countKeywordMatches(article, fallbackCategory);
   
   console.warn(
-    `[Classifier] LLM classification failed for "${article.title.substring(0, 50)}...", using fallback: ${fallbackCategory}`
+    `[Classifier] LLM classification failed for "${article.title.substring(0, 50)}...", using keyword fallback: ${fallbackCategory} (${keywordMatches} matches)`
   );
+
+  // Determine confidence based on keyword match strength
+  let fallbackConfidence = 0.2; // Default low confidence
+  if (keywordMatches >= 2) {
+    fallbackConfidence = 0.4; // Medium confidence for strong keyword matches
+  } else if (keywordMatches === 1) {
+    fallbackConfidence = 0.3; // Slightly higher for single match
+  }
 
   return {
     category: fallbackCategory,
-    confidence: 0.5, // Lower confidence for fallback
-    rationale: 'Fallback to rule-based classifier',
+    confidence: fallbackConfidence,
+    rationale: `LLM failed, fallback to keyword-based classifier (${keywordMatches} keyword matches)`,
     classifier_version: CLASSIFIER_VERSION,
     from_cache: false,
     from_fallback: true,
   };
+}
+
+// Helper function to count keyword matches for a given category
+// Uses simplified keyword lists for counting (not full classification logic)
+function countKeywordMatches(
+  article: { title: string; source: string },
+  category: Topic
+): number {
+  const titleAndSource = `${article.title} ${article.source}`.toLowerCase();
+  
+  // Simplified keyword lists for match counting
+  const categoryKeywords: Record<Topic, string[]> = {
+    "Jewellery_Industry": ["jewel", "jewellery", "jewelry", "diamond", "gold", "silver", "gem", "cartier", "tiffany", "bulgari", "gemstone", "carat", "horology"],
+    "Luxury_and_Consumer": ["luxury", "fashion", "affluent", "premium", "high-end", "brand", "consumer", "luxury brand", "luxury consumer"],
+    "Ecommerce_Retail_Tech": ["ecommerce", "e-commerce", "retail", "shopify", "online store", "checkout", "fulfillment", "retail tech", "retail technology", "omnichannel"],
+    "AI_and_Strategy": ["ai", "artificial intelligence", "llm", "gpt", "openai", "benchmark", "model release", "mmlu", "anthropic", "claude", "machine learning"],
+  };
+  
+  const keywords = categoryKeywords[category] || [];
+  let matches = 0;
+  for (const kw of keywords) {
+    // Use word boundary for short keywords, substring for longer ones
+    if (kw.length <= 3) {
+      const regex = new RegExp(`\\b${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      if (regex.test(titleAndSource)) {
+        matches++;
+      }
+    } else {
+      if (titleAndSource.includes(kw.toLowerCase())) {
+        matches++;
+      }
+    }
+  }
+  return matches;
 }
 

@@ -1,0 +1,12 @@
+{
+  "week": "2026-W03",
+  "audioPath": "/podcast/2026-W03.mp3",
+  "model": "tts-1-hd",
+  "voice": "alloy",
+  "generatedAt": "2026-01-18T14:24:04.675Z",
+  "duration": 602,
+  "music": {
+    "enabled": true,
+    "track": "podcast-theme.mp3"
+  }
+}

@@ -24,6 +24,26 @@ export default function AmplitudeInit() {
       return;
     }
 
+    // Suppress Amplitude console errors by temporarily overriding console.error
+    const originalConsoleError = console.error;
+    const errorSuppressionTimeout = setTimeout(() => {
+      // Restore console.error after a short delay to allow Amplitude to initialize
+      console.error = originalConsoleError;
+    }, 2000);
+
+    // Temporarily suppress Amplitude-related errors
+    console.error = (...args: any[]) => {
+      const errorString = args.join(' ');
+      // Only suppress errors that appear to be from Amplitude SDK
+      if (errorString.includes('amplitude') || errorString.includes('Amplitude') || 
+          errorString.includes('@amplitude') || errorString.includes('Destination')) {
+        // Silently ignore Amplitude SDK errors
+        return;
+      }
+      // Pass through other errors
+      originalConsoleError.apply(console, args);
+    };
+
     // Initialize Amplitude Analytics and Session Replay with EU server zone
     try {
       amplitude.initAll(apiKey, {
@@ -47,9 +67,23 @@ export default function AmplitudeInit() {
         analytics: true,
         sessionReplay: true,
       });
-    } catch (error) {
-      console.error('[Amplitude] initialization failed:', error);
+
+      // Restore console.error after initialization
+      clearTimeout(errorSuppressionTimeout);
+      console.error = originalConsoleError;
+    } catch (error: any) {
+      // Restore console.error on error
+      clearTimeout(errorSuppressionTimeout);
+      console.error = originalConsoleError;
+      // Silently handle synchronous errors during initialization
+      console.warn('[Amplitude] initialization warning (non-critical):', error?.message || error);
     }
+
+    // Cleanup: restore console.error if component unmounts
+    return () => {
+      clearTimeout(errorSuppressionTimeout);
+      console.error = originalConsoleError;
+    };
   }, []);
 
   // This component renders nothing

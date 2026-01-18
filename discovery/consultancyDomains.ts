@@ -1,13 +1,20 @@
 /**
- * Consultancy domain allowlist for domain-targeted discovery.
+ * Tier 3: Consultancy domain allowlist for domain-targeted discovery.
  * These domains are captured via web discovery queries (site: operators)
  * rather than page scraping due to blocking/JS-rendering issues.
+ * 
+ * Includes: McKinsey, Bain, BCG, Deloitte, EY, Salesforce, Adobe, DHL
  */
 
 export const CONSULTANCY_DOMAINS = [
   "mckinsey.com",
   "bain.com",
-  "bcg.com"
+  "bcg.com",
+  "deloitte.com",
+  "ey.com",
+  "salesforce.com",
+  "adobe.com",
+  "dhl.com"
 ] as const;
 
 export type ConsultancyDomain = typeof CONSULTANCY_DOMAINS[number];

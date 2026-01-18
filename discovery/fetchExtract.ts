@@ -6,6 +6,7 @@ import * as cheerio from 'cheerio';
 import crypto from 'crypto';
 import type { SearchResult } from './searchProvider';
 import { isConsultancyDomain } from './consultancyDomains';
+import { isPlatformDomain } from './platformDomains';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,7 +26,9 @@ export type ExtractedArticle = {
   hash: string;
   topic: SearchResult['topic'];
   discoveredAt?: string; // ISO timestamp when article was discovered/extracted
-  sourceType?: 'discovery' | 'consultancy'; // Tag consultancy articles
+  sourceType?: 'discovery' | 'consultancy' | 'platform'; // Tag consultancy/platform articles
+  paywallStatus?: 'not_paywalled' | 'likely_paywalled' | 'unknown'; // Paywall detection status
+  paywallReason?: string; // Reason for paywall status
 };
 
 function hashUrl(url: string): string {
@@ -114,14 +117,20 @@ async function extractWithTavily(url: string): Promise<{ content: string; title:
   }
 }
 
-async function fetchHtml(url: string, fetchDir: string): Promise<string | null> {
+type FetchResult = {
+  html: string | null;
+  paywallStatus: 'not_paywalled' | 'likely_paywalled' | 'unknown';
+  paywallReason?: string;
+};
+
+async function fetchHtml(url: string, fetchDir: string): Promise<FetchResult> {
   const hash = hashUrl(url);
   const htmlPath = path.join(fetchDir, `${hash}.html`);
 
   // Check cache
   try {
     const cached = await fs.readFile(htmlPath, 'utf-8');
-    return cached;
+    return { html: cached, paywallStatus: 'unknown' }; // Can't determine paywall from cache
   } catch {
     // Continue to fetch
   }
@@ -144,9 +153,18 @@ async function fetchHtml(url: string, fetchDir: string): Promise<string | null> 
       
       clearTimeout(timeoutId);
 
+      // Check for paywall HTTP status codes
+      if (response.status === 401 || response.status === 402 || response.status === 403) {
+        return {
+          html: null,
+          paywallStatus: 'likely_paywalled',
+          paywallReason: `HTTP ${response.status}`
+        };
+      }
+
       if (!response.ok) {
         console.warn(`[Fetch] Failed to fetch ${url}: ${response.status}`);
-        return null;
+        return { html: null, paywallStatus: 'unknown', paywallReason: `HTTP ${response.status}` };
       }
 
       // Wrap text() call with timeout (10 seconds)
@@ -156,11 +174,19 @@ async function fetchHtml(url: string, fetchDir: string): Promise<string | null> 
         `Text extraction timeout for ${url}`
       );
       
+      // Check HTML for paywall markers
+      const htmlLower = html.toLowerCase();
+      const hasPaywallMarker = PAYWALL_HTML_MARKERS.some(marker => htmlLower.includes(marker));
+      
       // Save to cache
       await fs.mkdir(fetchDir, { recursive: true });
       await fs.writeFile(htmlPath, html, 'utf-8');
       
-      return html;
+      return {
+        html,
+        paywallStatus: hasPaywallMarker ? 'likely_paywalled' : 'not_paywalled',
+        paywallReason: hasPaywallMarker ? 'HTML paywall markers detected' : undefined
+      };
     } finally {
       clearTimeout(timeoutId);
     }
@@ -170,7 +196,7 @@ async function fetchHtml(url: string, fetchDir: string): Promise<string | null> 
     } else {
       console.warn(`[Fetch] Error fetching ${url}: ${error.message}`);
     }
-    return null;
+    return { html: null, paywallStatus: 'unknown', paywallReason: error.message };
   }
 }
 
@@ -288,7 +314,24 @@ function validatePublishedDate(dateStr: string | undefined | null): { valid: boo
 
 const PAYWALL_PATTERNS = [
   /login required/i,
-  /subscribe to/i
+  /subscribe to/i,
+  /sign up to read/i,
+  /premium content/i,
+  /subscription required/i,
+  /unlock this article/i,
+  /free articles remaining/i,
+  /article limit reached/i,
+  /meter/i
+];
+
+const PAYWALL_HTML_MARKERS = [
+  'paywall',
+  'subscription',
+  'meter',
+  'premium',
+  'locked',
+  'subscribe',
+  'sign in to continue'
 ];
 
 const NON_ARTICLE_PATTERNS = [
@@ -300,10 +343,16 @@ const NON_ARTICLE_PATTERNS = [
     /terms of service/i
 ];
 
-function detectNonArticleReason(text: string): "paywalled" | "notArticle" | null {
+function detectPaywallInText(text: string): { isPaywalled: boolean; reason?: string } {
   for (const pattern of PAYWALL_PATTERNS) {
-    if (pattern.test(text)) return "paywalled";
+    if (pattern.test(text)) {
+      return { isPaywalled: true, reason: `Text pattern: ${pattern.source}` };
+    }
   }
+  return { isPaywalled: false };
+}
+
+function detectNonArticleReason(text: string): "notArticle" | null {
   for (const pattern of NON_ARTICLE_PATTERNS) {
     if (pattern.test(text)) return "notArticle";
   }
@@ -376,33 +425,79 @@ async function extractArticle(
     return await withTimeout(
       (async () => {
         const isConsultancy = isConsultancyDomain(searchResult.domain);
+        const isPlatform = isPlatformDomain(searchResult.domain);
         let text: string;
         let extractedTitle: string;
         let author: string | undefined;
         let date: string | undefined;
 
-        // For consultancy domains, try Tavily extraction first (more reliable)
-        if (isConsultancy) {
-          console.log(`[Extract] Using Tavily extraction for consultancy domain: ${searchResult.url}`);
+        let paywallStatus: 'not_paywalled' | 'likely_paywalled' | 'unknown' = 'unknown';
+        let paywallReason: string | undefined;
+
+        // For consultancy/platform domains, try Tavily extraction first (more reliable)
+        if (isConsultancy || isPlatform) {
+          console.log(`[Extract] Using Tavily extraction for ${isConsultancy ? 'consultancy' : 'platform'} domain: ${searchResult.url}`);
           const tavilyResult = await extractWithTavily(searchResult.url);
           
           if (tavilyResult && tavilyResult.content) {
             text = tavilyResult.content;
             extractedTitle = tavilyResult.title || searchResult.title;
             date = tavilyResult.publishedDate;
-            // Tavily doesn't provide author, so we'll leave it undefined
             author = undefined;
+            paywallStatus = 'not_paywalled'; // Tavily extraction usually bypasses paywalls
             stats.byTopic[searchResult.topic].fetched_ok += 1;
           } else {
             // Fallback to regular HTML fetch if Tavily fails
             console.log(`[Extract] Tavily extraction failed, falling back to HTML fetch: ${searchResult.url}`);
-            const html = await fetchHtml(searchResult.url, fetchDir);
-            if (!html) {
+            const fetchResult = await fetchHtml(searchResult.url, fetchDir);
+            if (!fetchResult.html) {
+              // If fetch failed due to paywall, mark it but still try to return article if we have snippet
+              if (fetchResult.paywallStatus === 'likely_paywalled') {
+                paywallStatus = 'likely_paywalled';
+                paywallReason = fetchResult.paywallReason;
+                // Don't return null - allow article with paywall status
+                text = searchResult.snippet || '';
+                extractedTitle = searchResult.title;
+              } else {
+                return null;
+              }
+            } else {
+              stats.byTopic[searchResult.topic].fetched_ok += 1;
+              paywallStatus = fetchResult.paywallStatus;
+              paywallReason = fetchResult.paywallReason;
+
+              const extractPromise = Promise.resolve(extractText(fetchResult.html, searchResult.url));
+              const extracted = await withTimeout(
+                extractPromise,
+                5000,
+                `Text extraction processing timeout for ${searchResult.url}`
+              );
+              text = extracted.text;
+              extractedTitle = extracted.title;
+              author = extracted.author;
+              date = extracted.date;
+            }
+          }
+        } else {
+          // Regular extraction for non-consultancy domains
+          const fetchResult = await fetchHtml(searchResult.url, fetchDir);
+          if (!fetchResult.html) {
+            // If fetch failed due to paywall, mark it but still try to return article if we have snippet
+            if (fetchResult.paywallStatus === 'likely_paywalled') {
+              paywallStatus = 'likely_paywalled';
+              paywallReason = fetchResult.paywallReason;
+              // Don't return null - allow article with paywall status
+              text = searchResult.snippet || '';
+              extractedTitle = searchResult.title;
+            } else {
               return null;
             }
+          } else {
             stats.byTopic[searchResult.topic].fetched_ok += 1;
+            paywallStatus = fetchResult.paywallStatus;
+            paywallReason = fetchResult.paywallReason;
 
-            const extractPromise = Promise.resolve(extractText(html, searchResult.url));
+            const extractPromise = Promise.resolve(extractText(fetchResult.html, searchResult.url));
             const extracted = await withTimeout(
               extractPromise,
               5000,
@@ -413,24 +508,6 @@ async function extractArticle(
             author = extracted.author;
             date = extracted.date;
           }
-        } else {
-          // Regular extraction for non-consultancy domains
-          const html = await fetchHtml(searchResult.url, fetchDir);
-          if (!html) {
-            return null;
-          }
-          stats.byTopic[searchResult.topic].fetched_ok += 1;
-
-          const extractPromise = Promise.resolve(extractText(html, searchResult.url));
-          const extracted = await withTimeout(
-            extractPromise,
-            5000,
-            `Text extraction processing timeout for ${searchResult.url}`
-          );
-          text = extracted.text;
-          extractedTitle = extracted.title;
-          author = extracted.author;
-          date = extracted.date;
         }
         
         // Use search result title if extracted title is too short
@@ -438,6 +515,21 @@ async function extractArticle(
         
         // Count words
         const wordCount = text.split(/\s+/).filter(w => w.length > 0).length;
+        
+        // Check for paywall in text content (if not already detected)
+        if (paywallStatus === 'unknown' || paywallStatus === 'not_paywalled') {
+          const textPaywallCheck = detectPaywallInText(text);
+          if (textPaywallCheck.isPaywalled) {
+            paywallStatus = 'likely_paywalled';
+            paywallReason = textPaywallCheck.reason;
+          }
+        }
+
+        // If word count is very low after extraction, likely paywalled
+        if (wordCount < 200 && paywallStatus === 'unknown') {
+          paywallStatus = 'likely_paywalled';
+          paywallReason = `Only ${wordCount} words extracted (minimum 200)`;
+        }
         
         // Validate
         if (!isEnglish(text)) {
@@ -447,25 +539,27 @@ async function extractArticle(
         }
         
         if (wordCount < 200) {
-          console.warn(`[Extract] Too short (${wordCount} words): ${searchResult.url}`);
-          stats.byTopic[searchResult.topic].excluded.tooShort += 1;
-          return null;
+          // Don't exclude paywalled articles - mark them but allow through
+          if (paywallStatus === 'likely_paywalled') {
+            console.warn(`[Extract] Paywalled article (${wordCount} words): ${searchResult.url}`);
+            // Continue - don't exclude
+          } else {
+            console.warn(`[Extract] Too short (${wordCount} words): ${searchResult.url}`);
+            stats.byTopic[searchResult.topic].excluded.tooShort += 1;
+            return null;
+          }
         }
 
         const nonArticleReason = detectNonArticleReason(text);
-        if (nonArticleReason) {
-          if (nonArticleReason === "paywalled") {
-            stats.byTopic[searchResult.topic].excluded.paywalled += 1;
-          } else {
-            stats.byTopic[searchResult.topic].excluded.notArticle += 1;
-          }
+        if (nonArticleReason === "notArticle") {
+          stats.byTopic[searchResult.topic].excluded.notArticle += 1;
           console.warn(`[Extract] Not an article (${wordCount} words): ${searchResult.url}`);
           return null;
         }
 
         if (!isArticle(text)) {
-          console.warn(`[Extract] Not an article (${wordCount} words): ${searchResult.url}`);
           stats.byTopic[searchResult.topic].excluded.notArticle += 1;
+          console.warn(`[Extract] Not an article (${wordCount} words): ${searchResult.url}`);
           return null;
         }
 
@@ -487,7 +581,9 @@ async function extractArticle(
           hash,
           topic: searchResult.topic,
           discoveredAt,
-          sourceType: isConsultancy ? 'consultancy' : 'discovery'
+          sourceType: isConsultancy ? 'consultancy' : isPlatform ? 'platform' : 'discovery',
+          paywallStatus,
+          paywallReason
         };
 
         // Save to cache

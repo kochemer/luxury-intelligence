@@ -1,6 +1,6 @@
 {
   "week": "2026-W03",
-  "generatedAt": "2026-01-17T15:05:15.597Z",
+  "generatedAt": "2026-01-18T13:39:36.730Z",
   "categories": {
     "Jewellery Industry": {
       "rss_found": 0,
@@ -18,15 +18,15 @@
       "final_candidates": 9
     },
     "Artificial Intelligence News": {
-      "rss_found": 0,
+      "rss_found": 4,
       "discovery_found": 115,
-      "fetched_ok": 31,
-      "extracted_ok": 0,
+      "fetched_ok": 33,
+      "extracted_ok": 1,
       "excluded": {
         "nonEnglish": 3,
         "tooShort": 10,
         "notArticle": 13,
-        "paywalled": 5,
+        "paywalled": 6,
         "controversial": 0,
         "duplicate": 0
       },

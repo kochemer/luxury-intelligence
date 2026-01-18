@@ -24,6 +24,15 @@ export type IngestionCategoryStats = {
   extracted_ok: number;
   excluded: IngestionExclusions;
   final_candidates: number;
+  // Tier breakdown
+  byTier?: {
+    tier1?: number; // RSS: Global Business & News
+    tier2?: number; // RSS: Retail, Ecommerce & Commerce-Tech
+    tier3?: number; // Discovery: Consultancy domains
+    tier4?: number; // Discovery: Platform domains
+    tier5?: number; // RSS: Academic & Technical
+    tier6?: number; // RSS: Regional / Specialist
+  };
 };
 
 export type IngestionReport = {
@@ -52,6 +61,46 @@ export const CATEGORY_LABEL_ALIASES: Record<string, CategoryLabel> = {
 };
 
 export const RSS_SOURCE_CATEGORY: Record<string, CategoryLabel> = {
+  // Tier 1: Global Business & News
+  "Reuters - Business": "Artificial Intelligence News",
+  "Financial Times - Technology": "Artificial Intelligence News",
+  "WSJ - Technology": "Artificial Intelligence News",
+  "Bloomberg - Technology": "Artificial Intelligence News",
+  "Business Insider - Tech": "Artificial Intelligence News",
+  "Axios - Technology": "Artificial Intelligence News",
+  "The Verge": "Artificial Intelligence News",
+  "Forbes - Technology": "Artificial Intelligence News",
+  "Barron's - Technology": "Artificial Intelligence News",
+  "AP News - Technology": "Artificial Intelligence News",
+  "The Guardian - Technology": "Artificial Intelligence News",
+  "Economic Times - Technology": "Artificial Intelligence News",
+  // Tier 2: Retail, Ecommerce & Commerce-Tech
+  "Digital Commerce 360": "Ecommerce & Retail Tech",
+  "Retail Brew": "Ecommerce & Retail Tech",
+  "Retail Dive": "Ecommerce & Retail Tech",
+  "Grocery Dive": "Ecommerce & Retail Tech",
+  "Retail TouchPoints": "Ecommerce & Retail Tech",
+  "Internet Retailing": "Ecommerce & Retail Tech",
+  "Practical Ecommerce": "Ecommerce & Retail Tech",
+  "Retail Tech Innovation Hub": "Ecommerce & Retail Tech",
+  "ProCarrier": "Ecommerce & Retail Tech",
+  "PYMNTS": "Ecommerce & Retail Tech",
+  "AI Shopper": "Ecommerce & Retail Tech",
+  "BlueAlpha.ai": "Ecommerce & Retail Tech",
+  // Tier 5: Academic & Technical
+  "arXiv - AI (cs.AI)": "Artificial Intelligence News",
+  "arXiv - Machine Learning (cs.LG)": "Artificial Intelligence News",
+  "arXiv - Computation and Language (cs.CL)": "Artificial Intelligence News",
+  "Microsoft Research - AI": "Artificial Intelligence News",
+  // Tier 6: Regional / Specialist
+  "Ritzau": "Ecommerce & Retail Tech",
+  "TechRadar - Ecommerce": "Ecommerce & Retail Tech",
+  "Computerworld - Ecommerce": "Ecommerce & Retail Tech",
+  "ResultSense": "Ecommerce & Retail Tech",
+  "UseInsider": "Ecommerce & Retail Tech",
+  "Neuron Expert": "Artificial Intelligence News",
+  "ToneTag": "Ecommerce & Retail Tech",
+  // Existing Jewellery Industry feeds
   "Jeweller - Business News": "Jewellery Industry",
   "Jeweller - Jewellery Trends": "Jewellery Industry",
   "Jeweller - Main": "Jewellery Industry",
@@ -60,11 +109,9 @@ export const RSS_SOURCE_CATEGORY: Record<string, CategoryLabel> = {
   "Luxury Daily - Retail": "Fashion & Luxury",
   "Luxury Daily - Commerce": "Fashion & Luxury",
   "Luxury Daily - Research": "Fashion & Luxury",
-  "Retail Dive": "Ecommerce & Retail Tech",
-  "Practical Ecommerce": "Ecommerce & Retail Tech",
+  // Other existing feeds
   "Modern Retail": "Ecommerce & Retail Tech",
   "TechCrunch Ecommerce": "Ecommerce & Retail Tech",
-  "Digital Commerce 360": "Ecommerce & Retail Tech",
   "NYTimes Technology": "Artificial Intelligence News",
   "MIT Sloan Management Review – AI": "Artificial Intelligence News",
   "Benedict Evans": "Artificial Intelligence News",

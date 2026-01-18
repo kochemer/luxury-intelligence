@@ -119,13 +119,25 @@ interface PodcastMetadata {
   };
 }
 
-function parseArgs(): { week: string; voice: TTSVoice; forceScript: boolean; forceAudio: boolean; music: boolean } {
+function parseArgs(): { 
+  week: string; 
+  voice: TTSVoice; 
+  forceScript: boolean; 
+  forceAudio: boolean; 
+  music: boolean;
+  enrichFullText: boolean;
+  topKPerCategory: number;
+  forceFullText: boolean;
+} {
   const args = process.argv.slice(2);
   let week = '';
   let voice: TTSVoice = 'alloy';
   let forceScript = false;
   let forceAudio = false;
   let music = true; // default: on
+  let enrichFullText = true; // default: on
+  let topKPerCategory = 4; // default: top 4 per category
+  let forceFullText = false; // default: use cache
 
   for (const arg of args) {
     if (arg.startsWith('--week=')) {
@@ -140,10 +152,16 @@ function parseArgs(): { week: string; voice: TTSVoice; forceScript: boolean; for
     } else if (arg.startsWith('--music=')) {
       const musicArg = arg.split('=')[1];
       music = musicArg === 'on';
+    } else if (arg.startsWith('--enrichFullText=')) {
+      enrichFullText = arg.split('=')[1] === 'true';
+    } else if (arg.startsWith('--topKPerCategory=')) {
+      topKPerCategory = parseInt(arg.split('=')[1], 10) || 4;
     } else if (arg === '--forceScript') {
       forceScript = true;
     } else if (arg === '--forceAudio') {
       forceAudio = true;
+    } else if (arg === '--forceFullText') {
+      forceFullText = true;
     }
   }
 
@@ -152,7 +170,7 @@ function parseArgs(): { week: string; voice: TTSVoice; forceScript: boolean; for
     process.exit(1);
   }
 
-  return { week, voice, forceScript, forceAudio, music };
+  return { week, voice, forceScript, forceAudio, music, enrichFullText, topKPerCategory, forceFullText };
 }
 
 async function loadDigest(weekLabel: string): Promise<WeeklyDigest> {
@@ -168,8 +186,8 @@ async function loadDigest(weekLabel: string): Promise<WeeklyDigest> {
 function collectAllArticles(digest: WeeklyDigest): DigestArticle[] {
   const articles: DigestArticle[] = [];
   for (const topicKey of Object.keys(digest.topics) as Array<keyof typeof digest.topics>) {
-    // Only include top 3 articles from each category for podcast
-    articles.push(...digest.topics[topicKey].top.slice(0, 3));
+    // Only include top 4 articles from each category for podcast
+    articles.push(...digest.topics[topicKey].top.slice(0, 4));
   }
   return articles;
 }
@@ -182,7 +200,7 @@ function hashUrl(url: string): string {
 }
 
 /**
- * Load extracted article text from discovery cache files
+ * Load extracted article text from discovery cache files (legacy)
  */
 async function loadExtractedTextForArticles(
   articles: DigestArticle[],
@@ -196,7 +214,6 @@ async function loadExtractedTextForArticles(
     await fs.access(discoveryExtractedDir);
   } catch {
     // Directory doesn't exist, return empty map
-    console.log(`[Podcast] No discovery extracted directory found for ${weekLabel}, using summaries only`);
     return extractedTextMap;
   }
 
@@ -210,34 +227,81 @@ async function loadExtractedTextForArticles(
       const extracted: ExtractedArticle = JSON.parse(content);
       
       if (extracted.extractedText && extracted.extractedText.length > 0) {
-        // Use full extracted text (up to 5000 chars, but prefer longer if available)
         extractedTextMap.set(article.url, extracted.extractedText);
       }
     } catch (err) {
-      // File doesn't exist or can't be read - article might be from RSS/ingestion, not discovery
-      // Continue without extracted text for this article
+      // File doesn't exist - continue
     }
   }
-
-  const loadedCount = extractedTextMap.size;
-  console.log(`[Podcast] Loaded full text for ${loadedCount}/${articles.length} articles from discovery cache`);
   
   return extractedTextMap;
 }
 
-async function generatePodcastScript(digest: WeeklyDigest, weekLabel: string, isRetry: boolean = false): Promise<PodcastScript> {
+/**
+ * Load enriched full text from podcast enrichment cache
+ */
+async function loadEnrichedFullText(
+  articles: DigestArticle[],
+  weekLabel: string
+): Promise<Map<string, string>> {
+  const enrichedTextMap = new Map<string, string>();
+  const enrichedDir = path.join(__dirname, '../data/weeks', weekLabel, 'podcast', 'fulltext');
+  
+  try {
+    await fs.access(enrichedDir);
+  } catch {
+    return enrichedTextMap;
+  }
+
+  for (const article of articles) {
+    const hash = hashUrl(article.url);
+    const enrichedPath = path.join(enrichedDir, `${hash}.json`);
+    
+    try {
+      const content = await fs.readFile(enrichedPath, 'utf-8');
+      const enriched = JSON.parse(content) as { text: string; status: string };
+      
+      if (enriched.status === 'success' && enriched.text && enriched.text.length > 0) {
+        enrichedTextMap.set(article.url, enriched.text);
+      }
+    } catch (err) {
+      // File doesn't exist or invalid - continue
+    }
+  }
+  
+  return enrichedTextMap;
+}
+
+async function generatePodcastScript(
+  digest: WeeklyDigest, 
+  weekLabel: string, 
+  enrichedTextMap: Map<string, string>,
+  isRetry: boolean = false
+): Promise<PodcastScript> {
   const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
   const articles = collectAllArticles(digest);
   
-  // Load full extracted text from discovery cache files
-  const extractedTextMap = await loadExtractedTextForArticles(articles, weekLabel);
+  // Use enriched full text (preferred), fallback to discovery cache
+  const discoveryTextMap = await loadExtractedTextForArticles(articles, weekLabel);
   
-  // Group articles by topic for segments (only top 3 per category)
+  // Merge: enriched text takes precedence, then discovery cache
+  const extractedTextMap = new Map<string, string>();
+  for (const article of articles) {
+    const enrichedText = enrichedTextMap.get(article.url);
+    const discoveryText = discoveryTextMap.get(article.url);
+    if (enrichedText) {
+      extractedTextMap.set(article.url, enrichedText);
+    } else if (discoveryText) {
+      extractedTextMap.set(article.url, discoveryText);
+    }
+  }
+  
+  // Group articles by topic for segments (only top 4 per category)
   const topicGroups = {
-    'Artificial Intelligence News': digest.topics.AI_and_Strategy.top.slice(0, 3),
-    'E-commerce & Retail Tech': digest.topics.Ecommerce_Retail_Tech.top.slice(0, 3),
-    'Fashion & Luxury': digest.topics.Luxury_and_Consumer.top.slice(0, 3),
-    'Jewellery Industry': digest.topics.Jewellery_Industry.top.slice(0, 3),
+    'Artificial Intelligence News': digest.topics.AI_and_Strategy.top.slice(0, 4),
+    'E-commerce & Retail Tech': digest.topics.Ecommerce_Retail_Tech.top.slice(0, 4),
+    'Fashion & Luxury': digest.topics.Luxury_and_Consumer.top.slice(0, 4),
+    'Jewellery Industry': digest.topics.Jewellery_Industry.top.slice(0, 4),
   };
 
   const systemPrompt = `You are a podcast scriptwriter creating a weekly intelligence brief for Pandora colleagues. 
@@ -251,16 +315,18 @@ You MUST expand on each article with context, implications, and connections betw
 DO NOT write a short script. This is a full-length podcast episode, not a brief summary.
 Return valid JSON only.`;
 
+  // Fixed higher segment targets for consistent length
   const segmentWordTargets = {
-    coldOpen: 50,
-    intro: 150,
-    segment1: Math.max(600, Math.ceil((STRICT_MIN_WORD_COUNT - 50 - 150 - 600 - 500 - 100) / 4)),
-    segment2: Math.max(600, Math.ceil((STRICT_MIN_WORD_COUNT - 50 - 150 - 600 - 500 - 100) / 4)),
-    segment3: Math.max(600, Math.ceil((STRICT_MIN_WORD_COUNT - 50 - 150 - 600 - 500 - 100) / 4)),
-    segment4: Math.max(600, Math.ceil((STRICT_MIN_WORD_COUNT - 50 - 150 - 600 - 500 - 100) / 4)),
-    lightning: 500,
-    closing: 100
+    coldOpen: 75,      // Increased from 50
+    intro: 200,        // Increased from 150
+    segment1: 750,     // Fixed target (was dynamic ~600)
+    segment2: 750,     // Fixed target
+    segment3: 750,     // Fixed target
+    segment4: 750,     // Fixed target
+    lightning: 600,     // Increased from 500
+    closing: 150        // Increased from 100
   };
+  // Total target: 3,125 words (~20-21 minutes)
   const totalMinWords = segmentWordTargets.coldOpen + segmentWordTargets.intro + 
     segmentWordTargets.segment1 + segmentWordTargets.segment2 + 
     segmentWordTargets.segment3 + segmentWordTargets.segment4 + 
@@ -315,12 +381,15 @@ Structure:
 ${isRetry ? `⚠️ RETRY NOTICE: Your previous attempt was too short. You MUST write at least ${STRICT_MIN_WORD_COUNT} words total. Count your words as you write each section.` : ''}
 
 EXAMPLE OF PROPER LENGTH:
-For a segment with 3 articles, you should write:
+For a segment with 4 articles, you should write:
 - Article 1: 150-200 words (context, why it matters, implications, deeper analysis)
 - Article 2: 150-200 words (context, why it matters, implications, deeper analysis)  
 - Article 3: 150-200 words (context, why it matters, implications, deeper analysis)
+- Article 4: 150-200 words (context, why it matters, implications, deeper analysis)
 - Transitions and connections: 100-150 words
-Total per segment: 550-750 words minimum. For ${segmentWordTargets.segment1} words, expand even more with additional context, examples, and connections.
+Total per segment: 700-950 words minimum. For ${segmentWordTargets.segment1} words, expand even more with additional context, examples, and connections.
+
+Note: With 4 articles per segment (instead of 3), you have more content to work with. Ensure each article gets adequate coverage while maintaining flow and connections between stories.
 
 Remember: This is a FULL podcast episode, not a summary. Write as if you're speaking to colleagues who want depth and context.
 
@@ -375,7 +444,7 @@ Return JSON:
         { role: 'user', content: userPrompt }
       ],
       temperature: 0.7,
-      max_tokens: 12000, // Force longer output for expanded articles
+      max_tokens: 16000, // Increased from 12000 to allow full 3000+ word scripts
       response_format: { type: 'json_object' }
     });
 
@@ -395,14 +464,31 @@ Return JSON:
     if (actualWordCount < STRICT_MIN_WORD_COUNT && !isRetry) {
       console.warn(`⚠️  Script is only ${actualWordCount} words (~${script.estimatedDuration} min), below target of ${STRICT_MIN_WORD_COUNT} words (~${Math.round(STRICT_MIN_WORD_COUNT / WORDS_PER_MINUTE)} min)`);
       console.log(`[Script] Retrying with stricter length requirements...`);
-      return generatePodcastScript(digest, weekLabel, true);
+      return generatePodcastScript(digest, weekLabel, enrichedTextMap, true);
     }
     
-    // Warn if below minimum after retry
+    // After retry, if still short, use expandScript as fallback
+    if (actualWordCount < STRICT_MIN_WORD_COUNT) {
+      console.warn(`⚠️  Script is still only ${actualWordCount} words (~${script.estimatedDuration} min) after retry`);
+      console.log(`[Script] Expanding script from ${actualWordCount} to ${STRICT_MIN_WORD_COUNT} words using expandScript()...`);
+      try {
+        const expanded = await expandScript(script, STRICT_MIN_WORD_COUNT);
+        const expandedWordCount = expanded.script.split(/\s+/).length;
+        console.log(`✓ Expanded script to ${expandedWordCount} words (~${Math.round(expandedWordCount / WORDS_PER_MINUTE)} min)`);
+        return expanded;
+      } catch (expandError: any) {
+        console.warn(`⚠️  Failed to expand script: ${expandError.message}. Using original script.`);
+        // Fall through to return original script
+      }
+    }
+    
+    // Warn if below minimum after all attempts
     if (actualWordCount < MIN_WORD_COUNT) {
       console.warn(`⚠️  Script is only ${actualWordCount} words (~${script.estimatedDuration} min), below minimum of ${MIN_WORD_COUNT} words (~${Math.round(MIN_WORD_COUNT / WORDS_PER_MINUTE)} min)`);
     } else if (actualWordCount < STRICT_MIN_WORD_COUNT) {
       console.warn(`⚠️  Script is ${actualWordCount} words (~${script.estimatedDuration} min), slightly below target of ${STRICT_MIN_WORD_COUNT} words (~${Math.round(STRICT_MIN_WORD_COUNT / WORDS_PER_MINUTE)} min) but acceptable`);
+    } else {
+      console.log(`✓ Script meets target: ${actualWordCount} words (~${script.estimatedDuration} min)`);
     }
 
     return script;
@@ -451,7 +537,7 @@ Return the FULL expanded script (not just additions) in the same JSON format:
         { role: 'user', content: expandPrompt }
       ],
       temperature: 0.7,
-      max_tokens: 10000,
+      max_tokens: 12000, // Increased to allow expansion
       response_format: { type: 'json_object' }
     });
 
@@ -826,13 +912,15 @@ async function generateAudio(script: PodcastScript, voice: TTSVoice, weekLabel: 
 }
 
 async function main() {
-  const { week, voice, forceScript, forceAudio, music } = parseArgs();
+  const { week, voice, forceScript, forceAudio, music, enrichFullText, topKPerCategory, forceFullText } = parseArgs();
   
   console.log(`Building podcast for week: ${week}`);
   console.log(`Voice: ${voice}`);
   console.log(`Music: ${music ? 'on' : 'off'}`);
+  console.log(`Full text enrichment: ${enrichFullText ? 'on' : 'off'}`);
   if (forceScript) console.log('Force regenerating script');
   if (forceAudio) console.log('Force regenerating audio');
+  if (forceFullText) console.log('Force re-fetching full text');
 
   // Load digest
   console.log(`[Load] Loading digest for ${week}...`);
@@ -842,6 +930,28 @@ async function main() {
   const weekDir = path.join(__dirname, '../data/weeks', week);
   const scriptPath = path.join(weekDir, 'podcast-script.json');
   const metadataPath = path.join(weekDir, 'podcast.json');
+
+  // Step 0: Enrich articles with full text (if enabled)
+  let enrichedTextMap = new Map<string, string>();
+  if (enrichFullText) {
+    const articles = collectAllArticles(digest);
+    const { enrichFullText: enrichFn } = await import('../podcast/enrichFullText');
+    const enrichedArticlesMap = await enrichFn(
+      articles.map(a => ({ url: a.url, title: a.title, source: a.source })),
+      week,
+      { force: forceFullText, topKPerCategory }
+    );
+    // Convert EnrichedArticle map to text map (only successful extractions)
+    for (const [url, enriched] of enrichedArticlesMap.entries()) {
+      if (enriched.status === 'success' && enriched.text) {
+        enrichedTextMap.set(url, enriched.text);
+      }
+    }
+  } else {
+    // Still try to load cached enriched text
+    const articles = collectAllArticles(digest);
+    enrichedTextMap = await loadEnrichedFullText(articles, week);
+  }
 
   // Step A: Generate script
   let script: PodcastScript;
@@ -853,7 +963,7 @@ async function main() {
     script = JSON.parse(scriptContent);
   } else {
     console.log('[Script] Generating podcast script...');
-    script = await generatePodcastScript(digest, week);
+    script = await generatePodcastScript(digest, week, enrichedTextMap);
     await fs.mkdir(weekDir, { recursive: true });
     await fs.writeFile(scriptPath, JSON.stringify(script, null, 2));
     console.log(`✓ Script saved to: ${scriptPath}`);

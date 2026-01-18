@@ -59,24 +59,60 @@
   },
   "deltaQueries": {
     "Artificial Intelligence News": [
-      "AI-powered shopping personalization tools impact on sales conversion rates",
-      "strategic partnerships in AI-driven last-mile delivery solutions",
-      "AI advancements in luxury retail industry customer analytics"
+      "AI-powered shopping trends in jewelry retail",
+      "Visa's AI-driven strategies for optimizing holiday retail spending",
+      "last-mile delivery innovations using AI technology"
     ],
     "Ecommerce & Retail Tech": [
-      "impact of AI on retail personalization strategies",
-      "partnerships in last-mile delivery logistics",
-      "Cartier UK strategies for record-breaking sales"
+      "AI-driven personalization in ecommerce platforms",
+      "impact of last-mile delivery partnerships on customer satisfaction",
+      "Cartier UK retail sales strategies and outcomes"
     ],
     "Fashion & Luxury": [
-      "Cartier UK sales growth strategies",
-      "AI impact on luxury consumer behavior",
-      "last-mile delivery innovations in luxury retail"
+      "impact of AI on luxury consumer shopping experience",
+      "Cartier UK market performance and strategic growth plans",
+      "Pragnell sales strategies and luxury retail success"
     ],
     "Jewellery Industry": [
-      "Cartier UK sales strategies and performance insights",
-      "Impact of AI-powered shopping on jewelry retail",
-      "Innovations in last-mile delivery for luxury jewelry brands"
+      "Cartier UK luxury sales growth strategies",
+      "Pragnell financial performance and market impact",
+      "AI applications in jewelry last-mile delivery"
+    ]
+  },
+  "consultancyQueries": {
+    "Artificial Intelligence News": [
+      "site:mckinsey.com artificial intelligence strategy",
+      "site:bcg.com artificial intelligence insights"
+    ],
+    "Ecommerce & Retail Tech": [
+      "site:mckinsey.com retail consumer insights",
+      "site:bcg.com retail consumer products insights"
+    ],
+    "Fashion & Luxury": [
+      "site:mckinsey.com luxury consumer trends",
+      "site:bcg.com luxury consumer insights"
+    ],
+    "Jewellery Industry": [
+      "site:mckinsey.com luxury retail insights",
+      "site:bcg.com luxury retail insights"
+    ]
+  },
+  "platformQueries": {
+    "Artificial Intelligence News": [
+      "site:shopify.com AI commerce",
+      "site:corporate.walmart.com artificial intelligence"
+    ],
+    "Ecommerce & Retail Tech": [
+      "site:shopify.com ecommerce platform",
+      "site:corporate.walmart.com retail tech"
+    ],
+    "Fashion & Luxury": [
+      "site:shopify.com luxury commerce",
+      "site:corporate.walmart.com consumer trends"
+    ],
+    "Jewellery Industry": [
+      "site:shopify.com jewelry commerce",
+      "site:corporate.walmart.com luxury retail"
     ]
   },
   "finalQueries": {
@@ -93,9 +129,13 @@
       "AI content generation marketing",
       "enterprise AI adoption trends",
       "artificial intelligence competitive advantage",
-      "AI-powered shopping personalization tools impact on sales conversion rates",
-      "strategic partnerships in AI-driven last-mile delivery solutions",
-      "AI advancements in luxury retail industry customer analytics"
+      "AI-powered shopping trends in jewelry retail",
+      "Visa's AI-driven strategies for optimizing holiday retail spending",
+      "last-mile delivery innovations using AI technology",
+      "site:mckinsey.com artificial intelligence strategy",
+      "site:bcg.com artificial intelligence insights",
+      "site:shopify.com AI commerce",
+      "site:corporate.walmart.com artificial intelligence"
     ],
     "Ecommerce_Retail_Tech": [
       "ecommerce platform updates",
@@ -110,9 +150,13 @@
       "online marketplace features",
       "retail analytics platforms",
       "ecommerce customer experience tools",
-      "impact of AI on retail personalization strategies",
-      "partnerships in last-mile delivery logistics",
-      "Cartier UK strategies for record-breaking sales"
+      "AI-driven personalization in ecommerce platforms",
+      "impact of last-mile delivery partnerships on customer satisfaction",
+      "Cartier UK retail sales strategies and outcomes",
+      "site:mckinsey.com retail consumer insights",
+      "site:bcg.com retail consumer products insights",
+      "site:shopify.com ecommerce platform",
+      "site:corporate.walmart.com retail tech"
     ],
     "Luxury_and_Consumer": [
       "luxury brand digital strategy",
@@ -127,9 +171,13 @@
       "luxury ecommerce platforms",
       "consumer goods industry news",
       "luxury brand sustainability",
-      "Cartier UK sales growth strategies",
-      "AI impact on luxury consumer behavior",
-      "last-mile delivery innovations in luxury retail"
+      "impact of AI on luxury consumer shopping experience",
+      "Cartier UK market performance and strategic growth plans",
+      "Pragnell sales strategies and luxury retail success",
+      "site:mckinsey.com luxury consumer trends",
+      "site:bcg.com luxury consumer insights",
+      "site:shopify.com luxury commerce",
+      "site:corporate.walmart.com consumer trends"
     ],
     "Jewellery_Industry": [
       "jewelry industry trends",
@@ -144,12 +192,16 @@
       "jewelry market trends",
       "luxury jewelry brands news",
       "jewelry industry sustainability",
-      "Cartier UK sales strategies and performance insights",
-      "Impact of AI-powered shopping on jewelry retail",
-      "Innovations in last-mile delivery for luxury jewelry brands"
+      "Cartier UK luxury sales growth strategies",
+      "Pragnell financial performance and market impact",
+      "AI applications in jewelry last-mile delivery",
+      "site:mckinsey.com luxury retail insights",
+      "site:bcg.com luxury retail insights",
+      "site:shopify.com jewelry commerce",
+      "site:corporate.walmart.com luxury retail"
     ]
   },
-  "baseQueriesHash": "c939a2c2ddd60284",
+  "baseQueriesHash": "23f7871e22b8738b",
   "weekLabel": "2026-W02",
-  "generatedAt": "2026-01-17T13:28:56.312Z"
+  "generatedAt": "2026-01-17T21:16:11.545Z"
 }

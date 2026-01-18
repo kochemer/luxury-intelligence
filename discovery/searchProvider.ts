@@ -3,6 +3,7 @@ import path from 'path';
 import fetch from 'node-fetch';
 import type { Topic } from '../classification/classifyTopics';
 import { CONSULTANCY_DOMAINS, isConsultancyDomain } from './consultancyDomains';
+import { PLATFORM_DOMAINS, isPlatformDomain } from './platformDomains';
 
 const TAVILY_API_URL = 'https://api.tavily.com/search';
 
@@ -105,13 +106,15 @@ async function searchTavily(query: string, maxResults: number = 20, targetDomain
 
 export type SearchStats = Record<Topic, { 
   discovery_found: number;
-  consultancy_found?: number; // Count of consultancy domain results
+  consultancy_found?: number; // Count of consultancy domain results (Tier 3)
+  platform_found?: number; // Count of platform domain results (Tier 4)
 }>;
 
 export type DomainBreakdown = {
   total: number;
   byDomain: Record<string, number>;
-  consultancy: number;
+  consultancy: number; // Tier 3
+  platform: number; // Tier 4
 };
 
 export async function searchWithTavily(
@@ -131,15 +134,16 @@ export async function searchWithTavily(
     }
     console.log(`[Search] Using cached search results from ${serpResultsPath}`);
     const cachedStats: SearchStats = {
-      "AI_and_Strategy": { discovery_found: 0, consultancy_found: 0 },
-      "Ecommerce_Retail_Tech": { discovery_found: 0, consultancy_found: 0 },
-      "Luxury_and_Consumer": { discovery_found: 0, consultancy_found: 0 },
-      "Jewellery_Industry": { discovery_found: 0, consultancy_found: 0 }
+      "AI_and_Strategy": { discovery_found: 0, consultancy_found: 0, platform_found: 0 },
+      "Ecommerce_Retail_Tech": { discovery_found: 0, consultancy_found: 0, platform_found: 0 },
+      "Luxury_and_Consumer": { discovery_found: 0, consultancy_found: 0, platform_found: 0 },
+      "Jewellery_Industry": { discovery_found: 0, consultancy_found: 0, platform_found: 0 }
     };
     const domainBreakdown: DomainBreakdown = {
       total: 0,
       byDomain: {},
-      consultancy: 0
+      consultancy: 0,
+      platform: 0
     };
     if (Array.isArray(existing)) {
       for (const item of existing) {
@@ -154,6 +158,9 @@ export async function searchWithTavily(
           if (isConsultancyDomain(domain)) {
             cachedStats[topic].consultancy_found = (cachedStats[topic].consultancy_found || 0) + 1;
             domainBreakdown.consultancy += 1;
+          } else if (isPlatformDomain(domain)) {
+            cachedStats[topic].platform_found = (cachedStats[topic].platform_found || 0) + 1;
+            domainBreakdown.platform += 1;
           }
         }
       }
@@ -166,15 +173,16 @@ export async function searchWithTavily(
   const allResults: SearchResult[] = [];
   const seenUrls = new Set<string>();
   const stats: SearchStats = {
-    "AI_and_Strategy": { discovery_found: 0, consultancy_found: 0 },
-    "Ecommerce_Retail_Tech": { discovery_found: 0, consultancy_found: 0 },
-    "Luxury_and_Consumer": { discovery_found: 0, consultancy_found: 0 },
-    "Jewellery_Industry": { discovery_found: 0, consultancy_found: 0 }
+    "AI_and_Strategy": { discovery_found: 0, consultancy_found: 0, platform_found: 0 },
+    "Ecommerce_Retail_Tech": { discovery_found: 0, consultancy_found: 0, platform_found: 0 },
+    "Luxury_and_Consumer": { discovery_found: 0, consultancy_found: 0, platform_found: 0 },
+    "Jewellery_Industry": { discovery_found: 0, consultancy_found: 0, platform_found: 0 }
   };
   const domainBreakdown: DomainBreakdown = {
     total: 0,
     byDomain: {},
-    consultancy: 0
+    consultancy: 0,
+    platform: 0
   };
 
   // Search for each query
@@ -206,10 +214,14 @@ export async function searchWithTavily(
           const domain = result.domain || '';
           domainBreakdown.byDomain[domain] = (domainBreakdown.byDomain[domain] || 0) + 1;
           
-          // Track consultancy domains
+          // Track consultancy domains (Tier 3)
           if (isConsultancyDomain(domain)) {
             stats[topic as Topic].consultancy_found = (stats[topic as Topic].consultancy_found || 0) + 1;
             domainBreakdown.consultancy += 1;
+          } else if (isPlatformDomain(domain)) {
+            // Track platform domains (Tier 4)
+            stats[topic as Topic].platform_found = (stats[topic as Topic].platform_found || 0) + 1;
+            domainBreakdown.platform += 1;
           }
         }
       }
@@ -229,14 +241,25 @@ export async function searchWithTavily(
   // Log domain breakdown
   console.log(`\n=== DOMAIN BREAKDOWN ===`);
   console.log(`Total candidates: ${domainBreakdown.total}`);
-  console.log(`Consultancy domains: ${domainBreakdown.consultancy}`);
+  console.log(`Consultancy domains (Tier 3): ${domainBreakdown.consultancy}`);
+  console.log(`Platform domains (Tier 4): ${domainBreakdown.platform}`);
   if (domainBreakdown.consultancy > 0) {
-    console.log(`\nTop consultancy domains:`);
+    console.log(`\nTop consultancy domains (Tier 3):`);
     const consultancyDomains = Object.entries(domainBreakdown.byDomain)
       .filter(([domain]) => isConsultancyDomain(domain))
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5);
     for (const [domain, count] of consultancyDomains) {
+      console.log(`  ${domain}: ${count}`);
+    }
+  }
+  if (domainBreakdown.platform > 0) {
+    console.log(`\nTop platform domains (Tier 4):`);
+    const platformDomains = Object.entries(domainBreakdown.byDomain)
+      .filter(([domain]) => isPlatformDomain(domain))
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5);
+    for (const [domain, count] of platformDomains) {
       console.log(`  ${domain}: ${count}`);
     }
   }

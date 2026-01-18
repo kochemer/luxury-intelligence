@@ -232,5 +232,57 @@
     "cached_at": "2026-01-17T15:46:35.768Z",
     "model": "gpt-4o-mini",
     "version": "2.1"
+  },
+  "2026-W02:8e107b32e0c4": {
+    "keyThemes": [
+      "Walmart AI strategies",
+      "De Beers India demand",
+      "inflation rates increase",
+      "agentic commerce tools",
+      "holiday ecommerce sales"
+    ],
+    "oneSentenceSummary": "Walmart's AI strategies and De Beers' focus on India highlight significant shifts in retail and luxury sectors amid rising inflation.",
+    "cached_at": "2026-01-17T21:34:13.902Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W02:79752e76cff9": {
+    "keyThemes": [
+      "Nvidia AI Chips",
+      "Microsoft Agentic AI",
+      "Retail Profitability",
+      "Saks Global Downgrade",
+      "De Beers India Demand"
+    ],
+    "oneSentenceSummary": "Nvidia's new AI chips and Microsoft's agentic AI tools are reshaping retail profitability and customer interactions in 2026.",
+    "cached_at": "2026-01-18T11:50:14.778Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W02:915979e06185": {
+    "keyThemes": [
+      "Nvidia AI chips",
+      "Cartier Beverly Hills boutique",
+      "Ulysse Nardin sales growth",
+      "agentic AI tools",
+      "Estée Lauder brand sales"
+    ],
+    "oneSentenceSummary": "Nvidia's new A.I. chips and Cartier's Beverly Hills boutique highlight significant advancements in technology and luxury retail strategies.",
+    "cached_at": "2026-01-18T13:22:23.265Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
+  },
+  "2026-W03:2d1b2072a224": {
+    "keyThemes": [
+      "Richemont record sales",
+      "Saks Global bankruptcy",
+      "AI adoption in retail",
+      "ClickHouse AI database",
+      "Nvidia chip shipments"
+    ],
+    "oneSentenceSummary": "Richemont's record sales and Saks Global's bankruptcy highlight contrasting fortunes in the luxury sector amid evolving market conditions.",
+    "cached_at": "2026-01-18T16:10:30.052Z",
+    "model": "gpt-4o-mini",
+    "version": "2.1"
   }
 }

@@ -135,7 +135,7 @@ export async function mergeDiscoveryArticles(
       snippet: selectedArticle.snippet,
       discoveredAt: discoveredAt,
       publishedDateInvalid: (selectedArticle as any).publishedDateInvalid || false,
-      sourceType: sourceType as 'discovery' | 'consultancy'
+      sourceType: sourceType as 'discovery' | 'consultancy' | 'platform'
     };
 
     newDiscoveryArticles.push(newArticle);

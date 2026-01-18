@@ -82,5 +82,61 @@
     "rationale": "The article focuses on Spangle AI raising funds to expand its AI platform for ecommerce, emphasizing AI-driven product discovery and online conversion.",
     "classifier_version": "llm-v1",
     "cached_at": "2026-01-17T15:46:22.572Z"
+  },
+  "https://www.nytimes.com/2026/01/08/business/general-motors-electric-vehicles-writedown.html": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.85,
+    "rationale": "The article discusses General Motors' financial loss related to changes in federal policy affecting its electric vehicle ambitions, which aligns more closely with Ecommerce_Retail_Tech category due to the focus on the automotive industry and technology implications.",
+    "classifier_version": "llm-v1",
+    "cached_at": "2026-01-17T21:33:53.611Z"
+  },
+  "https://www.retailtouchpoints.com/features/executive-viewpoints/from-compliance-to-competitive-advantage-maximizing-2d-barcode-impact-ahead-of-sunrise-2027": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.9,
+    "rationale": "The article discusses the impact of 2D barcodes on retail point of sale systems, which relates to retail technology and ecommerce operations.",
+    "classifier_version": "llm-v2",
+    "cached_at": "2026-01-18T11:49:51.857Z"
+  },
+  "https://sloanreview.mit.edu/article/five-trends-in-ai-and-data-science-for-2026": {
+    "category": "AI_and_Strategy",
+    "confidence": 0.9,
+    "rationale": "The article discusses trends in AI and data science, focusing on enterprise adoption and technological changes, which aligns with AI research and strategy.",
+    "classifier_version": "llm-v2",
+    "cached_at": "2026-01-18T13:21:58.078Z"
+  },
+  "https://www.businessinsider.com/hedge-funds-china-performance-2025-2026-1": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.9,
+    "rationale": "The article discusses hedge funds investing in Chinese stocks and companies like ByteDance, which relates to financial aspects of ecommerce and retail technology.",
+    "classifier_version": "llm-v2",
+    "cached_at": "2026-01-18T14:18:09.444Z"
+  },
+  "https://www.businessinsider.com/husband-wife-met-work-quit-travel-together-2026-1": {
+    "category": "Luxury_and_Consumer",
+    "confidence": 0.9,
+    "rationale": "The article focuses on personal experiences related to travel and elopement, which aligns with themes of consumer behavior and lifestyle choices in the luxury context.",
+    "classifier_version": "llm-v2",
+    "cached_at": "2026-01-18T14:20:31.077Z"
+  },
+  "https://www.businessoffashion.com/news/retail/zalando-nears-first-us-client-deal-sees-ai-traffic-growing": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.9,
+    "rationale": "The article discusses Zalando's entry into the US market and its business-to-business offerings, which are related to ecommerce and retail technology.",
+    "classifier_version": "llm-v2",
+    "cached_at": "2026-01-18T16:09:50.518Z"
+  },
+  "https://www.theverge.com/policy/864008/senate-clarity-act-coinbase-crypto-market": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.9,
+    "rationale": "The article discusses the political implications of legislation affecting the crypto industry, which relates to the broader context of ecommerce and digital transactions.",
+    "classifier_version": "llm-v2",
+    "cached_at": "2026-01-18T19:35:43.492Z"
+  },
+  "https://internetretailing.net/hellofresh-scouts-partnership-brings-cooking-skills-and-sustainability-to-uk-families": {
+    "category": "Ecommerce_Retail_Tech",
+    "confidence": 0.9,
+    "rationale": "The article discusses a partnership between HelloFresh and Scouts, focusing on meal kits and cooking skills, which falls under ecommerce and retail technology.",
+    "classifier_version": "llm-v2",
+    "cached_at": "2026-01-18T19:38:25.556Z"
   }
 }
