@@ -26,7 +26,8 @@
     "video:wait": "tsx scripts/waitForWeeklyVideoRenders.ts",
     "seo:check-robots": "tsx scripts/checkRobots.ts",
     "test:redirects": "tsx scripts/testRedirects.ts",
-    "competitor:analyze": "tsx scripts/runCompetitorAnalyze.ts"
+    "competitor:analyze": "tsx scripts/runCompetitorAnalyze.ts",
+    "seo:audit": "tsx scripts/runSeoAgent.ts"
   },
   "dependencies": {
     "@amplitude/unified": "^1.0.0-beta.9",

@@ -1,0 +1,698 @@
+{
+  "version": 1,
+  "week": "2026-W36",
+  "generatedAtISO": "2026-09-09T10:09:54.225Z",
+  "siteUrl": "https://luxury-intel.com",
+  "inputs": {
+    "gscAvailable": false,
+    "liveChecked": false,
+    "urlsAudited": 37,
+    "llmUsed": false
+  },
+  "score": {
+    "overall": 39,
+    "byCategory": {
+      "technical": 100,
+      "onpage": 39,
+      "structured-data": 100,
+      "indexing": 100,
+      "performance": 100,
+      "opportunity": 100
+    }
+  },
+  "findings": [
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2025-W52",
+      "detail": "Rendered title is 83 chars (max 60): \"Dec 22-28th 2025 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/december-2025-week-52",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:956558fe",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W01",
+      "detail": "Rendered title is 87 chars (max 60): \"Dec 29 - Jan 4, 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/january-2026-week-1",
+      "evidence": {
+        "length": 87,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:88cfe467",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W02",
+      "detail": "Rendered title is 82 chars (max 60): \"Jan 5-11th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/january-2026-week-2",
+      "evidence": {
+        "length": 82,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:e28edf08",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W03",
+      "detail": "Rendered title is 83 chars (max 60): \"Jan 12-18th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/january-2026-week-3",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:3eac93ff",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W04",
+      "detail": "Rendered title is 83 chars (max 60): \"Jan 19-25th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/january-2026-week-4",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:d6eac0c3",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W05",
+      "detail": "Rendered title is 87 chars (max 60): \"Jan 26 - Feb 1, 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/january-2026-week-5",
+      "evidence": {
+        "length": 87,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:c20ba732",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W06",
+      "detail": "Rendered title is 81 chars (max 60): \"Feb 2-8th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/february-2026-week-6",
+      "evidence": {
+        "length": 81,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:d76d2fce",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W07",
+      "detail": "Rendered title is 82 chars (max 60): \"Feb 9-15th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/february-2026-week-7",
+      "evidence": {
+        "length": 82,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:03469bab",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W08",
+      "detail": "Rendered title is 83 chars (max 60): \"Feb 16-22nd 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/february-2026-week-8",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:c161f3fb",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W09",
+      "detail": "Rendered title is 87 chars (max 60): \"Feb 23 - Mar 1, 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/february-2026-week-9",
+      "evidence": {
+        "length": 87,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:82af227f",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W10",
+      "detail": "Rendered title is 81 chars (max 60): \"Mar 2-8th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/march-2026-week-10",
+      "evidence": {
+        "length": 81,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:30f48e21",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W11",
+      "detail": "Rendered title is 82 chars (max 60): \"Mar 9-15th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/march-2026-week-11",
+      "evidence": {
+        "length": 82,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:9aa70335",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W12",
+      "detail": "Rendered title is 83 chars (max 60): \"Mar 16-22nd 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/march-2026-week-12",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:43e57ff4",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W13",
+      "detail": "Rendered title is 83 chars (max 60): \"Mar 23-29th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/march-2026-week-13",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:1c260712",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W14",
+      "detail": "Rendered title is 87 chars (max 60): \"Mar 30 - Apr 5, 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/april-2026-week-14",
+      "evidence": {
+        "length": 87,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:b66de486",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W15",
+      "detail": "Rendered title is 82 chars (max 60): \"Apr 6-12th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/april-2026-week-15",
+      "evidence": {
+        "length": 82,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:52147c9c",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W16",
+      "detail": "Rendered title is 83 chars (max 60): \"Apr 13-19th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/april-2026-week-16",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:70b05cca",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W17",
+      "detail": "Rendered title is 83 chars (max 60): \"Apr 20-26th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/april-2026-week-17",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:b265a173",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W18",
+      "detail": "Rendered title is 87 chars (max 60): \"Apr 27 - May 3, 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/april-2026-week-18",
+      "evidence": {
+        "length": 87,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:cffff0d7",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W19",
+      "detail": "Rendered title is 82 chars (max 60): \"May 4-10th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/may-2026-week-19",
+      "evidence": {
+        "length": 82,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:2390046d",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W20",
+      "detail": "Rendered title is 83 chars (max 60): \"May 11-17th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/may-2026-week-20",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:3789462c",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W21",
+      "detail": "Rendered title is 83 chars (max 60): \"May 18-24th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/may-2026-week-21",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:6388650e",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W22",
+      "detail": "Rendered title is 83 chars (max 60): \"May 25-31st 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/may-2026-week-22",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:64166151",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W23",
+      "detail": "Rendered title is 81 chars (max 60): \"Jun 1-7th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/june-2026-week-23",
+      "evidence": {
+        "length": 81,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:4e024a31",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W24",
+      "detail": "Rendered title is 82 chars (max 60): \"Jun 8-14th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/june-2026-week-24",
+      "evidence": {
+        "length": 82,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:8a29b99f",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W25",
+      "detail": "Rendered title is 83 chars (max 60): \"Jun 15-21st 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/june-2026-week-25",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:dda9baee",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W26",
+      "detail": "Rendered title is 83 chars (max 60): \"Jun 22-28th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/june-2026-week-26",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:01247607",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W27",
+      "detail": "Rendered title is 87 chars (max 60): \"Jun 29 - Jul 5, 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/july-2026-week-27",
+      "evidence": {
+        "length": 87,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:5088e412",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W28",
+      "detail": "Rendered title is 82 chars (max 60): \"Jul 6-12th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/july-2026-week-28",
+      "evidence": {
+        "length": 82,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:95921ece",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W29",
+      "detail": "Rendered title is 83 chars (max 60): \"Jul 13-19th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/july-2026-week-29",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:4634a57c",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W30",
+      "detail": "Rendered title is 83 chars (max 60): \"Jul 20-26th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/july-2026-week-30",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:ea310d80",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W31",
+      "detail": "Rendered title is 87 chars (max 60): \"Jul 27 - Aug 2, 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/july-2026-week-31",
+      "evidence": {
+        "length": 87,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:679230c5",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W32",
+      "detail": "Rendered title is 81 chars (max 60): \"Aug 3-9th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/august-2026-week-32",
+      "evidence": {
+        "length": 81,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:b5ed8bd3",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W33",
+      "detail": "Rendered title is 83 chars (max 60): \"Aug 10-16th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/august-2026-week-33",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:91cbf083",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W34",
+      "detail": "Rendered title is 83 chars (max 60): \"Aug 17-23rd 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/august-2026-week-34",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:c24ff2d9",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W35",
+      "detail": "Rendered title is 83 chars (max 60): \"Aug 24-30th 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/august-2026-week-35",
+      "evidence": {
+        "length": 83,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:a5e7845d",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    },
+    {
+      "code": "STATIC_TITLE_LENGTH",
+      "severity": "medium",
+      "category": "onpage",
+      "title": "Title too long on 2026-W36",
+      "detail": "Rendered title is 87 chars (max 60): \"Aug 31 - Sep 6, 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence\"",
+      "url": "https://luxury-intel.com/digest/september-2026-week-36",
+      "evidence": {
+        "length": 87,
+        "max": 60
+      },
+      "recommendation": "Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.",
+      "id": "STATIC_TITLE_LENGTH:eea5d56b",
+      "score": 33,
+      "firstSeenWeek": "2026-W36",
+      "weeksOpen": 1
+    }
+  ],
+  "delta": {
+    "newFindings": [
+      "STATIC_TITLE_LENGTH:956558fe",
+      "STATIC_TITLE_LENGTH:88cfe467",
+      "STATIC_TITLE_LENGTH:e28edf08",
+      "STATIC_TITLE_LENGTH:3eac93ff",
+      "STATIC_TITLE_LENGTH:d6eac0c3",
+      "STATIC_TITLE_LENGTH:c20ba732",
+      "STATIC_TITLE_LENGTH:d76d2fce",
+      "STATIC_TITLE_LENGTH:03469bab",
+      "STATIC_TITLE_LENGTH:c161f3fb",
+      "STATIC_TITLE_LENGTH:82af227f",
+      "STATIC_TITLE_LENGTH:30f48e21",
+      "STATIC_TITLE_LENGTH:9aa70335",
+      "STATIC_TITLE_LENGTH:43e57ff4",
+      "STATIC_TITLE_LENGTH:1c260712",
+      "STATIC_TITLE_LENGTH:b66de486",
+      "STATIC_TITLE_LENGTH:52147c9c",
+      "STATIC_TITLE_LENGTH:70b05cca",
+      "STATIC_TITLE_LENGTH:b265a173",
+      "STATIC_TITLE_LENGTH:cffff0d7",
+      "STATIC_TITLE_LENGTH:2390046d",
+      "STATIC_TITLE_LENGTH:3789462c",
+      "STATIC_TITLE_LENGTH:6388650e",
+      "STATIC_TITLE_LENGTH:64166151",
+      "STATIC_TITLE_LENGTH:4e024a31",
+      "STATIC_TITLE_LENGTH:8a29b99f",
+      "STATIC_TITLE_LENGTH:dda9baee",
+      "STATIC_TITLE_LENGTH:01247607",
+      "STATIC_TITLE_LENGTH:5088e412",
+      "STATIC_TITLE_LENGTH:95921ece",
+      "STATIC_TITLE_LENGTH:4634a57c",
+      "STATIC_TITLE_LENGTH:ea310d80",
+      "STATIC_TITLE_LENGTH:679230c5",
+      "STATIC_TITLE_LENGTH:b5ed8bd3",
+      "STATIC_TITLE_LENGTH:91cbf083",
+      "STATIC_TITLE_LENGTH:c24ff2d9",
+      "STATIC_TITLE_LENGTH:a5e7845d",
+      "STATIC_TITLE_LENGTH:eea5d56b"
+    ],
+    "resolvedFindings": [],
+    "persistingFindings": [],
+    "scoreChange": 0
+  }
+}

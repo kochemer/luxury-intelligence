@@ -26,30 +26,8 @@ import { getSelectedArticleCount, formatStatsSecondaryLine } from '@/lib/utils/d
 import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { weekLabelToSlug, slugToWeekLabel } from '@/lib/utils/weekSlug';
 import { CATEGORY_COLORS } from '@/lib/constants/categoryColors';
+import { buildWeekTitle, buildWeekMetaDescription } from '@/lib/seo/metaText';
 import type { WeeklyDigest } from '@/lib/types';
-
-// ── Meta description builder ──────────────────────────────────────────────────
-function buildWeekMetaDescription(digest: WeeklyDigest, dateRange: string): string {
-  const total    = digest.totals.total;
-  const selected = getSelectedArticleCount(digest);
-  const trunc    = (s: string, max: number) => s.length <= max ? s : s.slice(0, max - 1) + '…';
-
-  if (digest.oneSentenceSummary) {
-    const insight    = trunc(digest.oneSentenceSummary, 155);
-    const withCount  = `${insight} (${total} articles · ${selected} curated)`;
-    return withCount.length <= 155 ? withCount : insight;
-  }
-
-  const topTitle =
-    digest.topics.AI_and_Strategy.top[0]?.title ??
-    digest.topics.Ecommerce_Retail_Tech.top[0]?.title ??
-    digest.topics.Luxury_and_Consumer.top[0]?.title ??
-    null;
-
-  const base = `${total} articles analysed across AI, ecommerce, luxury & jewellery · ${dateRange}.`;
-  if (topTitle) return trunc(`${base} Top story: ${topTitle}`, 155);
-  return base;
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug }      = await params;
@@ -67,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     : `${siteUrl}/api/og?week=${encodeURIComponent(weekLabel)}`;
 
   const dateRange   = digest ? formatDateRange(digest.startISO, digest.endISO) : slug;
-  const title       = `${dateRange} Intelligence Digest – AI, Ecommerce & Luxury`;
+  const title       = buildWeekTitle(dateRange);
   const description = digest
     ? buildWeekMetaDescription(digest, dateRange)
     : `Curated intelligence for ${weekLabel} — AI, ecommerce, luxury and jewellery industry news with AI-assisted summaries.`;
@@ -259,7 +237,7 @@ export default async function DigestPage({
   const newsArticleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `${dateRange} Intelligence Digest – AI, Ecommerce & Luxury`,
+    headline: buildWeekTitle(dateRange),
     description: digest.oneSentenceSummary
       ?? `Weekly curated digest: ${digest.totals.total} articles across AI, ecommerce, jewellery, and luxury.`,
     ...(digest.startISO   && { datePublished: digest.startISO }),
