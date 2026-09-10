@@ -15,6 +15,26 @@ export const SEVERITY_WEIGHT: Record<string, number> = {
   info: 3,
 };
 
+/**
+ * Hard ceiling on the overall score given the worst severity present.
+ *
+ * Without this, the score is dominated by finding *count* rather than
+ * severity — 37 cosmetic title-length findings scored 39/100 while a single
+ * critical "site is de-indexed" finding scored 94/100. That is backwards, and
+ * actively dangerous for a system that will eventually gate autonomous
+ * decisions on this number. A critical finding must always produce a bad
+ * score, no matter how few there are.
+ *
+ * Volume still matters, but only *within* the band its severity allows.
+ */
+export const SEVERITY_SCORE_CEILING: Record<string, number> = {
+  critical: 25,
+  high: 55,
+  medium: 80,
+  low: 95,
+  info: 100,
+};
+
 // Aging multiplier: a finding that's been open for `weeksOpen` weeks gets a
 // nudge so persistently-ignored issues don't stay invisible in the score.
 export const AGING_STEP = 0.1;

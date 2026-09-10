@@ -10,6 +10,16 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 
+/**
+ * Last meaningful content change for purely static pages (about, methodology,
+ * subscribe, feedback, support). Bump this when those pages are edited so
+ * Google sees a real change signal instead of a fresh timestamp every build.
+ *
+ * Exported because seo/audit/staticAudit.ts checks its age — keep it a single
+ * constant so the sitemap and the auditor can never disagree about the date.
+ */
+export const STATIC_PAGE_LAST_MODIFIED = new Date('2026-06-02');
+
 export interface IndexableUrlEntry {
   url: string;
   lastModified: Date;
@@ -68,11 +78,6 @@ async function getDigestBuiltAt(filePath: string): Promise<Date> {
 export async function getIndexableUrls(baseUrl: string): Promise<IndexableUrlEntry[]> {
   const digestsDir = path.join(process.cwd(), 'data', 'digests');
   const weekLabels = await getAvailableWeekLabels(digestsDir);
-
-  // Last meaningful content change for purely static pages (about, methodology,
-  // subscribe, feedback, support). Bump this when those pages are edited so
-  // Google sees a real change signal instead of a fresh timestamp every build.
-  const STATIC_PAGE_LAST_MODIFIED = new Date('2026-06-02');
 
   const latestWeekLabel = weekLabels[weekLabels.length - 1];
   const latestContentChange = latestWeekLabel

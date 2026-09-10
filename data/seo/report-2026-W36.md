@@ -1,6 +1,6 @@
 # SEO Report — 2026-W36
 
-Score **39** (no prior report) · 37 new · 0 resolved · 37 open
+Score **55** (no prior report) · 37 new · 0 resolved · 37 open
 
 _Score is a relative index for tracking week-over-week trend, not an absolute grade._
 
@@ -9,11 +9,11 @@ _Score is a relative index for tracking week-over-week trend, not an absolute gr
 | Category | Score |
 |---|---|
 | technical | 100 |
-| onpage | 39 |
-| structured-data | 100 |
+| onpage | 55 |
+| structured-data | — _not checked yet_ |
 | indexing | 100 |
-| performance | 100 |
-| opportunity | 100 |
+| performance | — _not checked yet_ |
+| opportunity | — _not checked yet_ |
 
 ## New this week (37)
 
@@ -243,9 +243,12 @@ _Score is a relative index for tracking week-over-week trend, not an absolute gr
   Rendered title is 87 chars (max 60): "Aug 31 - Sep 6, 2026 Intelligence Digest – AI, Ecommerce & Luxury | Luxury Intelligence"
   → Shorten the title template, or add a per-week seoTitle override once Stage 4 ships. _(open 1w, since 2026-W36)_
 
-## Inputs
+## Coverage
 
-- Live HTTP checks: no (Phase 2)
-- Search Console data: no (Phase 3)
-- LLM-assisted fixes: no (Phase 4)
-- URLs audited: 37
+- URLs in the sitemap inventory: 53
+- URLs with title/description checks: 37 _(digest pages only — static and locale pages need the live-HTTP stage)_
+- Live HTTP checks: no (Stage 2)
+- Search Console data: no (Stage 3)
+- LLM-assisted fixes: no (Stage 4)
+
+**This report reflects static checks only.** A clean score here does not mean the live site is healthy — nothing in this run fetched a single page.

@@ -28,7 +28,9 @@ export function renderMarkdown(report: SeoReport): string {
   lines.push('| Category | Score |');
   lines.push('|---|---|');
   for (const [cat, val] of Object.entries(score.byCategory)) {
-    lines.push(`| ${cat} | ${val} |`);
+    // null = this run never looked at that category. Rendering it as 100 would
+    // claim a clean bill of health for something nobody checked.
+    lines.push(`| ${cat} | ${val === null ? '— _not checked yet_' : val} |`);
   }
   lines.push('');
 
@@ -62,12 +64,15 @@ export function renderMarkdown(report: SeoReport): string {
     lines.push('');
   }
 
-  lines.push('## Inputs');
+  lines.push('## Coverage');
   lines.push('');
-  lines.push(`- Live HTTP checks: ${report.inputs.liveChecked ? 'yes' : 'no (Phase 2)'}`);
-  lines.push(`- Search Console data: ${report.inputs.gscAvailable ? 'yes' : 'no (Phase 3)'}`);
-  lines.push(`- LLM-assisted fixes: ${report.inputs.llmUsed ? 'yes' : 'no (Phase 4)'}`);
-  lines.push(`- URLs audited: ${report.inputs.urlsAudited}`);
+  lines.push(`- URLs in the sitemap inventory: ${report.inputs.urlsAudited}`);
+  lines.push(`- URLs with title/description checks: ${report.inputs.urlsMetaChecked} _(digest pages only — static and locale pages need the live-HTTP stage)_`);
+  lines.push(`- Live HTTP checks: ${report.inputs.liveChecked ? 'yes' : 'no (Stage 2)'}`);
+  lines.push(`- Search Console data: ${report.inputs.gscAvailable ? 'yes' : 'no (Stage 3)'}`);
+  lines.push(`- LLM-assisted fixes: ${report.inputs.llmUsed ? 'yes' : 'no (Stage 4)'}`);
+  lines.push('');
+  lines.push('**This report reflects static checks only.** A clean score here does not mean the live site is healthy — nothing in this run fetched a single page.');
   lines.push('');
 
   return lines.join('\n');

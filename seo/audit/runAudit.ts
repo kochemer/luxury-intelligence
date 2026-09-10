@@ -13,15 +13,17 @@ export interface AuditResult {
 }
 
 export async function runAudit(baseUrl: string): Promise<AuditResult> {
-  const findings = await runStaticAudit(baseUrl);
+  const staticResult = await runStaticAudit(baseUrl);
 
   return {
-    findings,
+    findings: staticResult.findings,
     inputs: {
       gscAvailable: false, // Phase 3
       liveChecked: false, // Phase 2
-      urlsAudited: new Set(findings.map(f => f.url).filter(Boolean)).size,
+      urlsAudited: staticResult.urlsAudited,
+      urlsMetaChecked: staticResult.urlsMetaChecked,
       llmUsed: false, // Phase 4
+      coveredCategories: staticResult.coveredCategories,
     },
   };
 }

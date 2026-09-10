@@ -10,7 +10,16 @@ import { strict as assert } from 'node:assert';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { buildReport } from '../seo/report/buildReport';
-import type { Finding } from '../seo/types';
+import type { Finding, AuditInputs } from '../seo/types';
+
+const BASE_INPUTS: AuditInputs = {
+  gscAvailable: false,
+  liveChecked: false,
+  urlsAudited: 0,
+  urlsMetaChecked: 0,
+  llmUsed: false,
+  coveredCategories: ['technical', 'onpage', 'indexing'],
+};
 
 const REPORT_DIR = path.join(process.cwd(), 'data', 'seo');
 const FIXTURE_PREV_WEEK = '1999-W01';
@@ -33,12 +42,7 @@ function finding(overrides: Partial<Finding> & Pick<Finding, 'id' | 'code'>): Fi
 
 async function withFixturePreviousReport<T>(findings: Finding[], fn: () => Promise<T>): Promise<T> {
   await fs.mkdir(REPORT_DIR, { recursive: true });
-  const prevReport = await buildReport(FIXTURE_PREV_WEEK, 'https://example.test', findings, {
-    gscAvailable: false,
-    liveChecked: false,
-    urlsAudited: 0,
-    llmUsed: false,
-  });
+  const prevReport = await buildReport(FIXTURE_PREV_WEEK, 'https://example.test', findings, BASE_INPUTS);
   // Overwrite prevReport's own carried-forward delta so it looks like a fresh baseline.
   await fs.writeFile(FIXTURE_PREV_PATH, JSON.stringify(prevReport, null, 2), 'utf-8');
   try {
@@ -54,12 +58,7 @@ test('new/resolved/persisting findings are computed correctly against a prior we
   const added = finding({ id: 'CODE_C:cccccccc', code: 'CODE_C' });
 
   await withFixturePreviousReport([persisting, resolved], async () => {
-    const report = await buildReport(FIXTURE_CURR_WEEK, 'https://example.test', [persisting, added], {
-      gscAvailable: false,
-      liveChecked: false,
-      urlsAudited: 0,
-      llmUsed: false,
-    });
+    const report = await buildReport(FIXTURE_CURR_WEEK, 'https://example.test', [persisting, added], BASE_INPUTS);
 
     assert.deepEqual(report.delta.newFindings.sort(), ['CODE_C:cccccccc']);
     assert.deepEqual(report.delta.resolvedFindings.sort(), ['CODE_B:bbbbbbbb']);
@@ -76,16 +75,20 @@ test('new/resolved/persisting findings are computed correctly against a prior we
   });
 });
 
-test('an empty finding list scores a perfect report', async () => {
+test('an empty finding list scores a perfect report for audited categories only', async () => {
   const report = await buildReport('1999-W20', 'https://example.test', [], {
-    gscAvailable: false,
-    liveChecked: false,
-    urlsAudited: 0,
-    llmUsed: false,
+    ...BASE_INPUTS,
+    coveredCategories: ['technical', 'onpage', 'indexing'],
   });
   assert.equal(report.score.overall, 100);
-  for (const catScore of Object.values(report.score.byCategory)) {
-    assert.equal(catScore, 100);
+
+  for (const cat of ['technical', 'onpage', 'indexing'] as const) {
+    assert.equal(report.score.byCategory[cat], 100, `${cat} was audited and clean, should be 100`);
+  }
+  // Categories nobody looked at must be null ("not checked"), never 100 —
+  // otherwise an unaudited area reads as a clean bill of health.
+  for (const cat of ['structured-data', 'performance', 'opportunity'] as const) {
+    assert.equal(report.score.byCategory[cat], null, `${cat} was not audited, should be null not a score`);
   }
 });
 
@@ -93,14 +96,38 @@ test('higher severity produces a higher per-finding score', async () => {
   const critical = finding({ id: 'CRIT:11111111', code: 'CRIT', severity: 'critical' });
   const low = finding({ id: 'LOW:22222222', code: 'LOW', severity: 'low' });
 
-  const report = await buildReport('1999-W21', 'https://example.test', [critical, low], {
-    gscAvailable: false,
-    liveChecked: false,
-    urlsAudited: 0,
-    llmUsed: false,
-  });
+  const report = await buildReport('1999-W21', 'https://example.test', [critical, low], BASE_INPUTS);
 
   const criticalScore = report.findings.find(f => f.id === critical.id)!.score;
   const lowScore = report.findings.find(f => f.id === low.id)!.score;
   assert(criticalScore > lowScore, `critical (${criticalScore}) should score higher than low (${lowScore})`);
+});
+
+test('one critical finding scores worse than many low-severity findings', async () => {
+  // Regression guard. The original count-based score rated a single critical
+  // finding (site de-indexed) at 94/100 while 37 cosmetic title-length
+  // findings scored 39/100 — exactly backwards, and dangerous for a system
+  // that will eventually gate autonomous decisions on this number.
+  const oneCritical = [finding({ id: 'CRIT:aaaaaaaa', code: 'CRIT', severity: 'critical' })];
+  const manyMedium = Array.from({ length: 37 }, (_, i) =>
+    finding({ id: `MED:${String(i).padStart(8, '0')}`, code: 'MED', severity: 'medium' })
+  );
+
+  const criticalReport = await buildReport('1999-W22', 'https://example.test', oneCritical, BASE_INPUTS);
+  const mediumReport = await buildReport('1999-W23', 'https://example.test', manyMedium, BASE_INPUTS);
+
+  assert(
+    criticalReport.score.overall < mediumReport.score.overall,
+    `a single critical (${criticalReport.score.overall}) must score worse than 37 mediums (${mediumReport.score.overall})`
+  );
+  assert(
+    criticalReport.score.overall <= 25,
+    `any critical finding must force a clearly bad score, got ${criticalReport.score.overall}`
+  );
+});
+
+test('severity ceilings hold regardless of finding count', async () => {
+  const oneHigh = [finding({ id: 'HIGH:aaaaaaaa', code: 'HIGH', severity: 'high' })];
+  const report = await buildReport('1999-W24', 'https://example.test', oneHigh, BASE_INPUTS);
+  assert(report.score.overall <= 55, `a high finding must cap the score at 55, got ${report.score.overall}`);
 });

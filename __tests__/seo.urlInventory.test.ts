@@ -7,7 +7,7 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import path from 'path';
-import { getIndexableUrls, getAvailableWeekLabels } from '../lib/seo/urlInventory';
+import { getIndexableUrls, getAvailableWeekLabels, STATIC_PAGE_LAST_MODIFIED } from '../lib/seo/urlInventory';
 import { weekLabelToSlug } from '../lib/utils/weekSlug';
 
 const DIGESTS_DIR = path.join(process.cwd(), 'data', 'digests');
@@ -43,4 +43,19 @@ test('all sitemap URLs are absolute and use the given base URL', async () => {
   for (const entry of entries) {
     assert(entry.url.startsWith(BASE_URL), `URL ${entry.url} does not start with ${BASE_URL}`);
   }
+});
+
+test('static pages use the shared STATIC_PAGE_LAST_MODIFIED constant', async () => {
+  // Drift guard. This constant is read by both the sitemap and the SEO
+  // auditor's staleness check; they previously each hardcoded the date
+  // independently, so bumping one silently desynced the other.
+  const entries = await getIndexableUrls(BASE_URL);
+  const about = entries.find(e => e.url === `${BASE_URL}/about`);
+
+  assert(about, '/about should be in the sitemap inventory');
+  assert.equal(
+    about.lastModified.getTime(),
+    STATIC_PAGE_LAST_MODIFIED.getTime(),
+    'static-page lastModified must come from the exported constant, not a local copy'
+  );
 });

@@ -8,19 +8,16 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
-import { SEVERITY_WEIGHT, AGING_STEP, AGING_CAP_WEEKS } from '../config';
-import type { Finding, SeoReport, AuditInputs, Category, CategoryScores } from '../types';
+import { SEVERITY_WEIGHT, SEVERITY_SCORE_CEILING, AGING_STEP, AGING_CAP_WEEKS } from '../config';
+import type { Finding, SeoReport, AuditInputs, Category, CategoryScores, Severity } from '../types';
 
 const REPORT_DIR = path.join(process.cwd(), 'data', 'seo');
 
-const EMPTY_CATEGORY_SCORES: CategoryScores = {
-  technical: 0,
-  onpage: 0,
-  'structured-data': 0,
-  indexing: 0,
-  performance: 0,
-  opportunity: 0,
-};
+const ALL_CATEGORIES: Category[] = [
+  'technical', 'onpage', 'structured-data', 'indexing', 'performance', 'opportunity',
+];
+
+const SEVERITY_ORDER: Severity[] = ['critical', 'high', 'medium', 'low', 'info'];
 
 function scoreFinding(f: Finding): number {
   const severityWeight = SEVERITY_WEIGHT[f.severity] ?? SEVERITY_WEIGHT.low;
@@ -28,9 +25,35 @@ function scoreFinding(f: Finding): number {
   return Math.round(severityWeight * agingMultiplier);
 }
 
+/**
+ * Score a set of findings, 0-100 (higher is better).
+ *
+ * The worst severity present picks a *band*; finding volume then positions the
+ * score within that band. Bands never overlap, so a report containing any
+ * critical finding always scores worse than one whose worst finding is a high,
+ * and so on — no matter how many of the lesser findings there are.
+ *
+ * This ordering is the whole point. A count-only score rated a single critical
+ * finding (site de-indexed) at 94/100 while 37 cosmetic title-length findings
+ * scored 39/100 — exactly backwards. A first attempt at a fix capped the
+ * ceiling but let volume erode straight through the floor, so 37 mediums and
+ * one critical both landed on 19. Hence an explicit floor per band.
+ */
 function scoreFromFindings(findings: Finding[]): number {
+  if (findings.length === 0) return 100;
+
+  const worstIndex = SEVERITY_ORDER.findIndex(s => findings.some(f => f.severity === s));
+  const worstSeverity = SEVERITY_ORDER[worstIndex] ?? 'info';
+
+  const ceiling = SEVERITY_SCORE_CEILING[worstSeverity] ?? 100;
+  // Floor is the next-worse band's ceiling, derived from the same table rather
+  // than a second constant that could drift out of step with it.
+  const floor = worstIndex <= 0 ? 0 : (SEVERITY_SCORE_CEILING[SEVERITY_ORDER[worstIndex - 1]!] ?? 0);
+
   const total = findings.reduce((sum, f) => sum + f.score, 0);
-  return Math.max(0, 100 - Math.min(100, Math.round(total / 20)));
+  const volumePenalty = Math.min(ceiling - floor, Math.round(total / 20));
+
+  return Math.max(floor, ceiling - volumePenalty);
 }
 
 async function loadPreviousReport(week: string): Promise<SeoReport | null> {
@@ -63,6 +86,10 @@ export async function buildReport(week: string, siteUrl: string, findings: Findi
   const previousById = new Map(previous?.findings.map(f => [f.id, f]) ?? []);
 
   // Carry forward firstSeenWeek / weeksOpen for findings that persist.
+  // Note: weeksOpen counts *consecutive reports the finding appeared in*, not
+  // elapsed calendar weeks. If a week is skipped (no report generated), the
+  // count under-reports the true age. Re-running the same week is idempotent,
+  // since the previous-report lookup only considers strictly earlier weeks.
   const enriched = findings.map(f => {
     const prior = previousById.get(f.id);
     const firstSeenWeek = prior?.firstSeenWeek ?? week;
@@ -78,10 +105,16 @@ export async function buildReport(week: string, siteUrl: string, findings: Findi
   const persistingFindings = enriched.filter(f => previousIds.has(f.id)).map(f => f.id);
 
   const overall = scoreFromFindings(enriched);
-  const byCategory: CategoryScores = { ...EMPTY_CATEGORY_SCORES };
-  for (const cat of Object.keys(byCategory) as Category[]) {
-    byCategory[cat] = scoreFromFindings(enriched.filter(f => f.category === cat));
-  }
+
+  // A category nobody audited scores null ("not checked"), never 100 — otherwise
+  // an unchecked area reads as a clean bill of health.
+  const covered = new Set(inputs.coveredCategories);
+  const byCategory = Object.fromEntries(
+    ALL_CATEGORIES.map(cat => [
+      cat,
+      covered.has(cat) ? scoreFromFindings(enriched.filter(f => f.category === cat)) : null,
+    ])
+  ) as CategoryScores;
 
   return {
     version: 1,

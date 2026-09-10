@@ -7,7 +7,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { createHash } from 'crypto';
-import { getIndexableUrls, getAvailableWeekLabels } from '@/lib/seo/urlInventory';
+import { getIndexableUrls, getAvailableWeekLabels, STATIC_PAGE_LAST_MODIFIED } from '@/lib/seo/urlInventory';
 import { buildWeekTitle, buildWeekMetaDescription, DIGEST_TITLE_SUFFIX } from '@/lib/seo/metaText';
 import { formatDateRange } from '@/lib/utils/formatDate';
 import { weekLabelToSlug } from '@/lib/utils/weekSlug';
@@ -18,7 +18,8 @@ import {
   DESCRIPTION_MAX,
   STATIC_PAGE_LAST_MODIFIED_MAX_AGE_MONTHS,
 } from '../config';
-import type { Finding } from '../types';
+import type { Finding, Category } from '../types';
+import type { IndexableUrlEntry } from '@/lib/seo/urlInventory';
 import type { WeeklyDigest } from '@/lib/types';
 
 const REPO_ROOT = path.join(process.cwd());
@@ -50,10 +51,8 @@ async function loadDigest(weekLabel: string): Promise<WeeklyDigest | null> {
 }
 
 /** Sitemap ↔ digest-file reconciliation (both directions). */
-async function checkSitemapReconciliation(baseUrl: string): Promise<Finding[]> {
+function checkSitemapReconciliation(baseUrl: string, entries: IndexableUrlEntry[], weekLabels: string[]): Finding[] {
   const findings: Finding[] = [];
-  const weekLabels = await getAvailableWeekLabels(DIGESTS_DIR);
-  const entries = await getIndexableUrls(baseUrl);
   const sitemapDigestUrls = new Set(entries.filter(e => e.kind === 'digest').map(e => e.url));
 
   for (const weekLabel of weekLabels) {
@@ -75,7 +74,7 @@ async function checkSitemapReconciliation(baseUrl: string): Promise<Finding[]> {
 }
 
 /** Sitemap URLs that fall under a robots.ts disallow prefix. */
-async function checkRobotsConflicts(baseUrl: string): Promise<Finding[]> {
+function checkRobotsConflicts(baseUrl: string, entries: IndexableUrlEntry[]): Finding[] {
   const findings: Finding[] = [];
   const robotsConfig = robots();
   const rules = Array.isArray(robotsConfig.rules) ? robotsConfig.rules : [robotsConfig.rules];
@@ -85,10 +84,11 @@ async function checkRobotsConflicts(baseUrl: string): Promise<Finding[]> {
 
   if (disallowedPaths.length === 0) return findings;
 
-  const entries = await getIndexableUrls(baseUrl);
   for (const entry of entries) {
     const urlPath = entry.url.replace(baseUrl, '') || '/';
-    const conflict = disallowedPaths.find(p => urlPath === p || urlPath.startsWith(p));
+    // Match on path-segment boundaries only. A bare startsWith() would flag
+    // "/searchable-guide" as conflicting with a "/search" disallow rule.
+    const conflict = disallowedPaths.find(p => urlPath === p || urlPath.startsWith(`${p}/`));
     if (conflict) {
       findings.push(makeFinding({
         scope: entry.url,
@@ -108,8 +108,9 @@ async function checkRobotsConflicts(baseUrl: string): Promise<Finding[]> {
 
 /** STATIC_PAGE_LAST_MODIFIED age check. */
 function checkStaleLastModified(): Finding[] {
-  const hardcoded = new Date('2026-06-02');
-  const ageMonths = (Date.now() - hardcoded.getTime()) / (1000 * 60 * 60 * 24 * 30);
+  // Imported, never re-declared — a local copy of this date would silently
+  // drift from the sitemap's the moment one of the two was bumped.
+  const ageMonths = (Date.now() - STATIC_PAGE_LAST_MODIFIED.getTime()) / (1000 * 60 * 60 * 24 * 30);
   if (ageMonths <= STATIC_PAGE_LAST_MODIFIED_MAX_AGE_MONTHS) return [];
   return [makeFinding({
     scope: 'lib/seo/urlInventory.ts:STATIC_PAGE_LAST_MODIFIED',
@@ -117,15 +118,15 @@ function checkStaleLastModified(): Finding[] {
     severity: 'medium',
     category: 'technical',
     title: 'Static-page sitemap lastModified date is stale',
-    detail: `STATIC_PAGE_LAST_MODIFIED is ${hardcoded.toISOString().slice(0, 10)}, which is over ${STATIC_PAGE_LAST_MODIFIED_MAX_AGE_MONTHS} months old.`,
+    detail: `STATIC_PAGE_LAST_MODIFIED is ${STATIC_PAGE_LAST_MODIFIED.toISOString().slice(0, 10)} (${Math.floor(ageMonths)} months old), over the ${STATIC_PAGE_LAST_MODIFIED_MAX_AGE_MONTHS}-month threshold.`,
     recommendation: 'If /about, /methodology, /subscribe, /feedback, or /support changed recently, bump the constant in lib/seo/urlInventory.ts.',
   })];
 }
 
 /** Title/description length and duplicate checks across all digest pages. */
-async function checkDigestMetaText(baseUrl: string): Promise<Finding[]> {
+async function checkDigestMetaText(baseUrl: string, weekLabels: string[]): Promise<{ findings: Finding[]; urlsChecked: number }> {
   const findings: Finding[] = [];
-  const weekLabels = await getAvailableWeekLabels(DIGESTS_DIR);
+  let urlsChecked = 0;
 
   const titles = new Map<string, string[]>();
   const descriptions = new Map<string, string[]>();
@@ -133,6 +134,7 @@ async function checkDigestMetaText(baseUrl: string): Promise<Finding[]> {
   for (const weekLabel of weekLabels) {
     const digest = await loadDigest(weekLabel);
     if (!digest) continue;
+    urlsChecked++;
 
     const url = `${baseUrl}/digest/${weekLabelToSlug(weekLabel)}`;
     const dateRange = formatDateRange(digest.startISO, digest.endISO);
@@ -181,8 +183,11 @@ async function checkDigestMetaText(baseUrl: string): Promise<Finding[]> {
       }));
     }
 
-    (titles.get(renderedTitle) ?? titles.set(renderedTitle, []).get(renderedTitle)!).push(url);
-    (descriptions.get(description) ?? descriptions.set(description, []).get(description)!).push(url);
+    if (!titles.has(renderedTitle)) titles.set(renderedTitle, []);
+    titles.get(renderedTitle)!.push(url);
+
+    if (!descriptions.has(description)) descriptions.set(description, []);
+    descriptions.get(description)!.push(url);
   }
 
   for (const [title, urls] of titles) {
@@ -214,7 +219,7 @@ async function checkDigestMetaText(baseUrl: string): Promise<Finding[]> {
     }
   }
 
-  return findings;
+  return { findings, urlsChecked };
 }
 
 /** Root markdown docs that still describe the old /week/* + vercel.app world. */
@@ -243,19 +248,42 @@ async function checkStaleDocs(): Promise<Finding[]> {
   return findings;
 }
 
-export async function runStaticAudit(baseUrl: string): Promise<Finding[]> {
-  const [reconciliation, robotsConflicts, staleDocs, metaText] = await Promise.all([
-    checkSitemapReconciliation(baseUrl),
-    checkRobotsConflicts(baseUrl),
-    checkStaleDocs(),
-    checkDigestMetaText(baseUrl),
+export interface StaticAuditResult {
+  findings: Finding[];
+  /** Distinct URLs examined by at least one check. */
+  urlsAudited: number;
+  /** URLs that got title/description checks — Stage 1 only covers digest pages. */
+  urlsMetaChecked: number;
+  coveredCategories: Category[];
+}
+
+export async function runStaticAudit(baseUrl: string): Promise<StaticAuditResult> {
+  // Read the inventory and week list once and share them — each of these used
+  // to re-read all ~40 digest files independently.
+  const [entries, weekLabels] = await Promise.all([
+    getIndexableUrls(baseUrl),
+    getAvailableWeekLabels(DIGESTS_DIR),
   ]);
 
-  return [
-    ...reconciliation,
-    ...robotsConflicts,
+  const [staleDocs, metaText] = await Promise.all([
+    checkStaleDocs(),
+    checkDigestMetaText(baseUrl, weekLabels),
+  ]);
+
+  const findings = [
+    ...checkSitemapReconciliation(baseUrl, entries, weekLabels),
+    ...checkRobotsConflicts(baseUrl, entries),
     ...checkStaleLastModified(),
     ...staleDocs,
-    ...metaText,
+    ...metaText.findings,
   ];
+
+  return {
+    findings,
+    urlsAudited: entries.length,
+    urlsMetaChecked: metaText.urlsChecked,
+    // Stage 1 checks these three only. structured-data, performance, and
+    // opportunity need the live-HTTP and GSC stages before they can be claimed.
+    coveredCategories: ['technical', 'onpage', 'indexing'],
+  };
 }

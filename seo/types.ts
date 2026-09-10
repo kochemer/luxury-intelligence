@@ -38,18 +38,21 @@ export interface AuditInputs {
   gscAvailable: boolean;
   gscSnapshot?: string;
   liveChecked: boolean;
+  /** How many distinct URLs the audit actually examined (not how many had findings). */
   urlsAudited: number;
+  /** How many of those URLs got title/description checks. Stage 1 only covers digest pages. */
+  urlsMetaChecked: number;
   llmUsed: boolean;
+  /**
+   * Categories this run actually audited. Anything absent is reported as
+   * "not checked" rather than scored 100 — a category nobody looked at must
+   * never render as a clean bill of health.
+   */
+  coveredCategories: Category[];
 }
 
-export interface CategoryScores {
-  technical: number;
-  onpage: number;
-  'structured-data': number;
-  indexing: number;
-  performance: number;
-  opportunity: number;
-}
+/** `null` means "not audited in this run", which is distinct from "audited, no findings" (100). */
+export type CategoryScores = Record<Category, number | null>;
 
 export interface ReportDelta {
   previousWeek?: string;
