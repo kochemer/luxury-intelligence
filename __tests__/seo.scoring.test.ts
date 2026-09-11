@@ -17,6 +17,7 @@ const BASE_INPUTS: AuditInputs = {
   liveChecked: false,
   urlsAudited: 0,
   urlsMetaChecked: 0,
+  urlsFetched: 0,
   llmUsed: false,
   coveredCategories: ['technical', 'onpage', 'indexing'],
 };

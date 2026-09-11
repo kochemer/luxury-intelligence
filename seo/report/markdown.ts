@@ -68,11 +68,15 @@ export function renderMarkdown(report: SeoReport): string {
   lines.push('');
   lines.push(`- URLs in the sitemap inventory: ${report.inputs.urlsAudited}`);
   lines.push(`- URLs with title/description checks: ${report.inputs.urlsMetaChecked} _(digest pages only — static and locale pages need the live-HTTP stage)_`);
-  lines.push(`- Live HTTP checks: ${report.inputs.liveChecked ? 'yes' : 'no (Stage 2)'}`);
+  lines.push(`- Live HTTP checks: ${report.inputs.liveChecked ? `yes — ${report.inputs.urlsFetched} pages fetched` : 'no (skipped)'}`);
   lines.push(`- Search Console data: ${report.inputs.gscAvailable ? 'yes' : 'no (Stage 3)'}`);
   lines.push(`- LLM-assisted fixes: ${report.inputs.llmUsed ? 'yes' : 'no (Stage 4)'}`);
   lines.push('');
-  lines.push('**This report reflects static checks only.** A clean score here does not mean the live site is healthy — nothing in this run fetched a single page.');
+  if (!report.inputs.liveChecked) {
+    lines.push('**This report reflects static checks only.** A clean score here does not mean the live site is healthy — nothing in this run fetched a single page.');
+  } else {
+    lines.push('_No Search Console data yet, so this report can say whether pages are technically correct but not whether they are performing._');
+  }
   lines.push('');
 
   return lines.join('\n');

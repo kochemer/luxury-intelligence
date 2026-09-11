@@ -100,8 +100,12 @@ export async function getIndexableUrls(baseUrl: string): Promise<IndexableUrlEnt
     { url: `${baseUrl}/methodology`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, alternates: multilingual('/methodology'), kind: 'static' },
     { url: `${baseUrl}/email-digest`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.7, kind: 'static' },
     { url: `${baseUrl}/subscribe`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.8, kind: 'static' },
-    { url: `${baseUrl}/feedback`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'yearly', priority: 0.4, kind: 'static' },
     { url: `${baseUrl}/support`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, kind: 'static' },
+    // NOTE: /feedback is deliberately NOT listed. app/feedback/page.tsx serves
+    // `robots: { index: false }`, so listing it told Google to index a page that
+    // simultaneously asked not to be indexed. Its /es and /da counterparts were
+    // already excluded here and disallowed in robots.ts; the English page was
+    // the odd one out. Found by the live HTTP audit (LIVE_NOINDEX_ON_INDEXABLE).
   ];
 
   const localeEntries: IndexableUrlEntry[] = [

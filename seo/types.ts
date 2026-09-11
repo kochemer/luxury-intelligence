@@ -42,6 +42,8 @@ export interface AuditInputs {
   urlsAudited: number;
   /** How many of those URLs got title/description checks. Stage 1 only covers digest pages. */
   urlsMetaChecked: number;
+  /** How many URLs were actually fetched over HTTP (0 when live checks were skipped). */
+  urlsFetched: number;
   llmUsed: boolean;
   /**
    * Categories this run actually audited. Anything absent is reported as

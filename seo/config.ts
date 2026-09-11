@@ -41,3 +41,9 @@ export const AGING_STEP = 0.1;
 export const AGING_CAP_WEEKS = 5;
 
 export const STATIC_PAGE_LAST_MODIFIED_MAX_AGE_MONTHS = 6;
+
+// ── Live HTTP audit (Stage 2) ───────────────────────────────────────────────
+/** Parallel page fetches. Deliberately modest — this points at production. */
+export const LIVE_CONCURRENCY = 4;
+export const LIVE_TIMEOUT_MS = 10_000;
+export const LIVE_USER_AGENT = 'LuxuryIntelSeoAgent/1.0 (+https://luxury-intel.com)';

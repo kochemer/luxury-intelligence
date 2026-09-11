@@ -13,6 +13,7 @@ import type { SeoReport } from './types';
 export interface RunSeoAgentOptions {
   week: string;
   baseUrl?: string;
+  skipLive?: boolean;
 }
 
 export interface SeoAgentSummary {
@@ -27,8 +28,11 @@ export async function runSeoAgent(options: RunSeoAgentOptions): Promise<{ report
   const baseUrl = options.baseUrl ?? getSiteUrl();
 
   console.log(`[SEO] Auditing ${baseUrl} for ${options.week}...`);
-  const { findings, inputs } = await runAudit(baseUrl);
-  console.log(`[SEO] ✓ ${findings.length} finding(s) from static audit`);
+  const { findings, inputs } = await runAudit({ baseUrl, skipLive: options.skipLive });
+  console.log(
+    `[SEO] ✓ ${findings.length} finding(s)` +
+    (inputs.liveChecked ? ` (static + ${inputs.urlsFetched} pages fetched)` : ' (static only)')
+  );
 
   const report = await buildReport(options.week, baseUrl, findings, inputs);
   const { jsonPath } = await writeReport(report);
