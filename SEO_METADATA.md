@@ -1,106 +1,80 @@
-# SEO Metadata Implementation
+# SEO Metadata
 
-## Files Changed
+> Updated 2026-09 — the original version of this doc predated the digest
+> slug scheme, locale pages, and structured data, and still referenced
+> `/week/{weekLabel}` URLs and the `vercel.app` fallback domain. This
+> reflects the current implementation.
 
-1. **`app/layout.tsx`** - Added site-wide metadata defaults
-2. **`app/page.tsx`** - Added canonical URL and OG/Twitter metadata
-3. **`app/archive/page.tsx`** - Added canonical URL and OG/Twitter metadata
-4. **`app/week/[weekLabel]/page.tsx`** - Added canonical URL and dynamic OG image
-5. **`public/og-default.svg`** - Created fallback OG image (1200x630)
+## Files
 
-## Site-Wide Defaults (app/layout.tsx)
+1. **`app/layout.tsx`** — site-wide metadata defaults + the root `WebSite`/
+   `Organization`/`Person` JSON-LD block
+2. **`app/page.tsx`** — homepage canonical + OG/Twitter metadata
+3. **`app/archive/page.tsx`** — archive canonical + OG/Twitter metadata
+4. **`app/digest/[slug]/page.tsx`** — canonical, dynamic OG image, and
+   `Article`/`CollectionPage`/`BreadcrumbList` JSON-LD
+5. **`lib/seo/metaText.ts`** — `buildWeekTitle()` / `buildWeekMetaDescription()`,
+   shared between the live page and the SEO auditor
+6. **`app/{es,da}/...`** — locale variants of the above
+
+## Site-wide defaults (`app/layout.tsx`)
 
 ```typescript
-metadataBase: new URL(siteUrl)
-openGraph: {
-  siteName: "Luxury Intelligence",
-  type: "website",
-}
-twitter: {
-  card: "summary_large_image",
-}
-alternates: {
-  canonical: "/", // Default for layout
-}
+metadataBase: new URL(getSiteUrl())
+openGraph: { siteName: "Luxury Intelligence", type: "website" }
+twitter: { card: "summary_large_image" }
 ```
 
-## Per-Page Metadata
+Canonical URLs are always built as absolute `${siteUrl}/...` strings per-page
+— never a bare relative path — because a relative canonical under
+`metadataBase` previously resolved against whatever host served the request,
+which leaked `vercel.app` canonicals onto the custom domain (see
+`CUSTOM_DOMAIN_INDEXING_DIAGNOSTIC.md`).
 
-### Home Page (`/`)
-- **Canonical**: `/` (no query params)
-- **OG Image**: `/og-default.svg`
-- **Title**: "Weekly AI, Ecommerce & Luxury Industry Digest"
-- **Description**: 136 characters
+## Per-page metadata
 
-### Archive Page (`/archive`)
-- **Canonical**: `/archive` (no query params)
-- **OG Image**: `/og-default.svg`
-- **Title**: "Archive – Weekly AI & Luxury Industry Digests"
-- **Description**: 157 characters
+### Home page (`/`)
+- Canonical: `${siteUrl}/`
+- `alternates.languages`: en / es / da / x-default
+- OG image: current week's `coverImageUrl`, falling back to `/api/og`
 
-### Week Page (`/week/{weekLabel}`)
-- **Canonical**: `/week/{weekLabel}` (no query params)
-- **OG Image**: Uses cover image if available (`/weekly-images/{weekLabel}.png`), else fallback (`/og-default.svg`)
-- **Title**: "Week {weekLabel} – AI, Ecommerce & Luxury Industry Digest"
-- **Description**: 145 characters
+### Archive page (`/archive`)
+- Canonical: `${siteUrl}/archive`, same hreflang cluster as above
 
-## Example HTML Output
+### Digest page (`/digest/{slug}`)
+- Canonical: `${siteUrl}/digest/{slug}` — the canonical slug from
+  `weekLabelToSlug()`; a request to a non-canonical slug 308s via
+  `permanentRedirect()`
+- Title: `buildWeekTitle(dateRange)` from `lib/seo/metaText.ts`
+- Description: `buildWeekMetaDescription(digest, dateRange)`, preferring
+  `digest.oneSentenceSummary` (155-char cap)
+- OG image: `digest.coverImageUrl`, falling back to `/api/og?week={weekLabel}`
+- JSON-LD: `Article`, `CollectionPage`, `BreadcrumbList` (see the page body)
 
-### Home Page
-```html
-<link rel="canonical" href="https://luxury-intelligence.vercel.app/" />
-<meta property="og:title" content="Weekly AI, Ecommerce & Luxury Industry Digest" />
-<meta property="og:description" content="A weekly curated digest covering AI & strategy, ecommerce and retail technology, luxury and jewellery industry news. Updated every week." />
-<meta property="og:image" content="https://luxury-intelligence.vercel.app/og-default.svg" />
-<meta property="og:site_name" content="Luxury Intelligence" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Weekly AI, Ecommerce & Luxury Industry Digest" />
-<meta name="twitter:description" content="A weekly curated digest covering AI & strategy, ecommerce and retail technology, luxury and jewellery industry news. Updated every week." />
-<meta name="twitter:image" content="https://luxury-intelligence.vercel.app/og-default.svg" />
-```
+### Locale pages (`/es`, `/da`)
+Same shape as the English equivalents, with `alternates.languages` pointing
+back at the full en/es/da/x-default cluster. Locale utility pages
+(`subscribe`/`support`/`feedback`/`competitor-watch`) are marked
+`robots: { index: false }` and have no locale alternates.
 
-### Week Page (with cover image)
-```html
-<link rel="canonical" href="https://luxury-intelligence.vercel.app/week/2026-W02" />
-<meta property="og:title" content="Week 2026-W02 – AI, Ecommerce & Luxury Industry Digest" />
-<meta property="og:description" content="Curated overview of the most relevant AI, ecommerce, luxury and jewellery industry news for week 2026-W02. Handpicked articles with AI summaries." />
-<meta property="og:image" content="https://luxury-intelligence.vercel.app/weekly-images/2026-W02.png" />
-<meta property="og:site_name" content="Luxury Intelligence" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Week 2026-W02 – AI, Ecommerce & Luxury Industry Digest" />
-<meta name="twitter:description" content="Curated overview of the most relevant AI, ecommerce, luxury and jewellery industry news for week 2026-W02. Handpicked articles with AI summaries." />
-<meta name="twitter:image" content="https://luxury-intelligence.vercel.app/weekly-images/2026-W02.png" />
-```
+## Query parameter handling
 
-## Query Parameter Handling
+Canonical URLs never include query parameters — e.g. `/?n=7` still canonicalises
+to `${siteUrl}/`. This avoids duplicate-content issues from view-toggle params
+like `?n=5` (article count).
 
-✅ **Canonical URLs exclude query parameters**
-- `/week/2026-W02?n=5` → Canonical: `/week/2026-W02`
-- `/archive?page=2` → Canonical: `/archive`
-- `/?n=7` → Canonical: `/`
+## Base URL
 
-This prevents duplicate content issues when users navigate with query parameters (e.g., `?n=5` for article count).
+`getSiteUrl()` (`lib/utils/siteUrl.ts`) is the single source of truth:
+`NEXT_PUBLIC_SITE_URL` override → `https://luxury-intel.com` in production →
+`http://localhost:3000` in development. **There is no `vercel.app` fallback** —
+that was the root cause of the indexing issue in
+`CUSTOM_DOMAIN_INDEXING_DIAGNOSTIC.md`.
 
-## Fallback OG Image
+## Verifying
 
-- **File**: `public/og-default.svg`
-- **Size**: 1200x630 (recommended OG image size)
-- **Content**: Purple gradient with "Luxury Intelligence" branding
-- **Used when**: Week page doesn't have a cover image yet
-
-## Environment Variable
-
-Uses `NEXT_PUBLIC_SITE_URL` if set, otherwise falls back to:
-- Production: `https://luxury-intelligence.vercel.app`
-- Development: `http://localhost:3000`
-
-## Validation
-
-✅ Build successful - All metadata exports compile correctly
-✅ Type safety - Uses Next.js `Metadata` type
-✅ No query params in canonical URLs
-✅ Dynamic OG images for week pages (uses cover image when available)
-
-
+- `npm run seo:audit` — automated title/description length + duplicate checks,
+  plus sitemap/robots reconciliation. See `data/seo/report-*.md`.
+- Manually: view source on a live page and confirm `<link rel="canonical">`
+  and `<meta name="description">` resolve to `luxury-intel.com`, not
+  `vercel.app` or a relative path.

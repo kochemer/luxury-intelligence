@@ -1,11 +1,43 @@
-# SEO DIAGNOSTIC REPORT
-**Date:** 2026-01-26  
-**Site:** luxury-intelligence.vercel.app  
-**Issue:** Google Search Console shows zero indexed pages
+# SEO DIAGNOSTIC REPORT (HISTORICAL — RESOLVED)
+
+> ## ⚠️ This document is a snapshot from January 2026. Every issue in it is fixed.
+>
+> It is kept as a record of the original indexing investigation. **Do not treat
+> anything below as a current finding.** In particular it describes relative
+> canonical URLs, `/week/{weekLabel}` URLs and the `luxury-intelligence.vercel.app`
+> domain — all three retired.
+>
+> | Then | Now |
+> |---|---|
+> | Relative canonicals (`canonical: '/'`) | Absolute, built from `getSiteUrl()` |
+> | `/week/{weekLabel}` URLs | `/digest/{month}-{year}-week-{n}`, old URLs 308 |
+> | `luxury-intelligence.vercel.app` | `luxury-intel.com`, no vercel.app fallback |
+> | Zero indexed pages | 23 of 52 indexed as of 2026-09-11 |
+> | Generic `Article` schema, duplicated entities | `NewsArticle` + `ItemList`, one `@id`-anchored entity graph |
+>
+> **For the current state, do not read this file — run the tooling:**
+>
+> ```
+> npm run seo:audit      # repo + live-HTML checks
+> npm run seo:indexing   # what Google reports per page
+> npm run seo:optimize   # best-practice opportunities
+> ```
+>
+> Those read the live site and the Search Console API, so they cannot go stale
+> the way this document did. Live reports are written to `data/seo/`.
+>
+> One caveat on the history below: it concluded relative canonicals were the
+> root cause of zero indexed pages. The likelier cause, established later, was
+> that the sitemap had not been re-read by Google since 2026-02-09 — see
+> `npm run seo:indexing`.
+
+**Original date:** 2026-01-26
+**Original site:** luxury-intelligence.vercel.app
+**Original issue:** Google Search Console shows zero indexed pages
 
 ---
 
-## EXECUTIVE SUMMARY
+## EXECUTIVE SUMMARY (as written in January 2026 — since resolved)
 
 **Overall Status:** ⚠️ **MOSTLY PASS** with **CRITICAL ISSUE IDENTIFIED**
 

@@ -26,7 +26,15 @@
     "video:wait": "tsx scripts/waitForWeeklyVideoRenders.ts",
     "seo:check-robots": "tsx scripts/checkRobots.ts",
     "test:redirects": "tsx scripts/testRedirects.ts",
-    "competitor:analyze": "tsx scripts/runCompetitorAnalyze.ts"
+    "competitor:analyze": "tsx scripts/runCompetitorAnalyze.ts",
+    "seo:audit": "tsx scripts/runSeoAgent.ts",
+    "seo:setup-gsc": "tsx scripts/setupGscCredentials.ts",
+    "seo:gsc": "tsx scripts/pullGsc.ts",
+    "seo:monitor": "tsx scripts/runSeoMonitor.ts",
+    "seo:repair": "tsx scripts/runSeoRepair.ts",
+    "seo:recover": "tsx scripts/runSeoRecovery.ts",
+    "seo:indexing": "tsx scripts/runIndexingAudit.ts",
+    "seo:optimize": "tsx scripts/runSeoOptimize.ts"
   },
   "dependencies": {
     "@amplitude/unified": "^1.0.0-beta.9",
@@ -36,6 +44,7 @@
     "cheerio": "^1.1.2",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.45.1",
+    "googleapis": "^180.0.0",
     "lightweight-charts": "^5.1.0",
     "luxon": "^3.7.2",
     "next": "16.1.1",

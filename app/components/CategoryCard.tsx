@@ -29,9 +29,14 @@ export default function CategoryCard({
         aria-hidden="true"
       />
 
-      <h3 className="relative font-serif text-card-title font-bold text-[var(--color-text-primary)] bg-gradient-to-r from-current to-current bg-[length:0_2px] bg-left-bottom bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300">
+      {/* A span, not a heading. These cards are a navigation grid whose labels
+          duplicate the <h2> section headings further down the page, so tagging
+          them as h3 created an h1 → h3 hierarchy skip on every page (40 of
+          them) and emitted each category name twice as a heading. Styling is
+          unchanged; only the document outline is. */}
+      <span className="relative block font-serif text-card-title font-bold text-[var(--color-text-primary)] bg-gradient-to-r from-current to-current bg-[length:0_2px] bg-left-bottom bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300">
         {title}
-      </h3>
+      </span>
       <p className="relative text-body text-[var(--color-text-secondary)] mt-1 leading-snug">
         {description}
       </p>

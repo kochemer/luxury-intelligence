@@ -11,9 +11,10 @@ type TestCase = {
 
 const BASE_URL = process.env.TEST_URL || 'https://luxury-intel.com';
 
-async function testRedirect(testCase: TestCase): Promise<void> {
+async function testRedirect(testCase: TestCase): Promise<boolean> {
   const { name, url, expectedStatus, expectedFinalUrl } = testCase;
-  
+  let passed = true;
+
   try {
     console.log(`\nTesting: ${name}`);
     console.log(`  Request URL: ${url}`);
@@ -48,6 +49,7 @@ async function testRedirect(testCase: TestCase): Promise<void> {
     
     if (expectedStatus && status !== expectedStatus) {
       console.error(`  ❌ Expected status ${expectedStatus}, got ${status}`);
+      passed = false;
     } else if (expectedStatus) {
       console.log(`  ✅ Status matches expected: ${expectedStatus}`);
     }
@@ -58,6 +60,7 @@ async function testRedirect(testCase: TestCase): Promise<void> {
       const normalizedGot = finalUrl.replace(/\/$/, '');
       if (normalizedGot !== normalizedExpected && status === 308) {
         console.warn(`  ⚠️  Expected final URL ${expectedFinalUrl}, got ${finalUrl}`);
+        passed = false;
       } else if (normalizedGot === normalizedExpected) {
         console.log(`  ✅ Final URL matches expected: ${expectedFinalUrl}`);
       }
@@ -66,15 +69,17 @@ async function testRedirect(testCase: TestCase): Promise<void> {
     // Check for vercel.app domain (should not appear)
     if (finalUrl.includes('vercel.app')) {
       console.error(`  ❌ ERROR: Final URL contains vercel.app domain`);
+      passed = false;
     }
-    
+
     // Check for www in redirect location (should be removed)
     if (status === 308 && locationHeader) {
       if (locationHeader.includes('www.luxury-intel.com') || locationHeader.includes('www.localhost')) {
         console.error(`  ❌ ERROR: Redirect location still contains www`);
+        passed = false;
       }
     }
-    
+
     // Check for tracking params (should be removed)
     if (finalUrl.includes('?')) {
       try {
@@ -83,15 +88,19 @@ async function testRedirect(testCase: TestCase): Promise<void> {
         const hasTrackingParams = trackingParams.some(param => urlObj.searchParams.has(param));
         if (hasTrackingParams) {
           console.error(`  ❌ ERROR: Final URL still contains tracking parameters`);
+          passed = false;
         }
       } catch {
         // URL parsing failed, skip this check
       }
     }
-    
+
   } catch (error: any) {
     console.error(`  ❌ Error: ${error.message}`);
+    passed = false;
   }
+
+  return passed;
 }
 
 async function main() {
@@ -141,12 +150,20 @@ async function main() {
     },
   ];
   
+  let failures = 0;
   for (const testCase of testCases) {
-    await testRedirect(testCase);
+    const passed = await testRedirect(testCase);
+    if (!passed) failures++;
   }
-  
+
   console.log('\n' + '='.repeat(60));
-  console.log('Redirect tests complete');
+  if (failures > 0) {
+    console.error(`❌ Redirect tests complete: ${failures}/${testCases.length} failed`);
+  } else {
+    console.log(`✅ Redirect tests complete: all ${testCases.length} passed`);
+  }
+
+  process.exit(failures > 0 ? 1 : 0);
 }
 
 main().catch((error) => {

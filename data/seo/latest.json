@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "week": "2026-W36",
+  "generatedAtISO": "2026-09-11T17:52:41.264Z",
+  "siteUrl": "https://luxury-intel.com",
+  "inputs": {
+    "gscAvailable": false,
+    "liveChecked": false,
+    "urlsAudited": 52,
+    "urlsMetaChecked": 37,
+    "urlsFetched": 0,
+    "llmUsed": false,
+    "coveredCategories": [
+      "technical",
+      "onpage",
+      "indexing"
+    ]
+  },
+  "score": {
+    "overall": 100,
+    "byCategory": {
+      "technical": 100,
+      "onpage": 100,
+      "structured-data": null,
+      "indexing": 100,
+      "performance": null,
+      "opportunity": null
+    }
+  },
+  "findings": [],
+  "delta": {
+    "newFindings": [],
+    "resolvedFindings": [],
+    "persistingFindings": [],
+    "scoreChange": 0
+  }
+}

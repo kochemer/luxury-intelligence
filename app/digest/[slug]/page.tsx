@@ -26,30 +26,9 @@ import { getSelectedArticleCount, formatStatsSecondaryLine } from '@/lib/utils/d
 import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { weekLabelToSlug, slugToWeekLabel } from '@/lib/utils/weekSlug';
 import { CATEGORY_COLORS } from '@/lib/constants/categoryColors';
+import { buildWeekTitle, buildWeekMetaDescription } from '@/lib/seo/metaText';
+import { buildNewsArticleLd, buildDigestItemListLd, buildBreadcrumbLd } from '@/lib/seo/jsonLd';
 import type { WeeklyDigest } from '@/lib/types';
-
-// ── Meta description builder ──────────────────────────────────────────────────
-function buildWeekMetaDescription(digest: WeeklyDigest, dateRange: string): string {
-  const total    = digest.totals.total;
-  const selected = getSelectedArticleCount(digest);
-  const trunc    = (s: string, max: number) => s.length <= max ? s : s.slice(0, max - 1) + '…';
-
-  if (digest.oneSentenceSummary) {
-    const insight    = trunc(digest.oneSentenceSummary, 155);
-    const withCount  = `${insight} (${total} articles · ${selected} curated)`;
-    return withCount.length <= 155 ? withCount : insight;
-  }
-
-  const topTitle =
-    digest.topics.AI_and_Strategy.top[0]?.title ??
-    digest.topics.Ecommerce_Retail_Tech.top[0]?.title ??
-    digest.topics.Luxury_and_Consumer.top[0]?.title ??
-    null;
-
-  const base = `${total} articles analysed across AI, ecommerce, luxury & jewellery · ${dateRange}.`;
-  if (topTitle) return trunc(`${base} Top story: ${topTitle}`, 155);
-  return base;
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug }      = await params;
@@ -67,24 +46,28 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     : `${siteUrl}/api/og?week=${encodeURIComponent(weekLabel)}`;
 
   const dateRange   = digest ? formatDateRange(digest.startISO, digest.endISO) : slug;
-  const title       = `${dateRange} Intelligence Digest – AI, Ecommerce & Luxury`;
+  const title       = buildWeekTitle(dateRange);
   const description = digest
     ? buildWeekMetaDescription(digest, dateRange)
     : `Curated intelligence for ${weekLabel} — AI, ecommerce, luxury and jewellery industry news with AI-assisted summaries.`;
 
   return {
-    title,
+    // `absolute` bypasses the root layout's "%s | Luxury Intelligence"
+    // template. buildWeekTitle already ends with the publication name, so
+    // letting the template run appended it twice and pushed every digest
+    // title past 80 characters — well beyond where Google truncates.
+    title: { absolute: title },
     description,
     alternates: {
       canonical: `${siteUrl}/digest/${slug}`,
     },
     openGraph: {
-      title: `${title} | Luxury Intelligence`,
+      title,
       description,
       images: [ogImage],
     },
     twitter: {
-      title: `${title} | Luxury Intelligence`,
+      title,
       description,
       images: [ogImage],
     },
@@ -226,61 +209,33 @@ export default async function DigestPage({
   const dateRange = formatDateRange(digest.startISO, digest.endISO);
   const siteUrl   = getSiteUrl();
 
-  const collectionPageSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: `${dateRange} – Weekly Intelligence Digest`,
-    url: `${siteUrl}/digest/${slug}`,
-    isPartOf: {
-      '@type': 'WebSite',
-      name: 'Luxury Intelligence',
-      url: siteUrl,
-    },
-    about: [
-      { '@type': 'Thing', name: 'AI & Strategy' },
-      { '@type': 'Thing', name: 'Ecommerce & Retail Tech' },
-      { '@type': 'Thing', name: 'Luxury & Consumer' },
-      { '@type': 'Thing', name: 'Jewellery Industry' },
-    ],
-    ...(digest.startISO    && { datePublished: digest.startISO }),
-    ...(digest.builtAtISO  && { dateModified:  digest.builtAtISO }),
-  };
+  const pageUrl = `${siteUrl}/digest/${slug}`;
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home',    item: `${siteUrl}/` },
-      { '@type': 'ListItem', position: 2, name: 'Archive', item: `${siteUrl}/archive` },
-      { '@type': 'ListItem', position: 3, name: dateRange, item: `${siteUrl}/digest/${slug}` },
-    ],
-  };
-
-  const newsArticleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: `${dateRange} Intelligence Digest – AI, Ecommerce & Luxury`,
+  // Publisher and author are referenced by @id rather than re-declared here —
+  // they are defined once in the root graph (app/layout.tsx via
+  // lib/seo/jsonLd.ts), so the article's publisher resolves to the same
+  // organisation that owns the site instead of an anonymous duplicate.
+  const newsArticleSchema = buildNewsArticleLd({
+    siteUrl,
+    url: pageUrl,
+    headline: buildWeekTitle(dateRange),
     description: digest.oneSentenceSummary
       ?? `Weekly curated digest: ${digest.totals.total} articles across AI, ecommerce, jewellery, and luxury.`,
-    ...(digest.startISO   && { datePublished: digest.startISO }),
-    ...(digest.builtAtISO && { dateModified:  digest.builtAtISO }),
-    ...(digest.coverImageUrl && { image: `${siteUrl}${digest.coverImageUrl}` }),
-    articleSection: 'AI & Strategy, Ecommerce & Retail Tech, Luxury & Consumer, Jewellery Industry',
-    publisher: {
-      '@type': 'Organization',
-      name: 'Luxury Intelligence',
-      url: siteUrl,
-    },
-    author: {
-      '@type': 'Person',
-      name: 'The Editor',
-      url: `${siteUrl}/about`,
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `${siteUrl}/digest/${slug}`,
-    },
-  };
+    digest,
+    imageUrl: digest.coverImageUrl ? `${siteUrl}${digest.coverImageUrl}` : undefined,
+  });
+
+  // The week's curated selection, expressed as data rather than only prose.
+  const itemListSchema = buildDigestItemListLd({ siteUrl, url: pageUrl, dateRange, digest });
+
+  const breadcrumbSchema = buildBreadcrumbLd({
+    siteUrl,
+    items: [
+      { name: 'Home', url: `${siteUrl}/` },
+      { name: 'Archive', url: `${siteUrl}/archive` },
+      { name: dateRange, url: pageUrl },
+    ],
+  });
 
   const CATEGORY_CARDS: Array<{
     key: TopicKey;
@@ -337,7 +292,7 @@ export default async function DigestPage({
   return (
     <>
       <JsonLd data={newsArticleSchema} />
-      <JsonLd data={collectionPageSchema} />
+      <JsonLd data={itemListSchema} />
       <JsonLd data={breadcrumbSchema} />
       <main className="w-full" style={{ minHeight: '100vh', background: 'var(--color-bg)' }}>
 
