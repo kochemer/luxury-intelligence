@@ -30,7 +30,8 @@
     "seo:audit": "tsx scripts/runSeoAgent.ts",
     "seo:setup-gsc": "tsx scripts/setupGscCredentials.ts",
     "seo:gsc": "tsx scripts/pullGsc.ts",
-    "seo:monitor": "tsx scripts/runSeoMonitor.ts"
+    "seo:monitor": "tsx scripts/runSeoMonitor.ts",
+    "seo:repair": "tsx scripts/runSeoRepair.ts"
   },
   "dependencies": {
     "@amplitude/unified": "^1.0.0-beta.9",

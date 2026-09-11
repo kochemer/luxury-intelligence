@@ -12,7 +12,7 @@
  * No LLM, no cost, runs in seconds.
  */
 
-import { runLiveAudit } from '../audit/liveAudit';
+import { runAudit } from '../audit/runAudit';
 import { getGscClient } from '../gsc/client';
 import { queryTotals, getWindows } from '../gsc/searchAnalytics';
 import { TRAFFIC_CLIFF_DROP_PCT, TRAFFIC_CLIFF_MIN_IMPRESSIONS } from '../config';
@@ -79,13 +79,15 @@ async function checkTrafficCliff(): Promise<{ finding: Finding | null; note: str
 }
 
 export async function runMonitor(baseUrl: string, previousProblemIds: string[] = []): Promise<MonitorResult> {
-  const [liveResult, traffic] = await Promise.all([
-    runLiveAudit(baseUrl),
+  // Both audits, not just the live one: a digest silently missing from the
+  // sitemap is genuine breakage, and it is only visible to the static checks.
+  const [auditResult, traffic] = await Promise.all([
+    runAudit({ baseUrl }),
     checkTrafficCliff(),
   ]);
 
   const problems = [
-    ...liveResult.findings.filter(f => f.severity === 'critical' || f.severity === 'high'),
+    ...auditResult.findings.filter(f => f.severity === 'critical' || f.severity === 'high'),
     ...(traffic.finding ? [traffic.finding] : []),
   ];
 
