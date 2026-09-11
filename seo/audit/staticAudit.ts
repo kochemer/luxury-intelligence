@@ -8,7 +8,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { createHash } from 'crypto';
 import { getIndexableUrls, getAvailableWeekLabels, STATIC_PAGE_LAST_MODIFIED } from '@/lib/seo/urlInventory';
-import { buildWeekTitle, buildWeekMetaDescription, DIGEST_TITLE_SUFFIX } from '@/lib/seo/metaText';
+import { buildWeekMetaDescription, renderedWeekTitle } from '@/lib/seo/metaText';
 import { formatDateRange } from '@/lib/utils/formatDate';
 import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 import robots from '../../app/robots';
@@ -138,8 +138,10 @@ async function checkDigestMetaText(baseUrl: string, weekLabels: string[]): Promi
 
     const url = `${baseUrl}/digest/${weekLabelToSlug(weekLabel)}`;
     const dateRange = formatDateRange(digest.startISO, digest.endISO);
-    const title = buildWeekTitle(dateRange);
-    const renderedTitle = `${title}${DIGEST_TITLE_SUFFIX}`;
+    // renderedWeekTitle() is what the page actually emits. The auditor used to
+    // re-derive it by appending the layout's template suffix, which silently
+    // became wrong the moment digest titles switched to `title.absolute`.
+    const renderedTitle = renderedWeekTitle(dateRange);
     const description = buildWeekMetaDescription(digest, dateRange);
 
     if (renderedTitle.length > TITLE_MAX_RENDERED) {
@@ -152,7 +154,10 @@ async function checkDigestMetaText(baseUrl: string, weekLabels: string[]): Promi
         detail: `Rendered title is ${renderedTitle.length} chars (max ${TITLE_MAX_RENDERED}): "${renderedTitle}"`,
         url,
         evidence: { length: renderedTitle.length, max: TITLE_MAX_RENDERED },
-        recommendation: 'Shorten the title template, or add a per-week seoTitle override once Stage 4 ships.',
+        recommendation: 'Shorten buildWeekTitle() in lib/seo/metaText.ts. Digest titles are emitted ' +
+                        'with title.absolute, so the whole 60-character budget belongs to that ' +
+                        'function — do not re-add the layout\'s brand suffix, which is what made ' +
+                        'these titles 83-91 characters originally.',
       }));
     }
 

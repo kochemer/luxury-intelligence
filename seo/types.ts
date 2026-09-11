@@ -1,11 +1,20 @@
 /**
- * Shared types for the SEO agent (Stage 1: evidence + reporting only).
+ * Shared types for the SEO system.
  *
- * Stage 1 produces Finding[] from deterministic, no-network checks and writes
- * a scored report. Nothing in this stage applies any fix. The `Ledger` types
- * are defined now (Stage 4 territory) because report findings will eventually
- * need to reference ledger entries by a stable id — defining the shape early
- * avoids a breaking rename later.
+ * `Finding` is the common currency: every producer emits it and every consumer
+ * reads it, which is what lets four quite different sources compose into one
+ * ranked report —
+ *
+ *   seo/audit/staticAudit.ts    repo + digest data, no network
+ *   seo/audit/liveAudit.ts      the deployed site's actual HTML
+ *   seo/audit/indexingAudit.ts  what Google reports about each page
+ *   seo/optimize/linkGraph.ts   best-practice opportunities
+ *
+ * Severity carries a specific meaning that the scorer depends on: `critical`
+ * and `high` mean something is *wrong* and are the only severities the monitor
+ * alerts on or the repair agent will act on. `medium` and below include
+ * opportunities, where nothing is broken. Mixing those up would either spam
+ * the alert channel or let real breakage pass unnoticed.
  */
 
 export type Severity = 'critical' | 'high' | 'medium' | 'low' | 'info';
@@ -76,24 +85,11 @@ export interface SeoReport {
 }
 
 /**
- * A single applied or proposed fix, recorded so a later run can check
- * whether it actually helped. Not used until Stage 4 (auto-fix); the shape
- * is fixed now so early findings can already reference a future ledger
- * entry id without a migration.
+ * NOTE: the repair-attempt record lives in seo/repair/ledger.ts as
+ * `RepairAttempt`, not here.
+ *
+ * An unused `LedgerEntry` interface previously sat in this file, sketched
+ * before the repair system was built. What shipped has a different shape, so
+ * the sketch was dead code describing a design that does not exist — exactly
+ * the kind of stale artefact that makes a codebase lie about itself.
  */
-export interface LedgerEntry {
-  id: string;
-  findingCode: string;
-  url?: string;
-  file: string;
-  field: string;
-  before: string | null;
-  after: string;
-  rationale: string;
-  shippedAtISO: string;
-  gitSha?: string;
-  baseline?: { clicks: number; impressions: number; ctr: number; position: number; windowStart: string; windowEnd: string };
-  evaluateAfterISO: string;
-  outcome: 'pending' | 'improved' | 'no-effect' | 'regressed' | 'reverted';
-  evaluatedAtISO?: string;
-}

@@ -14,6 +14,8 @@ import type { Metadata } from 'next';
 import { formatDateRange } from '@/lib/utils/formatDate';
 import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 import { getSiteUrl } from '@/lib/utils/siteUrl';
+import { buildArchiveCollectionLd } from '@/lib/seo/jsonLd';
+import JsonLd from '../components/JsonLd';
 
 const siteUrl = getSiteUrl();
 
@@ -152,8 +154,27 @@ export default async function ArchivePage() {
   // Global index so the very first card gets the hero + gold ring treatment
   let globalIdx = 0;
 
+  // The archive is an index of every issue, but carried no structured data —
+  // so a machine reading it saw an undifferentiated page of links rather than
+  // an ordered collection of dated publications. Newest first, matching the
+  // visual order.
+  const collectionSchema = buildArchiveCollectionLd({
+    siteUrl,
+    url: `${siteUrl}/archive`,
+    name: 'Archive – All Weekly Digests',
+    description: `All ${weekLabels.length} editions of the Luxury Intelligence weekly digest, covering AI, ecommerce, jewellery and luxury industry news.`,
+    entries: [...issues].reverse().map(({ weekLabel, meta }) => ({
+      url: `${siteUrl}/digest/${weekLabelToSlug(weekLabel)}`,
+      // WeekMeta already carries the formatted range the page displays; reuse
+      // it so the structured data and the visible list cannot disagree.
+      name: meta.dateRange ?? weekLabel,
+      ...(meta.startISO ? { datePublished: meta.startISO } : {}),
+    })),
+  });
+
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-20">
+      <JsonLd data={collectionSchema} />
       {/* Editorial header */}
       <header className="max-w-2xl mb-12 md:mb-16">
         <Link

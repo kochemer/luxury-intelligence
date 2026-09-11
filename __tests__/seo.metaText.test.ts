@@ -15,7 +15,7 @@ import { strict as assert } from 'node:assert';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { buildWeekTitle, buildWeekMetaDescription, DIGEST_TITLE_SUFFIX } from '../lib/seo/metaText';
+import { buildWeekTitle, buildWeekMetaDescription, renderedWeekTitle } from '../lib/seo/metaText';
 import { formatDateRange } from '../lib/utils/formatDate';
 import { DESCRIPTION_MIN, DESCRIPTION_MAX, TITLE_MAX_RENDERED } from '../seo/config';
 import type { WeeklyDigest } from '../lib/types';
@@ -67,20 +67,31 @@ test('buildWeekTitle produces a non-empty title for every digest (length tracked
     return;
   }
 
-  let overLimit = 0;
+  // Now enforced, not merely tracked. Titles were 83-91 chars because the
+  // layout template appended " | Luxury Intelligence" to a title that already
+  // named the publication; digest titles are emitted with `title.absolute` so
+  // that no longer happens. This assertion is what stops the regression.
   for (const { weekLabel, digest } of digests) {
     const dateRange = formatDateRange(digest.startISO, digest.endISO);
     const title = buildWeekTitle(dateRange);
     assert(title.length > 0, `${weekLabel}: title must not be empty`);
 
-    const rendered = `${title}${DIGEST_TITLE_SUFFIX}`;
-    if (rendered.length > TITLE_MAX_RENDERED) overLimit++;
+    const rendered = renderedWeekTitle(dateRange);
+    assert(
+      rendered.length <= TITLE_MAX_RENDERED,
+      `${weekLabel}: rendered title is ${rendered.length} chars, must be <= ${TITLE_MAX_RENDERED}: "${rendered}"`
+    );
+    assert(
+      rendered.includes(dateRange),
+      `${weekLabel}: title must lead with the date range that distinguishes this issue`
+    );
   }
+});
 
-  // Known, tracked issue (STATIC_TITLE_LENGTH in the SEO report) — not a hard
-  // failure yet. Remove this console line and assert(overLimit === 0) once
-  // Stage 4 ships a fix.
-  if (overLimit > 0) {
-    console.log(`[known issue] ${overLimit}/${digests.length} digest titles exceed ${TITLE_MAX_RENDERED} chars rendered — tracked as STATIC_TITLE_LENGTH.`);
-  }
+test('the digest title is not double-branded', () => {
+  // The specific defect that made every title overlong: the publication name
+  // appearing twice once the layout template ran.
+  const rendered = renderedWeekTitle('Aug 30 - Sep 6, 2026');
+  const brandOccurrences = rendered.match(/Luxury Intelligence/g)?.length ?? 0;
+  assert.equal(brandOccurrences, 1, `brand should appear exactly once, got: "${rendered}"`);
 });

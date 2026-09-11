@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import DisplayModeAttribute from "./components/DisplayModeAttribute";
 import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
 import JsonLd from "./components/JsonLd";
+import { buildRootGraphLd } from "@/lib/seo/jsonLd";
 import CanonicalUrlValidator from "./components/CanonicalUrlValidator";
 import { ThemeProvider } from "./context/ThemeContext";
 import ScrollProgressBar from "./components/ScrollProgressBar";
@@ -140,27 +141,10 @@ export default async function RootLayout({
         style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
       >
         <ThemeProvider>
-          <JsonLd
-            data={{
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Luxury Intelligence",
-              url: siteUrl,
-              description: "Luxury Ecommerce, Retail Technology & AI - Curated intelligence and AI-assisted summaries for luxury, ecommerce, and retail tech.",
-              inLanguage: "en",
-              publisher: {
-                "@type": "Organization",
-                name: "Luxury Intelligence",
-                url: siteUrl,
-              },
-              author: {
-                "@type": "Person",
-                name: "The Editor",
-                url: `${siteUrl}/about`,
-                description: "Curator of Luxury Intelligence.",
-              },
-            }}
-          />
+          {/* Root entity graph: WebSite, Organization and Person declared once,
+              with @id, so every other page references them instead of
+              re-declaring anonymous copies. See lib/seo/jsonLd.ts. */}
+          <JsonLd data={buildRootGraphLd(siteUrl)} />
           <ScrollProgressBar />
           <CanonicalUrlValidator />
           <AmplitudeInit />

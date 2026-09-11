@@ -1,5 +1,18 @@
-# CUSTOM DOMAIN INDEXING DIAGNOSTIC REPORT
-**Date:** 2026-01-26  
+# CUSTOM DOMAIN INDEXING DIAGNOSTIC REPORT (HISTORICAL — RESOLVED)
+
+> ## ⚠️ Snapshot from January 2026. The problem described here is fixed.
+>
+> The vercel.app fallback that caused it is gone: `lib/utils/siteUrl.ts` now
+> defaults to `https://luxury-intel.com` in production with no vercel.app
+> branch, and `__tests__/seo.urlInventory.test.ts` asserts every URL is
+> absolute and on the canonical host. References below to `utils/siteUrl.ts`
+> predate the move to `lib/utils/siteUrl.ts`.
+>
+> **Do not read this for current state.** Run `npm run seo:indexing` — it asks
+> Google directly, so it cannot go stale.
+
+**Original date:** 2026-01-26
+
 **Custom Domain:** luxury-intel.com  
 **Vercel Domain:** luxury-intelligence.vercel.app  
 **Issue:** Custom domain has 0 indexed pages while Vercel domain has pages indexed

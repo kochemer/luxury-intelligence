@@ -14,9 +14,33 @@ function truncate(s: string, max: number): string {
   return s.length <= max ? s : s.slice(0, max - 1) + '…';
 }
 
-/** The <title> shown for a digest page, before the site-wide " | Luxury Intelligence" suffix. */
+/**
+ * The <title> for a digest page — complete, with no template suffix appended.
+ *
+ * The previous form was `"<range> Intelligence Digest – AI, Ecommerce & Luxury"`
+ * which the root layout's `%s | Luxury Intelligence` template then extended to
+ * 83–91 characters. Google truncates around 60, so every digest title was cut
+ * mid-phrase, and "Luxury" appeared twice.
+ *
+ * This version is emitted with `title.absolute` so the template does not apply,
+ * which buys back the 22 characters the suffix consumed. The date range leads
+ * because it is what distinguishes one issue from another, and "Luxury
+ * Intelligence" closes it — serving as both the brand and a keyword rather
+ * than being duplicated. Worst case is a 20-character range, giving 58.
+ */
 export function buildWeekTitle(dateRange: string): string {
-  return `${dateRange} Intelligence Digest – AI, Ecommerce & Luxury`;
+  return `${dateRange} · AI, Ecommerce & Luxury Intelligence`;
+}
+
+/**
+ * What the browser and search results actually display for a digest page.
+ *
+ * Digest titles are absolute, so this is the title itself. Kept as a named
+ * function so the auditor checks the real rendered string rather than
+ * re-deriving the template rule and drifting from it.
+ */
+export function renderedWeekTitle(dateRange: string): string {
+  return buildWeekTitle(dateRange);
 }
 
 /** The meta description shown for a digest page. */
