@@ -20,7 +20,6 @@
 import { execFile } from 'child_process';
 import { promisify } from 'util';
 import { isPathAllowed } from './policy';
-import { runStaticAudit } from '../audit/staticAudit';
 import type { Finding } from '../types';
 
 const exec = promisify(execFile);
@@ -52,11 +51,37 @@ async function run(command: string, args: string[], timeoutMs = 300_000): Promis
   }
 }
 
-/** Files changed relative to the branch point. */
-export async function getChangedFiles(baseRef: string): Promise<string[]> {
-  const { ok, output } = await run('git', ['diff', '--name-only', baseRef]);
-  if (!ok) return [];
-  return output.split('\n').map(l => l.trim()).filter(Boolean);
+/** Untracked files present right now, as a set of repo-relative paths. */
+export async function snapshotUntracked(): Promise<Set<string>> {
+  const { ok, output } = await run('git', ['ls-files', '--others', '--exclude-standard']);
+  if (!ok) return new Set();
+  return new Set(output.split('\n').map(l => l.trim()).filter(Boolean));
+}
+
+/**
+ * Everything the agent touched: tracked modifications plus files it newly
+ * created.
+ *
+ * `git diff` alone is not enough — it only reports tracked files, so a brand
+ * new file written outside the allowlist would slip past the policy gate
+ * entirely. Newly-untracked files are diffed against a snapshot taken before
+ * the agent ran, so pre-existing clutter in the working directory is ignored
+ * while anything the agent added is caught.
+ */
+export async function getChangedFiles(baseRef: string, untrackedBefore?: Set<string>): Promise<string[]> {
+  const tracked = await run('git', ['diff', '--name-only', baseRef]);
+  const files = tracked.ok
+    ? tracked.output.split('\n').map(l => l.trim()).filter(Boolean)
+    : [];
+
+  if (untrackedBefore) {
+    const now = await snapshotUntracked();
+    for (const file of now) {
+      if (!untrackedBefore.has(file)) files.push(file);
+    }
+  }
+
+  return [...new Set(files)];
 }
 
 function summarise(output: string, lines = 12): string {
@@ -68,13 +93,14 @@ export async function verifyRepair(
   finding: Finding,
   baseRef: string,
   baselineFindingIds: Set<string>,
-  baseUrl: string
+  baseUrl: string,
+  untrackedBefore?: Set<string>
 ): Promise<VerificationResult> {
   const gates: Gate[] = [];
   let newFindings: Finding[] = [];
 
   // ── Gate 1: only permitted files touched ────────────────────────────────
-  const changed = await getChangedFiles(baseRef);
+  const changed = await getChangedFiles(baseRef, untrackedBefore);
   const illegal = changed.filter(f => !isPathAllowed(f));
 
   gates.push({
@@ -116,11 +142,33 @@ export async function verifyRepair(
   if (!build.ok) return { passed: false, gates, newFindings };
 
   // ── Gates 5 & 6: the finding is gone, and nothing new appeared ──────────
-  // Static audit only: the live audit would still be reading the deployed
-  // site, which does not yet contain this fix. Live re-verification happens
-  // after the change is merged and deployed, via the daily monitor.
-  const after = await runStaticAudit(baseUrl);
-  const afterIds = new Set(after.findings.map(f => f.id));
+  //
+  // The re-audit runs in a SUBPROCESS, not in this one. Node caches modules,
+  // and this process imported the audit code before the agent edited it — an
+  // in-process re-audit would keep running the pre-repair code and could never
+  // observe the fix. A fresh process re-imports from disk.
+  //
+  // Static audit only: the live audit reads the deployed site, which does not
+  // yet contain this fix. Live re-verification happens after merge and deploy,
+  // via the daily monitor.
+  const audit = await run('npx', ['tsx', 'scripts/auditJson.ts', `--baseUrl=${baseUrl}`]);
+
+  let afterIds = new Set<string>();
+  let afterFindings: { id: string; code: string; severity: string; url: string | null }[] = [];
+  try {
+    const parsed = JSON.parse(audit.output.slice(audit.output.indexOf('{'))) as {
+      findings: typeof afterFindings;
+    };
+    afterFindings = parsed.findings;
+    afterIds = new Set(afterFindings.map(f => f.id));
+  } catch {
+    gates.push({
+      name: 'Re-audit completed',
+      passed: false,
+      detail: `Could not re-audit after the change: ${summarise(audit.output)}`,
+    });
+    return { passed: false, gates, newFindings };
+  }
 
   const staticallyCheckable = finding.code.startsWith('STATIC_');
   gates.push({
@@ -133,13 +181,14 @@ export async function verifyRepair(
       : 'Live finding — re-verified after deploy by the daily monitor, not here.',
   });
 
-  newFindings = after.findings.filter(f => !baselineFindingIds.has(f.id));
+  const introduced = afterFindings.filter(f => !baselineFindingIds.has(f.id));
+  newFindings = introduced as unknown as Finding[];
   gates.push({
     name: 'No new problems introduced',
-    passed: newFindings.length === 0,
-    detail: newFindings.length === 0
+    passed: introduced.length === 0,
+    detail: introduced.length === 0
       ? 'No new findings.'
-      : `Introduced ${newFindings.length}: ${newFindings.map(f => f.code).join(', ')}`,
+      : `Introduced ${introduced.length}: ${[...new Set(introduced.map(f => f.code))].join(', ')}`,
   });
 
   return { passed: gates.every(g => g.passed), gates, newFindings };

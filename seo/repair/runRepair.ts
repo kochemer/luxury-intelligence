@@ -10,9 +10,10 @@
 import { execFile } from 'child_process';
 import { promisify } from 'util';
 import { runRepairAgent } from './agent';
-import { verifyRepair, getChangedFiles, type VerificationResult } from './verify';
+import { verifyRepair, getChangedFiles, snapshotUntracked, type VerificationResult } from './verify';
 import { readLedger, appendAttempt, isCircuitOpen, failureCount } from './ledger';
 import { isRepairable, escalationReason, MAX_REPAIRS_PER_RUN, MAX_ATTEMPTS_PER_FINDING } from './policy';
+import { runStaticAudit } from '../audit/staticAudit';
 import type { Finding } from '../types';
 
 const exec = promisify(execFile);
@@ -49,14 +50,20 @@ export interface RunRepairResult {
   escalations: { finding: Finding; reason: string }[];
 }
 
+/**
+ * Branch names use dashes throughout, never a `seo/` prefix: a branch called
+ * `seo` already exists in this repo, and git cannot create `seo/anything`
+ * while a ref of that name occupies the slot.
+ */
 function branchName(finding: Finding): string {
   const stamp = new Date().toISOString().slice(0, 10);
   const slug = finding.code.toLowerCase().replace(/_/g, '-');
-  return `seo/auto-${slug}-${stamp}-${finding.id.split(':')[1] ?? 'x'}`;
+  return `seo-autofix-${slug}-${stamp}-${finding.id.split(':')[1] ?? 'x'}`;
 }
 
 /** Restore the repo to a clean state on the original branch. */
-async function abandon(originalBranch: string, branch: string): Promise<void> {
+async function abandon(originalBranch: string, branch: string, keep = false): Promise<void> {
+  if (keep) { await git(['add', '-A']); await git(['stash', 'push', '-m', 'seo-repair-failed']); await git(['checkout', originalBranch]); return; }
   await git(['reset', '--hard']);
   await git(['clean', '-fd']);
   await git(['checkout', originalBranch]);
@@ -69,22 +76,38 @@ export async function runRepair(options: RunRepairOptions): Promise<RunRepairRes
   const escalations: { finding: Finding; reason: string }[] = [];
   const attempted: RepairOutcome[] = [];
 
-  // A dirty tree would make "what did the agent change?" unanswerable.
-  const status = await git(['status', '--porcelain']);
-  if (status.out.length > 0) {
+  // A dirty tree would make "what did the agent change?" unanswerable — but
+  // only *tracked source* matters. Untracked clutter is snapshotted instead
+  // (so new files the agent creates are still caught), and data/seo/ holds
+  // this system's own generated reports, which are routinely dirty.
+  const status = await git(['status', '--porcelain', '--untracked-files=no']);
+  const dirtySource = status.out
+    .split('\n')
+    .map(l => l.trim())
+    .filter(Boolean)
+    .filter(l => !l.replace(/^\S+\s+/, '').startsWith('data/seo/'));
+
+  if (dirtySource.length > 0) {
     throw new Error(
-      'Working tree is not clean. Repair needs a clean tree to attribute changes to the agent.\n' +
-      status.out
+      'Working tree has uncommitted source changes. Repair needs a clean tree to\n' +
+      'attribute changes to the agent. Commit or stash these first:\n' +
+      dirtySource.join('\n')
     );
   }
 
   const originalBranch = (await git(['rev-parse', '--abbrev-ref', 'HEAD'])).out;
   const baseRef = (await git(['rev-parse', 'HEAD'])).out;
   const ledger = await readLedger();
+  const untrackedBefore = await snapshotUntracked();
 
-  // Baseline: the findings that already exist, so gate 6 can tell "new" from
-  // "was already there".
-  const baselineIds = new Set(findings.map(f => f.id));
+  // Baseline for gate 6 ("no new problems").
+  //
+  // This must be a FULL static audit, not the findings passed in: those have
+  // been filtered to critical/high by the monitor, so every pre-existing
+  // medium and low finding would look newly introduced and reject every
+  // repair. Measured against the same audit the gate re-runs, so the
+  // comparison is like-for-like.
+  const baselineIds = new Set((await runStaticAudit(baseUrl)).findings.map(f => f.id));
 
   const queue: Finding[] = [];
   for (const finding of findings) {
@@ -138,7 +161,7 @@ export async function runRepair(options: RunRepairOptions): Promise<RunRepairRes
       continue;
     }
 
-    const changed = await getChangedFiles(baseRef);
+    const changed = await getChangedFiles(baseRef, untrackedBefore);
     if (changed.length === 0) {
       // A deliberate no-change outcome — the agent judged it unrepairable.
       await abandon(originalBranch, branch);
@@ -158,7 +181,7 @@ export async function runRepair(options: RunRepairOptions): Promise<RunRepairRes
     }
 
     console.log(`[Repair] Agent changed ${changed.length} file(s). Verifying...`);
-    const verification = await verifyRepair(finding, baseRef, baselineIds, baseUrl);
+    const verification = await verifyRepair(finding, baseRef, baselineIds, baseUrl, untrackedBefore);
 
     for (const gate of verification.gates) {
       console.log(`  ${gate.passed ? '✓' : '✗'} ${gate.name}: ${gate.detail.split('\n')[0]}`);

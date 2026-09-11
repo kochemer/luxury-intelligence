@@ -12,6 +12,8 @@
  */
 
 import { spawn } from 'child_process';
+import { promises as fs } from 'fs';
+import path from 'path';
 import { buildAllowedTools, buildDisallowedTools } from './policy';
 import type { Finding } from '../types';
 
@@ -87,23 +89,58 @@ End with a short summary: what was wrong, what you changed, and why that is the
 root cause rather than the symptom.`;
 }
 
+/** Where the brief is written for the agent to read. */
+const BRIEF_FILENAME = '.seo-repair-brief.md';
+
+/**
+ * Locate the Claude Code binary so it can be spawned without a shell.
+ *
+ * `CLAUDE_BIN` overrides everything (useful in CI). Otherwise `claude.exe` on
+ * Windows and plain `claude` elsewhere — both resolve via PATH, and neither
+ * needs a shell, which is the point.
+ */
+function resolveClaudeBinary(): string {
+  const override = process.env.CLAUDE_BIN?.trim();
+  if (override) return override;
+  return process.platform === 'win32' ? 'claude.exe' : 'claude';
+}
+
 export async function runRepairAgent(
   finding: Finding,
   baseUrl: string,
   timeoutMs = 600_000
 ): Promise<AgentRunResult> {
+  // The brief goes to a file and the agent is told to read it, rather than
+  // being passed inline as a command argument.
+  //
+  // On Windows the `claude` launcher is a .cmd shim, which Node can only run
+  // with `shell: true` — and that concatenates arguments into a command line
+  // instead of escaping them. The brief embeds finding text derived from live
+  // pages whose content comes from third-party RSS feeds, so putting it on a
+  // shell command line is an injection surface. A fixed, metacharacter-free
+  // prompt removes it entirely, and leaves the brief on disk to inspect.
+  const briefPath = path.join(process.cwd(), BRIEF_FILENAME);
+  await fs.writeFile(briefPath, buildRepairBrief(finding, baseUrl), 'utf-8');
+
   const args = [
-    '-p', buildRepairBrief(finding, baseUrl),
+    '-p', `Read ${BRIEF_FILENAME} in the project root and carry out the repair it describes.`,
     '--permission-mode', 'acceptEdits',
     '--allowedTools', buildAllowedTools().join(','),
     '--disallowedTools', buildDisallowedTools().join(','),
     '--output-format', 'text',
   ];
 
+  // The brief is scratch input, not an artefact — remove it however the run ends.
+  const cleanup = () => { void fs.rm(briefPath, { force: true }); };
+
   return new Promise<AgentRunResult>((resolve) => {
-    const child = spawn('claude', args, {
+    // Never `shell: true`. A shell concatenates arguments instead of escaping
+    // them, which split `--allowedTools ...Bash(npx tsc --noEmit)...` on its
+    // internal spaces and fed `--noEmit)` to the CLI as an option. Spawning the
+    // executable directly passes each argument through intact.
+    const child = spawn(resolveClaudeBinary(), args, {
       cwd: process.cwd(),
-      shell: process.platform === 'win32',
+      shell: false,
       stdio: ['ignore', 'pipe', 'pipe'],
     });
 
@@ -114,7 +151,8 @@ export async function runRepairAgent(
     const timer = setTimeout(() => {
       if (settled) return;
       settled = true;
-      child.kill('SIGTERM');
+      child.kill("SIGTERM");
+      cleanup();
       resolve({ ok: false, output: stdout, error: `Agent timed out after ${timeoutMs / 1000}s` });
     }, timeoutMs);
 
@@ -125,6 +163,7 @@ export async function runRepairAgent(
       if (settled) return;
       settled = true;
       clearTimeout(timer);
+      cleanup();
       resolve({
         ok: false,
         output: stdout,
@@ -136,6 +175,7 @@ export async function runRepairAgent(
       if (settled) return;
       settled = true;
       clearTimeout(timer);
+      cleanup();
       resolve({
         ok: code === 0,
         output: stdout.trim(),
