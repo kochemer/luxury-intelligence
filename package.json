@@ -29,7 +29,8 @@
     "competitor:analyze": "tsx scripts/runCompetitorAnalyze.ts",
     "seo:audit": "tsx scripts/runSeoAgent.ts",
     "seo:setup-gsc": "tsx scripts/setupGscCredentials.ts",
-    "seo:gsc": "tsx scripts/pullGsc.ts"
+    "seo:gsc": "tsx scripts/pullGsc.ts",
+    "seo:monitor": "tsx scripts/runSeoMonitor.ts"
   },
   "dependencies": {
     "@amplitude/unified": "^1.0.0-beta.9",

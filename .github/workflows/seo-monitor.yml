@@ -1,0 +1,94 @@
+name: SEO Monitor
+
+# Daily breakage check against production. Deliberately separate from the
+# weekly digest workflow: this must never be able to interfere with a content
+# build, and it runs on a different cadence.
+on:
+  schedule:
+    # Every day at 07:00 UTC — an hour after the Sunday digest build, so on
+    # Sundays it sees the freshly deployed site rather than the old one.
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: seo-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run SEO monitor
+        id: monitor
+        # Capture the exit code rather than letting the step fail, because the
+        # two failure modes need different handling and `outcome` collapses
+        # them both to "failure":
+        #   1 = the site has problems (expected; the email is the alert)
+        #   2 = the monitor itself could not run (a real CI failure)
+        env:
+          SEO_BASE_URL: https://luxury-intel.com
+          SEO_ALERT_EMAIL: ${{ secrets.SEO_ALERT_EMAIL }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
+          GSC_PRIVATE_KEY_B64: ${{ secrets.GSC_PRIVATE_KEY_B64 }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+        run: |
+          set +e
+          npm run seo:monitor
+          code=$?
+          set -e
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          echo "Monitor exited with code $code"
+
+
+      - name: Persist monitor state
+        # State is what makes alerts fire on transitions rather than every day,
+        # so it has to survive between runs. Only this one file is ever
+        # committed by this workflow.
+        run: |
+          if [ -z "$(git status --porcelain data/seo/monitor-state.json)" ]; then
+            echo "No state change to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/seo/monitor-state.json
+          git commit -m "seo: update monitor state [skip ci]"
+          git pull --rebase origin main
+          git push
+
+      - name: Report result
+        run: |
+          case "${{ steps.monitor.outputs.exit_code }}" in
+            0) echo "✓ Site healthy" >> "$GITHUB_STEP_SUMMARY" ;;
+            1) echo "⚠ SEO monitor reported problems — see the step log above." >> "$GITHUB_STEP_SUMMARY"
+               echo "An email alert was sent if the problem set changed since the last run." >> "$GITHUB_STEP_SUMMARY" ;;
+            *) echo "✗ The monitor itself failed to run." >> "$GITHUB_STEP_SUMMARY" ;;
+          esac
+
+      - name: Fail the job if the monitor itself errored
+        # "Site is broken" is reported by email and leaves the job green — the
+        # alert is the deliverable. "The monitor could not run" is a genuine CI
+        # failure, because it means there is silently no monitoring at all.
+        if: steps.monitor.outputs.exit_code != '0' && steps.monitor.outputs.exit_code != '1'
+        run: |
+          echo "Monitor exited with ${{ steps.monitor.outputs.exit_code }}"
+          exit 1

@@ -47,3 +47,14 @@ export const STATIC_PAGE_LAST_MODIFIED_MAX_AGE_MONTHS = 6;
 export const LIVE_CONCURRENCY = 4;
 export const LIVE_TIMEOUT_MS = 10_000;
 export const LIVE_USER_AGENT = 'LuxuryIntelSeoAgent/1.0 (+https://luxury-intel.com)';
+
+// ── Daily monitor (breakage detection) ──────────────────────────────────────
+/** Impression drop (%) between 28-day windows that counts as a traffic cliff. */
+export const TRAFFIC_CLIFF_DROP_PCT = 50;
+/**
+ * Minimum prior-window impressions before cliff detection applies. Below this,
+ * a "50% drop" is a handful of impressions moving around — noise, not an
+ * incident. luxury-intel.com currently sits near this line, so the guard is
+ * doing real work rather than being theoretical.
+ */
+export const TRAFFIC_CLIFF_MIN_IMPRESSIONS = 500;
