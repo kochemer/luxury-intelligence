@@ -58,6 +58,50 @@ jobs:
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           echo "Monitor exited with code $code"
 
+      # Recovery runs only when the monitor found problems. It decides for
+      # itself whether those problems constitute an outage worth reverting for
+      # — 3 of 8 sampled pages must fail — so a single broken page reaches
+      # here and is correctly declined.
+      - name: Recover from outage
+        id: recover
+        if: steps.monitor.outputs.exit_code == '1'
+        env:
+          SEO_BASE_URL: https://luxury-intel.com
+          SEO_AGENT_AUTHORITY: ${{ vars.SEO_AGENT_AUTHORITY }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          SEO_ALERT_EMAIL: ${{ secrets.SEO_ALERT_EMAIL }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+        run: |
+          set +e
+          npm run seo:recover
+          echo "recover_exit=$?" >> "$GITHUB_OUTPUT"
+          set -e
+
+      # Repair attempts a code fix for defects the monitor found. Gated on
+      # ANTHROPIC_API_KEY: without it the agent cannot run, and the step is
+      # skipped rather than failing the job.
+      - name: Repair code defects
+        id: repair
+        if: steps.monitor.outputs.exit_code == '1'
+        env:
+          SEO_BASE_URL: https://luxury-intel.com
+          SEO_AGENT_AUTHORITY: ${{ vars.SEO_AGENT_AUTHORITY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
+          GSC_PRIVATE_KEY_B64: ${{ secrets.GSC_PRIVATE_KEY_B64 }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "No ANTHROPIC_API_KEY — skipping automated repair."
+            echo "The monitor's email alert is still the notification path."
+            exit 0
+          fi
+          set +e
+          npm run seo:repair
+          echo "repair_exit=$?" >> "$GITHUB_OUTPUT"
+          set -e
+
 
       - name: Persist monitor state
         # State is what makes alerts fire on transitions rather than every day,

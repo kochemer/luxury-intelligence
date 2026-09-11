@@ -1,0 +1,248 @@
+# SEO system architecture
+
+An automated system that audits the site's SEO, tells you when it breaks,
+repairs code defects itself, and rolls production back when a deploy goes bad.
+
+Almost all of it is ordinary deterministic TypeScript. Exactly one component
+uses an LLM. That division is deliberate and explained under
+[Why so little of this is AI](#why-so-little-of-this-is-ai).
+
+---
+
+## The shape of it
+
+```
+                        ┌──────────────────────────────┐
+  data/digests/*.json ──▶│ lib/seo/urlInventory.ts      │──▶ app/sitemap.ts
+  (read at runtime)      │ every indexable URL, once    │    (thin wrapper)
+                        └──────────────┬───────────────┘
+                                       │
+        ┌──────────────────────────────┼──────────────────────────────┐
+        ▼                              ▼                              ▼
+┌───────────────┐           ┌──────────────────┐          ┌────────────────────┐
+│ staticAudit   │           │ liveAudit        │          │ indexingAudit      │
+│ repo + digest │           │ fetches the 52   │          │ asks Google what   │
+│ data, no net  │           │ live pages       │          │ it did per page    │
+└───────┬───────┘           └────────┬─────────┘          └─────────┬──────────┘
+        │                            │                              │
+        │      ┌─────────────────────┴──────┐                       │
+        │      │ optimize/linkGraph         │                       │
+        │      │ opportunities, not defects │                       │
+        │      └─────────────┬──────────────┘                       │
+        └────────────────────┴──────────────┬────────────────────────┘
+                                            ▼
+                                     Finding[]  ← the common currency
+                                            │
+              ┌─────────────────────────────┼─────────────────────────────┐
+              ▼                             ▼                             ▼
+     ┌─────────────────┐          ┌──────────────────┐          ┌──────────────────┐
+     │ report/         │          │ monitor/         │          │ repair/          │
+     │ scored markdown │          │ daily, alerts on │          │ LLM writes a fix,│
+     │ + WoW delta     │          │ *changes* only   │          │ 6 gates decide   │
+     └─────────────────┘          └────────┬─────────┘          └──────────────────┘
+                                           │
+                                           ▼
+                                  ┌──────────────────┐
+                                  │ recovery/        │
+                                  │ roll production  │
+                                  │ back, revert git │
+                                  └──────────────────┘
+```
+
+### Why `Finding` is the spine
+
+Four very different producers — repo data, live HTML, Google's API, a link
+graph — all emit the same `Finding` shape (`seo/types.ts`). That is what lets
+them compose into one ranked report, one alert channel and one repair queue
+without each consumer knowing where a finding came from.
+
+`severity` carries load-bearing meaning:
+
+| Severity | Means | Monitor alerts? | Repair acts? |
+|---|---|---|---|
+| `critical`, `high` | something is **wrong** | yes | yes |
+| `medium`, `low`, `info` | could be **better** | no | no |
+
+Mixing those up either floods the alert channel or lets real breakage pass
+unnoticed. When adding a check, the question is not "how annoying is this" but
+"is the site currently incorrect".
+
+---
+
+## Commands
+
+```bash
+npm run seo:audit       # static + live checks → data/seo/report-{week}.md
+npm run seo:monitor     # is anything broken right now? (what CI runs daily)
+npm run seo:indexing    # what Google reports per page + sitemap health
+npm run seo:optimize    # best-practice opportunities (link graph, headings)
+npm run seo:gsc         # pull + store a Search Console snapshot
+npm run seo:repair      # find breakage, let an agent fix it, verify
+npm run seo:recover     # detect an outage, roll production back
+npm run seo:setup-gsc   # convert a service-account key into env vars
+```
+
+Every one is safe to run: `seo:repair` and `seo:recover` default to
+preview-only regardless of authority unless authority explicitly grants more.
+
+---
+
+## Authority
+
+`seo/authority.ts`. Set by the `SEO_AGENT_AUTHORITY` repo variable, so it can
+be changed without a deploy — the moment you want to revoke authority is
+rarely the moment you want to be editing code.
+
+| Level | Grants |
+|---|---|
+| `observe` | reports only, writes nothing **(default, and what a typo resolves to)** |
+| `propose` | repair may open pull requests |
+| `recover` | + recovery may roll back a bad production deployment |
+| `autonomy` | + repair may merge its own PRs; recovery may revert commits |
+
+Levels are ordered by how hard the action is to undo, and are additive.
+
+### Guardrails, which are not part of authority
+
+`assertGuardrails()` runs before any agent does anything and **throws** if the
+limits have been weakened. It is re-verified every run rather than trusted,
+because the failure it defends against is the policy itself being edited.
+
+Unreachable at every level, including `autonomy`:
+
+- `.env*` — credentials
+- `lib/db/`, `lib/stripe/`, `app/api/stripe/` — database and payments
+- `.github/` — CI, including the agents' own workflows
+- `next.config.ts`, `lib/utils/weekSlug.ts`, `middleware.ts` — every URL on the site
+- `package.json` — dependencies
+- `data/digests/` — published content
+- `seo/repair/policy.ts` — **the limits themselves**
+
+No `rm`, no `git push`/`reset`/`checkout`/`rebase`, no `gh pr merge`, no
+network tools. Max 1 repair per run. Circuit breaker after 2 failed attempts
+on the same finding.
+
+Authority widens what the agent may **decide**. It never widens what the agent
+may **reach**.
+
+---
+
+## The six gates
+
+`seo/repair/verify.ts`. A repair ships only if all six pass; any failure
+discards the branch entirely and leaves nothing behind but a ledger entry.
+
+1. **Only permitted files touched** — checked against the policy, including
+   files the agent newly created (`git diff` alone misses those)
+2. **TypeScript compiles**
+3. **Tests pass**
+4. **Production build succeeds**
+5. **The original finding is actually gone**
+6. **No new findings introduced**
+
+Gate 6 matters as much as gate 5: a fix that resolves one problem while
+creating two others is worse than the defect. Gates 5 and 6 re-audit in a
+**subprocess**, because Node caches modules and an in-process re-audit would
+keep running the code as it was before the agent edited it.
+
+---
+
+## Why so little of this is AI
+
+The dividing line is **facts versus judgement**.
+
+Counting, comparing, fetching, validating, scoring, and every file write are
+facts — deterministic code does them faster, free, and identically every time.
+An LLM appears in exactly one place: `seo/repair/` , where it reads a defect
+and writes a fix, because that needs judgement about root cause.
+
+This is not squeamishness. Severity and scoring must be deterministic or the
+week-over-week delta is meaningless — "three new problems since last week"
+stops meaning anything if the grading drifts between runs.
+
+---
+
+## Scoring
+
+`seo/report/buildReport.ts`. Worst severity present picks a **band**; finding
+volume positions the score inside it. Bands never overlap.
+
+This ordering is the whole point. A count-only score rated one critical
+finding (a de-indexed site) at 94/100 while 37 cosmetic title findings scored
+39/100 — exactly backwards, and dangerous for a number that gates decisions.
+
+A category nobody audited scores `null` ("not checked"), never 100. An
+unchecked area must not read as a clean bill of health.
+
+---
+
+## Things that will bite you
+
+**`getSiteUrl()` is not production.** It resolves `NEXT_PUBLIC_SITE_URL`, which
+is `http://localhost:3000` in local dev. The monitor and recovery use a
+hardcoded `CANONICAL_URL` and refuse local URLs — an early version checked
+localhost, found no dev server, and reported the live site as 52-times broken.
+Same reasoning as `CANONICAL_URL` in `lib/email/transactional.ts`.
+
+**Change a check when you change what it asserts.** Twice now, an
+implementation moved and its check silently went stale: the title check
+re-derived the layout's suffix after titles became `absolute`, and the JSON-LD
+check expected `Article` after the schema became `NewsArticle` (37 false
+positives). Prefer calling the same function the page calls.
+
+**Absent data is not a defect.** `alt=""` is the *correct* marker for a
+decorative image. `PAGE_FETCH_STATE_UNSPECIFIED` means Google never fetched
+the page, not that fetching failed. Both shipped as false positives and both
+now have regression tests.
+
+**A Vercel rollback does not revert git.** It changes which build serves
+traffic; the bad commit stays on `main` and the next push redeploys it. That
+is why `autonomy` also grants `canRevertCommits`.
+
+**`data/seo/` must stay in the weekly workflow's commit allowlist** or the
+digest pipeline hard-fails on files it did not expect.
+
+---
+
+## Where things live
+
+| Path | What |
+|---|---|
+| `lib/seo/urlInventory.ts` | every indexable URL — the source `app/sitemap.ts` wraps |
+| `lib/seo/metaText.ts` | digest titles and descriptions |
+| `lib/seo/jsonLd.ts` | structured data, `@id`-anchored entity graph |
+| `seo/audit/` | static, live and indexing checks |
+| `seo/optimize/` | best-practice opportunities |
+| `seo/monitor/` | daily breakage detection + alerting |
+| `seo/repair/` | the agent, its policy, and the six gates |
+| `seo/recovery/` | outage detection and rollback |
+| `seo/gsc/` | Search Console client, queries, snapshots |
+| `seo/authority.ts` | what the agents may do, plus the guardrail tripwire |
+| `data/seo/` | reports, GSC snapshots, monitor and repair state |
+| `.github/workflows/seo-monitor.yml` | the daily run |
+
+---
+
+## Structured data
+
+One entity graph, declared once in `app/layout.tsx` via `buildRootGraphLd()`,
+with `@id`s that other pages reference rather than re-declare:
+
+- `{siteUrl}/#website` — WebSite
+- `{siteUrl}/#organization` — Organization (publisher)
+- `{siteUrl}/#editor` — Person (author)
+
+Before this, Organization and Person were declared separately in the layout
+and the digest page with no `@id`, so nothing connected an article's publisher
+to the organisation running the site — three anonymous entities sharing a
+name. Entity resolution is the foundation of GEO/AEO: an answer engine cannot
+attribute a claim to a publisher it cannot identify.
+
+Digest pages emit `NewsArticle` + `ItemList` + `BreadcrumbList`. `/archive`
+emits `CollectionPage` + `ItemList`. `/about` has a `FAQPage`.
+`/llms.txt` describes the publication for AI crawlers and is generated, so its
+edition count cannot go stale.
+
+`sameAs` is deliberately absent from the Organization — no social profiles
+exist, and inventing URLs would be worse than omitting the property. A test
+enforces that.

@@ -13,6 +13,8 @@
  * meant to prevent.
  */
 
+import { execFile } from 'child_process';
+import { promisify } from 'util';
 import {
   findRollbackTarget,
   rollbackTo,
@@ -72,7 +74,52 @@ async function sampleSite(baseUrl: string): Promise<ProbeResult[]> {
   return Promise.all(urls.map(probe));
 }
 
-export async function runRecovery(baseUrl: string, act: boolean): Promise<RecoveryResult> {
+/**
+ * Revert the commit currently at HEAD on main and push it.
+ *
+ * `git revert` rather than `reset`: it adds a new commit undoing the old one,
+ * so nothing is rewritten and the history stays intact and auditable. A force
+ * push during an incident is how a bad afternoon becomes a bad week.
+ */
+async function revertHeadCommit(): Promise<{ ok: boolean; detail: string }> {
+  const exec = promisify(execFile);
+  const run = async (args: string[]) => {
+    try {
+      const { stdout } = await exec('git', args, { maxBuffer: 4 * 1024 * 1024 });
+      return { ok: true, out: stdout.trim() };
+    } catch (err) {
+      const e = err as { stdout?: string; stderr?: string; message?: string };
+      return { ok: false, out: `${e.stderr ?? ''}${e.message ?? ''}`.trim() };
+    }
+  };
+
+  const head = await run(['rev-parse', '--short', 'HEAD']);
+  if (!head.ok) return { ok: false, detail: 'could not read HEAD' };
+
+  const subject = await run(['log', '-1', '--pretty=%s']);
+
+  // A merge commit needs -m 1 to pick the mainline parent; a normal commit
+  // rejects that flag, so try the plain form first.
+  let reverted = await run(['revert', '--no-edit', 'HEAD']);
+  if (!reverted.ok) reverted = await run(['revert', '--no-edit', '-m', '1', 'HEAD']);
+  if (!reverted.ok) {
+    await run(['revert', '--abort']);
+    return { ok: false, detail: `git revert failed: ${reverted.out.slice(0, 200)}` };
+  }
+
+  const pushed = await run(['push', 'origin', 'HEAD']);
+  if (!pushed.ok) {
+    return { ok: false, detail: `revert committed locally but push failed: ${pushed.out.slice(0, 200)}` };
+  }
+
+  return { ok: true, detail: `reverted ${head.out} "${subject.out.slice(0, 60)}"` };
+}
+
+export async function runRecovery(
+  baseUrl: string,
+  act: boolean,
+  revertCommits = false
+): Promise<RecoveryResult> {
   const checkedAtISO = new Date().toISOString();
 
   const probes = await sampleSite(baseUrl);
@@ -171,14 +218,29 @@ export async function runRecovery(baseUrl: string, act: boolean): Promise<Recove
     };
   }
 
+  // A Vercel rollback changes which build serves traffic; it does not change
+  // what is on main. Left alone, the bad commit is still HEAD and the next
+  // unrelated push redeploys it — a fix that quietly undoes itself. So at
+  // autonomy level, revert the code too, keeping git and production agreed.
+  let revertNote = '';
+  if (revertCommits) {
+    const reverted = await revertHeadCommit();
+    revertNote = reverted.ok
+      ? ` The offending commit was also reverted on main (${reverted.detail}), so the next deploy will not reintroduce it.`
+      : ` ⚠ The deployment was rolled back but reverting the commit on main FAILED (${reverted.detail}) — the bad code is still HEAD and the next push will redeploy it. Revert it by hand.`;
+  } else {
+    revertNote = ' The commit that caused it is still on main, so the next deploy will reintroduce it until you revert or fix it.';
+  }
+
   return {
     ...base,
     status: 'rolled-back',
     detail: `Production was failing on ${failed.length}/${probes.length} sampled pages. ` +
-            `Rolled back to ${target.url} (${target.age} old). The site now responds normally.`,
+            `Rolled back to ${target.url} (${target.age} old). The site now responds normally.${revertNote}`,
     rolledBackTo: target,
-    recommendation:
-      'The site is back up on the previous deployment. The deployment that broke it has NOT been fixed — ' +
-      'find out what shipped and correct it before deploying again.',
+    recommendation: revertCommits
+      ? 'Site restored and main reverted. Work out what the reverted commit got wrong before re-landing it.'
+      : 'The site is back up on the previous deployment, but main still contains the commit that broke it. ' +
+        'Revert or fix it before the next deploy.',
   };
 }

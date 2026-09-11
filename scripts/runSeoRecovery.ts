@@ -15,12 +15,19 @@ import { loadEnv } from '../lib/env';
 loadEnv();
 
 import { runRecovery } from '../seo/recovery/runRecovery';
+import { getAuthority, describeAuthority, assertGuardrails } from '../seo/authority';
 
 const CANONICAL_URL = 'https://luxury-intel.com';
 
 async function main() {
   const args = process.argv.slice(2);
-  const act = args.includes('--act');
+
+  assertGuardrails();
+
+  const authority = getAuthority();
+  console.log(`[Recovery] Authority: ${describeAuthority(authority)}`);
+
+  const act = args.includes('--act') || authority.canRollbackDeployments;
   const baseUrl = args.find(a => a.startsWith('--baseUrl='))?.split('=')[1]
     ?? process.env.SEO_BASE_URL
     ?? CANONICAL_URL;
@@ -33,7 +40,7 @@ async function main() {
   console.log(`[Recovery] Probing ${baseUrl}...`);
   if (!act) console.log('[Recovery] ⓘ Diagnose only — pass --act to allow a rollback.');
 
-  const result = await runRecovery(baseUrl, act);
+  const result = await runRecovery(baseUrl, act, authority.canRevertCommits);
 
   const mark = result.status === 'healthy' || result.status === 'rolled-back' ? '✓' : '✗';
   console.log(`\n[Recovery] ${mark} ${result.status.toUpperCase()}`);

@@ -15,12 +15,22 @@ loadEnv();
 
 import { runMonitor } from '../seo/monitor/runMonitor';
 import { runRepair } from '../seo/repair/runRepair';
+import { getAuthority, describeAuthority, assertGuardrails } from '../seo/authority';
 
 const CANONICAL_URL = 'https://luxury-intel.com';
 
 async function main() {
   const args = process.argv.slice(2);
-  const ship = args.includes('--ship');
+
+  // Verified before anything else: if the limits have been weakened this
+  // throws and nothing runs.
+  assertGuardrails();
+
+  const authority = getAuthority();
+  console.log(`[Repair] Authority: ${describeAuthority(authority)}`);
+
+  // --ship forces shipping for a local run; otherwise authority decides.
+  const ship = args.includes('--ship') || authority.canOpenPullRequests;
   const only = args.find(a => a.startsWith('--code='))?.split('=')[1];
   const baseUrl = args.find(a => a.startsWith('--baseUrl='))?.split('=')[1]
     ?? process.env.SEO_BASE_URL

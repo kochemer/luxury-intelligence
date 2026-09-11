@@ -15,7 +15,7 @@
 import { runAudit } from '../audit/runAudit';
 import { getGscClient } from '../gsc/client';
 import { queryTotals, getWindows } from '../gsc/searchAnalytics';
-import { TRAFFIC_CLIFF_DROP_PCT, TRAFFIC_CLIFF_MIN_IMPRESSIONS } from '../config';
+import { TRAFFIC_CLIFF_DROP_PCT, TRAFFIC_CLIFF_MIN_IMPRESSIONS, SITEMAP_STALE_DAYS } from '../config';
 import type { Finding } from '../types';
 
 export interface MonitorResult {
@@ -78,17 +78,67 @@ async function checkTrafficCliff(): Promise<{ finding: Finding | null; note: str
   }
 }
 
+/**
+ * Is Google still reading the sitemap?
+ *
+ * One API call, so it runs daily rather than being something a human has to
+ * remember to check. This site's sitemap went unread for 214 days and nobody
+ * noticed — 42 published pages were never announced and 25 were never crawled.
+ * A reminder to check manually would have worked exactly as well as the
+ * absence of one did.
+ */
+async function checkSitemapFreshness(): Promise<Finding | null> {
+  const client = getGscClient();
+  if (!client) return null;
+
+  try {
+    const res = await client.api.sitemaps.list({ siteUrl: client.siteUrl });
+    const sitemaps = res.data.sitemap ?? [];
+    if (sitemaps.length === 0) return null; // reported by the indexing audit
+
+    const newest = sitemaps
+      .map(s => ({ path: s.path, lastDownloaded: s.lastDownloaded }))
+      .sort((a, b) => String(b.lastDownloaded).localeCompare(String(a.lastDownloaded)))[0]!;
+
+    if (!newest.lastDownloaded) return null;
+
+    const ageDays = Math.floor((Date.now() - new Date(newest.lastDownloaded).getTime()) / 86_400_000);
+    if (ageDays <= SITEMAP_STALE_DAYS) return null;
+
+    return {
+      id: 'GSC_SITEMAP_STALE:monitor',
+      code: 'GSC_SITEMAP_STALE',
+      severity: 'high',
+      category: 'indexing',
+      title: `Google has not read the sitemap for ${ageDays} days`,
+      detail: `${newest.path} was last downloaded by Google on ${String(newest.lastDownloaded).slice(0, 10)}. ` +
+              `Pages published since then have not been announced through it.`,
+      evidence: { lastDownloaded: newest.lastDownloaded, ageDays },
+      recommendation: 'Run `npm run seo:indexing -- --resubmit` to ask Google to re-read it, ' +
+                      'then `npm run seo:indexing` a few days later to confirm it did.',
+      score: 0,
+      firstSeenWeek: '',
+      weeksOpen: 1,
+    };
+  } catch {
+    // A GSC hiccup must not make the monitor report the site as broken.
+    return null;
+  }
+}
+
 export async function runMonitor(baseUrl: string, previousProblemIds: string[] = []): Promise<MonitorResult> {
   // Both audits, not just the live one: a digest silently missing from the
   // sitemap is genuine breakage, and it is only visible to the static checks.
-  const [auditResult, traffic] = await Promise.all([
+  const [auditResult, traffic, sitemapStale] = await Promise.all([
     runAudit({ baseUrl }),
     checkTrafficCliff(),
+    checkSitemapFreshness(),
   ]);
 
   const problems = [
     ...auditResult.findings.filter(f => f.severity === 'critical' || f.severity === 'high'),
     ...(traffic.finding ? [traffic.finding] : []),
+    ...(sitemapStale ? [sitemapStale] : []),
   ];
 
   const previousSet = new Set(previousProblemIds);

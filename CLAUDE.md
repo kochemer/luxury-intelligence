@@ -107,6 +107,48 @@ Scripts must call `loadEnv()` from `lib/env.ts` at startup. Key variables:
 
 `next-pwa` wraps the Next.js config. Disabled in `development`. The service worker at `public/push-sw.js` handles web push events. PWA uses webpack (not Turbopack) for `next-pwa` compatibility.
 
+### SEO system
+
+An automated SEO audit / monitor / repair system lives in `seo/` and `lib/seo/`.
+**Read `docs/seo-system.md` before touching anything SEO-related** — it covers
+the architecture, the authority model, and a list of mistakes already made once.
+
+```bash
+npm run seo:audit       # static + live checks → data/seo/report-{week}.md
+npm run seo:monitor     # is anything broken? (runs daily in CI)
+npm run seo:indexing    # what Google reports per page + sitemap health
+npm run seo:optimize    # best-practice opportunities
+npm run seo:repair      # agent fixes a defect, six gates verify it
+npm run seo:recover     # detect an outage, roll production back
+```
+
+Four rules that are easy to break by accident:
+
+- **Never use `getSiteUrl()` for anything that acts on production.** It resolves
+  `NEXT_PUBLIC_SITE_URL`, which is `localhost:3000` in dev. The monitor and
+  recovery use a hardcoded `CANONICAL_URL` and refuse local URLs — same pattern
+  as `lib/email/transactional.ts`.
+- **`lib/seo/urlInventory.ts` is the single source of indexable URLs.**
+  `app/sitemap.ts` is a thin wrapper over it. Edit the inventory, not the sitemap.
+- **When you change what a page emits, change the check that asserts it.** This
+  has silently broken twice — see the "Things that will bite you" section of
+  `docs/seo-system.md`.
+- **Agent authority is `SEO_AGENT_AUTHORITY`** (`observe`/`propose`/`recover`/
+  `autonomy`). Guardrails in `seo/authority.ts` are separate, hold at every
+  level, and throw if weakened. Don't route around them.
+
+Structured data is built in `lib/seo/jsonLd.ts` as one `@id`-anchored entity
+graph — don't re-declare `Organization` or `Person` in a page.
+
+Backlog and deferred work: `docs/seo-backlog.md`.
+
 ### Testing
 
-Single smoke test in `__tests__/pipeline.smoke.test.ts` using Node.js built-in `node:test`. Run a single test file: `node --test --import tsx __tests__/pipeline.smoke.test.ts`.
+Node.js built-in `node:test`. `npm test` runs `__tests__/**/*.test.ts` —
+the pipeline smoke test plus the SEO suite (`seo.*.test.ts`, ~78 tests).
+Run a single file: `node --test --import tsx __tests__/pipeline.smoke.test.ts`.
+
+The SEO safety tests (`seo.repairPolicy.test.ts`, `seo.authority.test.ts`) are
+the most important in the repo — they assert that an autonomous agent cannot
+reach credentials, payments, the database, CI, or its own policy file. Treat a
+failure there as a stop-everything signal, not a flaky test.
