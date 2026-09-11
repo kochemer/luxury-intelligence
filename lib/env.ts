@@ -24,33 +24,70 @@ import { parse } from 'dotenv';
  * - Only sets vars not already in process.env (preserves existing)
  * - Safe if .env.local doesn't exist
  */
+/**
+ * Which of the encodings we support a .env file is stored in.
+ * Exported so a writer can round-trip the file in its original encoding —
+ * rewriting a UTF-16 .env.local as UTF-8 would break every variable in it,
+ * not just the ones being changed.
+ */
+export type EnvEncoding = 'utf16le-bom' | 'utf16be-bom' | 'utf16le' | 'utf8';
+
+export function detectEnvEncoding(buffer: Buffer): EnvEncoding {
+  if (buffer.length >= 2 && buffer[0] === 0xFF && buffer[1] === 0xFE) return 'utf16le-bom';
+  if (buffer.length >= 2 && buffer[0] === 0xFE && buffer[1] === 0xFF) return 'utf16be-bom';
+  if (buffer.length > 1 && buffer[1] === 0 && buffer[0] !== 0) return 'utf16le';
+  return 'utf8';
+}
+
+/** Decode a .env buffer to text, handling the UTF-16 variants PowerShell produces. */
+export function decodeEnvBuffer(buffer: Buffer, encoding = detectEnvEncoding(buffer)): string {
+  switch (encoding) {
+    case 'utf16le-bom':
+      return buffer.toString('utf16le', 2);
+    case 'utf16be-bom': {
+      // Byte-swap BE → LE so Node can decode it.
+      const le = Buffer.alloc(buffer.length - 2);
+      for (let i = 2; i < buffer.length; i += 2) {
+        le[i - 2] = buffer[i + 1]!;
+        le[i - 1] = buffer[i]!;
+      }
+      return le.toString('utf16le');
+    }
+    case 'utf16le':
+      return buffer.toString('utf16le');
+    default:
+      return buffer.toString('utf-8');
+  }
+}
+
+/** Inverse of decodeEnvBuffer — re-encode text in the file's original encoding. */
+export function encodeEnvContent(content: string, encoding: EnvEncoding): Buffer {
+  switch (encoding) {
+    case 'utf16le-bom':
+      return Buffer.concat([Buffer.from([0xFF, 0xFE]), Buffer.from(content, 'utf16le')]);
+    case 'utf16be-bom': {
+      const le = Buffer.from(content, 'utf16le');
+      const be = Buffer.alloc(le.length);
+      for (let i = 0; i < le.length; i += 2) {
+        be[i] = le[i + 1]!;
+        be[i + 1] = le[i]!;
+      }
+      return Buffer.concat([Buffer.from([0xFE, 0xFF]), be]);
+    }
+    case 'utf16le':
+      return Buffer.from(content, 'utf16le');
+    default:
+      return Buffer.from(content, 'utf-8');
+  }
+}
+
 export function loadEnv(): void {
   const envPath = path.join(process.cwd(), '.env.local');
-  
+
   try {
     const buffer = readFileSync(envPath);
-    let contentToParse: string;
-    
-    // Detect encoding: check for UTF-16 BOM (FE FF for BE, FF FE for LE)
-    if (buffer.length >= 2 && buffer[0] === 0xFF && buffer[1] === 0xFE) {
-      // UTF-16 LE BOM
-      contentToParse = buffer.toString('utf16le', 2);
-    } else if (buffer.length >= 2 && buffer[0] === 0xFE && buffer[1] === 0xFF) {
-      // UTF-16 BE BOM - convert to LE for processing
-      const leBuffer = Buffer.alloc(buffer.length - 2);
-      for (let i = 2; i < buffer.length; i += 2) {
-        leBuffer[i - 2] = buffer[i + 1];
-        leBuffer[i - 1] = buffer[i];
-      }
-      contentToParse = leBuffer.toString('utf16le');
-    } else if (buffer.length > 0 && buffer[1] === 0 && buffer[0] !== 0) {
-      // UTF-16 LE without BOM (every other byte is null)
-      contentToParse = buffer.toString('utf16le');
-    } else {
-      // Assume UTF-8
-      contentToParse = buffer.toString('utf-8');
-    }
-    
+    const contentToParse = decodeEnvBuffer(buffer);
+
     const parsed = parse(contentToParse);
     
     // Only set vars that aren't already defined (preserve existing)

@@ -8,15 +8,52 @@
  * handles embedded newlines poorly. So we base64-encode it instead, which
  * makes it a single safe line, and the GSC client decodes it at load time.
  *
- * Usage:
- *   npx tsx scripts/setupGscCredentials.ts ~/Downloads/my-project-abc123.json
+ * Usage (run from the project root):
+ *   npm run seo:setup-gsc -- "C:/path/to/key.json"            # print the lines
+ *   npm run seo:setup-gsc -- "C:/path/to/key.json" --write    # write them for you
  *
- * Prints the env lines to stdout. It never writes to .env.local itself and
- * never prints the private key in plaintext.
+ * --write is the safer option: the base64 key is ~2,300 characters, and
+ * copy-pasting it by hand is easy to get wrong. It backs .env.local up first
+ * and round-trips the file in its existing encoding — rewriting a UTF-16
+ * .env.local as UTF-8 would corrupt every other variable in it.
  */
 
-import { promises as fs } from 'fs';
+import { promises as fs, readFileSync } from 'fs';
 import path from 'path';
+import { detectEnvEncoding, decodeEnvBuffer, encodeEnvContent } from '../lib/env';
+
+const ENV_PATH = path.join(process.cwd(), '.env.local');
+
+/** Upsert KEY=value lines into .env.local, preserving its original encoding. */
+async function writeEnvVars(vars: Record<string, string>): Promise<void> {
+  let existing = '';
+  let encoding = detectEnvEncoding(Buffer.alloc(0));
+
+  try {
+    const buffer = readFileSync(ENV_PATH);
+    encoding = detectEnvEncoding(buffer);
+    existing = decodeEnvBuffer(buffer, encoding);
+    await fs.writeFile(`${ENV_PATH}.backup`, buffer);
+    console.log(`  ✓ Backed up existing .env.local → .env.local.backup (${encoding})`);
+  } catch {
+    console.log('  ⓘ No existing .env.local — creating one.');
+  }
+
+  const lines = existing.split(/\r?\n/);
+  for (const [key, value] of Object.entries(vars)) {
+    const index = lines.findIndex(l => l.trimStart().startsWith(`${key}=`));
+    if (index >= 0) {
+      lines[index] = `${key}=${value}`;
+      console.log(`  ✓ Updated ${key}`);
+    } else {
+      lines.push(`${key}=${value}`);
+      console.log(`  ✓ Added ${key}`);
+    }
+  }
+
+  const content = lines.join('\n').replace(/\n+$/, '') + '\n';
+  await fs.writeFile(ENV_PATH, encodeEnvContent(content, encoding));
+}
 
 interface ServiceAccountKey {
   type?: string;
@@ -26,9 +63,14 @@ interface ServiceAccountKey {
 }
 
 async function main() {
-  const keyPath = process.argv[2];
+  const args = process.argv.slice(2);
+  const shouldWrite = args.includes('--write');
+  const keyPath = args.find(a => !a.startsWith('--'));
+
   if (!keyPath) {
-    console.error('Usage: npx tsx scripts/setupGscCredentials.ts <path-to-service-account.json>');
+    console.error('Usage (from the project root):');
+    console.error('  npm run seo:setup-gsc -- "C:/path/to/service-account.json"');
+    console.error('  npm run seo:setup-gsc -- "C:/path/to/service-account.json" --write');
     process.exit(1);
   }
 
@@ -73,16 +115,36 @@ async function main() {
   console.log('  Permission: Full');
   console.log('');
   console.log('─'.repeat(72));
-  console.log('STEP 2 — Add these lines to .env.local:');
-  console.log('');
-  console.log(`GSC_CLIENT_EMAIL=${key.client_email}`);
-  console.log(`GSC_PRIVATE_KEY_B64=${b64}`);
-  console.log('GSC_SITE_URL=sc-domain:luxury-intel.com');
-  console.log('');
-  console.log('  ⚠ If your Search Console property is a URL-prefix property rather');
-  console.log('    than a Domain property, use this instead (trailing slash matters):');
-  console.log('    GSC_SITE_URL=https://luxury-intel.com/');
-  console.log('');
+
+  if (shouldWrite) {
+    console.log('STEP 2 — Writing credentials to .env.local:');
+    console.log('');
+    await writeEnvVars({
+      GSC_CLIENT_EMAIL: key.client_email,
+      GSC_PRIVATE_KEY_B64: b64,
+      GSC_SITE_URL: 'sc-domain:luxury-intel.com',
+    });
+    console.log('');
+    console.log('  ⚠ GSC_SITE_URL was set for a *Domain* property. If Search Console');
+    console.log('    → Settings shows a URL-prefix property instead, change it to:');
+    console.log('    GSC_SITE_URL=https://luxury-intel.com/     (trailing slash matters)');
+    console.log('');
+  } else {
+    console.log('STEP 2 — Add these lines to .env.local:');
+    console.log('');
+    console.log(`GSC_CLIENT_EMAIL=${key.client_email}`);
+    console.log(`GSC_PRIVATE_KEY_B64=${b64}`);
+    console.log('GSC_SITE_URL=sc-domain:luxury-intel.com');
+    console.log('');
+    console.log('  ⚠ If your Search Console property is a URL-prefix property rather');
+    console.log('    than a Domain property, use this instead (trailing slash matters):');
+    console.log('    GSC_SITE_URL=https://luxury-intel.com/');
+    console.log('');
+    console.log('  Tip: re-run with --write to have this done for you (safer than');
+    console.log('  copy-pasting a 2,300-character key by hand).');
+    console.log('');
+  }
+
   console.log('─'.repeat(72));
   console.log('STEP 3 — Add the same three as GitHub repo secrets (for later, when');
   console.log('  the agent runs in CI):  Settings → Secrets and variables → Actions');
