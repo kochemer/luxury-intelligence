@@ -32,7 +32,8 @@
     "seo:gsc": "tsx scripts/pullGsc.ts",
     "seo:monitor": "tsx scripts/runSeoMonitor.ts",
     "seo:repair": "tsx scripts/runSeoRepair.ts",
-    "seo:recover": "tsx scripts/runSeoRecovery.ts"
+    "seo:recover": "tsx scripts/runSeoRecovery.ts",
+    "seo:indexing": "tsx scripts/runIndexingAudit.ts"
   },
   "dependencies": {
     "@amplitude/unified": "^1.0.0-beta.9",

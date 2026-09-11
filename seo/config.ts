@@ -73,3 +73,14 @@ export const OUTAGE_SAMPLE_SIZE = 8;
 export const OUTAGE_MIN_FAILED_PAGES = 3;
 /** Time allowed for a rollback to propagate before re-checking. */
 export const RECOVERY_SETTLE_MS = 20_000;
+
+// ── Indexing audit (what Google reports) ────────────────────────────────────
+/**
+ * How long since Google last downloaded the sitemap before that is a problem.
+ *
+ * Google re-fetches an active sitemap every few days. A month of silence means
+ * it has stopped, and every page published since is unannounced.
+ */
+export const SITEMAP_STALE_DAYS = 30;
+/** URL-count gap between what Google recorded and what the sitemap now serves. */
+export const SITEMAP_COUNT_DRIFT = 5;

@@ -56,7 +56,10 @@ export function normalizePrivateKey(raw: string): string {
  * absent. Never throws for missing config — only for malformed config, which
  * is a real error worth surfacing.
  */
-export function getGscClient(): GscClient | null {
+const SCOPE_READ = 'https://www.googleapis.com/auth/webmasters.readonly';
+const SCOPE_WRITE = 'https://www.googleapis.com/auth/webmasters';
+
+function buildClient(scopes: string[]): GscClient | null {
   const email = process.env.GSC_CLIENT_EMAIL?.trim();
   const rawKey = process.env.GSC_PRIVATE_KEY_B64?.trim() || process.env.GSC_PRIVATE_KEY?.trim();
   const siteUrl = process.env.GSC_SITE_URL?.trim() || 'sc-domain:luxury-intel.com';
@@ -66,13 +69,23 @@ export function getGscClient(): GscClient | null {
     return null;
   }
 
-  const auth = new google.auth.JWT({
-    email,
-    key: normalizePrivateKey(rawKey),
-    scopes: ['https://www.googleapis.com/auth/webmasters.readonly'],
-  });
-
+  const auth = new google.auth.JWT({ email, key: normalizePrivateKey(rawKey), scopes });
   return { api: google.searchconsole({ version: 'v1', auth }), siteUrl };
+}
+
+/** Read-only client — used by every audit and report path. */
+export function getGscClient(): GscClient | null {
+  return buildClient([SCOPE_READ]);
+}
+
+/**
+ * Write-capable client, kept separate so read paths cannot mutate anything by
+ * accident. The write scope also permits sitemap *deletion*, which nothing in
+ * this codebase does — least privilege is why this is a distinct function
+ * rather than a wider default scope.
+ */
+export function getGscWriteClient(): GscClient | null {
+  return buildClient([SCOPE_WRITE]);
 }
 
 /**
