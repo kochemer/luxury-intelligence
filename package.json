@@ -28,7 +28,8 @@
     "test:redirects": "tsx scripts/testRedirects.ts",
     "competitor:analyze": "tsx scripts/runCompetitorAnalyze.ts",
     "seo:audit": "tsx scripts/runSeoAgent.ts",
-    "seo:setup-gsc": "tsx scripts/setupGscCredentials.ts"
+    "seo:setup-gsc": "tsx scripts/setupGscCredentials.ts",
+    "seo:gsc": "tsx scripts/pullGsc.ts"
   },
   "dependencies": {
     "@amplitude/unified": "^1.0.0-beta.9",
@@ -38,6 +39,7 @@
     "cheerio": "^1.1.2",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.45.1",
+    "googleapis": "^180.0.0",
     "lightweight-charts": "^5.1.0",
     "luxon": "^3.7.2",
     "next": "16.1.1",
