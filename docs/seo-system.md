@@ -202,6 +202,13 @@ is why `autonomy` also grants `canRevertCommits`.
 **`data/seo/` must stay in the weekly workflow's commit allowlist** or the
 digest pipeline hard-fails on files it did not expect.
 
+**Don't commit `data/seo/monitor-state.json` from a local run.** CI writes and
+commits it after every daily run, so committing a local copy guarantees a
+rebase conflict. It has to stay tracked — transition-based alerting depends on
+it persisting between runs — so the answer is to leave it to CI. If you do hit
+the conflict, take CI's version (`git checkout --ours`): it reflects the last
+run against production, which yours does not.
+
 ---
 
 ## Where things live
