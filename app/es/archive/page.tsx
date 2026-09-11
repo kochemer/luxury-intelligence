@@ -9,8 +9,8 @@ import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: 'Archivo – Resúmenes Semanales de IA y Lujo',
-  description: 'Explora el archivo completo de resúmenes semanales de IA, ecommerce, lujo y joyería. Accede a todos los informes de inteligencia curados y resúmenes semanales.',
+  title: 'Archivo – Resúmenes Semanales',
+  description: 'Explora el archivo completo de resúmenes semanales de IA, ecommerce, lujo y joyería. Accede a todos los informes de inteligencia curados.',
   alternates: {
     canonical: `${siteUrl}/es/archive`,
     languages: {
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Archivo – Resúmenes Semanales de IA y Lujo',
-    description: 'Explora el archivo completo de resúmenes semanales de IA, ecommerce, lujo y joyería. Accede a todos los informes de inteligencia curados y resúmenes semanales.',
+    title: 'Archivo – Resúmenes Semanales',
+    description: 'Explora el archivo completo de resúmenes semanales de IA, ecommerce, lujo y joyería. Accede a todos los informes de inteligencia curados.',
     images: [`${siteUrl}/api/og`],
   },
   twitter: {
-    title: 'Archivo – Resúmenes Semanales de IA y Lujo',
-    description: 'Explora el archivo completo de resúmenes semanales de IA, ecommerce, lujo y joyería. Accede a todos los informes de inteligencia curados y resúmenes semanales.',
+    title: 'Archivo – Resúmenes Semanales',
+    description: 'Explora el archivo completo de resúmenes semanales de IA, ecommerce, lujo y joyería. Accede a todos los informes de inteligencia curados.',
     images: [`${siteUrl}/api/og`],
   },
 };

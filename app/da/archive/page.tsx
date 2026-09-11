@@ -9,8 +9,8 @@ import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: 'Arkiv – Ugentlige AI og Luksus Brancheoversigter',
-  description: 'Gennemse det komplette arkiv af ugentlige AI, ecommerce, luksus og smykkebrancheoversigter. Få adgang til alle tidligere kurerede intelligensoversigter og ugentlige resuméer.',
+  title: 'Arkiv – Ugentlige Brancheoversigter',
+  description: 'Gennemse det komplette arkiv af ugentlige AI, ecommerce, luksus og smykkebrancheoversigter. Få adgang til alle tidligere kurerede oversigter.',
   alternates: {
     languages: {
       'en': `${siteUrl}/archive`,
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/da/archive`,
   },
   openGraph: {
-    title: 'Arkiv – Ugentlige AI og Luksus Brancheoversigter',
-    description: 'Gennemse det komplette arkiv af ugentlige AI, ecommerce, luksus og smykkebrancheoversigter. Få adgang til alle tidligere kurerede intelligensoversigter og ugentlige resuméer.',
+    title: 'Arkiv – Ugentlige Brancheoversigter',
+    description: 'Gennemse det komplette arkiv af ugentlige AI, ecommerce, luksus og smykkebrancheoversigter. Få adgang til alle tidligere kurerede oversigter.',
     images: [`${siteUrl}/api/og`],
   },
   twitter: {
-    title: 'Arkiv – Ugentlige AI og Luksus Brancheoversigter',
-    description: 'Gennemse det komplette arkiv af ugentlige AI, ecommerce, luksus og smykkebrancheoversigter. Få adgang til alle tidligere kurerede intelligensoversigter og ugentlige resuméer.',
+    title: 'Arkiv – Ugentlige Brancheoversigter',
+    description: 'Gennemse det komplette arkiv af ugentlige AI, ecommerce, luksus og smykkebrancheoversigter. Få adgang til alle tidligere kurerede oversigter.',
     images: [`${siteUrl}/api/og`],
   },
 };

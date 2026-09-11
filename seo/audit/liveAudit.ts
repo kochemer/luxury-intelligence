@@ -89,9 +89,18 @@ async function mapWithConcurrency<T, R>(items: T[], limit: number, fn: (item: T)
   return results;
 }
 
-/** Which schema.org types we expect to be present, by route class. */
+/**
+ * Which schema.org types we expect to be present, by route class.
+ *
+ * `NewsArticle`, not `Article`: digest pages emit the more specific type (see
+ * lib/seo/jsonLd.ts). This check asked for `Article` for one run after that
+ * change and reported 37 false positives — the page was correct and the
+ * expectation was stale. `NewsArticle` is a subtype of `Article`, so accepting
+ * either would also have worked, but naming the type we actually emit means
+ * the check fails loudly if the schema is ever downgraded.
+ */
 function expectedJsonLdTypes(entry: IndexableUrlEntry): string[] {
-  if (entry.kind === 'digest') return ['Article', 'BreadcrumbList'];
+  if (entry.kind === 'digest') return ['NewsArticle', 'ItemList', 'BreadcrumbList'];
   return [];
 }
 

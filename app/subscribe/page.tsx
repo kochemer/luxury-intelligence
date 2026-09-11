@@ -9,13 +9,13 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: 'Back the Brief – Free & Paid Support Plans',
+  title: 'Back the Brief – Support Plans',
   description: 'Support Luxury Intelligence with a free or paid subscription. Keep the weekly AI, ecommerce, luxury, and jewellery digest running.',
   alternates: {
     canonical: `${siteUrl}/subscribe`,
   },
   openGraph: {
-    title: 'Back the Brief – Free & Paid Support Plans',
+    title: 'Back the Brief – Support Plans',
     description: 'Support Luxury Intelligence with a free or paid subscription. Keep the weekly AI, ecommerce, luxury, and jewellery digest running.',
     images: [`${siteUrl}/api/og`],
   },

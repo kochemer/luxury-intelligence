@@ -5,7 +5,7 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: 'Metodología – Cómo se elabora el resumen',
+  title: 'Metodología – Cómo se elabora',
   description: 'Cómo se recopila, clasifica y resume el resumen semanal de IA, ecommerce, lujo y joyería.',
   alternates: {
     canonical: `${siteUrl}/es/methodology`,
@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Metodología – Cómo se elabora el resumen',
+    title: 'Metodología – Cómo se elabora',
     description: 'Cómo se recopila, clasifica y resume el resumen semanal de IA, ecommerce, lujo y joyería.',
     images: [`${siteUrl}/api/og`],
   },
   twitter: {
-    title: 'Metodología – Cómo se elabora el resumen',
+    title: 'Metodología – Cómo se elabora',
     description: 'Cómo se recopila, clasifica y resume el resumen semanal de IA, ecommerce, lujo y joyería.',
     images: [`${siteUrl}/api/og`],
   },
