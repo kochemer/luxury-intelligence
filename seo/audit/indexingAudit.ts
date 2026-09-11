@@ -117,8 +117,16 @@ function findingsFromInspection(result: UrlInspectionResult): Finding[] {
       title: 'Google has never crawled this page',
       detail: `${url} is in your sitemap but Google reports no crawl at all, so it cannot be indexed.`,
       url,
-      recommendation: 'Usually a discovery problem: a stale sitemap plus weak internal linking. ' +
-                      'Re-submit the sitemap, link the page from somewhere crawlable, and ping IndexNow.',
+      // Note: internal linking has been measured on this site and is healthy
+      // (every page has 3+ inbound links, no orphans — see
+      // seo/optimize/linkGraph.ts). So the usual "weak internal linking"
+      // advice does not apply here; the stale sitemap and crawl budget are the
+      // live explanations. Run `npm run seo:optimize` to re-check that premise
+      // before acting on linking advice.
+      recommendation: 'Check the sitemap is being re-read (npm run seo:indexing) and that the page ' +
+                      'has inbound links (npm run seo:optimize). If both are fine, this is crawl ' +
+                      'budget — Google deprioritises crawling on low-traffic sites, and it resolves ' +
+                      'as authority grows rather than through a code change.',
     }));
   } else if (!isIndexed(result.coverageState)) {
     // Google crawled it and decided not to index it. Its own wording is the

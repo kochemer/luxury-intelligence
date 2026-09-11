@@ -34,6 +34,29 @@ export interface PageAnalysis {
   imagesMissingAlt: string[];
   /** Total <img> count, for context on the above. */
   imageCount: number;
+  /** Same-site links found on the page, for building the internal link graph. */
+  internalLinks: InternalLink[];
+  /** Heading levels in document order, e.g. [1,2,2,3] — for hierarchy checks. */
+  headingLevels: number[];
+  /** Visible text length, as a rough proxy for content depth. */
+  textLength: number;
+}
+
+export interface InternalLink {
+  /** Absolute, same-origin URL with any fragment and trailing slash removed. */
+  href: string;
+  /** Anchor text, trimmed. Empty when the link wraps an image or icon. */
+  text: string;
+}
+
+/** Generic anchor text that tells neither users nor Google what the target is. */
+const GENERIC_ANCHORS = new Set([
+  'click here', 'here', 'read more', 'more', 'link', 'this', 'this page',
+  'learn more', 'see more', 'view', 'go', 'continue', 'details',
+]);
+
+export function isGenericAnchor(text: string): boolean {
+  return GENERIC_ANCHORS.has(text.trim().toLowerCase().replace(/[→←.…]/g, '').trim());
 }
 
 /** Flatten the `@type` values out of a JSON-LD payload, including `@graph` entries. */
@@ -105,7 +128,46 @@ export function analyzeHtml(html: string, url: string): PageAnalysis {
     h1s.push($(el).text().trim());
   });
 
+  // Heading levels in document order, so hierarchy skips (h1 → h3) are visible.
+  const headingLevels: number[] = [];
+  $('h1, h2, h3, h4, h5, h6').each((_, el) => {
+    const tag = (el as { tagName?: string }).tagName ?? '';
+    const level = Number(tag.replace(/\D/g, ''));
+    if (level >= 1 && level <= 6) headingLevels.push(level);
+  });
+
+  // Internal links, normalised so the graph can match hrefs to page URLs.
+  const origin = (() => { try { return new URL(url).origin; } catch { return null; } })();
+  const internalLinks: InternalLink[] = [];
+  const seen = new Set<string>();
+
+  $('a[href]').each((_, el) => {
+    const raw = $(el).attr('href');
+    if (!raw || !origin) return;
+    if (/^(mailto:|tel:|javascript:|#)/i.test(raw)) return;
+
+    let resolved: URL;
+    try { resolved = new URL(raw, url); } catch { return; }
+    if (resolved.origin !== origin) return;
+
+    // Drop the fragment and any trailing slash so /archive, /archive/ and
+    // /archive#top all count as links to the same page.
+    const href = `${resolved.origin}${resolved.pathname.replace(/\/+$/, '') || '/'}`;
+    const text = $(el).text().trim().replace(/\s+/g, ' ');
+
+    // One entry per (target, anchor text) pair — repeated nav links on the same
+    // page shouldn't inflate a target's inbound count.
+    const key = `${href}|${text}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+
+    internalLinks.push({ href, text });
+  });
+
   return {
+    internalLinks,
+    headingLevels,
+    textLength: $('body').text().replace(/\s+/g, ' ').trim().length,
     url,
     title: $('head title').first().text().trim() || null,
     description: $('meta[name="description"]').attr('content')?.trim() ?? null,

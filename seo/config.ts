@@ -84,3 +84,15 @@ export const RECOVERY_SETTLE_MS = 20_000;
 export const SITEMAP_STALE_DAYS = 30;
 /** URL-count gap between what Google recorded and what the sitemap now serves. */
 export const SITEMAP_COUNT_DRIFT = 5;
+
+// ── Optimisation opportunities (best-practice scoring) ──────────────────────
+/** At or below this many inbound internal links, a page is weakly linked. */
+export const WEAK_INBOUND_LINK_THRESHOLD = 2;
+/**
+ * Visible-text length below which a page counts as thin.
+ *
+ * Deliberately low. The aim is to catch pages that are genuinely almost empty
+ * — the kind Google marks "Crawled – currently not indexed" — not to impose a
+ * word count on legitimately short pages.
+ */
+export const THIN_CONTENT_CHARS = 1200;
