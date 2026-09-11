@@ -58,3 +58,18 @@ export const TRAFFIC_CLIFF_DROP_PCT = 50;
  * doing real work rather than being theoretical.
  */
 export const TRAFFIC_CLIFF_MIN_IMPRESSIONS = 500;
+
+// ── Automated recovery (rollback) ───────────────────────────────────────────
+/** Pages probed when deciding whether the site is down. */
+export const OUTAGE_SAMPLE_SIZE = 8;
+/**
+ * How many sampled pages must fail before this counts as an outage worth
+ * rolling production back for.
+ *
+ * Above 1 on purpose. A single page 404ing is often deliberate — a page
+ * removed, a route renamed — and rolling the whole site back over it would
+ * cause the outage it is meant to prevent. Systemic failure is the signal.
+ */
+export const OUTAGE_MIN_FAILED_PAGES = 3;
+/** Time allowed for a rollback to propagate before re-checking. */
+export const RECOVERY_SETTLE_MS = 20_000;
