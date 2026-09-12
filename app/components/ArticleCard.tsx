@@ -96,6 +96,14 @@ export default function ArticleCard({
         <div className="text-[13px] text-[var(--color-text-secondary)] font-sans flex items-center gap-1.5 mt-4">
           {source && hostname && (
             <img
+              // Third-party source favicons: a page can carry ~90 of these, so
+              // eager loading meant ~90 round-trips to google.com before the
+              // page settled. Deliberately a plain <img> rather than next/image
+              // — they are 32px and cross-origin, so optimisation would cost
+              // more than it saves. Empty alt: decorative, the source is named
+              // in adjacent text.
+              loading="lazy"
+              decoding="async"
               src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
               alt=""
               className="w-4 h-4 rounded-sm inline-block opacity-60"
@@ -171,6 +179,14 @@ export default function ArticleCard({
         <div className="text-[13px] text-[var(--color-text-secondary)] font-sans flex items-center gap-1.5 mb-1.5">
           {source && hostname && (
             <img
+              // Third-party source favicons: a page can carry ~90 of these, so
+              // eager loading meant ~90 round-trips to google.com before the
+              // page settled. Deliberately a plain <img> rather than next/image
+              // — they are 32px and cross-origin, so optimisation would cost
+              // more than it saves. Empty alt: decorative, the source is named
+              // in adjacent text.
+              loading="lazy"
+              decoding="async"
               src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
               alt=""
               className="w-4 h-4 rounded-sm inline-block opacity-60"
