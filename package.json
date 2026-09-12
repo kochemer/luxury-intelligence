@@ -34,7 +34,8 @@
     "seo:repair": "tsx scripts/runSeoRepair.ts",
     "seo:recover": "tsx scripts/runSeoRecovery.ts",
     "seo:indexing": "tsx scripts/runIndexingAudit.ts",
-    "seo:optimize": "tsx scripts/runSeoOptimize.ts"
+    "seo:optimize": "tsx scripts/runSeoOptimize.ts",
+    "seo:weekly": "tsx scripts/runSeoWeekly.ts"
   },
   "dependencies": {
     "@amplitude/unified": "^1.0.0-beta.9",

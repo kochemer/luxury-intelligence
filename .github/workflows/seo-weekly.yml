@@ -1,0 +1,98 @@
+name: SEO Weekly
+
+# The slower half of the SEO system. Separate from the daily monitor on
+# purpose: the monitor is an alarm and must stay fast and narrow, while this is
+# a report and can afford to spend a minute asking Google about all 52 pages.
+#
+# Deliberately does NOT email. Its findings are mostly indexing state and
+# opportunities — real, but rarely urgent, and several (crawl budget) are not
+# actionable at all. Emailing those weekly would train exactly the habit of
+# ignoring mail from this system that the daily monitor depends on not existing.
+# The report is committed and summarised in the run; the daily monitor remains
+# the only thing that interrupts anyone.
+on:
+  schedule:
+    # Sundays at 08:00 UTC — after the 06:00 digest build and the 07:00
+    # monitor, so it audits the week's freshly deployed state.
+    - cron: '0 8 * * 0'
+  workflow_dispatch:
+
+concurrency:
+  group: seo-weekly
+  cancel-in-progress: false
+
+jobs:
+  weekly:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run weekly SEO pass
+        id: weekly
+        env:
+          SEO_BASE_URL: https://luxury-intel.com
+          GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
+          GSC_PRIVATE_KEY_B64: ${{ secrets.GSC_PRIVATE_KEY_B64 }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+        run: |
+          # Exit 1 means "a human should look", not "the job failed" — the
+          # distinction the daily monitor workflow also makes.
+          set +e
+          npm run seo:weekly | tee /tmp/weekly.log
+          code=${PIPESTATUS[0]}
+          set -e
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+
+      - name: Commit the report
+        run: |
+          if [ -z "$(git status --porcelain data/seo/)" ]; then
+            echo "No report changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Only data/seo/ — this job never touches source.
+          git add data/seo/
+          git commit -m "seo: weekly report $(date -u +%Y-%m-%d) [skip ci]"
+          git pull --rebase origin main
+          git push
+
+      - name: Summarise
+        if: always()
+        run: |
+          {
+            echo "## SEO weekly pass"
+            echo ""
+            echo '```'
+            tail -n 30 /tmp/weekly.log 2>/dev/null || echo "(no output captured)"
+            echo '```'
+            echo ""
+            case "${{ steps.weekly.outputs.exit_code }}" in
+              0) echo "✅ Nothing needing attention." ;;
+              1) echo "⚠️ Findings worth a look — see the report in \`data/seo/weekly-*.md\`." ;;
+              *) echo "❌ The weekly pass itself failed to run." ;;
+            esac
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail only if the pass could not run
+        # Exit 1 is findings, which is information rather than a broken job.
+        # Anything else means the job genuinely did not work.
+        if: steps.weekly.outputs.exit_code != '0' && steps.weekly.outputs.exit_code != '1'
+        run: |
+          echo "Weekly pass exited with ${{ steps.weekly.outputs.exit_code }}"
+          exit 1

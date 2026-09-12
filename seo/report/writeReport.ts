@@ -20,12 +20,21 @@ function isAtLeastAsRecent(week: string, other: string): boolean {
   return wa >= wb;
 }
 
-export async function writeReport(report: SeoReport): Promise<{ jsonPath: string; mdPath: string }> {
+/**
+ * `prefix` keeps report families apart. The on-demand audit writes
+ * `report-*`; the weekly job writes `weekly-*`, which covers more checks
+ * (indexing, opportunities) and would otherwise overwrite the narrower one —
+ * or be overwritten by it, silently losing the broader findings.
+ */
+export async function writeReport(
+  report: SeoReport,
+  prefix = 'report'
+): Promise<{ jsonPath: string; mdPath: string }> {
   await fs.mkdir(REPORT_DIR, { recursive: true });
 
-  const jsonPath = path.join(REPORT_DIR, `report-${report.week}.json`);
-  const mdPath = path.join(REPORT_DIR, `report-${report.week}.md`);
-  const latestJsonPath = path.join(REPORT_DIR, 'latest.json');
+  const jsonPath = path.join(REPORT_DIR, `${prefix}-${report.week}.json`);
+  const mdPath = path.join(REPORT_DIR, `${prefix}-${report.week}.md`);
+  const latestJsonPath = path.join(REPORT_DIR, `${prefix === 'report' ? 'latest' : prefix + '-latest'}.json`);
 
   await fs.writeFile(jsonPath, JSON.stringify(report, null, 2), 'utf-8');
   await fs.writeFile(mdPath, renderMarkdown(report), 'utf-8');

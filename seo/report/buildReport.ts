@@ -56,13 +56,17 @@ function scoreFromFindings(findings: Finding[]): number {
   return Math.max(floor, ceiling - volumePenalty);
 }
 
-async function loadPreviousReport(week: string): Promise<SeoReport | null> {
+async function loadPreviousReport(week: string, prefix: string): Promise<SeoReport | null> {
   try {
     const files = await fs.readdir(REPORT_DIR);
     const [thisYear, thisWeekNum] = week.split('-W').map(Number);
     const weeks = files
-      .filter(f => /^report-\d{4}-W\d{1,2}\.json$/.test(f))
-      .map(f => f.replace('report-', '').replace('.json', ''))
+      // Deliberately not a template-literal RegExp: `\d` inside a template
+      // literal collapses to a bare `d`, so `new RegExp(\`${p}-\d{4}...\`)`
+      // silently matches nothing and every finding looks new forever. A
+      // startsWith plus a static pattern has no escaping to get wrong.
+      .filter(f => f.startsWith(`${prefix}-`) && /^\d{4}-W\d{1,2}\.json$/.test(f.slice(prefix.length + 1)))
+      .map(f => f.slice(prefix.length + 1).replace('.json', ''))
       .filter(w => {
         const [y, wn] = w.split('-W').map(Number);
         return y < thisYear || (y === thisYear && wn < thisWeekNum);
@@ -74,15 +78,23 @@ async function loadPreviousReport(week: string): Promise<SeoReport | null> {
       });
     const previousWeek = weeks[weeks.length - 1];
     if (!previousWeek) return null;
-    const raw = await fs.readFile(path.join(REPORT_DIR, `report-${previousWeek}.json`), 'utf-8');
+    const raw = await fs.readFile(path.join(REPORT_DIR, `${prefix}-${previousWeek}.json`), 'utf-8');
     return JSON.parse(raw) as SeoReport;
   } catch {
     return null;
   }
 }
 
-export async function buildReport(week: string, siteUrl: string, findings: Finding[], inputs: AuditInputs): Promise<SeoReport> {
-  const previous = await loadPreviousReport(week);
+export async function buildReport(
+  week: string,
+  siteUrl: string,
+  findings: Finding[],
+  inputs: AuditInputs,
+  prefix = 'report'
+): Promise<SeoReport> {
+  // Compared against the previous report of the *same* family, so a weekly
+  // report's delta is not measured against a narrower on-demand audit.
+  const previous = await loadPreviousReport(week, prefix);
   const previousById = new Map(previous?.findings.map(f => [f.id, f]) ?? []);
 
   // Carry forward firstSeenWeek / weeksOpen for findings that persist.
