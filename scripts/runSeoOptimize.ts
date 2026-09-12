@@ -14,6 +14,7 @@ import { loadEnv } from '../lib/env';
 loadEnv();
 
 import { analyseLinkGraph } from '../seo/optimize/linkGraph';
+import { runAssetAudit } from '../seo/optimize/assetAudit';
 
 const CANONICAL_URL = 'https://luxury-intel.com';
 
@@ -24,8 +25,17 @@ async function main() {
 
   console.log(`[Optimise] Analysing internal link graph and page structure on ${baseUrl}...`);
 
-  const result = await analyseLinkGraph(baseUrl);
-  console.log(`[Optimise] ✓ Analysed ${result.pagesAnalysed} pages\n`);
+  // Both run in parallel: the link graph reads markup, the asset audit reads
+  // byte sizes, and neither depends on the other.
+  const [result, assets] = await Promise.all([
+    analyseLinkGraph(baseUrl),
+    runAssetAudit(baseUrl),
+  ]);
+  result.findings.push(...assets.findings);
+
+  console.log(
+    `[Optimise] ✓ Analysed ${result.pagesAnalysed} pages, measured ${assets.assetsMeasured} assets\n`
+  );
 
   const order = ['critical', 'high', 'medium', 'low', 'info'] as const;
   for (const severity of order) {

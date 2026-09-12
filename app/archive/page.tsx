@@ -9,6 +9,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
+import Image from 'next/image';
 import { DateTime } from 'luxon';
 import type { Metadata } from 'next';
 import { formatDateRange } from '@/lib/utils/formatDate';
@@ -236,9 +237,21 @@ export default async function ArchivePage() {
                       >
                         {/* Cover image, typographic fallback, or gradient */}
                         {meta.coverImageUrl ? (
-                          <img
+                          /* next/image, not <img>: these covers are ~2.5 MB PNGs
+                             and this page shows every issue, so the raw version
+                             referenced ~94 MB of eagerly-loaded images. Next
+                             serves WebP/AVIF at the size actually displayed and
+                             defers everything below the fold. `sizes` tells it
+                             the rendered width — the first card is double-width,
+                             the rest are a third of the grid. */
+                          <Image
                             src={meta.coverImageUrl}
                             alt={meta.coverImageAlt || `Cover for ${weekLabel}`}
+                            fill
+                            sizes={isFirst
+                              ? '(max-width: 768px) 100vw, 66vw'
+                              : '(max-width: 768px) 50vw, 33vw'}
+                            priority={isFirst}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                         ) : (

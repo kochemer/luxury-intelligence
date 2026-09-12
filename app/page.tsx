@@ -2,6 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { DateTime } from 'luxon';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import DigestClientView from './components/DigestClientView';
@@ -201,22 +202,21 @@ export default async function Home() {
       <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] overflow-hidden" style={{ zIndex: 0 }}>
         {/* Cover image — full bleed, anchor to bottom so top crops and bottom is visible */}
         {digest?.coverImageUrl ? (
-          <>
-            <div
-              className="absolute inset-0 w-full h-full bg-cover bg-no-repeat bg-center animate-ken-burns"
-              style={{
-                backgroundImage: `url(${digest.coverImageUrl})`,
-                backgroundPosition: 'center bottom',
-                backgroundSize: 'cover',
-              }}
-              aria-hidden="true"
-            />
-            <img
+          /* One optimised image in place of a CSS background plus a duplicate
+             sr-only <img>. The background bypassed image optimisation, and
+             these covers are ~2.5 MB PNGs — on the homepage that is the
+             Largest Contentful Paint element. Same treatment as the digest
+             page hero; see app/digest/[slug]/page.tsx. */
+          <div className="absolute inset-0 w-full h-full animate-ken-burns">
+            <Image
               src={digest.coverImageUrl}
               alt={digest.coverImageAlt || `Weekly digest cover for ${digest?.weekLabel || 'current week'}`}
-              className="sr-only"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-bottom"
             />
-          </>
+          </div>
         ) : (
           <div
             className="absolute inset-0 w-full h-full"

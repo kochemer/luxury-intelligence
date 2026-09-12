@@ -34,12 +34,27 @@ export interface PageAnalysis {
   imagesMissingAlt: string[];
   /** Total <img> count, for context on the above. */
   imageCount: number;
+  /** Every image on the page, with the attributes that decide how costly it is. */
+  images: PageImage[];
+  /** CSS background-image URLs found in inline styles — invisible to <img> checks. */
+  backgroundImages: string[];
   /** Same-site links found on the page, for building the internal link graph. */
   internalLinks: InternalLink[];
   /** Heading levels in document order, e.g. [1,2,2,3] — for hierarchy checks. */
   headingLevels: number[];
   /** Visible text length, as a rough proxy for content depth. */
   textLength: number;
+}
+
+export interface PageImage {
+  src: string;
+  /** Whether the browser is told to defer this image. */
+  lazy: boolean;
+  /** Whether responsive candidates were provided. */
+  hasSrcSet: boolean;
+  /** True when routed through Next's optimiser, which handles format and size. */
+  optimised: boolean;
+  alt: string | null;
 }
 
 export interface InternalLink {
@@ -107,11 +122,23 @@ export function analyzeHtml(html: string, url: string): PageAnalysis {
   });
 
   const imagesMissingAlt: string[] = [];
+  const images: PageImage[] = [];
   let imageCount = 0;
   $('img').each((_, el) => {
     imageCount++;
     const alt = $(el).attr('alt');
     const ariaHidden = $(el).attr('aria-hidden') === 'true';
+    const src = $(el).attr('src') ?? '';
+
+    images.push({
+      src,
+      lazy: $(el).attr('loading') === 'lazy',
+      hasSrcSet: Boolean($(el).attr('srcset') || $(el).attr('srcSet')),
+      // Next rewrites optimised images through /_next/image, which converts
+      // format and generates sizes. A raw path means none of that happened.
+      optimised: src.includes('/_next/image'),
+      alt: alt ?? null,
+    });
 
     // Only an *absent* alt attribute is a defect. `alt=""` is the correct,
     // deliberate marker for a decorative image — it tells screen readers to
@@ -164,7 +191,20 @@ export function analyzeHtml(html: string, url: string): PageAnalysis {
     internalLinks.push({ href, text });
   });
 
+  // Hero images are often CSS backgrounds rather than <img>, so they escape
+  // every <img>-based check while still being the largest download on the page.
+  const backgroundImages: string[] = [];
+  $('[style*="background-image"]').each((_, el) => {
+    const style = $(el).attr('style') ?? '';
+    for (const match of style.matchAll(/url\((['"]?)([^'")]+)\1\)/g)) {
+      const url = match[2];
+      if (url && !url.startsWith('data:')) backgroundImages.push(url);
+    }
+  });
+
   return {
+    images,
+    backgroundImages: [...new Set(backgroundImages)],
     internalLinks,
     headingLevels,
     textLength: $('body').text().replace(/\s+/g, ' ').trim().length,

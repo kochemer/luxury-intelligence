@@ -96,3 +96,14 @@ export const WEAK_INBOUND_LINK_THRESHOLD = 2;
  * word count on legitimately short pages.
  */
 export const THIN_CONTENT_CHARS = 1200;
+
+// ── Image weight (Core Web Vitals) ──────────────────────────────────────────
+/**
+ * Thresholds for image size.
+ *
+ * Google's own guidance puts a good LCP at 2.5s; a single image above a
+ * megabyte makes that unreachable on a mobile connection regardless of
+ * everything else on the page.
+ */
+export const IMAGE_HEAVY_BYTES = 300_000;      // 300 KB — worth compressing
+export const IMAGE_CRITICAL_BYTES = 1_000_000; // 1 MB — will dominate LCP

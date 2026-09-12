@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
+import Image from 'next/image';
 import { DateTime } from 'luxon';
 import { notFound, permanentRedirect } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -299,22 +300,23 @@ export default async function DigestPage({
         {/* MAGAZINE COVER HERO — matches homepage style */}
         <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] overflow-hidden" style={{ zIndex: 0 }}>
           {digest.coverImageUrl ? (
-            <>
-              <div
-                className="absolute inset-0 w-full h-full bg-cover bg-no-repeat bg-center animate-ken-burns"
-                style={{
-                  backgroundImage: `url(${digest.coverImageUrl})`,
-                  backgroundPosition: 'center bottom',
-                  backgroundSize: 'cover',
-                }}
-                aria-hidden="true"
-              />
-              <img
+            /* One optimised image, where there used to be a CSS background
+               plus a duplicate sr-only <img>. The background bypassed every
+               image optimisation — these covers are ~2.5 MB PNGs and this is
+               the Largest Contentful Paint element on the page. next/image
+               serves WebP/AVIF at the viewport's actual size; `priority`
+               keeps it eager, which is correct for a hero. The alt text now
+               lives on the visible image rather than a hidden twin. */
+            <div className="absolute inset-0 w-full h-full animate-ken-burns">
+              <Image
                 src={digest.coverImageUrl}
                 alt={digest.coverImageAlt || `Weekly digest cover for ${digest.weekLabel}`}
-                className="sr-only"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-bottom"
               />
-            </>
+            </div>
           ) : (
             <div
               className="absolute inset-0 w-full h-full"
