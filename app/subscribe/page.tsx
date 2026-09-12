@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
@@ -102,13 +103,23 @@ export default function SubscribePage() {
         {/* Blurred cover image background */}
         {currentCover && (
           <div
-            className="absolute inset-0 bg-cover bg-center scale-110"
-            style={{
-              backgroundImage: `url(${currentCover})`,
-              opacity: 0.15,
-              filter: 'blur(12px)',
-            }}
-          />
+            className="absolute inset-0 scale-110"
+            style={{ opacity: 0.15, filter: 'blur(12px)' }}
+            aria-hidden="true"
+          >
+            <Image
+              // Was a CSS background pulling the full 2.5 MB PNG for an image
+              // that is blurred 12px and drawn at 15% opacity. quality={30} and
+              // a small `sizes` are invisible through that treatment and cut
+              // the download by well over 99%. Decorative, so alt is empty.
+              src={currentCover}
+              alt=""
+              fill
+              quality={30}
+              sizes="(max-width: 768px) 100vw, 800px"
+              className="object-cover object-center"
+            />
+          </div>
         )}
         {/* Dark gradient overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a1f26]/80 via-[#1a1f26]/60 to-transparent" />
