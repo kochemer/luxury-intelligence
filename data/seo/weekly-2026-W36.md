@@ -104,8 +104,8 @@ _Score is a relative index for tracking week-over-week trend, not an absolute gr
 - [HIGH] (score 66) Google has never crawled this page — https://luxury-intel.com/digest/june-2026-week-26
   https://luxury-intel.com/digest/june-2026-week-26 is in your sitemap but Google reports no crawl at all, so it cannot be indexed.
   → Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change.
-- [LOW] (score 13) 3 asset(s) did not report a size
-  No Content-Length from a HEAD request, so these could not be weighed and may be oversized without showing up: https://www.google.com/s2/favicons?domain=www.luxurydaily.com&sz=32, https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32, https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32
+- [LOW] (score 13) 2 asset(s) did not report a size
+  No Content-Length from a HEAD request, so these could not be weighed and may be oversized without showing up: https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32, https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32
   → Common for third-party CDNs that omit Content-Length. Check them by hand if large.
 - [LOW] (score 13) 56 image(s) serve one size to every device
   These have no srcset, so phones download the desktop image: https://www.google.com/s2/favicons?domain=www.retaildive.com&sz=32, https://www.google.com/s2/favicons?domain=www.practicalecommerce.com&sz=32, https://www.google.com/s2/favicons?domain=www.pymnts.com&sz=32, https://www.google.com/s2/favicons?domain=www.digitalcommerce360.com&sz=32, https://www.google.com/s2/favicons?domain=internetretailing.net&sz=32 +51 more
@@ -203,8 +203,8 @@ _Score is a relative index for tracking week-over-week trend, not an absolute gr
 - [HIGH] (score 66) Google has never crawled this page — https://luxury-intel.com/digest/june-2026-week-26
   https://luxury-intel.com/digest/june-2026-week-26 is in your sitemap but Google reports no crawl at all, so it cannot be indexed.
   → Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change. _(open 1w, since 2026-W36)_
-- [LOW] (score 13) 3 asset(s) did not report a size
-  No Content-Length from a HEAD request, so these could not be weighed and may be oversized without showing up: https://www.google.com/s2/favicons?domain=www.luxurydaily.com&sz=32, https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32, https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32
+- [LOW] (score 13) 2 asset(s) did not report a size
+  No Content-Length from a HEAD request, so these could not be weighed and may be oversized without showing up: https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32, https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32
   → Common for third-party CDNs that omit Content-Length. Check them by hand if large. _(open 1w, since 2026-W36)_
 - [LOW] (score 13) 56 image(s) serve one size to every device
   These have no srcset, so phones download the desktop image: https://www.google.com/s2/favicons?domain=www.retaildive.com&sz=32, https://www.google.com/s2/favicons?domain=www.practicalecommerce.com&sz=32, https://www.google.com/s2/favicons?domain=www.pymnts.com&sz=32, https://www.google.com/s2/favicons?domain=www.digitalcommerce360.com&sz=32, https://www.google.com/s2/favicons?domain=internetretailing.net&sz=32 +51 more

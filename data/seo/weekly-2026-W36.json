@@ -1,7 +1,7 @@
 {
   "version": 1,
   "week": "2026-W36",
-  "generatedAtISO": "2026-09-12T20:29:19.013Z",
+  "generatedAtISO": "2026-09-12T20:38:27.618Z",
   "siteUrl": "https://luxury-intel.com",
   "inputs": {
     "gscAvailable": true,
@@ -432,11 +432,10 @@
       "code": "OPT_ASSET_SIZE_UNKNOWN",
       "severity": "low",
       "category": "technical",
-      "title": "3 asset(s) did not report a size",
-      "detail": "No Content-Length from a HEAD request, so these could not be weighed and may be oversized without showing up: https://www.google.com/s2/favicons?domain=www.luxurydaily.com&sz=32, https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32, https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32",
+      "title": "2 asset(s) did not report a size",
+      "detail": "No Content-Length from a HEAD request, so these could not be weighed and may be oversized without showing up: https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32, https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32",
       "evidence": {
         "assets": [
-          "https://www.google.com/s2/favicons?domain=www.luxurydaily.com&sz=32",
           "https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32",
           "https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32"
         ]
