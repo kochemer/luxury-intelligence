@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import Image from 'next/image';
 import { Suspense } from 'react';
 import DigestClientView from '../components/DigestClientView';
 import PodcastPlayer from '../components/PodcastPlayer';
@@ -149,22 +150,18 @@ export default async function HomeES() {
       {/* MAGAZINE COVER HERO (Concept A) — full-bleed image, overlaid masthead */}
       <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] overflow-hidden" style={{ zIndex: 0 }}>
         {digest?.coverImageUrl ? (
-          <>
-            <div
-              className="absolute inset-0 w-full h-full bg-cover bg-no-repeat bg-center"
-              style={{
-                backgroundImage: `url(${digest.coverImageUrl})`,
-                backgroundPosition: 'center bottom',
-                backgroundSize: 'cover',
-              }}
-              aria-hidden="true"
-            />
-            <img
+          <div className="absolute inset-0 w-full h-full animate-ken-burns">
+            <Image
+              // Replaces a CSS background plus a duplicate sr-only <img>.
+              // Covers are ~2.5 MB PNGs and this is the LCP element.
               src={digest.coverImageUrl}
               alt={digest.coverImageAlt || `Portada del resumen semanal para ${digest?.weekLabel || 'semana actual'}`}
-              className="sr-only"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-bottom"
             />
-          </>
+          </div>
         ) : (
           <div
             className="absolute inset-0 w-full h-full"

@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { formatDateRange } from '@/lib/utils/formatDate';
@@ -125,9 +126,13 @@ export default async function ArchivePageDA() {
               }`}
             >
               {meta.coverImageUrl ? (
-                <img
+                <Image
+                  // Covers are ~2.5 MB PNGs and this page shows every issue;
+                  // raw <img> referenced ~94 MB. See app/archive/page.tsx.
                   src={meta.coverImageUrl}
-                  alt={meta.coverImageAlt || `Omslag for ${weekLabel}`}
+                  alt={meta.coverImageAlt || `Forside for ${weekLabel}`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
