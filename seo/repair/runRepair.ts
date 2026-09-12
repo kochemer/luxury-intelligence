@@ -12,6 +12,8 @@ import { promisify } from 'util';
 import { runRepairAgent } from './agent';
 import { verifyRepair, getChangedFiles, snapshotUntracked, type VerificationResult } from './verify';
 import { readLedger, appendAttempt, isCircuitOpen, failureCount } from './ledger';
+import { checkBudget, recordSpend } from './spend';
+import { REPAIR_MODEL } from '../config';
 import { isRepairable, escalationReason, MAX_REPAIRS_PER_RUN, MAX_ATTEMPTS_PER_FINDING } from './policy';
 import { runStaticAudit } from '../audit/staticAudit';
 import type { Finding } from '../types';
@@ -131,6 +133,17 @@ export async function runRepair(options: RunRepairOptions): Promise<RunRepairRes
     queue.push(finding);
   }
 
+  // Checked before spending anything, not after. Detection, alerting and
+  // rollback are unaffected by this gate — only the agent that writes fixes.
+  const budget = await checkBudget();
+  if (!budget.allowed) {
+    for (const finding of queue) escalations.push({ finding, reason: budget.reason! });
+    return { attempted, escalations };
+  }
+  if (queue.length > 0) {
+    console.log(`[Repair] Budget: $${budget.spent.toFixed(2)} spent in the last 30 days, $${budget.remaining.toFixed(2)} remaining.`);
+  }
+
   for (const finding of queue.slice(0, MAX_REPAIRS_PER_RUN)) {
     const branch = branchName(finding);
     console.log(`\n[Repair] ${finding.code} — ${finding.url ?? 'site-wide'}`);
@@ -144,6 +157,19 @@ export async function runRepair(options: RunRepairOptions): Promise<RunRepairRes
 
     console.log('[Repair] Invoking agent...');
     const agentRun = await runRepairAgent(finding, baseUrl);
+
+    // Recorded whatever the outcome — a failed or capped run still costs money,
+    // and a ledger that only counts successes would undercount the bill.
+    if (agentRun.costUsd !== null) {
+      await recordSpend({
+        atISO: new Date().toISOString(),
+        costUsd: agentRun.costUsd,
+        findingCode: finding.code,
+        outcome: agentRun.ok ? 'completed' : agentRun.hitBudgetCap ? 'budget-capped' : 'failed',
+        model: REPAIR_MODEL,
+      });
+      console.log(`[Repair] Run cost: $${agentRun.costUsd.toFixed(3)}`);
+    }
 
     if (!agentRun.ok) {
       await abandon(originalBranch, branch);

@@ -15,12 +15,47 @@ import { spawn } from 'child_process';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { buildAllowedTools, buildDisallowedTools } from './policy';
+import { REPAIR_MAX_BUDGET_USD, REPAIR_MODEL } from '../config';
 import type { Finding } from '../types';
 
 export interface AgentRunResult {
   ok: boolean;
   output: string;
   error?: string;
+  /** Client-side cost estimate from the CLI. Null when the run produced no JSON. */
+  costUsd: number | null;
+  /** True when the run stopped because it hit --max-budget-usd. */
+  hitBudgetCap: boolean;
+}
+
+/**
+ * Pull the human-readable result and the cost out of `--output-format json`.
+ *
+ * Falls back to the raw text when parsing fails: a malformed response should
+ * still surface whatever the agent managed to say, rather than being discarded
+ * because the wrapper was unreadable.
+ */
+function parseAgentOutput(raw: string): { text: string; costUsd: number | null; capped: boolean } {
+  try {
+    const start = raw.indexOf('{');
+    if (start === -1) return { text: raw, costUsd: null, capped: false };
+
+    const parsed = JSON.parse(raw.slice(start)) as {
+      result?: string;
+      total_cost_usd?: number;
+      subtype?: string;
+      is_error?: boolean;
+    };
+
+    const text = typeof parsed.result === 'string' ? parsed.result : raw;
+    const costUsd = typeof parsed.total_cost_usd === 'number' ? parsed.total_cost_usd : null;
+    // The CLI signals a budget stop in the result subtype.
+    const capped = /budget/i.test(parsed.subtype ?? '') || /max.?budget/i.test(text);
+
+    return { text, costUsd, capped };
+  } catch {
+    return { text: raw, costUsd: null, capped: false };
+  }
 }
 
 /**
@@ -127,7 +162,14 @@ export async function runRepairAgent(
     '--permission-mode', 'acceptEdits',
     '--allowedTools', buildAllowedTools().join(','),
     '--disallowedTools', buildDisallowedTools().join(','),
-    '--output-format', 'text',
+    // Hard per-run spend cap, enforced by Claude Code rather than by this repo,
+    // so it holds even if the orchestrator is wrong about something.
+    '--max-budget-usd', String(REPAIR_MAX_BUDGET_USD),
+    // Sonnet, not Opus: small well-specified fixes behind six verification
+    // gates that do not care which model wrote the diff.
+    '--model', REPAIR_MODEL,
+    // JSON so the run's actual cost comes back and can be recorded.
+    '--output-format', 'json',
   ];
 
   // The brief is scratch input, not an artefact — remove it however the run ends.
@@ -153,7 +195,7 @@ export async function runRepairAgent(
       settled = true;
       child.kill("SIGTERM");
       cleanup();
-      resolve({ ok: false, output: stdout, error: `Agent timed out after ${timeoutMs / 1000}s` });
+      resolve({ ok: false, output: stdout, error: `Agent timed out after ${timeoutMs / 1000}s`, costUsd: null, hitBudgetCap: false });
     }, timeoutMs);
 
     child.stdout.on('data', (d: Buffer) => { stdout += d.toString(); });
@@ -168,6 +210,8 @@ export async function runRepairAgent(
         ok: false,
         output: stdout,
         error: `Could not start the claude CLI: ${err.message}. Is Claude Code installed and on PATH?`,
+        costUsd: null,
+        hitBudgetCap: false,
       });
     });
 
@@ -176,10 +220,15 @@ export async function runRepairAgent(
       settled = true;
       clearTimeout(timer);
       cleanup();
+      const { text, costUsd, capped } = parseAgentOutput(stdout);
       resolve({
-        ok: code === 0,
-        output: stdout.trim(),
-        error: code === 0 ? undefined : `claude exited with code ${code}: ${stderr.trim()}`,
+        ok: code === 0 && !capped,
+        output: text.trim(),
+        error: capped
+          ? `Agent stopped at the $${REPAIR_MAX_BUDGET_USD} per-run budget cap before finishing.`
+          : code === 0 ? undefined : `claude exited with code ${code}: ${stderr.trim()}`,
+        costUsd,
+        hitBudgetCap: capped,
       });
     });
   });

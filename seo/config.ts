@@ -107,3 +107,37 @@ export const THIN_CONTENT_CHARS = 1200;
  */
 export const IMAGE_HEAVY_BYTES = 300_000;      // 300 KB — worth compressing
 export const IMAGE_CRITICAL_BYTES = 1_000_000; // 1 MB — will dominate LCP
+
+// ── Repair agent cost controls ──────────────────────────────────────────────
+/**
+ * Hard per-run spend cap, enforced by the Claude Code CLI itself
+ * (`--max-budget-usd`) rather than by anything in this repo — so it holds even
+ * if the orchestrator has a bug. The agent stops when it reaches this.
+ *
+ * A repair reads a handful of files and makes one small edit; observed runs
+ * have cost well under a dollar. $2 is roughly double the expected worst case,
+ * which leaves room for a genuinely hard fix without leaving room for a
+ * runaway.
+ */
+export const REPAIR_MAX_BUDGET_USD = 2;
+
+/**
+ * Rolling 30-day ceiling across all runs.
+ *
+ * The per-run cap bounds one invocation; this bounds the pathological case the
+ * per-run cap cannot see — a defect that recurs daily and is attempted over and
+ * over. The circuit breaker in the ledger already stops repeat attempts on the
+ * *same* finding, so this is the backstop for many different ones.
+ */
+export const REPAIR_MONTHLY_BUDGET_USD = 15;
+
+/**
+ * Model for repair work.
+ *
+ * Sonnet rather than Opus deliberately: these are small, well-specified fixes
+ * against a narrow file allowlist, verified by six gates that do not care which
+ * model produced the diff. The gates are the quality control, so paying for the
+ * most capable model buys little here. An alias, not a pinned version, so it
+ * tracks the current generation.
+ */
+export const REPAIR_MODEL = 'sonnet';
