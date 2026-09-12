@@ -8,20 +8,12 @@
  * sitemap that serves correctly but which Google has quietly stopped reading.
  */
 
-import { createHash } from 'crypto';
 import { getGscClient, type GscClient } from '../gsc/client';
 import { inspectUrls, type UrlInspectionResult } from '../gsc/urlInspection';
 import { getIndexableUrls } from '@/lib/seo/urlInventory';
 import { SITEMAP_STALE_DAYS, SITEMAP_COUNT_DRIFT } from '../config';
 import type { Finding, Category } from '../types';
-
-function makeFinding(
-  partial: Omit<Finding, 'id' | 'score' | 'firstSeenWeek' | 'weeksOpen'> & { scope: string }
-): Finding {
-  const { scope, ...rest } = partial;
-  const hash = createHash('sha1').update(scope).digest('hex').slice(0, 8);
-  return { ...rest, id: `${rest.code}:${hash}`, score: 0, firstSeenWeek: '', weeksOpen: 1 };
-}
+import { makeFinding } from '../shared/finding';
 
 /** Coverage states that mean "Google has this page indexed". */
 function isIndexed(coverageState: string): boolean {

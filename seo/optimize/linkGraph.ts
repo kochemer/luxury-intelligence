@@ -14,25 +14,16 @@
  * broken, it is simply weaker than it could be.
  */
 
-import { createHash } from 'crypto';
-import { analyzeHtml, isGenericAnchor, type PageAnalysis } from '../audit/analyzeHtml';
+import { isGenericAnchor } from '../audit/analyzeHtml';
 import { getIndexableUrls } from '@/lib/seo/urlInventory';
 import {
   LIVE_CONCURRENCY,
-  LIVE_TIMEOUT_MS,
-  LIVE_USER_AGENT,
   WEAK_INBOUND_LINK_THRESHOLD,
   THIN_CONTENT_CHARS,
 } from '../config';
 import type { Finding, Category } from '../types';
-
-function makeFinding(
-  partial: Omit<Finding, 'id' | 'score' | 'firstSeenWeek' | 'weeksOpen'> & { scope: string }
-): Finding {
-  const { scope, ...rest } = partial;
-  const hash = createHash('sha1').update(scope).digest('hex').slice(0, 8);
-  return { ...rest, id: `${rest.code}:${hash}`, score: 0, firstSeenWeek: '', weeksOpen: 1 };
-}
+import { makeFinding } from '../shared/finding';
+import { fetchAndAnalyse, mapWithConcurrency } from '../shared/fetch';
 
 /** Normalise to the same shape analyzeHtml produces for link targets. */
 function canonicalKey(url: string): string {
@@ -42,32 +33,6 @@ function canonicalKey(url: string): string {
   } catch {
     return url;
   }
-}
-
-async function fetchPage(url: string): Promise<PageAnalysis | null> {
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': LIVE_USER_AGENT },
-      signal: AbortSignal.timeout(LIVE_TIMEOUT_MS),
-    });
-    if (!res.ok) return null;
-    return analyzeHtml(await res.text(), url);
-  } catch {
-    return null;
-  }
-}
-
-async function mapWithConcurrency<T, R>(items: T[], limit: number, fn: (item: T) => Promise<R>): Promise<R[]> {
-  const results: R[] = new Array(items.length);
-  let cursor = 0;
-  async function worker() {
-    while (cursor < items.length) {
-      const i = cursor++;
-      results[i] = await fn(items[i]!);
-    }
-  }
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
-  return results;
 }
 
 export interface LinkGraphNode {
@@ -90,10 +55,7 @@ export async function analyseLinkGraph(baseUrl: string): Promise<LinkGraphResult
   const urls = entries.map(e => e.url);
   const known = new Set(urls.map(canonicalKey));
 
-  const analyses = await mapWithConcurrency(urls, LIVE_CONCURRENCY, async (url) => ({
-    url,
-    analysis: await fetchPage(url),
-  }));
+  const analyses = await mapWithConcurrency(urls, LIVE_CONCURRENCY, fetchAndAnalyse);
 
   // Build inbound-link lists. A page linking to itself does not count.
   const inbound = new Map<string, string[]>();
@@ -135,8 +97,36 @@ export async function analyseLinkGraph(baseUrl: string): Promise<LinkGraphResult
 
   const findings: Finding[] = [];
 
+  // ── Fetch failures invalidate the link graph ────────────────────────────
+  //
+  // A page that could not be fetched contributes no outbound links, so every
+  // page it links to loses an inbound count. With enough failures, perfectly
+  // well-linked pages are reported as orphans — a confident, completely wrong
+  // finding. Inbound counts are only meaningful when the whole site was read,
+  // so on any failure the link-based findings are withheld and the failure is
+  // reported instead.
+  const failedUrls = analyses.filter(a => !a.analysis).map(a => a.url);
+
+  if (failedUrls.length > 0) {
+    findings.push(makeFinding({
+      scope: 'linkgraph-incomplete',
+      code: 'OPT_LINK_GRAPH_INCOMPLETE',
+      severity: 'high',
+      category: 'technical',
+      title: `Could not fetch ${failedUrls.length} of ${urls.length} pages — link analysis withheld`,
+      detail: `Inbound-link counts are only valid when every page has been read, because an ` +
+              `unfetched page's outbound links are invisible. Orphan and weak-link findings are ` +
+              `suppressed for this run rather than reported wrongly. Failed: ` +
+              `${failedUrls.slice(0, 5).join(', ')}${failedUrls.length > 5 ? ` +${failedUrls.length - 5} more` : ''}`,
+      evidence: { failed: failedUrls.slice(0, 20), total: urls.length },
+      recommendation: 'Usually transient. Re-run; if it persists, those pages are genuinely unreachable ' +
+                      'and the live audit will report them as such.',
+    }));
+  }
+
   // ── Orphans: the finding most likely to explain "never crawled" ─────────
-  for (const node of nodes) {
+  // Skipped entirely when the graph is incomplete — see above.
+  for (const node of failedUrls.length > 0 ? [] : nodes) {
     if (node.inbound.length === 0) {
       findings.push(makeFinding({
         scope: node.url, code: 'OPT_ORPHAN_PAGE', severity: 'high', category: 'opportunity',

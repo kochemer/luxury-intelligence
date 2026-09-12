@@ -6,7 +6,6 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
-import { createHash } from 'crypto';
 import { getIndexableUrls, getAvailableWeekLabels, STATIC_PAGE_LAST_MODIFIED } from '@/lib/seo/urlInventory';
 import { buildWeekMetaDescription, renderedWeekTitle } from '@/lib/seo/metaText';
 import { formatDateRange } from '@/lib/utils/formatDate';
@@ -21,25 +20,10 @@ import {
 import type { Finding, Category } from '../types';
 import type { IndexableUrlEntry } from '@/lib/seo/urlInventory';
 import type { WeeklyDigest } from '@/lib/types';
+import { makeFinding } from '../shared/finding';
 
 const REPO_ROOT = path.join(process.cwd());
 const DIGESTS_DIR = path.join(REPO_ROOT, 'data', 'digests');
-
-function findingId(code: string, scope: string): string {
-  const hash = createHash('sha1').update(scope).digest('hex').slice(0, 8);
-  return `${code}:${hash}`;
-}
-
-function makeFinding(partial: Omit<Finding, 'id' | 'score' | 'firstSeenWeek' | 'weeksOpen'> & { scope: string }): Finding {
-  const { scope, ...rest } = partial;
-  return {
-    ...rest,
-    id: findingId(rest.code, scope),
-    score: 0, // filled in by buildReport.ts scoring pass
-    firstSeenWeek: '', // filled in by buildReport.ts delta pass
-    weeksOpen: 1,
-  };
-}
 
 async function loadDigest(weekLabel: string): Promise<WeeklyDigest | null> {
   try {

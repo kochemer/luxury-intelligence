@@ -14,8 +14,6 @@
  * performance hygiene.
  */
 
-import { createHash } from 'crypto';
-import { analyzeHtml, type PageAnalysis } from '../audit/analyzeHtml';
 import { getIndexableUrls } from '@/lib/seo/urlInventory';
 import {
   LIVE_CONCURRENCY,
@@ -25,14 +23,8 @@ import {
   IMAGE_CRITICAL_BYTES,
 } from '../config';
 import type { Finding, Category } from '../types';
-
-function makeFinding(
-  partial: Omit<Finding, 'id' | 'score' | 'firstSeenWeek' | 'weeksOpen'> & { scope: string }
-): Finding {
-  const { scope, ...rest } = partial;
-  const hash = createHash('sha1').update(scope).digest('hex').slice(0, 8);
-  return { ...rest, id: `${rest.code}:${hash}`, score: 0, firstSeenWeek: '', weeksOpen: 1 };
-}
+import { makeFinding } from '../shared/finding';
+import { fetchAndAnalyse, mapWithConcurrency } from '../shared/fetch';
 
 function mb(bytes: number): string {
   return `${(bytes / 1_048_576).toFixed(2)} MB`;
@@ -56,32 +48,6 @@ async function measureAsset(url: string): Promise<{ bytes: number; type: string 
   }
 }
 
-async function mapWithConcurrency<T, R>(items: T[], limit: number, fn: (item: T) => Promise<R>): Promise<R[]> {
-  const results: R[] = new Array(items.length);
-  let cursor = 0;
-  async function worker() {
-    while (cursor < items.length) {
-      const i = cursor++;
-      results[i] = await fn(items[i]!);
-    }
-  }
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
-  return results;
-}
-
-async function fetchPage(url: string): Promise<PageAnalysis | null> {
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': LIVE_USER_AGENT },
-      signal: AbortSignal.timeout(LIVE_TIMEOUT_MS),
-    });
-    if (!res.ok) return null;
-    return analyzeHtml(await res.text(), url);
-  } catch {
-    return null;
-  }
-}
-
 export interface AssetAuditResult {
   findings: Finding[];
   pagesAnalysed: number;
@@ -94,7 +60,7 @@ export async function runAssetAudit(baseUrl: string): Promise<AssetAuditResult> 
   const analyses = await mapWithConcurrency(
     entries.map(e => e.url),
     LIVE_CONCURRENCY,
-    async (url) => ({ url, analysis: await fetchPage(url) })
+    fetchAndAnalyse
   );
 
   // Collect every distinct asset and which pages carry it, so one oversized
@@ -137,6 +103,44 @@ export async function runAssetAudit(baseUrl: string): Promise<AssetAuditResult> 
   );
 
   const findings: Finding[] = [];
+
+  // Pages that could not be read contribute no assets, so their images are
+  // never weighed. Unlike the link graph this does not corrupt the findings
+  // that *were* produced — it just makes them incomplete — so the results
+  // stand and the gap is reported alongside them.
+  const failedPages = analyses.filter(a => !a.analysis).map(a => a.url);
+  if (failedPages.length > 0) {
+    findings.push(makeFinding({
+      scope: 'assetaudit-incomplete',
+      code: 'OPT_ASSET_AUDIT_INCOMPLETE',
+      severity: 'medium',
+      category: 'technical',
+      title: `Could not read ${failedPages.length} of ${entries.length} pages`,
+      detail: `Their images were not weighed, so this run's image findings are incomplete rather ` +
+              `than wrong. Failed: ${failedPages.slice(0, 5).join(', ')}` +
+              `${failedPages.length > 5 ? ` +${failedPages.length - 5} more` : ''}`,
+      evidence: { failed: failedPages.slice(0, 20), total: entries.length },
+      recommendation: 'Usually transient. Re-run to weigh the missing pages.',
+    }));
+  }
+
+  // An asset whose size could not be read is reported, not skipped: silently
+  // dropping it would let an oversized image hide behind a failed HEAD request.
+  const unmeasurable = measured.filter(m => !m.info).map(m => m.assetUrl);
+  if (unmeasurable.length > 0) {
+    findings.push(makeFinding({
+      scope: 'assets-unmeasurable',
+      code: 'OPT_ASSET_SIZE_UNKNOWN',
+      severity: 'low',
+      category: 'technical',
+      title: `${unmeasurable.length} asset(s) did not report a size`,
+      detail: `No Content-Length from a HEAD request, so these could not be weighed and may be ` +
+              `oversized without showing up: ${unmeasurable.slice(0, 5).join(', ')}` +
+              `${unmeasurable.length > 5 ? ` +${unmeasurable.length - 5} more` : ''}`,
+      evidence: { assets: unmeasurable.slice(0, 20) },
+      recommendation: 'Common for third-party CDNs that omit Content-Length. Check them by hand if large.',
+    }));
+  }
 
   for (const { assetUrl, info } of measured) {
     if (!info || info.bytes === 0) continue;

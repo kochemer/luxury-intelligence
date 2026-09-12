@@ -9,8 +9,6 @@
  * itself the most important thing this audit can report.
  */
 
-import fetch from 'node-fetch';
-import { createHash } from 'crypto';
 import { analyzeHtml, type PageAnalysis } from './analyzeHtml';
 import { getIndexableUrls, type IndexableUrlEntry } from '@/lib/seo/urlInventory';
 import {
@@ -18,76 +16,10 @@ import {
   DESCRIPTION_MIN,
   DESCRIPTION_MAX,
   LIVE_CONCURRENCY,
-  LIVE_TIMEOUT_MS,
-  LIVE_USER_AGENT,
 } from '../config';
 import type { Finding, Category } from '../types';
-
-function findingId(code: string, scope: string): string {
-  return `${code}:${createHash('sha1').update(scope).digest('hex').slice(0, 8)}`;
-}
-
-function makeFinding(
-  partial: Omit<Finding, 'id' | 'score' | 'firstSeenWeek' | 'weeksOpen'> & { scope: string }
-): Finding {
-  const { scope, ...rest } = partial;
-  return { ...rest, id: findingId(rest.code, scope), score: 0, firstSeenWeek: '', weeksOpen: 1 };
-}
-
-interface FetchResult {
-  url: string;
-  status: number;
-  /** Final URL after any redirect, when the server sent one. */
-  location: string | null;
-  html: string | null;
-  error: string | null;
-}
-
-async function fetchPage(url: string): Promise<FetchResult> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), LIVE_TIMEOUT_MS);
-  try {
-    const res = await fetch(url, {
-      redirect: 'manual', // a sitemap URL should be final; catch redirects as findings
-      headers: { 'User-Agent': LIVE_USER_AGENT },
-      signal: controller.signal as never,
-    });
-    const isRedirect = res.status >= 300 && res.status < 400;
-    return {
-      url,
-      status: res.status,
-      location: res.headers.get('location'),
-      html: isRedirect ? null : await res.text(),
-      error: null,
-    };
-  } catch (err) {
-    return {
-      url,
-      status: 0,
-      location: null,
-      html: null,
-      error: err instanceof Error ? err.message : String(err),
-    };
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-/** Simple fixed-size worker pool — avoids hammering the site with 50+ parallel requests. */
-async function mapWithConcurrency<T, R>(items: T[], limit: number, fn: (item: T) => Promise<R>): Promise<R[]> {
-  const results: R[] = new Array(items.length);
-  let cursor = 0;
-
-  async function worker() {
-    while (cursor < items.length) {
-      const index = cursor++;
-      results[index] = await fn(items[index]!);
-    }
-  }
-
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
-  return results;
-}
+import { makeFinding } from '../shared/finding';
+import { fetchPage, mapWithConcurrency, type FetchOutcome } from '../shared/fetch';
 
 /**
  * Which schema.org types we expect to be present, by route class.
@@ -99,12 +31,12 @@ async function mapWithConcurrency<T, R>(items: T[], limit: number, fn: (item: T)
  * either would also have worked, but naming the type we actually emit means
  * the check fails loudly if the schema is ever downgraded.
  */
-function expectedJsonLdTypes(entry: IndexableUrlEntry): string[] {
+export function expectedJsonLdTypes(entry: IndexableUrlEntry): string[] {
   if (entry.kind === 'digest') return ['NewsArticle', 'ItemList', 'BreadcrumbList'];
   return [];
 }
 
-function checkPage(entry: IndexableUrlEntry, result: FetchResult, analysis: PageAnalysis | null): Finding[] {
+function checkPage(entry: IndexableUrlEntry, result: FetchOutcome, analysis: PageAnalysis | null): Finding[] {
   const findings: Finding[] = [];
   const url = entry.url;
   const add = (
