@@ -55,6 +55,14 @@ export interface AuditInputs {
   urlsFetched: number;
   llmUsed: boolean;
   /**
+   * Google's own indexing count, when the indexing audit ran. Optional because
+   * only the weekly pass asks Google; the daily and on-demand audits do not.
+   * Stored so next week has something to compare against — the week-over-week
+   * change in indexed pages is the most direct measure of whether crawling is
+   * catching up.
+   */
+  indexing?: { indexed: number; inspected: number };
+  /**
    * Categories this run actually audited. Anything absent is reported as
    * "not checked" rather than scored 100 — a category nobody looked at must
    * never render as a clean bill of health.
@@ -71,6 +79,8 @@ export interface ReportDelta {
   resolvedFindings: string[];
   persistingFindings: string[];
   scoreChange: number;
+  /** Last report's indexing count, carried forward so the change can be shown. */
+  previousIndexing?: { indexed: number; inspected: number };
 }
 
 export interface SeoReport {

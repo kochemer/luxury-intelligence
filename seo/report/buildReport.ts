@@ -142,6 +142,7 @@ export async function buildReport(
       resolvedFindings,
       persistingFindings,
       scoreChange: previous ? overall - previous.score.overall : 0,
+      ...(previous?.inputs.indexing ? { previousIndexing: previous.inputs.indexing } : {}),
     },
   };
 }

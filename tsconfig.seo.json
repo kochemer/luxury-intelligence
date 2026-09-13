@@ -1,0 +1,19 @@
+{
+  // The root tsconfig excludes scripts/, so `tsc --noEmit` never checked the
+  // SEO entry points — a syntax error in scripts/runSeoWeekly.ts passed it.
+  // This covers the SEO system end to end: npm run typecheck:seo
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "incremental": false },
+  "include": [
+    "next-env.d.ts",
+    "seo/**/*.ts",
+    "lib/seo/**/*.ts",
+    "scripts/auditJson.ts",
+    "scripts/pullGsc.ts",
+    "scripts/runIndexingAudit.ts",
+    "scripts/runSeo*.ts",
+    "scripts/setupGscCredentials.ts",
+    "__tests__/seo.*.test.ts"
+  ],
+  "exclude": ["node_modules"]
+}

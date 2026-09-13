@@ -15,9 +15,12 @@
  * unread by Google for 214 days — 42 pages published and never announced —
  * and a reminder would have worked exactly as well as its absence did.
  *
+ * Emails a summary every run — see seo/report/weeklyEmail.ts.
+ *
  * Usage:
  *   npm run seo:weekly
  *   npm run seo:weekly -- --week=2026-W36
+ *   npm run seo:weekly -- --no-email      # local runs while working on it
  */
 
 import { loadEnv } from '../lib/env';
@@ -29,18 +32,21 @@ import { analyseLinkGraph } from '../seo/optimize/linkGraph';
 import { runAssetAudit } from '../seo/optimize/assetAudit';
 import { buildReport } from '../seo/report/buildReport';
 import { writeReport } from '../seo/report/writeReport';
+import { sendWeeklyEmail } from '../seo/report/weeklyEmail';
 import { getCurrentDigestWeek, validateWeekLabel } from '../lib/utils/getCurrentDigestWeek';
 import type { Finding, Category } from '../seo/types';
 
 const CANONICAL_URL = 'https://luxury-intel.com';
 const REPORT_PREFIX = 'weekly';
 
-function parseArgs(): { week: string; baseUrl: string } {
+function parseArgs(): { week: string; baseUrl: string; noEmail: boolean } {
   const args = process.argv.slice(2);
   const week = args.find(a => a.startsWith('--week='))?.split('=')[1] ?? getCurrentDigestWeek();
   validateWeekLabel(week);
   return {
     week,
+    // For local runs while working on the job, so testing it does not email.
+    noEmail: args.includes('--no-email'),
     baseUrl: args.find(a => a.startsWith('--baseUrl='))?.split('=')[1]
       ?? process.env.SEO_BASE_URL
       ?? CANONICAL_URL,
@@ -48,7 +54,7 @@ function parseArgs(): { week: string; baseUrl: string } {
 }
 
 async function main() {
-  const { week, baseUrl } = parseArgs();
+  const { week, baseUrl, noEmail } = parseArgs();
   console.log(`[Weekly] Full SEO pass over ${baseUrl} for ${week}\n`);
 
   // Sequential, not parallel: each of these fetches all 52 pages or queries a
@@ -85,10 +91,19 @@ async function main() {
     ...assets.coveredCategories,
   ]));
 
+  const indexedCount = indexing
+    ? indexing.inspections.filter(i => /submitted and indexed|indexed, not submitted/i.test(i.coverageState)).length
+    : null;
+
   const report = await buildReport(week, baseUrl, findings, {
     ...audit.inputs,
     gscAvailable: indexing !== null,
     coveredCategories,
+    // Stored so next Sunday can show the change — whether Google is catching
+    // up on crawling is the single number most worth watching week to week.
+    ...(indexing && indexedCount !== null
+      ? { indexing: { indexed: indexedCount, inspected: indexing.inspected } }
+      : {}),
   }, REPORT_PREFIX);
 
   const { mdPath } = await writeReport(report, REPORT_PREFIX);
@@ -108,11 +123,8 @@ async function main() {
       .map(s => `${bySeverity.get(s)} ${s}`).join(', ') || 'none'));
   console.log(`[Weekly] ${report.delta.newFindings.length} new, ${report.delta.resolvedFindings.length} resolved`);
 
-  if (indexing) {
-    const indexed = indexing.inspections.filter(
-      i => /submitted and indexed|indexed, not submitted/i.test(i.coverageState)
-    ).length;
-    console.log(`[Weekly] Google indexes ${indexed}/${indexing.inspected} pages`);
+  if (report.inputs.indexing) {
+    console.log(`[Weekly] Google indexes ${report.inputs.indexing.indexed}/${report.inputs.indexing.inspected} pages`);
   } else {
     console.log('[Weekly] ⚠ No Search Console credentials — indexing was NOT checked this run.');
   }
@@ -133,9 +145,39 @@ async function main() {
     }
   }
 
-  // Non-zero only for critical/high, so a report full of opportunities does not
-  // fail a scheduled job. The exit code means "a human should look", not
-  // "something ran badly".
+  // ── Email ───────────────────────────────────────────────────────────────
+  // The weekly summary always sends — it is this job's main output. Links are
+  // built from the variables GitHub Actions provides; locally there are none,
+  // and the email simply omits them.
+  let emailFailed = false;
+  if (noEmail) {
+    console.log('\n[Weekly] ⓘ --no-email set — summary not sent.');
+  } else {
+    const server = process.env.GITHUB_SERVER_URL;
+    const repo = process.env.GITHUB_REPOSITORY;
+    const runId = process.env.GITHUB_RUN_ID;
+
+    const sent = await sendWeeklyEmail({
+      report,
+      reportUrl: server && repo ? `${server}/${repo}/blob/main/data/seo/${REPORT_PREFIX}-${week}.md` : undefined,
+      runUrl: server && repo && runId ? `${server}/${repo}/actions/runs/${runId}` : undefined,
+    });
+
+    if (sent.delivered) {
+      console.log(`\n[Weekly] ✓ Summary emailed (Resend id ${sent.id})`);
+    } else if (sent.skipped === 'no-recipient') {
+      // A legitimate local choice, not a failure.
+      console.log(`\n[Weekly] ⓘ ${sent.error}`);
+    } else {
+      console.error(`\n[Weekly] ✗ Summary NOT delivered: ${sent.error}`);
+      emailFailed = true;
+    }
+  }
+
+  // The email is this job's deliverable, so failing to send it is the job
+  // failing (2) — not the same as "findings worth a look" (1), which is a
+  // normal outcome of a successful run.
+  if (emailFailed) process.exit(2);
   process.exit(actionable.length > 0 ? 1 : 0);
 }
 

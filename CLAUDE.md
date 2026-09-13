@@ -120,7 +120,13 @@ npm run seo:indexing    # what Google reports per page + sitemap health
 npm run seo:optimize    # best-practice opportunities
 npm run seo:repair      # agent fixes a defect, six gates verify it
 npm run seo:recover     # detect an outage, roll production back
+npm run seo:weekly      # full Sunday pass; always emails a summary (--no-email locally)
+npm run typecheck:seo   # tsc over the SEO system — root tsc skips scripts/
 ```
+
+Email: the weekly summary sends **every** Sunday; the daily monitor emails
+**only** when a problem appears or clears. Both use `seo/shared/email.ts` —
+don't call Resend directly (it resolves with `{ error }` instead of throwing).
 
 Four rules that are easy to break by accident:
 
@@ -145,7 +151,8 @@ Backlog and deferred work: `docs/seo-backlog.md`.
 ### Testing
 
 Node.js built-in `node:test`. `npm test` runs `__tests__/**/*.test.ts` —
-the pipeline smoke test plus the SEO suite (`seo.*.test.ts`, ~78 tests).
+the pipeline smoke test plus the SEO suite (`seo.*.test.ts`, ~100 tests,
+including a `tsc` run over the SEO scripts that the root tsconfig excludes).
 Run a single file: `node --test --import tsx __tests__/pipeline.smoke.test.ts`.
 
 The SEO safety tests (`seo.repairPolicy.test.ts`, `seo.authority.test.ts`) are

@@ -1,22 +1,21 @@
 /**
- * Alert delivery for the daily monitor, via the site's existing Resend account.
+ * Daily alert email — sent only when the monitor finds a new problem, or when
+ * a previously-reported one clears.
  *
- * Sending is opt-in (SEO_ALERT_EMAIL must be set) and failure to send is
- * logged rather than thrown: a mail outage must not make the monitor itself
- * look like a site failure.
+ * Healthy days are silent on purpose: an alert channel that also sends "all
+ * fine" gets filtered, and is then worthless on the day it matters. The weekly
+ * summary (seo/report/weeklyEmail.ts) is the always-sends email; this is the
+ * interruption.
+ *
+ * Delivery and its error handling live in seo/shared/email.ts.
  */
 
-import { Resend } from 'resend';
+import { escapeHtml } from '@/lib/digest/renderEmailDigestHtml';
+import { deliverEmail, getEmailConfig, type EmailSender } from '../shared/email';
 import type { MonitorResult } from './runMonitor';
 import type { Finding } from '../types';
 
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
+export type { EmailSender, OutgoingEmail, SendResponse } from '../shared/email';
 
 function renderProblem(f: Finding): string {
   return `
@@ -55,7 +54,7 @@ export function renderAlertHtml(result: MonitorResult): string {
     ${recovered}
     ${result.trafficNote ? `<p style="color:#6B7280;font-size:13px;border-top:1px solid #E5E7EB;padding-top:12px">Search Console: ${escapeHtml(result.trafficNote)}</p>` : ''}
     <p style="color:#9CA3AF;font-size:12px;border-top:1px solid #E5E7EB;padding-top:12px;margin-top:20px">
-      Sent because something changed. Healthy days are silent.
+      Sent because something changed. Healthy days are silent — the weekly summary arrives on Sundays.
     </p>
   </div>`;
 }
@@ -84,46 +83,19 @@ export function renderAlertText(result: MonitorResult): string {
   return lines.join('\n');
 }
 
-/** The minimal shape of an email send, so delivery can be tested without the network. */
-export interface OutgoingEmail {
-  from: string;
-  to: string;
-  subject: string;
-  html: string;
-  text: string;
-}
-
-export interface SendResponse {
-  data?: { id?: string } | null;
-  error?: { message?: string } | null;
-}
-
-export type EmailSender = (email: OutgoingEmail) => Promise<SendResponse>;
-
-function resendSender(apiKey: string): EmailSender {
-  const resend = new Resend(apiKey);
-  return (email) => resend.emails.send(email) as Promise<SendResponse>;
-}
-
 /**
- * `send` is injectable so tests can exercise the real response handling
- * offline. It exists because the first attempt at testing this patched
- * Resend's prototype — and Resend assigns `emails` in its constructor, so the
- * patch made construction throw and three of four tests passed purely because
- * the catch block returned false. Tests that pass for the wrong reason are
- * worse than none.
+ * Send the daily alert. Returns true only when Resend accepted the message.
+ *
+ * `send` is injectable for tests. The first attempt at testing this patched
+ * Resend's prototype; Resend assigns `emails` in its constructor, so the patch
+ * made construction throw and three of four tests passed purely because the
+ * catch returned false.
  */
 export async function sendAlert(result: MonitorResult, send?: EmailSender): Promise<boolean> {
-  const to = process.env.SEO_ALERT_EMAIL?.trim();
-  const from = process.env.EMAIL_FROM?.trim();
-  const apiKey = process.env.RESEND_API_KEY?.trim();
-
-  if (!to) {
-    console.log('[Monitor] ⓘ SEO_ALERT_EMAIL not set — alert not emailed.');
-    return false;
-  }
-  if (!from || !apiKey) {
-    console.warn('[Monitor] ⚠ RESEND_API_KEY or EMAIL_FROM missing — cannot email alert.');
+  const config = getEmailConfig();
+  if (!config.ok) {
+    if (config.reason === 'no-recipient') console.log(`[Monitor] ⓘ ${config.message}`);
+    else console.warn(`[Monitor] ⚠ ${config.message}`);
     return false;
   }
 
@@ -132,38 +104,17 @@ export async function sendAlert(result: MonitorResult, send?: EmailSender): Prom
     ? `✓ Recovered — luxury-intel.com SEO monitor`
     : `⚠ ${result.newProblems.length} new SEO problem(s) — luxury-intel.com`;
 
-  try {
-    const deliver = send ?? resendSender(apiKey);
-    const response = await deliver({
-      from,
-      to,
-      subject,
-      html: renderAlertHtml(result),
-      text: renderAlertText(result),
-    });
+  const outcome = await deliverEmail(
+    { subject, html: renderAlertHtml(result), text: renderAlertText(result) },
+    config.config,
+    send
+  );
 
-    // Resend v4 does NOT throw when it rejects an email — an unverified sender
-    // domain, a bad recipient, an invalid key, a rate limit all come back as
-    // `{ error }` on a resolved promise. An earlier version of this function
-    // awaited the call, ignored the result, and logged "✓ Alert emailed"
-    // regardless. That is the worst failure an alerting system can have: on
-    // the day something breaks, it reports that it told you, and didn't.
-    // scripts/sendWeeklyEmailDigest.ts already handled this correctly.
-    if (response.error) {
-      const message = response.error.message || JSON.stringify(response.error);
-      console.error(`[Monitor] ✗ Resend rejected the alert: ${message}`);
-      return false;
-    }
-    if (!response.data?.id) {
-      console.error('[Monitor] ✗ Resend returned no message id — treating the alert as unsent.');
-      return false;
-    }
-
-    console.log(`[Monitor] ✓ Alert emailed to ${to} (Resend id ${response.data.id})`);
-    return true;
-  } catch (err) {
-    // Never rethrow: a mail failure is not a site failure.
-    console.error('[Monitor] ✗ Failed to send alert:', err instanceof Error ? err.message : err);
+  if (!outcome.delivered) {
+    console.error(`[Monitor] ✗ Alert not delivered: ${outcome.error}`);
     return false;
   }
+
+  console.log(`[Monitor] ✓ Alert emailed to ${config.config.to} (Resend id ${outcome.id})`);
+  return true;
 }

@@ -80,10 +80,38 @@ npm run seo:gsc         # pull + store a Search Console snapshot
 npm run seo:repair      # find breakage, let an agent fix it, verify
 npm run seo:recover     # detect an outage, roll production back
 npm run seo:setup-gsc   # convert a service-account key into env vars
+npm run seo:weekly      # full pass: audit + indexing + links + assets, emails a summary
+npm run typecheck:seo   # type-check the SEO system, scripts/ included
 ```
 
 Every one is safe to run: `seo:repair` and `seo:recover` default to
 preview-only regardless of authority unless authority explicitly grants more.
+Pass `--no-email` to `seo:weekly` when running it locally.
+
+---
+
+## What you receive
+
+Two emails, both to `SEO_ALERT_EMAIL`, with opposite rules:
+
+| Email | Sent by | When | Why that rule |
+|---|---|---|---|
+| **Weekly summary** | `seo-weekly.yml`, Sundays 08:00 UTC | **every week**, even when all is clear | it is the weekly job's deliverable; silence would be indistinguishable from the job not running |
+| **Daily alert** | `seo-monitor.yml`, daily 07:00 UTC | **only** when a problem appears or clears | an alert that also says "still fine" gets filtered, and is then useless on the day it matters |
+
+The weekly summary leads with three numbers rather than the score: **site
+health** (`STATIC_*`/`LIVE_*` findings), **Google indexes N of M** (with the
+change since last week) and **improvement ideas** (`OPT_*`). The score alone
+misleads: a week where the site is spotless but Google has not crawled half of
+it scores 25/100.
+
+Both go through `seo/shared/email.ts`. A send counts as delivered only with no
+error **and** a Resend message id. If either email cannot be delivered, its
+workflow fails (exit 2), so GitHub notifies you instead. A failed daily alert
+also leaves monitor state unchanged, so the next run retries it.
+
+To check alerting end to end: Actions → SEO monitor → Run workflow → tick
+`test_alert`, or locally `npm run seo:monitor -- --test-alert`.
 
 ---
 
@@ -202,6 +230,17 @@ is why `autonomy` also grants `canRevertCommits`.
 **`data/seo/` must stay in the weekly workflow's commit allowlist** or the
 digest pipeline hard-fails on files it did not expect.
 
+**Resend does not throw when it rejects an email.** An unverified domain, bad
+key or rate limit comes back as `{ error }` on a resolved promise. The first
+alert sender ignored that and logged success while nothing arrived. Use
+`deliverEmail()` in `seo/shared/email.ts`; don't call Resend directly.
+
+**`npx tsc --noEmit` does not check `scripts/`.** The root `tsconfig.json`
+excludes it, and `tsx` runs scripts without type-checking. A string broken
+across two lines in `scripts/runSeoWeekly.ts` passed both. `tsconfig.seo.json`
+covers the SEO scripts, and `__tests__/seo.typecheck.test.ts` runs it inside
+`npm test`, so the repair gates cover it too.
+
 **Don't commit `data/seo/monitor-state.json` from a local run.** CI writes and
 commits it after every daily run, so committing a local copy guarantees a
 rebase conflict. It has to stay tracked — transition-based alerting depends on
@@ -221,12 +260,15 @@ run against production, which yours does not.
 | `seo/audit/` | static, live and indexing checks |
 | `seo/optimize/` | best-practice opportunities |
 | `seo/monitor/` | daily breakage detection + alerting |
+| `seo/report/weeklyEmail.ts` | the Sunday summary email |
+| `seo/shared/` | one copy each of finding ids, page fetching, email delivery |
 | `seo/repair/` | the agent, its policy, and the six gates |
 | `seo/recovery/` | outage detection and rollback |
 | `seo/gsc/` | Search Console client, queries, snapshots |
 | `seo/authority.ts` | what the agents may do, plus the guardrail tripwire |
 | `data/seo/` | reports, GSC snapshots, monitor and repair state |
 | `.github/workflows/seo-monitor.yml` | the daily run |
+| `.github/workflows/seo-weekly.yml` | the Sunday run |
 
 ---
 
