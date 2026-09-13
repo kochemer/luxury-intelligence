@@ -9,6 +9,11 @@ on:
     # Sundays it sees the freshly deployed site rather than the old one.
     - cron: '0 7 * * *'
   workflow_dispatch:
+    inputs:
+      test_alert:
+        description: 'Send a test alert email instead of monitoring (verifies delivery end to end)'
+        type: boolean
+        default: false
 
 concurrency:
   group: seo-monitor
@@ -52,7 +57,13 @@ jobs:
           GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
         run: |
           set +e
-          npm run seo:monitor
+          if [ "${{ inputs.test_alert }}" = "true" ]; then
+            # On a healthy site the monitor never sends anything, so silence
+            # proves nothing. This exercises the real delivery path in CI.
+            npm run seo:monitor -- --test-alert
+          else
+            npm run seo:monitor
+          fi
           code=$?
           set -e
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"

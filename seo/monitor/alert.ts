@@ -84,7 +84,36 @@ export function renderAlertText(result: MonitorResult): string {
   return lines.join('\n');
 }
 
-export async function sendAlert(result: MonitorResult): Promise<boolean> {
+/** The minimal shape of an email send, so delivery can be tested without the network. */
+export interface OutgoingEmail {
+  from: string;
+  to: string;
+  subject: string;
+  html: string;
+  text: string;
+}
+
+export interface SendResponse {
+  data?: { id?: string } | null;
+  error?: { message?: string } | null;
+}
+
+export type EmailSender = (email: OutgoingEmail) => Promise<SendResponse>;
+
+function resendSender(apiKey: string): EmailSender {
+  const resend = new Resend(apiKey);
+  return (email) => resend.emails.send(email) as Promise<SendResponse>;
+}
+
+/**
+ * `send` is injectable so tests can exercise the real response handling
+ * offline. It exists because the first attempt at testing this patched
+ * Resend's prototype — and Resend assigns `emails` in its constructor, so the
+ * patch made construction throw and three of four tests passed purely because
+ * the catch block returned false. Tests that pass for the wrong reason are
+ * worse than none.
+ */
+export async function sendAlert(result: MonitorResult, send?: EmailSender): Promise<boolean> {
   const to = process.env.SEO_ALERT_EMAIL?.trim();
   const from = process.env.EMAIL_FROM?.trim();
   const apiKey = process.env.RESEND_API_KEY?.trim();
@@ -104,15 +133,33 @@ export async function sendAlert(result: MonitorResult): Promise<boolean> {
     : `⚠ ${result.newProblems.length} new SEO problem(s) — luxury-intel.com`;
 
   try {
-    const resend = new Resend(apiKey);
-    await resend.emails.send({
+    const deliver = send ?? resendSender(apiKey);
+    const response = await deliver({
       from,
       to,
       subject,
       html: renderAlertHtml(result),
       text: renderAlertText(result),
     });
-    console.log(`[Monitor] ✓ Alert emailed to ${to}`);
+
+    // Resend v4 does NOT throw when it rejects an email — an unverified sender
+    // domain, a bad recipient, an invalid key, a rate limit all come back as
+    // `{ error }` on a resolved promise. An earlier version of this function
+    // awaited the call, ignored the result, and logged "✓ Alert emailed"
+    // regardless. That is the worst failure an alerting system can have: on
+    // the day something breaks, it reports that it told you, and didn't.
+    // scripts/sendWeeklyEmailDigest.ts already handled this correctly.
+    if (response.error) {
+      const message = response.error.message || JSON.stringify(response.error);
+      console.error(`[Monitor] ✗ Resend rejected the alert: ${message}`);
+      return false;
+    }
+    if (!response.data?.id) {
+      console.error('[Monitor] ✗ Resend returned no message id — treating the alert as unsent.');
+      return false;
+    }
+
+    console.log(`[Monitor] ✓ Alert emailed to ${to} (Resend id ${response.data.id})`);
     return true;
   } catch (err) {
     // Never rethrow: a mail failure is not a site failure.
