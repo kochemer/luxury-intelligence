@@ -109,6 +109,22 @@ After the workflow completes, verify:
 
 ---
 
+## GitHub Actions: SEO workflows
+
+Two more workflows run independently of the digest build. They cannot block it.
+
+| Workflow | Schedule (UTC) | Does |
+|---|---|---|
+| `.github/workflows/seo-monitor.yml` | daily 07:00 | Checks production for breakage. Emails only when a problem appears or clears. Commits `data/seo/monitor-state.json`. |
+| `.github/workflows/seo-weekly.yml` | Sunday 08:00 | Full audit plus Google indexing, links and image weight. **Always** emails a summary. Commits `data/seo/weekly-*`. |
+
+GitHub often starts scheduled runs hours late (4–5 h observed). Both workflows
+fail (red) only when the job itself breaks or an email could not be delivered.
+Secrets, authority settings and current state:
+[seo-status.md](seo-status.md). Architecture: [seo-system.md](seo-system.md).
+
+---
+
 ## GitHub Actions: Weekly Digest Build
 
 The repository includes a GitHub Actions workflow that automatically builds the weekly digest every Sunday and commits the results.

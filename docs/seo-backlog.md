@@ -1,6 +1,8 @@
 # SEO / GEO / AEO backlog
 
 Not scheduled. Ordered by expected value, with the honest caveats attached.
+Current numbers and what to check first are in [seo-status.md](seo-status.md).
+The reasoning behind what was already built is in [seo-decisions.md](seo-decisions.md).
 
 ---
 
@@ -128,16 +130,16 @@ own sake.**
 
 ### 8. The four "Crawled – currently not indexed" pages
 
-`/es/about`, `/da/methodology`, and two digests. Google saw them and declined.
+`/es/about`, `/da/methodology`, `/digest/february-2026-week-6` and
+`/digest/june-2026-week-24` (as of 2026-09-13). Google saw them and declined.
 Usually means thin or duplicative content — the locale pages are thin
 translations of English pages, which is likely the real answer. **Investigate
 before acting: the fix might legitimately be to noindex them.**
 
-### 9. Wire the optimiser into a cadence
+### 9. ~~Wire the optimiser into a cadence~~ — done 2026-09-12
 
-`npm run seo:optimize` is manual. It currently reports one info-level
-opportunity, so there is nothing to react to — worth scheduling only once it
-has something to say.
+The link graph and image-weight audits now run in the Sunday pass
+(`seo-weekly.yml`), and their findings appear in the weekly email.
 
 ### 10. The measurement loop (deferred, and correctly so)
 
@@ -149,6 +151,52 @@ code.
 a page's CTR by more than any real improvement would, so the loop would
 confidently report noise. Building it now would produce a precise instrument
 for a signal that is not there.
+
+---
+
+## Finishing the autonomous system
+
+Found while documenting on 2026-09-13. Built, but not yet able to act
+unattended. Details in [seo-status.md](seo-status.md#what-is-running-and-what-only-looks-like-it-is).
+
+### 11. Make repair and recovery work in CI
+
+Install Claude Code and the Vercel CLI in `seo-monitor.yml`. Add a
+`VERCEL_TOKEN` secret (the owner creates it). Give repair `GH_TOKEN` and
+`pull-requests: write`. Commit the repair ledger and spend files. Stop
+`abandon()` resetting `data/seo/`. Email recovery outcomes. Rehearse with a
+deliberate breakage on a branch.
+
+**Why first:** until then, "self-fixing" means "self-reporting". **Effort:**
+medium, and `.github/` is human-only by policy.
+
+### 12. Decide what `autonomy` means for merges
+
+The grant exists in `seo/authority.ts`, but nothing implements it. Either
+implement merge-after-six-gates, or remove the grant so the level doesn't
+promise something it can't do. **Effort:** small, but a real decision about
+unreviewed changes reaching production.
+
+### 13. Repairable-code contract test
+
+`REPAIRABLE_CODES` has drifted: it lists `LIVE_JSONLD_MISSING_ARTICLE` (the
+check now emits `…_NEWSARTICLE`) and `STATIC_SITEMAP_URL_MISMATCH` (emitted by
+nothing). Correct the list and add a test that every repairable code is emitted
+by some check. **Effort:** small. Touches the policy file, so review it.
+
+### 14. Quiet the favicon noise in the image audit
+
+56 of the "not responsive" images are Google's 32px favicon service, which
+also sends no `Content-Length`. Exempt images under ~64px and that host.
+**Effort:** small.
+
+### 15. The optimiser agent
+
+An agent that acts on `OPT_*` improvement ideas the way repair acts on
+defects. Deliberately not built: this week there are 3 low/info ideas, two of
+them noise (#14), and demand is the real constraint. **Revisit** when the
+weekly email regularly shows ideas worth acting on, and after #10 exists to
+tell whether a change helped.
 
 ---
 

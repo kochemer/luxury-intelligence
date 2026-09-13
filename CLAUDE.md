@@ -146,7 +146,20 @@ Four rules that are easy to break by accident:
 Structured data is built in `lib/seo/jsonLd.ts` as one `@id`-anchored entity
 graph — don't re-declare `Organization` or `Person` in a page.
 
-Backlog and deferred work: `docs/seo-backlog.md`.
+SEO docs, by purpose:
+
+| Doc | For |
+|---|---|
+| `docs/seo-system.md` | architecture — read first |
+| `docs/seo-status.md` | **resuming work**: baseline numbers (13 Sep 2026), what is live vs. only built, open decisions, a decision guide |
+| `docs/seo-decisions.md` | why each design choice was made and what was rejected — check before undoing something odd |
+| `docs/seo-backlog.md` | unscheduled ideas and the remaining work to make repair/recovery act unattended |
+
+When resuming SEO work, start with the checklist in `docs/seo-status.md`. As of
+2026-09-13 detection and email are live in CI. Repair and rollback are built
+but **cannot act in CI yet** (no Claude Code / Vercel CLI in the workflow, no
+`VERCEL_TOKEN`, ledgers not persisted). Don't assume they have been fixing
+things.
 
 ### Testing
 

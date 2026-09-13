@@ -7,6 +7,13 @@ Almost all of it is ordinary deterministic TypeScript. Exactly one component
 uses an LLM. That division is deliberate and explained under
 [Why so little of this is AI](#why-so-little-of-this-is-ai).
 
+| Doc | Read it for |
+|---|---|
+| this file | how the system works |
+| [seo-status.md](seo-status.md) | current numbers, what is live vs. built, how to pick back up |
+| [seo-decisions.md](seo-decisions.md) | why it is built this way, and what was rejected |
+| [seo-backlog.md](seo-backlog.md) | ideas not scheduled |
+
 ---
 
 ## The shape of it
@@ -26,7 +33,7 @@ uses an LLM. That division is deliberate and explained under
 └───────┬───────┘           └────────┬─────────┘          └─────────┬──────────┘
         │                            │                              │
         │      ┌─────────────────────┴──────┐                       │
-        │      │ optimize/linkGraph         │                       │
+        │      │ optimize/linkGraph+assets  │                       │
         │      │ opportunities, not defects │                       │
         │      └─────────────┬──────────────┘                       │
         └────────────────────┴──────────────┬────────────────────────┘
@@ -38,7 +45,8 @@ uses an LLM. That division is deliberate and explained under
      ┌─────────────────┐          ┌──────────────────┐          ┌──────────────────┐
      │ report/         │          │ monitor/         │          │ repair/          │
      │ scored markdown │          │ daily, alerts on │          │ LLM writes a fix,│
-     │ + WoW delta     │          │ *changes* only   │          │ 6 gates decide   │
+     │ + WoW delta,    │          │ *changes* only   │          │ 6 gates decide   │
+     │ Sunday email    │          │                  │          │                  │
      └─────────────────┘          └────────┬─────────┘          └──────────────────┘
                                            │
                                            ▼
@@ -130,6 +138,16 @@ rarely the moment you want to be editing code.
 
 Levels are ordered by how hard the action is to undo, and are additive.
 
+Two caveats, both detailed in [seo-status.md](seo-status.md):
+
+- **The `autonomy` merge grant is declared but not implemented.** Repair opens
+  a PR at every level above `observe`. Rollback and commit reverts do read
+  their grants.
+- **A grant is not the same as being able to act in CI.** As of 2026-09-13 the
+  monitor workflow doesn't install Claude Code or the Vercel CLI and has no
+  `VERCEL_TOKEN`. At `recover` (the current level) repair and rollback would
+  trigger but fail to act.
+
 ### Guardrails, which are not part of authority
 
 `assertGuardrails()` runs before any agent does anything and **throws** if the
@@ -172,6 +190,22 @@ Gate 6 matters as much as gate 5: a fix that resolves one problem while
 creating two others is worse than the defect. Gates 5 and 6 re-audit in a
 **subprocess**, because Node caches modules and an in-process re-audit would
 keep running the code as it was before the agent edited it.
+
+### Cost controls
+
+`seo/config.ts` and `seo/repair/spend.ts`.
+
+| Control | Value | Enforced by |
+|---|---|---|
+| Model | `sonnet` | `--model` flag |
+| Per run | $2 | the Claude CLI (`--max-budget-usd`), so it holds even if this repo has a bug |
+| Rolling 30 days | $15 | `checkBudget()` before invoking, from `data/seo/repair-spend.json` |
+| Repairs per run | 1 | `MAX_REPAIRS_PER_RUN` |
+| Attempts per finding | 2, then escalate to a human | circuit breaker in `data/seo/repair-ledger.json` |
+
+The 30-day cap and the circuit breaker rely on those two JSON files persisting
+between runs. The monitor workflow doesn't commit them yet, so in CI only the
+per-run cap currently holds. An Anthropic Console spend limit is the backstop.
 
 ---
 
