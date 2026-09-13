@@ -130,5 +130,11 @@
     "cached_at": "2026-09-06T17:32:05.345Z",
     "model": "gpt-4.1-mini",
     "version": "1.1"
+  },
+  "2026-W37:3d7331d7c290": {
+    "editorialTake": "Oracle’s 30% revenue jump driven by AI cloud demand is a clear signal that legacy tech giants can still rewrite the playbook on growth. They are not just chasing AI hype but monetizing infrastructure at scale, with data centre revenues surging alongside. This shows that the AI race isn’t just about flashy models but about who controls the cloud backbone powering those models.\n\nAmazon making it easier to buy what you see on Prime Video highlights a subtle but powerful shift: content is becoming direct commerce. This isn’t just about convenience; it’s about turning passive viewers into active buyers within the same experience. The real question is whether Amazon can crack the code on seamless identity-driven transactions without fueling the very cyber threats that AI is now supercharging in retail.",
+    "cached_at": "2026-09-13T11:47:17.624Z",
+    "model": "gpt-4.1-mini",
+    "version": "1.1"
   }
 }

@@ -1,0 +1,39 @@
+{
+  "weekLabel": "2026-W37",
+  "baseQueriesHash": "63318d085715ddc1",
+  "deltaQueries": {
+    "Artificial Intelligence News": [
+      "Nvidia acquisition impact on Hugging Face AI platform development",
+      "strategies to mitigate AI model fatigue in rapid AI version releases",
+      "innovations in AI memory and storage architecture for enterprise solutions",
+      "AI-powered marketing tactics used by Target for seasonal retail campaigns",
+      "emerging AI ecommerce tools enhancing customer shopping experiences",
+      "central bank collaborations on AI-driven instant payment systems"
+    ],
+    "Ecommerce & Retail Tech": [
+      "impact of Nvidia's Hugging Face acquisition on AI-driven ecommerce tools",
+      "use of AI for retail seasonal marketing campaigns like back-to-school promotions",
+      "integration of instant payment link systems such as Brazil’s Pix in ecommerce platforms",
+      "emerging conversational shopping technologies and readiness strategies for retailers",
+      "affordable luxury product trends influencing department store ecommerce strategies",
+      "retail industry response and innovation strategies to model fatigue in AI development"
+    ],
+    "Fashion & Luxury": [
+      "impact of AI-driven conversational shopping on luxury brand customer engagement",
+      "analysis of affordable luxury growth in major department stores",
+      "strategies luxury fashion retailers are using to address model fatigue",
+      "case studies on luxury brands integrating instant payment solutions like Pix",
+      "retail readiness tips for luxury brands adopting new ecommerce tools",
+      "market implications of Lovisa reaching $1 billion revenue milestone"
+    ],
+    "Jewellery Industry": [
+      "impact of AI-driven design tools on luxury jewelry brand collections",
+      "recent partnerships between jewelry retailers and conversational AI platforms",
+      "emerging trends in affordable luxury jewelry lines at department stores",
+      "Lovisa's growth strategies and market milestones in the jewelry retail sector",
+      "use of instant payment technologies like Pix in jewelry ecommerce transactions",
+      "advancements in AI-powered customer engagement for fine jewelry brands"
+    ]
+  },
+  "generatedAt": "2026-09-13T11:32:06.749Z"
+}

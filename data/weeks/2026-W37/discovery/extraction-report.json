@@ -1,0 +1,48 @@
+{
+  "byTopic": {
+    "AI_and_Strategy": {
+      "fetched_ok": 24,
+      "extracted_ok": 35,
+      "excluded": {
+        "nonEnglish": 1,
+        "tooShort": 0,
+        "notArticle": 2,
+        "paywalled": 0,
+        "notLikelyArticle": 11
+      }
+    },
+    "Ecommerce_Retail_Tech": {
+      "fetched_ok": 14,
+      "extracted_ok": 19,
+      "excluded": {
+        "nonEnglish": 0,
+        "tooShort": 0,
+        "notArticle": 3,
+        "paywalled": 0,
+        "notLikelyArticle": 13
+      }
+    },
+    "Luxury_and_Consumer": {
+      "fetched_ok": 6,
+      "extracted_ok": 14,
+      "excluded": {
+        "nonEnglish": 0,
+        "tooShort": 0,
+        "notArticle": 2,
+        "paywalled": 0,
+        "notLikelyArticle": 18
+      }
+    },
+    "Jewellery_Industry": {
+      "fetched_ok": 8,
+      "extracted_ok": 5,
+      "excluded": {
+        "nonEnglish": 3,
+        "tooShort": 0,
+        "notArticle": 1,
+        "paywalled": 0,
+        "notLikelyArticle": 13
+      }
+    }
+  }
+}

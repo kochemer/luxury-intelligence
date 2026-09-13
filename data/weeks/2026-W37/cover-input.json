@@ -1,0 +1,28 @@
+{
+  "weekLabel": "2026-W37",
+  "homepageTopArticles": [
+    {
+      "title": "Amazon makes it easier to buy what you see on Prime Video",
+      "source": "TechCrunch - Commerce",
+      "snippet": "Amazon is expanding shopping integrations across Prime Video, letting viewers discover products tied to thousands of shows, movies, and live sports through X-Ray, its shopping app, and a new Lens-powered “Shop the Scene” feature.",
+      "aiSummary": "AI-generated summary: Amazon is enhancing its Prime Video shopping experience by integrating features like X-Ray, a shopping app, and a new Lens-powered “Shop the Scene” tool, enabling viewers to easily discover and purchase products featured in thousands of shows, movies, and live sports."
+    },
+    {
+      "title": "AI is Supercharging Identity-Driven Cyber Threats in Retail",
+      "source": "Total Retail",
+      "snippet": "When retail executives think about cybersecurity, minds jump to classic nightmare scenarios: blacked-out register screens during peak holiday shopping, supply chain halts at distribution centers, or encrypted point-of-sale (POS) databases. But retail’s threat landscape has fundamentally evolved. According to IBM, the average cost of a data breach in the retail industry rose to $3.8 million […]",
+      "aiSummary": "AI-generated summary: The retail industry's cybersecurity threats have evolved beyond traditional concerns like POS disruptions and supply chain halts, with data breaches becoming increasingly costly, averaging $3.8 million according to IBM."
+    },
+    {
+      "title": "Alex and Ani & Lionsgate Launch The Hunger Games – Inspired Jewelry Collection",
+      "source": "Instore Magazine",
+      "snippet": "Inspired by the symbols that united a movement, the collection features designs that speak to the enduring themes of the series.",
+      "aiSummary": "AI-generated summary: Alex and Ani and Lionsgate have launched a Hunger Games-inspired jewelry collection featuring designs that reflect the enduring themes and unifying symbols of the series."
+    }
+  ],
+  "model": "gpt-image-1",
+  "finalPrompt": "Photograph: On a supermarket checkout belt, a toy wire shopping cart holds a gold watch and a TV remote. Next to it, a tangled necklace with a small Hunger Games-style pin rests on the belt. A small mirror behind the cart reflects the back of the remote, showing a subtle TechCrunch sticker. At the belt’s edge, a grocery bag with a tiny Total Retail logo is partly visible. The lighting is bright and natural, objects arranged in one line.\n\nCRITICAL CONSTRAINTS (must be strictly avoided):\n- text, letters, numbers, signage, labels, price tags, screens, UI, dashboards, holograms, floating icons, watermarks, unrelated brand logos, cartoon, illustration, CGI, 3D render, anime, diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone, dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh\n\nThis must look like a real photograph taken by a human — not AI-generated, not CGI, not a 3D render. Natural light. Real objects. Real imperfections. Fill the entire frame edge to edge with the scene — no black bars, no empty space at the edges.\n\nDo not include: text, labels, signage, screens, UI, logos unrelated to the scene, diamonds, gemstones, CGI lighting, dramatic spotlights, or blurred vignette backgrounds.",
+  "imageSize": "1536x1024",
+  "outputPath": "/weekly-images/2026-W37.png",
+  "generatedAt": "2026-09-13T11:49:32.879Z"
+}

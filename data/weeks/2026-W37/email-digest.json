@@ -1,0 +1,95 @@
+{
+  "week": "2026-W37",
+  "generatedAt": "2026-09-13T11:47:39.041Z",
+  "intro": "This week’s intelligence digest highlights key developments at the intersection of retail, luxury, and AI, including Amazon’s enhanced shopping integration on Prime Video and Dr. Martens’ strategic hire from Burberry. Additionally, Oracle’s strong AI-driven cloud growth contrasts with rising debt, while emerging AI advancements are reshaping identity-driven cyber threats and ecommerce tools.",
+  "readOneThing": {
+    "title": "Amazon makes it easier to buy what you see on Prime Video",
+    "url": "https://techcrunch.com/2026/09/10/amazon-makes-it-easier-to-buy-what-you-see-on-prime-video/"
+  },
+  "items": [
+    {
+      "rank": 1,
+      "title": "Amazon makes it easier to buy what you see on Prime Video",
+      "url": "https://techcrunch.com/2026/09/10/amazon-makes-it-easier-to-buy-what-you-see-on-prime-video/",
+      "source": "TechCrunch - Commerce",
+      "bullets": [
+        "Amazon announced new features integrating shopping options into Prime Video through the X-Ray experience and Amazon Lens technology, enhancing product discovery while watching content.",
+        "The Shop the Scene feature, available on iOS and Android in the U.S., currently works with more than 600 titles and uses visual search to identify products inspired by scenes.",
+        "Amazon's Shop the Show feature is expanding its catalog from 1,300 to over 8,000 titles, including Prime Originals, licensed favorites, and live sports events in the U.S."
+      ],
+      "summary": "AI-generated summary: Amazon is enhancing its Prime Video shopping experience by integrating features like X-Ray, a shopping app, and a new Lens-powered “Shop the Scene” tool, enabling viewers to easily discover and purchase products featured in thousands of shows, movies, and live sports."
+    },
+    {
+      "rank": 2,
+      "title": "Hands-On: Chronoswiss PULSE GMT Silver Guilloché  Offers A Fresh Take On The Travel Watch ",
+      "url": "https://www.ablogtowatch.com/hands-on-chronoswiss-pulse-gmt-silver-guilloche-offers-a-fresh-take-on-the-travel-watch/",
+      "source": "A Blog to Watch",
+      "bullets": [
+        "Chronoswiss expanded its PULSE collection in 2026 with the PULSE GMT Silver Guilloché, a limited edition travel watch crafted from grade 5 titanium.",
+        "The PULSE GMT Silver Guilloché features a 41mm case, 100 meters water resistance, and a manufacture Caliber C.6002 automatic movement with a 55-hour power reserve.",
+        "The PULSE GMT models, including the Silver Guilloché and two 18k gold versions, were unveiled at Watches & Wonders 2026 and are all produced in limited quantities."
+      ],
+      "summary": "AI-generated summary: Chronoswiss's PULSE GMT Silver Guilloché, part of the PULSE collection launched in 2025, presents a fresh approach to travel watches by moving away from traditional 1970s Genta-inspired designs. This release marks a notable innovation for the Swiss brand within the jewellery industry."
+    },
+    {
+      "rank": 3,
+      "title": "Oracle posts 30% revenue growth fueled by AI cloud demand as debts hits $125 billion",
+      "url": "https://www.cnbc.com/2026/09/11/oracle-stock-q1-earnings-ai-cloud.html",
+      "source": "CNBC Technology",
+      "bullets": [
+        "Oracle's fiscal first-quarter revenue increased by 30% to $19.35 billion, driven by strong demand for cloud infrastructure services.",
+        "The company reported a 121% rise in cloud infrastructure revenue and a net income increase of 60% to $4.7 billion year-over-year.",
+        "Oracle has accumulated $125 billion in debt to fund its AI data center expansion, delivering 850 megawatts of new capacity and securing over $30 billion in AI cloud contracts."
+      ],
+      "summary": "AI-generated summary: Oracle reported a 30% overall revenue growth driven by strong demand for AI cloud services, with its cloud infrastructure revenue increasing 121% year-over-year, despite carrying $125 billion in debt."
+    },
+    {
+      "rank": 4,
+      "title": "Dr Martens hires ex-Burberry VP as global customer director",
+      "url": "https://www.drapersonline.com/news/dr-martens-hires-ex-burberry-vp-as-global-customer-director",
+      "source": "Drapers",
+      "bullets": [
+        "Katie Morton will join Dr Martens as global customer director on 26 October, reporting to chief brand officer Carla Murphy.",
+        "Morton brings 17 years of experience from Burberry, including roles as global vice president for online to offline and digital commerce director.",
+        "Her appointment follows recent leadership hires of Isadora Versiani as global product design director and Nadia Svensson as global merchandising and product director."
+      ],
+      "summary": "AI-generated summary: Dr Martens has appointed Katie Morton, former Burberry global vice president for online to offline, as its new global customer director amid several recent leadership changes. This move reflects the brand's ongoing focus on product and customer strategy."
+    },
+    {
+      "rank": 5,
+      "title": "AI is Supercharging Identity-Driven Cyber Threats in Retail",
+      "url": "https://www.mytotalretail.com/article/ai-is-supercharging-identity-driven-cyber-threats-in-retail/",
+      "source": "Total Retail",
+      "bullets": [
+        "AI is accelerating identity-driven cyberattacks in retail by enabling faster, cheaper, and more convincing impersonation tactics such as voice phishing and real-time voice cloning.",
+        "The average cost of a data breach in retail increased to $3.8 million in 2026, with voice and SMS phishing causing the highest average breach cost of $5.29 million.",
+        "Retailers face unique identity challenges due to seasonal hiring and high turnover, which attackers exploit by targeting single sign-on portals and cloud management platforms to access sensitive customer data."
+      ],
+      "summary": "AI-generated summary: The retail industry's cybersecurity threats have evolved beyond traditional concerns like POS disruptions and supply chain halts, with data breaches becoming increasingly costly, averaging $3.8 million according to IBM."
+    },
+    {
+      "rank": 6,
+      "title": "Anthropic details distillation campaigns from Alibaba, Moonshot AI, and DeepSeek",
+      "url": "https://techcrunch.com/2026/09/10/anthropic-details-distillation-campaigns-from-alibaba-moonshot-ai-and-deepseek/",
+      "source": "TechCrunch - AI",
+      "bullets": [
+        "Anthropic released a report detailing sophisticated distillation attacks by China-based AI companies targeting its Claude models' capabilities.",
+        "The largest campaign, attributed to Alibaba, involved 151 million exchanges between May and July 2026 using a fixed prompt to extract chain-of-thought data.",
+        "Moonshot AI's campaign, linked to the Chinese military, routed nearly 300,000 requests over 10 days to Anthropic's Opus model for surveillance analysis tasks."
+      ],
+      "summary": "AI-generated summary: A report from Anthropic, detailed by TechCrunch on September 10, 2026, alleges ongoing distillation attacks by China-based AI firms Alibaba, Moonshot AI, and DeepSeek, highlighting increased activity amid growing competition in the AI sector."
+    },
+    {
+      "rank": 7,
+      "title": "New Ecommerce Tools: September 8, 2026",
+      "url": "https://www.practicalecommerce.com/new-ecommerce-tools-september-8-2026",
+      "source": "Practical Ecommerce",
+      "bullets": [
+        "Juspay launched Breeze Universal, an AI discovery tool that connects brand product catalogs across platforms like Shopify and WooCommerce to AI and marketplace surfaces.",
+        "AfterShip introduced Intelligence, an AI agent that automates post-purchase tracking and returns by proactively identifying shipment issues and recommending resolutions.",
+        "Flexport expanded its fulfillment services to Mississauga, Canada, and Manchester, England, allowing brands to store inventory and fulfill orders locally with customs clearance included."
+      ],
+      "summary": "AI-generated summary: The article from Practical Ecommerce dated September 8, 2026, highlights new ecommerce tools and services focused on payments, agentic commerce, AI visibility, product customization, omnichannel fulfillment, dropshipping, email marketing, and enhancing customer experiences."
+    }
+  ]
+}

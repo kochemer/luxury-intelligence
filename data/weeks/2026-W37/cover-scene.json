@@ -1,0 +1,16 @@
+{
+  "concept": "tv-remote-gold-watch-shopping-cart-reveal",
+  "primaryHumorDriver": "fish-out-of-water",
+  "secondaryEnhancer": "mirror/reflection reveal",
+  "sceneDescription": "On a supermarket checkout belt, an elegant gold watch is nestled inside a wire shopping cart toy, flanked by a TV remote and a tangled necklace with a subtle Hunger Games pin. A small mirror behind the items reflects the remote's back, where a faint TechCrunch sticker peeks out. A grocery bag with a discreet Total Retail logo sits at the belt's edge. The everyday items and luxury jewelry together create a playful, realistic mashup.",
+  "finalImagePrompt": "On a supermarket checkout belt, a toy wire shopping cart holds a gold watch and a TV remote. Next to it, a tangled necklace with a small Hunger Games-style pin rests on the belt. A small mirror behind the cart reflects the back of the remote, showing a subtle TechCrunch sticker. At the belt’s edge, a grocery bag with a tiny Total Retail logo is partly visible. The lighting is bright and natural, objects arranged in one line.",
+  "negativePrompt": [
+    "text, letters, numbers, signage, labels, price tags",
+    "screens, UI, dashboards, holograms, floating icons",
+    "watermarks, unrelated brand logos",
+    "cartoon, illustration, CGI, 3D render, anime",
+    "diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone",
+    "dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh"
+  ],
+  "confidence": 0.78
+}

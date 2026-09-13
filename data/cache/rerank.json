@@ -4894,5 +4894,149 @@
     ],
     "cached_at": "2026-09-06T17:31:12.779Z",
     "model": "gpt-4.1-mini"
+  },
+  "2026-W37:AI_and_Strategy:ac42b242934c": {
+    "selected": [
+      {
+        "id": "10",
+        "rank": 1,
+        "why": "Oracle's 30% revenue growth driven by AI cloud demand highlights AI economics",
+        "confidence": 0.95
+      },
+      {
+        "id": "11",
+        "rank": 2,
+        "why": "Financial Times reports Oracle's AI infrastructure strategy accelerating sales growth",
+        "confidence": 0.9
+      },
+      {
+        "id": "16",
+        "rank": 3,
+        "why": "Anthropic details distillation attacks impacting AI model security and governance",
+        "confidence": 0.9
+      },
+      {
+        "id": "5",
+        "rank": 4,
+        "why": "Moonshot AI targets $2B revenue, signaling major AI industry economic move",
+        "confidence": 0.85
+      },
+      {
+        "id": "9",
+        "rank": 5,
+        "why": "NVIDIA uses Palantir AI tools to optimize hardware supply chain allocation",
+        "confidence": 0.85
+      },
+      {
+        "id": "14",
+        "rank": 6,
+        "why": "Bloomberg interview on AI agents testing human control limits highlights policy impact",
+        "confidence": 0.8
+      },
+      {
+        "id": "15",
+        "rank": 7,
+        "why": "TechCrunch reports AI agents flooding public services, showing agentic AI scale",
+        "confidence": 0.8
+      }
+    ],
+    "cached_at": "2026-09-13T11:45:43.892Z",
+    "model": "gpt-4.1-mini"
+  },
+  "2026-W37:Ecommerce_Retail_Tech:c631783eb5c3": {
+    "selected": [
+      {
+        "id": "16",
+        "rank": 1,
+        "why": "Amazon expands shopping integration on Prime Video, broad impact",
+        "confidence": 0.95
+      },
+      {
+        "id": "5",
+        "rank": 2,
+        "why": "AI-driven identity fraud threats in retail cybersecurity detailed",
+        "confidence": 0.9
+      },
+      {
+        "id": "3",
+        "rank": 3,
+        "why": "E-PAQ GO reduces cart abandonment with delivery innovations",
+        "confidence": 0.88
+      },
+      {
+        "id": "13",
+        "rank": 4,
+        "why": "Rise of on-demand retail across Europe with data insights",
+        "confidence": 0.87
+      },
+      {
+        "id": "0",
+        "rank": 5,
+        "why": "New ecommerce tools for payments and AI visibility introduced",
+        "confidence": 0.85
+      },
+      {
+        "id": "6",
+        "rank": 6,
+        "why": "Back-to-school shopping insights reveal commerce media success",
+        "confidence": 0.83
+      },
+      {
+        "id": "10",
+        "rank": 7,
+        "why": "Sales velocity as inventory risk indicator with practical data",
+        "confidence": 0.82
+      }
+    ],
+    "cached_at": "2026-09-13T11:46:13.861Z",
+    "model": "gpt-4.1-mini"
+  },
+  "2026-W37:Luxury_and_Consumer:4b883d24795d": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "In-store digital ad screens enhance customer engagement and CX",
+        "confidence": 0.95
+      },
+      {
+        "id": "17",
+        "rank": 2,
+        "why": "Dr Martens hires global customer director to strengthen CRM strategy",
+        "confidence": 0.9
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "UK fashion hotspots guide informs strategic store location decisions",
+        "confidence": 0.9
+      },
+      {
+        "id": "16",
+        "rank": 4,
+        "why": "Xirena’s first store opening case study for retail expansion",
+        "confidence": 0.8
+      },
+      {
+        "id": "3",
+        "rank": 5,
+        "why": "MuseSelect’s commission model reshapes creator-driven commerce channels",
+        "confidence": 0.8
+      },
+      {
+        "id": "12",
+        "rank": 6,
+        "why": "Mytheresa’s NYC campaign shows curated content for conversion",
+        "confidence": 0.75
+      },
+      {
+        "id": "5",
+        "rank": 7,
+        "why": "Analysis of Hermès pricing ceiling offers margin management insights",
+        "confidence": 0.7
+      }
+    ],
+    "cached_at": "2026-09-13T11:46:31.569Z",
+    "model": "o4-mini"
   }
 }

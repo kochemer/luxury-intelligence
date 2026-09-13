@@ -1,0 +1,85 @@
+{
+  "digestWeek": "2026-W37",
+  "ingestionWeek": "2026-W37",
+  "startedAt": "2026-09-13T11:31:36.933Z",
+  "finishedAt": "2026-09-13T11:49:46.496Z",
+  "steps": [
+    {
+      "name": "rss",
+      "ok": true,
+      "startedAt": "2026-09-13T11:31:36.951Z",
+      "finishedAt": "2026-09-13T11:31:56.687Z"
+    },
+    {
+      "name": "pages",
+      "ok": true,
+      "startedAt": "2026-09-13T11:31:56.687Z",
+      "finishedAt": "2026-09-13T11:31:58.819Z"
+    },
+    {
+      "name": "discovery",
+      "ok": true,
+      "startedAt": "2026-09-13T11:31:58.820Z",
+      "finishedAt": "2026-09-13T11:45:13.779Z"
+    },
+    {
+      "name": "classification",
+      "ok": true,
+      "startedAt": "2026-09-13T11:45:13.779Z",
+      "finishedAt": "2026-09-13T11:45:13.923Z"
+    },
+    {
+      "name": "digest",
+      "ok": true,
+      "startedAt": "2026-09-13T11:45:13.923Z",
+      "finishedAt": "2026-09-13T11:47:17.627Z"
+    },
+    {
+      "name": "email",
+      "ok": true,
+      "startedAt": "2026-09-13T11:47:17.627Z",
+      "finishedAt": "2026-09-13T11:47:39.041Z"
+    },
+    {
+      "name": "podcast",
+      "ok": true,
+      "startedAt": "2026-09-13T11:47:39.041Z",
+      "finishedAt": "2026-09-13T11:48:35.700Z"
+    },
+    {
+      "name": "cover",
+      "ok": true,
+      "startedAt": "2026-09-13T11:48:35.700Z",
+      "finishedAt": "2026-09-13T11:49:32.881Z"
+    },
+    {
+      "name": "competitorAnalyze",
+      "ok": true,
+      "startedAt": "2026-09-13T11:49:32.881Z",
+      "finishedAt": "2026-09-13T11:49:46.494Z"
+    }
+  ],
+  "health": {
+    "warnings": [
+      "AI & Strategy: techcrunch.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Jewellery Industry: instoremag.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Jewellery Industry: www.jewellermagazine.com represents 42.9% (3/7) - exceeds 40% threshold"
+    ],
+    "metrics": {
+      "paywallPercent": 0,
+      "podcastWordCount": 2549
+    }
+  },
+  "contentQuality": {
+    "ok": true,
+    "errors": [],
+    "summaryCoverage": 1,
+    "selectedCount": 28,
+    "summarizedCount": 28,
+    "hasCover": true
+  },
+  "versions": {
+    "node": "v20.20.2",
+    "gitCommit": "b4977d87811d0a977c078996fa7989de2faf66a4"
+  }
+}
