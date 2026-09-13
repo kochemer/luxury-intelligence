@@ -1,14 +1,14 @@
 {
   "version": 1,
   "week": "2026-W37",
-  "generatedAtISO": "2026-09-13T08:06:51.704Z",
+  "generatedAtISO": "2026-09-13T13:20:53.837Z",
   "siteUrl": "https://luxury-intel.com",
   "inputs": {
     "gscAvailable": true,
     "liveChecked": true,
-    "urlsAudited": 52,
-    "urlsMetaChecked": 37,
-    "urlsFetched": 52,
+    "urlsAudited": 53,
+    "urlsMetaChecked": 38,
+    "urlsFetched": 53,
     "llmUsed": false,
     "coveredCategories": [
       "technical",
@@ -20,7 +20,7 @@
     ],
     "indexing": {
       "indexed": 23,
-      "inspected": 52
+      "inspected": 53
     }
   },
   "score": {
@@ -131,7 +131,7 @@
       "severity": "high",
       "category": "indexing",
       "title": "Google is not indexing this page: \"Crawled - currently not indexed\"",
-      "detail": "https://luxury-intel.com/es/about was last crawled 112 days ago, and Google's state for it is \"Crawled - currently not indexed\" (verdict NEUTRAL).",
+      "detail": "https://luxury-intel.com/es/about was last crawled 113 days ago, and Google's state for it is \"Crawled - currently not indexed\" (verdict NEUTRAL).",
       "url": "https://luxury-intel.com/es/about",
       "evidence": {
         "coverageState": "Crawled - currently not indexed",
@@ -433,15 +433,29 @@
       "weeksOpen": 2
     },
     {
+      "code": "GSC_NEVER_CRAWLED",
+      "severity": "high",
+      "category": "indexing",
+      "title": "Google has never crawled this page",
+      "detail": "https://luxury-intel.com/digest/september-2026-week-37 is in your sitemap but Google reports no crawl at all, so it cannot be indexed.",
+      "url": "https://luxury-intel.com/digest/september-2026-week-37",
+      "recommendation": "Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change.",
+      "id": "GSC_NEVER_CRAWLED:28337bbd",
+      "score": 66,
+      "firstSeenWeek": "2026-W37",
+      "weeksOpen": 1
+    },
+    {
       "code": "OPT_ASSET_SIZE_UNKNOWN",
       "severity": "low",
       "category": "technical",
-      "title": "2 asset(s) did not report a size",
-      "detail": "No Content-Length from a HEAD request, so these could not be weighed and may be oversized without showing up: https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32, https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32",
+      "title": "3 asset(s) did not report a size",
+      "detail": "No Content-Length from a HEAD request, so these could not be weighed and may be oversized without showing up: https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32, https://www.google.com/s2/favicons?domain=www.luxurydaily.com&sz=32, https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32",
       "evidence": {
         "assets": [
-          "https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32"
+          "https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.luxurydaily.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32"
         ]
       },
       "recommendation": "Common for third-party CDNs that omit Content-Length. Check them by hand if large.",
@@ -455,29 +469,29 @@
       "severity": "low",
       "category": "performance",
       "title": "56 image(s) serve one size to every device",
-      "detail": "These have no srcset, so phones download the desktop image: https://www.google.com/s2/favicons?domain=www.nytimes.com&sz=32, https://www.google.com/s2/favicons?domain=www.practicalecommerce.com&sz=32, https://www.google.com/s2/favicons?domain=www.modernretail.co&sz=32, https://www.google.com/s2/favicons?domain=arstechnica.com&sz=32, https://www.google.com/s2/favicons?domain=www.retaildive.com&sz=32 +51 more",
+      "detail": "These have no srcset, so phones download the desktop image: https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32, https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32, https://www.google.com/s2/favicons?domain=internetretailing.net&sz=32, https://www.google.com/s2/favicons?domain=www.practicalecommerce.com&sz=32, https://www.google.com/s2/favicons?domain=instoremag.com&sz=32 +51 more",
       "evidence": {
         "images": [
-          "https://www.google.com/s2/favicons?domain=www.nytimes.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=internetretailing.net&sz=32",
           "https://www.google.com/s2/favicons?domain=www.practicalecommerce.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=instoremag.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.jewellermagazine.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.ablogtowatch.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.cnbc.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.ft.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.artificialintelligence-news.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.bloomberg.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.businessinsider.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.drapersonline.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=fashionista.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.luxurydaily.com&sz=32",
+          "https://www.google.com/s2/favicons?domain=www.nytimes.com&sz=32",
           "https://www.google.com/s2/favicons?domain=www.modernretail.co&sz=32",
           "https://www.google.com/s2/favicons?domain=arstechnica.com&sz=32",
           "https://www.google.com/s2/favicons?domain=www.retaildive.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.digitalcommerce360.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.professionaljeweller.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.luxurydaily.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.bloomberg.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.lemonde.fr&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.businessoffashion.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.watchpro.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=economictimes.indiatimes.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.jewellermagazine.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=instoremag.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=jewel360.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=insiderone.com&sz=32",
-          "https://www.google.com/s2/favicons?domain=www.grocerydive.com&sz=32"
+          "https://www.google.com/s2/favicons?domain=www.digitalcommerce360.com&sz=32"
         ]
       },
       "recommendation": "next/image generates srcset automatically; raw <img> tags do not.",
@@ -515,7 +529,9 @@
   ],
   "delta": {
     "previousWeek": "2026-W36",
-    "newFindings": [],
+    "newFindings": [
+      "GSC_NEVER_CRAWLED:28337bbd"
+    ],
     "resolvedFindings": [],
     "persistingFindings": [
       "GSC_NEVER_CRAWLED:d7c02dd0",

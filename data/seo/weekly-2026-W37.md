@@ -1,6 +1,6 @@
 # SEO Report — 2026-W37
 
-Score **25** (+0 vs 2026-W36) · 0 new · 0 resolved · 32 open
+Score **25** (+0 vs 2026-W36) · 1 new · 0 resolved · 33 open
 
 _Score is a relative index for tracking week-over-week trend, not an absolute grade._
 
@@ -15,7 +15,13 @@ _Score is a relative index for tracking week-over-week trend, not an absolute gr
 | performance | 94 |
 | opportunity | 100 |
 
-## All open findings (32)
+## New this week (1)
+
+- [HIGH] (score 66) Google has never crawled this page — https://luxury-intel.com/digest/september-2026-week-37
+  https://luxury-intel.com/digest/september-2026-week-37 is in your sitemap but Google reports no crawl at all, so it cannot be indexed.
+  → Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change.
+
+## All open findings (33)
 
 - [HIGH] (score 72) Google has never crawled this page — https://luxury-intel.com/about
   https://luxury-intel.com/about is in your sitemap but Google reports no crawl at all, so it cannot be indexed.
@@ -39,7 +45,7 @@ _Score is a relative index for tracking week-over-week trend, not an absolute gr
   https://luxury-intel.com/da is in your sitemap but Google reports no crawl at all, so it cannot be indexed.
   → Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change. _(open 2w, since 2026-W36)_
 - [HIGH] (score 72) Google is not indexing this page: "Crawled - currently not indexed" — https://luxury-intel.com/es/about
-  https://luxury-intel.com/es/about was last crawled 112 days ago, and Google's state for it is "Crawled - currently not indexed" (verdict NEUTRAL).
+  https://luxury-intel.com/es/about was last crawled 113 days ago, and Google's state for it is "Crawled - currently not indexed" (verdict NEUTRAL).
   → "Crawled – currently not indexed" usually means Google judged the page thin or duplicative. "Discovered – not indexed" usually means crawl budget. _(open 2w, since 2026-W36)_
 - [HIGH] (score 72) Google has never crawled this page — https://luxury-intel.com/es/methodology
   https://luxury-intel.com/es/methodology is in your sitemap but Google reports no crawl at all, so it cannot be indexed.
@@ -104,11 +110,14 @@ _Score is a relative index for tracking week-over-week trend, not an absolute gr
 - [HIGH] (score 72) Google has never crawled this page — https://luxury-intel.com/digest/june-2026-week-26
   https://luxury-intel.com/digest/june-2026-week-26 is in your sitemap but Google reports no crawl at all, so it cannot be indexed.
   → Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change. _(open 2w, since 2026-W36)_
-- [LOW] (score 14) 2 asset(s) did not report a size
-  No Content-Length from a HEAD request, so these could not be weighed and may be oversized without showing up: https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32, https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32
+- [HIGH] (score 66) Google has never crawled this page — https://luxury-intel.com/digest/september-2026-week-37
+  https://luxury-intel.com/digest/september-2026-week-37 is in your sitemap but Google reports no crawl at all, so it cannot be indexed.
+  → Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change. _(open 1w, since 2026-W37)_
+- [LOW] (score 14) 3 asset(s) did not report a size
+  No Content-Length from a HEAD request, so these could not be weighed and may be oversized without showing up: https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32, https://www.google.com/s2/favicons?domain=www.luxurydaily.com&sz=32, https://www.google.com/s2/favicons?domain=charm-ruby.dev&sz=32
   → Common for third-party CDNs that omit Content-Length. Check them by hand if large. _(open 2w, since 2026-W36)_
 - [LOW] (score 14) 56 image(s) serve one size to every device
-  These have no srcset, so phones download the desktop image: https://www.google.com/s2/favicons?domain=www.nytimes.com&sz=32, https://www.google.com/s2/favicons?domain=www.practicalecommerce.com&sz=32, https://www.google.com/s2/favicons?domain=www.modernretail.co&sz=32, https://www.google.com/s2/favicons?domain=arstechnica.com&sz=32, https://www.google.com/s2/favicons?domain=www.retaildive.com&sz=32 +51 more
+  These have no srcset, so phones download the desktop image: https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32, https://www.google.com/s2/favicons?domain=www.mytotalretail.com&sz=32, https://www.google.com/s2/favicons?domain=internetretailing.net&sz=32, https://www.google.com/s2/favicons?domain=www.practicalecommerce.com&sz=32, https://www.google.com/s2/favicons?domain=instoremag.com&sz=32 +51 more
   → next/image generates srcset automatically; raw <img> tags do not. _(open 2w, since 2026-W36)_
 - [INFO] (score 4) 10 internal link target(s) are not indexable pages
   These are linked internally but are not in the sitemap: https://luxury-intel.com/competitor-watch, https://luxury-intel.com/feedback, https://luxury-intel.com/es/competitor-watch, https://luxury-intel.com/es/subscribe, https://luxury-intel.com/es/feedback, https://luxury-intel.com/es/support, https://luxury-intel.com/da/competitor-watch, https://luxury-intel.com/da/subscribe, https://luxury-intel.com/da/feedback, https://luxury-intel.com/da/support. Expected for utility pages like /search; worth checking none is a dead link.
@@ -116,9 +125,9 @@ _Score is a relative index for tracking week-over-week trend, not an absolute gr
 
 ## Coverage
 
-- URLs in the sitemap inventory: 52
-- URLs with title/description checks: 37 _(digest pages only — static and locale pages need the live-HTTP stage)_
-- Live HTTP checks: yes — 52 pages fetched
+- URLs in the sitemap inventory: 53
+- URLs with title/description checks: 38 _(digest pages only — static and locale pages need the live-HTTP stage)_
+- Live HTTP checks: yes — 53 pages fetched
 - Search Console data: yes
 - LLM-assisted fixes: no (Stage 4)
 
