@@ -75,11 +75,26 @@ Decisions taken with the owner (16 Sep 2026):
   competing ranker; keep one cheap prefilter feeding a single LLM rerank with a
   wider candidate window, so the model — not a heuristic — decides what's
   interesting/relevant.
-- **Upgrade the rerank model (recommended, A/B via harness).** The final rerank
-  runs 4×/week, so a stronger model is nearly free and is the highest-leverage
-  quality lever. Raise `RERANK_MAX_ITEMS` (18 → ~30-40) and sharpen the prompt
-  around reader interest. Test `o3` / `gpt-4.1` / current strongest vs `o4-mini`
-  via the harness; keep discovery's 100→40 pass on the cheap model.
+- **Upgrade the rerank model → gpt-4.1 (DONE, 16 Sep 2026).** Harness A/B on
+  W34 (o4-mini vs gpt-4.1, same clean pool): o4-mini FAILED on 3/4 categories
+  (fell back to gpt-4.1-mini); gpt-4.1 succeeded on all four and made better
+  picks (dropped a filler trade-fair notice for a substantive story; put a
+  stronger Ecommerce lead first). Changed `RERANK_MODEL_PRIMARY` default to
+  `gpt-4.1` (still env-overridable for future A/Bs). Also fixed the rerank cache
+  key to include the model (a swap previously returned stale cached picks).
+  Discovery's coarse 100→40 pass stays on the cheap model.
+  - **Follow-up 1 (blocks the upgrade's full benefit): the diversity-reject
+    bug.** When the LLM picks >3 from one source, the whole ranking is DISCARDED
+    and the deterministic fallback is used — so in concentrated categories (AI →
+    Economic Times, Luxury → Fashionista) both models produced identical picks,
+    the model's judgment thrown away. Fix: REPAIR (trim to ≤3/source preserving
+    LLM order, backfill from the model's next picks) instead of rejecting.
+  - **Follow-up 2 (latent): `loadEnv()` runs after ES imports**, so model
+    overrides in `.env.local` (e.g. a stale `RERANK_MODEL=gpt-4o-mini`) are read
+    too late and silently ignored. Real env vars (CI, inline) work. Worth fixing
+    so local config isn't dead.
+  - Still to do: raise `RERANK_MAX_ITEMS` (18 → ~30-40) and sharpen the prompt
+    around reader interest, both A/B'd via the harness.
 - **Story-level dedup (agreed, E).** URL canonicalisation + near-dup clustering
   so one event occupies one slot.
 - **Feedback loop (agreed, F).** Fold `IssueRating` into source weighting once

@@ -67,15 +67,22 @@ type CandidateArticle = {
 };
 
 import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
-import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
+import { maxTokensParam, temperatureParam } from '../lib/llm/models';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // --- Configuration ---
 
-/** Primary reranking model. Override with RERANKER_MODEL_PRIMARY env var. */
-const RERANK_MODEL_PRIMARY = process.env.RERANKER_MODEL_PRIMARY || process.env.RERANK_MODEL || getModelFor('rank');
+/**
+ * Primary reranking model. Defaults to gpt-4.1 (full): a measured A/B on the
+ * harness (16 Sep 2026) showed the previous `getModelFor('rank')` = o4-mini
+ * FAILED on 3 of 4 categories and fell back to gpt-4.1-mini, whereas gpt-4.1
+ * succeeded on all four and made better picks (e.g. dropping filler for
+ * substantive stories). The reranker runs only ~4×/week, so the full model's
+ * cost is negligible. Override with RERANKER_MODEL_PRIMARY for A/B testing.
+ */
+const RERANK_MODEL_PRIMARY = process.env.RERANKER_MODEL_PRIMARY || process.env.RERANK_MODEL || 'gpt-4.1';
 /** Fallback model used if the primary fails. Should be cheaper/faster. */
 const RERANK_MODEL_FALLBACK = process.env.RERANKER_MODEL_FALLBACK || 'gpt-4.1-mini';
 /** Temperature 0 ensures deterministic selection across identical inputs. */
@@ -217,7 +224,10 @@ function fingerprintCandidates(candidates: CandidateArticle[]): string {
 
 function getCacheKey(weekLabel: string, category: Topic, candidates: CandidateArticle[]): string {
   const fingerprint = fingerprintCandidates(candidates);
-  return `${weekLabel}:${category}:${fingerprint}`;
+  // Include the primary model in the key: the cached selection is a property of
+  // the model that produced it, so swapping RERANK_MODEL_PRIMARY (e.g. an A/B of
+  // o4-mini vs gpt-4.1) must not return the previous model's cached picks.
+  return `${weekLabel}:${category}:${RERANK_MODEL_PRIMARY}:${fingerprint}`;
 }
 
 function truncateSnippet(snippet: string | undefined, maxLength: number): string {
