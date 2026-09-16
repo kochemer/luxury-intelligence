@@ -224,10 +224,11 @@ function fingerprintCandidates(candidates: CandidateArticle[]): string {
 
 function getCacheKey(weekLabel: string, category: Topic, candidates: CandidateArticle[]): string {
   const fingerprint = fingerprintCandidates(candidates);
-  // Include the primary model in the key: the cached selection is a property of
-  // the model that produced it, so swapping RERANK_MODEL_PRIMARY (e.g. an A/B of
-  // o4-mini vs gpt-4.1) must not return the previous model's cached picks.
-  return `${weekLabel}:${category}:${RERANK_MODEL_PRIMARY}:${fingerprint}`;
+  // Include the primary model AND the candidate window in the key: the cached
+  // selection is a property of both (a) the model that produced it and (b) how
+  // many candidates it was shown. Swapping RERANK_MODEL_PRIMARY or
+  // RERANK_MAX_ITEMS (e.g. an A/B) must not return the previous config's picks.
+  return `${weekLabel}:${category}:${RERANK_MODEL_PRIMARY}:i${RERANK_MAX_ITEMS}:${fingerprint}`;
 }
 
 function truncateSnippet(snippet: string | undefined, maxLength: number): string {

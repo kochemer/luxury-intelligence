@@ -99,8 +99,15 @@ Decisions taken with the owner (16 Sep 2026):
     overrides in `.env.local` (e.g. a stale `RERANK_MODEL=gpt-4o-mini`) are read
     too late and silently ignored. Real env vars (CI, inline) work. Worth fixing
     so local config isn't dead.
-  - Still to do: raise `RERANK_MAX_ITEMS` (18 → ~30-40) and sharpen the prompt
-    around reader interest, both A/B'd via the harness.
+  - **`RERANK_MAX_ITEMS` 18 → 30: TESTED AND REJECTED (16 Sep 2026).** Harness
+    A/B (W34, gpt-4.1): widening the window did NOT help — Luxury regressed
+    (celebrity "Meghan Markle heels" filler returned, LV×Porsche dropped) and AI
+    moved laterally (lost the Stripe/OpenRouter deal for more TechCrunch). The
+    tighter 18-item pre-trim is helping, so we keep 18. Kept the correctness fix
+    of including `RERANK_MAX_ITEMS` in the rerank cache key (so future A/Bs of
+    this value don't reuse stale picks).
+  - Still to do: sharpen the rerank prompt around reader interest (A/B'd via the
+    harness).
 - **Story-level dedup (agreed, E).** URL canonicalisation + near-dup clustering
   so one event occupies one slot.
 - **Feedback loop (agreed, F).** Fold `IssueRating` into source weighting once
@@ -119,3 +126,21 @@ Decisions taken with the owner (16 Sep 2026):
   preflight balance/budget check.
 - Surface feed-health (403/429 sources) from the existing `sourceYield` report.
 - Add tests for selection scoring, dedup, and cover-prompt assembly.
+
+## Backlog — ingestion overhaul (owner-flagged 16 Sep 2026, do after Area 2)
+
+Dissect the ingestion layer and make it more robust, enriched, and relevant. The
+pool-health work already surfaced the leads:
+- **Robustness:** recover failing feeds (403/429 — Business of Fashion, Marketing
+  Week, Retail TouchPoints, WatchPro, VentureBeat seen failing) with better
+  fetch (UA/headers, retries, alternate endpoints) and per-source health
+  alerting off the existing `sourceYield` report.
+- **Relevance / breadth:** add the missing premier sources — Business of Fashion,
+  Vogue Business (luxury-business), plus more jewellery/watch trade titles to
+  fix Jewellery's thin, single-source-dominated pool; prune persistently
+  off-topic sources (e.g. Dezeen) at the root instead of only dropping them at
+  classification.
+- **Enrichment:** stronger date extraction/confidence (mislabeled dates let stale
+  items into the week window), full-text/topic signals to improve classification
+  and reranking, and de-duplication at the story level across sources.
+- Treat `pool:health` as the scorecard for all of the above.
