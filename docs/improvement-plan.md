@@ -55,6 +55,18 @@ Decisions taken with the owner (16 Sep 2026):
   unit-test that filter to lock the contract, and delete the dead
   `recencyScore` plumbing. (Date *accuracy* via `dateConfidence` is a separate,
   later, low-priority item — not recency.)
+- **Classification precision (DONE, 16 Sep 2026).** Pool-health analysis showed
+  the biggest quality leak was upstream: `classifyTopic`'s catch-all default
+  (`return "Ecommerce_Retail_Tech"`) dumped every unmatched article into
+  Ecommerce — ~1,200 Dezeen architecture pieces plus general tech — and bare
+  `"gold"/"silver"` + the `"cart"`-in-"Cartier" substring bug scattered finance
+  stories into Jewellery. Fixed: `classifyTopic` now returns `Topic | null`
+  (off-topic articles are dropped, not misfiled), removed the noise keywords, and
+  added word-boundary matching for `cart`. Result on W34: Ecommerce pool
+  464 → 123 (348 off-topic dropped), other categories intact; new
+  `__tests__/classifyTopic.test.ts` locks the cases. **Remaining gap this exposed:
+  Jewellery is genuinely thin (~17) and single-source-dominated — needs the
+  feed-recovery / source-breadth work, not more ranking.**
 - **Demote keywords (agreed).** Keyword boost becomes a tie-breaker, not a
   primary signal; source tier leads.
 - **Externalise source tiers (agreed).** Move `SOURCE_WEIGHTS` + the inline

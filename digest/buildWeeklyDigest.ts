@@ -505,11 +505,16 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
     "Jewellery_Industry": [],
   };
   
+  let droppedOffTopic = 0;
   for (const article of eligibleArticles) {
     const topic = classifyTopic(article);
-    byTopic[topic].push(article);
+    if (topic) byTopic[topic].push(article);
+    else droppedOffTopic++; // no topical signal → excluded from the digest
   }
-  
+  if (droppedOffTopic > 0) {
+    console.log(`[buildWeeklyDigest] Dropped ${droppedOffTopic} off-topic article(s) with no category signal`);
+  }
+
   // Deduplicate articles within each topic
   for (const topicKey of Object.keys(byTopic) as Topic[]) {
     byTopic[topicKey] = dedupeArticles(byTopic[topicKey]);

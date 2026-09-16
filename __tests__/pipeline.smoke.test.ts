@@ -94,8 +94,8 @@ test('Weekly digest structure validation', async () => {
   assert(typeof digest.totals.byTopic.Jewellery === 'number', 'totals.byTopic.Jewellery must be a number');
 });
 
-test('classifyTopic returns valid Topic', () => {
-  // Test with minimal Article object
+test('classifyTopic returns a valid Topic or null', () => {
+  // A clearly AI article should classify as AI (non-null).
   const article = {
     title: 'New AI Model Released',
     url: 'https://example.com/article',
@@ -105,18 +105,21 @@ test('classifyTopic returns valid Topic', () => {
 
   const result = classifyTopic(article);
 
-  // Assert result is one of allowed Topic keys
-  const validTopics: Topic[] = [
+  // Result is either one of the four topics or null (off-topic → dropped).
+  const validTopics: Array<Topic | null> = [
     'AI_and_Strategy',
     'Ecommerce_Retail_Tech',
     'Luxury_and_Consumer',
     'Jewellery_Industry',
+    null,
   ];
 
   assert(
     validTopics.includes(result),
-    `classifyTopic must return a valid Topic, got: ${result}`
+    `classifyTopic must return a valid Topic or null, got: ${result}`
   );
+  // This particular article has a strong AI signal, so it must not be dropped.
+  assert.equal(result, 'AI_and_Strategy');
 });
 
 test('getSiteUrl returns valid absolute URL', () => {

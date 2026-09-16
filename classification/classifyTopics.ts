@@ -46,7 +46,11 @@ const TOPIC_PRIORITY: Topic[] = [
 
 // Heuristic keyword lists (lowercase all for case-insensitive match)
 const Jewellery_Industry_Keywords = [
-  "jewel", "jewellery", "jewelry", "diamond", "gold", "silver", "gem", "gems",
+  // NOTE: bare "gold" / "silver" were removed — they matched "Goldman Sachs",
+  // gold/silver as commodities, and "golden", dumping finance stories into
+  // Jewellery. Jewellery-specific terms + the JEWELLERY_SOURCES override cover
+  // genuine jewellery stories instead.
+  "jewel", "jewellery", "jewelry", "diamond", "gem", "gems",
   "fancy color", "carat", "cartier", "tiffany", "bulgari", "harry winston",
   "gemstone", "precious stone", "van cleef", "luxury watch", "horology",
   "de beers", "sotheby’s", "graff", "piaget"
@@ -154,13 +158,18 @@ const FASHION_LUXURY_SOURCE_PATTERNS = [
  *
  * Longer keywords use simple `String.includes()` for performance.
  */
+// Short or collision-prone keywords that must match as whole words, not
+// substrings. Without this, e.g. "cart" (ecommerce) matches inside "Cartier"
+// (a jewellery brand) and "ai" matches inside "sustain".
+const WORD_BOUNDARY_KEYWORDS = new Set(["ai", "ml", "nlp", "agi", "cart"]);
+
 function matchesAnyKeyword(text: string, keywords: string[]): boolean {
   const lower = text.toLowerCase();
   return keywords.some(kw => {
     const lowerKw = kw.toLowerCase();
-    // For short keywords (<= 3 chars) or single-letter acronyms, use word boundaries
-    // Also handle "AI-" prefix pattern
-    if (lowerKw.length <= 3 || lowerKw === "ai" || lowerKw === "ml" || lowerKw === "nlp" || lowerKw === "agi") {
+    // For short keywords (<= 3 chars) or known collision-prone terms, use word
+    // boundaries. Also handle a trailing hyphen (e.g. "AI-powered").
+    if (lowerKw.length <= 3 || WORD_BOUNDARY_KEYWORDS.has(lowerKw)) {
       // Use word boundary regex: \b for word boundaries, also allow "-" after (for "AI-powered", "AI-driven", etc.)
       const escapedKw = lowerKw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       const pattern = new RegExp(`\\b${escapedKw}(-|\\b)`, 'i');
@@ -191,7 +200,7 @@ export function classifyTopic(article: {
   snippet?: string;
   summary?: string;
   oneSentenceSummary?: string;
-}): Topic {
+}): Topic | null {
   // For Ecommerce_Retail_Tech: use title + summary (not source)
   // For other categories: keep existing behavior (title + source)
   const titleAndSource = `${article.title} ${article.source}`.toLowerCase();
@@ -274,25 +283,21 @@ export function classifyTopic(article: {
   if (matchesAnyKeyword(titleAndSource, Jewellery_Industry_Keywords)) {
     matches.push("Jewellery_Industry");
   }
-  if (matchesAnyKeyword(titleAndSource, Jewellery_Industry_Keywords)) {
-    matches.push("Jewellery_Industry");
-  }
-  
+
   // Return first match in priority order (AI_and_Strategy > Ecommerce_Retail_Tech > Luxury_and_Consumer > Jewellery_Industry)
   for (const priorityTopic of TOPIC_PRIORITY) {
     if (matches.includes(priorityTopic)) {
       return priorityTopic;
     }
   }
-  
-  // Broad fallback: if looks consumer-ish use "Luxury_and_Consumer"
-  const fallbackConsumerish = ["consumer", "shopper", "customer", "retail", "buy", "seller", "trend"];
-  if (matchesAnyKeyword(titleAndSource, fallbackConsumerish)) {
-    return "Luxury_and_Consumer";
-  }
-  
-  // Default fallback: "Ecommerce_Retail_Tech"
-  return "Ecommerce_Retail_Tech";
+
+  // No topical signal from source or keywords → the article does not belong to
+  // any of the four topics. Return null so callers DROP it, rather than dumping
+  // every unmatched article into Ecommerce (which previously flooded that pool
+  // with off-topic content — e.g. ~1,200 Dezeen architecture articles). A broad
+  // "consumer-ish" catch (buy/trend/retail → Luxury) was also removed for the
+  // same reason: it captured noise, not signal.
+  return null;
 }
 
 // --- CET week filtering and classification ---
@@ -355,7 +360,7 @@ export async function classifyCurrentWeekArticles(
 
   for (const article of eligibleArticles) {
     const topic = classifyTopic(article);
-    byTopic[topic].push(article);
+    if (topic) byTopic[topic].push(article); // null = off-topic, dropped
   }
 
   return { weekLabel: weekLabel, byTopic };

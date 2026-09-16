@@ -100,9 +100,14 @@ async function main() {
     const byTopic: Record<Topic, Article[]> = {
       AI_and_Strategy: [], Ecommerce_Retail_Tech: [], Luxury_and_Consumer: [], Jewellery_Industry: [],
     };
-    for (const a of eligible) byTopic[classifyTopic(a)].push(a);
+    let droppedOffTopic = 0;
+    for (const a of eligible) {
+      const t = classifyTopic(a);
+      if (t) byTopic[t].push(a);
+      else droppedOffTopic++;
+    }
 
-    console.log(`\n===== ${week}  (eligible in-window: ${eligible.length}) =====`);
+    console.log(`\n===== ${week}  (eligible in-window: ${eligible.length}, off-topic dropped: ${droppedOffTopic}) =====`);
     console.log(`${pad('category', 24)}${pad('dedup', 7)}${pad('rankable', 9)}${pad('cover%', 8)}${pad('srcs', 6)}${pad('topSrc%', 9)}${pad('prem', 6)}${pad('mid', 5)}${pad('other', 6)}flag`);
     for (const topic of TOPICS) {
       const deduped = dedupe(byTopic[topic]);
