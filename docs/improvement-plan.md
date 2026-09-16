@@ -83,12 +83,18 @@ Decisions taken with the owner (16 Sep 2026):
   `gpt-4.1` (still env-overridable for future A/Bs). Also fixed the rerank cache
   key to include the model (a swap previously returned stale cached picks).
   Discovery's coarse 100→40 pass stays on the cheap model.
-  - **Follow-up 1 (blocks the upgrade's full benefit): the diversity-reject
-    bug.** When the LLM picks >3 from one source, the whole ranking is DISCARDED
-    and the deterministic fallback is used — so in concentrated categories (AI →
-    Economic Times, Luxury → Fashionista) both models produced identical picks,
-    the model's judgment thrown away. Fix: REPAIR (trim to ≤3/source preserving
-    LLM order, backfill from the model's next picks) instead of rejecting.
+  - **Follow-up 1 — diversity-reject → repair (DONE, 16 Sep 2026).** The
+    `validateRerankResponse` source-diversity/Arxiv checks were REJECTING the
+    whole LLM ranking whenever the model over-picked from a dominant source,
+    silently using the deterministic fallback. Removed those checks from
+    validation (they are repairable, not structural): the mapped LLM result now
+    flows through `applySourceDiversity`, which trims to ≤3/source in the model's
+    rank order and backfills freed slots from the pool. Harness (W34, gpt-4.1
+    before/after): AI 5/7 picks changed (added Stratechery, promoted the GPT-5.6
+    pricing story to #1, dropped clustered TechCrunch), Luxury 5/7 changed
+    (dropped Fashionista job listings + celebrity-shoe filler for substantive
+    luxury-business stories). This is what makes the gpt-4.1 upgrade actually pay
+    off in concentrated categories.
   - **Follow-up 2 (latent): `loadEnv()` runs after ES imports**, so model
     overrides in `.env.local` (e.g. a stale `RERANK_MODEL=gpt-4o-mini`) are read
     too late and silently ignored. Real env vars (CI, inline) work. Worth fixing

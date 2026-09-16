@@ -889,8 +889,7 @@ async function callRerankLLM(
 
 function validateRerankResponse(
   response: RerankResponse,
-  candidates: CandidateArticle[],
-  category?: Topic
+  candidates: CandidateArticle[]
 ): { valid: boolean; error?: string } {
   const selected = response.selected;
   if (!selected || !Array.isArray(selected)) {
@@ -947,35 +946,16 @@ function validateRerankResponse(
     }
   }
 
-  // Validate source diversity constraints (if category provided)
-  if (category) {
-    const sourceCounts = new Map<string, number>();
-    let arxivCount = 0;
-    
-    for (const item of selected) {
-      const idNum = parseInt(item.id, 10);
-      const candidate = candidates[idNum];
-      const source = candidate.source;
-      
-      // Count sources
-      const currentCount = sourceCounts.get(source) || 0;
-      sourceCounts.set(source, currentCount + 1);
-      
-      // Check max 3 per source
-      if (currentCount + 1 > 3) {
-        return { valid: false, error: `Source diversity violation: More than 3 articles from "${source}"` };
-      }
-      
-      // Check Arxiv limit for AI category
-      if (category === 'AI_and_Strategy' && source.toLowerCase().includes('arxiv')) {
-        arxivCount++;
-        if (arxivCount > 1) {
-          return { valid: false, error: `Arxiv limit violation: More than 1 Arxiv article selected (found ${arxivCount})` };
-        }
-      }
-    }
-  }
-
+  // NOTE: source diversity (max 3/source) and the Arxiv cap are intentionally
+  // NOT validated here. They are *repairable* constraints, not structural
+  // errors — enforcing them as validation caused the whole LLM ranking to be
+  // discarded whenever the model over-picked from a dominant source (e.g.
+  // Economic Times in AI, Fashionista in Luxury), silently falling back to the
+  // deterministic selector and throwing away the model's judgment. The mapped
+  // result is instead passed through applySourceDiversity(), which trims to
+  // ≤3/source in the LLM's rank order and backfills the freed slots from the
+  // rest of the pool — preserving the model's picks while still enforcing
+  // diversity.
   return { valid: true };
 }
 
@@ -1401,7 +1381,7 @@ export async function rerankArticles<T extends Article & { snippet?: string }>(
   }
 
   // Validate response (using trimmed candidates for validation)
-  const validation = validateRerankResponse(llmResponse, trimmedCandidates, category);
+  const validation = validateRerankResponse(llmResponse, trimmedCandidates);
   if (!validation.valid) {
     console.warn(`[Reranker] Invalid LLM response for ${weekLabel}/${category}: ${validation.error}, using fallback`);
     stats.fallbacks++;
