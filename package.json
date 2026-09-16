@@ -27,6 +27,8 @@
     "seo:check-robots": "tsx scripts/checkRobots.ts",
     "test:redirects": "tsx scripts/testRedirects.ts",
     "competitor:analyze": "tsx scripts/runCompetitorAnalyze.ts",
+    "selection:snapshot": "tsx scripts/selectionSnapshot.ts",
+    "selection:diff": "tsx scripts/selectionDiff.ts",
     "seo:audit": "tsx scripts/runSeoAgent.ts",
     "seo:setup-gsc": "tsx scripts/setupGscCredentials.ts",
     "seo:gsc": "tsx scripts/pullGsc.ts",

@@ -16,6 +16,32 @@ const __dirname = path.dirname(__filename);
 const TOP_N = 7;
 const MAX_PER_SOURCE = 3; // Diversity guard: max articles per source in top N
 
+/**
+ * Freshness contract: an article is eligible for a week's digest iff it has a
+ * valid `published_at` that falls within that week's [start, end] window
+ * (Europe/Copenhagen). Position within the week (Mon vs Fri) is irrelevant — the
+ * digest applies no graded recency. Articles with a missing or unparseable date
+ * are excluded. This is the single source of truth for "published this week".
+ */
+export function isWithinWeekWindow(
+  article: { published_at?: string },
+  weekStartMs: number,
+  weekEndMs: number
+): boolean {
+  if (!article.published_at) return false;
+  const t = new Date(article.published_at).getTime();
+  if (isNaN(t)) return false;
+  return t >= weekStartMs && t <= weekEndMs;
+}
+
+export function filterToWeekWindow<T extends { published_at?: string }>(
+  articles: T[],
+  weekStartMs: number,
+  weekEndMs: number
+): T[] {
+  return articles.filter(a => isWithinWeekWindow(a, weekStartMs, weekEndMs));
+}
+
 // --- Relevance Ranking Configuration ---
 
 /**
@@ -468,14 +494,8 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
   // Filter articles to the week window (exclude those without published_at)
   const weekStart = weekStartCET.getTime();
   const weekEnd = weekEndCET.getTime();
-  
-  const eligibleArticles = articles.filter(article => {
-    if (!article.published_at) return false;
-    const dt = new Date(article.published_at);
-    if (isNaN(dt.getTime())) return false;
-    const t = dt.getTime();
-    return t >= weekStart && t <= weekEnd;
-  });
+
+  const eligibleArticles = filterToWeekWindow(articles, weekStart, weekEnd);
   
   // Classify articles and group by topic
   const byTopic: Record<Topic, Article[]> = {

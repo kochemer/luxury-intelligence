@@ -55,3 +55,5 @@ tools/ffmpeg/ffprobe.exe
 # Email sending data (contains recipient lists and sent logs)
 data/email/recipients.json
 data/email/sent/
+# Selection measurement harness (local analysis artifacts)
+data/harness/
