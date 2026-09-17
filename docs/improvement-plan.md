@@ -150,10 +150,23 @@ Decisions taken with the owner (16 Sep 2026):
   background at most. Result on W35/W37: a man buried in an avalanche of delivery
   parcels (ecommerce overload) and a man hemmed in on his sofa by deadpan
   robots (AI) — concrete, legible, genuinely funny, no rogue text.
-- Still open: decide one brand-appropriate art direction (premium vs. the
-  current jokey style), tighten out the occasional POS/screen prop, and
-  optionally change the hero's `background-position` crop to match the new
-  central-band composition.
+- **No-humans + less-AI pass (DONE, 17 Sep 2026, Scene Director v7).** Owner:
+  keep humans out of covers, and make them look less AI. Made "no people / hands
+  / faces" a hard rule (the joke now rides on objects + aftermath), and added
+  strong real-camera realism cues (candid/documentary, natural light, real
+  texture/wear/imperfection, explicitly avoid the waxy/over-smooth/glossy AI
+  look) in both the prompt and the photorealism hardener; added people + AI-look
+  terms to the negative prompt. Trade-off (flagged): the humor is milder without
+  a person's reaction — sight-gags of over-accumulation (elevator crammed with
+  sofas; a room drowning in cushions) rather than the buried-alive laugh.
+- **Open — image MODEL for realism.** gpt-image-1 has a recognisable "AI look"
+  ceiling that the prompt can only partly fix. Biggest remaining lever is a more
+  photorealistic model (FLUX1.1 pro or Google Imagen; Midjourney is best-looking
+  but has no API). Needs: abstract the hardcoded `gpt-image-1` call to be
+  provider-swappable (like the reranker), a provider API key, and a same-prompt
+  A/B to decide on evidence.
+- Still open: decide one brand-appropriate art direction (premium vs. jokey),
+  and optionally change the hero's `background-position` crop.
 
 ## Area 4 — Reliability / cost (planned)
 - Fast-fail on `insufficient_quota` (no 8× retry on a "no credits" 429) and add a

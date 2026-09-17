@@ -26,7 +26,7 @@ const __dirname = path.dirname(__filename);
 
 // --- Configuration ---
 
-const SCENE_DIRECTOR_VERSION = 'v6'; // v6: concrete situational JOKE about the single LEAD story (not an abstract multi-article metaphor)
+const SCENE_DIRECTOR_VERSION = 'v7'; // v7: NO humans (object/aftermath comedy only) + stronger real-camera realism (less "AI look")
 const SCENE_DIRECTOR_MODEL = process.env.SCENE_DIRECTOR_MODEL || getModelFor('polish');
 const TEMPERATURE = 0.7; // Some creativity for scene generation
 const MAX_TOKENS = 2000;
@@ -234,9 +234,9 @@ ${noDiamonds}`;
 Your job is to invent ONE photorealistic scene that is a genuine VISUAL JOKE about the single LEAD STORY below. Not a metaphor, not a mood — an actual joke that makes someone who just read that headline snort. A metaphor says "this represents value"; a joke shows a funny SITUATION with a setup and a punchline. Aim for that.
 
 WHAT MAKES IT FUNNY (do this)
-- Pick the ONE clearest comic idea in the lead story and stage it as a concrete SITUATION — something is happening, going comically wrong or absurdly right, or a reaction to it — not a tidy still-life of symbolic objects.
-- The engine of the joke is INCONGRUITY + EXAGGERATION: take one real thing from the story and push it to an absurd literal extreme (a thing far too big/small/many; the wrong tool for the job; a serious thing treated as trivial or vice-versa; a "caught in the act" moment).
-- It must read WITHOUT WORDS. Since no text is allowed, the gag has to work from objects, actions, scale and expressions alone — a viewer should "get it" in one second.
+- Pick the ONE clearest comic idea in the lead story and stage it as a concrete SITUATION told entirely through OBJECTS and their aftermath — the scene of something that just happened, is comically going wrong, or is absurdly overdone. NO people to react — the objects and the mess/arrangement carry the whole joke.
+- The engine of the joke is INCONGRUITY + EXAGGERATION: take one real thing from the story and push it to an absurd literal extreme (a thing far too big/small/many; the wrong tool for the job; a serious thing treated as trivial or vice-versa; a doorway/desk/room overwhelmed by it; a "just abandoned mid-action" moment).
+- It must read WITHOUT WORDS and WITHOUT PEOPLE — the gag has to work from objects, arrangement, scale, and implied action alone. A viewer should "get it" in one second.
 - The other articles are optional background flavour at most. Do NOT try to cram them all in — one clear joke beats a soup of references.
 
 STYLE & TONE
@@ -250,17 +250,18 @@ office desk · boardroom · server room · trading floor · subway/train car · 
 Only use a supermarket/kitchen if it is genuinely the single best fit for the stories — otherwise pick something else.
 
 MANDATORY RULES
+- NO people, NO humans, NO hands, faces, or body parts anywhere — not even in the background. The scene is unpeopled; objects and aftermath tell the joke.
 - ABSOLUTELY NO readable text, words, brand names, logos, signage, labels, price tags, screens, or UI anywhere in the scene. This is critical — the image model tends to invent text/logos, so choose props that would not carry writing (or have any writing turned away, out of frame, or blurred beyond reading). Prefer generic, unbranded objects.
-- NO illustration, CGI, or cartoon style
-- Photorealistic lighting, textures, materials, reflections
+- LOOK LIKE A REAL PHOTOGRAPH, not an AI render: shot on a real camera by a person, natural available light with real shadows and true reflections, genuine surface texture — dust, wear, fingerprints, slight clutter, small imperfections and asymmetry. AVOID the tell-tale AI look: over-clean, over-smooth, waxy/plastic surfaces, everything perfectly centered and lit, glossy studio gloss, HDR glow. Aim for candid editorial/documentary realism (think a real photo in a magazine).
+- NO illustration, CGI, 3D render, or cartoon style
 - Wide landscape (3:2) composition — key elements in the central horizontal band
 - ONE coherent scene (no collage, no multi-scene)
 
 CREATIVE GUIDANCE
-- A person mid-reaction usually sells a joke better than objects alone — someone doing something absurd, or reacting to it (deadpan, panicked, oblivious). Use one if it helps the gag land.
+- With no people allowed, lean on AFTERMATH and IMPLIED ACTION: the empty chair, the overflowing doorway, the toppled stack, the one object comically out of place, the "you just missed it" moment. The mess or arrangement is the punchline.
 - Exaggerate ONE thing hard rather than adding many props. The funniest covers are simple: one clear absurd focal event.
 - Reject your first, most obvious idea — the second or third is usually funnier and less of a cliché.
-- Keep it concrete and real-world: recognizable, touchable objects and a believable place; the humour comes from what's happening, not from surreal effects.
+- Keep it concrete and real-world: recognizable, touchable objects and a believable place; the humour comes from what's happened, not from surreal effects.
 
 COMEDIC REGISTER — pick ONE to vary the feel week to week:
 deadpan-corporate · absurdist · moody-but-well-lit (noir) · symmetrical/Wes-Anderson · documentary-candid · surreal-but-plausible
@@ -288,10 +289,12 @@ OUTPUT FORMAT (JSON only, no markdown, no code blocks):
   "sceneDescription": "state the JOKE in one plain sentence first (what's the setup, what's the punchline, and which fact from the LEAD story it's riffing on), then describe the concrete scene — setting, the one exaggerated focal thing, any person and their reaction. It must be a joke a viewer gets in one second without any words.",
   "finalImagePrompt": "Describe ONLY: the setting/environment, what objects are in it, and where they are placed. Write it as a plain scene description — as if describing a real photograph to someone. Do NOT mention camera settings, f-stops, bokeh, depth of field, lighting rigs, cinematic, or composition rules — those cause CGI output. Keep it under 80 words.",
   "negativePrompt": [
+    "people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette",
     "text, letters, numbers, signage, labels, price tags",
     "screens, UI, dashboards, holograms, floating icons",
     "watermarks, unrelated brand logos",
-    "cartoon, illustration, CGI, 3D render, anime",
+    "cartoon, illustration, CGI, 3D render, anime, video game render",
+    "AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed",
     "diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone",
     "dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh"
   ],
