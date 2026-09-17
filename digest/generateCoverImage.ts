@@ -81,6 +81,7 @@ async function generateCoverImage(
         prompt: prompt,
         n: 1,
         size: size,
+        quality: 'high',
       });
     } catch (sizeError: any) {
       // If size not supported, try fallback
@@ -92,6 +93,7 @@ async function generateCoverImage(
           prompt: prompt,
           n: 1,
           size: size,
+          quality: 'high',
         });
       } else {
         throw sizeError;

@@ -153,15 +153,13 @@ Photography style:
 - Editorial realism with a playful, humorous tone
 
 Composition:
-- Wide, horizontally expansive banner format (target 3:1 or wider aspect ratio)
-- Vertically minimal height - all important visual elements must be placed in the central horizontal band
-- Safe margins at top and bottom - no critical content near vertical edges
-- One clear focal subject in the central horizontal band
-- Secondary elements add context but do not compete
+- Wide landscape format (3:2, the format the image is rendered at)
+- Keep the focal subject in the central horizontal band so it survives a crop to a shallow hero banner
+- Safe margins at top and bottom - no critical content near the top or bottom edges
+- One clear focal subject; secondary elements add context but do not compete
 - Clean background, no clutter
 - Looks like a real photo taken in a real location
-- Composition must work when displayed in a wide, shallow container
-- Avoid vertical stacking, tall elements, or content that extends to top/bottom edges
+- Avoid tall vertical stacking or content that extends to the top/bottom edges
 
 ABSOLUTE PROHIBITIONS:
 - NO screens, dashboards, UI, holograms, floating icons, symbols, charts, or interface elements
@@ -212,19 +210,12 @@ function buildSceneDirectorPrompt(
 AVOID REPETITION (Recent covers):
 ${recentConcepts}
 
-DO NOT reuse these concepts or humor drivers. Create fresh object pairings.
+DO NOT reuse these concepts or humor drivers. Create a fresh object pairing.
 
 HARD BAN - NO DIAMONDS (any size, any context):
 - DO NOT feature diamonds, gemstones, or precious stones as focal objects
 - For Jewellery Industry: use OTHER luxury objects (gold watches, rings, coins) instead
-- Create value commentary through object pairing (luxury item next to everyday object)
-
-AESTHETIC CONSISTENCY (PRODUCT PHOTOGRAPHY):
-- Tabletop/counter product photography ONLY
-- Objects arranged left-to-right in horizontal band
-- Dark surface background (black/dark gray counter, table, shelf)
-- Sharp focus on foreground objects, soft background bokeh
-- NO people, NO rooms, NO narrative scenarios`;
+- Create value commentary through object pairing (luxury item next to everyday object)`;
   } else {
     antiRepetitionConstraint = `
 HARD BAN - NO DIAMONDS (any size, any context):

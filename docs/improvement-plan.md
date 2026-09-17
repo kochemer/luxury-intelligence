@@ -113,13 +113,22 @@ Decisions taken with the owner (16 Sep 2026):
 - **Feedback loop (agreed, F).** Fold `IssueRating` into source weighting once
   rating volume is meaningful.
 
-## Area 3 — Cover-image quality (planned)
-- Fix the self-contradicting Scene Director prompt (dark-vs-not-dark background,
-  people-vs-no-people once anti-repetition activates).
-- Resolve the aspect-ratio mismatch (prompt asks 3:1; `gpt-image-1` renders 3:2)
-  with a defined focal safe-area or deterministic post-crop.
-- Set `quality: 'high'` on the image call.
-- Decide one brand-appropriate art direction (premium vs. jokey juxtaposition).
+## Area 3 — Cover-image quality
+
+- **Fixed the self-contradicting Scene Director prompt (DONE, 17 Sep 2026).**
+  Once the anti-repetition block activated (≈ every week), it demanded a *dark
+  counter background*, *soft bokeh*, and *no people/rooms/narrative* — directly
+  contradicting the main art direction (*avoid dark surfaces*, *people optional*,
+  and a later rule banning bokeh/DoF language as CGI-inducing). Removed that
+  block; the prompt now gives one coherent, light/natural direction.
+- **Fixed the aspect-ratio mismatch (DONE).** The fallback prompt asked for a
+  "3:1 or wider" banner that `gpt-image-1` cannot render (it outputs 1536×1024,
+  3:2). Rewrote it to target 3:2 landscape with the focal subject in the central
+  band so it survives the hero crop.
+- **Set `quality: 'high'` (DONE)** on both `images.generate` calls.
+- Still open: decide one brand-appropriate art direction (premium vs. the
+  current jokey object-juxtaposition), and optionally change the hero's
+  `background-position` crop to match the new central-band composition.
 
 ## Area 4 — Reliability / cost (planned)
 - Fast-fail on `insufficient_quota` (no 8× retry on a "no credits" 429) and add a
