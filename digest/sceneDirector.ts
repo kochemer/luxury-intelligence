@@ -25,7 +25,7 @@ const __dirname = path.dirname(__filename);
 
 // --- Configuration ---
 
-const SCENE_DIRECTOR_VERSION = 'v3'; // Updated to playful, absurd visual metaphor approach
+const SCENE_DIRECTOR_VERSION = 'v4'; // v4: removed the self-contradicting dark-bg/no-people/bokeh block; coherent light-natural direction + 3:2 composition
 const SCENE_DIRECTOR_MODEL = process.env.SCENE_DIRECTOR_MODEL || getModelFor('polish');
 const TEMPERATURE = 0.7; // Some creativity for scene generation
 const MAX_TOKENS = 2000;

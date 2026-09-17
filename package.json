@@ -40,7 +40,8 @@
     "seo:weekly": "tsx scripts/runSeoWeekly.ts",
     "typecheck:seo": "tsc --noEmit -p tsconfig.seo.json",
     "pool:health": "tsx scripts/poolHealth.ts",
-    "digest:mock": "tsx scripts/mockDigest.ts"
+    "digest:mock": "tsx scripts/mockDigest.ts",
+    "cover:mock": "tsx scripts/mockCover.ts"
   },
   "dependencies": {
     "@amplitude/unified": "^1.0.0-beta.9",

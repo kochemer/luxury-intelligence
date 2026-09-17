@@ -59,7 +59,7 @@ function extractKeywords(titles: string[]): string[] {
 /**
  * Generate a cover image using OpenAI GPT Image
  */
-async function generateCoverImage(
+export async function generateCoverImage(
   prompt: string,
   outputPath: string,
   apiKey: string
@@ -158,7 +158,7 @@ Do not include: text, labels, signage, screens, UI, logos unrelated to the scene
  * Integrate negative prompt constraints into the main prompt
  * (GPT Image doesn't support separate negative prompts, so we include them in the main prompt)
  */
-function integrateNegativePrompt(mainPrompt: string, negativePrompts: string[]): string {
+export function integrateNegativePrompt(mainPrompt: string, negativePrompts: string[]): string {
   if (negativePrompts.length === 0) {
     return hardenPromptForPhotorealism(mainPrompt);
   }
