@@ -405,6 +405,56 @@ const JEWELLERY_FEEDS: SourceFeed[] = [
     sourceType: "jewellery",
     categoryHint: "Jewellery Industry"
   },
+  // --- Added 17 Sep 2026 to enrich the thin Jewellery pool (all RSS-validated) ---
+  {
+    name: "The Jewellery Editor",
+    url: "https://www.thejewelleryeditor.com/feed/",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Retail Jeweller UK",
+    url: "https://www.retail-jeweller.com/feed/",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Watchonista",
+    url: "https://www.watchonista.com/rss.xml",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Worn & Wound",
+    url: "https://wornandwound.com/feed/",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "SJX Watches",
+    url: "https://watchesbysjx.com/feed",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Time and Tide Watches",
+    url: "https://timeandtidewatches.com/feed/",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Quill & Pad",
+    url: "https://quillandpad.com/feed/",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
   // Hodinkee - Business: Removed (404)
   // Legacy Luxury Daily feeds (moved to Fashion & Luxury)
   {

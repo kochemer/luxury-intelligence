@@ -66,6 +66,15 @@ test('AI story classifies as AI', () => {
   assert.equal(r, 'AI_and_Strategy');
 });
 
+test('watch-source articles route to Jewellery even without jewellery keywords', () => {
+  // A Rolex review from a watch source has no jewellery keyword in the title —
+  // it must still land in Jewellery via the source-name routing, not be dropped.
+  const r = classifyTopic({ ...base, title: 'Hands-on: the new Omega Speedmaster', source: 'Watchonista', snippet: 'A close look at the latest release.' });
+  assert.equal(r, 'Jewellery_Industry');
+  const r2 = classifyTopic({ ...base, title: 'Our favourite releases this month', source: 'Worn & Wound' });
+  assert.equal(r2, 'Jewellery_Industry');
+});
+
 test('a truly generic article with no topical signal is dropped (null)', () => {
   const r = classifyTopic({
     ...base,

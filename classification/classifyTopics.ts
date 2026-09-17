@@ -116,7 +116,13 @@ const EXCEPTION_POSITIVE = [
 // Source name matches for obvious routing
 // Specific jewellery sources that should be automatically classified as Jewellery_Industry
 const JEWELLERY_SOURCES = [
-  "Rapaport", "National Jeweler", "JCK", "Jeweller Magazine", "Professional Jeweller", "JewelleryNet"
+  "Rapaport", "National Jeweler", "JCK", "Jeweller Magazine", "Professional Jeweller", "JewelleryNet",
+  // Watch/jewellery trade + enthusiast sources routed by name — their article
+  // titles often lack jewellery keywords (e.g. a Rolex review), so without this
+  // they would be dropped after the classification-precision change.
+  "The Jewellery Editor", "Retail Jeweller", "Instore Magazine",
+  "Watchonista", "Worn & Wound", "SJX Watches", "Time and Tide", "Quill & Pad",
+  "WatchPro", "A Blog to Watch", "Monochrome Watches", "Fratello",
 ];
 
 // Generic patterns that indicate jewellery sources (case-insensitive partial match)
