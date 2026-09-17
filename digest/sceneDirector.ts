@@ -26,7 +26,7 @@ const __dirname = path.dirname(__filename);
 
 // --- Configuration ---
 
-const SCENE_DIRECTOR_VERSION = 'v5'; // v5: setting variety (rotating palette, no default supermarket), story-grounded scenes, comedic-register rotation, avoid recent settings
+const SCENE_DIRECTOR_VERSION = 'v6'; // v6: concrete situational JOKE about the single LEAD story (not an abstract multi-article metaphor)
 const SCENE_DIRECTOR_MODEL = process.env.SCENE_DIRECTOR_MODEL || getModelFor('polish');
 const TEMPERATURE = 0.7; // Some creativity for scene generation
 const MAX_TOKENS = 2000;
@@ -192,7 +192,8 @@ function buildSceneDirectorPrompt(
   previousConcepts: PreviousConcept[] = []
 ): string {
   const articleList = articles.map((article, idx) => {
-    let articleText = `Article ${idx + 1}:
+    const lead = idx === 0 ? ' ⟵ LEAD STORY (build the joke about THIS one)' : '';
+    let articleText = `Article ${idx + 1}:${lead}
 - Title: ${article.title}
 - Source: ${article.source || 'Unknown'}
 - Summary: ${article.aiSummary || article.snippet || 'No summary available'}
@@ -228,9 +229,15 @@ ${noDiamonds}`;
     antiRepetitionConstraint = `\n${noDiamonds}`;
   }
 
-  return `You are a Scene Director for a weekly intelligence digest.
+  return `You are a Scene Director for a weekly intelligence digest — think New Yorker cover or a great editorial cartoon, but as a photorealistic photograph.
 
-Your job is to invent a SINGLE photorealistic scene that is a witty, slightly absurd visual metaphor for THIS WEEK'S specific stories. Aim for originality and a little edge — a scene that makes a smart reader smirk, not a generic stock cliché.
+Your job is to invent ONE photorealistic scene that is a genuine VISUAL JOKE about the single LEAD STORY below. Not a metaphor, not a mood — an actual joke that makes someone who just read that headline snort. A metaphor says "this represents value"; a joke shows a funny SITUATION with a setup and a punchline. Aim for that.
+
+WHAT MAKES IT FUNNY (do this)
+- Pick the ONE clearest comic idea in the lead story and stage it as a concrete SITUATION — something is happening, going comically wrong or absurdly right, or a reaction to it — not a tidy still-life of symbolic objects.
+- The engine of the joke is INCONGRUITY + EXAGGERATION: take one real thing from the story and push it to an absurd literal extreme (a thing far too big/small/many; the wrong tool for the job; a serious thing treated as trivial or vice-versa; a "caught in the act" moment).
+- It must read WITHOUT WORDS. Since no text is allowed, the gag has to work from objects, actions, scale and expressions alone — a viewer should "get it" in one second.
+- The other articles are optional background flavour at most. Do NOT try to cram them all in — one clear joke beats a soup of references.
 
 STYLE & TONE
 - Hyper-realistic: must look like an actual photograph, not an AI image (Getty/Shutterstock — something a human photographer could have shot)
@@ -250,11 +257,10 @@ MANDATORY RULES
 - ONE coherent scene (no collage, no multi-scene)
 
 CREATIVE GUIDANCE
-- GROUND IT IN THE ACTUAL STORIES below — the scene should be a metaphor for THESE specific headlines, not a generic luxury-vs-everyday gag.
-- The joke can come from an unexpected object pairing, a scale mismatch, an out-of-place object, a "just happened" moment, or a sight-gag that lands once you know the story.
-- People are optional; if present, they should be doing something, not just standing around.
-- Objects should be recognizable, real, and touchable.
-- Reject your first, most obvious idea — reach for the second or third, more surprising one.
+- A person mid-reaction usually sells a joke better than objects alone — someone doing something absurd, or reacting to it (deadpan, panicked, oblivious). Use one if it helps the gag land.
+- Exaggerate ONE thing hard rather than adding many props. The funniest covers are simple: one clear absurd focal event.
+- Reject your first, most obvious idea — the second or third is usually funnier and less of a cliché.
+- Keep it concrete and real-world: recognizable, touchable objects and a believable place; the humour comes from what's happening, not from surreal effects.
 
 COMEDIC REGISTER — pick ONE to vary the feel week to week:
 deadpan-corporate · absurdist · moody-but-well-lit (noir) · symmetrical/Wes-Anderson · documentary-candid · surreal-but-plausible
@@ -279,7 +285,7 @@ OUTPUT FORMAT (JSON only, no markdown, no code blocks):
   "setting": "the single everyday setting you chose (e.g., 'server room', 'airport carousel', 'hotel room-service tray')",
   "primaryHumorDriver": "one of: role reversal, scale absurdity, literal metaphor, fish-out-of-water, visual punchline",
   "secondaryEnhancer": "optional flavor enhancer or null",
-  "sceneDescription": "vivid, concrete description of the scene. Be specific about the setting, objects, and the visual joke, and how it ties to this week's stories. Describe what makes it absurd but believable.",
+  "sceneDescription": "state the JOKE in one plain sentence first (what's the setup, what's the punchline, and which fact from the LEAD story it's riffing on), then describe the concrete scene — setting, the one exaggerated focal thing, any person and their reaction. It must be a joke a viewer gets in one second without any words.",
   "finalImagePrompt": "Describe ONLY: the setting/environment, what objects are in it, and where they are placed. Write it as a plain scene description — as if describing a real photograph to someone. Do NOT mention camera settings, f-stops, bokeh, depth of field, lighting rigs, cinematic, or composition rules — those cause CGI output. Keep it under 80 words.",
   "negativePrompt": [
     "text, letters, numbers, signage, labels, price tags",

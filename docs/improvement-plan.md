@@ -141,10 +141,19 @@ Decisions taken with the owner (16 Sep 2026):
   - Note: week-to-week setting variety relies on each week persisting its
     `setting` to `cover-scene.json` (production does; the local mock doesn't
     between a single batch, so a batch can repeat a setting).
+- **Humor pass (DONE, 17 Sep 2026, Scene Director v6).** Owner feedback: the
+  covers weren't actually funny — they were abstract multi-article *metaphors*
+  (a still-life of symbolic objects), which have no subject and no punchline.
+  Rewrote the direction to build ONE concrete situational JOKE about the single
+  LEAD story (article 1), New-Yorker-cover style: incongruity + exaggeration, a
+  person mid-reaction, legible in one second without text, other articles are
+  background at most. Result on W35/W37: a man buried in an avalanche of delivery
+  parcels (ecommerce overload) and a man hemmed in on his sofa by deadpan
+  robots (AI) — concrete, legible, genuinely funny, no rogue text.
 - Still open: decide one brand-appropriate art direction (premium vs. the
-  current jokey object-juxtaposition), tighten out the occasional POS/screen
-  prop, and optionally change the hero's `background-position` crop to match the
-  new central-band composition.
+  current jokey style), tighten out the occasional POS/screen prop, and
+  optionally change the hero's `background-position` crop to match the new
+  central-band composition.
 
 ## Area 4 — Reliability / cost (planned)
 - Fast-fail on `insufficient_quota` (no 8× retry on a "no credits" 429) and add a
