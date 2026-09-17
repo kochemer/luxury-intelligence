@@ -18,6 +18,7 @@ type PreviousConcept = {
   concept: string;
   primaryHumorDriver: string;
   sceneDescription: string;
+  setting?: string;
 };
 
 const __filename = fileURLToPath(import.meta.url);
@@ -25,7 +26,7 @@ const __dirname = path.dirname(__filename);
 
 // --- Configuration ---
 
-const SCENE_DIRECTOR_VERSION = 'v4'; // v4: removed the self-contradicting dark-bg/no-people/bokeh block; coherent light-natural direction + 3:2 composition
+const SCENE_DIRECTOR_VERSION = 'v5'; // v5: setting variety (rotating palette, no default supermarket), story-grounded scenes, comedic-register rotation, avoid recent settings
 const SCENE_DIRECTOR_MODEL = process.env.SCENE_DIRECTOR_MODEL || getModelFor('polish');
 const TEMPERATURE = 0.7; // Some creativity for scene generation
 const MAX_TOKENS = 2000;
@@ -45,6 +46,7 @@ export type ArticleInput = {
 
 export type SceneDirectorOutput = {
   concept: string; // Short concept title
+  setting?: string; // The chosen everyday setting (tracked to avoid repeating it week to week)
   primaryHumorDriver: string; // One of: "role reversal", "scale absurdity", "literal metaphor", "fish-out-of-water", "visual punchline"
   secondaryEnhancer?: string; // Optional flavor enhancer
   sceneDescription: string; // Vivid, concrete description of the scene
@@ -89,7 +91,8 @@ async function loadPreviousConcepts(currentWeekLabel: string, lookbackWeeks: num
             weekLabel: entry.name,
             concept: scene.concept || '',
             primaryHumorDriver: scene.primaryHumorDriver || '',
-            sceneDescription: scene.sceneDescription || ''
+            sceneDescription: scene.sceneDescription || '',
+            setting: scene.setting || ''
           });
         } catch {
           // File doesn't exist or is invalid, skip
@@ -202,83 +205,69 @@ function buildSceneDirectorPrompt(
     return articleText;
   }).join('\n\n');
 
-  // Build anti-repetition constraints
+  // Build anti-repetition constraints — now including the recent SETTINGS so the
+  // model stops defaulting to the same supermarket/kitchen world every week.
+  const noDiamonds = `HARD BAN - NO DIAMONDS (any size, any context):
+- DO NOT feature diamonds, gemstones, or precious stones as focal objects
+- For Jewellery Industry: use OTHER luxury objects (gold watches, rings, coins) instead`;
+
   let antiRepetitionConstraint = '';
   if (previousConcepts.length > 0) {
-    const recentConcepts = previousConcepts.map(c => `- ${c.weekLabel}: "${c.concept}" (${c.primaryHumorDriver})`).join('\n');
+    const recentLines = previousConcepts
+      .map(c => `- ${c.weekLabel}: setting="${c.setting || 'unknown'}", concept="${c.concept}" (${c.primaryHumorDriver})`)
+      .join('\n');
+    const recentSettings = previousConcepts.map(c => c.setting).filter(Boolean).join(', ');
     antiRepetitionConstraint = `
-AVOID REPETITION (Recent covers):
-${recentConcepts}
+AVOID REPETITION (recent covers — do NOT reuse these):
+${recentLines}
 
-DO NOT reuse these concepts or humor drivers. Create a fresh object pairing.
-
-HARD BAN - NO DIAMONDS (any size, any context):
-- DO NOT feature diamonds, gemstones, or precious stones as focal objects
-- For Jewellery Industry: use OTHER luxury objects (gold watches, rings, coins) instead
-- Create value commentary through object pairing (luxury item next to everyday object)`;
+- Choose a DIFFERENT setting and a DIFFERENT primary humor driver than the recent ones above.
+- Recently used settings to AVOID: ${recentSettings || 'none'}.
+${noDiamonds}`;
   } else {
-    antiRepetitionConstraint = `
-HARD BAN - NO DIAMONDS (any size, any context):
-- DO NOT feature diamonds, gemstones, or precious stones as focal objects
-- For Jewellery Industry: use OTHER luxury objects (gold watches, rings, coins) instead
-- Create value commentary through object pairing (luxury item next to everyday object)
-
-ANTI-CLICHE GUIDE (PRODUCT PHOTOGRAPHY STYLE):
-- Mix a luxury object with everyday items: watch + apple, ring + bread, gold coin + orange
-- The joke is the juxtaposition of value and utility
-- Example: "gold watch next to a banana" (role reversal, tabletop)
-- Or: "gold coins scattered among kitchen vegetables" (scale absurdity, mundane context)
-- Keep it pure product photography—no narrative, just smart object selection`;
+    antiRepetitionConstraint = `\n${noDiamonds}`;
   }
-
-  const companyNames = articles
-    .map(a => a.source?.replace(/\s*-\s*.*$/, '').trim())
-    .filter(Boolean)
-    .filter((v, i, arr) => arr.indexOf(v) === i)
-    .join(', ');
 
   return `You are a Scene Director for a weekly intelligence digest.
 
-Your job is to create a SINGLE photorealistic scene that acts as a playful, slightly absurd visual metaphor for the week's most important articles.
+Your job is to invent a SINGLE photorealistic scene that is a witty, slightly absurd visual metaphor for THIS WEEK'S specific stories. Aim for originality and a little edge — a scene that makes a smart reader smirk, not a generic stock cliché.
 
 STYLE & TONE
-- Hyper-realistic: must look like an actual photograph, not an AI image
-- Think: stock photo from Getty or Shutterstock — something a human photographer could have shot
-- Mundane, naturally-lit setting — supermarket shelf, wooden table, shop counter, checkout belt
-- Avoid dark surfaces, black backdrops, velvet — these cause CGI-looking dramatic lighting
-- Lively and slightly absurd through the combination of objects — not through visual effects
+- Hyper-realistic: must look like an actual photograph, not an AI image (Getty/Shutterstock — something a human photographer could have shot)
+- Natural, believable lighting. Avoid dark surfaces, black backdrops, velvet — they read as CGI.
+- The wit comes from the IDEA and the object/scene combination — never from visual effects.
+
+SETTING — PICK ONE, MAKE IT UNEXPECTED (do NOT default to a supermarket or kitchen)
+Choose a single, specific everyday setting that suits this week's stories, and vary it week to week. Draw from a WIDE range, e.g.:
+office desk · boardroom · server room · trading floor · subway/train car · car dashboard or back seat · airport lounge or baggage carousel · hotel lobby or room-service tray · gym or locker room · art gallery or museum · workshop or garage · warehouse loading dock · rooftop · garden or park bench · laundromat · bathroom vanity · vending machine · newsstand · elevator · construction site · diner booth.
+Only use a supermarket/kitchen if it is genuinely the single best fit for the stories — otherwise pick something else.
 
 MANDATORY RULES
-- NO text, logos, signs, UI, screens, or readable symbols
+- ABSOLUTELY NO readable text, words, brand names, logos, signage, labels, price tags, screens, or UI anywhere in the scene. This is critical — the image model tends to invent text/logos, so choose props that would not carry writing (or have any writing turned away, out of frame, or blurred beyond reading). Prefer generic, unbranded objects.
 - NO illustration, CGI, or cartoon style
 - Photorealistic lighting, textures, materials, reflections
-- Wide banner composition (elements in central horizontal band)
+- Wide landscape (3:2) composition — key elements in the central horizontal band
 - ONE coherent scene (no collage, no multi-scene)
 
 CREATIVE GUIDANCE
-- Objects should carry the visual joke — people are optional and secondary
-- Humor comes from unexpected object combinations or situations
-- People in the background are fine; avoid scenes where people are just standing around talking
-- Objects should be recognizable, real, and touchable-looking
-- Recency is irrelevant - focus on the conceptual essence
+- GROUND IT IN THE ACTUAL STORIES below — the scene should be a metaphor for THESE specific headlines, not a generic luxury-vs-everyday gag.
+- The joke can come from an unexpected object pairing, a scale mismatch, an out-of-place object, a "just happened" moment, or a sight-gag that lands once you know the story.
+- People are optional; if present, they should be doing something, not just standing around.
+- Objects should be recognizable, real, and touchable.
+- Reject your first, most obvious idea — reach for the second or third, more surprising one.
 
-BORINGNESS BREAKER (REQUIRED - OBJECT-BASED HUMOR)
-You MUST select at least ONE Primary Humor Driver (expressed through OBJECT COMBINATION):
-1. "role reversal" - Luxury item in mundane context (e.g., diamond ring next to bread, gold watch next to apples)
-2. "scale absurdity" - Objects of mismatched value next to each other (e.g., tiny coin next to giant jewelry)
-3. "literal metaphor" - Objects that embody a concept (e.g., objects representing "supply," "demand," "value")
-4. "fish-out-of-water" - Unexpected object pairing (e.g., kitchen counter items mixed with luxury goods)
-5. "visual punchline" - Object arrangement reveals a wit (e.g., common + rare = commentary on value)
+COMEDIC REGISTER — pick ONE to vary the feel week to week:
+deadpan-corporate · absurdist · moody-but-well-lit (noir) · symmetrical/Wes-Anderson · documentary-candid · surreal-but-plausible
 
-Optionally add one Flavor Enhancer:
-- Unexpected texture/material combination
-- Anachronistic element (old tech with new, vice versa)
-- Mirror/reflection reveal
-- Partial obstruction creating mystery
-- Implied motion or "just happened" moment
+BORINGNESS BREAKER (REQUIRED)
+You MUST select at least ONE Primary Humor Driver:
+1. "role reversal" - something valuable/serious placed in a humble or trivial role (or vice versa)
+2. "scale absurdity" - objects of mismatched size or importance next to each other
+3. "literal metaphor" - objects that literally embody an abstract idea from the stories (supply, demand, risk, hype, a "moat", a "bubble")
+4. "fish-out-of-water" - an object badly out of its normal context
+5. "visual punchline" - an arrangement whose wit only clicks a beat later
 
-SUBTLE BRAND LOGOS (ENCOURAGED):
-Include subtle, recognisable logos of the companies mentioned in the articles (${companyNames}) as props within the scene — e.g. on a shopping bag, a box, a tag, a sticker on an object. Keep them small, natural, and incidental. Do NOT make the logo the focal point.
+Optionally add one Flavor Enhancer: unexpected texture/material combo · anachronism (old tech with new) · mirror/reflection reveal · partial obstruction creating mystery · implied motion or "just happened" moment.
 ${antiRepetitionConstraint}
 
 ARTICLES TO REPRESENT:
@@ -286,11 +275,12 @@ ${articleList}
 
 OUTPUT FORMAT (JSON only, no markdown, no code blocks):
 {
-  "concept": "short concept title (e.g., 'luxury-diamond-scale-absurdity')",
+  "concept": "short concept title (e.g., 'server-room-ice-bath-ai-cooling')",
+  "setting": "the single everyday setting you chose (e.g., 'server room', 'airport carousel', 'hotel room-service tray')",
   "primaryHumorDriver": "one of: role reversal, scale absurdity, literal metaphor, fish-out-of-water, visual punchline",
   "secondaryEnhancer": "optional flavor enhancer or null",
-  "sceneDescription": "vivid, concrete description of the scene. Be specific about objects, lighting, composition, and the visual joke. Describe what makes it absurd but believable.",
-  "finalImagePrompt": "Describe ONLY: what objects are in the scene, where they are placed, and what surface/environment they sit in. Write it as a plain scene description — as if describing a real photograph to someone. Do NOT mention camera settings, f-stops, bokeh, depth of field, lighting rigs, cinematic, or composition rules — those cause CGI output. Keep it under 80 words.",
+  "sceneDescription": "vivid, concrete description of the scene. Be specific about the setting, objects, and the visual joke, and how it ties to this week's stories. Describe what makes it absurd but believable.",
+  "finalImagePrompt": "Describe ONLY: the setting/environment, what objects are in it, and where they are placed. Write it as a plain scene description — as if describing a real photograph to someone. Do NOT mention camera settings, f-stops, bokeh, depth of field, lighting rigs, cinematic, or composition rules — those cause CGI output. Keep it under 80 words.",
   "negativePrompt": [
     "text, letters, numbers, signage, labels, price tags",
     "screens, UI, dashboards, holograms, floating icons",

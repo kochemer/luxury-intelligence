@@ -126,9 +126,25 @@ Decisions taken with the owner (16 Sep 2026):
   3:2). Rewrote it to target 3:2 landscape with the focal subject in the central
   band so it survives the hero crop.
 - **Set `quality: 'high'` (DONE)** on both `images.generate` calls.
+- **Originality/variety pass (DONE, 17 Sep 2026, Scene Director v5).** Owner
+  feedback: covers were all the same supermarket/kitchen theme. Root cause: the
+  prompt hardcoded the grocery world ("supermarket shelf… checkout belt") and
+  every example was food-vs-luxury. Rewrote it: a wide **rotating setting
+  palette** (office, airport, gym, gallery, server room, subway…) with an
+  explicit "do NOT default to supermarket", **story-grounded** scenes (was
+  "recency irrelevant"), a **comedic-register** rotation, and the chosen
+  `setting` now tracked per week so anti-repetition avoids repeating it. Also
+  removed a self-contradiction that this surfaced — a "SUBTLE BRAND LOGOS
+  ENCOURAGED" section fought the "no text/logos" rule and made gpt-image-1 render
+  readable brand text — and hardened the no-text rule. Verified on W35–W37:
+  varied settings (airport carousel, gym) and no rogue brand text.
+  - Note: week-to-week setting variety relies on each week persisting its
+    `setting` to `cover-scene.json` (production does; the local mock doesn't
+    between a single batch, so a batch can repeat a setting).
 - Still open: decide one brand-appropriate art direction (premium vs. the
-  current jokey object-juxtaposition), and optionally change the hero's
-  `background-position` crop to match the new central-band composition.
+  current jokey object-juxtaposition), tighten out the occasional POS/screen
+  prop, and optionally change the hero's `background-position` crop to match the
+  new central-band composition.
 
 ## Area 4 — Reliability / cost (planned)
 - Fast-fail on `insufficient_quota` (no 8× retry on a "no credits" 429) and add a
