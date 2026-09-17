@@ -57,3 +57,6 @@ data/email/recipients.json
 data/email/sent/
 # Selection measurement harness (local analysis artifacts)
 data/harness/
+
+# Local mock digest previews
+mock/
