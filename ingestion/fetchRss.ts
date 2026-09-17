@@ -43,6 +43,43 @@ export type RssFeedStats = {
   categoryHint?: string;
 };
 
+function sleep(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
+ * Fetch a feed with retry-and-backoff on transient failures. Some publishers
+ * (e.g. Business of Fashion) sit behind Cloudflare and intermittently return
+ * 403/429 to rapid automated requests even with a browser User-Agent, yet serve
+ * the feed fine on a retry a moment later. Retries 403 (bot-block), 429 (rate
+ * limit), 5xx, and network errors; does NOT retry other statuses like 404.
+ * Hard blocks (WatchPro, Professional Jeweller) still fail after retries — those
+ * need alternate feed URLs, tracked in the ingestion backlog.
+ */
+async function fetchFeedWithRetry(
+  url: string,
+  headers: Record<string, string>,
+  maxAttempts = 3
+): Promise<Response> {
+  let lastRes: Response | undefined;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const res = await fetch(url, { headers });
+      if (res.status === 200 || attempt === maxAttempts) return res;
+      if (res.status === 403 || res.status === 429 || res.status >= 500) {
+        lastRes = res;
+        await sleep(700 * attempt + Math.floor(Math.random() * 400));
+        continue;
+      }
+      return res; // non-transient (e.g. 404) — don't retry
+    } catch (err) {
+      if (attempt === maxAttempts) throw err;
+      await sleep(700 * attempt + Math.floor(Math.random() * 400));
+    }
+  }
+  return lastRes as Response;
+}
+
 export async function runRssIngestion(): Promise<{ added: number; updated: number; feeds: RssFeedStats[] }> {
   const parser = new Parser();
   const allNewArticles: Article[] = [];
@@ -65,7 +102,7 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
         "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5",
         "Accept-Language": "en-US,en;q=0.9"
       };
-      const res = await fetch(feed.url, { headers });
+      const res = await fetchFeedWithRetry(feed.url, headers);
       const status = res.status;
       const contentType = res.headers.get("content-type") || "";
       const text = await res.text();

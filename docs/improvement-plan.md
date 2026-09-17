@@ -139,11 +139,24 @@ Decisions taken with the owner (16 Sep 2026):
 ## Backlog — ingestion overhaul (owner-flagged 16 Sep 2026, do after Area 2)
 
 Dissect the ingestion layer and make it more robust, enriched, and relevant. The
-pool-health work already surfaced the leads:
-- **Robustness:** recover failing feeds (403/429 — Business of Fashion, Marketing
-  Week, Retail TouchPoints, WatchPro, VentureBeat seen failing) with better
-  fetch (UA/headers, retries, alternate endpoints) and per-source health
-  alerting off the existing `sourceYield` report.
+pool-health work already surfaced the leads.
+
+**Feed-health audit (17 Sep 2026, `npm run validate:feeds`): 62/69 valid, 7 broken.**
+Characterised each broken feed (the fetcher already sends a browser UA, so this
+was never a missing-UA problem):
+- **Intermittent (Cloudflare rate-blocks under load; 200 in isolation):** Business
+  of Fashion (the premier luxury source), VentureBeat-AI (429). → **Addressed:**
+  added retry-with-backoff on 403/429/5xx to `fetchRss` (recovers these most
+  weeks).
+- **Hard-blocked (403 on every isolated request too):** WatchPro, Professional
+  Jeweller. → Still broken; need alternate feed URLs (Google-News RSS for the
+  publication, a full-text RSS proxy) or replacement sources.
+- **Format broken:** Sourcing Journal returns HTML, not XML (feed moved/changed);
+  Just Style intermittent. → Need new URLs.
+
+Remaining robustness work:
+- Recover the hard-blocked feeds via alternate URLs; per-source health alerting
+  off the existing `sourceYield` report (so a silently-dropped feed is noticed).
 - **Relevance / breadth:** add the missing premier sources — Business of Fashion,
   Vogue Business (luxury-business), plus more jewellery/watch trade titles to
   fix Jewellery's thin, single-source-dominated pool; prune persistently
