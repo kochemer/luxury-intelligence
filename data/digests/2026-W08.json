@@ -39,7 +39,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary:\nThe Defense Department and Anthropic are in a dispute over the use of artificial intelligence in future battlefields, raising political concerns and potential challenges for Anthropic.",
+          "aiSummary": "The US Defense Department is in a dispute with Anthropic over artificial intelligence safety standards for future battlefield applications.",
           "translations": {
             "da": {
               "title": "Forsvarsministeriet og Anthropic i strid om A.I. sikkerhed",
@@ -73,7 +73,7 @@
               "training"
             ]
           },
-          "aiSummary": "AI's 'memorisation' problem is highlighted in a study showing that large language models (LLMs) retain more training data than expected, leading to concerns about potential copyright infringement.",
+          "aiSummary": "Research finds large language models memorise more training data than expected, intensifying concerns over potential copyright infringement in AI-generated content.",
           "translations": {
             "da": {
               "title": "AIs 'hukommelses' problem: de romaner, den ikke kan glemme",
@@ -106,7 +106,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nJayant Chaudhary, a government official, plans to create a complete AI stack to drive innovation, encompassing hardware, software, data, and services for AI applications. He highlighted the importance of segmented data sets at the AI Impact Summit in the national capital.",
+          "aiSummary": "India will develop a complete AI stack spanning hardware, software, data, and services, minister Jayant Chaudhary announced at the AI Impact Summit.",
           "translations": {
             "da": {
               "title": "Regeringen planlægger at skabe 'komplet AI-stak' til at drive innovation: Jayant Chaudhary",
@@ -141,7 +141,7 @@
               "ai startup"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nSarvam.AI has introduced Indus, a chatbot based on its 105 billion sovereign model, to compete with global AI giants like ChatGPT and Gemini. The focus is on accuracy and relevance for the Indian market.",
+          "aiSummary": "Sarvam.AI has launched Indus, a chatbot built on its 105 billion parameter sovereign model to rival ChatGPT and Gemini in India.",
           "translations": {
             "da": {
               "title": "Hvad er Sarvam AI's Indus: Indiens svar på ChatGPT, Gemini-lignende chatbots?",
@@ -175,7 +175,7 @@
               "investment"
             ]
           },
-          "aiSummary": "AI is proving to be a valuable investment for telecom operators, with 90% reporting positive returns on their AI initiatives. This is based on Nvidia's 2026 State of AI in Telecommunications survey of over 1,000 industry professionals.",
+          "aiSummary": "Nvidia’s 2026 telecom survey finds 90% of operators report AI delivers positive ROI, boosting both revenue and cost efficiency.",
           "translations": {
             "da": {
               "title": "Telekommunikationsselskaber satser på AI, da 90% rapporterer positive resultater",
@@ -208,7 +208,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary:\nInvestors in the US are selling software firms and wealth managers due to concerns about the impact of rapid advances in artificial intelligence on established business models, creating an \"AI scare trade.\" China, however, is defying this trend as investors there continue to chase winners in the AI sector.",
+          "aiSummary": "US investors are selling software firms and wealth managers amid fears that rapid AI advances will erode established business models.",
           "translations": {
             "da": {
               "title": "Kina trodser global 'AI-skræmmeshop' mens investorer jagter vindere",
@@ -242,7 +242,7 @@
               "funding"
             ]
           },
-          "aiSummary": "AI financial reporting platform Inscope has secured $14.5 million in a Series A funding round to enhance its AI-powered platform for enterprises and accounting firms. This brings the company's total funding to $18.8 million, including previous seed funding.",
+          "aiSummary": "Inscope raised $14.5 million in Series A funding to expand adoption and features of its AI-powered financial reporting platform for enterprises and accounting firms.",
           "translations": {
             "da": {
               "title": "AI Finansrapporteringsplatformen Inscope rejser 14,5 millioner dollars",
@@ -279,7 +279,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nWalmart CEO John Furner revealed that customers using the Sparky AI shopping assistant have 35% larger order values compared to non-users during the fourth-quarter earnings call.",
+          "aiSummary": "Walmart customers using the Sparky AI shopping assistant place orders with basket values about 35% higher than non-users, CEO John Furner reported.",
           "translations": {
             "da": {
               "title": "Walmart siger, at AI-brugere bygger 35% større indkøbskurve end andre",
@@ -309,7 +309,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nAmazon has surpassed Walmart in annual revenue for the first time, marking a significant milestone in the ecommerce and retail tech industry.",
+          "aiSummary": "Amazon surpassed Walmart in annual revenue for the first time, marking a historic shift in the retail industry's top spot.",
           "translations": {
             "da": {
               "title": "Amazon overgår Walmart i årlige indtægter for første gang",
@@ -341,7 +341,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary:\neBay acquires Depop from Etsy for $1.2bn, emphasizing the importance of culture in the recommerce battle.",
+          "aiSummary": "eBay has acquired British second-hand fashion resale app Depop from Etsy for approximately $1.2 billion (£890 million).",
           "translations": {
             "da": {
               "title": "eBays Depop magtspil: hvorfor recommerce-kampen vil blive vundet på kultur, ikke kun markedsandel",
@@ -373,7 +373,7 @@
               "logistics"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nSuccessful retail brands are shifting their perspective on logistics from a cost center to a strategic growth lever, as margins tighten, customer expectations rise, and omnichannel complexity increases.",
+          "aiSummary": "Emerging retail brands treating logistics as a strategic growth lever, rather than a cost center, outperform peers amid rising omnichannel complexity and tightening margins.",
           "translations": {
             "da": {
               "title": "Design af et smartere logistiknetværk: Den skjulte vækstfaktor, som de fleste nye mærker overser",
@@ -406,7 +406,7 @@
               "online retail"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nThe rise of low-value imports worth €150 or less is causing significant changes in the European Union's ecommerce landscape, as reported by Practical Ecommerce on February 17, 2026.",
+          "aiSummary": "A surge in imports worth €150 or less is reshaping E.U. online retailing.",
           "translations": {
             "da": {
               "title": "Lavværdi-import ændrer E.U.s e-handel",
@@ -438,7 +438,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Unilever has entered a five-year partnership with Google Cloud to enhance its use of AI and transition more data and business systems to Google's cloud platform. The collaboration aims to bolster marketing, product discovery, and internal operations for Unilever's global brand portfolio.",
+          "aiSummary": "Unilever signed a five-year deal with Google Cloud to expand AI use and migrate more data and business systems to Google’s cloud platform.",
           "translations": {
             "da": {
               "title": "Unilever indgår femårigt AI- og cloud-partnerskab med Google Cloud",
@@ -471,7 +471,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary:\nWizard, an AI shopping agent created by Marc Lore and Melissa Bridgeford, has recently launched in the midst of a growing trend of tools designed to assist shoppers with searching, comparing, and checking out products.",
+          "aiSummary": "Wizard, co-founded by Marc Lore and Melissa Bridgeford, has launched as a new AI shopping agent that searches, compares and checks out for shoppers.",
           "translations": {
             "da": {
               "title": "Markedsplads Briefing: Indenfor Marc Lore og Melissa Bridgefords AI shopping agent Wizard",
@@ -509,7 +509,7 @@
               "exclusive"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nAmouage experienced a 66% revenue increase in 2025, attributed to the success of its 'Exceptional Extraits' collection and global retail presence.",
+          "aiSummary": "Amouage revenue surged 66% in 2025, fuelled by its ‘Exceptional Extraits’ fragrance collection and expanding global store network.",
           "translations": {
             "da": {
               "title": "Eksklusiv: Amouage Indtægter Steg med 66% i 2025",
@@ -542,7 +542,7 @@
               "spending"
             ]
           },
-          "aiSummary": "Despite slower income gains, consumers are still driving the U.S. economy with persistent spending. Data from the Bureau of Economic Analysis for December shows a 0.3% increase in personal income month over month.",
+          "aiSummary": "U.S. personal income rose 0.3% in December while consumer spending remained resilient despite slower overall economic growth.",
           "translations": {
             "da": {
               "title": "Forbrugerudgifterne fortsætter trods langsommere indkomstvækst",
@@ -575,7 +575,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: UK footfall declined by 0.6% in January, showing improvement from the previous month. Despite the decrease, an increase in consumer confidence offers cautious optimism for the retail sector.",
+          "aiSummary": "UK retail footfall fell 0.6% year-on-year in January, improving from December’s 2.9% drop, as consumer confidence shows signs of recovery.",
           "translations": {
             "da": {
               "title": "Forsigtig optimisme for detailhandel som fald i besøgstal bremser",
@@ -606,7 +606,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nRetail sales volumes surged by 1.8% in January, following a 0.4% increase in December, according to the Office for National Statistics (ONS) reported by Drapers.",
+          "aiSummary": "UK retail sales volumes rose 1.8% in January after a 0.4% increase in December, ONS data shows.",
           "translations": {
             "da": {
               "title": "Detailhandelsalg stiger i januar",
@@ -640,7 +640,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated focus groups are becoming a new tool for brands to understand consumer preferences and test products and marketing strategies before launch. This synthetic consumer research is helping brands gain insights into their customers in the luxury and consumer industry.",
+          "aiSummary": "Brands and retailers are using AI-generated focus groups to simulate shoppers and test products or marketing campaigns before launch.",
           "translations": {
             "da": {
               "title": "Vil du vide, hvad forbrugerne mener? Spørg en AI-genereret fokusgruppe.",
@@ -672,7 +672,7 @@
               "spending"
             ]
           },
-          "aiSummary": "AI-generated summary:\nWealthier shoppers are more likely to buy fresh foods, while lower-income shoppers tend to purchase shelf-stable products, as per NielsenIQ data shared by FMI.",
+          "aiSummary": "Higher-income shoppers are buying more fresh foods, while lower-income consumers spend more on shelf-stable products, NielsenIQ data shows.",
           "translations": {
             "da": {
               "title": "Rigere kunder driver dagligvareforbruget, viser data",
@@ -706,7 +706,7 @@
               "exclusive"
             ]
           },
-          "aiSummary": "AI-generated summary:\nEmily Oberg of Sporty & Rich took over as CEO last August and aims to grow her business without falling victim to the 'founder's ego' issue that has hindered other brands, as discussed in an interview with Business of Fashion.",
+          "aiSummary": "Emily Oberg became CEO of Sporty & Rich in August and outlined her strategy to scale the brand while avoiding the founder’s ego trap.",
           "translations": {
             "da": {
               "title": "Kan Sporty & Richs Emily Oberg bryde grundlægger-CEO-forbandelsen?",
@@ -744,7 +744,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nThe Supreme Court's 6-3 ruling on IEEPA tariffs has significant implications for the jewelry business, prompting changes in the tariff landscape overnight. However, businesses are advised not to cancel supplier orders immediately.",
+          "aiSummary": "The US Supreme Court’s 6-3 ruling eliminates IEEPA tariffs, immediately altering import costs for jewellery businesses.",
           "translations": {
             "da": {
               "title": "Højesteret afskaffer IEEPA-tariffer - Her er hvad det betyder for din smykkevirksomhed",
@@ -777,7 +777,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-Generated Summary: A survey by the BRC shows a significant increase in concerns among retail CFOs and finance directors about rising labor costs due to the Employment Rights Act. 69% of respondents are pessimistic about the impact on retail jobs in the upcoming year.",
+          "aiSummary": "69% of retail CFOs and finance directors are pessimistic about labour costs following January’s implementation of the Employment Rights Act, BRC survey finds.",
           "translations": {
             "da": {
               "title": "Detailjobs i fare på grund af stigende ansættelsesomkostninger",
@@ -812,7 +812,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nHaelixa has introduced a DNA-based Authenticity Service to combat luxury watch counterfeiting, aiming to protect high-end products from being replicated. Counterfeiting costs the luxury industry billions annually, with the Swiss watch sector alone losing $1.88 billion per year.",
+          "aiSummary": "Haelixa has launched a DNA-based Authenticity Service to help protect luxury watches, jewellery and leather goods from $250 billion in annual counterfeit losses.",
           "translations": {
             "da": {
               "title": "Denne DNA-teknologi bekæmper forfalskning af luksusure",
@@ -847,7 +847,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-Generated Summary: Hot Diamonds will introduce its new stainless steel jewellery brand, Ava & Sky, in June 2026. The collection features waterproof, sweat-resistant, and hypoallergenic pieces crafted from premium 316L stainless steel with advanced PVD plating, offering durability and a luxurious aesthetic.",
+          "aiSummary": "Hot Diamonds will launch Ava & Sky, a waterproof, hypoallergenic 316L stainless steel jewellery brand, in June 2026.",
           "translations": {
             "da": {
               "title": "Hot Diamonds lancerer nyt rustfrit stål mærke",
@@ -881,7 +881,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nThe Independent Jewellers Collective (IJC) has introduced an exclusive app for members to access digital assets related to custom jewellery design, enhancing the level of personalized service in the industry.",
+          "aiSummary": "Independent Jewellers Collective launched a members-only app giving stores access to all digital assets supporting its custom jewellery design program.",
           "translations": {
             "da": {
               "title": "IJC tager skræddersyet smykke til næste niveau",
@@ -914,7 +914,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: Jennifer Farnes utilized her building expertise to establish Revolution Jewelry Works, incorporating reclaimed wood, liquid-metal floors, and a 10,500-piece chandelier into the store's design.",
+          "aiSummary": "Jennifer Farnes built Revolution Jewelry Works in Colorado using reclaimed wood, liquid-metal floors, and a chandelier made from 10,500 individual pieces.",
           "translations": {
             "da": {
               "title": "En juveler i Colorado byggede sin butik med genvundet træ, flydende metalgulve og en krone med 10.500 stykker",
@@ -948,7 +948,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "Deakin & Francis, England's oldest family jewellers, celebrates 240 years of craftsmanship using centuries-old techniques to create timeless pieces. Founded in 1786, the jeweller focuses on authenticity and longevity for collectors who appreciate traditional craftsmanship.",
+          "aiSummary": "Deakin & Francis celebrates 240 years in 2026, continuing to craft jewellery in Birmingham using techniques dating back to its 1786 founding.",
           "translations": {
             "da": {
               "title": "Deakin & Francis fejrer 240 år",
@@ -964,5 +964,13 @@
     }
   },
   "coverImageUrl": "/weekly-images/2026-W08.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W08"
+  "coverImageAlt": "Weekly cover illustration for 2026-W08",
+  "oneSentenceSummary": "A quiet convergence emerges: both luxury and mass-market players rely on AI and logistics upgrades to compensate for slowing income growth and shifting footfall.",
+  "keyThemes": [
+    "Walmart Sparky AI",
+    "eBay Depop acquisition",
+    "Amouage revenue surge",
+    "Haelixa DNA Authenticity",
+    "Unilever Google Cloud partnership"
+  ]
 }

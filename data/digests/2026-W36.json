@@ -39,7 +39,7 @@
               "research"
             ]
           },
-          "aiSummary": "AI-generated summary: Nvidia announced its $13 billion acquisition of the AI platform Hugging Face, which is used by over 18 million developers, researchers, and creators, as well as more than 200,000 companies, to share millions of models, data sets, and applications.",
+          "aiSummary": "Nvidia is acquiring AI platform Hugging Face for $13 billion, gaining access to 18 million users and over 200,000 company clients.",
           "translations": {
             "da": {
               "title": "Nvidia køber kunstig intelligens-platform Hugging Face for 13 milliarder dollars",
@@ -74,7 +74,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI labs including Anthropic, OpenAI, Meta, and Google released new model updates this week amid a rapid development pace, while Nvidia announced its acquisition of the open-source AI platform Hugging Face. This AI-generated summary is based solely on the provided information.",
+          "aiSummary": "Anthropic, OpenAI, Meta and Google all launched new AI model updates this week, as Nvidia announced its acquisition of Hugging Face.",
           "translations": {
             "da": {
               "title": "‘Modeltræthed’ sætter ind, mens AI-laboratorier kapløber om at lancere nye versioner i et hektisk tempo",
@@ -108,7 +108,7 @@
               "inference"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how advanced memory and storage infrastructure is crucial in the AI era to enable real-time analysis and continuous intelligence, exemplified by applications like healthcare research acceleration and intelligent customer service.",
+          "aiSummary": "AI-powered healthcare systems now analyze millions of data points in real time, accelerating medical research and enabling instant resolution of thousands of customer needs.",
           "translations": {
             "da": {
               "title": "Arkitektur for hukommelse og lagring i AI-æraen",
@@ -140,7 +140,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Chinese AI firm Moonshot has filed confidentially for a Hong Kong IPO, following the positive reception and strong demand for its latest model, Kimi K3, and is reportedly negotiating revenue-sharing deals with Microsoft, Amazon, and Google to host the model on their cloud platforms.",
+          "aiSummary": "Chinese AI startup Moonshot has confidentially filed for a Hong Kong IPO and is negotiating revenue-sharing deals with Microsoft, Amazon and Google for its Kimi K3 model.",
           "translations": {
             "da": {
               "title": "Kinesisk AI-virksomhed Moonshot indgiver fortrolig ansøgning om Hong Kong IPO",
@@ -173,7 +173,7 @@
               "inference"
             ]
           },
-          "aiSummary": "AI-generated summary: Equinix has secured a new data center partnership with Nvidia and Together AI to support enterprise customers in open-model inference, highlighting its strategic role in the growing AI data center market.",
+          "aiSummary": "Nvidia struck a new data center deal with Equinix and Together AI to support enterprise customers with open-model inference.",
           "translations": {
             "da": {
               "title": "Hvordan Equinix har fundet en niche i den multitrillion-dollar AI-datacenterboom",
@@ -205,7 +205,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: M&T Bank has expanded its enterprise AI by deploying AI copilots to over 15,000 employees, leveraging AI across internal operations, customer service, software development, and risk management to enhance efficiency and risk identification.",
+          "aiSummary": "M&T Bank has rolled out AI copilots to over 15,000 employees for tasks including call-centre analysis, report drafting, code generation, and risk management.",
           "translations": {
             "da": {
               "title": "M&T Bank udvider enterprise AI efter års teknologioverhaling",
@@ -239,7 +239,7 @@
               "claude"
             ]
           },
-          "aiSummary": "AI-generated summary: U.S. Defense Secretary Pete Hegseth blocked Anthropic from military contracts due to the company's refusal to permit use of its Claude AI models for domestic surveillance or autonomous weapons, leading Anthropic to file a lawsuit in California.",
+          "aiSummary": "U.S. Defense Secretary Pete Hegseth blocked Anthropic from military contracts after it refused to let Claude AI be used for surveillance or autonomous weapons.",
           "translations": {
             "da": {
               "title": "US Commerce-chef siger, at Anthropic er tilbage på 'den rigtige side' med Trump, ifølge Axios",
@@ -276,7 +276,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Target’s senior vice president of technology, the retailer is leveraging AI to enhance its e-commerce site by creating wish lists and providing recommended actions as part of its back-to-school strategy.",
+          "aiSummary": "Target is using AI to power wish lists and recommended actions on its e-commerce site for the back-to-school season.",
           "translations": {
             "da": {
               "title": "Hvordan AI driver Targets tilbage-til-skolen indsats",
@@ -309,7 +309,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Practical Ecommerce dated September 2, 2026, highlights new ecommerce tools launched this week, covering areas such as payments, shipping, affiliate marketing, CRMs, supply chain, and merchant-of-record services.",
+          "aiSummary": "New ecommerce tools launched this week span payments, shipping, affiliate marketing, CRMs, supply chain, and merchant-of-record services.",
           "translations": {
             "da": {
               "title": "Nye Ecommerce-værktøjer: 2. september 2026",
@@ -342,7 +342,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: The European Central Bank (ECB) is considering linking its TARGET Instant Payment Settlement (TIPS) platform with Brazil’s Central Bank Pix instant payment system, according to a Reuters report cited by PYMNTS on September 4, 2026.",
+          "aiSummary": "The European Central Bank is exploring interlinking its TIPS instant payment platform with the Central Bank of Brazil’s Pix system.",
           "translations": {
             "da": {
               "title": "ECB undersøger øjeblikkelig betalingsforbindelse med Brasiliens Pix",
@@ -374,7 +374,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Beauty retailer Sephora is launching a “Sephora Drop Shop” on TikTok Shop in the U.S. starting September 19, featuring monthly livestreamed product launches with celebrity hosts and creators to engage TikTok’s beauty-focused audience.",
+          "aiSummary": "Sephora will launch monthly livestreamed “Drop Shop” product events with celebrity hosts on TikTok Shop, piloting in the U.S. from September 19.",
           "translations": {
             "da": {
               "title": "Sephora planlægger eksklusive drops til TikTok Shop",
@@ -404,7 +404,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Walmart has expanded its delivery offerings to include Dunkin’ alongside regular orders, following a similar partnership with Subway, as the retailer seeks to strengthen its position in the restaurant delivery market.",
+          "aiSummary": "Walmart now offers Dunkin’ delivery alongside grocery orders, expanding its restaurant delivery options after a similar partnership with Subway.",
           "translations": {
             "da": {
               "title": "Walmart-kunder kan nu få Dunkin’ leveret sammen med ordrer",
@@ -438,7 +438,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: The article \"The Race to Own AI Shopping\" from Practical Ecommerce (2026-09-06) explores whether consumers will primarily engage with AI shopping tools on external platforms or directly on merchants' websites.",
+          "aiSummary": "Retailers and external platforms are competing to become shoppers’ primary destination for AI-powered shopping experiences.",
           "translations": {
             "da": {
               "title": "Kapløbet om at eje AI-shopping",
@@ -468,7 +468,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: In the article \"GUEST COMMENT Why IKEA’s latest launch could transform post-sale operations\" (Internet Retailing, 2026-09-02), James Rigg, CEO of Trojan Commerce, argues that retailers should view the customer relationship as ongoing beyond the initial sale to enhance post-sale operations.",
+          "aiSummary": "IKEA’s latest launch aims to transform post-sale operations by encouraging retailers to view the first sale as the start of ongoing customer relationships.",
           "translations": {
             "da": {
               "title": "GUEST COMMENT Hvorfor IKEAs seneste lancering kan transformere efter-salgsoperationer",
@@ -507,7 +507,7 @@
               "premium"
             ]
           },
-          "aiSummary": "AI-generated summary: According to the International Association of Department Stores, contemporary and premium tiers are increasingly dominating the luxury segment in department stores, indicating a rise in affordable luxury offerings.",
+          "aiSummary": "Contemporary and premium tiers now dominate department store segment maps, reports the International Association of Department Stores.",
           "translations": {
             "da": {
               "title": "Overkommelig luksus vinder frem i stormagasiner",
@@ -537,7 +537,7 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The article from UseInsider (2026) outlines how retailers can prepare for conversational shopping by leveraging messaging channels like WhatsApp and SMS, emphasizing that successful experiences rely on integrated data, channel features, and commerce systems rather than solely on selecting a chatbot vendor.",
+          "aiSummary": "Retailers are adopting conversational shopping via WhatsApp, SMS, and in-app chat, leveraging connected data and commerce integrations beyond basic chatbot solutions.",
           "translations": {
             "da": {
               "title": "10 tips til at gøre din detailforretning klar til samtalebaseret shopping",
@@ -570,7 +570,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Drapers (2026-09-04) explores the key priorities of the UK fashion retail industry, gathering insights from a range of retailers and brands across urban and rural areas to understand their expectations from the new prime minister's policies.",
+          "aiSummary": "UK fashion retailers and brands call for the new prime minister to prioritise industry-supportive policies, according to interviews across cities and rural Wales.",
           "translations": {
             "da": {
               "title": "Burnhams ambitioner: Storbritanniens modehandels vigtigste premierministerielle prioriteter",
@@ -604,7 +604,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: \"Luxury Unfiltered,\" a weekly column by luxury branding expert Daniel Langer, offers insights into luxury claims and consumer experiences, leveraging his recognition as a top global luxury opinion leader.",
+          "aiSummary": "Every luxury claim can now be tested, writes Daniel Langer in his weekly Luxury Unfiltered column for Luxury Daily.",
           "translations": {
             "da": {
               "title": "Luxury Unfiltered: Hver luksuspåstand kan nu testes",
@@ -635,7 +635,7 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Italian fashion label Gucci is expanding its Horsebit collection with new necklaces, rings, bracelets, and a watch, promoted through a campaign featuring Dutch photographer Carlijn Jacobs.",
+          "aiSummary": "Gucci is launching new Horsebit necklaces, rings, bracelets and a watch in a campaign featuring photographer Carlijn Jacobs.",
           "translations": {
             "da": {
               "title": "Gucci tilføjer nye designs til Horsebit-kollektionen",
@@ -668,7 +668,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Tamanna Mullen, founder of the rising brand Arth Atelier, emphasizes transparent production and Indian craftsmanship in creating luxury fashion she is proud of.",
+          "aiSummary": "Tamanna Mullen launched Arth Atelier to champion transparent production and Indian craftsmanship in her independent fashion brand.",
           "translations": {
             "da": {
               "title": "Denne Indie-designer tager den lange vej for at skabe mode, hun er stolt af",
@@ -701,7 +701,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Ashaki is a luxury clothing brand that creates \"heirloom\" fashion for contemporary women by handcrafted garments using traditional hand-sewing and embroidery techniques.",
+          "aiSummary": "Ashaki handcrafts each garment for contemporary women using traditional hand-sewing and embroidery techniques to create 'heirloom' fashion pieces.",
           "translations": {
             "da": {
               "title": "Ashaki: Tøjmærket der designer 'arvestykke' mode til den moderne kvinde",
@@ -740,7 +740,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Australian fashion jewellery chain Lovisa has achieved double-digit sales growth in the past financial year, driven by its ongoing international expansion, bringing it closer to a $1 billion milestone.",
+          "aiSummary": "Lovisa reported double-digit sales growth for the past financial year as its international expansion pushes the Australian jewellery chain toward a $1 billion milestone.",
           "translations": {
             "da": {
               "title": "$1 milliard: Endnu en stor milepæl i sigte for Lovisa",
@@ -775,7 +775,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The International Jewellery Fair in Sydney brings together retailers and industry professionals, creating a vibrant atmosphere of reconnection and lively conversations that define the event's unique rhythm.",
+          "aiSummary": "The International Jewellery Fair in Sydney brought retailers and industry professionals together for networking and business across multiple stands.",
           "translations": {
             "da": {
               "title": "IJF2026: Fortid, nutid og fremtid for en industri under ét tag",
@@ -809,7 +809,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: At the London red carpet event for ‘Practical Magic 2,’ Sandra Bullock showcased modern jewellery by Jessica McCormack, featuring two necklaces with large collet-set marquise diamonds on gold torque collars.",
+          "aiSummary": "Sandra Bullock wore two Jessica McCormack necklaces, including a gold torque collar with a large collet-set marquise diamond, at the ‘Practical Magic 2’ London premiere.",
           "translations": {
             "da": {
               "title": "Døm Smykkerne: Sandra Bullock Skaber Moderne Magi i Jessica McCormack ved ‘Practical Magic 2’ London Rød Løber",
@@ -842,7 +842,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Rapaport and reported by Instore Magazine on September 4, 2026, diamond prices showed a broader recovery in August, with the 1-carat Rapaport Price Index (RAPI) posting its first gain in 15 months amid a continued rebound in small-stone prices.",
+          "aiSummary": "1-carat RAPI rose in August for the first time in 15 months, while small-diamond prices continued their rebound.",
           "translations": {
             "da": {
               "title": "Diamond Price Recovery Broadens Further in August, Rapaport Reports",
@@ -876,7 +876,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: On 4 September 2026, Me & Em launched its debut jewellery collection, signaling a new era of luxury for the premium womenswear brand, according to Drapers.",
+          "aiSummary": "Me & Em has launched its first jewellery collection, marking the premium womenswear brand’s entry into the luxury jewellery market.",
           "translations": {
             "da": {
               "title": "I billeder: Me & Em udvider med smykker",
@@ -907,7 +907,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The article from Instore Magazine dated September 6, 2026, discusses why jewelers should avoid focusing on the price or \"cost\" of rings, emphasizing that customers engage more deeply with the story behind the jewelry rather than just its price point.",
+          "aiSummary": "Jewelers are advised to avoid discussing ring \"costs\" and to recognize that customers cannot shop a story the same way they shop a price point.",
           "translations": {
             "da": {
               "title": "Stop med at sige, hvad ringen 'koster' — plus flere svar på oktober-spørgsmål fra juvelerer",
@@ -942,7 +942,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: Thieves have stolen a historically significant Van Cleef & Arpels diamond necklace valued at over $6 million from a museum in Austria, marking another high-profile royal jewellery heist in Europe.",
+          "aiSummary": "Thieves stole a Van Cleef & Arpels diamond necklace worth over $6 million from an Austrian museum in the latest European jewellery heist.",
           "translations": {
             "da": {
               "title": "Tyve stjæler flere kongelige smykker i endnu et europæisk røveri",

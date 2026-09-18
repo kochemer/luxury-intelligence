@@ -40,7 +40,7 @@
               "funding"
             ]
           },
-          "aiSummary": "AI-generated summary: Following Nvidia's $20 billion not-acqui-hire, AI chip startup Groq is reportedly seeking to raise $650 million in internal funding as it shifts its focus from hardware to enhancing AI inference capabilities.",
+          "aiSummary": "Groq is seeking $650 million in internal funding as it shifts focus from hardware to AI inference.",
           "translations": {
             "da": {
               "title": "Efter Nvidias $20 mia. ikke-opkøb, AI-chip startup Groq rapporteres at rejse $650 mio.",
@@ -74,7 +74,7 @@
               "training"
             ]
           },
-          "aiSummary": "AI-generated summary: The IEEE Spectrum webinar on \"AI with Model-Based Design: Virtual Sensor Modeling\" outlines a comprehensive workflow for designing, training, verifying, compressing, and deploying AI-based virtual sensor models to embedded processors within a unified environment, emphasizing integration with Simulink, formal verification, and model compression.",
+          "aiSummary": "A new workflow enables end-to-end design, verification, compression, and deployment of AI-based virtual sensor models to embedded processors within Simulink.",
           "translations": {
             "da": {
               "title": "AI med Modelbaseret Design: Virtuel Sensormodellering",
@@ -109,7 +109,7 @@
               "claude"
             ]
           },
-          "aiSummary": "AI-generated summary: Salesforce reports that using AI agents to migrate its development environment to Anthropic's Claude Code reduced the process from 231 days to 13 days while increasing developer productivity and slightly decreasing incidents, though these claims have not been independently verified.",
+          "aiSummary": "Salesforce claims migrating its dev org to Anthropic's Claude Code cut project time from 231 to 13 days and boosted pull requests 79% per developer.",
           "translations": {
             "da": {
               "title": "Salesforce hævder, at AI-agenter reducerer en 231-dages migration til 13 dage med færre hændelser",
@@ -142,7 +142,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: On May 28, 2026, Asana announced its acquisition of no-code agent-builder StackAI, which it plans to integrate into its expanding suite of AI workflow tools.",
+          "aiSummary": "Asana acquires no-code agent-builder StackAI to expand its suite of AI workflow tools.",
           "translations": {
             "da": {
               "title": "Asana opkøber no-code agent-builder StackAI",
@@ -175,7 +175,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Cognition's Scott Wu emphasizes that while their AI coding agent Devin is highly successful, it is not intended to replace human programmers.",
+          "aiSummary": "Cognition CEO Scott Wu says Devin, its leading AI coding agent, is not intended to replace human programmers.",
           "translations": {
             "da": {
               "title": "Cognitions Scott Wu siger, at AI-kodeagenter ikke bør erstatte mennesker",
@@ -209,7 +209,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary: South Africa possesses significant strategic leverage in AI development due to its control of 88 percent of global platinum-group metal reserves essential for semiconductor and data-center supply chains, yet its draft AI policy fails to capitalize on this advantage.",
+          "aiSummary": "South Africa holds 88% of global platinum-group metal reserves vital to AI supply chains, but its draft AI policy fails to leverage this advantage.",
           "translations": {
             "da": {
               "title": "Sydafrika Har AI-Fortrin. Dets Udkast til Politik Udnytter Det Ikke",
@@ -246,7 +246,7 @@
               "funding"
             ]
           },
-          "aiSummary": "AI-generated summary: Anthropic has become the most valuable AI startup in Silicon Valley following a $65 billion funding round, surpassing OpenAI and approaching a $1 trillion valuation.",
+          "aiSummary": "Anthropic became Silicon Valley’s most valuable AI company after a $65 billion funding round pushed its valuation near $1 trillion.",
           "translations": {
             "da": {
               "title": "Anthropic overgår OpenAI som den mest værdifulde AI-startup, nærmer sig en værdi på 1 billion dollars i seneste runde",
@@ -285,7 +285,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon is expanding its presence in the AI-powered shopping tools market by selling the technology behind its AI shopping assistant to other retailers, aiming to increase its influence in the ecommerce and retail tech sector.",
+          "aiSummary": "Amazon is selling its AI shopping assistant technology to other retailers to expand in the growing market for AI-powered shopping tools.",
           "translations": {
             "da": {
               "title": "Marketplace Briefing: Hvorfor Amazon sælger sine AI-drevne shoppingværktøjer til andre detailhandlere",
@@ -320,7 +320,7 @@
               "inventory"
             ]
           },
-          "aiSummary": "AI-generated summary: Stord, an ecommerce fulfillment company positioning itself as an alternative to Amazon by providing a network of warehouses and inventory management software, has raised $250 million at a $3 billion valuation. The company aims to help brands compete quickly while maintaining ownership of their customer relationships.",
+          "aiSummary": "Stord raised $250 million at a $3 billion valuation to expand its e-commerce warehouse and inventory management network for brands competing with Amazon.",
           "translations": {
             "da": {
               "title": "Amazon fulfillment-konkurrent Stord rejser 250 mio. USD ved en værdiansættelse på 3 mia. USD",
@@ -350,7 +350,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Walmart is transforming from a low-cost retailer into a platform that supports emerging and premium brands, including those originating online or new to physical retail, enabling them to expand across the U.S.",
+          "aiSummary": "Walmart is attracting more emerging and premium brands, offering online-born and higher-priced labels expanded opportunities to scale across the U.S.",
           "translations": {
             "da": {
               "title": "Walmart bliver et tilflugtssted for flere nye, premium brands",
@@ -384,7 +384,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: The European Commission has fined Chinese ecommerce platform Temu €200 million for violating the Digital Services Act by inadequately assessing the risks of illegal products sold to EU consumers, according to Drapers (2026-05-29).",
+          "aiSummary": "The European Commission fined Temu €200m for breaching the Digital Services Act by failing to assess illegal product risks for EU consumers.",
           "translations": {
             "da": {
               "title": "Temu bødefældet for ulovlige produktrisici",
@@ -417,7 +417,7 @@
               "warehouse"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Total Retail (2026-05-26) explains that many retail fulfillment technology investments falter not at launch but during early planning stages, where unrealistic implementation timelines go unchallenged by key teams, leading to project difficulties months later.",
+          "aiSummary": "Most retail fulfillment tech projects falter when teams accept a vendor’s 14-week implementation timeline without challenging its assumptions in early planning meetings.",
           "translations": {
             "da": {
               "title": "4 grunde til, at din investering i detailopfyldelsesteknologi fortsætter med at skuffe",
@@ -449,7 +449,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Total Retail (2026-05-27), top North American e-commerce brands generate half of their email revenue from just 6% of sends, with automated flows outperforming traditional campaigns by delivering eight times higher revenue per 1,000 emails. This highlights a significant shift in email strategy effectiveness within ecommerce and retail tech.",
+          "aiSummary": "Automated email flows deliver $513 per 1,000 emails—eight times more revenue than campaigns—despite accounting for just 6% of sends at North American e-commerce brands.",
           "translations": {
             "da": {
               "title": "Topmærker får halvdelen af deres emailindtægter fra 6 % af udsendelserne. Her er, hvad disse udsendelser er, og hvordan man kan efterligne dem",
@@ -481,7 +481,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Footwear retailer Shoezone has launched its first social shopping channel on TikTok Shop as part of its strategy to expand its social commerce presence.",
+          "aiSummary": "Shoezone has launched its first social shopping channel on TikTok Shop to expand its social commerce presence.",
           "translations": {
             "da": {
               "title": "Shoezone træder ind på TikTok Shop som led i sin satsning på social commerce",
@@ -519,7 +519,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Rising smartphone prices in India, especially for entry-level models, may lead buyers to delay purchases or opt for used phones, potentially reducing annual sales by up to 30%, signaling a need for brands to focus on affordability for future growth.",
+          "aiSummary": "Rising smartphone prices in India may cut annual sales by up to 30%, with entry-level models seeing the steepest increases.",
           "translations": {
             "da": {
               "title": "Stigende priser kan ramme festlig efterspørgsel på smartphones og reducere årligt salg med op til 30%: Rapport",
@@ -554,7 +554,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: Apparel retailers Gap and American Eagle reported weak annual forecasts, reflecting constrained consumer spending as shoppers reduce discretionary purchases amid a challenging macroeconomic environment.",
+          "aiSummary": "Gap and American Eagle issued weak annual forecasts as consumers cut discretionary spending in response to a challenging macroeconomic environment.",
           "translations": {
             "da": {
               "title": "Svag efterspørgsel hos Gap og American Eagle signalerer begrænset forbrug",
@@ -589,7 +589,7 @@
               "premium"
             ]
           },
-          "aiSummary": "AI-generated summary: As mass market and premium brands move upmarket, luxury brands maintain their edge by focusing on specificity, scarcity, and culture-creating to differentiate themselves.",
+          "aiSummary": "Luxury brands are defending their position as mass and premium competitors move upmarket by emphasising specificity, scarcity and culture-creating.",
           "translations": {
             "da": {
               "title": "Hvordan luksus kan forblive i top, når alle mærker bevæger sig opad",
@@ -623,7 +623,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: U.K.-based cosmetics brand Lisa Eldridge has opened a monthslong pop-up store in SoHo as part of its strategy to expand further into the U.S. market.",
+          "aiSummary": "Lisa Eldridge has opened a months-long pop-up store in SoHo as the U.K. cosmetics brand expands its U.S. presence.",
           "translations": {
             "da": {
               "title": "EKSKLUSIVT: Lisa Eldridge åbner butik i New York",
@@ -658,7 +658,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: Following the sale of Versace, Capri is focusing on expanding Michael Kors and Jimmy Choo by leveraging new executive hires to capitalize on emerging consumer demand for accessible luxury, according to analysts Luca Solca and Simeon Siegel.",
+          "aiSummary": "Capri is hiring new executives to drive growth at Michael Kors and Jimmy Choo following the sale of Versace.",
           "translations": {
             "da": {
               "title": "Luxury Briefing: Med salget af Versace satser Capri på ny forbruger efterspørgsel efter tilgængelig luksus",
@@ -692,7 +692,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Genesco's Q1 earnings call highlighted how NFL Hall of Famer Peyton Manning is contributing to attracting a younger consumer base to the historic Johnston & Murphy brand.",
+          "aiSummary": "Peyton Manning’s partnership is drawing younger shoppers to Johnston & Murphy, boosting the 175-year-old brand’s appeal, Genesco reported in its Q1 earnings call.",
           "translations": {
             "da": {
               "title": "4 Indsigter Fra Genescos Q1 Resultatopkald — Fra Peyton Manning Effekten til Journeys’ Udvikling",
@@ -726,7 +726,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Luxury brands are reducing their marketing efforts for China’s “520” Valentine’s Day, while global fashion news also highlights Uzbekistan’s Tashkent Fashion Week expansion and Vietnam’s jewellery IPO.",
+          "aiSummary": "Luxury brands reduced marketing campaigns for China’s “520” Valentine’s Day, shifting focus amid changing consumer sentiment in the key market.",
           "translations": {
             "da": {
               "title": "Worldview | Luksusmærker nedskalerer markedsføringen til Kinas “520” Valentinsdag",
@@ -766,7 +766,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: Richemont reported strong sales growth in its jewellery brands over the past financial year, despite a decline in revenue from its watch brands, and dismissed speculation about selling any of its brands.",
+          "aiSummary": "Richemont reported strong jewellery sales growth last year, offsetting weaker watch revenues and dismissing speculation about selling any of its brands.",
           "translations": {
             "da": {
               "title": "Richemont rapporterer stærkt salg af smykker, afviser spekulationer om salg af mærker",
@@ -799,7 +799,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: The global launch of the Swatch x Audemars Piguet collection sparked large crowds and clashes at retail locations, resulting in police intervention worldwide. The event highlighted significant chaos within the jewellery industry.",
+          "aiSummary": "Swatch's global launch of its Audemars Piguet collaboration sparked large crowds, clashes, and police intervention at retail stores worldwide.",
           "translations": {
             "da": {
               "title": "Kaos omgiver global lancering af Swatch x Audemars Piguet",
@@ -832,7 +832,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: Watches of Switzerland has experienced revenue growth in the financial year, driven by a strong surge in the US market, which now represents more than half of the company’s sales.",
+          "aiSummary": "Watches of Switzerland’s annual revenue rose as US sales surged to account for over half of the company’s total.",
           "translations": {
             "da": {
               "title": "Gode tider fortsætter for Watches of Switzerland",
@@ -866,7 +866,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The article explores a jewellery photographer's distinctive blend of high fashion and documentary styles, aiming to create work that transcends traditional categories and stands out in the competitive luxury jewellery market.",
+          "aiSummary": "A jewellery photographer blending high fashion and documentary styles claims a unique approach sets their work apart in the competitive luxury market.",
           "translations": {
             "da": {
               "title": "Kunsten at fotografere smykker",
@@ -900,7 +900,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Brinder Dhatt, known as TheJewelGeek, is launching The Jewel Geek Education project, a series of seminars in English schools designed to promote careers in the jewellery industry to students before they select their higher education paths.",
+          "aiSummary": "Brinder Dhatt, known as TheJewelGeek, is launching The Jewel Geek Education seminars in schools across England to promote jewellery industry careers.",
           "translations": {
             "da": {
               "title": "Nyt smykkeuddannelsesprogram lanceres i skoler",
@@ -933,7 +933,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: In the jewellery industry, Amber Pepper highlights a luxury-focused approach for natural diamonds at COUTURE, emphasizing that increasing synthetic options drive consumer desire for genuine diamonds, according to the Natural Diamond Council CEO.",
+          "aiSummary": "Natural Diamond Council CEO Amber Pepper signaled a luxury-focused strategy at COUTURE, citing increased consumer desire for natural diamonds amid synthetic alternatives.",
           "translations": {
             "da": {
               "title": "Amber Pepper signalerer luksusfokuseret retning for naturlige diamanter på COUTURE",
@@ -969,7 +969,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: In its 50th anniversary year, Houlden has welcomed two independent luxury jewellers, including the family-owned Martin & Co, known for its heritage and expertise in fine jewellery and luxury watches, to its membership.",
+          "aiSummary": "Houlden has added two independent luxury jewellers, including heritage retailer Martin & Co, to its membership in its 50th anniversary year.",
           "translations": {
             "da": {
               "title": "Houlden byder to uafhængige forhandlere velkommen i sit 50. år",
@@ -986,5 +986,13 @@
   },
   "editorialTake": "Amazon selling its AI-powered shopping tools to other retailers signals a shift from pure dominance to platform enabler. Instead of hoarding AI capabilities to crush competitors, Amazon is monetizing its tech by licensing it out. This move accelerates AI adoption across ecommerce but also forces Amazon to compete on service and scale, not just proprietary advantage.\n\nThat raises a tough question: can Amazon maintain its leadership if its AI edge becomes a commodity? If rivals gain access to the same tools, differentiation will come down to execution, fulfillment, and customer experience. Amazon’s $250 million raise by Stord, a fulfillment competitor, underscores this battleground. The real test is whether Amazon can turn AI from a secret weapon into a growth engine without losing its edge.",
   "coverImageUrl": "/weekly-images/2026-W22.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W22"
+  "coverImageAlt": "Weekly cover illustration for 2026-W22",
+  "oneSentenceSummary": "Despite AI’s promise to streamline operations, retailers scrambling to sell their own AI tools ironically reveal dependence on tech rivals they aim to outpace.",
+  "keyThemes": [
+    "Anthropic valuation",
+    "Amazon AI shopping tools",
+    "Richemont jewellery sales",
+    "Watches of Switzerland revenue",
+    "StackAI no code agent"
+  ]
 }

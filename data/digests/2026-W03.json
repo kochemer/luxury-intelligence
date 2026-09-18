@@ -56,7 +56,7 @@
           },
           "rerankWhy": "Conversational AI boosting ecommerce conversions and average order value",
           "rerankConfidence": 0.95,
-          "aiSummary": "AI-generated summary: Conversational AI in e-commerce is crucial for boosting conversions and average order value as customers now expect instant answers and personalized interactions throughout their browsing journey, leading to the conversion moment occurring before checkout.",
+          "aiSummary": "Conversational AI is now central to e-commerce, resolving customer friction and driving conversions before checkout rather than serving as a mere support tool.",
           "translations": {
             "da": {
               "title": "Samtale-AI til E-handel: Øgning af konverteringer og gennemsnitlig ordreværdi",
@@ -87,7 +87,7 @@
           },
           "rerankWhy": "Walmart's AI transformation impacting shopping experience and operations",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-driven transformation at Walmart is expected to significantly change the shopping experience, according to Daniel Danker.",
+          "aiSummary": "Walmart’s Daniel Danker predicts AI will transform the shopping experience within a year, marking a shift from experimentation to widespread change.",
           "translations": {
             "da": {
               "title": "Walmart: I år bliver AI-eksperimenter til transformation",
@@ -121,7 +121,7 @@
           },
           "rerankWhy": "Study shows AI's largest impact in retail operations, not just virtual assistants",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI is highly valued by retail executives for strategic business priorities, with a focus on operations rather than virtual assistants. A significant percentage of respondents are already using AI for autonomous decision-making, but there is still room for further deployments in the industry.",
+          "aiSummary": "Nearly one in four retail executives already use AI for autonomous decision-making, with 87% identifying further opportunities for operational deployment, a TCS survey finds.",
           "translations": {
             "da": {
               "title": "Undersøgelse: Den Største Indflydelse af AI Ligger i Drift, ikke Virtuelle Assistenter",
@@ -154,7 +154,7 @@
           },
           "rerankWhy": "Etsy selling directly through Google's AI mode, enhancing ecommerce integration",
           "rerankConfidence": 0.85,
-          "aiSummary": "Etsy will enable logged-in Google users in the U.S. to buy items from its marketplace through AI Mode in Google search and the Gemini app, following other retailers utilizing Google's AI technology.",
+          "aiSummary": "Etsy will let logged-in Google users in the U.S. buy select marketplace items directly via Google search’s AI Mode and the Gemini app.",
           "translations": {
             "da": {
               "title": "Hvordan Etsy vil sælge direkte gennem Googles AI-tilstand",
@@ -187,7 +187,7 @@
           },
           "rerankWhy": "Deloitte blueprint for embedding AI digital workers in retail operations",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI in Retail: Deloitte US presents a blueprint for retailers to implement digital workers at scale, enhancing agility and intelligence in operations. Digital workers offer a transformative solution for managing supply chains and merchandising in the retail sector.",
+          "aiSummary": "Retailers are embedding digital workers at scale to boost agility and intelligence in supply chain and merchandising operations, Deloitte reports.",
           "translations": {
             "da": {
               "title": "AI i detailhandlen: Digitale arbejdere transformerer operationer | Deloitte US",
@@ -218,7 +218,7 @@
           },
           "rerankWhy": "REI CEO discusses ecommerce and AI strategy for sustainable retail future",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nREI CEO Mary Beth Laughton discussed the Peak 28 strategy, focusing on sustainability and values, and incorporating a human touch into technology at NRF 2026.",
+          "aiSummary": "REI CEO Mary Beth Laughton detailed the Peak 28 three-year strategy to build a sustainable future and humanise technology at NRF 2026.",
           "translations": {
             "da": {
               "title": "REI CEO Mary Beth Laughton om, hvordan co-op'en ændrer sig, e-handel og AI",
@@ -252,7 +252,7 @@
           },
           "rerankWhy": "Tech giants pushing AI adoption across retail operations broadly",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary:\nTech giants like Google and Amazon are pushing for widespread AI adoption in retail operations to improve efficiency and customer experience, with businesses across various sectors embracing AI solutions.",
+          "aiSummary": "Google and Amazon are pushing retailers to adopt AI across all operations, from sales to hiring, to boost efficiency and customer experience.",
           "translations": {
             "da": {
               "title": "Teknologigiganter som Google og Amazon ønsker, at detailhandlere bruger AI overalt",
@@ -291,7 +291,7 @@
           },
           "rerankWhy": "JioMart's scale and quick commerce growth impact Indian retail",
           "rerankConfidence": 0.95,
-          "aiSummary": "AI-Generated Summary:\nTech Mahindra achieved its strongest December quarter in three years, with a 14% increase in net profit and 8% rise in revenue. Margins improved for the ninth consecutive quarter, driven by operational efficiencies and AI-led initiatives, while headcount decreased due to slowed hiring.",
+          "aiSummary": "Tech Mahindra’s net profit rose 14% to Rs 1,122 crore and revenue grew 8% in Q3, with margins improving for a ninth straight quarter.",
           "translations": {
             "da": {
               "title": "Tech Mahindra opnår stærkeste decemberkvartal i tre år",
@@ -325,7 +325,7 @@
           },
           "rerankWhy": "Blinkit's delivery fee cuts affect quick commerce competition",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nCommerce Minister Piyush Goyal is finalizing guidelines for the second phase of the Fund of Funds scheme for startups in advanced stages, with a focus on deep tech and high-tech sectors. The initiative, with a Rs 10,000 crore allocation, aims to boost India's startup ecosystem and promote youth entrepreneurship.",
+          "aiSummary": "India finalises guidelines for phase II of its Rs 10,000 crore Fund of Funds scheme, targeting deep tech and high-tech startup investment.",
           "translations": {
             "da": {
               "title": "Retningslinjer for fase II af Fund of Funds-ordningen for startups i avanceret fase: Handelsminister Piyush Goyal",
@@ -356,7 +356,7 @@
           },
           "rerankWhy": "Shadowfax IPO highlights logistics sector changes in ecommerce",
           "rerankConfidence": 0.88,
-          "aiSummary": "AI-Generated Summary:\nUnion minister Piyush Goyal admits his previous comments on deeptech were off the mark, urging founders to focus on consumer apps. This update is featured in today's ETtech Top 5.",
+          "aiSummary": "Union minister Piyush Goyal admitted his previous advice for founders to prioritise deeptech over consumer apps was mistaken.",
           "translations": {
             "da": {
               "title": "Goyals hårde kærlighedsøjeblik; Wipro, Tech Mahindra indtjening",
@@ -387,7 +387,7 @@
           },
           "rerankWhy": "Dunelm's omnichannel strategy shows digital commerce integration",
           "rerankConfidence": 0.87,
-          "aiSummary": "AI-Generated Summary:\nShaun Johnson, cofounder of AIX Ventures, a venture capital firm specializing in AI startups, departed from the company last month. AIX Ventures has backed startups like Perplexity, Windsurf, and Ideogram.",
+          "aiSummary": "AIX Ventures cofounder Shaun Johnson left the firm last month after backing AI startups including Perplexity, Windsurf and Ideogram.",
           "translations": {
             "da": {
               "title": "AIX Ventures medstifter Shaun Johnson forlader",
@@ -418,7 +418,7 @@
           },
           "rerankWhy": "Costco Kirkland vs brand pricing offers merchandising insights",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nIndian startups raised $190.7 million in mid-January, a 51% decrease from the previous year, with fewer deals completed. Healthcare, education, and consumer brands were the top sectors for funding.",
+          "aiSummary": "Indian startups raised $190.7 million in mid-January, down 51% year-on-year, with healthcare, education and consumer brands leading the largest deals.",
           "translations": {
             "da": {
               "title": "ETtech Deals Digest: Startups rejser 191 millioner dollars denne uge, ned 51% i forhold til året før",
@@ -449,7 +449,7 @@
           },
           "rerankWhy": "ASOS revives Topshop brand with new European ecommerce site",
           "rerankConfidence": 0.83,
-          "aiSummary": "AI-generated summary:\nSpacetech startup EtherealX secured $20 million in funding from TDK Ventures, BIG Capital, and other investors. The company aims to launch its technology demonstrator vehicle in 2027 and its commercial launcher, Razor Crest Mk-1, by the end of 2028.",
+          "aiSummary": "Spacetech startup EtherealX raised $20 million from TDK Ventures, BIG Capital and others, planning its first commercial Razor Crest Mk-1 rocket launch by end-2028.",
           "translations": {
             "da": {
               "title": "Spacetech startup EtherealX rejser 20 millioner dollars i runde co-ledet af TDK Ventures, BIG Capital",
@@ -483,7 +483,7 @@
           },
           "rerankWhy": "Richemont's record quarter reveals luxury ecommerce trends",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary:\nIndia's top IT companies have ended their recruitment freeze by adding 2,505 employees in 2025, focusing on niche skills for selective and skill-based hiring.",
+          "aiSummary": "India’s top five IT firms added 2,505 employees in 2025, reversing last year’s cuts with selective hiring for niche skills.",
           "translations": {
             "da": {
               "title": "Indiens store IT ophæver rekrutteringsstop, men kun for nichefærdigheder",
@@ -523,7 +523,7 @@
           },
           "rerankWhy": "Agentic commerce link-up with Commercetools impacts retail tech",
           "rerankConfidence": 0.95,
-          "aiSummary": "AI-Generated Summary:\nGoogle partners with retail platforms like Shopify to introduce an open-source tool set for agentic commerce, aiming to enhance AI-native purchases, as announced at the National Retail Federation's 2026 Expo.",
+          "aiSummary": "Google unveiled an open-source tool for agentic commerce with partners including Shopify at the National Retail Federation's 2026 Expo.",
           "translations": {
             "da": {
               "title": "Google vil drive AI-native køb",
@@ -556,7 +556,7 @@
           },
           "rerankWhy": "Google powering AI-native purchases with Shopify integration",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nFrasers Group partners with Commercetools to enable shoppers to access its retail ecosystem through AI shopping channels like ChatGPT, diving into agentic commerce.",
+          "aiSummary": "Frasers Group partnered with Commercetools to enable shoppers to buy products directly through AI shopping channels like ChatGPT.",
           "translations": {
             "da": {
               "title": "Frasers Group dykker hovedkulds ind i agentisk handel med Commercetools samarbejde - FashionNetwork",
@@ -588,7 +588,7 @@
           },
           "rerankWhy": "Alibaba linking shopping to AI app with ecommerce implications",
           "rerankConfidence": 0.88,
-          "aiSummary": "AI-Generated Summary:\nAlibaba aims to connect its main online shopping and travel services to its AI app, creating a comprehensive AI platform for consumers.",
+          "aiSummary": "Alibaba will connect its main online shopping and travel services to its AI app, aiming to create a unified consumer platform.",
           "translations": {
             "da": {
               "title": "Alibaba tager stort skridt for at forbinde shopping med hoved-AI-app",
@@ -620,7 +620,7 @@
           },
           "rerankWhy": "Saks new CEO with bankruptcy and luxury retail turnaround expertise",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nRichemont exceeded analyst expectations in the holiday quarter with strong sales from Cartier and Van Cleef & Arpels, along with improved performance from its watch brands.",
+          "aiSummary": "Richemont surpassed analyst forecasts in the holiday quarter, driven by strong Cartier and Van Cleef & Arpels sales and improving watch brand performance.",
           "translations": {
             "da": {
               "title": "Richemont Overgik Forventningerne i Feriekvartalet",
@@ -652,7 +652,7 @@
           },
           "rerankWhy": "Richemont’s holiday sales beat forecasts, relevant for luxury retail",
           "rerankConfidence": 0.83,
-          "aiSummary": "AI-Generated Summary:\nFendi has opened a Lunar New Year pop-up in Shanghai showcasing its spring/summer 2026 collection.",
+          "aiSummary": "Fendi opened a two-level Shanghai pop-up showcasing its spring/summer 2026 collection for Lunar New Year shoppers.",
           "translations": {
             "da": {
               "title": "Fendi lancerer Lunar New Year pop-up i Shanghai",
@@ -684,7 +684,7 @@
           },
           "rerankWhy": "Fendi’s Lunar New Year pop-up highlights retail merchandising strategy",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nGeoffroy van Raemdonck, known for leading Neiman Marcus Group out of bankruptcy, has been named the new CEO of Saks following the retailer's Chapter 11 filing. His expertise in luxury retail and bankruptcy restructurings will likely shape Saks' future direction.",
+          "aiSummary": "Geoffroy van Raemdonck, who led Neiman Marcus Group out of bankruptcy, was named CEO of Saks as the retailer filed for Chapter 11.",
           "translations": {
             "da": {
               "title": "Saks’ nye CEO bringer konkursviden, luksusforbindelser",
@@ -714,7 +714,7 @@
           },
           "rerankWhy": "Apparel brands’ Winter Olympics strategies show merchandising innovation",
           "rerankConfidence": 0.78,
-          "aiSummary": "AI-Generated Summary:\nApparel brands like J.Crew, Nike, and Ralph Lauren are focusing on fashionable designs and technical fabrics to stand out at the Winter Olympics, as reported by Modern Retail on January 12, 2026.",
+          "aiSummary": "J.Crew, Nike and Ralph Lauren debut fashionable designs and technical fabrics as apparel and footwear partners at the Winter Olympics.",
           "translations": {
             "da": {
               "title": "Hvordan tøjbrands sigter mod at vinde rampelyset ved Vinter-OL",
@@ -754,7 +754,7 @@
           },
           "rerankWhy": "Direct relevance to Pandora's sales and tech-driven retail insights",
           "rerankConfidence": 0.95,
-          "aiSummary": "AI-Generated Summary:\nSales at independent jewellery stores in Australia saw a rise during the festive season in December, reflecting positive trends in the industry for the year.",
+          "aiSummary": "Independent jewellery stores in Australia reported increased December sales, capping a broadly positive year, recent analysis shows.",
           "translations": {
             "da": {
               "title": "Festlig sæson: Salget stiger for uafhængige juvelerer i december",
@@ -789,7 +789,7 @@
           },
           "rerankWhy": "AI application in jewelry retail with practical ecommerce implications",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nFolium, founded by Master Goldsmith Myles Ryan, has launched a new website showcasing four signature collections inspired by natural architecture and hand-engraved craft.",
+          "aiSummary": "Folium launched a new website debuting four signature collections—Florilegia, Quadrafolium, Serpentis and Nectere—highlighting hand-engraved craft and natural architecture.",
           "translations": {
             "da": {
               "title": "Folium Præsenterer Ny Hjemmeside, Der Markerer Et Nyt Kapitel For Studiet Grundlagt Af Mester Guldsmed Myles Ryan",
@@ -849,7 +849,7 @@
           },
           "rerankWhy": "Analysis of Black Friday sales impact on jewelry retail seasonality",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary:\nThe article discusses the application of artificial intelligence in the jewelry retail industry, focusing on inventory demand forecasting, AI-assisted marketing content, automated customer communication, and product photo enhancement.",
+          "aiSummary": "Jewellery retailers are using AI for inventory demand forecasting, marketing content creation, automated customer communication, and product photo enhancement.",
           "translations": {
             "da": {
               "title": "Kunstig Intelligens i Smykke Detailhandel: Hype vs. Virkelighed",
@@ -879,7 +879,7 @@
           },
           "rerankWhy": "Retailers share practical strategies for selling colored gemstones",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nTwo members of the 'Pink Panthers' gang were arrested for a luxury goods heist in Greece, as reported by Jeweller - Business News on January 12, 2026.",
+          "aiSummary": "Two alleged Pink Panthers members were arrested over a September luxury goods heist in Greece.",
           "translations": {
             "da": {
               "title": "Medlemmer af Pink Panthers angiveligt ansvarlige for græsk røveri",
@@ -909,7 +909,7 @@
           },
           "rerankWhy": "Government mandate affecting natural diamond protection and supply chain",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-Generated Summary:\nPandora experienced lower holiday sales due to weakened consumer demand, impacting its financial performance for the year.",
+          "aiSummary": "Pandora reported lower than expected annual sales, citing weakened consumer demand during the holiday season.",
           "translations": {
             "da": {
               "title": "Teknologisk boost for Pandora under julesalget",
@@ -940,7 +940,7 @@
           },
           "rerankWhy": "Insights on product assortment blending watchmaking and jewelry",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary:\nHong Kong's Financial Secretary Paul Chan announced that Hong Kong will sign an MOU with the Shanghai Gold Exchange at the Asian Financial Forum, enhancing cooperation in the jewellery industry.",
+          "aiSummary": "Hong Kong will sign a memorandum of understanding with the Shanghai Gold Exchange at the upcoming Asian Financial Forum, Financial Secretary Paul Chan said.",
           "translations": {
             "da": {
               "title": "Hongkong vil underskrive MOU med Shanghai Gold Exchange, siger Chan",
@@ -955,7 +955,13 @@
       ]
     }
   },
-  "keyThemes": [],
+  "keyThemes": [
+    "Walmart AI transformation",
+    "Etsy Google AI Mode",
+    "Richemont holiday sales",
+    "Pandora holiday sales",
+    "Agentic commerce"
+  ],
   "introParagraph": "",
-  "oneSentenceSummary": "Richemont's record sales and Saks Global's bankruptcy highlight contrasting fortunes in the luxury sector amid evolving consumer demand."
+  "oneSentenceSummary": "Multiple industry giants fast-tracking direct AI-enabled purchasing signals a structural shift toward platformless, agent-driven commerce that marginalizes traditional branded storefronts."
 }

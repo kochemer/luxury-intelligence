@@ -39,7 +39,7 @@
               "large language model"
             ]
           },
-          "aiSummary": "AI-generated summary: AT&T reduced costs by 90% and improved the efficiency of its Ask AT&T personal assistant by redesigning the orchestration layer and shifting tasks from large language models to smaller ones, enhancing latency, speed, and response times.",
+          "aiSummary": "AT&T cut AI costs by 90% and improved response times by shifting its Ask AT&T assistant from large to small language models.",
           "translations": {
             "da": {
               "title": "AT&T Skærer AI-omkostninger med 90% ved at Udskifte Store Modeller med Små",
@@ -75,7 +75,7 @@
               "funding"
             ]
           },
-          "aiSummary": "AI-generated summary: OpenAI has secured $110 billion in its largest funding round to date, led by Amazon with participation from Nvidia and SoftBank, highlighting significant capital investment as AI advances toward large-scale commercial deployment.",
+          "aiSummary": "OpenAI raised $110 billion from Amazon, Nvidia and SoftBank at an $840 billion valuation, marking the largest-ever funding round for an AI startup.",
           "translations": {
             "da": {
               "title": "OpenAI rejser 110 milliarder dollars fra Amazon, Nvidia, Softbank med en post-money værdiansættelse på 840 milliarder dollars",
@@ -107,7 +107,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: In a February 2026 report by NYTimes Technology, the San Francisco start-up Anthropic accused three Chinese companies—DeepSeek, Moonshot, and MiniMax—of using around 24,000 fraudulent accounts to harvest its data for training their chatbots.",
+          "aiSummary": "Anthropic accused DeepSeek, Moonshot and MiniMax of using about 24,000 fraudulent accounts to harvest data for training their chatbots.",
           "translations": {
             "da": {
               "title": "Anthropic Anklager 3 Kinesiske Virksomheder for at Høste Dets Data",
@@ -140,7 +140,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary: The Pentagon has summoned the chief of Anthropic amid a dispute over implementing guardrails in their contract negotiations, as the AI company seeks limits on artificial intelligence use with the Defense Department.",
+          "aiSummary": "Anthropic is demanding A.I. guardrails during contract negotiations with the U.S. Defense Department, prompting Pentagon officials to summon the company's chief.",
           "translations": {
             "da": {
               "title": "Pentagon indkalder Anthropic-chef i tvist om AI-grænser",
@@ -173,7 +173,7 @@
               "gemini"
             ]
           },
-          "aiSummary": "AI-generated summary: Over 100 Google A.I. employees have sent a letter to chief scientist Jeff Dean opposing the use of the Gemini project for U.S. surveillance and certain autonomous weapons, reflecting concerns similar to those raised by Anthropic.",
+          "aiSummary": "Over 100 Google AI employees urged chief scientist Jeff Dean to restrict Gemini’s use in U.S. surveillance and certain autonomous weapons.",
           "translations": {
             "da": {
               "title": "Google-medarbejdere søger 'røde linjer' for militær A.I., i tråd med Anthropic",
@@ -207,7 +207,7 @@
               "funding"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon has committed $50 billion to OpenAI, marking the largest investment in this funding round and surpassing Nvidia and SoftBank's $30 billion pledges, as part of a multi-year partnership with AWS that values OpenAI at $730 billion pre-money.",
+          "aiSummary": "Amazon commits $50 billion to OpenAI in a multi-year AWS partnership, topping Nvidia and SoftBank’s $30 billion each, valuing OpenAI at $730 billion.",
           "translations": {
             "da": {
               "title": "Amazon investerer 50 milliarder dollars i OpenAI; annoncerer flerårigt partnerskab med AWS",
@@ -241,7 +241,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: OpenAI has secured a deal with the US Department of Defense to deploy its technology on classified networks, incorporating extensive safeguards and layered protections that surpass previous classified AI agreements. This move follows the Pentagon's designation of Anthropic as a supply-chain risk.",
+          "aiSummary": "OpenAI finalised a Pentagon deal for its technology on classified networks, adding more safeguards than any previous classified AI deployment.",
           "translations": {
             "da": {
               "title": "'Enhver kontraktbrud kan udløse en opsigelse': OpenAIs lagdelte beskyttelser i aftale med det amerikanske forsvarsministerium",
@@ -279,7 +279,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Mirakl achieved full-year profitability in 2025, driven by a 23% increase in annual recurring revenue to $218 million and growth in marketplace and dropship activity on its platform. The Boston- and Paris-based ecommerce software provider marked this financial milestone amid expanding marketplace operations.",
+          "aiSummary": "Mirakl achieved full-year profitability in 2025 as annual recurring revenue rose 23% to $218 million and marketplace activity increased.",
           "translations": {
             "da": {
               "title": "Mirakl bliver rentabel, da tilbagevendende indtægter og markedspladsaktivitet vokser",
@@ -312,7 +312,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: AI agents are increasingly performing actions like completing checkouts within browsers and business software, but research from MIT highlights that regulatory frameworks and accountability measures for these systems have not kept pace with their commercial deployment.",
+          "aiSummary": "AI agents are now completing checkouts in browsers and business software, but MIT-affiliated researchers find governance rules are lagging behind commercial deployment.",
           "translations": {
             "da": {
               "title": "Hvorfor AI-agenter når kassen uden klare regler",
@@ -342,7 +342,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Walmart Data Ventures launched the Scintilla In-Store app, enabling field representatives to access real-time store-level data to help reduce out-of-stock situations. This development aims to enhance supplier connectivity within Walmart's retail operations.",
+          "aiSummary": "Walmart Data Ventures launched Scintilla In-Store, giving suppliers’ field reps real-time store-level data to help reduce out-of-stocks.",
           "translations": {
             "da": {
               "title": "Walmart-app forbinder leverandører med data på butiksniveau",
@@ -374,7 +374,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Despite the Supreme Court ruling that struck down Trump's tariffs, many Amazon sellers and online brands report they are not lowering their prices, according to a Modern Retail article dated February 26, 2026.",
+          "aiSummary": "Amazon sellers and online brands are maintaining prices despite the Supreme Court striking down Trump-era tariffs.",
           "translations": {
             "da": {
               "title": "Marketplace Briefing: Onlineforhandlere sænker ikke priserne trods afgørelse fra Højesteret",
@@ -404,7 +404,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Dunelm has launched a new app for iOS and Android as part of its ongoing strategy to enhance omnichannel engagement by better integrating its physical stores, digital platforms, and customer data. This move represents a significant shift in the retailer’s approach to ecommerce and retail technology.",
+          "aiSummary": "Dunelm launched a new iOS and Android app this week to strengthen integration of its stores, digital channels and customer data.",
           "translations": {
             "da": {
               "title": "ANALYSE: Dunelms nye app markerer et strategisk skift mod dybere omnichannel engagement",
@@ -439,7 +439,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: In 2026, online shoppers are increasingly using AI platforms like ChatGPT, Gemini, and Perplexity to research and make purchases, prompting retailers to reconsider their adoption of AI and agentic commerce technologies.",
+          "aiSummary": "Shoppers are using AI platforms like ChatGPT, Gemini and Perplexity in 2026 to research and complete purchases through new online checkout experiences.",
           "translations": {
             "da": {
               "title": "E-handelstendenser: Hvad kunder bruger AI til at købe",
@@ -472,7 +472,7 @@
               "fulfillment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Practical Ecommerce dated February 25, 2026, highlights new ecommerce tools focusing on third-party fulfillment, AI assistants, agentic commerce, omnichannel retail, Shopify integration, live-streaming, and fraud prevention.",
+          "aiSummary": "New ecommerce tools launched this week include solutions for third-party fulfillment, AI assistants, agentic commerce, omnichannel retail, Shopify, live-streaming, and fraud prevention.",
           "translations": {
             "da": {
               "title": "Nye Ecommerce-værktøjer: 25. februar 2026",
@@ -508,7 +508,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Shein plans to invest over $1.45 billion in intelligent supply chain systems in Southern China to strengthen its relationship with Beijing amid growing challenges. This move reflects the ultra-fast fashion retailer's commitment to enhancing its supply chain capabilities.",
+          "aiSummary": "Shein will invest over $1.45 billion in intelligent supply chain systems in Southern China to strengthen ties with Beijing amid rising challenges.",
           "translations": {
             "da": {
               "title": "Shein lover investering i Kinas forsyningskæde for at tiltrække Beijing",
@@ -542,7 +542,7 @@
               "luxury"
             ]
           },
-          "aiSummary": "AI-generated summary: According to the Saks Global CEO, over 380 top brands, including Burberry and those under LVMH and Kering, continue to ship goods despite bankruptcy. This highlights ongoing activity within the luxury and consumer sector.",
+          "aiSummary": "Saks Global CEO says over 380 brands, including Burberry, LVMH and Kering labels, continue shipping goods despite the retailer's bankruptcy.",
           "translations": {
             "da": {
               "title": "Saks Globals CEO siger, at topmærker sender varer trods konkurs",
@@ -573,7 +573,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: According to a recent analysis reported by Business of Fashion on February 25, 2026, most major fashion and retail companies are utilizing AI technologies, yet many remain hesitant to discuss their AI use openly.",
+          "aiSummary": "Most major fashion and retail companies are using AI, but many remain reluctant to discuss their adoption of the technology publicly.",
           "translations": {
             "da": {
               "title": "Hvorfor mode ikke taler om, hvordan den bruger AI",
@@ -603,7 +603,7 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The TJX Companies plans to expand its brick-and-mortar presence by adding 146 net new stores across the U.S., Canada, Europe, and Australia during fiscal year 2027, increasing its total store count by approximately 3%. This expansion reflects the retailer's accelerated growth strategy in physical retail locations.",
+          "aiSummary": "TJX Companies will add 146 net new stores in fiscal 2027, expanding its global footprint by about 3% across the US, Canada, Europe and Australia.",
           "translations": {
             "da": {
               "title": "Off-Price-forhandler TJX fremskynder plan for udvidelse af fysiske butikker",
@@ -636,7 +636,7 @@
               "luxury"
             ]
           },
-          "aiSummary": "AI-generated summary: The RealReal's annual revenues increased by 15% in 2025, reaching $693 million, according to Luxury Daily.",
+          "aiSummary": "The RealReal’s annual revenues rose 15% to $693 million in 2025.",
           "translations": {
             "da": {
               "title": "Årlige indtægter stiger 15% hos The RealReal",
@@ -667,7 +667,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: A recent BRC survey of retail CFOs and finance directors highlights growing concerns about rising labour costs following the Employment Rights Act's enactment in January, with 69% expressing pessimism about the impact on retail jobs.",
+          "aiSummary": "69% of retail CFOs and finance directors are pessimistic about labour costs following January’s implementation of the Employment Rights Act, BRC survey finds.",
           "translations": {
             "da": {
               "title": "Detailjobs i fare på grund af stigende ansættelsesomkostninger",
@@ -697,7 +697,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The Pickle app, featured in NYTimes Technology on February 23, 2026, is a peer-to-peer clothing rental platform that enables users to stay fashionable while avoiding debt and reducing reliance on environmentally harmful fast fashion.",
+          "aiSummary": "Pickle launched a peer-to-peer clothing rental app enabling users to access trendy apparel without debt or dependence on fast fashion.",
           "translations": {
             "da": {
               "title": "Brug for et outfit? Pickle tøjudlejningsapp hjælper brugere med at følge med moden.",
@@ -733,7 +733,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: On February 23, 2026, the US Supreme Court ruled President Donald Trump’s global reciprocal tariffs unlawful, impacting the jewellery industry.",
+          "aiSummary": "The US Supreme Court struck down President Trump’s global reciprocal tariffs, ruling them unlawful.",
           "translations": {
             "da": {
               "title": "Højesteret underkender Trumps toldsatser",
@@ -764,7 +764,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The article highlights a common shipping issue in the jewellery industry where damaged labels cause package confusion, and offers an easy solution emphasized by a jeweler to prevent such problems.",
+          "aiSummary": "A jeweler urges shippers to include sender details inside packages after damaged labels left mystery shipments impossible to identify.",
           "translations": {
             "da": {
               "title": "Forsendelsesfejlen der driver juvelerer til vanvid (og den nemme løsning)",
@@ -797,7 +797,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: Amanda Eddy, an Austin jewelry store owner, creatively designed her store displays using custom-built pink pedestals and budget-friendly items from Amazon, resulting in a distinctive and cost-effective style.",
+          "aiSummary": "Amanda Eddy transformed her Austin jewelry store with custom pink pedestals and budget Amazon displays to create a distinctive, cost-effective retail space.",
           "translations": {
             "da": {
               "title": "Hvordan en smykkebutiksejer i Austin lavede sine udstillinger selv til en brøkdel af prisen",
@@ -832,7 +832,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: A new report from the Natural Diamond Council highlights rising consumer spending on engagement jewellery, indicating notable trends in the diamond jewellery market.",
+          "aiSummary": "A new Natural Diamond Council report finds consumer spending on engagement jewellery is increasing.",
           "translations": {
             "da": {
               "title": "Interessante trends inden for diamant-smykker beskrevet i ny rapport",
@@ -867,7 +867,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: A recent large survey of recently married couples reveals the increasing acceptance and popularity of lab-created diamond jewellery, highlighting a notable trend in the jewellery industry.",
+          "aiSummary": "A large survey of recently married couples shows rising acceptance and popularity of lab-created diamond jewellery.",
           "translations": {
             "da": {
               "title": "Populariteten af laboratorie-skabt diamant-smykker fremhævet i ny undersøgelse",
@@ -900,7 +900,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: Jewelry store owners express feelings of disillusionment and betrayal regarding exclusivity agreements in advertising, describing the experience as a tough lesson to learn, according to Instore Magazine's February 2026 coverage in the jewellery industry.",
+          "aiSummary": "Jewelry store owners report feeling betrayed after an advertising exclusivity agreement failed to deliver on its promised benefits.",
           "translations": {
             "da": {
               "title": "Smykkeforretningsejere om eksklusivitetsaftaler: 'Illusion', 'Forræderi', 'En svær lektion at lære'",
@@ -932,7 +932,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: Starting March 1, 2026, Thailand will enforce strict regulations on retail gold trading to reduce speculative activities that have strengthened the baht and impacted the country's competitiveness, according to Bloomberg.",
+          "aiSummary": "Thailand imposed strict retail gold-trading rules from March 1 to curb speculation driving baht gains and eroding national competitiveness.",
           "translations": {
             "da": {
               "title": "Begrænsninger på thailandsk guldsalg træder i kraft, da myndighederne strammer op om baht",
@@ -948,5 +948,13 @@
     }
   },
   "coverImageUrl": "/weekly-images/2026-W09.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W09"
+  "coverImageAlt": "Weekly cover illustration for 2026-W09",
+  "oneSentenceSummary": "The assumption that scale and costliness define AI’s value is upended as retailers and telecoms quietly extract more from leaner, targeted algorithms.",
+  "keyThemes": [
+    "OpenAI funding round",
+    "Mirakl profitability milestone",
+    "agentic commerce",
+    "The RealReal revenue growth",
+    "Supreme Court tariffs ruling"
+  ]
 }

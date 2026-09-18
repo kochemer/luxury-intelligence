@@ -39,7 +39,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary: A judge has temporarily halted the Pentagon's designation of Anthropic as a \"supply chain risk,\" marking an early legal win for the AI company in its dispute with the Department of Defense.",
+          "aiSummary": "A federal judge paused the Pentagon’s designation of Anthropic as a supply chain risk, marking an early legal win for the AI company.",
           "translations": {
             "da": {
               "title": "Dommer udsætter Pentagons mærkning af Anthropic som 'forsyningskæderisiko'",
@@ -73,7 +73,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: On March 26, 2026, Mistral released a new open source speech generation model aimed at enabling enterprises to build voice agents for sales and customer engagement, positioning the company as a competitor to ElevenLabs, Deepgram, and OpenAI.",
+          "aiSummary": "Mistral launched an open source speech generation model for enterprise voice agents, entering direct competition with ElevenLabs, Deepgram, and OpenAI.",
           "translations": {
             "da": {
               "title": "Mistral frigiver en ny open source-model til talegenerering",
@@ -106,7 +106,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Google's internal AI tool, Agent Smith, autonomously plans and executes workflows by referencing internal documents and employee profiles, representing a significant advancement over traditional coding assistants. Built on the Antigravity platform, it offers enhanced autonomy and integration for engineering operations.",
+          "aiSummary": "Google’s Agent Smith AI tool autonomously plans and executes workflows, referencing internal documents and employee profiles, surpassing its predecessor Antigravity in autonomy and integration.",
           "translations": {
             "da": {
               "title": "Hvad er Agent Smith? Googles interne AI-værktøj til operationer, der hjælper ingeniører med at kode",
@@ -140,7 +140,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: AMD plans to launch its GPU-based Helios platform in India during the second half of 2026 to support AI growth and data center expansion, collaborating with TCS to develop AI-ready infrastructure.",
+          "aiSummary": "AMD will begin rolling out its Helios GPU platform globally, including India, in H2 2026, partnering with TCS to build AI-ready infrastructure.",
           "translations": {
             "da": {
               "title": "AMD forventer første udrulning af GPU-baseret Helios-platform i Indien i 2. halvår 2026",
@@ -173,7 +173,7 @@
               "claude"
             ]
           },
-          "aiSummary": "AI-generated summary: Anthropic’s Claude experienced a major outage lasting nearly five hours, causing widespread disruptions to the Claude API and models like Opus 4.6, while Claude for Government remained mostly unaffected. This marks the second outage for the platform within a week.",
+          "aiSummary": "Anthropic’s Claude suffered a nearly five-hour outage, disrupting Opus 4.6 and API services, while Claude for Government was mostly unaffected.",
           "translations": {
             "da": {
               "title": "Anthropics Claude oplever stor nedetid, tjenester afbrudt i næsten fem timer",
@@ -206,7 +206,7 @@
               "large language model"
             ]
           },
-          "aiSummary": "AI-generated summary: According to the Financial Times (2026-03-28), large language models promote expert consensus and moderate perspectives, contrasting with the populist and polarising nature of social media platforms.",
+          "aiSummary": "Large language models promote expert consensus and moderate opinions, contrasting with the populist and polarising effects of social media platforms.",
           "translations": {
             "da": {
               "title": "Sociale medier er populistiske og polariserende; AI kan være det modsatte",
@@ -238,7 +238,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: The UK’s Financial Conduct Authority (FCA) is piloting Palantir’s Foundry AI platform in a three-month project aimed at enhancing efficiency and detecting illicit activities within national finance operations, with costs exceeding £30,000 per week.",
+          "aiSummary": "The UK’s FCA is piloting Palantir’s Foundry AI platform for three months at over £30,000 per week to detect illicit financial activity.",
           "translations": {
             "da": {
               "title": "Palantir AI støtter britiske finansoperationer",
@@ -275,7 +275,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: In 2025, TikTok Shop experienced a nearly 80% increase in transaction volume and over 103 billion U.S. searches with e-commerce intent, attracting major brands like Ulta and Sally Beauty.",
+          "aiSummary": "TikTok Shop’s 2025 transaction volume jumped nearly 80% year over year, driven by over 103 billion e-commerce searches and major brand sales.",
           "translations": {
             "da": {
               "title": "Salg fra store mærker på TikTok Shop næsten fordoblet i 2025, tiltrækker Ulta og Sally Beauty",
@@ -307,7 +307,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon is shifting its Prime Day event from July to June this year, altering the traditional timing of a major sales event that many brands depend on, according to Modern Retail.",
+          "aiSummary": "Amazon will hold Prime Day in June instead of July this year, shifting the key sales event earlier for brands and sellers.",
           "translations": {
             "da": {
               "title": "Marketplace Briefing: Hvorfor Amazon flytter Prime Day til juni fra juli, og hvad det betyder for sælgere",
@@ -339,7 +339,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Home Depot is enhancing its AI-powered offerings to create a seamless shopping experience for customers across all touchpoints, reinforcing the relevance of its physical stores in the digital age.",
+          "aiSummary": "Home Depot is expanding AI-powered services to create a seamless shopping experience across all channels while emphasizing the continued relevance of its physical stores.",
           "translations": {
             "da": {
               "title": "I AI-æraen har Home Depots butikker 'aldrig været mere relevante'",
@@ -371,7 +371,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Oracle Corp. has integrated AI-enabled \"Fusion Agentic Applications\" into its finance, supply chain, and procurement software within Oracle Fusion Cloud Applications to enhance automation and support B2B ecommerce transactions.",
+          "aiSummary": "Oracle has embedded AI-enabled Fusion Agentic Applications across its finance, supply chain, and procurement software to automate B2B ecommerce processes.",
           "translations": {
             "da": {
               "title": "Oracle integrerer AI-agenter i finans-, forsyningskæde- og indkøbssystemer",
@@ -406,7 +406,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: The European Union has introduced a new customs framework enabling regulators to fine online marketplaces that sell unsafe or illegal goods into the bloc, increasing scrutiny on cross-border ecommerce operators. This overhaul aims to strengthen consumer safety and compliance in distance sales within the EU.",
+          "aiSummary": "The European Union will fine online marketplaces selling unsafe or illegal goods into the bloc under a newly overhauled customs regime.",
           "translations": {
             "da": {
               "title": "EU vil bøde online markedspladser for usikre importvarer i toldindsats",
@@ -439,7 +439,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: ReFiBuy, a year-old ecommerce technology startup, has launched a developer platform aimed at helping merchants optimize their product catalog data for improved performance in AI-powered agentic commerce discovery experiences.",
+          "aiSummary": "ReFiBuy launched a developer platform to help merchants optimize product catalog data for AI-powered agentic commerce discovery experiences.",
           "translations": {
             "da": {
               "title": "ReFiBuy lancerer platform til optimering af katalogdata for agentisk handel",
@@ -471,7 +471,7 @@
               "checkout"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses the challenge brick-and-mortar retailers face in accurately identifying in-store customers, highlighting that while digital loyalty programs achieve up to 30 percent match rates, in-person identification remains in the single digits, leaving most shoppers anonymous.",
+          "aiSummary": "In-store retail identification rates remain in the single digits, compared to digital loyalty program match rates of up to 30 percent.",
           "translations": {
             "da": {
               "title": "Løsning på anonymitetsproblemet ved kassen",
@@ -509,7 +509,7 @@
               "premium"
             ]
           },
-          "aiSummary": "AI-generated summary: According to a Swiss Re report cited by Economic Times on March 28, 2026, the rapid growth of data centres is driving increased demand and risks for insurance, with premiums potentially reaching $24.2 billion by 2030 amid challenges like high construction costs, natural disasters, and system failures.",
+          "aiSummary": "Swiss Re forecasts global data centre insurance premiums could hit $24.2 billion by 2030 as rapid growth drives up risks and potential losses.",
           "translations": {
             "da": {
               "title": "Efterspørgsel og risici for global datacenterforsikring vokser: Swiss Re",
@@ -541,7 +541,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: Bengaluru-based on-demand home help startup Snabbit reached 1 million orders in March, reflecting growing demand for instant help services, following a rise from 500,000 orders in December and 830,000 in February. This trend aligns with similar growth seen by competitors Urban Company's InstaHelp and Pronto.",
+          "aiSummary": "Snabbit reached 1 million orders in March, doubling since December, as Urban Company’s InstaHelp also surpassed 1 million monthly bookings and Pronto topped 15,000 daily orders.",
           "translations": {
             "da": {
               "title": "Snabbit når 1 million ordrer i marts, da efterspørgslen efter øjeblikkelig hjælp stiger",
@@ -573,7 +573,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: According to the University of Michigan’s Surveys of Consumers, consumer sentiment declined by 5.8% in March 2026, ending a three-month positive trend and falling 6.5% below March 2025 levels amid renewed inflation concerns.",
+          "aiSummary": "Consumer sentiment dropped 5.8% in March, erasing three months of gains and leaving the index 6.5% below March 2025 levels.",
           "translations": {
             "da": {
               "title": "Forbrugertilliden falder, da inflationsbekymringer genopstår",
@@ -608,7 +608,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Chinese challenger brands such as Anta and Urban Revivo are expanding their presence globally, opening stores from Bangkok to Beverly Hills, as domestic demand weakens and consumers increasingly seek lower-priced alternatives.",
+          "aiSummary": "Chinese brands Anta and Urban Revivo are expanding stores internationally, targeting Nike and Zara’s markets amid weaker domestic demand and rising global appetite for affordable options.",
           "translations": {
             "da": {
               "title": "Kinesiske konkurrenter trænger ind på Nike og Zaras kerneområder",
@@ -641,7 +641,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: According to the University of Michigan’s sentiment survey, consumer confidence declined by 6 percent in March, coinciding with rising gas prices. This trend highlights ongoing challenges in the luxury and consumer sectors.",
+          "aiSummary": "The University of Michigan’s sentiment survey recorded a 6 percent drop in consumer confidence for March amid rising gas prices.",
           "translations": {
             "da": {
               "title": "Forbrugertilliden fortsætter med at falde, mens benzinpriserne stiger",
@@ -672,7 +672,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Asos reported a 50 percent increase in underlying profits, driven by strong womenswear sales, despite facing ongoing turnaround challenges and competition from rivals such as Shein. This boost led to a jump in the retailer’s shares.",
+          "aiSummary": "Asos reported a 50% increase in underlying profits, driven by womenswear, despite turnaround challenges and competition from Shein.",
           "translations": {
             "da": {
               "title": "Asos-aktier stiger, da womenswear øger detailhandlerens rentabilitet",
@@ -705,7 +705,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: Sri Lanka's apparel exports declined by 11.46% in February 2026 to $361.2 million, reflecting weakened demand in major global markets.",
+          "aiSummary": "Sri Lanka’s apparel exports fell 11.46% to $361.2m in February 2026 amid mounting pressure in key global markets.",
           "translations": {
             "da": {
               "title": "Sri Lankas beklædningssektoreksport falder på grund af global efterspørgselsnedgang",
@@ -743,7 +743,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: The De Beers Group has reduced the number of sightholders eligible to purchase its goods by approximately one-third, according to a report in Jeweller - Business News dated March 23, 2026. This move impacts the jewellery industry by limiting access to De Beers' diamond supply.",
+          "aiSummary": "De Beers Group has reduced its number of sightholders by up to one-third, limiting access to its diamond supply.",
           "translations": {
             "da": {
               "title": "Diamantproducent skærer en tredjedel af sightholders væk",
@@ -776,7 +776,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: A New York City jeweler gained positive local marketing exposure by offering to replace a runner's lost heirloom engagement ring during the NYC Half-Marathon, turning a sad incident into a heartwarming story.",
+          "aiSummary": "NYC jeweler offered to replace a runner’s lost heirloom engagement ring, turning a marathon mishap into a local marketing win.",
           "translations": {
             "da": {
               "title": "Smykkeforretning i Diamond District Træder Til for Løber, der Mistede Arvegave Forlovelsesring under NYC Half-Marathon",
@@ -809,7 +809,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: A Sydney jeweller is actively participating in a campaign to raise awareness and reduce the stigma surrounding multiple sclerosis, as highlighted in a recent special report.",
+          "aiSummary": "A Sydney jeweller has joined a campaign to reduce stigma and raise awareness around multiple sclerosis.",
           "translations": {
             "da": {
               "title": "Sydney juveler deltager i kampagne for at øge bevidstheden om multipel sklerose",
@@ -843,7 +843,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: BECKS will mark its 50th anniversary at this year's Australian Jewellery Fair, making the event a significant occasion for the company.",
+          "aiSummary": "BECKS will celebrate its 50th anniversary at this year's Australian Jewellery Fair.",
           "translations": {
             "da": {
               "title": "BECKS fejrer 50-års jubilæum på Australian Jewellery Fair",
@@ -875,7 +875,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: In this reflective piece from The Guardian's Technology section, Dominik Diamond expresses nostalgia for the 1990s era of physical media and simpler times, inspired by the indie game Retro Rewind, while commenting on the chaotic and troubling state of the world in 2026.",
+          "aiSummary": "Indie game Retro Rewind sparks nostalgia for 1990s video rental stores and the tactile appeal of physical media among players.",
           "translations": {
             "da": {
               "title": "Stop verden, jeg vil af og drive en videoudlejningsbutik i 1990'erne | Dominik Diamond",
@@ -907,7 +907,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: Celebrating its 20th anniversary, the Bravo TV series \"Real Housewives\" has become a significant source of internet memes. The article, published by NYTimes Technology on March 23, 2026, highlights the show's cultural impact online.",
+          "aiSummary": "Bravo TV’s ‘Real Housewives’ franchise marks 20 years as a prolific source of internet memes and online cultural influence.",
           "translations": {
             "da": {
               "title": "‘Real Housewives’ Har Været en Meme-guldgrube i 20 År",
@@ -940,7 +940,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: The article \"The World’s Best Luxury Watch Brands,\" published by Luxe Digital on March 25, 2026, explores top luxury watch brands within the jewellery industry, emphasizing the concept of \"the luxury of time.\"",
+          "aiSummary": "Luxe Digital named Rolex, Patek Philippe, and Audemars Piguet among the world’s best luxury watch brands in its latest ranking.",
           "translations": {
             "da": {
               "title": "Verdens Bedste Luksus Ur-mærker",
@@ -957,5 +957,13 @@
   },
   "coverImageUrl": "/weekly-images/2026-W13.png",
   "coverImageAlt": "Weekly cover illustration for 2026-W13",
-  "editorialTake": "TikTok Shop nearly doubled its sales in 2025, hitting over 103 billion transactions and pulling in major brands like Ulta and Sally Beauty. This is a clear signal that TikTok is no longer just a discovery platform but a serious retail channel. Brands that ignore TikTok’s commerce engine risk losing ground to competitors who master social-driven shopping and younger consumers’ attention.\n\nAmazon moving Prime Day from July to June is more than a calendar tweak: it compresses the summer sales window and forces sellers to rethink inventory and marketing cycles. This shift pressures brands to accelerate product launches and promotions, squeezing margins for those unprepared. The real question is whether sellers can adapt fast enough or if Amazon will further consolidate power by controlling the retail calendar."
+  "editorialTake": "TikTok Shop nearly doubled its sales in 2025, hitting over 103 billion transactions and pulling in major brands like Ulta and Sally Beauty. This is a clear signal that TikTok is no longer just a discovery platform but a serious retail channel. Brands that ignore TikTok’s commerce engine risk losing ground to competitors who master social-driven shopping and younger consumers’ attention.\n\nAmazon moving Prime Day from July to June is more than a calendar tweak: it compresses the summer sales window and forces sellers to rethink inventory and marketing cycles. This shift pressures brands to accelerate product launches and promotions, squeezing margins for those unprepared. The real question is whether sellers can adapt fast enough or if Amazon will further consolidate power by controlling the retail calendar.",
+  "oneSentenceSummary": "Perceptions of AI threatening traditional retail lose credibility as Home Depot’s foot traffic and relevance surge alongside advances in automation and intelligent operations.",
+  "keyThemes": [
+    "Anthropic legal battle",
+    "TikTok Shop sales growth",
+    "Agent Smith AI tool",
+    "De Beers sightholder cuts",
+    "Oracle AI automation"
+  ]
 }

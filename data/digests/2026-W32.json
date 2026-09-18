@@ -38,7 +38,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Alibaba aims to regain its competitive edge in the AI sector with the release of its latest AI model, as reported by the Financial Times on August 6, 2026.",
+          "aiSummary": "Alibaba released a new AI model on Monday as it seeks to regain momentum in ecommerce and cloud computing.",
           "translations": {
             "da": {
               "title": "Alibabas nyeste AI-model bringer dem tilbage i det store spil",
@@ -70,7 +70,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: In its first earnings report since going public, SpaceX revealed that its capital expenditures have increased nearly sevenfold compared to last year, alongside a rise in revenue. The company is notably boosting its spending on AI initiatives.",
+          "aiSummary": "SpaceX reported capital expenditures up nearly sevenfold year-on-year and rising revenue in its first earnings after IPO.",
           "translations": {
             "da": {
               "title": "SpaceX rapporterer stigende AI-udgifter i første regnskab efter børsnotering",
@@ -100,7 +100,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Omilia has raised $67 million in a Series B funding round to expand its customer support platform, marking its second capital raise since 2020 during which it grew its annual recurring revenue tenfold to $60 million.",
+          "aiSummary": "Omilia raised $67 million in Series B funding after growing annual recurring revenue tenfold to $60 million since its last raise in 2020.",
           "translations": {
             "da": {
               "title": "Omilia rejser 67 mio. $ for at udvide sin kundesupportplatform",
@@ -133,7 +133,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Klaviyo has acquired Elias Torres’ agency, bringing the serial entrepreneur on board as Chief Product Officer to lead its AI agents, marking a full-circle reunion for the tech founders.",
+          "aiSummary": "Klaviyo acquires Elias Torres’ agency and appoints the serial entrepreneur as Chief Product Officer to lead its AI agents.",
           "translations": {
             "da": {
               "title": "Klaviyo opkøber Elias Torres’ bureau i en fuld cirkel-genforening for tech-grundlæggere",
@@ -163,7 +163,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Amazon's planned Texas data center includes an on-site power plant that may become the largest source of climate pollution in the U.S., raising concerns about its environmental impact.",
+          "aiSummary": "Amazon’s planned Texas data center will include an on-site power plant that could become the largest single source of climate pollution in the U.S.",
           "translations": {
             "da": {
               "title": "Planlagt Amazon-datacenter kan blive den største klimaforurener i USA",
@@ -196,7 +196,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: The Snowflake Summit 2026 highlighted a shift in enterprise focus from merely building AI models to effectively operating and scaling agentic AI, emphasizing the need for advanced data platforms like lakehouses to support this transition.",
+          "aiSummary": "Snowflake Summit 2026 revealed enterprises now prioritise operationalising agentic AI at scale over building models, demanding advanced lakehouse data platforms.",
           "translations": {
             "da": {
               "title": "Snowflake Summit 2026: Kapløbet er flyttet fra at bygge AI til at drive det",
@@ -229,7 +229,7 @@
               "acquisition"
             ]
           },
-          "aiSummary": "AI-generated summary: Visa's $2.4 billion acquisition of fintech BioCatch highlights the growing role of AI-driven behavioral biometrics in combating increasingly sophisticated payment fraud. This strategic move underscores the financial industry's shift toward advanced identity verification methods.",
+          "aiSummary": "Visa acquired fintech BioCatch for $2.4 billion to strengthen payment fraud detection using behavioral biometrics as AI-driven scams escalate.",
           "translations": {
             "da": {
               "title": "Visa opkøber BioCatch, mens AI omformer betalingssvindel",
@@ -266,7 +266,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Gorilla Commerce, renowned for its slip-resistant bath mats and nine-figure sales on Amazon, is expanding its presence by launching its Gorilla Grip products in over 2,600 Walmart stores after entering Walmart's marketplace two years ago.",
+          "aiSummary": "Gorilla Commerce, known for slip-resistant bath mats and over $100 million in Amazon sales, launched Gorilla Grip in 2,600+ Walmart stores last month.",
           "translations": {
             "da": {
               "title": "Gorilla Commerce byggede en 9-cifret forretning på Amazon. Nu lancerer de i Walmart-butikker",
@@ -299,7 +299,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Former Spotify employees have raised $10 million to develop an AI-driven e-commerce platform that predicts shoppers' next desired products by learning their tastes and continuously adapting in real time.",
+          "aiSummary": "Former Spotify employees raised $10 million for a startup using AI to predict shoppers’ next purchases and adapt to their real-time preferences.",
           "translations": {
             "da": {
               "title": "Tidligere Spotify-medarbejdere rejser 10 mio. dollars for at bringe AI'en bag deres anbefalinger til e-handel",
@@ -332,7 +332,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Whatnot, a live commerce platform, has reached a valuation of $20 billion amid the rising popularity of live shopping, according to CNBC Technology on August 7, 2026.",
+          "aiSummary": "Whatnot raised its valuation to $20 billion as demand for live shopping platforms continues to surge.",
           "translations": {
             "da": {
               "title": "Whatnot vurderet til 20 milliarder dollars, da live shopping fortsætter med at vokse",
@@ -365,7 +365,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: In its Q2 2026 earnings call, Shopify president Harley Finkelstein highlighted the company's readiness for the \"agentic era\" of AI, noting ongoing investments in its search index and leveraging two decades of commerce data to enhance its ecommerce platform and ecosystem.",
+          "aiSummary": "Shopify president Harley Finkelstein said the company has invested two years in its search index and is leveraging 20 years of commerce data for agentic AI.",
           "translations": {
             "da": {
               "title": "Hvordan Shopify indtil videre tilgår agentisk AI i 2026",
@@ -398,7 +398,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses the growing adoption of digital payment methods like mobile wallets and contactless cards in the U.S., highlighting how some retailers are shifting toward cashless operations to enhance transaction efficiency in a digital-first economy.",
+          "aiSummary": "Retailers are increasingly adopting cashless operations as mobile wallets, contactless cards, and real-time payment networks become more embedded in US commerce.",
           "translations": {
             "da": {
               "title": "Hvorfor betalingsvalg stadig betyder noget i en digital-første økonomi",
@@ -430,7 +430,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Kohl’s has launched a new AI assistant powered by Google Cloud’s Gemini Enterprise to help back-to-school shoppers with school supplies recommendations and other uses. This tool follows the retailer’s previous AI initiative, the Mother’s Day Gift Finder.",
+          "aiSummary": "Kohl’s launched a Gemini-powered AI assistant to recommend school supplies and more for back-to-school shoppers, following its Mother’s Day Gift Finder tool.",
           "translations": {
             "da": {
               "title": "Kohl’s lancerer Gemini-drevet AI-assistent til skolestart",
@@ -462,7 +462,7 @@
               "checkout"
             ]
           },
-          "aiSummary": "AI-generated summary: A recent Senate subcommittee hearing intensified federal scrutiny on retailers' pricing strategies, specifically criticizing \"AI surveillance pricing\" practices and warning of potential consumer trust erosion.",
+          "aiSummary": "A Senate subcommittee hearing criticized retailers for “AI surveillance pricing,” warning that such practices could erode consumer trust.",
           "translations": {
             "da": {
               "title": "Fredagsopgørelsen: Føderal kontrol med prisfastsættelse skærpes",
@@ -502,7 +502,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The New York Knicks cap emerged as the hottest fashion product in Q2 2026, while Chanel maintained its position as the world's leading luxury brand and Phoebe Philo experienced increased demand, according to the latest Lyst Index reported by Fashionista.",
+          "aiSummary": "The New York Knicks cap was the most sought-after fashion product globally in Q2 2026, according to the latest Lyst Index.",
           "translations": {
             "da": {
               "title": "The New York Knicks Cap var Modes mest populære produkt i 2. kvartal 2026",
@@ -536,7 +536,7 @@
               "exclusive"
             ]
           },
-          "aiSummary": "AI-generated summary: The SVOD industry is focusing on understanding how to maintain consumer engagement beyond hit shows, as highlighted by Netflix’s declining viewership between seasons. This challenge underscores the importance of customer relationships in streaming’s competitive landscape.",
+          "aiSummary": "Netflix faces declining viewership between first and second seasons, raising industry concerns about sustaining SVOD customer engagement beyond hit original content.",
           "translations": {
             "da": {
               "title": "Streamings næste kamp er for kundeforhold",
@@ -570,7 +570,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Panerai is celebrating its centenary by opening the “Immersion” exhibition on September 10 at Florence’s Museo Marino Marini, showcasing the Italian watchmaker’s naval heritage in the city where its first boutique opened 100 years ago.",
+          "aiSummary": "Panerai will open its “Immersion” centenary exhibition on September 10 in Florence, celebrating 100 years since its first boutique in the city.",
           "translations": {
             "da": {
               "title": "Panerai fejrer arv i Firenze med præsentation af hundredeårig udstilling",
@@ -602,7 +602,7 @@
               "spending"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Grocery Dive on August 7, 2026, GLP-1 users collectively have a spending power exceeding $660 billion, yet their grocery spending has declined by 4%, as reported by Numerator.",
+          "aiSummary": "GLP-1 users’ grocery spending fell 4% as their collective spending power surpassed $660 billion, according to Numerator.",
           "translations": {
             "da": {
               "title": "GLP-1 brugeres dagligvareforbrug falder",
@@ -635,7 +635,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Brooklyn PR, a Los Angeles-based agency specializing in VIP and editorial services, brand collaborations, and endorsements, is currently hiring a freelance publicist.",
+          "aiSummary": "Brooklyn PR is hiring a freelance publicist in Los Angeles to support its VIP, editorial, brand collaboration and endorsement work.",
           "translations": {
             "da": {
               "title": "Brooklyn PR søger freelance publicist i Los Angeles",
@@ -668,7 +668,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: Three years after its post-pandemic turnaround, Century 21's downtown Manhattan store is shifting its focus back to in-person retail and aiming to attract younger consumers.",
+          "aiSummary": "Century 21’s downtown Manhattan store is refocusing on in-person retail and targeting younger shoppers three years after its post-pandemic relaunch.",
           "translations": {
             "da": {
               "title": "Er Century 21 stadig den ikoniske designer-discountdestination i NYC, som den engang var?",
@@ -701,7 +701,7 @@
               "luxury"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Robb Report dated August 8, 2026, explores the impact of a week-long experience at Sha Mexico’s luxury wellness retreat, focusing on the effects of functional medicine treatments and curated meals.",
+          "aiSummary": "A seven-day stay at Sha Mexico’s luxury wellness retreat featured functional medicine treatments and curated meals designed to improve overall wellbeing.",
           "translations": {
             "da": {
               "title": "Sådan ser en uge med behandlinger ud på Sha Mexicos luksuriøse wellness-retreat",
@@ -740,7 +740,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Michael Hill International experienced a rise in jewellery sales in the past financial year, attributed to the successful implementation of a restructuring strategy. This rebound was highlighted in a recent report by Jeweller - Business News on August 3, 2026.",
+          "aiSummary": "Michael Hill International sales rose over the past financial year after implementing a restructuring strategy.",
           "translations": {
             "da": {
               "title": "Anden halvårs opsving øger smykkesalget for Michael Hill",
@@ -773,7 +773,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: Atlanta's Roaring Social cocktail bar has teamed up with Solomon Brothers Jewelers to offer a unique $10,000 martini that includes a diamond necklace, creating a special cocktail experience.",
+          "aiSummary": "Roaring Social is serving a $10,000 martini that includes a diamond necklace, in partnership with Solomon Brothers Jewelers.",
           "translations": {
             "da": {
               "title": "Atlanta Cocktailbar Tilbyder $10K Martini med Diamanthalskæde",
@@ -806,7 +806,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: GN Diamond has been named RJO's 2026 Vendor of the Year for Loose Diamonds for the fifth time, an award chosen by RJO's retail membership to honor excellence in sales, service, and support.",
+          "aiSummary": "GN Diamond won RJO’s 2026 Vendor of the Year for Loose Diamonds, marking its fifth time receiving the retailer-voted award.",
           "translations": {
             "da": {
               "title": "GN Diamond vinder RJO 2026 Leverandør af året for løse diamanter for femte gang",
@@ -839,7 +839,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: The Perth Mint has earned a Guinness World Records title for casting the largest gold bar ever, weighing half a ton, highlighting a remarkable achievement in the jewellery industry.",
+          "aiSummary": "Perth Mint set a Guinness World Record by casting the largest gold bar ever, weighing half a ton.",
           "translations": {
             "da": {
               "title": "Har du nogensinde spekuleret på, hvordan en halv tons guld ser ud?",
@@ -874,7 +874,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: A well-known Perth jewellery retailer is facing legal action from the Australian Taxation Office over an alleged tax debt exceeding $1.5 million. The case highlights financial disputes within the jewellery industry.",
+          "aiSummary": "The Australian Taxation Office is suing a prominent Perth jewellery retailer over an alleged tax debt exceeding $1.5 million.",
           "translations": {
             "da": {
               "title": "Perth juveler i retten over 1,5 millioner dollars i skatteskuld",
@@ -909,7 +909,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: A 2,500-year-old Celtic gold torque was stolen from a French museum, continuing a series of notable jewellery thefts across France, according to Jeweller - Business News on August 3, 2026.",
+          "aiSummary": "A 2,500-year-old Celtic gold torque was stolen from a French museum amid an ongoing wave of jewellery thefts nationwide.",
           "translations": {
             "da": {
               "title": "Oldgammelt guldsmykke stjålet, mens tyverier på franske museer fortsætter",
@@ -943,7 +943,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: The article provides a hands-on review of the new Girard-Perregaux Laureato Fifty with a rose-gold dial, reflecting on the author's experience testing the watch prior to its official release.",
+          "aiSummary": "Girard-Perregaux unveiled the Laureato Fifty with a rose-gold dial, following pre-release testing of the bi-color model last year.",
           "translations": {
             "da": {
               "title": "Den Perfekte Laureato? Hands-On Med Girard-Perregaux Laureato Fifty Med En Rosagulds-Urskive",

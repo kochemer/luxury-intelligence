@@ -40,7 +40,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Anthropic and Microsoft have formed an alliance focused on AI agents, yet competition over the future direction of the technology is expected to grow more intense.",
+          "aiSummary": "Anthropic and Microsoft have formed an alliance on AI agents, signalling intensified competition over the technology’s future.",
           "translations": {
             "da": {
               "title": "En ubehagelig våbenhvile i AI-platformskrigene",
@@ -73,7 +73,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary: On March 9, 2026, the AI company Anthropic filed two lawsuits against the Department of Defense, alleging it was unfairly labeled a \"supply chain risk\" and punished for ideological reasons.",
+          "aiSummary": "Anthropic filed two lawsuits against the Department of Defense, alleging it was unfairly labeled a ‘supply chain risk’ for ideological reasons.",
           "translations": {
             "da": {
               "title": "Anthropic sagsøger Forsvarsministeriet over 'Supply Chain Risk'-mærkning",
@@ -105,7 +105,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Nvidia is anticipated to reveal a new AI chip at its GTC conference, highlighting its strategic $20 billion investment and plans to integrate technology from AI chip startup Groq.",
+          "aiSummary": "Nvidia is expected to unveil plans at GTC to integrate technology from AI chip startup Groq, part of its $20 billion AI chip initiative.",
           "translations": {
             "da": {
               "title": "Nvidia kan snart afsløre en helt ny AI-chip. Et nærmere kig på det 20 milliarder dollars store satsning",
@@ -138,7 +138,7 @@
               "inference"
             ]
           },
-          "aiSummary": "AI-generated summary: Cerebras Systems and Amazon Web Services have partnered to integrate Cerebras AI chips with Amazon's Trainium3 chips in AWS data centers, creating a new service designed to accelerate AI applications such as chatbots and coding tools. This collaboration aims to enhance AI inference capabilities.",
+          "aiSummary": "Amazon Web Services will integrate Cerebras AI chips with its Trainium3 chips in data centres to accelerate AI applications such as chatbots and coding tools.",
           "translations": {
             "da": {
               "title": "Cerebras Systems og Amazon indgår aftale om AI-chips på AWS cloud",
@@ -172,7 +172,7 @@
               "gpu"
             ]
           },
-          "aiSummary": "AI-generated summary: Jensen Huang's keynote at Nvidia's GTC 2026, the company's flagship GPU Technology Conference, will highlight Nvidia's vision for the future of computing and AI, including new product announcements and strategic partnerships.",
+          "aiSummary": "Nvidia CEO Jensen Huang will outline the company’s AI and computing strategy during his keynote at the 2026 GPU Technology Conference.",
           "translations": {
             "da": {
               "title": "Sådan ser du Jensen Huangs Nvidia GTC 2026 keynote",
@@ -206,7 +206,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary: Canadian insurer Manulife is advancing its use of artificial intelligence by integrating agent-based AI systems into core financial workflows, moving beyond limited pilot projects to more operational applications. This shift reflects a broader trend among large financial firms toward embedding AI directly into business processes.",
+          "aiSummary": "Manulife is deploying agent-based AI systems into core financial workflows, moving beyond limited pilots in data analysis and customer support.",
           "translations": {
             "da": {
               "title": "Manulife integrerer AI-agenter i kerne finansielle arbejdsgange",
@@ -239,7 +239,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Codewall's AI agent demonstrated the complex security challenges in AI by hacking an AI recruiting platform within an hour and then impersonating Donald Trump to test the platform's voice bot guardrails, highlighting the intertwined risks of AI systems.",
+          "aiSummary": "Codewall's AI agent hacked an AI recruiting platform in one hour, then impersonated Trump to probe the platform's voice bot guardrails.",
           "translations": {
             "da": {
               "title": "Codewalls AI-agent hacket en AI-rekrutterer og udgav sig derefter for Trump for at teste sin voice bots sikkerhedsforanstaltninger",
@@ -276,7 +276,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon is expanding its AI-powered Shop Direct program, enabling customers to discover and purchase products from other retailers' websites even if those items are not available on Amazon.com.",
+          "aiSummary": "Amazon is expanding its AI-powered Shop Direct program, enabling customers to purchase products from other retailers’ sites even if not sold on Amazon.com.",
           "translations": {
             "da": {
               "title": "Marketplace Briefing: Amazon udvider AI-drevet Shop Direct-program, der lader kunder købe fra andre forhandleres hjemmesider",
@@ -308,7 +308,7 @@
               "checkout"
             ]
           },
-          "aiSummary": "AI-generated summary: Shopify announced that merchants' products will soon be discoverable and purchasable directly within ChatGPT via its new \"agentic storefronts\" feature, coinciding with OpenAI's changes to the chatbot's checkout process.",
+          "aiSummary": "Shopify will let merchants’ products be discovered and purchased directly in ChatGPT via new agentic storefronts as OpenAI changes chatbot checkout.",
           "translations": {
             "da": {
               "title": "Shopify siger, at køb kommer ‘inden for ChatGPT’ gennem agentiske butikker, mens OpenAI trækker sig fra Instant Checkout",
@@ -342,7 +342,7 @@
               "inventory"
             ]
           },
-          "aiSummary": "AI-generated summary: According to new research commissioned by Logicbroker, both B2B and B2C ecommerce companies are significantly increasing their AI investments to enhance customer experiences, pricing, inventory management, and fulfillment while preparing for the emergence of agentic commerce.",
+          "aiSummary": "B2B and B2C companies are ramping up AI investment across customer experience, pricing, inventory and fulfillment, a survey of 600 ecommerce firms finds.",
           "translations": {
             "da": {
               "title": "B2B- og B2C-virksomheder øger AI-investeringer, efterhånden som agentisk handel vinder frem",
@@ -375,7 +375,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: Uzbekistan’s e-commerce platform Uzum has increased its valuation by over 50% in seven months to $2.3 billion, now serving 20 million users and processing $11 billion in payments as it grows its fintech and e-commerce ecosystem.",
+          "aiSummary": "Uzum’s valuation surged over 50% in seven months to $2.3 billion, reaching 20 million users and processing $11 billion in payments.",
           "translations": {
             "da": {
               "title": "Uzbekistans Uzum-værdi stiger over 50 % på 7 måneder til 2,3 mia. $",
@@ -407,7 +407,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Petco is focusing on developing an \"integrated omnichannel\" approach to better incorporate ecommerce into its business after experiencing a 2.4% decline in net sales in fiscal Q4 2025. This strategy aims to address the decreases in both net and comparable sales reported during that period.",
+          "aiSummary": "Petco net sales fell 2.4% to $1.52 billion in Q4 2025 as it pursues “integrated omnichannel” ecommerce integration.",
           "translations": {
             "da": {
               "title": "Petco bygger omkring ’integrerede omnichannel’ oplevelser",
@@ -440,7 +440,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Mobile shopping basket abandonment has exceeded 85%, prompting online retailers to explore recovery tactics beyond traditional email and SMS methods, according to multiple sources.",
+          "aiSummary": "Mobile shopping basket abandonment has exceeded 85%, prompting online retailers to seek re-engagement strategies beyond email and SMS.",
           "translations": {
             "da": {
               "title": "Mobilkurv forladelse stiger til over 85%, mens detailhandlere ændrer genopretningstaktikker ud over email og SMS",
@@ -472,7 +472,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: Florida-based grocery chain Publix announced it will discontinue its Publix Pay payment app starting March 19, reversing the trend of merchants encouraging app-based payments. The app had allowed customers to store various payment methods including debit and credit cards.",
+          "aiSummary": "Publix will discontinue its Publix Pay app on March 19, notifying customers that stored payment methods will no longer be supported.",
           "translations": {
             "da": {
               "title": "Publix lukker sin betalingsapp",
@@ -510,7 +510,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: According to a Glossy article from March 2026, 89% of top retailers now offer loyalty programs, up from 79% last year, with brand loyalty expected to grow in importance as AI technology enhances the purchasing process.",
+          "aiSummary": "Eighty-nine percent of top retailers now offer free or paid loyalty programs, up from 79% last year.",
           "translations": {
             "da": {
               "title": "Detailhandlere tager en mere kompleks tilgang til loyalitet",
@@ -544,7 +544,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: According to a YouGov 2026 report on U.S. fashion retailer rankings, Nike, Skechers, and Levi’s are among the top brands American consumers would consider purchasing. This insight was highlighted in a Footwear News article published on March 12, 2026.",
+          "aiSummary": "Nike, Skechers and Levi’s ranked among the top U.S. fashion brands consumers would consider purchasing in YouGov’s 2026 survey.",
           "translations": {
             "da": {
               "title": "Nike, Skechers, Levi’s er blandt de bedste mærker, amerikanske forbrugere vil overveje at købe: Undersøgelse",
@@ -576,7 +576,7 @@
               "exclusive"
             ]
           },
-          "aiSummary": "AI-generated summary: The Million Dollar Sellers (MDS) community hosts exclusive events for elite Amazon sellers generating over $1 million annually, fostering a close-knit environment likened to a family reunion by co-founder Eugene Khayman. Business Insider's Kathleen Elkins attended MDS Inspire to explore the priorities and culture of these top sellers.",
+          "aiSummary": "Million Dollar Sellers, a community for Amazon merchants with $1M+ annual revenue, hosted its exclusive MDS Inspire event in Las Vegas.",
           "translations": {
             "da": {
               "title": "Inde i Vegas-festen for elite Amazon-sælgere med mindst 7-cifret omsætning",
@@ -608,7 +608,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: A shopper has filed a lawsuit against Costco, demanding that tariff refunds be returned directly to customers. The case highlights consumer concerns within the luxury and consumer sector.",
+          "aiSummary": "Costco faces a lawsuit seeking to force the retailer to return tariff refunds directly to shoppers.",
           "translations": {
             "da": {
               "title": "Kunde sagsøger Costco for toldrefusioner",
@@ -640,7 +640,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: According to YouGov data reported by Sourcing Journal on March 13, 2026, Gen Z consumers continue to prefer spending time in brick-and-mortar stores despite the rise of online shopping. This trend highlights their ongoing affinity for in-person retail experiences.",
+          "aiSummary": "YouGov data shows Gen Z shoppers are more likely to spend time in brick-and-mortar stores than other age groups.",
           "translations": {
             "da": {
               "title": "Gen Z's indkøbsvaner: Unge forbrugere elsker stadig fysiske butikker",
@@ -674,7 +674,7 @@
               "exclusive"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Robb Report (2026-03-14) highlights a luxurious astrotourism experience in Menorca, Spain, offering elite travelers an exclusive summer stay to witness a total solar eclipse in utmost comfort.",
+          "aiSummary": "A luxury summer trip to Menorca offers elite travelers exclusive front-row access to view the total solar eclipse amid rising astrotourism demand.",
           "translations": {
             "da": {
               "title": "Denne tur til Menorca, Spanien kan være den mest luksuriøse måde at se en solformørkelse på",
@@ -705,7 +705,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The Robb Report's 2026 Spring Style Issue highlights a growing interest in Ralph Lauren, the trend of pink hues in menswear, and features Tiffany's new chronograph.",
+          "aiSummary": "Robb Report’s 2026 Spring Style Issue spotlights Ralph Lauren’s growing appeal, pink menswear trends, and Tiffany’s newly launched chronograph.",
           "translations": {
             "da": {
               "title": "Redaktørens Brev: Inden i Robb Reports Forårsudgave 2026 om Stil",
@@ -746,7 +746,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: Independent retailer Pragnell is committed to preserving British jewellery-making craftsmanship by supporting apprentices through partnerships with the King’s Trust and The British School of Watchmaking, helping them achieve prestigious qualifications such as WOSTEP 1800 and the Level 30 Rolex service specialist certification.",
+          "aiSummary": "Pragnell is supporting apprentices at The British School of Watchmaking to earn WOSTEP 1800 and Level 30 Rolex service specialist qualifications.",
           "translations": {
             "da": {
               "title": "Den indvendige historie om, hvordan Pragnell arbejder på at beskytte smykkefremstillingsevner",
@@ -782,7 +782,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The CEO of Platinum Guild International highlighted that despite challenges from record precious metal prices, platinum jewellery shows notable resilience and is benefiting from sustained high gold prices, particularly within the bridal market.",
+          "aiSummary": "Platinum Guild International CEO Tim Schlick reports platinum jewellery is gaining from sustained high gold prices and showing notable resilience amid record precious metals pricing.",
           "translations": {
             "da": {
               "title": "PGI CEO: 'Vedvarende høje guldpriser er gode for platin'",
@@ -817,7 +817,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Jewellery retailer Secrets Shhh has been rebranded as Secrets by Amaar under new ownership, which confirmed it will maintain its Australian store network and staff.",
+          "aiSummary": "Jewellery retailer Secrets Shhh has rebranded to Secrets by Amaar, with new owners retaining all Australian stores and staff.",
           "translations": {
             "da": {
               "title": "Nye ejere bekræfter Secrets Shhh rebranding",
@@ -851,7 +851,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Four individuals were convicted for their involvement in a multi-million dollar jewellery store robbery, during which they filmed the crime as it happened, according to a report by Jeweller - Business News on March 9, 2026.",
+          "aiSummary": "Four people were convicted for a multi-million dollar jewellery store robbery after filming themselves during the heist.",
           "translations": {
             "da": {
               "title": "Smykketyve dømt efter at have filmet røveriet, mens det skete",
@@ -885,7 +885,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: Luxury watch stocks, including Swatch Group, Richemont, and LVMH, rose significantly following US President Trump's statement suggesting the Iran war is nearing completion, boosting market optimism in the jewellery industry.",
+          "aiSummary": "Swatch Group shares rose 2.25%, Richemont 3.15% and LVMH 2% as luxury watch stocks rebounded on hopes of the Iran war ending.",
           "translations": {
             "da": {
               "title": "Luksusur-aktier stiger på håb om afslutning på Iran-krig",
@@ -919,7 +919,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Since its launch in late 2024, the Watches of Switzerland Group's apprenticeship scheme has expanded considerably, growing in both scale and ambition to support staff across retail and support functions.",
+          "aiSummary": "Watches of Switzerland Group has significantly expanded its apprenticeship programme since launching initial retail and support function cohorts in late 2024.",
           "translations": {
             "da": {
               "title": "Hvordan støtter Watches of Switzerland Group sine medarbejdere?",
@@ -952,7 +952,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: The Swatch Group has publicly challenged a recent market analysis by issuing an open letter criticizing the report's authors, as reported by Jeweller - Business News on March 9, 2026.",
+          "aiSummary": "The Swatch Group published an open letter criticising the authors of a recent market analysis report.",
           "translations": {
             "da": {
               "title": "Swatch indgiver klage over markedsanalyse",
@@ -968,5 +968,13 @@
     }
   },
   "coverImageUrl": "/weekly-images/2026-W11.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W11"
+  "coverImageAlt": "Weekly cover illustration for 2026-W11",
+  "oneSentenceSummary": "Big tech’s embrace of agentic commerce tools paradoxically intensifies their platform lock-in ambitions, even as they promote the illusion of merchant empowerment and choice.",
+  "keyThemes": [
+    "Nvidia AI chip",
+    "Cerebras AWS partnership",
+    "agentic commerce",
+    "Pragnell jewellery skills",
+    "Shopify ChatGPT storefronts"
+  ]
 }

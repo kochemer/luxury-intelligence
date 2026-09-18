@@ -38,7 +38,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: On March 18, 2026, the U.S. government labeled the AI start-up Anthropic as an \"unacceptable\" national security risk in a legal filing, expressing doubts about the company's reliability as a trusted partner during wartime.",
+          "aiSummary": "The U.S. government labeled A.I. start-up Anthropic an “unacceptable” national security and supply chain risk in a legal filing.",
           "translations": {
             "da": {
               "title": "USA siger, at Anthropic er en 'uacceptabel' national sikkerhedsrisiko",
@@ -70,7 +70,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Jeff Bezos aims to raise $100 billion to acquire and transform old manufacturing companies by integrating AI technology, according to a TechCrunch report dated March 19, 2026. This new project focuses on leveraging AI to revamp industrial firms.",
+          "aiSummary": "Jeff Bezos is seeking $100 billion to acquire and modernise legacy manufacturing firms using AI technology.",
           "translations": {
             "da": {
               "title": "Jeff Bezos ønsker angiveligt 100 milliarder dollars for at købe og omdanne gamle produktionsvirksomheder med AI",
@@ -104,7 +104,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: OpenAI’s Frontier, launched in February as a platform for enterprise AI agents, challenges the traditional revenue models of the software industry by serving as a semantic layer that integrates various organizational systems like data warehouses and CRM platforms.",
+          "aiSummary": "OpenAI launched Frontier in February as an enterprise AI agent platform designed to connect data warehouses, CRM systems, and internal tools.",
           "translations": {
             "da": {
               "title": "OpenAI’s Frontier sætter AI-agenter i en kamp, som SaaS ikke har råd til at tabe",
@@ -139,7 +139,7 @@
               "ai lab"
             ]
           },
-          "aiSummary": "AI-generated summary: On March 20, 2026, The Decoder reported that OpenAI is acquiring Astral, the creator of popular Python development tools, to integrate them into its Codex AI coding platform, highlighting the competitive landscape among AI labs in AI-powered coding.",
+          "aiSummary": "OpenAI is acquiring Astral to integrate its widely used Python developer tools into the Codex AI coding platform.",
           "translations": {
             "da": {
               "title": "OpenAI opkøber Astral for at integrere Pythons mest populære udviklingsværktøjer i Codex AI-kodeplatformen",
@@ -171,7 +171,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Nvidia CEO Jensen Huang stated that developers earning $500,000 should spend at least $250,000 on AI tokens, emphasizing his belief that the AI industry's revenue potential exceeds most current forecasts.",
+          "aiSummary": "Nvidia CEO Jensen Huang expects developers earning $500,000 to spend at least $250,000 on AI tokens, calling lower budgets \"deeply alarming.\"",
           "translations": {
             "da": {
               "title": "Nvidia CEO Jensen Huang siger, han ville være \"dybt bekymret\", hvis en udvikler med 500.000 $ brugte mindre end 250.000 $ på AI-tokens",
@@ -205,7 +205,7 @@
               "regulation"
             ]
           },
-          "aiSummary": "AI-generated summary: Russia plans to implement new regulations granting itself broad authority to ban or restrict foreign AI tools that do not comply with local requirements, including mandatory storage of Russian user data within the country. These measures aim to protect citizens and encourage domestic AI development, with the rules expected to take effect next year.",
+          "aiSummary": "Russia will require foreign AI tools to store user data locally or face bans and restrictions under new rules likely taking effect next year.",
           "translations": {
             "da": {
               "title": "Rusland giver sig selv vidtgående beføjelser til at forbyde eller begrænse udenlandske AI-værktøjer",
@@ -239,7 +239,7 @@
               "regulation"
             ]
           },
-          "aiSummary": "AI-generated summary: Despite Europe's leading AI adoption and talent parity with the US, it lacks ownership of key AI platforms due to missing infrastructure, fragmented regulation, and a funding gap that channels its top startups to American investors, according to a report by Prosus and Dealroom.",
+          "aiSummary": "Europe matches the US in AI talent and adoption but loses top startups to American investors due to missing infrastructure and a persistent funding gap.",
           "translations": {
             "da": {
               "title": "Europas AI-paradoks er rekordstor adoption, der finansierer udenlandske økosystemer i stedet for at bygge sit eget",
@@ -277,7 +277,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Shopify is gearing up for a major shift in e-commerce driven by AI shopping agents, according to president Harley Finkelstein. This transformation is expected to significantly impact the retail technology landscape.",
+          "aiSummary": "Shopify is preparing for an e-commerce transformation driven by AI shopping agents, according to president Harley Finkelstein.",
           "translations": {
             "da": {
               "title": "Shopify forbereder sig på, at AI-shoppingagenter ændrer alt, siger direktør",
@@ -309,7 +309,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Alibaba Group is accelerating its investments in artificial intelligence, cloud computing, and rapid-delivery ecommerce to support a shift toward an \"agent-driven\" digital economy, with its fiscal Q3 revenue rising 2% year over year to $40.7 billion.",
+          "aiSummary": "Alibaba’s fiscal Q3 revenue rose 2% to $40.7 billion as it ramped up AI, cloud computing and rapid-delivery ecommerce investments.",
           "translations": {
             "da": {
               "title": "Alibaba knytter AI-satsning til cloud-vækst og e-handelsomlægning",
@@ -341,7 +341,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: JD.com is expanding into Europe by emphasizing same-day delivery and offering international brands to compete with Amazon, according to CNBC Technology on March 16, 2026.",
+          "aiSummary": "JD.com is promoting same-day delivery and international brands in Europe to compete with Amazon as Chinese e-commerce firms expand globally.",
           "translations": {
             "da": {
               "title": "JD.com udfordrer Amazon i Europa, mens Kinas e-handelsgiganter ekspanderer globalt",
@@ -374,7 +374,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: New E.U. regulations are increasing verification and transparency requirements for marketplace sellers, making these practices standard across the region.",
+          "aiSummary": "New E.U. law requires marketplace sellers to undergo routine verification and transparency measures.",
           "translations": {
             "da": {
               "title": "E.U.-lov strammer reglerne for salg på markedspladser",
@@ -407,7 +407,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Amazon, customers using Alexa+ on devices make three times more purchases compared to the original version, highlighting the company's focus on leveraging its generative AI assistant to boost shopping engagement and enhance Prime ecosystem usage.",
+          "aiSummary": "Amazon reports customers make three times more purchases using Alexa+ on devices than with the original version.",
           "translations": {
             "da": {
               "title": "Marketplace Briefing: Amazon siger, at kunder foretager tre gange flere køb med Alexa+ på enheder end med den oprindelige version",
@@ -439,7 +439,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how AI agents are enhancing ecommerce by enabling personalized pricing for each session and shopper, helping retailers maintain profit margins.",
+          "aiSummary": "AI agents now enable ecommerce sites to tailor pricing to each session and shopper, helping preserve margins.",
           "translations": {
             "da": {
               "title": "AI driver smartere e-handelsprissætning",
@@ -471,7 +471,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how RFID technology serves as a reliable \"truth layer\" in agentic omnichannel retail, enhancing the seamless yet sometimes frustrating experience of AI-driven product discovery, such as finding specific apparel through prompts. Despite effortless initial search results, challenges remain in the subsequent shopping steps.",
+          "aiSummary": "Retailers are deploying RFID to provide real-time inventory accuracy, enabling agentic shopping assistants like ChatGPT and Gemini to guarantee product availability across channels.",
           "translations": {
             "da": {
               "title": "Fra Gætteri til Garantier: RFID som Sandhedslag i Agentisk Omnichannel Detailhandel",
@@ -510,7 +510,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Luxury sneakers brand Golden Goose is reportedly in negotiations to sell a 10 percent minority stake to the Qatar Investment Authority, according to local media reports.",
+          "aiSummary": "Golden Goose is in talks to sell a 10% minority stake to Qatar Investment Authority, local media report.",
           "translations": {
             "da": {
               "title": "Golden Goose siges at være i samtaler om at sælge minoritetsandel til Qatar Investment Authority",
@@ -543,7 +543,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Kering has launched a new jewellery division combining its Boucheron, Pomellato, Dodo, and Qeelin brands to consolidate resources, while also reorganizing fashion brand reporting to protect smaller labels from investor scrutiny.",
+          "aiSummary": "Kering launched a dedicated jewellery division uniting Boucheron, Pomellato, Dodo and Qeelin, and merged fashion brand reporting to protect smaller labels.",
           "translations": {
             "da": {
               "title": "Kering lancerer ny smykkeafdeling og samler rapportering for modebrands",
@@ -577,7 +577,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Coperni Owner Tomorrow Ltd., a London-based showroom and brand incubator that also owns Martine Rose, is being sold to Italy’s Andrea Ciccoli. Founder Stefano Martinetto discusses the sale in Business of Fashion’s High Margin luxury newsletter.",
+          "aiSummary": "Tomorrow Ltd., owner of Coperni and Martine Rose, is being sold to Italian buyer Andrea Ciccoli.",
           "translations": {
             "da": {
               "title": "Hvad skete der hos Coperni Owner Tomorrow Ltd.?",
@@ -609,7 +609,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: Dubai International Airport has temporarily suspended flights following a drone incident that ignited a fuel tank fire, coinciding with US President Donald Trump's call for international assistance to secure the Strait of Hormuz, Bloomberg reports.",
+          "aiSummary": "Dubai International Airport suspended flights after a drone incident ignited a fuel tank, coinciding with President Trump urging global action on Hormuz security.",
           "translations": {
             "da": {
               "title": "Dubai suspenderer flyvninger, mens Trump kræver hjælp med Hormuz",
@@ -643,7 +643,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Luxury hospitality brand Park Hyatt is entering London’s residential market by introducing 103 private homes in the Nine Elms neighborhood, as reported by Luxury Daily on March 20, 2026.",
+          "aiSummary": "Park Hyatt will launch 103 private residences in London’s Nine Elms neighborhood, marking its entry into the city’s residential market.",
           "translations": {
             "da": {
               "title": "Park Hyatt træder ind på Londons boligmarked",
@@ -674,7 +674,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: According to a survey by UBS and Art Basel reported by Luxury Daily on March 16, 2026, the global art market experienced a 4 percent growth in 2025, reaching $59.6 billion, driven primarily by public auction sales.",
+          "aiSummary": "Global art market sales rose 4 percent to $59.6 billion in 2025, driven by a rebound in public auction activity.",
           "translations": {
             "da": {
               "title": "Offentlige auktioner drev kunstmarkedets genopretning i 2025: UBS, Art Basel",
@@ -708,7 +708,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: According to UBS, luxury stocks are experiencing their most bearish sentiment in years, as the war in the Middle East—an important and fast-growing market for the luxury industry—poses a risk to the anticipated rebound in demand.",
+          "aiSummary": "UBS reports luxury stocks face their most bearish sentiment in years as Middle East war threatens recovery in the industry's fastest-growing market.",
           "translations": {
             "da": {
               "title": "Luxury-aktier Møder Mest Bearish Stemning i År, Siger UBS",
@@ -748,7 +748,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: US-based retailer Signet Jewelers reported strong sales results for the fourth quarter ending 31 January 2026, indicating robust performance in the jewellery industry.",
+          "aiSummary": "Signet Jewelers reported strong fourth-quarter sales for the period ending 31 January 2026.",
           "translations": {
             "da": {
               "title": "Stærke smykkesalg i fjerde kvartal for detailgigant",
@@ -782,7 +782,7 @@
               "jewellery"
             ]
           },
-          "aiSummary": "AI-generated summary: Independent jewellery stores in Australia experienced continued positive sales momentum in February, reflecting an ongoing improvement in performance.",
+          "aiSummary": "Independent jewellery stores in Australia reported another month of improved sales performance in February.",
           "translations": {
             "da": {
               "title": "Positiv fremgang fortsætter for juvelerer i februar",
@@ -815,7 +815,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Instore Magazine (2026-03-20) discusses how two types of short-sighted managers can hinder growth in the jewelry industry, each impacting business development in distinct ways.",
+          "aiSummary": "Short-sighted “caretaker” and “egomaniac” managers are identified as key obstacles limiting growth in jewellery businesses.",
           "translations": {
             "da": {
               "title": "Disse to typer ledere kan ødelægge din smykkevirksomhed",
@@ -848,7 +848,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: Lainey Wilson’s Golden West collection honors her home state of Louisiana by featuring a new cowboy boot inspired by the state flower, the magnolia.",
+          "aiSummary": "Lainey Wilson’s Golden West launched a new cowboy boot featuring the magnolia, Louisiana’s state flower, as a tribute to her home state.",
           "translations": {
             "da": {
               "title": "Lainey Wilsons Golden West hylder hjemstaten Louisiana med nye cowboystøvler",
@@ -881,7 +881,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: Retail industry groups in New South Wales have expressed support for the government's plan to enhance protections for retail staff, aiming to reduce crime in the sector.",
+          "aiSummary": "Retail industry groups back the New South Wales government plan to strengthen protections for retail staff against crime.",
           "translations": {
             "da": {
               "title": "Detailhandlere tilfredse med indsatsen for at bekæmpe kriminalitet i NSW",
@@ -912,7 +912,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The article from Instore Magazine dated March 20, 2026, discusses improved interview questions for the jewellery industry and offers advice on better managing annual tax responsibilities.",
+          "aiSummary": "Instore Magazine advises jewelers to stop asking candidates “Where do you see yourself in five years?” and suggests improved annual tax management strategies.",
           "translations": {
             "da": {
               "title": "Stop med at spørge jobsøgende 'Hvor ser du dig selv om fem år?' og flere smykkespørgsmål til april",
@@ -944,7 +944,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: In his annual shareholder letter, Goldman Sachs chief David Solomon highlighted ongoing risks in private credit, emphasizing that the financial cycle remains intact amid Wall Street's caution toward non-bank lending.",
+          "aiSummary": "Goldman Sachs CEO David Solomon warned in his annual letter that risks in private credit show the financial cycle remains intact.",
           "translations": {
             "da": {
               "title": "Goldmans chef advarer om, at risici ved privat kredit viser, at cyklussen ’ikke er ophævet’",
@@ -960,5 +960,13 @@
     }
   },
   "coverImageUrl": "/weekly-images/2026-W12.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W12"
+  "coverImageAlt": "Weekly cover illustration for 2026-W12",
+  "oneSentenceSummary": "AI’s promise to democratize productivity collides with a reality where only the largest players—like OpenAI or Bezos—can afford the upfront stakes.",
+  "keyThemes": [
+    "OpenAI Frontier",
+    "Shopify AI shopping agents",
+    "Alibaba ecommerce overhaul",
+    "Signet Jewelers sales growth",
+    "Kering jewellery division"
+  ]
 }

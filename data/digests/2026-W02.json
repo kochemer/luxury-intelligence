@@ -52,7 +52,7 @@
           },
           "rerankWhy": "New AI chips impact retail tech and logistics",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nNvidia announced new A.I. chips at CES, set to ship later this year, and revealed an autonomous car project with Mercedes."
+          "aiSummary": "Nvidia unveiled a more efficient, powerful AI chip at CES, with CEO Jensen Huang announcing shipments will begin later this year."
         },
         {
           "id": "986ene",
@@ -72,7 +72,7 @@
           },
           "rerankWhy": "Significant funding indicates retail AI investment trends",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary:\nElon Musk's xAI secures $20 billion in funding amid a surge of investment in fast-growing AI start-ups with high valuations."
+          "aiSummary": "Elon Musk’s xAI raised $20 billion as investors pour record sums into rapidly expanding artificial intelligence start-ups."
         },
         {
           "id": "y0hb6z",
@@ -92,7 +92,7 @@
           },
           "rerankWhy": "Funding talks highlight competition in retail AI space",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nAnthropic, an AI start-up rivaling OpenAI, is reportedly in discussions to secure funding at a valuation of $350 billion, with plans to raise approximately $10 billion and potential considerations for an initial public offering."
+          "aiSummary": "Anthropic is in talks to raise $10 billion at a $350 billion valuation amid speculation of a potential IPO."
         },
         {
           "id": "i57nds",
@@ -115,7 +115,7 @@
           },
           "rerankWhy": "Deepfakes raise concerns for brand reputation management",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary:\nDeepfakes of Nicolás Maduro circulated online following his capture, highlighting the intersection of breaking news and AI technology."
+          "aiSummary": "Deepfake images of ousted Venezuelan president Nicolás Maduro flooded the internet after his capture, overwhelming existing safeguards against AI-generated misinformation."
         },
         {
           "id": "txrdd1",
@@ -135,7 +135,7 @@
           },
           "rerankWhy": "Regulatory scrutiny affects retail AI acquisitions",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary:\nChina is investigating Meta's acquisition of the AI start-up Manus to determine compliance with export and investment rules, as Manus has Chinese roots."
+          "aiSummary": "China has launched a regulatory review into Meta’s acquisition of Singapore-based AI start-up Manus for compliance with export and investment rules."
         },
         {
           "id": "wq7ly4",
@@ -158,7 +158,7 @@
           },
           "rerankWhy": "Consumer protection laws impact AI chatbot usage",
           "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nGoogle and Character.AI have reached a settlement in a lawsuit involving the death of a 14-year-old who committed suicide after forming a relationship with an A.I. chatbot."
+          "aiSummary": "Google and Character.AI agreed to settle a lawsuit after a 14-year-old Florida boy died by suicide following interactions with an A.I. chatbot."
         },
         {
           "id": "aoykij",
@@ -181,7 +181,7 @@
           },
           "rerankWhy": "Emerging tech trends relevant for retail strategy",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary:\nThe NYTimes Technology article published on January 8, 2026, discusses upcoming tech trends such as talking computers and self-driving cars that will likely become more prevalent in our lives by 2026."
+          "aiSummary": "Talking computers and self-driving cars are among the key technology trends expected to shape daily life in 2026."
         }
       ]
     },
@@ -208,7 +208,7 @@
           },
           "rerankWhy": "AI's impact on workforce roles in fashion",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI is revolutionizing the fashion industry's workforce, leading to the transformation of existing roles and the creation of new ones, as highlighted in the BoF-McKinsey State of Fashion 2026 report."
+          "aiSummary": "AI is transforming existing fashion industry roles and creating new ones, prompting brands to prepare for workforce changes, finds the BoF-McKinsey State of Fashion 2026."
         },
         {
           "id": "83odpm",
@@ -231,7 +231,7 @@
           },
           "rerankWhy": "AI-driven pricing optimization for retail profitability",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-driven pricing and assortment optimization is helping retailers reclaim profitability by enabling them to anticipate tariff impacts and adjust pricing with precision. This technology allows retailers to ensure costs are recovered effectively."
+          "aiSummary": "AI-powered scenario modelling lets retailers recover costs by precisely adjusting prices and assortments in response to tariff changes."
         },
         {
           "id": "cxfw42",
@@ -251,7 +251,7 @@
           },
           "rerankWhy": "Microsoft's AI tools for retail operations automation",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary: Microsoft has unveiled agentic AI tools through Copilot to automate retail and B2B commerce tasks like digital checkout and merchandising, aiming to streamline operations and reduce manual work."
+          "aiSummary": "Microsoft launched agentic AI tools in Copilot and Copilot Studio to automate retail and B2B commerce tasks like digital checkout and merchandising."
         },
         {
           "id": "s2c6b7",
@@ -271,7 +271,7 @@
           },
           "rerankWhy": "Key retail trends for 2026 impacting strategies",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-Generated Summary:\nRetail Dive highlights six key trends to watch in 2026, including pricing dynamics and the changing landscape of malls in the retail industry."
+          "aiSummary": "Six retail trends for 2026 include dynamic pricing, evolving mall formats, and shifting consumer expectations, according to Retail Dive’s latest industry outlook."
         },
         {
           "id": "deu1k8",
@@ -291,7 +291,7 @@
           },
           "rerankWhy": "Consumer interaction with AI customer service insights",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-generated summary:\nA Liveops survey revealed that while most consumers had positive interactions with AI customer service during holiday shopping, the majority still believe human support is superior."
+          "aiSummary": "A Liveops survey found most consumers used AI customer service during holiday shopping, but the majority still prefer human support."
         },
         {
           "id": "iu9bzw",
@@ -311,7 +311,7 @@
           },
           "rerankWhy": "Future of AI checkout in retail shopping",
           "rerankConfidence": 0.65,
-          "aiSummary": "AI-generated summary: 2026 will be the year to determine if shoppers are ready to make purchases directly within AI platforms like ChatGPT and Perplexity, after showing increased interest in starting their shopping journeys on these engines in 2025."
+          "aiSummary": "Shoppers increasingly began their shopping journeys on AI engines like ChatGPT and Perplexity in 2025, setting up 2026 as a test for AI-powered checkout."
         },
         {
           "id": "q6zho6",
@@ -331,7 +331,7 @@
           },
           "rerankWhy": "Walmart's AI strategies for enhancing ecommerce",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary: Walmart is utilizing AI and agentic commerce strategies, with new CEO John Furner expected to focus on implementing agents and machine learning. The retail giant's approach to AI will likely be a key focus as Furner takes over from Doug McMillon."
+          "aiSummary": "Walmart’s incoming CEO John Furner will prioritise artificial intelligence and agentic commerce strategies as he takes over from Doug McMillon in February."
         }
       ]
     },
@@ -358,7 +358,7 @@
           },
           "rerankWhy": "Analyzes economic impact on beauty spending habits",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-generated summary:\nThe article discusses how the K-shaped economy is challenging the resilience of skincare, makeup, and fragrance products in the luxury consumer market."
+          "aiSummary": "A splintering economy is challenging the resilience of skincare, makeup and fragrance sales traditionally seen as recession-proof."
         },
         {
           "id": "b5lr5m",
@@ -380,7 +380,7 @@
           },
           "rerankWhy": "Highlights strategic brand sales impacting market dynamics",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-Generated Summary:\nEstée Lauder Companies is looking to sell Too Faced, Smashbox, and Dr. Jart as a package deal, according to Business of Fashion."
+          "aiSummary": "Estée Lauder is seeking buyers for Too Faced, Smashbox and Dr. Jart, offering the three brands together in a package deal."
         },
         {
           "id": "gkmgci",
@@ -405,7 +405,7 @@
           },
           "rerankWhy": "Discusses tech trends affecting retail strategies",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-Generated Summary:\nIn 2026, fashion's intersection with technology will see a growing AI backlash, the rise of autonomous agents, and new laws prohibiting children and some teenagers from social media, as reported by Business of Fashion."
+          "aiSummary": "New laws banning children and some teenagers from social media, rising AI backlash and autonomous agents are set to reshape fashion technology in 2026."
         },
         {
           "id": "vz2gl8",
@@ -428,7 +428,7 @@
           },
           "rerankWhy": "Examines financial challenges of a luxury retailer",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-Generated Summary:\nS&P Global Ratings downgraded Saks Global due to a missed interest payment, casting doubt on the company's ability to meet financial obligations following a $2.7 billion merger last year."
+          "aiSummary": "S&P Global Ratings downgraded Saks Global after the company missed an interest payment and failed to realize savings from its $2.7 billion merger."
         },
         {
           "id": "hsqnmy",
@@ -448,7 +448,7 @@
           },
           "rerankWhy": "Explores partnerships with athletes enhancing brand visibility",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary:\nFashion and beauty brands are increasingly forming partnerships with female college athletes, moving beyond one-off posts to collaborating with entire athletic departments, as reported by Modern Retail on January 8, 2026."
+          "aiSummary": "Beauty and fashion brands are expanding NIL partnerships with female college athletes, moving from single posts to collaborations with entire athletic departments."
         },
         {
           "id": "hywwmw",
@@ -473,7 +473,7 @@
           },
           "rerankWhy": "Identifies key sports-fashion trends for 2026",
           "rerankConfidence": 0.65,
-          "aiSummary": "AI-Generated Summary:\nIn 2026, the convergence of sports and fashion is expected to continue, with five key storylines to watch for early in the year."
+          "aiSummary": "Sports and fashion will continue their 2025 convergence in 2026, with five key storylines shaping early industry trends."
         },
         {
           "id": "gv0gw4",
@@ -495,7 +495,7 @@
           },
           "rerankWhy": "Covers wellness trends influencing consumer behavior",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary:\nConsumers in 2026 are focusing on holistic health, seeking products and habits that improve overall wellbeing, according to Business of Fashion."
+          "aiSummary": "Holistic health tops 2026 wellness trends as consumers prioritise products, treatments and habits aimed at improving overall wellbeing."
         }
       ]
     },
@@ -525,7 +525,7 @@
           },
           "rerankWhy": "Insights on sales trends and retail consolidation",
           "rerankConfidence": 0.9,
-          "aiSummary": "AI-Generated Summary:\nHugh Rice, a family jeweller in Hull, experienced a decrease in sales as it prepared for consolidation. The company saw a boost in turnover after the Danish brand Pandora began buying out its retail partners."
+          "aiSummary": "Hugh Rice sales have declined ahead of its planned consolidation in Hull, following a previous peak turnover of £38 million after Pandora buy-backs."
         },
         {
           "id": "pjh6tz",
@@ -550,7 +550,7 @@
           },
           "rerankWhy": "Highlights sales growth amidst tariff challenges",
           "rerankConfidence": 0.85,
-          "aiSummary": "AI-generated summary: Ulysse Nardin experienced double-digit sales growth in a tumultuous year for the jewelry industry, with the American market facing challenges due to fluctuating tariff rates on Swiss watches."
+          "aiSummary": "Ulysse Nardin achieved double-digit sales growth in 2025 despite volatile US tariff rates on Swiss watches."
         },
         {
           "id": "jufedc",
@@ -572,7 +572,7 @@
           },
           "rerankWhy": "Significant retail investment in luxury market",
           "rerankConfidence": 0.8,
-          "aiSummary": "AI-generated summary: Cartier is set to open a three-story boutique on Rodeo Drive in Beverly Hills, expanding its presence in the United States with a new \"Temple\" for the French jeweller and watchmaker, second only in scale to its New York flagship."
+          "aiSummary": "Cartier will open a three-story Rodeo Drive boutique in Beverly Hills, its largest US store after the New York flagship."
         },
         {
           "id": "yc3619",
@@ -594,7 +594,7 @@
           },
           "rerankWhy": "Expansion of retail partnerships for indie brands",
           "rerankConfidence": 0.75,
-          "aiSummary": "AI-generated summary: Biver, an independent haute horlogerie maison, has added Ace Jewelers as an Authorised Retail Partner, expanding its network in Europe. Ace Jewelers joins Bucherer and À l’Émeraude as one of only three partners for Biver in the region."
+          "aiSummary": "Biver has added Amsterdam-based Ace Jewelers as its third authorised retail partner in Europe, joining Bucherer and À l’Émeraude."
         },
         {
           "id": "wayzzb",
@@ -616,7 +616,7 @@
           },
           "rerankWhy": "Discusses pricing strategies affecting investment decisions",
           "rerankConfidence": 0.7,
-          "aiSummary": "AI-Generated Summary: Rolex has increased its US retail prices by approximately 7% in January 2026, with stainless steel models rising by over 5% and precious metal references seeing jumps of 8-9%. This trend makes gold watches a risky investment, as noted by watch enthusiasts."
+          "aiSummary": "Rolex raised US retail prices by about 7% in January, with gold watches up 8–9% and stainless steel models rising just over 5%."
         },
         {
           "id": "2wxar",
@@ -638,7 +638,7 @@
           },
           "rerankWhy": "Explores potential retail impacts of tax policies",
           "rerankConfidence": 0.65,
-          "aiSummary": "AI-generated summary: The article discusses the impact of politics on the watch industry, emphasizing the importance of effective public services funded by taxes. It questions whether Bond Street should ban MPs to maintain a balance that benefits everyone."
+          "aiSummary": "Watch industry columnist questions whether Bond Street should ban MPs over concerns that political decisions are harming the sector."
         },
         {
           "id": "sy6hag",
@@ -660,7 +660,7 @@
           },
           "rerankWhy": "Predictions on market trends and retail strategies",
           "rerankConfidence": 0.6,
-          "aiSummary": "AI-generated summary:\nThe article reflects on the accuracy of predictions made for 2025 in the jewellery industry, amidst global economic and political turmoil, including high tariffs on Swiss exports."
+          "aiSummary": "Tariffs as high as 39% were imposed on Swiss exports following Donald Trump’s second inauguration, triggering a year of geopolitical and economic turmoil."
         }
       ]
     }

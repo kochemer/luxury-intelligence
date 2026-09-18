@@ -40,7 +40,7 @@
               "large language model"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses the evolving role of AI in software development, highlighting AMD's efforts to integrate AI across various stages of the software development lifecycle to enhance productivity, with expectations of a 25 percent boost over a few years.",
+          "aiSummary": "AMD targeted a 25% productivity boost over two to three years by deploying AI across software development tasks including triage, debugging, and testing.",
           "translations": {
             "da": {
               "title": "Fra AI Copiloter til Agent Sværme",
@@ -74,7 +74,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: According to new data reported by TechCrunch on August 20, 2026, OpenAI is closing the gap with Anthropic among business users, though frequent shifts between models from both companies highlight uncertainty about the long-term stability of enterprise AI spending.",
+          "aiSummary": "OpenAI is closing the gap with Anthropic among business users as enterprises switch providers with each new AI model release.",
           "translations": {
             "da": {
               "title": "OpenAI indhenter Anthropic blandt erhvervsbrugere, nye data viser",
@@ -109,7 +109,7 @@
               "fine-tuning"
             ]
           },
-          "aiSummary": "AI-generated summary: Nvidia's research demonstrates that effective fine-tuning of AI agents, rather than the inherent quality of the AI model itself, is crucial for achieving strong and stable performance.",
+          "aiSummary": "Nvidia research finds AI agents achieve strong performance and stability through fine-tuning, even when the underlying AI model is suboptimal.",
           "translations": {
             "da": {
               "title": "Nvidia viste netop, at udstyret, ikke AI-modellen, nu er den sande helt",
@@ -142,7 +142,7 @@
               "training"
             ]
           },
-          "aiSummary": "AI-generated summary: AI data startup Micro1 has reached a $500 million gross run rate, fueled by the booming demand for AI training data, reflecting rapid growth in the sector.",
+          "aiSummary": "Micro1 reached a $500 million gross run rate as demand for AI training data accelerates growth for the startup and its competitors.",
           "translations": {
             "da": {
               "title": "AI-datastartup Micro1 når 500 mio. dollars bruttoomsætning under AI-træningsboom",
@@ -177,7 +177,7 @@
               "partnership"
             ]
           },
-          "aiSummary": "AI-generated summary: Brazil is investing 1.3 billion reais in a supercomputing infrastructure project in Rio de Janeiro, partnering with Chinese firms Huawei Technologies and iFlytek to develop large language models for various applications. This initiative reflects President Luiz Inacio Lula da Silva's government's focus on advancing AI capabilities.",
+          "aiSummary": "Brazil will invest 1.3 billion reais in a Rio de Janeiro AI supercomputing project with Huawei and iFlytek to develop large language models.",
           "translations": {
             "da": {
               "title": "Brasilien lancerer AI-supercomputerindsats, deler projekter mellem kinesiske og amerikanske firmaer",
@@ -211,7 +211,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: On August 22, 2026, OpenAI announced a price reduction of over 20% for developers using its GPT-5.6 Sol model API, applying to eligible plans for ChatGPT Work and Codex, according to Economic Times - Technology.",
+          "aiSummary": "OpenAI cut developer pricing for its frontier GPT-5.6 Sol model by over 20% across API, ChatGPT Work, and Codex credits.",
           "translations": {
             "da": {
               "title": "OpenAI sænker udviklerpriserne for frontier GPT-5.6 Sol-modellen med over 20%",
@@ -245,7 +245,7 @@
               "research"
             ]
           },
-          "aiSummary": "AI-generated summary: Researchers at the UK AI Security Institute demonstrated that common safety benchmarks for language models fail to measure a consistent trait, with blanket request blocking inflating safety scores despite reduced model usefulness. They also proposed a method to detect models that behave more cautiously during tests than in regular use.",
+          "aiSummary": "Researchers at the UK AI Security Institute found popular language model safety benchmarks unreliable, with blanket blocking inflating scores while reducing daily usefulness.",
           "translations": {
             "da": {
               "title": "Psykologiske metoder afslører store svagheder i AI-sikkerhedstest",
@@ -282,7 +282,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon plans to expand its Prime Air drone delivery service sixfold in 2026, launching in metro Atlanta, Chicago, and Cleveland to offer customers faster shipping options.",
+          "aiSummary": "Amazon will expand Prime Air drone deliveries to metro Atlanta, Chicago and Cleveland this year, increasing its service reach sixfold.",
           "translations": {
             "da": {
               "title": "Amazon udvider dronelevering seks gange i år",
@@ -314,7 +314,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: Walmart will begin accepting Apple Pay and Google Pay in its stores by the end of 2026, resolving years of customer frustration over the lack of support for these popular payment methods.",
+          "aiSummary": "Walmart will accept Apple Pay and Google Pay in stores by year-end, ending its longstanding refusal to support these mobile payment options.",
           "translations": {
             "da": {
               "title": "Walmart begynder endelig at understøtte Apple Pay og Google Pay",
@@ -346,7 +346,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Walmart is expanding its Scintilla data analytics platform to Sam’s Club, enabling merchants and brands to better understand and predict member behavior. This move aims to enhance data-driven insights within Sam’s Club operations.",
+          "aiSummary": "Walmart is extending its Scintilla data analytics platform to Sam’s Club, enabling merchants and brands to analyze and predict member behavior.",
           "translations": {
             "da": {
               "title": "Walmart udvider Scintilla data platform til Sam’s Club",
@@ -379,7 +379,7 @@
               "online retail"
             ]
           },
-          "aiSummary": "AI-generated summary: Digital Commerce 360 and ReFiBuy introduced the AI Commerce Rankings in July to identify which online retailers benefit most from artificial intelligence by analyzing their visibility and AI-related reach across various data points. This new ranking offers insights into ecommerce trends and the impact of AI on retail tech.",
+          "aiSummary": "Digital Commerce 360 and ReFiBuy’s July AI Commerce Rankings reveal which online retailers benefit most from AI-driven visibility and reach.",
           "translations": {
             "da": {
               "title": "Ecommerce Trends: Hvilke onlineforhandlere AI hjælper mest",
@@ -411,7 +411,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Non-alcoholic beer brand Bero, which launched on Amazon in 2025, experienced year-over-year growth during Amazon Prime Day and is now preparing for its third Cyber 5 using channel-based insights, according to Digital Commerce 360.",
+          "aiSummary": "Bero, a non-alcoholic beer brand launched on Amazon in 2025, saw year-over-year conversion growth during Prime Day and is planning for its third Cyber 5.",
           "translations": {
             "da": {
               "title": "Bero forbereder sig på sin tredje Cyber 5 med kanalbaserede indsigter",
@@ -443,7 +443,7 @@
               "online retail"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon.com Inc. announced plans to expand its Prime Air drone delivery service to five additional U.S. metro areas—Chicago, Syracuse, Cleveland, Atlanta, and Boise—with launches expected soon and further expansions later this year.",
+          "aiSummary": "Amazon is expanding Prime Air drone delivery to Chicago, Syracuse, Cleveland, Atlanta and Boise, with launches in more communities planned later this year.",
           "translations": {
             "da": {
               "title": "Amazon planlægger dronelevering i 5 flere amerikanske storbyområder",
@@ -475,7 +475,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Walmart's CFO John David Rainey emphasized the continued importance of brick-and-mortar stores as the company adapts to an increasingly omnichannel retail environment, while noting that Q2 U.S. comparable sales were impacted by drug pricing regulations.",
+          "aiSummary": "Walmart’s Q2 U.S. comparable sales growth slowed due to drug pricing regulation, as CFO John David Rainey reaffirmed the importance of brick-and-mortar stores.",
           "translations": {
             "da": {
               "title": "Walmarts butikker har 'udviklet sig', efterhånden som e-handel vokser",
@@ -513,7 +513,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: AIM Architecture designed Zara's new flagship store on Huaihai Road in Shanghai, featuring an amphitheatre-like brick podium that integrates the building with the street, exemplifying the future of physical retail.",
+          "aiSummary": "Zara opened a new Shanghai flagship on Huaihai Road, featuring an amphitheatre-like brick podium designed by AIM Architecture to connect with the street.",
           "translations": {
             "da": {
               "title": "Zaras flagskibsbutik i Shanghai afspejler \"fremtiden for fysisk detailhandel\"",
@@ -544,7 +544,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: REVERSIBLE's new platform launch aims to address a major frustration in beauty shopping, positioning itself as a convenient and favored shortcut for consumers.",
+          "aiSummary": "REVERSIBLE launched a new platform designed to streamline beauty shopping and address common consumer frustrations.",
           "translations": {
             "da": {
               "title": "Platformen, der netop har løst skønhedsbranchens største shoppingirritation, er endelig her",
@@ -576,7 +576,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: The Federal Trade Commission is increasing scrutiny on personalized pricing practices, signaling potential challenges for businesses amid consumer concerns over unfair pricing. This move highlights growing regulatory attention in the luxury and consumer sectors.",
+          "aiSummary": "The Federal Trade Commission is increasing scrutiny of businesses using personalized or surveillance pricing amid consumer backlash against perceived unfair pricing practices.",
           "translations": {
             "da": {
               "title": "FTC retter fokus mod personlig prissætning. Hvad betyder det for kunderne?",
@@ -609,7 +609,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: According to the latest Office for National Statistics figures reported by Drapers on August 21, 2026, UK retail sales volumes declined by 0.5% in July, following a 0.7% increase in June, with clothing demand notably lagging.",
+          "aiSummary": "UK retail sales volumes fell 0.5% in July after rising 0.7% in June, as clothing demand weakened.",
           "translations": {
             "da": {
               "title": "Detailhandlen i Storbritannien falder i juli, da efterspørgslen efter tøj halter",
@@ -642,7 +642,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Maisonette has launched Neon Rebels, an e-commerce platform targeting 7- to 14-year-olds that features over 100 brands and seeks to balance the preferences of Gen Alpha with parents' purchasing choices.",
+          "aiSummary": "Neon Rebels, Maisonette’s new e-commerce site for 7- to 14-year-olds, launches with over 100 brands targeting Gen Alpha and their parents.",
           "translations": {
             "da": {
               "title": "Maisonette Giver Tweens Deres Egen Shoppingdestination",
@@ -675,7 +675,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Co-Founder Lela Becker showcased the Los Angeles brand's stylish debut flagship store in Beverly Hills, marking a new chapter following the Palisades fire.",
+          "aiSummary": "Mother opened its first flagship store in Beverly Hills, led by co-founder Lela Becker, marking the Los Angeles brand’s retail debut.",
           "translations": {
             "da": {
               "title": "Efter Palisades-branden åbner mor sin første butik i Beverly Hills",
@@ -706,7 +706,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: French luxury brand Hermès has relocated its Rio de Janeiro store to a new location within VillageMall, according to Luxury Daily on August 21, 2026.",
+          "aiSummary": "Hermès has relocated its Rio de Janeiro store to a new space at VillageMall.",
           "translations": {
             "da": {
               "title": "Hermès flytter i Rio de Janeiro",
@@ -744,7 +744,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Instore Magazine discusses how the jewellery industry can transform the operational challenge of jewelry returns into valuable insights by adopting smarter tracking and interpretation methods.",
+          "aiSummary": "A smarter approach to tracking and interpreting jewellery returns can transform them from a cost center into a valuable source of business insight.",
           "translations": {
             "da": {
               "title": "Smykkereturneringer er en operationel realitet — og et signal",
@@ -777,7 +777,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Instore Magazine discusses using a data-driven strategy to create an exclusive signature jewelry collection, emphasizing tiered pricing and a 180-day performance benchmark to justify reordering pieces. This approach aims to protect against price shopping in the jewelry industry.",
+          "aiSummary": "A 180-day sales benchmark is recommended to determine if a signature jewelry piece merits reorder in an exclusive, data-driven collection.",
           "translations": {
             "da": {
               "title": "Hvorfor en Signatur Smykkekollektion er Dit Bedste Forsvar mod Prissammenligning",
@@ -808,7 +808,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The Victorian Government is intensifying efforts to combat crimes targeting retail businesses, particularly within the jewellery industry, as part of a strengthened state response.",
+          "aiSummary": "The Victorian Government will intensify measures against crimes targeting retail businesses with new plans to strengthen the state’s response.",
           "translations": {
             "da": {
               "title": "Indsatser for at bekæmpe detailkriminalitet i Victoria intensiveres",
@@ -842,7 +842,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The opening day of the International Jewellery Fair at Sydney’s Darling Harbour saw a positive and energetic start, reflecting high sentiment as the competition begins to intensify.",
+          "aiSummary": "The International Jewellery Fair opened at Sydney’s Darling Harbour with high sentiment and increased competition among exhibitors on the first day.",
           "translations": {
             "da": {
               "title": "IJF26: Stemningen er høj på åbningsdagen, mens konkurrencen intensiveres",
@@ -876,7 +876,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The 2026 International Jewellery Fair in Sydney is set to open soon, with organiser Expertise Events announcing an exciting lineup of attractions and presentations for the jewellery industry's largest annual event.",
+          "aiSummary": "Expertise Events has unveiled a blockbuster schedule of attractions and presentations for the 2026 International Jewellery Fair opening in Sydney within days.",
           "translations": {
             "da": {
               "title": "Sydney Fair 2026: Branchen klar til en weekend, der vil blive husket",
@@ -910,7 +910,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Brazil's Estúdio Campana designed a pop-up Tiffany & Co store in São Paulo's JK Iguatemi Mall, featuring a woven wicker facade in the brand's signature blue with tan streaks. This unique \"woven jewellery box\" concept highlights a creative collaboration in the jewellery industry.",
+          "aiSummary": "Estúdio Campana has wrapped Tiffany & Co's JK Iguatemi Mall pop-up in São Paulo with a woven wicker facade in signature blue and tan.",
           "translations": {
             "da": {
               "title": "Estúdio Campana skaber \"woven jewellery box\" for Tiffany & Co i São Paulo",
@@ -941,7 +941,7 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Scott Murphy, after 12 years of leading Jewelers Mutual through significant growth, will retire as CEO, with current President Mike Alexander named as his successor effective January 1.",
+          "aiSummary": "Jewelers Mutual CEO Scott Murphy will retire after 12 years, with President Mike Alexander taking over as CEO on January 1.",
           "translations": {
             "da": {
               "title": "Jewelers Mutual CEO Scott Murphy går på pension; Mike Alexander udnævnt som efterfølger",

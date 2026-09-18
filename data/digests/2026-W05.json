@@ -40,7 +40,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nOpenAI is planning to go public in the fourth quarter of fiscal year 2026, amid concerns about rival company Anthropic potentially listing first. To prepare for the IPO, OpenAI has been strengthening its finance team by hiring key positions.",
+          "aiSummary": "OpenAI plans a Q4 FY26 IPO and has hired senior finance officers, while rival Anthropic may list first after engaging law firm Wilson Sonsini.",
           "translations": {
             "da": {
               "title": "OpenAI planlægger IPO i Q4 FY26 amid voksende rivalisering med Anthropic: Wall Street Journal",
@@ -72,7 +72,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary:\nMicrosoft's market value dropped by $360bn due to increased AI spending, leading to a 66% surge in data center costs and impacting Nasdaq.",
+          "aiSummary": "Microsoft lost $360bn in market value after a 66% year-on-year surge in data centre costs unsettled investors.",
           "translations": {
             "da": {
               "title": "Microsoft mister $360 mia. i markedsværdi, da AI-udgifter skræmmer investorer",
@@ -107,7 +107,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI research organization OpenAI has highlighted the threat of malicious links to autonomous AI systems, warning that they could undermine the safety of AI agents as they transition from conversation to action. This concern was raised in new guidance on AI agent link safety, emphasizing the vulnerability of agents to exploitation through harmful links.",
+          "aiSummary": "OpenAI warned that malicious links are becoming a major vulnerability as autonomous AI agents increasingly interact with external websites and systems.",
           "translations": {
             "da": {
               "title": "OpenAI Advarer om, at Ondsindede Links Kan Underminere Agentisk AI",
@@ -140,7 +140,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Residents near Santiago, Chile, created a human-powered chatbot to demonstrate AI's environmental impact, handling over 25,000 requests globally in a 12-hour project. The initiative aims to raise awareness of AI's hidden water footprint and promote responsible AI use in water-stressed regions, amidst debates over resource consumption due to tech companies building data centers in the area.",
+          "aiSummary": "Residents near Santiago, Chile, ran a 12-hour human-powered chatbot handling 25,000 global requests to spotlight AI's hidden water footprint amid local data centre growth.",
           "translations": {
             "da": {
               "title": "En chatbot udelukkende drevet af mennesker, ikke kunstig intelligens? Dette chilenske samfund viser hvorfor",
@@ -173,7 +173,7 @@
               "investment"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nThe 2026 budget introduced tech incentives like safe harbour thresholds for IT services and tax holidays for local data centres to attract global investment and position India as a hub for AI infrastructure, cloud, and data services, welcomed by the industry.",
+          "aiSummary": "India’s 2026 union budget grants tax holidays for local data centres and raises safe harbour thresholds for IT services to attract global tech investment.",
           "translations": {
             "da": {
               "title": "Budget 2026: Branchen byder velkommen til foranstaltninger, der fremmer lokalt AI-, IT- og datacenter-økosystem",
@@ -206,7 +206,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nElon Musk is intrigued by an online experiment on Moltbook where AI agents communicate, sparking discussions about the possibility of reaching the 'singularity'.",
+          "aiSummary": "Elon Musk claims an online experiment on Moltbook, a social network for AI agents, signals we may be approaching the ‘singularity’.",
           "translations": {
             "da": {
               "title": "Inde i Moltbook: det sociale netværk hvor AI-agenter taler med hinanden",
@@ -240,7 +240,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary:\nAI researchers facing challenges as conferences limit LLMs due to an influx of subpar AI-generated content.",
+          "aiSummary": "Major AI conferences restricted LLM use after a surge in low-quality, AI-generated research papers and peer reviews flooded submissions.",
           "translations": {
             "da": {
               "title": "Forskere inden for kunstig intelligens ramt af oversvømmelse af 'slop'",
@@ -275,7 +275,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "In a major strategic realignment, Amazon is cutting 16,000 jobs, scaling back Fresh stores, and introducing a new rapid-delivery service called Amazon Now. This restructuring aims to streamline operations and enhance the company's delivery capabilities.",
+          "aiSummary": "Amazon is cutting 16,000 jobs, scaling back Fresh stores and launching rapid-delivery service Amazon Now in a major strategic overhaul.",
           "translations": {
             "da": {
               "title": "Amazon skærer 16.000 job, reducerer Fresh-butikker og lancerer Amazon Now i stor strategisk omstilling",
@@ -307,7 +307,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Retailers are leveraging marketplaces and retail media to drive revenue and margin growth, while some brands are still catching up on understanding the potential of marketplaces.",
+          "aiSummary": "Retailers are leveraging marketplaces to accelerate retail media revenue and margin growth, while many brands remain unclear on marketplace strategies.",
           "translations": {
             "da": {
               "title": "Markedspladser og detailmedier: svinghjulet for indtægts- og marginvækst",
@@ -340,7 +340,7 @@
               "inventory"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nSaks Global is retreating from off-price retail, closing most stores and all e-commerce operations. Only a few Saks Off 5th locations will remain open, selling residual inventory from high-end retailers.",
+          "aiSummary": "Saks Global will close most Saks Off 5th stores and all e-commerce, keeping just 12 locations selling residual inventory from luxury sister brands.",
           "translations": {
             "da": {
               "title": "Saks Global trækker sig fra lavpris, lukker de fleste butikker og al e-handel",
@@ -372,7 +372,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nSome U.S. brands on TikTok Shop are scaling back or leaving the platform due to its decision to end independent shipping, as reported by Modern Retail on January 28, 2026.",
+          "aiSummary": "TikTok Shop’s decision to end independent shipping is prompting some U.S. brands to scale back or leave the platform.",
           "translations": {
             "da": {
               "title": "Eksklusiv: Nogle TikTok Shop sælgere trækker sig tilbage, da platformen bevæger sig mod at afslutte uafhængig forsendelse i USA.",
@@ -406,7 +406,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary:\nOnline resale growth presents emerging opportunities for marketplaces and retailers amidst inflation and economic uncertainty, with up to 40% of gift purchases in 2025 potentially including secondhand items.",
+          "aiSummary": "ThredUp survey data showed up to 40% of 2025 holiday gift purchases may have included secondhand items amid online resale growth.",
           "translations": {
             "da": {
               "title": "Ehandels Tendenser: Hvem drager fordel af en bølge af online videresalg vækst",
@@ -438,7 +438,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "Levi Strauss & Co. reported double-digit ecommerce growth in Q4, with a 19% increase in net revenue from online sales compared to the previous year. The company's overall net revenue rose by 0.9% to $1.77 billion, fueled by ecommerce sales.",
+          "aiSummary": "Levi Strauss reported a 19% year-over-year ecommerce revenue increase in Q4 2025, driving net revenue up 0.9% to $1.77 billion.",
           "translations": {
             "da": {
               "title": "Levi Strauss e-handelssalg driver Q4 vækst, da nyt AI-værktøj ankommer til mobilappen",
@@ -472,7 +472,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI shopping agents are being blocked by marketplaces due to the threat they pose to product discovery, advertising, and transactions.",
+          "aiSummary": "Marketplaces are blocking autonomous AI shopping agents to protect their roles in product discovery, advertising, and transaction management.",
           "translations": {
             "da": {
               "title": "Hvorfor markedspladser blokerer AI shoppingagenter",
@@ -514,7 +514,7 @@
               "affluent"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nThe Knightsbridge Estate in West London is adapting its retail mix to cater to modern consumer preferences, focusing on luxury, premium, lifestyle, and wellness brands. Tom Woolven discusses how changing consumer behavior is shaping the estate's development.",
+          "aiSummary": "The Knightsbridge Estate is revamping its 3.5-acre West London site with a curated mix of luxury, premium, lifestyle and wellness brands.",
           "translations": {
             "da": {
               "title": "Hvordan Knightsbridge Estate udvikler sin detailmix til den moderne forbruger",
@@ -548,7 +548,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nLuxury brands like Chanel, LVMH, and Kering hold significant power over bankrupt Saks Fifth Avenue, as the retailer heavily relies on them for survival, risking suffocation if they halt shipments.",
+          "aiSummary": "Chanel, LVMH and Kering hold leverage over bankrupt Saks, which relies on their shipments and risks collapse if they halt supply.",
           "translations": {
             "da": {
               "title": "I kampen for tidlige udbetalinger fra det konkursramte Saks har store luksusmærker en fordel",
@@ -583,7 +583,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nLuxury brands are focusing on second-tier cities like Nanjing and Changsha in China, as middle-class consumers moving from major cities seek higher quality of life and continue to demand luxury goods.",
+          "aiSummary": "Louis Vuitton and Burberry are targeting Nanjing and Changsha as middle-class consumers relocating from Beijing and Shanghai drive luxury demand in second-tier Chinese cities.",
           "translations": {
             "da": {
               "title": "Andenrangsbyer er afgørende for at genoplive luksusvækst i Kina",
@@ -615,7 +615,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nKKR-led group, in partnership with Singtel, is on the verge of acquiring ST Telemedia Global Data Centres for over $10 billion, making it one of Asia's largest data centre deals amid increasing demand for digital infrastructure driven by artificial intelligence growth.",
+          "aiSummary": "A KKR-led group, partnering with Singtel, is set to acquire ST Telemedia Global Data Centres for over 13 billion Singapore dollars.",
           "translations": {
             "da": {
               "title": "KKR-led gruppe klar til at købe Singapore datacenterfirma værdiansat til over 10 milliarder dollars, rapporterer WSJ",
@@ -648,7 +648,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nIn 2026, tracking customer engagement metrics has become crucial in marketing due to privacy changes and AI-driven personalization expectations. Clicks and impressions are no longer sufficient; what matters now is the level of connection people have with a brand through actions like opening emails and spending time on the website.",
+          "aiSummary": "Seven customer engagement metrics, including email open rates and site time, are essential for effective marketing in 2026 amid privacy and AI-driven changes.",
           "translations": {
             "da": {
               "title": "7 Kundeforholdsmålinger at følge i 2026",
@@ -680,7 +680,7 @@
               "spending"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nMeta plans to spend over $115 billion this year, a significant increase from $72 billion in the previous year, as the company strives to stay competitive in the artificial intelligence sector.",
+          "aiSummary": "Meta plans to spend at least $115 billion in 2026, up from $72 billion last year, to boost its artificial intelligence capabilities.",
           "translations": {
             "da": {
               "title": "Meta Forudser Udgifter på Mindst $115 Milliarder i År",
@@ -717,7 +717,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nConsumers in the luxury sector are prioritizing trust as a key factor in their purchasing decisions, seeking transparency from high-end brands due to supply chain issues and regulatory challenges in the industry.",
+          "aiSummary": "Consumers are demanding greater transparency from high-end brands after a year of compromised supply chains and regulatory compliance challenges.",
           "translations": {
             "da": {
               "title": "‘Tillid er den nye valuta inden for luksus’: Positive Luxury",
@@ -757,7 +757,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nChow Tai Fook, a Hong Kong-based jewellery retailer, has reported a strong sales recovery with higher retail sales, signaling an improvement in consumer demand within the jewellery industry.",
+          "aiSummary": "Chow Tai Fook reported higher retail sales in its latest update, signalling a recovery in consumer demand for the Hong Kong-based jewellery retailer.",
           "translations": {
             "da": {
               "title": "Chow Tai Fook rapporterer om stærk salgsgenopretning",
@@ -791,7 +791,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nMichael Hill International has seen positive jewellery sales in the past six months, as reported by Jeweller - Business News on January 26, 2026.",
+          "aiSummary": "Michael Hill International reported strong jewellery sales performance over the past six months.",
           "translations": {
             "da": {
               "title": "Positive smykkesalg for Michael Hill",
@@ -824,7 +824,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nLVMH's shares dropped as doubts arose about the luxury market's recovery, despite a 1% organic revenue decline in 2025. Unfavourable currency variations led to a 5% turnover decrease, with the group's highest recorded turnover in 2023 at €86.1 billion.",
+          "aiSummary": "LVMH’s 2025 turnover fell 5% to €80.8 billion as currency headwinds offset strong Q4 growth, sparking a plunge in its share price.",
           "translations": {
             "da": {
               "title": "LVMH-aktier falder, da resultater vækker tvivl om luksusmarkedets genopretning",
@@ -857,7 +857,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary:\nTrain Retail is offering a free live web training session on February 18th at 10 am Central for independent jewelers to learn how to assess the effectiveness of their jewelry marketing efforts.",
+          "aiSummary": "Train Retail will host free live online training for independent jewelers on February 18th at 10 am Central on evaluating jewelry marketing effectiveness.",
           "translations": {
             "da": {
               "title": "Train Retail annoncerer gratis live webtræning: “Hvordan man vurderer, om din smykkemarkedsføring faktisk virker”",
@@ -891,7 +891,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: De Beers London has opened a new flagship store in Paris at 12 Rue de La Paix, marking a significant milestone for the jewellery house. This flagship represents the first physical embodiment of the De Beers London DNA in a city known for elegance, artistry, and style.",
+          "aiSummary": "De Beers London has opened its first Paris flagship store at 12 Rue de La Paix, marking a major expansion for the jewellery house.",
           "translations": {
             "da": {
               "title": "De Beers London åbner flagkib i hjertet af Paris",
@@ -927,7 +927,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Repossi's new Blast collection, inspired by the 1980s, features bold volumes in white, rose, and black gold adorned with diamonds. The collection merges craftsmanship and design, staying on-trend with colorful and sculptural pieces.",
+          "aiSummary": "Repossi has launched the second chapter of its Blast high jewellery collection, featuring sculptural curves in white, rose, and black gold illuminated by diamonds.",
           "translations": {
             "da": {
               "title": "Et splash af farve: Repossi er lige på trend med ny kollektion",
@@ -960,7 +960,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nInstore Magazine's \"Jewelers’ Horoscope: February 2-8, 2026\" provides astrological forecasts tailored for jewelry store-owners, salespeople, and custom jewelers for the upcoming week.",
+          "aiSummary": "Instore Magazine published astrological forecasts for February 2-8, 2026, tailored to jewelry store-owners, salespeople and custom jewelers.",
           "translations": {
             "da": {
               "title": "Smykkebutikkers Horoskop: 2.-8. februar 2026",
@@ -976,5 +976,13 @@
     }
   },
   "coverImageUrl": "/weekly-images/2026-W05.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W05"
+  "coverImageAlt": "Weekly cover illustration for 2026-W05",
+  "oneSentenceSummary": "Markets are simultaneously treating AI as both an existential growth engine and a destabilizing force, unsettling the very tech giants driving the revolution.",
+  "keyThemes": [
+    "OpenAI IPO plans",
+    "Amazon job cuts",
+    "Agentic AI risks",
+    "Chow Tai Fook sales",
+    "Amazon Now launch"
+  ]
 }

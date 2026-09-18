@@ -38,7 +38,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon CEO Andy Jassy defended the company's $200 billion investment in AI despite investor concerns, as Amazon shares have faced challenges this year due to the aggressive spending strategy.",
+          "aiSummary": "Amazon CEO Andy Jassy defended the company’s $200 billion AI investment as shares lag and investors question the aggressive spending strategy.",
           "translations": {
             "da": {
               "title": "Amazon CEO Jassy forsvarer AI-udgifter på 200 milliarder: \"Vi vil ikke være konservative\"",
@@ -70,7 +70,7 @@
               "openai"
             ]
           },
-          "aiSummary": "AI-generated summary: OpenAI plans to allocate IPO shares to retail investors as it prepares for its debut, with enterprise revenue currently at 40% and expected to match consumer revenue by the end of 2026, according to CFO Denise Dresser.",
+          "aiSummary": "OpenAI will allocate IPO shares to retail investors, as enterprise now accounts for 40% of revenue and is set to match consumer by end-2026.",
           "translations": {
             "da": {
               "title": "OpenAI vil tildele IPO-aktier til detailinvestorer, mens det forbereder debut, siger CFO",
@@ -103,7 +103,7 @@
               "claude"
             ]
           },
-          "aiSummary": "AI-generated summary: On April 10, 2026, TechCrunch reported that Anthropic temporarily banned the creator of OpenClaw from accessing Claude following recent pricing changes for OpenClaw users.",
+          "aiSummary": "Anthropic temporarily banned OpenClaw’s creator from accessing Claude after changing Claude’s pricing for OpenClaw users last week.",
           "translations": {
             "da": {
               "title": "Anthropic midlertidigt udelukker OpenClaws skaber fra adgang til Claude",
@@ -136,7 +136,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary: On April 9, 2026, the NYTimes Technology reported that a federal court denied Anthropic’s motion to remove its ‘supply chain risk’ designation, marking a setback for the AI start-up in its dispute with the Defense Department regarding AI use in warfare.",
+          "aiSummary": "A federal court denied Anthropic’s request to remove the Defense Department’s ‘supply chain risk’ label from its artificial intelligence technology.",
           "translations": {
             "da": {
               "title": "Føderal Domstol Afviser Anthropics Anmodning om at Fjerne 'Supply Chain Risk'-Mærket",
@@ -168,7 +168,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: The CIA is moving to incorporate AI assistants across all its analysis platforms, having recently produced its first fully autonomous intelligence report using AI, according to Deputy Director Michael Ellis.",
+          "aiSummary": "The CIA produced its first fully autonomous intelligence report using AI and plans to integrate AI assistants into all analysis platforms.",
           "translations": {
             "da": {
               "title": "CIA planlægger at integrere AI-assistenter i alle analyseplatforme",
@@ -200,7 +200,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how advanced AI systems can fail silently, with monitoring tools indicating normal operation while the system's decisions gradually degrade, challenging traditional methods of detecting failures. This highlights a new class of software issues where systems continue running without obvious errors despite declining performance.",
+          "aiSummary": "Engineers testing distributed AI platforms report dashboards showing “healthy” status even as user feedback reveals the system’s decisions are increasingly incorrect.",
           "translations": {
             "da": {
               "title": "Hvorfor AI-systemer fejler stille",
@@ -230,7 +230,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Following a data breach, the $10 billion-valued startup Mercor is contending with lawsuits and the loss of major customers, according to TechCrunch's April 9, 2026 report on AI and strategy.",
+          "aiSummary": "Mercor, valued at $10 billion, is facing lawsuits and reportedly losing major customers after a hacker breached its data.",
           "translations": {
             "da": {
               "title": "Efter databrud har den $10 mia. værdsatte startup Mercor en hård måned",
@@ -267,7 +267,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon sellers are experiencing increased cash flow challenges and tighter margins in 2026 due to new fees and policy changes, leading to order delays, price increases, and supplier renegotiations, according to Modern Retail.",
+          "aiSummary": "Amazon sellers face mounting cash flow pressures in 2026 as new fees and policy changes drive order delays, price increases and supplier renegotiations.",
           "translations": {
             "da": {
               "title": "Marketplace Briefing: Amazon-sælgere oplever likviditetsproblemer, da gebyrer og politikændringer forårsager ordreudskydelser, prisstigninger og leverandørforhandlinger",
@@ -299,7 +299,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Walmart’s marketplace is a central component of its strategy to expand its general merchandise business, according to CFO John David Rainey speaking at the JPMorgan 12th Annual Retail Roundup 2026.",
+          "aiSummary": "Walmart’s marketplace is driving growth in general merchandise, a key strategic pillar, CFO John David Rainey told the JPMorgan Retail Roundup.",
           "translations": {
             "da": {
               "title": "Walmart Marketplace driver væksten i dagligvarer",
@@ -333,7 +333,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Frasers Group has introduced \"Ask Frasers,\" an AI shopping assistant on its premium fashion and lifestyle website, aiming to enhance online product discovery. Since its launch, the retailer has seen a 25% increase in conversions.",
+          "aiSummary": "Frasers Group launched its Ask Frasers AI shopping assistant, boosting online conversion rates by 25% on its premium fashion and lifestyle platform.",
           "translations": {
             "da": {
               "title": "Frasers Group lancerer AI-shoppingassistent, ser konverteringer stige med 25%",
@@ -366,7 +366,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Gap Inc has partnered with Inspectorio to implement an AI-powered platform aimed at enhancing traceability, supplier collaboration, and quality management across its global supply chain and brand portfolio, including Old Navy, Gap, Banana Republic, and Athleta.",
+          "aiSummary": "Gap Inc is deploying Inspectorio’s AI platform to enhance supply chain traceability, visibility and quality management across brands including Old Navy, Banana Republic and Athleta.",
           "translations": {
             "da": {
               "title": "Gap Inc lancerer AI-platform for at forbedre sporbarhed i den globale forsyningskæde",
@@ -399,7 +399,7 @@
               "fulfillment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how rapid viral growth on TikTok can overwhelm direct-to-consumer (DTC) brands, leading to costly logistics challenges such as unexpected international shipping expenses that fulfillment teams may not be prepared to handle.",
+          "aiSummary": "DTC brands going viral on TikTok face costly logistics failures as sudden surges in international orders overwhelm fulfillment and inflate shipping expenses.",
           "translations": {
             "da": {
               "title": "Hvordan viral TikTok-vækst efterlader DTC-mærker sårbare over for dyre logistiske sammenbrud",
@@ -431,7 +431,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: As ecommerce resale continues to grow in 2026, established companies and startups like Gone.com and Phia are leveraging artificial intelligence to enhance pricing and capitalize on market momentum.",
+          "aiSummary": "Gone.com is using AI for pricing as online resale platforms and startups like Phia seek to capitalise on 2026’s ecommerce growth.",
           "translations": {
             "da": {
               "title": "E-handelstendenser: Hvad er AIs rolle i væksten af videresalg?",
@@ -464,7 +464,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Rezolve Ai has decided to bypass Commerce.com’s board after their rejection of its acquisition proposal and is now taking the merger offer directly to Commerce.com’s shareholders, aiming to advance the deal despite the board’s lack of engagement.",
+          "aiSummary": "Rezolve Ai bypassed Commerce.com’s board to present its acquisition offer directly to shareholders after directors rejected the proposed merger terms.",
           "translations": {
             "da": {
               "title": "Rezolve Ai fremsætter fusionsforslag til Commerce.coms aktionærer",
@@ -501,7 +501,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses the paradox where increased customer engagement metrics, such as high session counts and app installs, fail to translate into revenue growth or customer loyalty, highlighting the challenges brands face in turning abundant data into actionable insights.",
+          "aiSummary": "Brands saw 2.4 million sessions, 18% more app installs and 22% email open rates last month, but revenue and repeat purchases remain flat.",
           "translations": {
             "da": {
               "title": "Kundeengagementsanalyse i 2026: Sådan omsætter du data til handling",
@@ -535,7 +535,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Indian jewellery company Titan, recognized for its Tanishq and CaratLane brands, reported a 42 percent increase in quarterly domestic sales driven by heightened gold purchases in India, according to Business of Fashion on April 8, 2026.",
+          "aiSummary": "Titan reported a 42% rise in quarterly domestic sales as Indian consumers increased spending on its Tanishq and CaratLane jewellery brands.",
           "translations": {
             "da": {
               "title": "Indisk juveler Titan rapporterer stigende indenlandske salg",
@@ -570,7 +570,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: In \"Dispatches From Shanghai: Inside China’s New Luxury Landscape,\" Business of Fashion explores how Shanghai's luxury market has shifted from overt status spending and global megabrands to subtle wealth expression and homegrown labels, raising questions about Western brands' ability to adapt.",
+          "aiSummary": "Shanghai’s luxury market has shifted post-pandemic from status spending and megabrands to stealth wealth, homegrown labels and lifestyle-driven purchases.",
           "translations": {
             "da": {
               "title": "Rapporter fra Shanghai: Indblik i Kinas nye luksuslandskab",
@@ -602,7 +602,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Numerator's Consumer Goods Price Index, inflation for everyday household items slowed to an annual rate of 2% in March, down from 2.7% in February. This indicates a easing of consumer goods inflation last month.",
+          "aiSummary": "Consumer goods prices rose 2% year-on-year in March, down from 2.7% in February, Numerator’s Consumer Goods Price Index shows.",
           "translations": {
             "da": {
               "title": "Inflationen på forbrugsvarer aftog i marts, viser Numerator-data",
@@ -636,7 +636,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how rising oil prices amid the Middle East conflict are prompting sportswear brands to reconsider their supply chain structures and the timing of passing increased costs to consumers.",
+          "aiSummary": "Surging oil prices are forcing sportswear brands to reconsider supply chain structures and assess when to pass higher costs onto consumers.",
           "translations": {
             "da": {
               "title": "Sportswear-mærker står over for svære beslutninger omkring krigen i Mellemøsten",
@@ -671,7 +671,7 @@
               "affluent"
             ]
           },
-          "aiSummary": "AI-generated summary: Luxury brands, including Orlebar Brown, are advancing their retail expansion plans in the Middle East to engage affluent shoppers year-round, with additional updates on Saks, Brunello Cucinelli's earnings, and executive changes at Tiffany & Co. and Fear of God, as reported by Glossy.",
+          "aiSummary": "Orlebar Brown is strategically opening stores in the Middle East to reach affluent shoppers year-round, while Tiffany & Co. and Fear of God announce new executive moves.",
           "translations": {
             "da": {
               "title": "Luxury Briefing: Luksusbrands fortsætter med detailplaner i Mellemøsten",
@@ -705,7 +705,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The article explores strategies for Gen Alpha beauty brands to evolve alongside their aging consumers by learning from Millennial and Gen Z-focused brands on maintaining longevity without neglecting their original audiences.",
+          "aiSummary": "Gen Alpha beauty brands are studying Millennial and Gen Z-focused predecessors to maintain longevity as their core consumers age.",
           "translations": {
             "da": {
               "title": "Hvordan Kan Gen Alpha Beauty Brands Succesfuldt Ældes Sammen Med Deres Forbrugere?",
@@ -743,7 +743,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: A New Jersey mother and daughter bravely clung to robbers' car during a smash-and-grab theft that resulted in the loss of $1 million in uninsured gold, leaving the owners injured and distraught.",
+          "aiSummary": "Thieves stole $1 million in uninsured gold from a New Jersey jewellery store, injuring the mother-daughter owners as they tried to stop the getaway.",
           "translations": {
             "da": {
               "title": "VIDEO: NJ Mor og Datter Holder Fast i Røveres Bil, Mens Tyve Flygter med 1 Million Dollars i Guld",
@@ -777,7 +777,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Three men have been charged after an armed robbery and violent assault at a jewellery store in Berwick, Melbourne, which resulted in one person being hospitalised.",
+          "aiSummary": "Three men have been charged after an armed robbery at a Berwick jewellery store left one person hospitalised following a violent assault.",
           "translations": {
             "da": {
               "title": "Anklager rejst efter voldeligt angreb i Melbourne smykkeforretning",
@@ -812,7 +812,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: At The Artisan Jewellery Design Awards 2026, powered by GIA and supported by the World Gold Council, Bvlgari’s Lucia Silvestri presented the top honours, highlighting key achievements in the jewellery industry.",
+          "aiSummary": "Bvlgari’s Lucia Silvestri presented top honours at the GIA-powered Artisan Jewellery Design Awards 2026, supported by the World Gold Council.",
           "translations": {
             "da": {
               "title": "Bvlgari’s Lucia Silvestri Uddeler Toppriserne ved The Artisan Jewellery Design Awards 2026",
@@ -846,7 +846,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Australian fashion jewellery chain Harli + Harpa has reached a major milestone by expanding to over 50 stores globally, as reported by Jeweller - Business News on April 6, 2026.",
+          "aiSummary": "Harli + Harpa, the Australian fashion jewellery chain founded recently, now operates over 50 stores worldwide.",
           "translations": {
             "da": {
               "title": "Milepæl for voksende modejuvelerkæde",
@@ -880,7 +880,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Award-winning musician Taylor Swift has released a new music video titled \"Elizabeth Taylor,\" which highlights the late actress’s iconic jewellery.",
+          "aiSummary": "Taylor Swift’s new music video Elizabeth Taylor features the late actress’s iconic jewellery.",
           "translations": {
             "da": {
               "title": "Taylor Swift hylder Elizabeth Taylors ikoniske smykker",
@@ -911,7 +911,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: In the jewellery industry, Andrea Riso has consistently supported charity help requests, earning recognition from her community, as highlighted in Instore Magazine's May 2026 edition.",
+          "aiSummary": "Andrea Riso accepted every charity request for years, earning notable recognition from her local community.",
           "translations": {
             "da": {
               "title": "Sig ja til velgørenhedsanmodninger, gør din bænk til stjernen — og flere guldsmedetips til maj",
@@ -944,7 +944,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: Architecture studio Goldstein Heather doubled the footprint of a Victorian terrace house in London’s Stamford Brook by adding a four-storey extension featuring arched openings and a sculptural timber staircase, reorganizing the home's previously disjointed layout.",
+          "aiSummary": "Goldstein Heather doubled a Victorian terrace home's footprint in Stamford Brook, London, with a four-storey extension featuring arched openings and a timber staircase.",
           "translations": {
             "da": {
               "title": "Goldstein Heather fordobler London-hjemmets grundplan med fire-etagers tilbygning",
@@ -961,5 +961,13 @@
   },
   "editorialTake": "Amazon’s $200 billion AI bet is not just about tech muscle—it’s a declaration that the future of ecommerce is a war of scale and speed. Andy Jassy’s refusal to be conservative signals Amazon’s intent to crush competitors by embedding AI deep into every layer, from supply chains to customer experience. Meanwhile, sellers on Amazon’s platform are squeezed by rising fees and policy shifts, showing that Amazon’s AI investment is a double-edged sword: it powers growth but tightens the noose on its ecosystem.\n\nFrasers Group’s 25% jump in conversions after launching an AI shopping assistant proves that AI-driven personalization is no gimmick but a direct revenue driver in premium retail. The question is how many brands can afford to play this game at scale without Amazon’s vast resources. If AI becomes table stakes for conversion, will mid-tier and emerging brands be pushed out, or will new models emerge to democratize access to AI-driven commerce?",
   "coverImageUrl": "/weekly-images/2026-W15.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W15"
+  "coverImageAlt": "Weekly cover illustration for 2026-W15",
+  "oneSentenceSummary": "While AI is touted as a panacea for operational woes, sellers and suppliers are squeezed harder than ever, revealing automation's winners aren't always its users.",
+  "keyThemes": [
+    "Amazon AI investment",
+    "Frasers Group AI assistant",
+    "Titan jewellery sales",
+    "Mercor data breach",
+    "Walmart Marketplace growth"
+  ]
 }

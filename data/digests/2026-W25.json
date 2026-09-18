@@ -39,7 +39,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: In Q1 2026, OpenAI tripled its revenue to $5.7 billion while also increasing its expenses to $3.7 billion, including over $2.3 billion in stock-based compensation. Despite holding $73 billion in reserves, ongoing competition with Anthropic could impact its financial position.",
+          "aiSummary": "OpenAI tripled Q1 revenue to $5.7 billion but spent $3.7 billion, including $2.3 billion in stock compensation, amid rising competition with Anthropic.",
           "translations": {
             "da": {
               "title": "OpenAI tredoblede omsætningen til 5,7 milliarder dollars i Q1, men brugte 3,7 milliarder dollars for at nå dertil",
@@ -71,7 +71,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon's AWS is planning to sell its AI chips to other data centers, with CEO Andy Jassy highlighting this move as a $50 billion opportunity to more directly challenge Nvidia.",
+          "aiSummary": "AWS is negotiating to sell its AI chips to external data centers, with CEO Andy Jassy citing a $50 billion market opportunity.",
           "translations": {
             "da": {
               "title": "Amazon håber at udfordre Nvidia mere direkte ved at sælge sine AI-chips",
@@ -106,7 +106,7 @@
               "llm"
             ]
           },
-          "aiSummary": "AI-generated summary: According to CNBC Technology on June 17, 2026, Amazon's Nova2 AI model currently lags behind leading large language models from OpenAI and Anthropic, but the company's AI chief anticipates a path to catch up within the coming year.",
+          "aiSummary": "Amazon’s Nova2 AI model trails OpenAI and Anthropic, but the company’s AI chief expects to catch up within the coming year.",
           "translations": {
             "da": {
               "title": "Amazon halter bagefter OpenAI og Anthropic, men AI-chefen ser en vej til at indhente inden for det kommende år",
@@ -138,7 +138,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Major companies like Amazon, Walmart, and Uber are implementing usage caps and discouraging wasteful AI activity as rising costs strain their budgets.",
+          "aiSummary": "Amazon, Walmart and Uber have imposed limits on AI usage to control rising costs and curb wasteful activity.",
           "translations": {
             "da": {
               "title": "’Vi skabte et monster’: virksomheder begrænser AI-brug, da omkostninger presser budgetter",
@@ -170,7 +170,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: At its 2026 AGM, Reliance Industries outlined ambitious plans to lead AI development in India by building sovereign infrastructure and integrating AI across its network and media platforms, alongside announcing a major Jio IPO and rapid expansion of its quick commerce business.",
+          "aiSummary": "Reliance Industries announced plans for a major Jio IPO, rapid quick commerce expansion, and nationwide AI integration across its network and media platforms.",
           "translations": {
             "da": {
               "title": "Reliances AI-ambitioner og andre vigtige punkter fra deres 2026 generalforsamling",
@@ -202,7 +202,7 @@
               "openai"
             ]
           },
-          "aiSummary": "AI-generated summary: OpenAI's Codex app on macOS now includes a \"Record & Replay\" feature that allows users to demonstrate a workflow once, which Codex then converts into a reusable skill to automate the task repeatedly. This feature is currently unavailable in the EU, UK, and Switzerland.",
+          "aiSummary": "OpenAI launched \"Record & Replay\" for Codex on macOS, letting users automate workflows, though the feature is unavailable in the EU, UK, and Switzerland.",
           "translations": {
             "da": {
               "title": "OpenAI's Codex kan nu se dig arbejde én gang og gentage opgaven for evigt",
@@ -235,7 +235,7 @@
               "research"
             ]
           },
-          "aiSummary": "AI-generated summary: The US government banned Anthropic's release of its AI models Fable 5 and Mythos 5 over national security concerns after alleged guardrail bypasses were discovered, prompting cybersecurity experts to criticize the move as dangerous while Anthropic highlighted similar vulnerabilities in other models.",
+          "aiSummary": "The US forced Anthropic to withdraw Fable 5 and Mythos 5 after Amazon researchers allegedly bypassed Fable 5’s guardrails, citing national security concerns.",
           "translations": {
             "da": {
               "title": "USA forbød Anthropic's Fable 5-udgivelse, men tallene ser ikke ud til at bekymre sig",
@@ -274,7 +274,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Shopify has introduced new tools aimed at helping merchants track how their products are displayed and perform across AI shopping platforms, enhancing insights into sales and traffic.",
+          "aiSummary": "Shopify launched new tools enabling merchants to track sales and traffic from AI shopping platforms.",
           "translations": {
             "da": {
               "title": "Marketplace Briefing: Shopify lancerer værktøjer til at hjælpe handlende med at spore salg og trafik fra AI-platforme",
@@ -306,7 +306,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Internet Retailing dated June 16, 2026, discusses how in the evolving digital era, ecommerce challenges have shifted focus from customer acquisition and channel transition to fulfilment, questioning whether fulfilment is the biggest barrier to retail growth.",
+          "aiSummary": "Ecommerce’s biggest growth challenge has shifted from customer acquisition and digital transition to fulfilment, as retailers enter a new digital era.",
           "translations": {
             "da": {
               "title": "ANALYSE: Er opfyldelse detailhandelens største vækstbarriere?",
@@ -339,7 +339,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Faire is expanding its marketplace to serve hotels, offices, and other non-retail customers, enabling business buyers to purchase items for uses such as stocking mini bars, client gifts, and front desk amenities.",
+          "aiSummary": "Faire now allows hotels, offices and other non-retail businesses to buy products on its marketplace for uses like mini bars, client gifts and amenities.",
           "translations": {
             "da": {
               "title": "Faire åbner sit marked for hoteller, kontorer og ikke-detailkunder",
@@ -372,7 +372,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Ecommerce platform provider commercetools, in collaboration with Mirion Technologies, has launched the B2B Intake Agent, an AI tool designed to convert unstructured customer order requests into actionable quotes and cart information. This marks commercetools' first AI agent release aimed at enhancing B2B order processing.",
+          "aiSummary": "commercetools launched its first AI-powered B2B Intake Agent, co-developed with Mirion Technologies, to convert unstructured customer order requests into actionable quotes and cart data.",
           "translations": {
             "da": {
               "title": "commercetools lancerer B2B Intake Agent udviklet sammen med Mirion Technologies",
@@ -406,7 +406,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Following a $225 million funding round and a valuation exceeding $11 billion, the live shopping app Whatnot has attracted 20 million buyers in the past year, with fashion now becoming its largest category as more consumers, sellers, and brands join the platform.",
+          "aiSummary": "Fashion has become the largest category on Whatnot, which added 20 million buyers in the past year and is now valued over $11 billion.",
           "translations": {
             "da": {
               "title": "Fashion er nu den største kategori på Whatnot, da mærker strømmer til platformen",
@@ -438,7 +438,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how buy now, pay later (BNPL) services have become vital for attracting customers and improving their experience amid financial insecurity, but retailers must address the rising issue of late payments to avoid negative impacts.",
+          "aiSummary": "Late payments on buy now, pay later (BNPL) loans are rising even as retailers rely on the service to attract new customers and improve experience.",
           "translations": {
             "da": {
               "title": "Hvordan detailhandlere kan tilbyde BNPL uden at blive brændt",
@@ -470,7 +470,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Akeneo has acquired the pricing platform PricingHUB to integrate pricing and product information into a unified Product Cloud solution, aiming to enhance AI-driven commerce.",
+          "aiSummary": "Akeneo has acquired PricingHUB, integrating pricing and product information into a single AI-driven Product Cloud solution for commerce clients.",
           "translations": {
             "da": {
               "title": "Akeneo satser på AI-drevet handel med opkøbet af PricingHUB",
@@ -509,7 +509,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: According to DressX’s intelligence report highlighted by Business of Fashion, shoppers using AI-powered virtual try-on are 50% more likely to make a purchase, with luxury consumer conversion rates increasing up to tenfold. The article analyzes these significant impacts on luxury retail conversion.",
+          "aiSummary": "DressX reports shoppers using AI virtual try-on are 50% more likely to purchase, with luxury conversion rates up to 10 times higher.",
           "translations": {
             "da": {
               "title": "Sådan Øger Du Luxury Conversion Gennem AI-Drevet Virtuel Prøvning",
@@ -543,7 +543,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: Emerging activewear brands are leveraging TikTok-savvy marketing and lifestyle-focused strategies to challenge established players like Lululemon, capitalizing on consumer demand for novelty in the luxury and consumer market.",
+          "aiSummary": "Emerging activewear brands are gaining market share from Lululemon by leveraging TikTok marketing and lifestyle-focused positioning to meet demand for novelty.",
           "translations": {
             "da": {
               "title": "De TikTok-kyndige activewear-mærker, der stjæler markedsandele",
@@ -576,7 +576,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Rashi World is an Australian swimwear brand that prioritizes sun protection by offering garments with UPF 50+ coverage, effectively blocking 98% of harmful UV rays.",
+          "aiSummary": "Rashi World’s swimwear delivers UPF 50+ protection, blocking 98% of harmful UV rays in every garment.",
           "translations": {
             "da": {
               "title": "Rashi World: Et australsk badetøjsmærke med fokus på solbeskyttelse",
@@ -606,7 +606,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Following its recent IPO, SpaceX has exercised its option to acquire the AI start-up Cursor in an all-stock deal valued at $60 billion, advancing Elon Musk's ambitions in artificial intelligence.",
+          "aiSummary": "SpaceX will acquire AI start-up Cursor in an all-stock deal valued at $60 billion to strengthen Elon Musk’s artificial intelligence ambitions.",
           "translations": {
             "da": {
               "title": "Rider højt efter I.P.O., SpaceX køber AI-startup for 60 milliarder dollars",
@@ -640,7 +640,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: Dana-co has acquired Lunya to enhance its presence in the premium sleepwear and lifestyle market, aiming to leverage its operational expertise, product development, wholesale relationships, and direct-to-consumer capabilities to support Lunya's growth.",
+          "aiSummary": "Dana-co has acquired Lunya, aiming to boost the premium sleepwear brand’s growth with expanded operational, product development, and direct-to-consumer capabilities.",
           "translations": {
             "da": {
               "title": "Dana-co opkøber Lunya og udvider sin tilstedeværelse på markedet for premium nattøj og livsstil",
@@ -674,7 +674,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: British luxury fragrance brand Jo Malone is launching \"Scent Scanner,\" a personalized experience that offers custom perfume recommendations based on users' saved Pinterest boards.",
+          "aiSummary": "Jo Malone is launching Scent Scanner, a tool that recommends fragrances based on users’ Pinterest boards and saved content.",
           "translations": {
             "da": {
               "title": "Jo Malone forvandler Pinterest boards til parfumevalg",
@@ -708,7 +708,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Luxury brands like Mytheresa, Gucci, Jacquemus, and Burberry are continuing their summer takeovers in exclusive locations such as Monaco and Athens, adapting their strategies to attract affluent customers as the beach club trend enters its ninth year. The article also features a Q&A with Mytheresa’s new CEO, Francis Belin.",
+          "aiSummary": "Mytheresa, Gucci and Jacquemus launched Monaco summer takeovers while Burberry opened in Athens, marking luxury’s ninth consecutive beach club season.",
           "translations": {
             "da": {
               "title": "Forretningen med Euro Sommer",
@@ -748,7 +748,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: De Beers Group's new report reveals that purchases of natural diamond jewellery have stabilized at pre-pandemic levels, highlighting steady consumer demand despite positive trends in certain areas. The company calls for greater industry unity in response.",
+          "aiSummary": "De Beers reports natural diamond jewellery purchases remain at pre-pandemic levels, despite positive trends in key areas.",
           "translations": {
             "da": {
               "title": "De Beers opfordrer til brancheenhed i ny forbrugerrapport",
@@ -783,7 +783,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: Global jewellery retailer Chow Tai Fook reported a rise in revenue for the past financial year, attributing the growth to improving consumer sentiment.",
+          "aiSummary": "Chow Tai Fook reported revenue growth for the past financial year, citing improved consumer sentiment.",
           "translations": {
             "da": {
               "title": "Smykkesalg stiger for Chow Tai Fook",
@@ -817,7 +817,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: Day's Jewelers created its Mother's Day campaign by featuring the genuine stories of its employee-owners instead of professional models, resulting in an authentic and successful promotion.",
+          "aiSummary": "Day's Jewelers' Mother's Day campaign featuring unscripted employee-owners boosted results by highlighting authentic stories of motherhood.",
           "translations": {
             "da": {
               "title": "Denne smykkeforhandler sprang modellerne over og lod sine egne medarbejdere fortælle den ægte historie om moderskab",
@@ -850,7 +850,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: At the Toy Story 5 premiere, Taylor Swift showcased a blend of antique and antique-inspired jewelry, highlighting thoughtful designs that contrast sharply with the generic, AI-driven content prevalent online.",
+          "aiSummary": "Taylor Swift paired antique and antique-inspired jewelry at the Toy Story 5 premiere, spotlighting thoughtful design over generic trends.",
           "translations": {
             "da": {
               "title": "Døm Smykkerne: Taylor Swift Bærer Både Antikke og Antik-Inspirerede Smykker Sammen ved Toy Story 5 Premiere",
@@ -881,7 +881,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: According to a 2026 article in Instore Magazine, 82% of jewelers maintain friendly relationships with their competitors by exchanging referrals, sharing suppliers, and even engaging in small gestures like buying a rival a pizza. This highlights a collaborative spirit within the jewellery industry.",
+          "aiSummary": "82% of jewelers report friendly relationships with competitors, exchanging referrals, sharing sources and occasionally even buying each other pizza.",
           "translations": {
             "da": {
               "title": "Rivaler eller allierede? De fleste juvelerer vælger at holde det venligt",
@@ -916,7 +916,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Archaeologists have discovered a rare and nearly complete collection of gold jewellery and burial objects at the Panhesy necropolis in Cairo, shedding light on ancient Heliopolis burial customs. This finding was reported by Jeweller - Business News on June 15, 2026.",
+          "aiSummary": "Archaeologists uncovered a rare, nearly complete funerary assemblage with gold jewellery at Cairo’s Panhesy necropolis, illuminating ancient Heliopolis burial practices.",
           "translations": {
             "da": {
               "title": "Sjælden samling af guldsmykker og begravelsesgenstande fundet i Egypten",
@@ -948,7 +948,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: \"Moves of the Diamond Hand is an unfinished, dice-based RPG offering a uniquely strange and creative roleplaying experience, currently available in Early Access on PC, macOS, and steamOS. Despite many unresolved mysteries expected to be addressed in 2027, the game stands out for its inventive gameplay and dialogue.\"",
+          "aiSummary": "Moves of the Diamond Hand, an unfinished dice-based RPG from musician developers, launched in Early Access for PC, macOS, and Steam Deck with a 2027 completion target.",
           "translations": {
             "da": {
               "title": "Moves of the Diamond Hand er et ufærdigt, uimodståeligt mærkeligt terningebaseret RPG",
@@ -965,5 +965,13 @@
   },
   "editorialTake": "OpenAI tripled revenue to $5.7 billion in Q1 but burned through $3.7 billion to get there. That’s a brutal reminder that AI scale still demands massive capital and operational risk. Amazon’s move to sell its AI chips directly to data centers signals it’s finally trying to muscle in on Nvidia’s turf, but with its Nova2 model lagging behind OpenAI and Anthropic, it’s clear AWS is playing catch-up, not lead. The cost pressures forcing companies like Amazon and Walmart to cap AI usage reveal a growing tension: AI’s promise is huge, but so is its expense.\n\nShopify’s new tools to track sales from AI platforms show ecommerce is waking up to AI’s role as a traffic driver, not just a buzzword. Meanwhile, Faire expanding beyond retail to hotels and offices hints at a shift in how marketplaces define customers. I think the biggest question now is whether Amazon’s chip push and AI ambitions can overcome its late start and cost challenges, or if the AI hardware and software race will consolidate around a few winners faster than anyone expects.",
   "coverImageUrl": "/weekly-images/2026-W25.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W25"
+  "coverImageAlt": "Weekly cover illustration for 2026-W25",
+  "oneSentenceSummary": "The narrative of AI democratizing commerce is complicated as only firms with luxury-level margins—or Amazon-scale resources—can afford meaningful participation in platform-driven intelligence.",
+  "keyThemes": [
+    "OpenAI revenue growth",
+    "Amazon AI chips",
+    "Shopify AI tracking tools",
+    "Akeneo PricingHUB acquisition",
+    "Chow Tai Fook sales rise"
+  ]
 }

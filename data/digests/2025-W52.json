@@ -38,7 +38,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nThe CEO of Wolverine Worldwide discusses the company's growth in 2026, emphasizing the need to improve storytelling despite success in product development. (Source: Modern Retail, Published: 2025-12-24)"
+          "aiSummary": "Wolverine Worldwide CEO says the company excels at product development but must improve storytelling for brands like Saucony and Merrell."
         },
         {
           "id": "1qm5wf",
@@ -59,7 +59,7 @@
               "insights"
             ]
           },
-          "aiSummary": "AI-generated summary: Google Search Console's \"Insights\" section now groups keywords instead of showing click trends for individual keywords, reflecting the expansion of AI queries."
+          "aiSummary": "Google Search Console's Insights now displays click trends only for grouped keywords, removing single-keyword data as AI-driven queries increase."
         },
         {
           "id": "8inddk",
@@ -115,7 +115,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Shopify's Agentic Storefronts now allow small merchants to utilize AI tools like ChatGPT, Perplexity, and Microsoft Copilot for product discovery, as reported by Practical Ecommerce."
+          "aiSummary": "Shopify's Agentic Storefronts lets small merchants sell through ChatGPT, Perplexity, Microsoft Copilot and other AI-powered product discovery platforms."
         },
         {
           "id": "44w3dx",
@@ -136,7 +136,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-Generated Summary:\nIn 2025, retail experienced significant advancements in artificial intelligence despite lagging behind other industries in adoption. Retail Dive provides a recap of the biggest AI-related news in the retail sector for the year."
+          "aiSummary": "Retailers accelerated AI adoption in 2025, transforming operations despite the sector trailing other industries in artificial intelligence integration."
         },
         {
           "id": "ipt75y",
@@ -156,7 +156,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated ad by Dollar Shave Club and Too Short for Modeling uses AI to animate visuals quickly, showcasing tech as the punchline in the campaign."
+          "aiSummary": "Dollar Shave Club and Too Short for Modeling launched their first AI-generated ad, using AI animation to deliver complex visuals within a few weeks."
         }
       ]
     },
@@ -179,7 +179,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nThe Gilbertson brothers, mechanical engineers, are challenging the accuracy of measurements of tall peaks by climbing them, aiming to rewrite the maps of various countries."
+          "aiSummary": "Mechanical engineers the Gilbertson brothers are scaling major global peaks to challenge and correct existing measurements of mountain heights."
         },
         {
           "id": "84sxlu",
@@ -197,7 +197,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nPresident Trump's policies have supported the growth of Big Tech, leading to a mutually beneficial relationship that is causing concern among some conservatives."
+          "aiSummary": "President Trump has supported policies enabling Big Tech’s unfettered growth, fostering a mutually beneficial alliance that is raising concerns among some conservatives."
         },
         {
           "id": "kq2uem",
@@ -215,7 +215,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary:\nThe Toyota Prius, released 25 years ago, is seen as the starting point for the political polarization surrounding electric vehicles."
+          "aiSummary": "Toyota’s launch of its first Prius hybrid 25 years ago marked the start of political polarization around battery-powered cars."
         },
         {
           "id": "hqr9g4",
@@ -235,7 +235,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Practical Ecommerce's latest article highlights new books for merchants covering topics such as supply chain, user experience, transformation, and even Taylor Swift."
+          "aiSummary": "New book releases for merchants cover supply chain, user experience, business transformation, and Taylor Swift, according to Practical Ecommerce’s latest roundup."
         },
         {
           "id": "gnbvcu",
@@ -253,7 +253,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nModern Retail's 2025 roundup highlights the loss of notable brands like Joann and Rite Aid due to reorganizations, bankruptcies, or quiet closures."
+          "aiSummary": "Joann and Rite Aid were among the notable brands that disappeared in 2025 due to bankruptcies, reorganizations, or quiet closures."
         },
         {
           "id": "i02ny2",
@@ -271,7 +271,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-Generated Summary:\nLuxury brands are adapting to the K-shaped economy by reconsidering pricing and customer experience strategies to cater to changing consumer needs."
+          "aiSummary": "Fashion and luxury brands are rethinking pricing, experience and target customers as the K-shaped economy forces them to clarify their market focus."
         },
         {
           "id": "jnsoc1",
@@ -299,5 +299,13 @@
       "total": 0,
       "top": []
     }
-  }
+  },
+  "oneSentenceSummary": "Assumptions that Big Tech faces regulatory friction buckle as policy shifts and AI advances increasingly serve entrenched interests, not disrupt them.",
+  "keyThemes": [
+    "Shopify AI Product Discovery",
+    "Agentic Commerce",
+    "K-shaped Economy",
+    "Wolverine Worldwide Growth",
+    "Luxury Brand Pricing"
+  ]
 }

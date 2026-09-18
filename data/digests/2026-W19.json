@@ -39,7 +39,7 @@
               "funding"
             ]
           },
-          "aiSummary": "AI-generated summary: According to The Decoder (2026-05-08), Anthropic is planning a funding round aiming to raise up to $50 billion, potentially valuing the company at around $900 billion as its revenue grows fivefold.",
+          "aiSummary": "Anthropic plans to raise up to $50 billion in a new funding round, targeting a $900 billion valuation after fivefold revenue growth.",
           "translations": {
             "da": {
               "title": "Anthropic nærmer sig en værdiansættelse på 1 billion dollars, mens omsætningen femdobles",
@@ -74,7 +74,7 @@
               "investment"
             ]
           },
-          "aiSummary": "AI-generated summary: Anthropic, the start-up behind the Claude AI tool, is considering investment offers that could value the company near $1 trillion, potentially surpassing rival OpenAI in market value.",
+          "aiSummary": "Anthropic is considering investment offers that could push its valuation near $1tn, potentially overtaking OpenAI as revenue surges.",
           "translations": {
             "da": {
               "title": "Anthropic overvejer aftale med næsten 1 billion dollars værdiansættelse efter omsætningsstigning",
@@ -106,7 +106,7 @@
               "openai"
             ]
           },
-          "aiSummary": "AI-generated summary: On May 7, 2026, TechCrunch reported that OpenAI launched new voice intelligence features in its API, designed to enhance customer service systems and applicable across various fields such as education and creator platforms.",
+          "aiSummary": "OpenAI launched new voice intelligence features in its API, targeting customer service, education, and creator platforms.",
           "translations": {
             "da": {
               "title": "OpenAI lancerer nye stemmeintelligensfunktioner i sin API",
@@ -138,7 +138,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: On May 8, 2026, Cloudflare announced its first large-scale layoff of 1,100 jobs due to AI-driven efficiency gains, even as the company reported record-high revenue, according to CEO Matthew Prince.",
+          "aiSummary": "Cloudflare eliminated 1,100 jobs citing AI-driven efficiency, as the company reported record-high revenue in its first major round of layoffs.",
           "translations": {
             "da": {
               "title": "Cloudflare siger, at AI gjorde 1.100 job overflødige, selvom omsætningen nåede rekordhøjt niveau",
@@ -172,7 +172,7 @@
               "compute"
             ]
           },
-          "aiSummary": "AI-generated summary: Startups participating in the IndiaAI mission are experiencing delays in formal agreements that affect non-compute support and raise intellectual property concerns, leading to operational challenges and potential timeline shifts; the government is considering advance payments to address these issues.",
+          "aiSummary": "IndiaAI mission startups report delays in formal agreements and non-compute support, with pending MoUs raising IP concerns and prompting government consideration of advance payments.",
           "translations": {
             "da": {
               "title": "Papirarbejde forsinker AI-missionen, da startups advarer om finansiering og IP-bekymringer",
@@ -205,7 +205,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Alibaba plans to integrate its AI platform Qwen with Taobao to enable agentic shopping, allowing consumers to chat with the AI for product recommendations and purchases. This initiative aims to transform online shopping and showcases China's advanced AI use in e-commerce.",
+          "aiSummary": "Alibaba will integrate its Qwen AI with Taobao, enabling consumers to chat with AI for product recommendations and purchases.",
           "translations": {
             "da": {
               "title": "Alibaba integrerer Qwen AI med Taobao, lancerer agentisk shopping, siger kilde",
@@ -237,7 +237,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Airbnb's CEO announced that AI now produces nearly 60% of the company's code, speeding up feature development and enhancing API tools, while AI also handles 40% of customer support issues without human help. This shift reflects growing use of AI coding tools amid evolving team structures.",
+          "aiSummary": "Airbnb’s AI generated 60% of code last quarter and resolved 40% of customer support issues without human intervention.",
           "translations": {
             "da": {
               "title": "Airbnb siger, at AI nu skriver 60% af deres kode, mens tech-virksomheder flader teams ud",
@@ -278,7 +278,7 @@
               "logistics"
             ]
           },
-          "aiSummary": "AI-generated summary: On May 5, 2026, Amazon launched Amazon Supply Chain Services (ASCS), a B2B platform that integrates freight, warehousing, fulfillment, and parcel delivery for businesses across retail, health care, and manufacturing, extending its logistics services beyond its marketplace sellers.",
+          "aiSummary": "Amazon launched Amazon Supply Chain Services, bundling freight, warehousing, fulfillment and parcel delivery into a single B2B platform for all industries.",
           "translations": {
             "da": {
               "title": "Amazon lancerer B2B forsyningskædetjeneste",
@@ -311,7 +311,7 @@
               "online retail"
             ]
           },
-          "aiSummary": "AI-generated summary: Following GameStop's $56 billion offer to acquire eBay, CEO Ryan Cohen envisions the deal as a strategy to position eBay as a legitimate competitor to Amazon in the ecommerce space.",
+          "aiSummary": "GameStop offered to acquire eBay for $56 billion on May 3, aiming to position eBay as a stronger competitor to Amazon.",
           "translations": {
             "da": {
               "title": "E-handelstendenser: Hvordan onlineforhandlere konkurrerer mod Amazon",
@@ -344,7 +344,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Californian grocer Stater Bros. Markets has partnered with In-Store Marketplace (ISM) to utilize its programmatic platform for digital in-store media integration, highlighting advancements in the future of in-store retail media globally.",
+          "aiSummary": "Stater Bros. Markets is partnering with In-Store Marketplace to implement programmatic digital in-store media integration across its Southern California grocery locations.",
           "translations": {
             "da": {
               "title": "Hvordan den californiske købmand Stater Bros. kaster lys over fremtiden for in-store detailmedier globalt",
@@ -377,7 +377,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Ulta Beauty has partnered with Uber Eats to offer same-day delivery through the Uber Eats marketplace, expanding its delivery options ahead of Mother’s Day. This move aligns Ulta with other retailers leveraging last-mile delivery platforms.",
+          "aiSummary": "Ulta Beauty has joined the Uber Eats marketplace to offer same-day delivery ahead of Mother’s Day on May 10.",
           "translations": {
             "da": {
               "title": "Ulta Beauty tilslutter sig Uber Eats-markedspladsen og udvider leveringsmuligheder",
@@ -409,7 +409,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: ThredUp experienced a revenue increase alongside growth in active buyers, while GameStop’s bid on eBay and the subsequent developments created notable surprises in the ecommerce and retail tech sector.",
+          "aiSummary": "ThredUp’s revenue and active buyers increased, while GameStop made a bid on eBay, sparking unexpected subsequent events.",
           "translations": {
             "da": {
               "title": "The Weekly Closeout: ThredUps omsætningsstigning og interviewet, der rystede detailhandlen",
@@ -441,7 +441,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: Walmart CEO John Furner met with Indian Prime Minister Narendra Modi to discuss India's economic growth and investment opportunities, highlighting Walmart's $40 billion sourcing from India and plans to expand its digital commerce and payments sectors, including upcoming public listings for Flipkart and PhonePe.",
+          "aiSummary": "Walmart CEO John Furner met PM Modi as Walmart, having sourced $40 billion from India, plans deeper investment and public listings for Flipkart and PhonePe.",
           "translations": {
             "da": {
               "title": "Walmart CEO mødes med PM Modi, signalerer dybere investering i Indien",
@@ -474,7 +474,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Practical Ecommerce dated May 6, 2026, highlights new ecommerce tools focusing on supply chain software, livestream shopping, personalization, conversational commerce, product pages, cross-border shipping, and reputation management.",
+          "aiSummary": "New ecommerce tools launched this week include supply chain software, livestream shopping, personalization features, conversational commerce, enhanced product pages, cross-border shipping, and reputation management.",
           "translations": {
             "da": {
               "title": "Nye Ecommerce-værktøjer: 6. maj 2026",
@@ -510,7 +510,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Amazon has launched Amazon Supply Chain Services, enabling other businesses to utilize its freight network for moving, storing, and delivering goods ranging from raw materials to finished products. This move reflects Amazon's expansion efforts in the logistics sector.",
+          "aiSummary": "Amazon launched Supply Chain Services, letting other companies use its freight network to move, store and deliver goods from raw materials to finished products.",
           "translations": {
             "da": {
               "title": "Amazon åbner sit logistiknetværk for andre virksomheder i vækststrategi",
@@ -543,7 +543,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Old Navy has appointed retail veteran Michael Francis, formerly of Target, as its new Chief Customer Officer in a newly created role, according to Business of Fashion on May 6, 2026.",
+          "aiSummary": "Old Navy named former Target executive Michael Francis as its first Chief Customer Officer in a newly created role.",
           "translations": {
             "da": {
               "title": "Old Navy udnævner detailveteran Michael Francis til Chief Customer Officer",
@@ -576,7 +576,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: At the 2026 Global Fashion Summit, the luxury and consumer fashion industry redefined sustainability by emphasizing its financial value and positioning it as essential for business survival.",
+          "aiSummary": "The Global Fashion Summit repositioned sustainability as a financial asset and essential business survival strategy for the industry.",
           "translations": {
             "da": {
               "title": "The Great Sustainability Rebrand",
@@ -609,7 +609,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Launchmetrics, brand events have increased by 54% since 2019, driven by a resurgence in physical experiences that are attracting audiences beyond digital platforms and surpassing pre-pandemic attendance levels.",
+          "aiSummary": "Brand events increased 54 percent since 2019 as physical experiences draw audiences back from digital platforms, Launchmetrics reports.",
           "translations": {
             "da": {
               "title": "Brand events op 54% siden 2019: Launchmetrics",
@@ -643,7 +643,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Nike is facing a class action lawsuit from consumers who claim they were overcharged due to tariffs reflected in higher retail prices. The case highlights growing consumer pushback against tariff-related costs.",
+          "aiSummary": "Nike faces a consumer class action demanding refunds for tariffs allegedly passed on through higher retail prices.",
           "translations": {
             "da": {
               "title": "Nike står over for gruppesøgsmål om toldrefusioner",
@@ -674,7 +674,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The Black Beauty Club is launching Beauty on the Block, an in-person event that combines commerce, culture, discovery, and community into a unique shopping experience.",
+          "aiSummary": "The Black Beauty Club is launching Beauty on the Block, an in-person event combining shopping, cultural experiences and community engagement.",
           "translations": {
             "da": {
               "title": "The Black Beauty Club forvandler en blokfest til en shopping- og opdagelsesoplevelse",
@@ -707,7 +707,7 @@
               "luxury"
             ]
           },
-          "aiSummary": "AI-generated summary: Luxury fashion houses are entering the sporty sneaker market by creating athletic shoes versatile enough to complement a wide range of outfits.",
+          "aiSummary": "Luxury fashion houses are launching sporty sneakers designed to pair with a wide range of outfits.",
           "translations": {
             "da": {
               "title": "Luksusmodehuse træder ind i det sporty sneaker-marked",
@@ -743,7 +743,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Despite a decline in sales, LVMH Australia has increased its dividend payment to the parent company by over 20%, according to a May 2026 report from Jeweller - Business News.",
+          "aiSummary": "LVMH Australia raised its dividend to the parent company by over 20% despite a decline in sales.",
           "translations": {
             "da": {
               "title": "LVMH Australia øger udbytte trods fald i salg",
@@ -777,7 +777,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: A jewellery store in Double Bay, Sydney, was targeted in a ram raid where a stolen vehicle was used to break into the premises, resulting in stolen jewellery.",
+          "aiSummary": "A Double Bay jewellery store was ram-raided with a stolen vehicle breaching the premises in a Sydney theft incident.",
           "translations": {
             "da": {
               "title": "Smykker stjålet i chokerende ram raid i Sydney",
@@ -810,7 +810,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The Jewellers Association of Australia (JAA) has announced the appointment of a new director, continuing recent changes on its board, as reported by Jeweller - Business News on May 4, 2026.",
+          "aiSummary": "The Jewellers Association of Australia appointed a new director on Friday, continuing a recent series of board changes.",
           "translations": {
             "da": {
               "title": "JAA annoncerer udnævnelse af endnu en ny direktør",
@@ -844,7 +844,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: In the jewellery industry, the future of retail is shifting from focusing on products to prioritizing consultation and building relationships, as highlighted by Johnny Sherry in Jeweller (2026-05-05).",
+          "aiSummary": "Jewellery retailers are shifting focus from product sales to personalised consultation, with relationships now valued above transactions, says JOHNNY SHERRY.",
           "translations": {
             "da": {
               "title": "Fremtiden for smykkeforretning er ikke produktet, men rådgivning",
@@ -878,7 +878,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: The article \"Diamonds by DGA,\" published in Jeweller on May 6, 2026, highlights a diamond round necklace featuring 0.25-carat diamonds set in 9-carat yellow gold within the jewellery industry.",
+          "aiSummary": "DGA launches a diamond round necklace featuring 0.25-carat diamonds set in 9-carat yellow gold.",
           "translations": {
             "da": {
               "title": "Diamonds by DGA",
@@ -912,7 +912,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: \"Soklich & Co.\" showcases Australia's natural treasures through jewellery that embodies heritage, rarity, and exceptional craftsmanship, highlighting the unique qualities of the country's resources.",
+          "aiSummary": "Soklich & Co. showcases Australian natural treasures in jewellery collections emphasising heritage, rarity, and craftsmanship.",
           "translations": {
             "da": {
               "title": "Soklich & Co.",
@@ -945,7 +945,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: The Lorige BL-Endurance Evolution Bleu Asphalte Gold Edition, introduced by the French-Swiss microbrand founded in 2018, fully embraces motorsport inspiration, distinguishing itself in the jewellery industry.",
+          "aiSummary": "Lorige launched the BL-Endurance Evolution Bleu Asphalte Gold Edition, a motorsport-inspired watch from the French-Swiss microbrand founded in 2018.",
           "translations": {
             "da": {
               "title": "Introduktion – Den racerinspirerede Lorige BL-Endurance Evolution Bleu Asphalte Gold",
@@ -962,5 +962,13 @@
   },
   "editorialTake": "Anthropic chasing a near $1 trillion valuation as its revenue grows fivefold is a clear sign that AI is no longer just a tech novelty but a core economic force reshaping investment priorities. This valuation talk isn’t about hype: it reflects real revenue momentum that forces every competitor, from OpenAI to Cloudflare, to rethink their growth and talent strategies. Cloudflare’s AI-driven layoffs of 1,100 jobs amid record revenue underline a brutal truth: AI is not just creating value, it’s destroying old roles faster than companies can create new ones.\n\nAmazon’s launch of Amazon Supply Chain Services to open its logistics network to other businesses is a bold move that could redraw the boundaries between ecommerce and supply chain management. This isn’t just about selling more stuff; it’s about Amazon weaponizing its infrastructure as a platform for B2B growth, forcing retailers and brands to decide if they want to compete with or rely on Amazon’s backbone. The big question is how many companies will risk ceding control of their supply chains to Amazon’s expanding empire before it’s too late.",
   "coverImageUrl": "/weekly-images/2026-W19.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W19"
+  "coverImageAlt": "Weekly cover illustration for 2026-W19",
+  "oneSentenceSummary": "Instead of Amazon crushing rivals, expanding third-party logistics and B2B services reveal the e-commerce giant repositioning as an infrastructure backbone rather than pure retailer.",
+  "keyThemes": [
+    "Anthropic valuation surge",
+    "OpenAI voice intelligence",
+    "Amazon Supply Chain Services",
+    "LVMH Australia dividend",
+    "Jewellery retail consultation"
+  ]
 }

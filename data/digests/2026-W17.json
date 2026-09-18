@@ -38,7 +38,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon plans to invest up to $25 billion in Anthropic, which has committed to spending $100 billion on Amazon technologies to support the development and deployment of AI systems.",
+          "aiSummary": "Amazon plans to invest up to $25 billion in Anthropic, which has committed to spend $100 billion on Amazon technologies for A.I. development.",
           "translations": {
             "da": {
               "title": "Amazon planlægger at investere op til 25 milliarder dollars i Anthropic",
@@ -73,7 +73,7 @@
               "ai company"
             ]
           },
-          "aiSummary": "AI-generated summary: Google is investing up to $40 billion into Anthropic, the AI company behind Claude, which, combined with Amazon's $25 billion pledge, will bring up to $65 billion in funding to the company within weeks.",
+          "aiSummary": "Google is investing up to $40 billion in Anthropic, joining Amazon's $25 billion pledge for a combined $65 billion in new AI funding.",
           "translations": {
             "da": {
               "title": "Google investerer op til 40 milliarder dollars i ChatGPT-rivalen Anthropic",
@@ -107,7 +107,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Meta Platforms has signed a multi-year deal with Amazon Web Services to use tens of millions of AWS Graviton CPU cores, aiming to enhance its AI infrastructure for CPU-intensive workloads and support its growing AI initiatives.",
+          "aiSummary": "Meta signed a multi-year deal to use tens of millions of AWS Graviton CPU cores for scaling its agentic AI workloads.",
           "translations": {
             "da": {
               "title": "Meta indgår AWS-chip-aftale for at støtte AI-arbejdsbelastninger",
@@ -141,7 +141,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Bret Taylor’s AI customer service startup Sierra has acquired Fragment, a French AI startup backed by Y Combinator, as announced on April 23, 2026.",
+          "aiSummary": "Sierra, founded by Bret Taylor, has acquired YC-backed French AI startup Fragment to expand its customer service agent offerings.",
           "translations": {
             "da": {
               "title": "Bret Taylors Sierra køber YC-støttet AI-startup Fragment",
@@ -175,7 +175,7 @@
               "reasoning"
             ]
           },
-          "aiSummary": "AI-generated summary: Siemens has launched the Eigen Engineering Agent, an AI system that autonomously plans and validates automation engineering tasks using multi-step reasoning and self-correction, operating directly within engineering platforms to manage workflows from design to validation.",
+          "aiSummary": "Siemens launched the Eigen Engineering Agent, an AI system that autonomously plans and validates automation engineering tasks within operational engineering platforms.",
           "translations": {
             "da": {
               "title": "Siemens introducerer AI-system til automationsingeniørarbejde",
@@ -209,7 +209,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: As AI adoption accelerates across multiple business functions such as finance, supply chains, and customer operations, organizations increasingly rely on a robust data fabric to maximize AI's value and effectiveness in enterprise settings.",
+          "aiSummary": "By the end of 2025, half of companies used AI in at least three business functions, a recent survey found.",
           "translations": {
             "da": {
               "title": "AI har brug for et stærkt data fabric for at skabe forretningsværdi",
@@ -242,7 +242,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Walmart and Instacart are adopting AI assistants to aid customers in creating online shopping baskets and recommending recipes, raising questions about current consumer readiness for this technology.",
+          "aiSummary": "Walmart and Instacart are deploying AI assistants to build online baskets and suggest recipes, aiming to shape how consumers shop for groceries.",
           "translations": {
             "da": {
               "title": "The Friday Checkout: Er agentisk AI den næste front for dagligvarebutikker?",
@@ -279,7 +279,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: On April 20, 2026, California filed a legal complaint accusing Amazon of pressuring brands such as Levi’s and Hanes to encourage competing retailers to increase prices on specific products, according to NYTimes Technology.",
+          "aiSummary": "California accused Amazon of pressuring brands including Levi’s and Hanes to get rival retailers to raise prices on select products.",
           "translations": {
             "da": {
               "title": "California Anklager Amazon for Prissamarbejde i Retlig Indgivelse",
@@ -311,7 +311,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Marketplace Pulse, the number of active sellers on Amazon.com declined from 584,000 in January 2025 to 500,000 by March 2026, indicating a concentration of revenue among top sellers.",
+          "aiSummary": "Amazon’s active seller count dropped from 584,000 in January 2025 to 500,000 by March 2026, per Marketplace Pulse.",
           "translations": {
             "da": {
               "title": "Marketplace Briefing: Antallet af sælgere på Amazon falder, mens omsætningen koncentreres blandt top-sælgere",
@@ -344,7 +344,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: Digital payments company Pine Labs has acquired ecommerce enabler Shopflo Technologies for Rs 88 crore to enhance its online merchant services and expand into mid-market and small business segments, increasing competition with rivals such as Razorpay and PayU.",
+          "aiSummary": "Pine Labs acquired ecommerce enabler Shopflo Technologies for Rs 88 crore to boost its online merchant offerings and target mid-market and small businesses.",
           "translations": {
             "da": {
               "title": "Pine Labs opkøber ecommerce-aktør Shopflo for Rs 88 crore",
@@ -377,7 +377,7 @@
               "logistics"
             ]
           },
-          "aiSummary": "AI-generated summary: Private equity firm American Industrial Partners (AIP) will acquire Honeywell’s Warehouse and Workflow Solutions (WWS) business, with the deal expected to close in the second half of 2026. Terms of the acquisition have not been disclosed.",
+          "aiSummary": "American Industrial Partners will acquire Honeywell’s Warehouse and Workflow Solutions business, with the deal expected to close in the second half of 2026.",
           "translations": {
             "da": {
               "title": "American Industrial Partners opkøber Honeywell lagerautomatisering",
@@ -407,7 +407,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Google and Macy’s have collaborated to develop “Ask Macy’s,” an AI chat agent powered by Google’s Gemini Enterprise for Customer Experience, currently in beta testing with a limited number of Macy’s website users.",
+          "aiSummary": "Macy’s has launched a beta AI chat interface, “Ask Macy’s,” developed with Google’s Gemini Enterprise, for a small percentage of its retail site users.",
           "translations": {
             "da": {
               "title": "Google hjælper med at udvikle ‘Ask Macy’s’ AI-agent",
@@ -437,7 +437,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Particular Audience has launched the PA DiscoveryOS app on Shopify, enabling merchants to access advanced enterprise AI technologies previously available only to large retailers, thereby making these capabilities easier to deploy at scale.",
+          "aiSummary": "Particular Audience launched its PA DiscoveryOS app on Shopify, bringing enterprise-level AI tools to merchants previously limited to the largest retailers.",
           "translations": {
             "da": {
               "title": "Particular Audience lancerer PA DiscoveryOS-app på Shopify – signalerer en ny æra af tilgængelig enterprise AI for handlende",
@@ -469,7 +469,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Ulta Beauty has partnered with Google to launch Ulta AI, an AI-powered shopping assistant currently available on its website and soon to be introduced on its app, enhancing the ecommerce shopping experience.",
+          "aiSummary": "Ulta Beauty has launched Ulta AI, an AI-powered shopping assistant now on its website and soon rolling out to its app.",
           "translations": {
             "da": {
               "title": "Ulta Beauty og Google samarbejder om AI-drevne shoppingoplevelser",
@@ -507,7 +507,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The London-based fashion brand COS is expanding globally by employing a cross-functional growth team that focuses on a localized approach to store rollout, design, and portfolio management to create an elevated store experience.",
+          "aiSummary": "COS is expanding globally with a cross-functional growth team driving localised store rollout, design and portfolio management.",
           "translations": {
             "da": {
               "title": "Hvordan COS orkestrerer en global forhøjet butiksoplevelse",
@@ -541,7 +541,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: As brands begin applying for tariff refunds, they face the challenge of addressing customers who paid higher prices, with some consumers pursuing lawsuits seeking compensation from retailers.",
+          "aiSummary": "Brands receiving tariff refunds face lawsuits from customers seeking compensation for previously inflated prices on products now eligible for reimbursement.",
           "translations": {
             "da": {
               "title": "Når brands får toldrefusioner, hvad skylder de så deres kunder?",
@@ -574,7 +574,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Business of Fashion discusses how fashion brands must adapt to new rules when negotiating with multibrand retailers, emphasizing strategies to mitigate risk and foster enduring partnerships amid sector challenges.",
+          "aiSummary": "Fashion brands face new risk-reduction rules when partnering with multibrand retailers as sector pressures reshape relationship strategies.",
           "translations": {
             "da": {
               "title": "De nye regler for forhandling med multibrand-forhandlere",
@@ -607,7 +607,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Los Angeles-based fashion brand Cider, known for its affordable online offerings competing with H&M and Shein, has opened its first permanent retail store in Los Angeles after five years of online growth and testing. This move aligns Cider with other online fashion brands like Revolve and Shein that are expanding into physical retail.",
+          "aiSummary": "Cider opened its first permanent retail store in Los Angeles after five years building its online business as an affordable fashion competitor.",
           "translations": {
             "da": {
               "title": "Cider slutter sig til Revolve og Shein som online modebrands med permanente butikker",
@@ -641,7 +641,7 @@
               "exclusive"
             ]
           },
-          "aiSummary": "AI-generated summary: The article explores how founders and executives leverage Ulta Beauty World's exclusive expo to build long-term customer loyalty for emerging brands.",
+          "aiSummary": "Ulta Beauty World’s exclusive expo is helping emerging brand founders and executives build long-term customer loyalty, according to industry insiders.",
           "translations": {
             "da": {
               "title": "Hvad Har Ulta Beauty World at Tilbyde Nye Brands?",
@@ -676,7 +676,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: DeMellier, a U.K. luxury bag brand, is boosting demand by focusing on craftsmanship and using alternative materials to strengthen customer loyalty amid a challenging luxury market.",
+          "aiSummary": "DeMellier is boosting demand by focusing on craftsmanship and alternative materials to strengthen customer loyalty amid a challenging luxury market.",
           "translations": {
             "da": {
               "title": "Luxury Briefing: Hvordan DeMellier øger efterspørgslen ved at gøre mindre",
@@ -709,7 +709,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Danielle Guizio discusses the launch of her handbag line and her vision for expanding her brand into a comprehensive destination for customers.",
+          "aiSummary": "Danielle Guizio launched handbags as the brand expands its offering, aiming to become a one-stop shop for customers.",
           "translations": {
             "da": {
               "title": "Danielle Guizio ønsker, at hendes brand skal være en 'one-stop shop' for kunder",
@@ -748,7 +748,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The Q1 2026 Lab-Grown Diamond Wholesale Price List reveals a 14% overall decline in lab-grown diamond prices, with 3-carat rounds dropping 28% year-over-year, marking a slowdown from the sharper 40%+ decline seen in Q1 2025. This suggests the market is beginning to stabilize.",
+          "aiSummary": "Lab-grown diamond wholesale prices fell 14% in Q1 2026, with 3-carat rounds down 28% year-on-year but declines moderating from 2025.",
           "translations": {
             "da": {
               "title": "Engrospriser på laboratoriedyrkede diamanter faldt 14%",
@@ -783,7 +783,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The Natural Diamond Council has hailed the inaugural World Diamond Day as a rousing success, sparking increased interest in jewellery, according to Jeweller - Business News on April 20, 2026.",
+          "aiSummary": "The Natural Diamond Council reported strong consumer interest following the inaugural World Diamond Day.",
           "translations": {
             "da": {
               "title": "World Diamond Day fremkalder øget interesse for smykker",
@@ -817,7 +817,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Caravan of Stones, a founder-led luxury jewellery brand featured in Professional Jeweller, prioritizes transparency as a key measure of success despite not yet implementing third-party audits or formal traceability systems, with founder Caron Bluestone emphasizing realistic communication about the brand's current capabilities.",
+          "aiSummary": "Caravan of Stones founder Caron Bluestone avoids overstating traceability, as the brand lacks third-party audits, certifications, or mine-to-market verification systems.",
           "translations": {
             "da": {
               "title": "Hvorfor Caravan of Stones ser gennemsigtighed som et mål for succes",
@@ -851,7 +851,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: On 23 April 2026, the UK jewellery industry marks the 35th anniversary of a remarkable event from 1991 that significantly impacted a major jewellery company, described as ‘one for the ages.’ This story remains a notable moment in the history of jewellery.",
+          "aiSummary": "Today marks 35 years since a 1991 event that dramatically impacted the UK jewellery industry with a single, devastating punchline.",
           "translations": {
             "da": {
               "title": "35 år senere: Hvordan en dræbende punchline sænkede en smykke-gigant",
@@ -884,7 +884,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: A stolen car was ram-raided into a South Sacramento jewelry store in an apparent coordinated heist, leaving an employee critically injured and the store in ruins, though a security guard managed to thwart the attempt.",
+          "aiSummary": "A stolen car rammed into a South Sacramento jewelry store during a coordinated heist, leaving the shop in ruins and a security guard critically injured.",
           "translations": {
             "da": {
               "title": "‘Ram-Raid’ Efterlader Medarbejder Kritisk Såret, Smykkeforretning i Ruiner (Video)",
@@ -918,7 +918,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Professional Jeweller (2026-04-21) discusses how Credere Consultancy supports jewellery brands in improving ethics, transparency, and environmental performance by identifying risks and opportunities across sourcing, manufacturing, and retail to implement practical, cost-effective actions.",
+          "aiSummary": "Credere Consultancy helps jewellery brands assess sourcing, manufacturing and retail impacts to improve ethics, transparency and environmental performance with practical, cost-effective actions.",
           "translations": {
             "da": {
               "title": "Fortæl din bæredygtighedshistorie præcist med Credere Consultancy",
@@ -951,7 +951,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: Retail industry representatives have commended Victoria Police for the success of ‘Operation Pulse’, a targeted crackdown on criminals at shopping centres, as reported by Jeweller - Business News on April 20, 2026.",
+          "aiSummary": "Victoria Police’s ‘Operation Pulse’ crackdown at shopping centres won praise from retail industry representatives for its impact on criminal activity.",
           "translations": {
             "da": {
               "title": "Indkøbscenter-indsats får stor ros fra detailhandlere",
@@ -968,5 +968,13 @@
   },
   "editorialTake": "Amazon and Google are doubling down on Anthropic with eye-popping investments of up to $25 billion and $40 billion respectively. This isn’t just a funding round, it’s a strategic land grab for AI talent and infrastructure that signals the next battleground in generative AI. Amazon’s move to back Anthropic while also locking Meta into AWS chips shows it’s playing both offense and defense across the AI stack, betting on owning the cloud and the models powering future ecommerce and customer service.\n\nMeanwhile, Amazon’s legal troubles in California and the shrinking seller base on its marketplace reveal a tension between scale and control. As revenue concentrates among top sellers, Amazon risks alienating the long tail that fuels its diversity and innovation. The real question is whether Amazon’s AI bets can offset regulatory and marketplace pressures, or if they’ll accelerate a shift toward more fragmented ecommerce ecosystems.",
   "coverImageUrl": "/weekly-images/2026-W17.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W17"
+  "coverImageAlt": "Weekly cover illustration for 2026-W17",
+  "oneSentenceSummary": "The scale of investment by Big Tech in Anthropic hints at looming AI consolidation, with independent startups becoming kingmakers rather than disruptors.",
+  "keyThemes": [
+    "Anthropic AI Investment",
+    "Amazon Price Fixing",
+    "Ask Macy’s AI Agent",
+    "Ulta Beauty AI Assistant",
+    "Lab Grown Diamond Prices"
+  ]
 }

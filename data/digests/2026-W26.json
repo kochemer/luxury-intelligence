@@ -40,7 +40,7 @@
               "training"
             ]
           },
-          "aiSummary": "AI-generated summary: Tech giants including OpenAI, Google, Amazon, and Microsoft are developing custom chips to reduce deployment costs and gain control over AI infrastructure, signaling a strategic shift beyond relying solely on Nvidia's GPUs for training in the competitive AI landscape.",
+          "aiSummary": "OpenAI, Google, Amazon and Microsoft are designing custom AI chips to reduce deployment costs and control infrastructure, challenging Nvidia’s dominance in training hardware.",
           "translations": {
             "da": {
               "title": "Ud over Nvidia: Hvorfor AI-giganter som OpenAI, Google og Amazon bygger specialdesignede chips",
@@ -73,7 +73,7 @@
               "investment"
             ]
           },
-          "aiSummary": "AI-generated summary: On June 25, 2026, TechCrunch reported that Amazon is increasing its investment in India’s AI infrastructure with a fresh $13 billion commitment, reflecting the broader trend of global tech companies expanding their AI presence in the country.",
+          "aiSummary": "Amazon will invest $13 billion to expand AI infrastructure in India amid intensifying competition among global tech firms.",
           "translations": {
             "da": {
               "title": "Amazon øger indsatsen i Indien med ny investering på 13 mia. USD i AI-infrastruktur",
@@ -107,7 +107,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: OpenAI and Anthropic are limiting access to their latest AI models to Trump-approved customers amid government cybersecurity concerns, with OpenAI's GPT-5.6 Sol available to select partners and Anthropic's \"Mythos 5\" receiving partial approval. This move follows scrutiny over potential misuse risks highlighted by Anthropic's \"Mythos\" model.",
+          "aiSummary": "OpenAI’s GPT-5.6 Sol and Anthropic’s Mythos 5 are restricted to Trump-approved customers amid cybersecurity concerns and government review.",
           "translations": {
             "da": {
               "title": "OpenAI og Anthropic begrænser nye AI-modeller til Trump-godkendte kunder under cybersikkerhedsgennemgang",
@@ -140,7 +140,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Anthropic has received a limited exemption from US export-control restrictions, allowing some US organizations to regain access to its Mythos 5 AI model, while access to Fable 5 remains restricted. This development follows the company's earlier suspension of Mythos and Fable access due to government orders.",
+          "aiSummary": "Anthropic restored access to its Mythos 5 AI model for some US organizations after disabling it earlier this month due to export-control restrictions.",
           "translations": {
             "da": {
               "title": "Anthropics Mythos 5 får en begrænset undtagelse fra amerikanske restriktioner",
@@ -172,7 +172,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Netris has raised $15 million in a Series A funding round led by a16z to support its software platform that runs on network switches and helps neocloud operators accelerate their go-live timelines.",
+          "aiSummary": "Netris raised $15 million in Series A funding from a16z to accelerate go-live times for neocloud operators with its network switch software platform.",
           "translations": {
             "da": {
               "title": "Netris rejser 15 mio. USD i Serie A fra a16z for at hjælpe AI neoclouds med at gå live hurtigere",
@@ -205,7 +205,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary: Italy will join the US-led Pax Silica initiative to secure AI supply chains despite recent diplomatic tensions between Prime Minister Meloni and former President Trump, with a memorandum of understanding to be signed by Foreign Minister Tajani and US Secretary of State Rubio. This move underscores Italy's dedication to enhancing AI collaboration alongside the European Commission and the Netherlands.",
+          "aiSummary": "Italy will join the US-led Pax Silica initiative to secure AI supply chains, with a memorandum to be signed by Foreign Minister Tajani and Secretary Rubio.",
           "translations": {
             "da": {
               "title": "Italien deltager i den USA-ledede Pax Silica AI-initiativ trods strid med Trump",
@@ -239,7 +239,7 @@
               "research"
             ]
           },
-          "aiSummary": "AI-generated summary: The article commemorates 70 years since the formal establishment of artificial intelligence in 1956, highlighting AI as a transformative and strategic technology of the early 21st century that is reshaping many aspects of life with unprecedented adoption and impact.",
+          "aiSummary": "Artificial intelligence, formally established as a field in 1956 at the Dartmouth Summer Research Project, marks its 70th anniversary this year.",
           "translations": {
             "da": {
               "title": "Fejring af 70 år med Artificial Intelligence",
@@ -276,7 +276,7 @@
               "fulfillment"
             ]
           },
-          "aiSummary": "AI-generated summary: Walmart-backed Flipkart has expanded its quick-commerce operations in India by surpassing 1,000 micro-fulfillment centers, while Amazon is simultaneously intensifying its quick-commerce efforts in the country.",
+          "aiSummary": "Flipkart, backed by Walmart, has surpassed 1,000 micro-fulfillment centers as Amazon intensifies its quick-commerce expansion in India.",
           "translations": {
             "da": {
               "title": "Walmart-støttede Flipkart udvider hurtighandel, mens Amazon øger indsatsen i Indien",
@@ -309,7 +309,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Google announced a reduction in its Google Play app store fees and will permit developers to use external payment systems and link to their own websites, marking a significant change for app developers. This move addresses longstanding developer concerns over proprietary billing on major app platforms.",
+          "aiSummary": "Google will cut Google Play fees and permit app developers to use external payment systems and link to their own websites.",
           "translations": {
             "da": {
               "title": "Google Sænker App Store-gebyrer og Åbner for Eksterne Betalinger",
@@ -341,7 +341,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Lowe's has integrated its third-party marketplace into My Red Vest, the in-store employee software, making it easier to order items like decorative geese and above-ground pools in over 1,700 stores.",
+          "aiSummary": "Lowe’s integrated its third-party marketplace into My Red Vest software, enabling employees in over 1,700 stores to help customers order marketplace items.",
           "translations": {
             "da": {
               "title": "Lowe’s gør det nemmere at bestille dekorative gæs, ovenjordiske pools og andre markedspladsvarer i over 1.700 butikker",
@@ -373,7 +373,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Gap Inc. is partnering with Google Cloud, Zeta Global, and Publicis Sapient to implement an AI-driven overhaul of its marketing operations, aiming to enhance content relevance and reduce friction across its ecommerce channels.",
+          "aiSummary": "Gap is partnering with Google Cloud, Zeta Global and Publicis Sapient to overhaul its marketing using AI for more relevant ecommerce content.",
           "translations": {
             "da": {
               "title": "Gap lancerer AI-markedsføringsomlægning med Google Cloud, Zeta og Publicis Sapient",
@@ -406,7 +406,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: In a Retail Gazette interview, Snappy Shopper's VP Greg Deacon highlights how retail media enables independent retailers to drive significant growth by engaging customers at the point of purchase, as the Q-commerce platform expands beyond the UK mainland.",
+          "aiSummary": "Snappy Shopper’s VP says retail media is driving “huge growth” for independent retailers as the Q-commerce platform expands beyond the UK mainland.",
           "translations": {
             "da": {
               "title": "Snappy Shopper VP om detailmediers kraft til at omsætte samtaler til handling",
@@ -440,7 +440,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: According to early data reported by Shopify, shoppers arriving at e-commerce sites via AI platforms such as ChatGPT, Perplexity, and Gemini are 50% more likely to make a purchase compared to those from organic search, highlighting AI's impactful role in online retail.",
+          "aiSummary": "Shopify reports shoppers arriving via AI platforms like ChatGPT, Perplexity, and Gemini are 50% more likely to purchase than those from organic search.",
           "translations": {
             "da": {
               "title": "Hvor AI hører til i e-handel (og hvor det ikke gør)",
@@ -472,7 +472,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article explores how the Merchant of Record facilitates global ecommerce by helping digital businesses navigate local payment preferences and complexities, such as Brazil's Pix, India's UPI, and Poland's BLIK. This role has become essential as companies expand rapidly into international markets.",
+          "aiSummary": "Merchants expanding internationally are adopting Merchant of Record models to handle local payment methods like Pix in Brazil, UPI in India, and BLIK in Poland.",
           "translations": {
             "da": {
               "title": "Hvordan Merchant of Record blev en global handelsmotor",
@@ -512,7 +512,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: Saks Global has emerged from bankruptcy and rebranded as Exemplar Luxury Group, aiming to mark a new chapter with a commitment to higher standards for partnerships with brands, consumers, and employees, according to CEO Geoffroy van Raemdonck.",
+          "aiSummary": "Saks Global has exited bankruptcy and rebranded as Exemplar Luxury Group to mark a new chapter and higher partnership standards.",
           "translations": {
             "da": {
               "title": "Saks Global forlader konkurs og omdøber sig til Exemplar Luxury Group",
@@ -545,7 +545,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Barbari, a Black-owned skin-care brand founded in 2025 and based in Brooklyn, creates plant-based products while supporting the economic empowerment of Berber women in Morocco with every purchase.",
+          "aiSummary": "Barbari, founded in 2025 in Brooklyn, supports economic empowerment of Berber women in Morocco with every purchase of its plant-based skin-care products.",
           "translations": {
             "da": {
               "title": "Barbari: Et Black-ejet hudplejemærke, der laver plantebaserede produkter",
@@ -580,7 +580,7 @@
               "aspirational"
             ]
           },
-          "aiSummary": "AI-generated summary: Kinfolk, a leading Millennial lifestyle magazine, aims to expand into a multicategory consumer brand by launching a fragrance line and opening a new pop-up in Manhattan.",
+          "aiSummary": "Kinfolk is launching a fragrance line and a Manhattan pop-up as it expands from magazine to multicategory consumer brand.",
           "translations": {
             "da": {
               "title": "Hvordan et magasin bliver et livsstilsbrand",
@@ -613,7 +613,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: In the Fashionista article \"How Abbode's Abby Price Is Steering the Personalization Trend,\" founder Abby Price discusses the NYC brand's growth to $10 million in sales, highlighting its impact on luxury consumer personalization.",
+          "aiSummary": "Abbode founder Abby Price details how the NYC brand reached $10 million in sales by focusing on personalization, in an interview with The Fashionista Network.",
           "translations": {
             "da": {
               "title": "Hvordan Abbodes Abby Price Styrer Personaliserings-trenden",
@@ -649,7 +649,7 @@
               "affluent"
             ]
           },
-          "aiSummary": "AI-generated summary: Marriott International’s Edition brand is attracting the next generation of luxury travellers by expanding into new destinations and enhancing experiential offerings to align with their evolving preferences.",
+          "aiSummary": "Marriott International’s Edition brand expanded into new destinations and experiential offerings to attract affluent next-generation luxury travellers.",
           "translations": {
             "da": {
               "title": "Hvordan Edition Hotels Vinder Over Den Næste Generation af Luksusrejsende",
@@ -682,7 +682,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The Los Angeles-based label, led by designer Ella Mae, focuses on creating an \"earth-first\" brand by emphasizing sustainability and scaling through limited-batch production.",
+          "aiSummary": "Designer Ella Mae is scaling her Los Angeles-based, \"earth-first\" label through limited-batch production focused on anti-fashion fashion.",
           "translations": {
             "da": {
               "title": "Det Los Angeles-baserede mærke, der laver 'Anti-Fashion Fashion'",
@@ -715,7 +715,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: C.P. Company's Men's Spring 2027 collection, featured in WWD on June 27, 2026, draws inspiration from the brand’s archival Mille Miglia outerwear, showcasing a blend of luxury and heritage design elements.",
+          "aiSummary": "C.P. Company’s Spring 2027 menswear collection reinterpreted archival Mille Miglia outerwear in its latest runway looks.",
           "translations": {
             "da": {
               "title": "C.P. Company Herre Forår 2027: Bag Syningerne",
@@ -753,7 +753,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: At the Obama Presidential Center opening, Michelle Obama showcased 2026's leading jewelry trend with chunky mixed-metal layering on her ears and hands, featuring pieces from Rainbow K and Yvonne Léon.",
+          "aiSummary": "Michelle Obama wore Rainbow K and Yvonne Léon mixed-metal statement jewelry at the Obama Presidential Center opening, highlighting 2026’s dominant chunky layering trend.",
           "translations": {
             "da": {
               "title": "Døm Smykkerne: Michelle Obama Bærer Rainbow K og Yvonne Léons Statement Stacks ved Obama Presidential Center Åbning",
@@ -788,7 +788,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Two blue fancy colour diamonds achieved remarkable prices at a New York auction, impressing fine jewellery collectors and commanding huge returns.",
+          "aiSummary": "Two blue fancy colour diamonds achieved record-breaking returns at a New York auction, surprising fine jewellery collectors.",
           "translations": {
             "da": {
               "title": "Blå diamanter opnår store afkast ved auktion",
@@ -823,7 +823,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Recent reports reveal troubling crime statistics affecting jewellery retailers in Victoria, highlighting increased criminal activity targeting these businesses.",
+          "aiSummary": "Victorian jewellery retailers reported a rise in criminal activity, with new figures highlighting increased crime targeting the sector.",
           "translations": {
             "da": {
               "title": "Bekymrende kriminalitetsstatistikker for smykkeforhandlere i Victoria",
@@ -856,7 +856,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: Ofer Mizrahi Diamonds has been honored with Israel’s Outstanding Exporter Award, recognizing the company's economic resilience, innovation, and exceptional success in global markets within the jewellery industry.",
+          "aiSummary": "Ofer Mizrahi Diamonds won Israel’s Outstanding Exporter Award for economic resilience, innovation, and exceptional global market success across multiple sectors.",
           "translations": {
             "da": {
               "title": "Ofer Mizrahi Diamonds modtager Israels pris for fremragende eksportør",
@@ -891,7 +891,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: A rare fancy colour blue diamond captivated attendees at a recent jewellery auction held in New York, becoming the highlight of the event.",
+          "aiSummary": "A rare fancy colour blue diamond headlined a New York jewellery auction, drawing significant attention from collectors and industry insiders.",
           "translations": {
             "da": {
               "title": "Sjælden blå diamant fanger hjerter og sind ved auktion",
@@ -922,7 +922,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: La Maison d'Or, a jeweler in Ottawa, combines an in-store café with dedicated personal outreach to cultivate lifelong customer relationships. This approach exemplifies old-world hospitality within the jewellery industry.",
+          "aiSummary": "La Maison d'Or retains lifelong clients by combining an in-store café with persistent personal outreach at its 77-year-old Ottawa jewellery store.",
           "translations": {
             "da": {
               "title": "Hvordan en 77-årig juveler i Ottawa vinder livslange kunder med gammeldags gæstfrihed",
@@ -954,7 +954,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: In \"Behold, the most realistic golf game ever,\" Dominik Diamond reviews Normal Golf Game, praising it for transforming an easy genre into a challenging experience that captures the complexities of playing golf. Despite the game's difficulty, the author appreciates the authentic representation of the sport's leisurely and social aspects.",
+          "aiSummary": "Normal Golf Game transforms the golf video game genre by making gameplay significantly more challenging and realistic than typical titles.",
           "translations": {
             "da": {
               "title": "Se, det mest realistiske golfspil nogensinde | Dominik Diamond",
@@ -971,5 +971,13 @@
   },
   "editorialTake": "Amazon’s $13 billion AI infrastructure bet in India is a clear signal that the company sees the region as a strategic AI battleground, not just a low-cost hub. This isn’t about incremental growth: it’s a full-court press to own AI cloud dominance where Google and Microsoft are also heavily invested. The scale alone forces competitors to rethink their India strategies or risk losing critical market share in a country with 1.4 billion potential users and rapidly growing digital adoption.\n\nMeanwhile, Flipkart’s push past 1,000-minute quick-commerce delivery zones shows Walmart’s aggressive response to Amazon’s India play. Speed is the new currency in ecommerce, and Flipkart’s move forces Amazon to either match or innovate beyond logistics alone. The real question is whether this arms race will drive sustainable profitability or just burn cash faster in a market where consumer loyalty is still fluid and price sensitivity high.",
   "coverImageUrl": "/weekly-images/2026-W26.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W26"
+  "coverImageAlt": "Weekly cover illustration for 2026-W26",
+  "oneSentenceSummary": "Even as Google and Amazon lower barriers and decentralize platforms, the largest AI players are consolidating ecosystem power through hardware, access controls, and selective partnerships.",
+  "keyThemes": [
+    "Amazon AI infrastructure",
+    "Flipkart quick commerce",
+    "Blue diamond auctions",
+    "OpenAI government restrictions",
+    "Saks Exemplar Luxury Group"
+  ]
 }

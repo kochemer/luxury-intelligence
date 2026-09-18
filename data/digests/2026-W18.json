@@ -40,7 +40,7 @@
               "claude"
             ]
           },
-          "aiSummary": "AI-generated summary: On May 1, 2026, the Pentagon signed new military AI contracts with Nvidia, Microsoft, and Amazon following a dispute with Anthropic regarding the use of its AI model Claude, as reported by Financial Times Technology.",
+          "aiSummary": "The Pentagon signed new AI contracts with Nvidia, Microsoft and Amazon following a dispute with Anthropic over use of its Claude model.",
           "translations": {
             "da": {
               "title": "Pentagon underskriver nye militære AI-aftaler med Nvidia, Microsoft og Amazon",
@@ -72,7 +72,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: On the biggest earnings day of 2026, Microsoft, Alphabet, Meta, and Amazon demonstrated that their substantial AI infrastructure investments are effective, yet they collectively increased their capital expenditure forecasts to between US$630 billion and US$650 billion. This reflects Big Tech's continued commitment to expanding AI capabilities despite already proving the value of their spending.",
+          "aiSummary": "Microsoft, Alphabet, Meta, and Amazon collectively raised AI infrastructure capex forecasts after committing between US$630 billion and US$650 billion in 2026.",
           "translations": {
             "da": {
               "title": "Big Tech har netop bevist, at investeringer i AI-infrastruktur virker. Alligevel hævede de regningen",
@@ -104,7 +104,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Lightelligence’s stock surged 400% at debut despite modest revenue, reflecting investor confidence that optical interconnect technology will address the emerging bottleneck in AI chip communication previously reliant on copper wiring.",
+          "aiSummary": "Lightelligence’s stock soared 400% to a US$10 billion valuation on debut, despite just US$15.5 million in annual revenue, amid optical interconnect optimism.",
           "translations": {
             "da": {
               "title": "Lightelligences debut stiger 400 % på et væddemål om, at AI's næste flaskehals er den optiske forbindelse",
@@ -139,7 +139,7 @@
               "acquisition"
             ]
           },
-          "aiSummary": "AI-generated summary: Amsterdam-based Nebius is acquiring Eigen AI for $643 million to strengthen its production-grade AI capabilities and expand its US presence by integrating Eigen AI's inference and optimization technology into its Token Factory platform. The acquisition is expected to finalize in the coming weeks.",
+          "aiSummary": "Nebius is acquiring Eigen AI for $643 million to integrate its inference technology and accelerate US expansion via the Token Factory platform.",
           "translations": {
             "da": {
               "title": "Nebius køber Eigen AI for 643 millioner dollars for at styrke inferens og udvide i USA",
@@ -171,7 +171,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: IBM has launched Bob, an AI platform designed to regulate software delivery costs and SDLC governance by addressing challenges like technical debt, hybrid cloud complexity, and compliance, aiming to balance coding speed with controlled progress.",
+          "aiSummary": "IBM has launched Bob, an AI platform designed to regulate software delivery costs and strengthen SDLC governance for enterprise engineering teams.",
           "translations": {
             "da": {
               "title": "IBM lancerer AI-platformen Bob til regulering af SDLC-omkostninger",
@@ -203,7 +203,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: In the first quarter, Amazon, Google, and Microsoft all exceeded cloud revenue expectations, with Google Cloud experiencing the fastest growth, reflecting a surge in AI demand.",
+          "aiSummary": "Google Cloud grew faster than Microsoft and Amazon in Q1, as all three surpassed cloud revenue estimates amid accelerating AI demand.",
           "translations": {
             "da": {
               "title": "Google Clouds vækst overgår Microsoft og Amazon, da alle tre overgår forventningerne på AI-efterspørgsel",
@@ -236,7 +236,7 @@
               "investment"
             ]
           },
-          "aiSummary": "AI-generated summary: Tech investor Jack Selby of Thiel Capital warns that markets are underestimating the risk of a Middle East pullback in AI investments, noting that Middle East investors are expected to contribute about a quarter of global AI funding over the next five years.",
+          "aiSummary": "Middle East investors are expected to contribute about 25% of global AI investments over the next five years, said Thiel Capital’s Jack Selby.",
           "translations": {
             "da": {
               "title": "Markeder undervurderer risikoen for tilbagetrækning fra Mellemøsten i AI, siger tech-investor Jack Selby",
@@ -274,7 +274,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon has joined the technical council for Google's Universal Commerce Protocol, an open standard aimed at enabling AI-driven shopping, indicating a potential shift in its AI strategy. This development was reported by Modern Retail on April 30, 2026.",
+          "aiSummary": "Amazon has joined the technical council for Google’s Universal Commerce Protocol, signaling a shift in its approach to AI-driven shopping standards.",
           "translations": {
             "da": {
               "title": "Marketplace Briefing: Amazon slutter sig til Google-støttet shoppinginitiativ, hvilket antyder et skift i AI-strategi",
@@ -306,7 +306,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Loop aims to transform ecommerce challenges like returns, fraud, and lost revenue into growth opportunities by leveraging AI-driven post-purchase tools, addressing a major issue impacting retailer margins.",
+          "aiSummary": "Loop launched AI-powered post-purchase tools to tackle ecommerce returns, fraud and lost revenue, aiming to turn returns into a growth opportunity for retailers.",
           "translations": {
             "da": {
               "title": "Loop målretter returneringer, svindel og tabt omsætning med AI-drevne værktøjer efter køb",
@@ -339,7 +339,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Live-shopping platform Whatnot has integrated directly with Shopify, enabling millions of merchants to sell on its app as part of its growth strategy.",
+          "aiSummary": "Whatnot now integrates with Shopify, enabling millions of Shopify merchants to sell via its livestream shopping platform.",
           "translations": {
             "da": {
               "title": "Live-shopping platform Whatnot bruger Shopify til at nå millioner af handlende i jagten på vækst",
@@ -371,7 +371,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon's AI shopping assistant, Rufus, is experiencing significant growth with a 115% increase in users, indicating rising traction in the ecommerce and retail tech sector.",
+          "aiSummary": "Amazon reports Rufus, its AI shopping assistant, saw user numbers rise 115% as adoption accelerates.",
           "translations": {
             "da": {
               "title": "Amazon siger, at deres AI shoppingassistent får større gennemslagskraft, med Rufus-brugere op 115%",
@@ -403,7 +403,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: On April 29, 2026, H&M launched on Nordstrom Marketplace, marking its first entry into a curated U.S. retail marketplace with a selection of womenswear, menswear, childrenswear, and activewear, which will be regularly updated with new seasonal items.",
+          "aiSummary": "H&M launched on Nordstrom Marketplace with womenswear, menswear, childrenswear and H&M Move, marking its first curated retail marketplace entry in the U.S.",
           "translations": {
             "da": {
               "title": "H&M debuterer på Nordstrom Marketplace",
@@ -435,7 +435,7 @@
               "checkout"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon reported over $150 billion in grocery sales last year, positioning itself as the second-largest U.S. grocer, despite its physical store presence being primarily limited to its Whole Foods chain.",
+          "aiSummary": "Amazon’s grocery business generated over $150 billion in gross sales last year, with most brick-and-mortar activity concentrated in its Whole Foods chain.",
           "translations": {
             "da": {
               "title": "The Friday Checkout: Amazon siger, det er den næststørste dagligvarebutik i USA — butikker (for det meste) ikke påkrævet",
@@ -465,7 +465,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Apple has introduced a new App Store subscription model requiring customers to commit to a 12-month term with monthly payments, potentially influencing how retailers approach recurring revenue strategies. This development highlights a shift in ecommerce and retail technology subscription offerings.",
+          "aiSummary": "Apple launched a 12-month App Store subscription option with monthly payments, potentially reshaping how retailers approach recurring revenue models.",
           "translations": {
             "da": {
               "title": "Apples nye abonnementsmodel signalerer skift for detailhandelens tilbagevendende indtægter",
@@ -502,7 +502,7 @@
               "spending"
             ]
           },
-          "aiSummary": "AI-generated summary: On April 29, 2026, NYTimes Technology reported that Google, Amazon, Microsoft, and Meta collectively spent over $130 billion in quarterly capital expenditures to build AI data centers, with further investments expected.",
+          "aiSummary": "Google, Amazon, Microsoft and Meta spent over $130 billion on quarterly capital expenditures to build A.I. data centers, with further increases expected.",
           "translations": {
             "da": {
               "title": "A.I.-udgifter sætter rekord uden ende i sigte",
@@ -536,7 +536,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon Beauty is enhancing its platform by using AI, entertainment, premiumisation, and seamless checkout experiences to transform browsing into purchasing amid growing competition in the beauty sector.",
+          "aiSummary": "Amazon Beauty is using AI, entertainment, premiumisation and frictionless checkout to help brands convert browsing into purchases amid intensifying beauty sector competition.",
           "translations": {
             "da": {
               "title": "Inden for Amazon Beautys forsøg på at blive en opdagelsesdrevet destination",
@@ -568,7 +568,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: Apple reported a 17% revenue growth that exceeded estimates, driven by strong demand for iPhones and Macs, despite iPhone sales falling short.",
+          "aiSummary": "Apple posted 17% revenue growth, surpassing estimates despite iPhone sales missing targets, driven by strong demand for iPhones and Macs.",
           "translations": {
             "da": {
               "title": "Apple omsætningsvejledning overgår forventninger på grund af stigende efterspørgsel efter iPhone og Mac",
@@ -602,7 +602,7 @@
               "consumer"
             ]
           },
-          "aiSummary": "AI-generated summary: Zegna's revenues increased by 7.4% in the first quarter of 2026, driven by strong growth in direct-to-consumer sales in the US, exceeding market expectations.",
+          "aiSummary": "Zegna’s first-quarter revenues rose 7.4%, beating expectations on strong US direct-to-consumer sales.",
           "translations": {
             "da": {
               "title": "Zegna omsætning stiger 7,4%",
@@ -635,7 +635,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Membership-based fragrance brand Ffern is expanding its limited-edition product-drop strategy by opening orders to the general public, reflecting a broader trend among beauty brands experimenting with exclusive launches.",
+          "aiSummary": "Ffern is opening fragrance orders to the general public for the first time, moving beyond its previous membership-only model.",
           "translations": {
             "da": {
               "title": "Kan Beautys ’Limited-Edition’-lanceringsstrategi holde?",
@@ -669,7 +669,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Fashionista dated April 29, 2026, discusses how emerging fashion designers can manage sudden spikes in demand caused by viral moments, with industry experts offering strategies to avoid potential pitfalls.",
+          "aiSummary": "Industry experts outline strategies for emerging designers to manage sudden viral demand spikes and avoid operational breakdowns during order surges.",
           "translations": {
             "da": {
               "title": "En modebrands guide til at håndtere efterspørgselsstigninger",
@@ -704,7 +704,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: According to the Q1 2026 Lyst Index, Chanel is currently the world's hottest luxury brand, while Saint Laurent's Stand Collar Jacket is the most in-demand product.",
+          "aiSummary": "Chanel ranked as the world's hottest luxury brand and Saint Laurent's Stand Collar Jacket was Q1's most in-demand product, per the Lyst Index.",
           "translations": {
             "da": {
               "title": "Chanel er verdens hotteste luksusmærke lige nu",
@@ -742,7 +742,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: The manager and a partner purchased a 35-year-old Richmond jewelry store that its owner was about to close, resulting in a 72% increase in sales.",
+          "aiSummary": "Richmond jewelry store saw sales jump 72% after its manager and a partner bought the 35-year-old shop the owner planned to close.",
           "translations": {
             "da": {
               "title": "Hvordan et internt opkøb reddede denne 35-årige Richmond smykkeforretning",
@@ -773,7 +773,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: According to a May 2026 article in Instore Magazine, while currently only about 10% of jewelers charge consultation fees, many others in the jewellery industry are beginning to consider implementing such charges.",
+          "aiSummary": "Only about 10% of jewelers charge consultation fees, but many more are now reconsidering the practice.",
           "translations": {
             "da": {
               "title": "Gebyr for konsultationer? Mange juvelerer begynder at tænke, at det sandsynligvis er en god idé",
@@ -807,7 +807,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: International jewellery retailer Chow Tai Fook experienced a modest decline in sales during the fourth quarter of the financial year, according to a report by Jeweller - Business News on April 27, 2026.",
+          "aiSummary": "Chow Tai Fook reported a modest decline in sales for the fourth quarter of its financial year.",
           "translations": {
             "da": {
               "title": "Fald i smykkesalg for Chow Tai Fook",
@@ -841,7 +841,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The Precious Sea Summit, the first jewellery summit focused on marine materials, launched on 21 May 2026 in Torre del Greco, bringing together key industry bodies under the leadership of Assocoral and partners.",
+          "aiSummary": "The first marine-materials jewellery summit launches 21 May in Torre del Greco, led by Assocoral and key industry partners.",
           "translations": {
             "da": {
               "title": "The Precious Sea Summit lanceres i Torre Del Greco, hovedstaden for havsmykker",
@@ -872,7 +872,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: British designer Bethan Laura Wood has reimagined a 175-year-old Baccarat crystal-glass chandelier as a modular \"vortex\" of jewelled flowers, showcased as the centerpiece of the Crystal Crypt exhibition at Milan design week.",
+          "aiSummary": "Bethan Laura Wood unveiled the Mille Fleurs modular chandelier for Baccarat at Milan design week, reimagining the 175-year-old classic as a vortex of jewelled flowers.",
           "translations": {
             "da": {
               "title": "Bethan Laura Wood genopfinder Baccarat lysekrone som modulært \"vortex\" af juvelbesatte blomster",
@@ -903,7 +903,7 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Following the retirement of CEO Doug Hucker, the International Colored Gemstone Association (ICA) has begun the search for a new leader. This development was reported by Jeweller - Business News on April 27, 2026.",
+          "aiSummary": "International Colored Gemstone Association begins search for new CEO following Doug Hucker’s retirement.",
           "translations": {
             "da": {
               "title": "Hucker trækker sig tilbage; ICA starter jagten på ny CEO",
@@ -938,7 +938,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: A UK jewellery retailer is facing allegations of fraud and manipulation after reportedly convincing customers and associates to invest large sums of money and jewellery before shutting down his businesses and disappearing.",
+          "aiSummary": "A UK jewellery retailer is accused of soliciting substantial investments from customers and associates before shutting down operations and vanishing.",
           "translations": {
             "da": {
               "title": "Smykkeforhandler står over for anklager om bedrageri og manipulation",
@@ -955,5 +955,13 @@
   },
   "editorialTake": "Amazon joining Google’s Universal Commerce Protocol council is a clear signal that even the biggest ecommerce giants see open standards as the next battleground for AI-driven shopping. Amazon’s move undermines its traditional walled-garden approach and suggests it’s betting on interoperability to scale AI tools like its Rufus assistant, which just grew users 115%. This is a strategic pivot: instead of owning the entire stack, Amazon wants to shape a shared infrastructure that could lock in merchants and consumers across platforms.\n\nThis raises a tough question about control versus scale. If Amazon and Google push open protocols, who really owns the customer relationship in AI-powered commerce? Merchants gain reach but risk commoditization. Consumers get better experiences but lose brand loyalty. I think we’re about to see a clash between platform openness and proprietary data advantage that will define who wins the next decade of ecommerce innovation.",
   "coverImageUrl": "/weekly-images/2026-W18.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W18"
+  "coverImageAlt": "Weekly cover illustration for 2026-W18",
+  "oneSentenceSummary": "A surge of post-purchase AI solutions and live-shopping integrations signals that the battleground for value capture is shifting from the transaction to everything that follows it.",
+  "keyThemes": [
+    "Amazon AI Shopping Assistant",
+    "Universal Commerce Protocol",
+    "Zegna Revenue Growth",
+    "Richmond Jewelry Sales",
+    "Loop AI Post Purchase"
+  ]
 }

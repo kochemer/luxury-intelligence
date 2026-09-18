@@ -39,7 +39,7 @@
               "claude"
             ]
           },
-          "aiSummary": "AI-generated summary: According to CNBC Technology on August 15, 2026, Anthropic's revenue surged to over $11.5 billion in the second quarter, highlighting the rapid growth of the Claude chatbot maker as it readies for a potential major initial public offering.",
+          "aiSummary": "Anthropic’s revenue surged to over $11.5 billion in Q2 as the Claude chatbot maker gears up for a potential blockbuster IPO.",
           "translations": {
             "da": {
               "title": "Anthropics omsætning steg angiveligt til over 11,5 milliarder dollars i andet kvartal",
@@ -72,7 +72,7 @@
               "claude"
             ]
           },
-          "aiSummary": "AI-generated summary: Investors in Anthropic are betting on a $2 trillion valuation in its record-breaking IPO, driven by rapid revenue growth and optimism that the Claude maker can overcome challenges to become the largest listing in history.",
+          "aiSummary": "Anthropic investors are betting on a $2tn valuation as rapid revenue growth positions the Claude maker for a record-breaking IPO.",
           "translations": {
             "da": {
               "title": "Anthropic-investorer satser på 2 billioners værdiansættelse i rekord-IPO",
@@ -106,7 +106,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Nvidia has reduced its financial commitment to OpenAI's Ohio data center from $250 billion to under $120 billion due to investor concerns, while Anthropic's revenue surged from $4.7 billion to $11.5 billion in one quarter, challenging AI bubble skepticism.",
+          "aiSummary": "Nvidia halved its guarantee for OpenAI’s Ohio data center to under $120 billion, while Anthropic’s quarterly revenue soared from $4.7 billion to $11.5 billion.",
           "translations": {
             "da": {
               "title": "Investorpres tvinger Nvidia til at reducere sin OpenAI-indsats, netop som Anthropics tal trodser bobleadvarsler",
@@ -140,7 +140,7 @@
               "ai startup"
             ]
           },
-          "aiSummary": "AI-generated summary: Nvidia announced a $500 billion financing initiative to reassure investors about ample funding for AI startups and companies using its chips, while also aiming to expand its customer base.",
+          "aiSummary": "Nvidia launched a $500 billion artificial intelligence financing initiative to reassure investors and expand its customer base among AI startups and chip buyers.",
           "translations": {
             "da": {
               "title": "Nvidia bruger 500 milliarder dollars finansieringsinitiativ til at afvise AI-bobleangst",
@@ -174,7 +174,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Artificial Analysis has introduced Optima, a platform enabling users to create custom AI benchmarks using their own data and workflows, allowing model comparisons based on quality, cost, and time per task rather than just raw token pricing.",
+          "aiSummary": "Artificial Analysis launched Optima, a platform enabling users to benchmark AI models on their own data, comparing quality, cost, and time per task.",
           "translations": {
             "da": {
               "title": "Optima løser AI-benchmarkings største svaghed ved at lade brugere teste modeller med deres egne data",
@@ -206,7 +206,7 @@
               "openai"
             ]
           },
-          "aiSummary": "AI-generated summary: OpenAI has appointed Dali Rajic, president and COO of Wiz, as its new chief revenue officer, replacing Denise Dresser after nine months in the role, amid ongoing executive changes.",
+          "aiSummary": "OpenAI appointed Wiz president and COO Dali Rajic as chief revenue officer, replacing Denise Dresser after only nine months in the role.",
           "translations": {
             "da": {
               "title": "OpenAI ansætter ny CRO, mens ledelsesomvæltninger fortsætter",
@@ -238,7 +238,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Chinese chipmaker SMIC announced price increases for its wafers in response to strong AI demand, with higher charges set for the third quarter following customer negotiations in the first quarter, according to Co-CEO Zhao Haijun.",
+          "aiSummary": "SMIC raised wafer prices after Q1 customer negotiations and will implement further increases for wafers processed in the third quarter, Co-CEO Zhao Haijun said.",
           "translations": {
             "da": {
               "title": "Kinesisk chipproducent SMIC hæver priserne på grund af stærk AI-efterspørgsel",
@@ -276,7 +276,7 @@
               "inventory"
             ]
           },
-          "aiSummary": "AI-generated summary: Target has launched a digital-twin platform aimed at enhancing inventory availability in its stores, reflecting its ongoing efforts to improve stock levels.",
+          "aiSummary": "Target has launched a digital-twin platform aimed at improving inventory availability across its stores.",
           "translations": {
             "da": {
               "title": "Target bygger digital-tvilling platform for at forbedre lager tilgængelighed",
@@ -309,7 +309,7 @@
               "checkout"
             ]
           },
-          "aiSummary": "AI-generated summary: Nate Faust, Kroger’s new e-commerce chief, aims to simplify and revitalize the company’s increasingly complex online business by applying his founder’s energy and outsider perspective.",
+          "aiSummary": "Kroger appointed Nate Faust as e-commerce chief to address the complexity of its digital business.",
           "translations": {
             "da": {
               "title": "The Friday Checkout: Kan Krogers nye e-handelschef rydde op i deres rodede onlineforretning?",
@@ -341,7 +341,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Kroger has appointed Nate Faust, a former Walmart executive, as its first e-commerce chief, following the recent naming of another Walmart veteran, Greg Foran, as CEO. This move highlights Kroger's focus on strengthening its digital and e-commerce leadership.",
+          "aiSummary": "Kroger appointed former Walmart executive Nate Faust as its first e-commerce chief, following the recent CEO hire of Walmart veteran Greg Foran.",
           "translations": {
             "da": {
               "title": "Kroger udnævner tidligere Walmart-direktør som første e-handelschef",
@@ -374,7 +374,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Etsy CEO Kruti Goyal highlighted three key AI investments focused on personalizing the marketplace, enhancing product discoverability, and evolving the future shopping experience, noting that agentic AI currently represents less than 1% of Etsy’s traffic.",
+          "aiSummary": "Etsy CEO Kruti Goyal said agentic AI experiences account for less than 1% of traffic as the company invests in personalisation and discovery.",
           "translations": {
             "da": {
               "title": "3 måder Etsy investerer i AI på, ifølge deres CEO",
@@ -407,7 +407,7 @@
               "checkout"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses Lululemon's integration of Klarna's Buy Now, Pay Later (BNPL) service at in-store checkouts, with Michaela Weber examining the role of BNPL in shaping the future of omnichannel retail payments.",
+          "aiSummary": "Lululemon has introduced Klarna’s buy-now-pay-later option at in-store checkouts, highlighting BNPL’s expanding role in omnichannel retail payments.",
           "translations": {
             "da": {
               "title": "GÆSTEINDLÆG Hvad in-store BNPL fortæller os om fremtiden for detailbetalinger",
@@ -441,7 +441,7 @@
               "fulfillment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Practical Ecommerce dated August 12, 2026, highlights new ecommerce tools including live shopping services, ecommerce carts, product listing generators, social commerce solutions, fulfillment options, cross-border delivery innovations, and autonomous marketing technologies.",
+          "aiSummary": "New ecommerce tools launched August 12 include services for live shopping, ecommerce carts, product listing generators, social commerce, fulfillment, and cross-border deliveries.",
           "translations": {
             "da": {
               "title": "Nye Ecommerce-værktøjer: 12. august 2026",
@@ -473,7 +473,7 @@
               "checkout"
             ]
           },
-          "aiSummary": "AI-generated summary: Michaels has introduced a new store format at three locations featuring redesigned department layouts, enhanced personalization services, and a self-checkout queue available exclusively to rewards members.",
+          "aiSummary": "Michaels launched a new store format at three locations featuring revamped layouts, personalization services, and a rewards-member-only self-checkout queue.",
           "translations": {
             "da": {
               "title": "Michaels introducerer nyt butikskoncept på 3 lokationer",
@@ -508,7 +508,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The 2026 Customer Identity and Access Management (CIAM) landscape report, published by Forrester, highlights three main drivers shaping the field and introduces AI agents as a new identity type, emphasizing how CIAM solutions are evolving to better manage customer access in the luxury and consumer sectors.",
+          "aiSummary": "Forrester’s 2026 CIAM landscape report identifies AI agents as a new identity type and highlights three primary drivers shaping customer access management.",
           "translations": {
             "da": {
               "title": "The Customer Identity And Access Management Solutions Landscape, Q3 2026 Er Live",
@@ -541,7 +541,7 @@
               "exclusive"
             ]
           },
-          "aiSummary": "AI-generated summary: Jupiter, a six-year-old brand known for disrupting the dandruff category, is launching in 500 Ulta Beauty stores as the retailer expands its focus on clinical and solution-based hair care.",
+          "aiSummary": "Jupiter launches in 500 Ulta Beauty stores this month as the retailer expands its clinical and solution-based hair care offerings.",
           "translations": {
             "da": {
               "title": "Eksklusivt: Jupiter træder ind i Ulta Beauty, mens detailhandlen fokuserer på skæl og løsningsbaseret hårpleje",
@@ -574,7 +574,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses why emerging fashion brands are increasingly choosing Los Angeles for manufacturing and addresses JW Anderson's denial of a collaboration rumor with Zara, alongside news of Palisades Village reopening.",
+          "aiSummary": "JW Anderson denied rumors of a Zara collaboration as Palisades Village announced its reopening and emerging fashion brands increased investment in L.A. manufacturing.",
           "translations": {
             "da": {
               "title": "Must Read: Hvorfor nye modebrands satser på produktion i L.A., JW Anderson afviser rygte om samarbejde med Zara",
@@ -608,7 +608,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: British luxury fragrance brand Jo Malone London has launched an immersive, exploration-based activation in Fortnite to promote its new Sea Salt & Bergamot Cologne, utilizing the Epic Games platform.",
+          "aiSummary": "Jo Malone London launched an immersive Fortnite world to promote its new Sea Salt & Bergamot Cologne.",
           "translations": {
             "da": {
               "title": "Jo Malone London-aktivering har premiere i Fortnite",
@@ -641,7 +641,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: French luxury brand Sézane has transformed its Brentwood Country Mart location into a smaller \"petite boutique\" showcasing best sellers, marking a new chapter for the company in Los Angeles.",
+          "aiSummary": "Sézane has opened a permanent \"petite boutique\" store at Brentwood Country Mart in L.A., showcasing its best sellers.",
           "translations": {
             "da": {
               "title": "Sézane Har Officielt en Permanent Butik i L.A.",
@@ -674,7 +674,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: According to StockX's 2026 Big Facts report highlighted by Fashionista on August 12, Saucony is the fastest-growing sneaker brand, with Vans, Mihara Yasuhiro, Onitsuka Tiger, and Salomon also experiencing growth in the resale market.",
+          "aiSummary": "Saucony ranked as the fastest-growing sneaker brand on StockX in 2026, with Vans, Mihara Yasuhiro, Onitsuka Tiger and Salomon also gaining momentum.",
           "translations": {
             "da": {
               "title": "Saucony er det hurtigst voksende sneakerbrand på StockX",
@@ -707,7 +707,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The Air Jordan 4 Retro OG is set to be released in a new \"Bloodline\" colorway inspired by the Chicago Bulls, blending fresh design with classic elements.",
+          "aiSummary": "Nike will release the Air Jordan 4 Retro OG in a new \"Bloodline\" Chicago Bulls-themed colorway.",
           "translations": {
             "da": {
               "title": "Michael Jordans mest populære Air Jordan får en helt ny Chicago Bulls-temaudgivelse",
@@ -746,7 +746,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Pandora, the world’s largest jewellery brand, has experienced a modest increase in sales alongside its ongoing network expansion, according to a report by Jeweller - Business News on August 13, 2026.",
+          "aiSummary": "Pandora reported a sales increase as the world’s largest jewellery brand continues its network expansion.",
           "translations": {
             "da": {
               "title": "Moderat salgsstigning for Pandora under kurskorrektion",
@@ -780,7 +780,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The Mystery Box Bench Challenge, a popular annual event at the International Jewellery Fair in Sydney, is returning for its third round later this month. This event has quickly become a highlight in the jewellery industry.",
+          "aiSummary": "The Mystery Box Bench Challenge returns to the International Jewellery Fair in Sydney later this month for its third annual edition.",
           "translations": {
             "da": {
               "title": "Mystery Box Bench Challenge tilbage til tredje runde",
@@ -814,7 +814,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: In July 2026, independent jewellers in Australia saw a modest decline in jewellery sales, according to Jeweller - Business News.",
+          "aiSummary": "Jewellery sales at independent jewellers in Australia declined modestly in July.",
           "translations": {
             "da": {
               "title": "Moderat fald i smykkesalg for uafhængige i juli",
@@ -845,7 +845,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The article from Instore Magazine dated August 13, 2026, discusses the concept of ‘Vuja De’ and offers additional tips for jewelers in September, while also highlighting how October sales figures could prompt a significant marketing campaign.",
+          "aiSummary": "Jewellers are advised to prepare for a potential major marketing blitz in October if sales numbers show significant movement.",
           "translations": {
             "da": {
               "title": "Argumentet for ‘Vuja De’ og flere bonus tips til juvelerer i september",
@@ -879,7 +879,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: According to a new industry index reported by Instore Magazine on August 13, 2026, Americans collectively hold $750 billion in gold jewelry that remains unappraised, with most owners significantly underestimating its value and lacking proper insurance valuations.",
+          "aiSummary": "Americans hold $750 billion in unappraised gold jewelry, with most owners underestimating value and lacking insurance valuations, a new industry index reports.",
           "translations": {
             "da": {
               "title": "Rapport: Amerikanere Sidder på 750 Milliarder Dollars i Uvurderet Guldsmykker",
@@ -911,7 +911,7 @@
               "silver"
             ]
           },
-          "aiSummary": "AI-generated summary: On August 13, 2026, CNBC Technology reported that Workday shares experienced their best day in a decade following takeover rumors by Silver Lake, amid investor concerns about AI potentially disrupting the company's business model.",
+          "aiSummary": "Workday shares surged 15% for their best day in a decade after reports of a potential Silver Lake takeover.",
           "translations": {
             "da": {
               "title": "Workday-aktier stiger efter bedste dag i 10 år på rapport om Silver Lake-overtagelse",
@@ -943,7 +943,7 @@
               "silver"
             ]
           },
-          "aiSummary": "AI-generated summary: Silver Lake has been in ongoing confidential talks with Workday, a human-resources and financial management software company, about a potential acquisition, though no deal is guaranteed, according to anonymous sources.",
+          "aiSummary": "Silver Lake has held talks in recent months to potentially acquire human-resources software company Workday, with discussions still ongoing.",
           "translations": {
             "da": {
               "title": "Silver Lake i samtaler om at købe Workday, siger kilder",

@@ -40,7 +40,7 @@
               "open source"
             ]
           },
-          "aiSummary": "AI-generated summary: Nvidia has agreed to acquire Hugging Face, the open source AI hub, for $12.9 billion, aiming to strengthen its chip business and re-enter the cloud market.",
+          "aiSummary": "Nvidia has agreed to acquire Hugging Face for $12.9 billion to bolster its chip business and re-enter the cloud sector.",
           "translations": {
             "da": {
               "title": "Nvidia nærmer sig opkøbet af Hugging Face",
@@ -73,7 +73,7 @@
               "claude"
             ]
           },
-          "aiSummary": "AI-generated summary: A judge has blocked the Pentagon's attempt to blacklist Anthropic as a supply chain risk, reversing the Defense Department's March decision to bar the U.S. military from using Anthropic's Claude.",
+          "aiSummary": "A federal judge blocked the Pentagon’s ban on Anthropic’s Claude AI, reversing a March decision that barred its use by the U.S. military.",
           "translations": {
             "da": {
               "title": "Dommer blokerer Pentagons sortlistning af Anthropic som forsyningskæderisiko",
@@ -107,7 +107,7 @@
               "benchmark"
             ]
           },
-          "aiSummary": "AI-generated summary: LAION has released its Big Video Dataset (BVD), comprising 80 million videos and 10 million hours of footage for AI research, with models trained on BVD outperforming previous benchmarks by up to 2.1 percentage points. The dataset's release is supported by a 2024 Hamburg court ruling permitting the collection of copyrighted content for non-commercial research.",
+          "aiSummary": "LAION released the Big Video Dataset with 80 million videos and 10 million hours, enabling AI models to outperform InternVid by up to 2.1 points.",
           "translations": {
             "da": {
               "title": "LAION frigiver enormt åbent videodatasæt med 10 millioner timers optagelser til AI-forskning",
@@ -140,7 +140,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: The article highlights that the primary risk in enterprise AI is not autonomous agents themselves, but the complex interactions among multiple agents operating within intricate systems that are difficult to oversee and govern. This complexity poses significant challenges as enterprises deploy numerous interconnected agents across applications not originally designed for machine decision-making.",
+          "aiSummary": "Enterprises face rising risk from complex fleets of AI agents interacting via APIs and legacy applications, creating governance challenges beyond individual agent autonomy.",
           "translations": {
             "da": {
               "title": "Enterprise AIs reelle risiko er ikke autonome agenter. Det er kompleksiteten mellem dem.",
@@ -172,7 +172,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Rising AI-related threats have driven increased customer spending on cybersecurity solutions, leading to record earnings for CrowdStrike and a nearly 29% surge in Okta's stock, according to CNBC Technology on August 27, 2026.",
+          "aiSummary": "CrowdStrike shares surged to a record and Okta stock jumped nearly 29% as rising AI threats drove increased cybersecurity spending.",
           "translations": {
             "da": {
               "title": "CrowdStrike har den bedste dag nogensinde, Oktas aktie stiger næsten 29% efter stigende AI-trussel løfter indtjeningen",
@@ -204,7 +204,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Google is imposing new memory-use limits on Android apps due to hardware shortages caused by AI data centers, which may result in lower-cost phones having less memory. This development highlights the impact of AI infrastructure on mobile device resources.",
+          "aiSummary": "Google is imposing new memory-use limits on Android apps as AI data center demand drives hardware shortages affecting lower-cost phones.",
           "translations": {
             "da": {
               "title": "AI’s hukommelsesknaphed rammer Android-apps",
@@ -238,7 +238,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: At TechCrunch Disrupt 2026, the AI Stage, presented by Google for Startups, returns to focus on the most prominent topic in the AI community, featuring participation from Anthropic and OpenAI.",
+          "aiSummary": "Anthropic and OpenAI will join the AI Stage at TechCrunch Disrupt 2026, presented by Google for Startups.",
           "translations": {
             "da": {
               "title": "Anthropic og OpenAI deltager på AI-scenen ved TechCrunch Disrupt 2026",
@@ -275,7 +275,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Williams-Sonoma Inc. reported a 6.7% year-over-year net revenue increase in fiscal Q2, driven in part by a 620% growth in revenue from its AI-powered shopping assistant, Otto, featured on the Pottery Barn website despite a stagnant housing market.",
+          "aiSummary": "Williams-Sonoma’s revenue from its AI shopping assistant surged 620% in Q2 as overall net revenue rose 6.7% year over year.",
           "translations": {
             "da": {
               "title": "Williams-Sonoma omsætning fra AI-assistent vokser 620 % i 2. kvartal",
@@ -307,7 +307,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how Independent Sales Organizations (ISOs) and Independent Software Vendors (ISVs) can collaborate to drive scalable growth in the rapidly evolving payments industry, where over 90% of U.S. small businesses now rely on ISV solutions for payment services.",
+          "aiSummary": "Over 90% of U.S. small businesses now use Independent Software Vendor (ISV) solutions to purchase payment services, reshaping how ISOs reach merchants.",
           "translations": {
             "da": {
               "title": "Opbygning af en succesfuld betalingsstrategi: Hvordan ISOs og ISVs kan skabe skalerbar vækst sammen",
@@ -339,7 +339,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Furniture retailer Povison views AI-driven traffic referrals as a significant growth opportunity, with site visits increasing faster than expected, prompting the company to integrate AI search and generative technologies ahead of the holiday season.",
+          "aiSummary": "Povison reports faster-than-expected site traffic growth from AI platform referrals and is expanding AI search and generative tools ahead of the holiday season.",
           "translations": {
             "da": {
               "title": "Povison omfavner AI-trafikhenvisninger, planlægger stigning gennem ferien",
@@ -371,7 +371,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "This AI-generated summary: The article explains that effective web personalization in ecommerce requires targeting specific funnel stages and revenue leaks rather than relying on generic tools like homepage carousels, which have limited impact on conversion and revenue recovery.",
+          "aiSummary": "Web personalization mapped to specific funnel stages and dollar leaks drives ecommerce conversion, while generic homepage widgets yield only minor click-through gains without addressing cart abandonment.",
           "translations": {
             "da": {
               "title": "Webpersonaliserering og Ecommerce-konvertering: Hvad der virkelig gør en forskel",
@@ -403,7 +403,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: Bath & Body Works' e-commerce segment has returned to growth, with the retailer anticipating continued gains through the second half of 2026 and into 2027.",
+          "aiSummary": "Bath & Body Works' e-commerce channel has returned to growth, with continued gains expected through the second half of 2026 and into 2027.",
           "translations": {
             "da": {
               "title": "Bath & Body Works e-handel vender tilbage til vækst",
@@ -435,7 +435,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: The article \"Contribution Margin Guides Ecommerce Growth\" from Practical Ecommerce (2026-08-27) highlights that a merchant's busiest holiday season may not necessarily be its most profitable, emphasizing the importance of contribution margin in guiding ecommerce growth.",
+          "aiSummary": "A merchant’s busiest holiday season can be its least profitable, highlighting the importance of contribution margin in guiding ecommerce growth.",
           "translations": {
             "da": {
               "title": "Bidragsmargin Vejleder Ecommerce Vækst",
@@ -467,7 +467,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: BK Beauty, after a brief hiatus from TikTok Shop, has recommitted to the platform following its initial success. This move highlights the brand's ongoing focus on ecommerce and retail technology.",
+          "aiSummary": "BK Beauty returned to TikTok Shop after a brief hiatus, renewing its focus on the platform following previous sales success.",
           "translations": {
             "da": {
               "title": "BK Beauty satser igen på TikTok Shop",
@@ -506,7 +506,7 @@
               "luxury"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Luxury Daily's report on August 25, 2026, The RealReal's annual data reveals a 432% increase in vintage luxury demand, with decade-specific searches rising 135% year-over-year, particularly for 2000s fashion and Phoebe Philo-era Celine.",
+          "aiSummary": "The RealReal reports vintage demand up 432% and decade-specific saved searches rising 135%, led by 2000s fashion and Phoebe Philo-era Celine.",
           "translations": {
             "da": {
               "title": "Genbrug bliver førstevalg for shoppere, da efterspørgslen på vintage stiger 432%: The RealReal",
@@ -539,7 +539,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Nike has appointed Kristin Bauer, former Foot Locker supply chain chief, as the new COO of Converse, with her tenure starting on September 14 at the struggling brand.",
+          "aiSummary": "Nike appointed former Foot Locker supply chain chief Kristin Bauer as Converse COO, starting September 14, to help revive the struggling brand.",
           "translations": {
             "da": {
               "title": "Nike udnævner tidligere Foot Locker supply chain-chef som Converse COO",
@@ -573,7 +573,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: According to a new report from The RealReal, secondhand shoppers are increasingly interested in indie luxury brands such as Zankov, Heirlome, and Rùadh, highlighting the growing momentum of emerging designers in the luxury resale market.",
+          "aiSummary": "Secondhand shoppers are driving demand for indie brands such as Zankov, Heirlome and Rùadh, The RealReal's latest report finds.",
           "translations": {
             "da": {
               "title": "Nye designere vinder frem på luksusmarkedet for genbrug",
@@ -604,7 +604,7 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The article from Drapers dated August 28, 2026, explores how fashion retailers and suppliers are adjusting their products and purchasing schedules to adapt to increasingly hot and extended summer seasons.",
+          "aiSummary": "Fashion retailers and suppliers are adapting product ranges and buying schedules as summer seasons become hotter and longer.",
           "translations": {
             "da": {
               "title": "Kan modebranchen klare varmen?",
@@ -637,7 +637,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: In the Fashionista article \"Meet the Meta Alums (and Sisters) Rewriting Brands' Community Management Playbooks,\" Nectar Social Co-Founders Misbah and Farah Uraizee discuss strategies for fashion and beauty brands to better leverage AI in community management.",
+          "aiSummary": "Nectar Social Co-Founders Misbah and Farah Uraizee shared strategies for fashion and beauty brands to leverage AI in community management on The Fashionista Network.",
           "translations": {
             "da": {
               "title": "Mød Meta-alumnerne (og søstrene), der omskriver brands' community management playbooks",
@@ -671,7 +671,7 @@
               "heritage"
             ]
           },
-          "aiSummary": "AI-generated summary: Foster + Partners has created a showroom concept for Norton Motorcycles featuring sleek metal display stands that showcase the bikes like sculptures, aligning with the brand's rebranding efforts to emphasize engineering heritage and modernity.",
+          "aiSummary": "Foster + Partners has created a new showroom concept with metal display stands for Norton Motorcycles as part of the brand’s rebranding project.",
           "translations": {
             "da": {
               "title": "Foster + Partners designer detailpodium for at fremhæve \"præcision og modernitet\" hos Norton Motorcycles",
@@ -704,7 +704,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Social media influencers are increasingly launching their own consumer brands, attracting significant venture capital investment, signaling a new trend in the luxury and consumer sector.",
+          "aiSummary": "Social media influencers are launching new consumer brands that are attracting significant venture capital investment.",
           "translations": {
             "da": {
               "title": "Sociale medie-influencere iklæder sig iværksætterrollen; lancerer VC-støttede forbrugerbrands",
@@ -741,7 +741,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: The United States has pledged to impose sanctions on countries or entities involved with Iran's gold, digital assets, aviation, shipping, and technology sectors, expanding its focus beyond just Iranian oil. This move has significant implications for the jewellery industry and related markets.",
+          "aiSummary": "The United States threatened sanctions against countries or entities dealing with Iran’s gold, digital assets, aviation, shipping, and technology sectors.",
           "translations": {
             "da": {
               "title": "Guld, Flyvninger, Kryptovaluta: USA Lover at Gå Efter Mere End Irans Olie",
@@ -775,7 +775,7 @@
               "gold"
             ]
           },
-          "aiSummary": "AI-generated summary: A jeweller was praised for their vigilance in saving an elderly woman from a gold scam, highlighting a positive incident within the jewellery industry.",
+          "aiSummary": "A jeweller prevented an elderly woman from falling victim to a gold scam, earning praise for vigilance.",
           "translations": {
             "da": {
               "title": "Smykkeforhandler rost for at redde ældre kvinde fra svindler",
@@ -809,7 +809,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Authorities in India have rescued 13 children from a factory involved in manufacturing imitation jewellery, highlighting concerns within the jewellery industry.",
+          "aiSummary": "Authorities in India rescued 13 children from a factory manufacturing imitation jewellery.",
           "translations": {
             "da": {
               "title": "Børn reddet fra smykkeproduktionsvirksomhed",
@@ -842,7 +842,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: A recent report in Jeweller - Business News (2026-08-24) highlights the growing sophistication of \"super clone\" counterfeit luxury watches, posing a new challenge for the jewellery industry.",
+          "aiSummary": "A new report finds counterfeit luxury watches are becoming increasingly sophisticated, posing a fresh challenge for the watch industry.",
           "translations": {
             "da": {
               "title": "‘Super clone’ ure udgør en ny udfordring for luksusurindustrien",
@@ -875,7 +875,7 @@
               "gem"
             ]
           },
-          "aiSummary": "AI-generated summary: Independent investigations by GIA and Gübelin Gem Lab have confirmed Ethiopia as a new source of copper-bearing Paraíba tourmaline, identifying a unique chemical signature distinct from known sources in Brazil, Mozambique, and Nigeria.",
+          "aiSummary": "GIA and Gübelin Gem Lab identified Ethiopia as a new source of copper-bearing Paraíba tourmaline with a unique chemical signature.",
           "translations": {
             "da": {
               "title": "GIA og Gübelin Gem Lab bekræfter Etiopien som ny kilde til Paraíba turmalin",
@@ -909,7 +909,7 @@
               "timepiece"
             ]
           },
-          "aiSummary": "AI-generated summary: The review of the Ressence Type 11 watch praises the brand's comprehensive website for its detailed information on the timepiece and its technology, highlighting a thematic restart for the innovative horology brand.",
+          "aiSummary": "Ressence launches the Type 11 wristwatch, marking a thematic restart for the innovative horology brand.",
           "translations": {
             "da": {
               "title": "Anmeldelse: Ressence Type 11 Ur Er En Tematisk Genstart For Det Innovative Urmærke",
@@ -944,7 +944,7 @@
               "timepiece"
             ]
           },
-          "aiSummary": "AI-generated summary: The article provides a firsthand review of Chanel’s new high-end men’s J12 Golden Black Ceramic 42mm watch, part of the recently introduced masculine J12 collection unveiled in 2026. It reflects the author’s experience meeting with Chanel and examining the timepieces beyond initial impressions.",
+          "aiSummary": "Chanel debuts high-end men’s J12 Golden Black Ceramic 42mm watch, expanding its masculine timepiece collection with two new matte-black ceramic models.",
           "translations": {
             "da": {
               "title": "Hands-On Med Chanels High-End Herre J12 Golden Black Ceramic 42mm Ur",

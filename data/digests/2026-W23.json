@@ -41,7 +41,7 @@
               "compute"
             ]
           },
-          "aiSummary": "AI-generated summary: Anthropic, an artificial intelligence company experiencing rapid growth due to its technology that can automatically write computer code, has filed to go public, positioning itself in direct competition with OpenAI's upcoming stock market debut.",
+          "aiSummary": "Anthropic has filed to go public after a year of explosive growth driven by its AI technology that automatically writes computer code.",
           "translations": {
             "da": {
               "title": "Anthropic anmoder om børsnotering og baner vejen for stor I.P.O.",
@@ -74,7 +74,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: Ahead of its IPO, Anthropic's Daniela Amodei remains confident despite skepticism about AI's returns, as the company reports rapid growth with annualized revenue soaring from $9 billion at the end of 2025 to $47 billion in May 2026.",
+          "aiSummary": "Anthropic’s annualized revenue surged to $47 billion in May, up from about $9 billion at end-2025, ahead of its planned IPO.",
           "translations": {
             "da": {
               "title": "Forud for sin børsintroduktion afviser Anthropics Daniela Amodei tvivl om AI's afkast",
@@ -108,7 +108,7 @@
               "investment"
             ]
           },
-          "aiSummary": "AI-generated summary: Meta is launching its first paid AI product, \"Hatch,\" an agent that performs tasks like building tools and managing schedules for up to $200 per month, aiming to create new revenue streams beyond advertising.",
+          "aiSummary": "Meta is developing Hatch, its first paid AI agent, which could cost up to $200 per month and automate tasks like scheduling and emailing.",
           "translations": {
             "da": {
               "title": "Metas Hatch AI-agent kan koste op til 200 $ om måneden og markerer dets første betalte AI-produkt",
@@ -141,7 +141,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: According to a June 5 report by 404 Media, attackers exploited Meta’s AI customer support agent to hijack Instagram accounts by tricking it into linking accounts to their own email addresses, including breaching the dormant Obama White House account. This incident highlights significant security challenges in AI systems beyond common misconceptions.",
+          "aiSummary": "Attackers used Meta’s AI customer support agent to hijack Instagram accounts, including the dormant Obama White House account, by redirecting email links.",
           "translations": {
             "da": {
               "title": "Meta-hacket viser, at der er mere i AI-sikkerhed end Mythos",
@@ -174,7 +174,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary: Investors are heavily investing in Artificial Intelligence, highlighted by SpaceX's large IPO and increased AI infrastructure by companies like Google, alongside strong demand for chips; however, analysts caution that market optimism may overlook underlying economic challenges such as inflation and slowing growth.",
+          "aiSummary": "SpaceX's massive IPO and surging chipmaker demand highlight an AI investment boom, even as analysts warn market expectations may outpace economic realities.",
           "translations": {
             "da": {
               "title": "AI-feber spreder sig, men skjuler markederne økonomiske revner?",
@@ -207,7 +207,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Poke, a startup enabling AI agents via simple text messages, has been approved as the first AI agent on Apple's Messages for Business platform, according to TechCrunch on June 4, 2026.",
+          "aiSummary": "Apple approved Poke as the first AI agent on its Messages for Business platform, enabling users to access AI via simple text messages.",
           "translations": {
             "da": {
               "title": "Apple godkender Poke som den første AI-agent på sin Messages for Business-platform",
@@ -241,7 +241,7 @@
               "investment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article \"Create Generative AI Value at Scale\" from MIT Sloan Management Review (2026) discusses a three-year study (2022-2025) involving 23 Swiss companies across various industries collaborating in a research consortium to explore the strategic implementation of generative AI.",
+          "aiSummary": "Twenty-three Swiss companies from industries including retail banking, insurance, and manufacturing joined a three-year consortium to scale generative AI initiatives.",
           "translations": {
             "da": {
               "title": "Skab Generativ AI-værdi i Stort Omfang",
@@ -278,7 +278,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Google is developing an AI-powered Universal Cart aimed at Walmart and Target shoppers, but gaining consumer adoption remains uncertain.",
+          "aiSummary": "Google will roll out its AI-powered Universal Cart to Walmart and Target shoppers, aiming to become the default online shopping cart.",
           "translations": {
             "da": {
               "title": "Googles Universal Cart bliver snart tilgængelig for Walmart- og Target-kunder – at få deres accept kan blive den svære del",
@@ -310,7 +310,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Retailers such as Best Buy, Gap, and Dick’s Sporting Goods highlighted during their Q1 earnings calls how investments in AI are transforming their productivity and personalized shopping experiences.",
+          "aiSummary": "Best Buy, Gap and Dick’s Sporting Goods reported that AI investments are driving productivity gains and more personalized shopping experiences in Q1.",
           "translations": {
             "da": {
               "title": "Detailhandlere vender sig mod AI for produktivitet og personlig shopping",
@@ -343,7 +343,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Rhino USA is developing a 182-acre campus in Texas to enhance content creation following its unexpected success on TikTok Shop, where it achieved over eight figures in sales.",
+          "aiSummary": "Rhino USA is building a 182-acre Texas content campus after surpassing eight figures in TikTok Shop sales.",
           "translations": {
             "da": {
               "title": "Marketplace Briefing: Hvordan Rhino USA bygger en 182-acre 'content factory' i Texas efter at have opnået 8-cifrede salg på TikTok Shop",
@@ -373,7 +373,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Walmart is expanding its express delivery service to include select Subway locations, its largest in-store restaurant tenant, as part of its ecommerce and retail tech initiatives.",
+          "aiSummary": "Walmart is launching express delivery for select Subway locations, expanding services with its largest in-store restaurant tenant.",
           "translations": {
             "da": {
               "title": "Walmart udvider til restaurantlevering med Subway-aftale",
@@ -409,7 +409,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: easyGroup is expanding into mainstream online retail with the upcoming launch of easyShop.com, a new marketplace set to operate in 21 European countries later this year, marking a significant growth for the brand in everyday shopping.",
+          "aiSummary": "easyGroup will launch easyShop.com, an online marketplace spanning 21 European countries, marking its entry into mainstream online retail later this year.",
           "translations": {
             "da": {
               "title": "easyGroup bevæger sig ind i online detailhandel med lanceringen af easyShop-markedspladsen",
@@ -442,7 +442,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Payments Journal discusses how, despite ongoing excitement, technologies like AI agents in e-commerce and palm-swipe payments have yet to become mainstream, indicating that widespread adoption of emerging payment trends still has significant progress to make.",
+          "aiSummary": "AI agents and palm-swipe payments have yet to see mainstream adoption in e-commerce or stores, echoing slow rollouts of past payment technologies.",
           "translations": {
             "da": {
               "title": "Adskillelse af hype fra virkelighed i nye betalingstendenser",
@@ -474,7 +474,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: The Mall is a new app that creates a personalized shopping feed, allowing users to follow brands, monitor sales and product drops, and explore items from thousands of retailers.",
+          "aiSummary": "The Mall app launches a universal shopping feed, letting users track sales and discover products from thousands of retailers in one place.",
           "translations": {
             "da": {
               "title": "En ny app, The Mall, bygger et universelt feed til online shopping",
@@ -515,7 +515,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: Macy’s has raised its annual forecast after posting its first quarterly sales growth in nearly four years, fueled by increased demand for luxury products at Bloomingdale’s and Bluemercury stores.",
+          "aiSummary": "Macy’s reported its first quarterly sales growth in nearly four years, fuelled by affluent shoppers at Bloomingdale’s and Bluemercury, and raised its annual forecast.",
           "translations": {
             "da": {
               "title": "Macy’s hæver årsprognosen, da fokus på luksus tiltrækker velhavende kunder",
@@ -548,7 +548,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: EVNA PR, a strategic communications agency specializing in beauty, fashion, and interior design, is hiring a publicist in NYC or Los Angeles to support its work in building brand equity through storytelling, partnerships, events, and awards.",
+          "aiSummary": "EVNA PR is hiring a publicist in New York City or Los Angeles to support its beauty, fashion, and interior design clients.",
           "translations": {
             "da": {
               "title": "EVNA PR ansætter en publicist i NYC eller Los Angeles",
@@ -583,7 +583,7 @@
               "affluent"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Business of Fashion (2026-06-01), affluent Chinese consumers are increasing their luxury spending, supported by a rally in Chinese equities that has boosted wealth and consumer sentiment, as reflected in results from companies like L’Oréal, LVMH, and Ralph Lauren.",
+          "aiSummary": "L’Oréal, LVMH and Ralph Lauren report rising luxury sales as affluent Chinese consumers resume spending, buoyed by a local equities rally.",
           "translations": {
             "da": {
               "title": "Kinesiske forbrugere køber luksus igen",
@@ -617,7 +617,7 @@
               "heritage"
             ]
           },
-          "aiSummary": "AI-generated summary: In its 50th anniversary year, Houlden has welcomed two independent luxury jewellers, including the family-owned Martin & Co, known for its heritage and expertise in fine jewellery and luxury watches, to its membership.",
+          "aiSummary": "Houlden added two independent luxury jewellers, including heritage retailer Martin & Co, to its membership during its 50th anniversary year.",
           "translations": {
             "da": {
               "title": "Houlden byder to uafhængige forhandlere velkommen i sit 50. år",
@@ -650,7 +650,7 @@
               "luxury"
             ]
           },
-          "aiSummary": "AI-generated summary: L’Oréal has partnered as the founding ‘olfactory’ collaborator of Dataland, launching the world’s first AI art museum and embracing what Cyril Chapuy describes as the ‘luxury of tomorrow.’ This initiative highlights L’Oréal’s integration of technology within the luxury and consumer sector.",
+          "aiSummary": "L’Oréal became the founding olfactory partner of Dataland, the world’s first AI art museum, to showcase its scent technology.",
           "translations": {
             "da": {
               "title": "L’Oréal lancerer verdens første AI-kunstmuseum",
@@ -683,7 +683,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Founded by two former Everlane executives, Good Weather Skin is an emerging luxury SPF brand that emphasizes high-quality mineral sunscreen formulations.",
+          "aiSummary": "Good Weather Skin, founded by two former Everlane executives, is positioning its mineral sunscreen as a high-quality, desirable SPF option.",
           "translations": {
             "da": {
               "title": "Dette Fremspirende SPF-mærke Gør Mineral Solcreme 'Sexet'",
@@ -716,7 +716,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: As K-beauty hair-care brands expand into the U.S. market, they are revising product formulations and marketing approaches to better appeal to consumers with coily and kinky hair textures.",
+          "aiSummary": "K-hair brands entering the U.S. are revising product formulas and marketing to better appeal to coily- and kinky-haired consumers.",
           "translations": {
             "da": {
               "title": "K-Beauty Hårplejeboom Er På Vej – Men Efterlader Den Sorte Købere?",
@@ -755,7 +755,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Kate Spade is the first retailer to implement Amazon's new AI conversational shopping tool, the AWS Agentic Shopping Assistant, which uses Alexa technology to provide personalized gift recommendations. This innovation aims to enhance the customer shopping experience in the jewellery industry.",
+          "aiSummary": "Kate Spade is the first retailer to install Amazon’s AWS Agentic Shopping Assistant AI tool for personalised gift recommendations.",
           "translations": {
             "da": {
               "title": "Kate Spade lancerer Amazons AI-konversationelle shoppingværktøj",
@@ -790,7 +790,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: In the article \"Focus on the things that matter\" from Jeweller - Main (2026-06-03), LEON VAN MEGEN advises jewellery retailers to prepare for upcoming challenges in the industry by organizing and strengthening their operations.",
+          "aiSummary": "LEON VAN MEGEN urges jewellery retailers to prepare for challenging winter trading by focusing on operational readiness and business fundamentals.",
           "translations": {
             "da": {
               "title": "Fokus på de ting, der betyder noget",
@@ -823,7 +823,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: De Beers Group and the Gemological Institute of America (GIA) have each acquired a 30% stake in Tracr, a blockchain-based diamond provenance platform backed by De Beers, marking a key step toward the platform's independence and industry-wide adoption.",
+          "aiSummary": "De Beers Group and GIA have acquired a combined 30% stake in Tracr, the blockchain-driven diamond provenance platform.",
           "translations": {
             "da": {
               "title": "De Beers og GIA køber andel i diamantverifikationsplatform",
@@ -858,7 +858,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: An Australian jewellery retailer has confirmed a cyber attack following hackers' claims of accessing the company's systems and stealing over half a terabyte of data. The incident highlights cybersecurity challenges within the jewellery industry.",
+          "aiSummary": "An Australian jewellery retailer confirmed a cyber attack after hackers claimed to have stolen more than half a terabyte of company data.",
           "translations": {
             "da": {
               "title": "Australsk smykkeforhandler bekræfter cyberangreb",
@@ -893,7 +893,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: REEDS Jewelers has launched its third Landmark showroom in Cary, North Carolina, a 7,800 square foot luxury space anchored by Rolex and showcasing top Swiss watch brands alongside fine and bridal jewellery. The new store, located in the Fenton mixed-use development, emphasizes hospitality-led client experiences.",
+          "aiSummary": "REEDS Jewelers has opened its third Rolex-anchored Landmark showroom, a 7,800 sq ft store at Fenton in Cary, North Carolina.",
           "translations": {
             "da": {
               "title": "REEDS Jewelers åbner tredje Landmark showroom med Rolex som anker",
@@ -928,7 +928,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: According to new data reported by Jeweller - Business News on June 1, 2026, India has exported more polished lab-created diamond carats than natural diamonds, marking a significant shift in the global jewellery industry.",
+          "aiSummary": "India exported more polished lab-created diamond carats than natural diamond, marking a symbolic milestone for the global jewellery trade.",
           "translations": {
             "da": {
               "title": "Vægtskålen tipper: Ny milepæl for laboratoriefremstillede diamanter",
@@ -961,7 +961,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: The Gemological Institute of America (GIA) has acquired a 30 per cent stake in Tracr, the diamond tracing platform owned by the De Beers Group, as reported by Jeweller - Business News on June 1, 2026.",
+          "aiSummary": "GIA has acquired a 30% stake in Tracr, De Beers Group’s diamond tracing platform.",
           "translations": {
             "da": {
               "title": "GIA erhverver en tredjedel af aktierne i diamantsporingsplatform",
@@ -978,5 +978,13 @@
   },
   "editorialTake": "Anthropic’s IPO filing signals a pivotal moment in AI’s commercialization race. Daniela Amodei’s confidence in delivering returns despite skepticism highlights a growing divide between AI hype and tangible business models. This isn’t just another tech debut; it’s a test of whether AI companies can justify sky-high valuations with real revenue streams. Investors will want to see if Anthropic’s approach to safety and proprietary models can translate into sustainable profits or if it’s just another AI bubble waiting to burst.\n\nMeanwhile, Meta’s launch of Hatch, a $200-a-month AI agent, exposes a sharp tension in AI’s monetization strategy. Charging a premium for AI tools aimed at everyday tasks risks alienating users accustomed to free or low-cost alternatives. Meta’s recent AI-related security breach only deepens the question: can big tech balance aggressive AI monetization with the trust and safety users demand? The real test is whether customers will pay for AI convenience or recoil from the risks and costs.",
   "coverImageUrl": "/weekly-images/2026-W23.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W23"
+  "coverImageAlt": "Weekly cover illustration for 2026-W23",
+  "oneSentenceSummary": "Retailers’ use of AI to chase both mass efficiency and bespoke luxury experiences upends the assumption that scale and exclusivity cannot coexist digitally.",
+  "keyThemes": [
+    "Anthropic IPO",
+    "Meta Hatch AI",
+    "Tracr diamond provenance",
+    "Macy’s luxury sales growth",
+    "Rhino USA TikTok Shop"
+  ]
 }

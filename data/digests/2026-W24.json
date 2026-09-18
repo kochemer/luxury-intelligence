@@ -39,7 +39,7 @@
               "artificial intelligence"
             ]
           },
-          "aiSummary": "AI-generated summary: The US government has ordered Anthropic to restrict foreign nationals' access to its Fable 5 and Mythos 5 AI models due to national security concerns, while Anthropic seeks to clarify the situation and restore access; other models remain unaffected.",
+          "aiSummary": "The US ordered Anthropic to block foreign nationals from Fable 5 and Mythos 5 AI models due to national security concerns.",
           "translations": {
             "da": {
               "title": "USA beordrer lukning af Anthropics Fable 5 og Mythos 5 over sikkerhedsbekymringer",
@@ -72,7 +72,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: According to The Verge (2026-06-13), Amazon's cybersecurity research, which demonstrated that Anthropic's Fable 5 could be prompted to reveal information useful for cyberattacks, contributed to the White House's export control directive that led to Anthropic banning access to Fable 5 and Mythos 5. This action followed discussions between Amazon CEO Andy Jassy and the White House.",
+          "aiSummary": "Amazon cybersecurity research exposing Fable 5’s vulnerability to cyberattack prompts contributed to the White House’s export ban on Anthropic’s Fable 5 and Mythos 5.",
           "translations": {
             "da": {
               "title": "Amazon sikkerhedsforskning førte angiveligt til Det Hvide Hus’ forbud mod Anthropics Fable",
@@ -104,7 +104,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon CEO Andy Jassy reportedly raised security concerns about Anthropic's models, which may have prompted the company to restrict global access to two of its AI models, according to a TechCrunch report dated June 13, 2026.",
+          "aiSummary": "Amazon CEO Andy Jassy reportedly raised security concerns prompting Anthropic to cut off worldwide access to two AI models on Friday.",
           "translations": {
             "da": {
               "title": "Amazon CEO skal have rejst bekymringer om Anthropics modeller før regeringsindgreb",
@@ -140,7 +140,7 @@
               "investment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses \"Coinbase for Agents,\" a platform that integrates AI with financial execution channels to automate trading and payments directly from user portfolios, addressing the gap where large language models analyze market data but lack direct portfolio integration.",
+          "aiSummary": "Coinbase for Agents launched an AI platform that automates trading and payments by directly connecting large language models to user financial portfolios.",
           "translations": {
             "da": {
               "title": "Coinbase for Agents: Automatisering af porteføljehandel med AI",
@@ -173,7 +173,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: On June 11, 2026, CNBC Technology reported that Coinbase has launched a tool enabling AI agents to manage trading and payments, reflecting the company's belief that AI will become the main interface for users' financial activities.",
+          "aiSummary": "Coinbase launched a tool enabling AI agents to manage trading and payments, aiming to make AI the main interface for financial activity.",
           "translations": {
             "da": {
               "title": "Coinbase lancerer værktøj, der lader AI-agenter styre handel og betalinger",
@@ -206,7 +206,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Visa has integrated its payment system with ChatGPT, allowing AI agents to autonomously recommend retail products and complete purchases without human involvement by using Visa’s payment infrastructure at supported merchants.",
+          "aiSummary": "Visa has integrated its payment system with ChatGPT, allowing AI agents to recommend products and autonomously complete retail purchases at participating merchants.",
           "translations": {
             "da": {
               "title": "Visa ChatGPT-integration muliggør AI-agent detailkøb",
@@ -239,7 +239,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: Following a US directive suspending access to Anthropic's AI models, India Inc is accelerating efforts toward AI self-reliance by promoting domestic R&D, open-source models, and semiconductor design to safeguard national sovereignty and reduce dependence on foreign platforms.",
+          "aiSummary": "A US order suspending Anthropic AI access has prompted India Inc leaders to accelerate domestic AI R&D, open-source models, and semiconductor design for self-reliance.",
           "translations": {
             "da": {
               "title": "Anthropic’s Fable 5-nedlukning udløser India Inc's satsning på AI-selvforsyning",
@@ -276,7 +276,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: Visa Inc. is partnering with OpenAI to enhance agent-led payments by integrating Visa's payment capabilities into OpenAI experiences, as announced at the Visa Payments Forum in San Francisco. This collaboration aims to advance AI-driven commerce for developers and merchants.",
+          "aiSummary": "Visa is partnering with OpenAI to integrate its payment capabilities into OpenAI experiences, enabling AI agent-led payments for developers and merchants.",
           "translations": {
             "da": {
               "title": "Visa og OpenAI samarbejder om at støtte agentstyrede betalinger",
@@ -309,7 +309,7 @@
               "fulfillment"
             ]
           },
-          "aiSummary": "AI-generated summary: The 2026 Digital Commerce 360 Omnichannel Report highlights that retail chains offering omnichannel fulfillment consistently achieve higher conversion rates, detailing the most popular omnichannel options and their impact on conversion performance.",
+          "aiSummary": "Retail chains offering omnichannel fulfillment report consistently higher conversion rates, with the 2026 Digital Commerce 360 Omnichannel Report highlighting the most popular options.",
           "translations": {
             "da": {
               "title": "Ecommerce Trends: Hvordan forbedrer detailhandlere konvertering med omnichannel muligheder?",
@@ -339,7 +339,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The article discusses how recommendations have become a crucial battleground in commerce media, highlighting the importance of AI's role in influencing consumer choices and the level of control it holds from both industry and consumer perspectives.",
+          "aiSummary": "An industry-consumer survey finds recommendation has become the key battleground for commerce media as brands seek greater influence over AI-driven suggestions.",
           "translations": {
             "da": {
               "title": "Anbefaling: det nye handelsmedie slagmark, branche-forbruger undersøgelse beviser",
@@ -371,7 +371,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: The article \"AI Turns Ecommerce Design into Reality\" from Practical Ecommerce (2026-06-11) highlights how AI technology can significantly save time and money for merchants, potentially transforming ecommerce design.",
+          "aiSummary": "AI-powered tools are enabling ecommerce merchants to rapidly transform design concepts into live online stores, significantly reducing development time and costs.",
           "translations": {
             "da": {
               "title": "AI forvandler e-handelsdesign til virkelighed",
@@ -403,7 +403,7 @@
               "online retail"
             ]
           },
-          "aiSummary": "AI-generated summary: New data from Digital Commerce 360's Top 1000 Report reveals that online retailers using subscription models experience higher conversion rates. This insight highlights the positive impact of subscriptions on ecommerce performance.",
+          "aiSummary": "Online retailers using subscription models report higher conversion rates, Digital Commerce 360's latest Top 1000 Report finds.",
           "translations": {
             "da": {
               "title": "Abonnementer øger konverteringer for onlineforhandlere, viser nye data",
@@ -436,7 +436,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: Cegid launched its new multilingual and modular ‘super app’ Cegid Retail One at the Cegid Connections Retail 2026 event in Prague, aiming to unify fragmented in-store systems into a single connected platform for specialty retailers. The cloud-based solution integrates Cegid’s management software to enhance retail operations.",
+          "aiSummary": "Cegid launched its multilingual, modular ‘super app’ Cegid Retail One in Prague, aiming to unify specialty retailers’ fragmented in-store systems.",
           "translations": {
             "da": {
               "title": "Cegid lancerer ’single experience’-appen Cegid Retail One ved event i Prag",
@@ -468,7 +468,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Practical Ecommerce discusses how India's rapidly growing quick commerce model allows consumers to purchase goods online and receive them within 30 minutes, highlighting strategies brands use to succeed in this fast-paced market.",
+          "aiSummary": "India’s quick commerce platforms now deliver online purchases to consumers within 30 minutes, transforming local retail and consumer expectations.",
           "translations": {
             "da": {
               "title": "Hvordan brands vinder i Indiens Quick Commerce",
@@ -507,7 +507,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Farfetch’s chief commercial officer details the strategy behind Farfetch First, a new service aimed at enhancing customer experience and supporting a global network of brand partners in the luxury e-commerce sector.",
+          "aiSummary": "Farfetch launched Farfetch First, a new service aimed at enhancing customer experience and supporting its global network of luxury brand partners.",
           "translations": {
             "da": {
               "title": "Inden for Farfetchs strategi for en ny æra af luksusoplevelser",
@@ -538,7 +538,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The online retail platform eBay has awarded $300,000 from its Circular Fashion Fund to the tech-enabled textile sorting startup Trosort, now in its fourth year.",
+          "aiSummary": "eBay is investing $300,000 in tech-enabled textile sorting startup Trosort, winner of the fourth annual Circular Fashion Fund.",
           "translations": {
             "da": {
               "title": "AI-drevet startup vinder eBay Circular Fashion Fund",
@@ -571,7 +571,7 @@
               "luxury"
             ]
           },
-          "aiSummary": "AI-generated summary: In a Business of Fashion interview dated June 9, 2026, Boyner Group CEO Cem Boyner discusses with BoF president Nick Blunden how the launch of two new retail concepts in Istanbul reflects evolving forces shaping the future of luxury retail amid changing perceptions of luxury's value.",
+          "aiSummary": "Boyner Group opened two new retail concepts in Istanbul as chairman Cem Boyner discussed evolving luxury retail strategies amid scrutiny of luxury’s value proposition.",
           "translations": {
             "da": {
               "title": "Hos Communité, Discovery, Differentiation og Fremtiden for Luxury Retail",
@@ -602,7 +602,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The article from Drapers (2026-06-12) discusses how fashion retailers plan to capitalize on commercial opportunities presented by major sporting events this summer, including the FIFA Men's World Cup and Wimbledon.",
+          "aiSummary": "Fashion retailers are launching sport-themed collections and in-store events to attract shoppers during the FIFA Men's World Cup and Wimbledon this summer.",
           "translations": {
             "da": {
               "title": "Sådan kan detailhandlere score på sportssommeren",
@@ -633,7 +633,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: According to Drapers editor Jill Geoghegan, recent raw material price increases of up to 30% present a significant new challenge for the fashion retail sector. This development has wide-ranging implications for the industry.",
+          "aiSummary": "Raw material prices have surged by up to 30%, creating significant new challenges for fashion retailers.",
           "translations": {
             "da": {
               "title": "Redaktørens kommentar: Prisstigninger på råmaterialer seneste hurdle for modehandel",
@@ -667,7 +667,7 @@
               "spending"
             ]
           },
-          "aiSummary": "AI-generated summary: Rolex has increased prices on its gold watches once again, with affluent buyers continuing to invest in these luxury timepieces despite a decline in spending among middle-class customers.",
+          "aiSummary": "Rolex raised gold watch prices again as super-rich clients keep buying investment timepieces despite middle class customers pulling back from luxury spending.",
           "translations": {
             "da": {
               "title": "Rolex hæver igen priserne på guldkure",
@@ -701,7 +701,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: The article \"Luxury Unfiltered: What SpaceX’s IPO reveals about luxury value creation,\" published in Luxury Daily on June 10, 2026, features insights from Daniel Langer, a recognized expert in luxury branding and hospitality, exploring the intersection of luxury value and SpaceX’s IPO.",
+          "aiSummary": "SpaceX’s anticipated IPO highlights how scarcity, storytelling and emotional value drive luxury brand desirability and long-term value creation.",
           "translations": {
             "da": {
               "title": "Luxury Unfiltered: Hvad SpaceX’s børsintroduktion afslører om skabelse af luksusværdi",
@@ -742,7 +742,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: Signet Jewelers, the world's largest diamond jewellery retailer, has reported increased revenue in the first quarter following a strategic restructure, indicating improved jewellery sales.",
+          "aiSummary": "Signet Jewelers reported first-quarter revenue growth following a strategic overhaul.",
           "translations": {
             "da": {
               "title": "Smykkesalg forbedres efter omstrukturering",
@@ -778,7 +778,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Despite ongoing volatility and rising prices in the precious metals market driven by inflation, geopolitical uncertainty, and demand for safe haven assets, Giovanni Raspini remains resilient in the silver sector within the jewellery industry.",
+          "aiSummary": "Giovanni Raspini maintains a strong position in silver jewellery despite ongoing volatility and rising prices in the precious metals market.",
           "translations": {
             "da": {
               "title": "Hvorfor Giovanni Raspini står stærkt i sølv trods stigende priser på ædle metaller",
@@ -814,7 +814,7 @@
               "timepiece"
             ]
           },
-          "aiSummary": "AI-generated summary: Independent retailer Robert Gatward Jewellers has expanded its product range by introducing the Rolex Certified Pre-Owned programme at its Windsor boutique, offering customers authenticated pre-owned Rolex watches certified by Rolex. This initiative provides access to a curated selection of eligible timepieces that are at least two years old.",
+          "aiSummary": "Robert Gatward Jewellers has launched the Rolex Certified Pre-Owned programme at its Windsor boutique, offering authenticated pre-owned Rolex watches with official certification.",
           "translations": {
             "da": {
               "title": "Robert Gatward Jewellers udvider tilbud med Rolex-samarbejde",
@@ -849,7 +849,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Jewellery sales among Australian retailers experienced a modest decline in May, according to recent market analysis reported by Jeweller - Business News on June 8, 2026.",
+          "aiSummary": "Australian jewellery retailers saw sales decline modestly in May, according to the latest market performance analysis.",
           "translations": {
             "da": {
               "title": "Smykkesalg falder for australske detailhandlere",
@@ -885,7 +885,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The Diamond Store has launched a new collection featuring Lab Paraíba YAG gemstones combined with lab-grown diamonds, making it one of the first UK retailers to introduce this innovative lab-grown material to the British jewellery market.",
+          "aiSummary": "The Diamond Store launched a Lab Paraíba YAG Collection, becoming one of the first UK jewellers to offer lab-grown YAG gemstones alongside lab-grown diamonds.",
           "translations": {
             "da": {
               "title": "The Diamond Store introducerer Lab Paraíba YAG ædelsten på det britiske marked",
@@ -918,7 +918,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: New Zealand's retail industry, including jewellery businesses, is urging the Federal Government to implement cost-of-living relief measures to support struggling companies.",
+          "aiSummary": "New Zealand retail industry leaders are urging the Federal Government to prioritise cost-of-living relief for struggling businesses.",
           "translations": {
             "da": {
               "title": "Nye Zealandske detailhandlere presser på for foranstaltninger mod leveomkostninger",
@@ -951,7 +951,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses the mixed reactions to the new Swatch x Audemars Piguet launch, suggesting that public misunderstanding stems from missing the intended \"plot twist,\" as explained by Samuel Ord.",
+          "aiSummary": "Swatch and Audemars Piguet’s new collaboration launch sparked intense consumer reaction, highlighting the delicate balance between brand exclusivity and mainstream appeal.",
           "translations": {
             "da": {
               "title": "At balancere mellem eksklusivitet og uklarhed",
@@ -968,5 +968,13 @@
   },
   "editorialTake": "The US government’s shutdown of Anthropic’s Fable 5 and Mythos 5 models, driven by Amazon’s security research and CEO Andy Jassy’s concerns, marks a turning point in AI governance. This is not just about one company’s models but a clear signal that national security now trumps open AI innovation. Amazon’s role shows how corporate interests can shape policy, raising the stakes for AI firms that rely on global access and trust.\n\nVisa’s partnership with OpenAI to enhance agent-led payments reveals where ecommerce is heading: seamless, AI-driven financial interactions embedded in everyday commerce. This move shifts the battleground from pure AI capabilities to practical integrations that drive conversion and loyalty. The real question is whether traditional payment giants can outpace fintech disruptors who are already embedding AI deeper into commerce ecosystems.",
   "coverImageUrl": "/weekly-images/2026-W24.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W24"
+  "coverImageAlt": "Weekly cover illustration for 2026-W24",
+  "oneSentenceSummary": "AI innovation is simultaneously driving commerce efficiency and triggering national security crackdowns, revealing a curious tension between commercial acceleration and political containment.",
+  "keyThemes": [
+    "Anthropic Fable 5",
+    "Visa ChatGPT integration",
+    "agentic commerce",
+    "Farfetch First",
+    "Signet Jewelers revenue"
+  ]
 }

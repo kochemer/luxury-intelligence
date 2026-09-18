@@ -40,7 +40,7 @@
               "ai startup"
             ]
           },
-          "aiSummary": "AI-generated summary: Anthropic acquired the stealth biotech AI startup Coefficient Bio in a $400 million stock deal, as reported by The Information and Eric Newcomer. This strategic move highlights Anthropic's expansion in the AI and biotech sectors.",
+          "aiSummary": "Anthropic acquired stealth biotech AI startup Coefficient Bio in a $400 million stock deal.",
           "translations": {
             "da": {
               "title": "Anthropic køber biotech startup Coefficient Bio i en aftale på 400 millioner dollars: Rapport",
@@ -75,7 +75,7 @@
               "policy"
             ]
           },
-          "aiSummary": "AI-generated summary: Anthropic has launched a new political action committee (PAC) aimed at supporting candidates aligned with its AI policy agenda ahead of the upcoming midterm elections.",
+          "aiSummary": "Anthropic launched a new PAC to support candidates aligned with its AI policy agenda ahead of the upcoming midterm elections.",
           "translations": {
             "da": {
               "title": "Anthropic øger sine politiske aktiviteter med en ny PAC",
@@ -109,7 +109,7 @@
               "deep learning"
             ]
           },
-          "aiSummary": "AI-generated summary: Abhishek Appaji, an IEEE senior member and associate professor, integrates artificial intelligence, biomedical engineering, deep learning, and neuroscience to develop tools that enhance diagnostic precision and improve mental health care in underresourced communities.",
+          "aiSummary": "Abhishek Appaji developed an AI tool that helps doctors detect mental health conditions, aiming to improve diagnostic precision in underresourced communities.",
           "translations": {
             "da": {
               "title": "Ung professionels AI-værktøj opdager mentale helbredstilstande",
@@ -142,7 +142,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Mercor, an AI recruiting startup, confirmed it was targeted in a cyberattack linked to the compromise of the open source LiteLLM project, with an extortion hacking group claiming to have stolen data from the company's systems.",
+          "aiSummary": "Mercor confirmed a security breach after hackers claimed responsibility for stealing company data via a compromise of the open source LiteLLM project.",
           "translations": {
             "da": {
               "title": "Mercor siger, at de blev ramt af cyberangreb forbundet med kompromittering af open source LiteLLM-projektet",
@@ -176,7 +176,7 @@
               "reasoning"
             ]
           },
-          "aiSummary": "AI-generated summary: As large language models experience diminishing general improvements, significant advancements now primarily come from domain-specialized intelligence, making AI model customization a critical architectural focus for organizations.",
+          "aiSummary": "Step-change performance gains now come from domain-specialized AI models, as general large language model improvements have slowed to incremental advances.",
           "translations": {
             "da": {
               "title": "Skift til AI-modeltilpasning er en arkitektonisk nødvendighed",
@@ -209,7 +209,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: A California judge recently issued a temporary block preventing the Pentagon from designating Anthropic as a supply chain risk and restricting government use of its AI, marking a setback in the Pentagon's ongoing dispute with the company.",
+          "aiSummary": "A California judge temporarily blocked the Pentagon from labeling Anthropic a supply chain risk and halting government use of its AI.",
           "translations": {
             "da": {
               "title": "Pentagons kulturkrigsstrategi mod Anthropic er slået fejl",
@@ -243,7 +243,7 @@
               "investment"
             ]
           },
-          "aiSummary": "AI-generated summary: According to Goldman Sachs, artificial intelligence is driving a significant surge in semiconductor revenues, with AI-related hardware sales projected to exceed $700 billion by late 2026 due to strong demand for AI infrastructure.",
+          "aiSummary": "AI-related hardware revenues could exceed $700 billion by late 2026 as surging demand for AI infrastructure drives semiconductor industry growth, says Goldman Sachs.",
           "translations": {
             "da": {
               "title": "AI-drevet efterspørgsel vil føre til kraftig stigning i halvlederindtægter: Goldman Sachs",
@@ -281,7 +281,7 @@
               "logistics"
             ]
           },
-          "aiSummary": "AI-generated summary: Starting April 17, Amazon will add a 3.5% surcharge on merchants' fulfillment fees due to increased fuel and logistics costs driven by Middle East conflicts, impacting supply chains.",
+          "aiSummary": "Amazon will add a 3.5% fuel and logistics surcharge to merchants’ fulfillment fees from April 17 due to rising Middle East-related supply chain costs.",
           "translations": {
             "da": {
               "title": "Amazon pålægger 3,5% tillæg på opfyldelsestjenester på grund af stigende brændstof- og logistomkostninger",
@@ -314,7 +314,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: The April 1, 2026 Practical Ecommerce article highlights new ecommerce tools including updates for product images, user-generated content, box-free returns, buy now pay later options, marketplace integrations, shipping intelligence, cross-border solutions, and affiliate partnerships.",
+          "aiSummary": "New ecommerce tools launched this week include product image updates, UGC features, box-free returns, BNPL options, marketplace integrations, shipping intel, and affiliate partnerships.",
           "translations": {
             "da": {
               "title": "Nye Ecommerce-værktøjer: 1. april 2026",
@@ -348,7 +348,7 @@
               "fulfillment"
             ]
           },
-          "aiSummary": "AI-generated summary: Aldi U.S. has launched a new website and app for its e-commerce platform, utilizing Instacart's Storefront Pro white-label technology to enhance its online shopping and fulfillment capabilities.",
+          "aiSummary": "Aldi U.S. launched a new website and app powered by Instacart’s Storefront Pro white-label e-commerce and fulfillment platform.",
           "translations": {
             "da": {
               "title": "Aldi bruger Instacart til at drive sin amerikanske hjemmeside",
@@ -381,7 +381,7 @@
               "logistics"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon will implement a 3.5% fuel and logistics surcharge on U.S. Fulfillment by Amazon services, averaging an additional 7 cents per unit, in response to rising fuel costs linked to the Iran war.",
+          "aiSummary": "Amazon will add a 3.5% fuel and logistics surcharge, averaging 7 cents per unit, to U.S. Fulfillment by Amazon services.",
           "translations": {
             "da": {
               "title": "Amazon pålægger 3,5% brændstof- og logistiktillæg på fulfillment",
@@ -414,7 +414,7 @@
               "e-commerce"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how rising shipping costs, including a 5.9 percent rate increase by major carriers like UPS and FedEx, are creating a cost crisis for U.S. e-commerce retailers, threatening profit margins and complicating financial forecasting despite strong market growth.",
+          "aiSummary": "UPS and FedEx imposed 5.9% general rate increases as U.S. e-commerce sales head toward a projected $1.8 trillion by 2029.",
           "translations": {
             "da": {
               "title": "Fra omkostningscenter til profitdræber: Genovervejelse af opfyldelse i æraen med konstante prisstigninger",
@@ -445,7 +445,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: PVH Corp's full-year 2025 revenue rose 3% to $8.95 billion, driven mainly by growth in the Americas and its global brands Tommy Hilfiger and Calvin Klein, despite a decline in overall earnings.",
+          "aiSummary": "PVH Corp’s FY25 revenue rose 3% to $8.95bn, led by Americas growth and strong performance from Tommy Hilfiger and Calvin Klein.",
           "translations": {
             "da": {
               "title": "PVH årsresultat falder, men omsætningsvækst viser tegn på bedring",
@@ -478,7 +478,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from UseInsider (2026-03-31) discusses how enterprise marketing teams are adopting Customer Data Platforms (CDPs) like Insider One, Segment, and Bloomreach to unify disparate data from CRM, POS, and mobile apps, enabling more effective ecommerce personalization.",
+          "aiSummary": "Insider One, Segment, and Bloomreach are compared as enterprise Customer Data Platforms for unifying CRM, POS, and mobile app insights to improve ecommerce personalization.",
           "translations": {
             "da": {
               "title": "Insider One vs Segment vs Bloomreach: Hvilken Enterprise CDP passer bedst til dig?",
@@ -517,7 +517,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Pixel Moda combines AI-powered content creation with human-led oversight to produce 14 million images and videos annually for over 900 global brands, enhancing efficiency while preserving creativity and brand identity in luxury e-commerce.",
+          "aiSummary": "Pixel Moda produces 14 million AI-generated and AI-assisted images and videos annually for over 900 brands, blending automation with human creativity to preserve brand identity.",
           "translations": {
             "da": {
               "title": "Inden for Pixel Modas menneskestyrede tilgang til AI-drevet mode e-handel",
@@ -551,7 +551,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Leading luxury groups LVMH, Kering, and Richemont are reassessing their brand portfolios, organizational structures, and store networks as they adapt to future challenges.",
+          "aiSummary": "LVMH, Kering and Richemont are reassessing their brand portfolios, organisational structures and store networks amid pressure from top managers and investors.",
           "translations": {
             "da": {
               "title": "Hvordan Stor Luksus Omstiller Sig til Fremtiden",
@@ -584,7 +584,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Mejuri's Puzzle stacking rings, launched last year, rapidly became the brand's fastest-selling collection, with 60% of customers purchasing three or more rings at once, fueling repeat sales.",
+          "aiSummary": "Mejuri’s Puzzle stacking rings became its fastest-selling collection, with 60% of customers buying three or more rings per purchase.",
           "translations": {
             "da": {
               "title": "Mejuri bygger videre på sin hurtigst sælgende kollektion, hvor de fleste kunder køber 3 produkter",
@@ -617,7 +617,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: After five years operating as a popular e-commerce platform for African brands, Industrie Africa is closing its online shop to transition into a retail advisory business.",
+          "aiSummary": "Industrie Africa is closing its e-commerce shop after five years to pivot into a retail advisory business.",
           "translations": {
             "da": {
               "title": "Hvorfor Industrie Africa lukker sin e-handelsbutik",
@@ -651,7 +651,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: After closing nearly all of its stores due to Covid, luxury retailer Forty Five Ten is gradually rebuilding its physical presence, beginning with a location in Fort Worth, TX.",
+          "aiSummary": "Forty Five Ten is reopening physical stores post-pandemic, beginning its renewed expansion with a new location in Fort Worth, Texas.",
           "translations": {
             "da": {
               "title": "Hvordan Forty Five Ten Genopbygger Sin Fysiske Butikseffekt Efter Covid",
@@ -685,7 +685,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Beauty brands targeting wealthy customers are now competing not just with other beauty products but with luxury experiences and services, such as exclusive travel or high-end cosmetic procedures.",
+          "aiSummary": "Beauty brands targeting high-net-worth clients now compete with luxury experiences and services, such as Amangiri stays or top plastic surgeons, rather than other beauty products.",
           "translations": {
             "da": {
               "title": "Hvad Skønhedsbranchens Rigeste Kunder Ønsker",
@@ -719,7 +719,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: In this Fashionista feature, Argent founder and CEO Sali Christeson discusses the celebrities influencing her luxury workwear brand, shares inspiring customer stories, and reveals insights into launching a fashion label from scratch.",
+          "aiSummary": "Argent founder and CEO Sali Christeson details launching her luxury workwear brand, celebrity endorsements, and customer stories on The Fashionista Network.",
           "translations": {
             "da": {
               "title": "Hvordan Sali Christeson lancerede det foretrukne luksusarbejdstøjsmærke for kvinder i magtpositioner",
@@ -755,7 +755,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Signet Jewelers is restructuring by shutting down the James Allen and Rocksbox websites and integrating these brands into its core operations, as reported by Jeweller - Business News on March 30, 2026.",
+          "aiSummary": "Signet Jewelers will close the James Allen and Rocksbox websites, integrating both into its core brands as part of a restructuring.",
           "translations": {
             "da": {
               "title": "Signet omstrukturerer flere mærker under en gennemgribende ændring",
@@ -789,7 +789,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: Perigold, launched by Wayfair as its luxury counterpart, is expanding despite the luxury sector's slowed growth, having opened its first two stores in Houston and West Palm Beach in 2025 and recently investing in a major collaboration.",
+          "aiSummary": "Perigold, Wayfair’s luxury brand, opened its first two stores in 2025 and is targeting vacant department store sites for further expansion.",
           "translations": {
             "da": {
               "title": "En undtagelse fra luksusens langsomme vækst, Perigold ser på ledige stormagasiner under udvidelse",
@@ -822,7 +822,7 @@
               "retailer"
             ]
           },
-          "aiSummary": "AI-generated summary: A recent survey by the Australian Retail Council reveals that rising fuel and supply chain costs are intensifying financial pressures on local retailers in the jewellery industry.",
+          "aiSummary": "A new Australian Retail Council survey reports rising fuel and supply chain costs are significantly increasing pressure on local retailers.",
           "translations": {
             "da": {
               "title": "Brændstofpriser og leveomkostninger presser detailhandlere",
@@ -853,7 +853,7 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Swarovski reported a rise in revenue and remains optimistic about the future despite anticipating challenges ahead, supported by strong demand and important collaborations.",
+          "aiSummary": "Swarovski anticipates a challenging year but remains optimistic after strong demand and key collaborations drove a recent revenue increase.",
           "translations": {
             "da": {
               "title": "Swarovski oplever omsætningsstigning, forventer udfordringer fremover",
@@ -886,7 +886,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Austen & Blake has celebrated the reopening of its Sheffield Meadowhall store following a major refurbishment, with the official public reopening scheduled for 11 April, offering customers exclusive savings on purchases.",
+          "aiSummary": "Austen & Blake will reopen its refurbished Sheffield Meadowhall store on 11 April, offering customers an exclusive saving on purchases.",
           "translations": {
             "da": {
               "title": "Austen & Blake fejrer genåbning af Sheffield Meadowhall butik",
@@ -920,7 +920,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: The GIA School of Gemology and Jewelry Arts has opened a new campus in Taiwan, conveniently located near major transit hubs and commercial areas, offering flexible weekend and evening classes to accommodate students and working professionals.",
+          "aiSummary": "GIA has opened a new School of Gemology and Jewelry Arts campus in Taiwan, offering flexible weekend and evening classes near central Taipei.",
           "translations": {
             "da": {
               "title": "GIA åbner nyt campus i Taiwan",
@@ -954,7 +954,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: The Women’s Jewelry Association partnered with Mentoro to launch a mentorship cohort, matching mentors and mentees across key fields during a March 26 event in New York. This initiative aims to support professionals in the jewellery industry.",
+          "aiSummary": "Women’s Jewelry Association and Mentoro launched a mentorship cohort on March 26 in New York, matching mentors and mentees across key jewellery and watch fields.",
           "translations": {
             "da": {
               "title": "Women’s Jewelry Association lancerer Jewelry & Watches mentorprogram med Mentoro",
@@ -971,5 +971,13 @@
   },
   "editorialTake": "Anthropic’s $400 million acquisition of Coefficient Bio signals a sharp pivot in AI’s battleground: biotech is no longer a fringe play but a core strategic front. This isn’t just about technology convergence; it’s a bet on owning proprietary data and models that can unlock new drug discovery pipelines faster than traditional pharma. Anthropic’s move to back this with a political action committee shows they’re gearing up for influence beyond labs, aiming to shape regulations that will decide who wins in AI-powered biotech.\n\nAmazon’s 3.5% surcharge on fulfillment fees exposes the brutal squeeze logistics costs are placing on ecommerce giants and their merchants. Fuel and supply chain inflation are no longer transient shocks but structural headwinds forcing price shifts downstream. This forces a brutal question: how long before ecommerce platforms stop subsidizing merchants and start demanding more control over pricing and margins? The tension between platform scale and merchant profitability just got a lot sharper.",
   "coverImageUrl": "/weekly-images/2026-W14.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W14"
+  "coverImageAlt": "Weekly cover illustration for 2026-W14",
+  "oneSentenceSummary": "Anthropic's biotech acquisition hints at AI firms racing beyond software into foundational science, foreshadowing sector convergence and fierce new competition for R&D talent.",
+  "keyThemes": [
+    "Anthropic Coefficient Bio deal",
+    "Amazon fulfillment surcharge",
+    "Mejuri fastest selling collection",
+    "Signet brand restructuring",
+    "Semiconductor revenue surge"
+  ]
 }

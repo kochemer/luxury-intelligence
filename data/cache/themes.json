@@ -368,17 +368,17 @@
       "Anthropic Pentagon risk",
       "TikTok Shop cross border",
       "Best Buy online marketplace",
-      "Pandora platinum plated",
-      "Luxury Brands Middle East"
+      "Luxury Brands Middle East",
+      "Pandora platinum plated"
     ],
-    "oneSentenceSummary": "The narrative of AI data center expansion as an unmitigated growth story falters when corporate withdrawals expose overlooked political and infrastructural constraints.",
+    "oneSentenceSummary": "Major AI demand is driving record tech revenues even as governments and suppliers scramble to contain the very ecosystem dependencies those profits create.",
     "summaryCandidates": [
-      "Anthropic’s entanglement with national security concerns foreshadows heightened regulatory scrutiny shaping AI innovation and supply chains over the coming year.",
-      "Despite AI firms’ professed openness, Pentagon’s supply chain risk label reveals a deep mistrust that underscores competition’s geopolitical undercurrents.",
-      "The narrative of AI data center expansion as an unmitigated growth story falters when corporate withdrawals expose overlooked political and infrastructural constraints.",
-      "Cross-border ecommerce pushes, AI adoption in retail, and luxury’s experiential pivot collectively signal a convergence of digital empowerment and geopolitical realignment reshaping market entry strategies."
+      "The Pentagon's targeting of Anthropic as a 'supply chain risk' foreshadows incoming regulatory headwinds for generative AI's commercial deployments across critical industries.",
+      "Major AI demand is driving record tech revenues even as governments and suppliers scramble to contain the very ecosystem dependencies those profits create.",
+      "Conventional wisdom assumes luxury and value retail are polar opposites, but Dior and Kohl’s parallel strategies reveal shared lessons in experiential differentiation for jewelers.",
+      "Surging cross-border and AI-powered commerce initiatives, from TikTok Shop to DSG, indicate that platform-driven international expansion is eclipsing domestic market focus as the primary ecommerce growth lever."
     ],
-    "cached_at": "2026-03-12T21:26:18.290Z",
+    "cached_at": "2026-09-18T19:49:05.533Z",
     "model": "gpt-4.1-mini",
     "version": "3.1"
   },
@@ -531,6 +531,519 @@
       "A shift towards identity-centric AI applications appears across cloud, retail, and ecommerce, indicating an emergent paradigm where personalized data drives everything from cyber defense to shopping experience."
     ],
     "cached_at": "2026-09-18T19:08:57.333Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2025-W52:bac3175b5a05": {
+    "keyThemes": [
+      "Shopify AI Product Discovery",
+      "Agentic Commerce",
+      "K-shaped Economy",
+      "Wolverine Worldwide Growth",
+      "Luxury Brand Pricing"
+    ],
+    "oneSentenceSummary": "Assumptions that Big Tech faces regulatory friction buckle as policy shifts and AI advances increasingly serve entrenched interests, not disrupt them.",
+    "summaryCandidates": [
+      "Rising investments in AI-driven storytelling by legacy brands portend a coming arms race to blend narrative craft with algorithmic targeting across consumer sectors.",
+      "Even as AI promises democratized creativity, escalating child exploitation reports and data misuse reveal that technological progress intensifies, rather than resolves, platform stewardship dilemmas.",
+      "Assumptions that Big Tech faces regulatory friction buckle as policy shifts and AI advances increasingly serve entrenched interests, not disrupt them.",
+      "Notably, multiple articles marry AI with sector-specific expertise—retail, mapping, code, UX—hinting at a structural pivot from horizontal AI hype to vertical, domain-rich deployment."
+    ],
+    "cached_at": "2026-09-18T19:48:21.180Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W03:7c98820d6f21": {
+    "keyThemes": [
+      "Walmart AI transformation",
+      "Etsy Google AI Mode",
+      "Richemont holiday sales",
+      "Pandora holiday sales",
+      "Agentic commerce"
+    ],
+    "oneSentenceSummary": "Multiple industry giants fast-tracking direct AI-enabled purchasing signals a structural shift toward platformless, agent-driven commerce that marginalizes traditional branded storefronts.",
+    "summaryCandidates": [
+      "AI’s integration into core retail operations hints that competitive advantage will shift from customer-facing chatbots to back-end orchestration and supply chain intelligence within the year.",
+      "E-commerce leaders tout AI transformation, yet most innovation funnels traffic right back to Google and Alibaba, paradoxically deepening reliance on big tech gatekeepers.",
+      "Prevailing wisdom that AI’s primary retail impact is conversational front-ends is upended by operators’ focus on logistics, fulfillment, and invisible process optimization.",
+      "Multiple industry giants fast-tracking direct AI-enabled purchasing signals a structural shift toward platformless, agent-driven commerce that marginalizes traditional branded storefronts."
+    ],
+    "cached_at": "2026-09-18T19:48:28.669Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W04:3b633e4661f9": {
+    "keyThemes": [
+      "Shopify agentic commerce",
+      "Fastenal digital sales",
+      "GN Diamond sales",
+      "Burberry China growth",
+      "Fope revenue increase"
+    ],
+    "oneSentenceSummary": "Surging independent fragrance sales, accelerated jewellery market globalisation, and rising luxury sales in China collectively mark a pivot from mass-market standardization to nuanced, regionally-driven premiumization.",
+    "summaryCandidates": [
+      "Soaring interest in US law schools amid AI-driven uncertainty hints at an impending influx of legal professionals tasked with untangling the technology’s societal fallout.",
+      "While AI expands access and personalisation in ecommerce and luxury, the surging data security anxieties and ethical concerns reveal deep ambivalence about the true price of digital progress.",
+      "Prevailing assumptions that lab-grown diamonds would quickly overtake natural stones are complicated by parity in sales, reflecting enduring consumer desire for tradition even as innovation accelerates.",
+      "Surging independent fragrance sales, accelerated jewellery market globalisation, and rising luxury sales in China collectively mark a pivot from mass-market standardization to nuanced, regionally-driven premiumization."
+    ],
+    "cached_at": "2026-09-18T19:48:33.587Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W05:637254b5d5fd": {
+    "keyThemes": [
+      "OpenAI IPO plans",
+      "Amazon job cuts",
+      "Agentic AI risks",
+      "Chow Tai Fook sales",
+      "Amazon Now launch"
+    ],
+    "oneSentenceSummary": "Markets are simultaneously treating AI as both an existential growth engine and a destabilizing force, unsettling the very tech giants driving the revolution.",
+    "summaryCandidates": [
+      "OpenAI’s IPO ambitions signal that the AI arms race is about to collide headlong with heightened investor skepticism and short-term financial discipline.",
+      "Markets are simultaneously treating AI as both an existential growth engine and a destabilizing force, unsettling the very tech giants driving the revolution.",
+      "Recent retrenchments by Saks and Amazon reveal the myth of limitless digital retail scalability, hinting at the enduring constraints of physical and operational complexity.",
+      "Repeated reversals—job cuts, strategic retreats, human-powered chatbots—suggest a recalibration from boundless automation toward hybrid, margin-aware models across sectors."
+    ],
+    "cached_at": "2026-09-18T19:48:40.731Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W06:6bfac6a761b4": {
+    "keyThemes": [
+      "Oracle AI bond sale",
+      "Snowflake OpenAI partnership",
+      "UK ecommerce growth",
+      "Amazon revenue milestone",
+      "Swatch sales decline"
+    ],
+    "oneSentenceSummary": "Brands across sectors are converging on AI-powered logistics, data, and consumer engagement, indicating an irreversible fusion of back-end optimization with front-end experiential commerce.",
+    "summaryCandidates": [
+      "Massive capital infusions into AI by Oracle and Amazon hint at an impending surge of enterprise-focused AI tools that could permanently redefine operational norms across industries.",
+      "Despite tech giants pouring billions into AI infrastructure, Amazon's shuttering of Go stores reveals that frictionless retail technology alone cannot guarantee consumer loyalty or profitability.",
+      "Prevailing beliefs about luxury's supposed insulation from tech disruption falter as both Lanvin and Swatch adapt business models in response to AI-driven changes in retail and manufacturing.",
+      "Brands across sectors are converging on AI-powered logistics, data, and consumer engagement, indicating an irreversible fusion of back-end optimization with front-end experiential commerce."
+    ],
+    "cached_at": "2026-09-18T19:48:47.125Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W07:41538a5faabe": {
+    "keyThemes": [
+      "Amazon AI spending",
+      "Anthropic valuation",
+      "Shopify B2B sales",
+      "Hermès revenue growth",
+      "Pandora platinum products"
+    ],
+    "oneSentenceSummary": "Despite AI's sky-high paper valuations, persistent struggles to monetize models expose a rift between technological optimism and commercial reality.",
+    "summaryCandidates": [
+      "Historic AI investment sprees from Amazon and Anthropic quietly foreshadow an impending scramble for proprietary data and infrastructure dominance by late 2026.",
+      "Despite AI's sky-high paper valuations, persistent struggles to monetize models expose a rift between technological optimism and commercial reality.",
+      "Surging luxury demand at Nordstrom and Hermès challenges the narrative that economic uncertainty drives a universal shift toward value or discount retail.",
+      "From AI tools for merchants to platinum jewellery launches, digital and physical premiumisation emerges as a defining strategy across both ecommerce and luxury sectors."
+    ],
+    "cached_at": "2026-09-18T19:48:51.389Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W08:64b94207d1ba": {
+    "keyThemes": [
+      "Walmart Sparky AI",
+      "eBay Depop acquisition",
+      "Amouage revenue surge",
+      "Haelixa DNA Authenticity",
+      "Unilever Google Cloud partnership"
+    ],
+    "oneSentenceSummary": "A quiet convergence emerges: both luxury and mass-market players rely on AI and logistics upgrades to compensate for slowing income growth and shifting footfall.",
+    "summaryCandidates": [
+      "Tensions between government, Big Tech, and national AI ambitions hint that regulatory frameworks will likely fragment, reshaping global competitive dynamics by 2027.",
+      "Despite AI driving larger retail baskets and operational gains, rising employment costs threaten jobs—progress for brands may breed precarity for workers.",
+      "Recommerce’s cultural edge reveals that market share alone is no longer the gold standard; resonance with evolving consumer values now anchors sector leadership.",
+      "A quiet convergence emerges: both luxury and mass-market players rely on AI and logistics upgrades to compensate for slowing income growth and shifting footfall."
+    ],
+    "cached_at": "2026-09-18T19:48:55.372Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W09:33006f5a3aa4": {
+    "keyThemes": [
+      "OpenAI funding round",
+      "Mirakl profitability milestone",
+      "agentic commerce",
+      "The RealReal revenue growth",
+      "Supreme Court tariffs ruling"
+    ],
+    "oneSentenceSummary": "The assumption that scale and costliness define AI’s value is upended as retailers and telecoms quietly extract more from leaner, targeted algorithms.",
+    "summaryCandidates": [
+      "OpenAI’s mega-valuation and AT&T’s shift to small models together signal the coming divergence between headline AI capital and practical enterprise adoption strategies.",
+      "Even as AI powers operational breakthroughs and new sales channels, the industry’s silence on ethical boundaries deepens just as governments demand limits.",
+      "The assumption that scale and costliness define AI’s value is upended as retailers and telecoms quietly extract more from leaner, targeted algorithms.",
+      "Multiple sectors—from luxury distribution to supply chains—are normalizing direct access to granular data, foreshadowing a future where intermediaries’ information gatekeeping collapses."
+    ],
+    "cached_at": "2026-09-18T19:48:59.801Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W11:108120345fbf": {
+    "keyThemes": [
+      "Nvidia AI chip",
+      "Cerebras AWS partnership",
+      "agentic commerce",
+      "Pragnell jewellery skills",
+      "Shopify ChatGPT storefronts"
+    ],
+    "oneSentenceSummary": "Big tech’s embrace of agentic commerce tools paradoxically intensifies their platform lock-in ambitions, even as they promote the illusion of merchant empowerment and choice.",
+    "summaryCandidates": [
+      "Fierce investment and uneasy partnerships in AI platforms hint at an impending wave of industry consolidation rather than harmonious interoperability over the coming year.",
+      "Big tech’s embrace of agentic commerce tools paradoxically intensifies their platform lock-in ambitions, even as they promote the illusion of merchant empowerment and choice.",
+      "Luxury and jewellery’s revived focus on artisanal skill protection subtly challenges the belief that digitisation and automation inevitably erode heritage value.",
+      "Repeated collaborations between AI chipmakers and commerce platforms suggest the next retail battleground will be invisibly infrastructural, not customer-facing features."
+    ],
+    "cached_at": "2026-09-18T19:49:09.812Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W12:e32819a328ef": {
+    "keyThemes": [
+      "OpenAI Frontier",
+      "Shopify AI shopping agents",
+      "Alibaba ecommerce overhaul",
+      "Signet Jewelers sales growth",
+      "Kering jewellery division"
+    ],
+    "oneSentenceSummary": "AI’s promise to democratize productivity collides with a reality where only the largest players—like OpenAI or Bezos—can afford the upfront stakes.",
+    "summaryCandidates": [
+      "National security alarm over Anthropic hints at looming regulatory crackdowns that could bifurcate global AI development and reshape investment flows by year-end.",
+      "AI’s promise to democratize productivity collides with a reality where only the largest players—like OpenAI or Bezos—can afford the upfront stakes.",
+      "Rather than e-commerce ‘disrupting’ legacy retail, the rapid embrace of AI by both incumbents and challengers blurs the line between old and new economy innovation.",
+      "Repeated M&A, cross-border expansion, and luxury sector investment all point to intensifying consolidation across AI, commerce, and jewellery as barriers to organic growth rise."
+    ],
+    "cached_at": "2026-09-18T19:49:13.862Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W13:f737866ac3b5": {
+    "keyThemes": [
+      "Anthropic legal battle",
+      "TikTok Shop sales growth",
+      "Agent Smith AI tool",
+      "De Beers sightholder cuts",
+      "Oracle AI automation"
+    ],
+    "oneSentenceSummary": "Perceptions of AI threatening traditional retail lose credibility as Home Depot’s foot traffic and relevance surge alongside advances in automation and intelligent operations.",
+    "summaryCandidates": [
+      "Heightened government scrutiny of AI supply chains hints that regulatory interventions will soon shape both trust and market access for enterprise AI vendors.",
+      "Major brands accelerating sales on TikTok contrast sharply with rising consumer uncertainty, exposing a disconnect between digital retail optimism and real-world economic anxiety.",
+      "Perceptions of AI threatening traditional retail lose credibility as Home Depot’s foot traffic and relevance surge alongside advances in automation and intelligent operations.",
+      "Insurers, infrastructure providers, and luxury brands all adapting to data-driven risk and customer dynamics reveal a convergence where operational resilience and digital opportunity now align."
+    ],
+    "cached_at": "2026-09-18T19:49:20.054Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W14:2ab012041048": {
+    "keyThemes": [
+      "Anthropic Coefficient Bio deal",
+      "Amazon fulfillment surcharge",
+      "Mejuri fastest selling collection",
+      "Signet brand restructuring",
+      "Semiconductor revenue surge"
+    ],
+    "oneSentenceSummary": "Anthropic's biotech acquisition hints at AI firms racing beyond software into foundational science, foreshadowing sector convergence and fierce new competition for R&D talent.",
+    "summaryCandidates": [
+      "Anthropic's biotech acquisition hints at AI firms racing beyond software into foundational science, foreshadowing sector convergence and fierce new competition for R&D talent.",
+      "AI’s promise to streamline efficiency clashes with rising fulfillment surcharges and cyberattacks, exposing automation’s hidden costs and persistent human vulnerabilities.",
+      "Assumptions that luxury resists technological overhaul erode as brands like Perigold and Pixel Moda leverage digital tools to seize market whitespace others abandon.",
+      "Major retailers and platforms rapidly layering surcharges, partnerships, and restructurings subtly point to a recalibration of power from pure tech players to hybrid operational models."
+    ],
+    "cached_at": "2026-09-18T19:49:24.128Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W15:d3666b00b279": {
+    "keyThemes": [
+      "Amazon AI investment",
+      "Frasers Group AI assistant",
+      "Titan jewellery sales",
+      "Mercor data breach",
+      "Walmart Marketplace growth"
+    ],
+    "oneSentenceSummary": "While AI is touted as a panacea for operational woes, sellers and suppliers are squeezed harder than ever, revealing automation's winners aren't always its users.",
+    "summaryCandidates": [
+      "Jassy's aggressive AI spend implies rivals will either rapidly escalate their own investments or risk ceding critical infrastructure advantage for years to come.",
+      "While AI is touted as a panacea for operational woes, sellers and suppliers are squeezed harder than ever, revealing automation's winners aren't always its users.",
+      "The democratization of OpenAI’s IPO allocation upends the narrative of AI as an insiders’ game, hinting that retail capital is now core to tech’s future.",
+      "Luxury, retail, and supply chain leaders simultaneously embracing AI platforms signals a new arms race where industry boundaries blur under the banner of data-driven reinvention."
+    ],
+    "cached_at": "2026-09-18T19:49:29.046Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W16:8ac41215f3a1": {
+    "keyThemes": [
+      "Cerebras IPO",
+      "Amazon Globalstar acquisition",
+      "Kering jewelry sales",
+      "gold price inflation",
+      "OpenAI executive departures"
+    ],
+    "oneSentenceSummary": "Cerebras’s IPO hints that the AI hardware value chain is splintering, foreshadowing an era where bespoke chips dictate competitive advantage in AI services.",
+    "summaryCandidates": [
+      "Cerebras’s IPO hints that the AI hardware value chain is splintering, foreshadowing an era where bespoke chips dictate competitive advantage in AI services.",
+      "AI giants tout organizational transformation even as executive churn and product reshuffles betray growing internal volatility at the very peak of technological influence.",
+      "Rather than frictionless luxury growth, Kering’s slump and the luxury rebound’s reality check complicate the myth that affluence inoculates brands from macroeconomic headwinds.",
+      "Multiple verticals—from jewellery to grocery—are grappling with digital system vulnerabilities, signaling a deepening reliance on, yet fragility of, always-on data infrastructure."
+    ],
+    "cached_at": "2026-09-18T19:49:38.343Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W17:dec7d105f936": {
+    "keyThemes": [
+      "Anthropic AI Investment",
+      "Amazon Price Fixing",
+      "Ask Macy’s AI Agent",
+      "Ulta Beauty AI Assistant",
+      "Lab Grown Diamond Prices"
+    ],
+    "oneSentenceSummary": "The scale of investment by Big Tech in Anthropic hints at looming AI consolidation, with independent startups becoming kingmakers rather than disruptors.",
+    "summaryCandidates": [
+      "The scale of investment by Big Tech in Anthropic hints at looming AI consolidation, with independent startups becoming kingmakers rather than disruptors.",
+      "Major ecommerce platforms are tightening market control even as regulators scrutinize them for anti-competitive behavior, revealing a cycle where dominance invites—and ultimately endures—legal challenge.",
+      "The assumption that lab-grown diamonds would become a mass-market alternative gets challenged as price drops pressure their exclusivity and consumer desire for 'new luxury.'",
+      "Fewer sellers commanding more Amazon revenue while legacy automation assets change hands suggests marketplaces and logistics are coalescing around fewer, vastly more powerful players."
+    ],
+    "cached_at": "2026-09-18T19:49:53.246Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W18:570b4f42b95c": {
+    "keyThemes": [
+      "Amazon AI Shopping Assistant",
+      "Universal Commerce Protocol",
+      "Zegna Revenue Growth",
+      "Richmond Jewelry Sales",
+      "Loop AI Post Purchase"
+    ],
+    "oneSentenceSummary": "A surge of post-purchase AI solutions and live-shopping integrations signals that the battleground for value capture is shifting from the transaction to everything that follows it.",
+    "summaryCandidates": [
+      "Institutional deals with Nvidia, Microsoft, and Amazon foreshadow an AI arms race spilling from tech into global defense and infrastructure within the next year.",
+      "While AI infrastructure spend sets new records, merchants are scrambling to contain losses and fraud, revealing progress and fragility advancing in tandem.",
+      "Rising AI-driven shopping tools complicate the narrative that human curation or luxury consultation is irreplaceable, as tech-led discovery gains mainstream traction.",
+      "A surge of post-purchase AI solutions and live-shopping integrations signals that the battleground for value capture is shifting from the transaction to everything that follows it."
+    ],
+    "cached_at": "2026-09-18T19:49:57.234Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W19:519ce372a162": {
+    "keyThemes": [
+      "Anthropic valuation surge",
+      "OpenAI voice intelligence",
+      "Amazon Supply Chain Services",
+      "LVMH Australia dividend",
+      "Jewellery retail consultation"
+    ],
+    "oneSentenceSummary": "Instead of Amazon crushing rivals, expanding third-party logistics and B2B services reveal the e-commerce giant repositioning as an infrastructure backbone rather than pure retailer.",
+    "summaryCandidates": [
+      "Anthropic’s valuation surge foreshadows a coming wave of AI capital formation that will reshape talent flows and partnership power dynamics through 2027.",
+      "Despite relentless automation and record revenues, job losses at Cloudflare and Amazon reveal technology’s double edge: growth increasingly decoupled from human prosperity.",
+      "Instead of Amazon crushing rivals, expanding third-party logistics and B2B services reveal the e-commerce giant repositioning as an infrastructure backbone rather than pure retailer.",
+      "Retailers from grocers to luxury conglomerates are prioritizing ecosystem and logistics over product innovation, signaling a shift toward platform economics even in historically product-centric sectors."
+    ],
+    "cached_at": "2026-09-18T19:50:00.901Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W20:fe32458efb35": {
+    "keyThemes": [
+      "Amazon Alexa for Shopping",
+      "Anthropic Claude AI",
+      "M S automated distribution hub",
+      "Jewellery crime rises",
+      "Beaumont Jewelry Gem Legacy"
+    ],
+    "oneSentenceSummary": "AI labs’ urgent investments in proprietary multimodal datasets suggest that publicly available web data is rapidly losing strategic value for next-generation model training.",
+    "summaryCandidates": [
+      "AI labs’ urgent investments in proprietary multimodal datasets suggest that publicly available web data is rapidly losing strategic value for next-generation model training.",
+      "Despite AI’s promise to automate and streamline, both layoffs at Cisco and Amazon’s product retrenchments reveal that cutting-edge tech often disrupts internal stability instead of delivering straightforward gains.",
+      "Rising automation in retail and content creation doesn’t inevitably marginalize human expertise; instead, institutional guardrails and consumer trust are reviving its perceived importance.",
+      "Simultaneous investments in automation and social responsibility—from M&S’s distribution hub to jewellery brands’ ethical initiatives—signal a broader shift toward blending operational efficiency with conscious branding across sectors."
+    ],
+    "cached_at": "2026-09-18T19:50:07.629Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W21:33f95c57e26b": {
+    "keyThemes": [
+      "Nvidia AI agent CPUs",
+      "Google Universal Cart",
+      "TikTok Shop US sales",
+      "Shein Everlane acquisition",
+      "Yehuda diamond detection"
+    ],
+    "oneSentenceSummary": "AI-driven commerce promises frictionless shopping, yet the proliferation of ‘universal’ solutions risks fragmenting the experience into competing silos that undermine the very integration they tout.",
+    "summaryCandidates": [
+      "Nvidia’s pivot toward an enormous new AI market hints that the infrastructure race will shift from training to real-world agentic applications, redrawing industry alliances.",
+      "AI-driven commerce promises frictionless shopping, yet the proliferation of ‘universal’ solutions risks fragmenting the experience into competing silos that undermine the very integration they tout.",
+      "The rapid normalization of hyper-discounted AI models challenges the idea that technological leadership alone ensures pricing power or protective moats for incumbents.",
+      "B2B jewellery tech launches, luxury’s renewed growth, and TikTok’s cultural clout all signal a converging ecosystem where brand, commerce, and tech increasingly coalesce into one value chain."
+    ],
+    "cached_at": "2026-09-18T19:50:12.630Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W22:7fa57d594965": {
+    "keyThemes": [
+      "Anthropic valuation",
+      "Amazon AI shopping tools",
+      "Richemont jewellery sales",
+      "Watches of Switzerland revenue",
+      "StackAI no code agent"
+    ],
+    "oneSentenceSummary": "Despite AI’s promise to streamline operations, retailers scrambling to sell their own AI tools ironically reveal dependence on tech rivals they aim to outpace.",
+    "summaryCandidates": [
+      "Groq’s outsized funding, even post-Nvidia, hints at a coming arms race among specialized AI chipmakers, likely redrawing the silicon power map within a year.",
+      "Despite AI’s promise to streamline operations, retailers scrambling to sell their own AI tools ironically reveal dependence on tech rivals they aim to outpace.",
+      "The notion that luxury brands are insulated from mass-market pressures falters as every tier, even Richemont and Swatch, confronts the volatility of upmarket moves and hype-driven launches.",
+      "A surge in AI investments alongside tepid consumer demand for fashion and electronics signals capital flooding infrastructure while downstream retail faces mounting economic headwinds."
+    ],
+    "cached_at": "2026-09-18T19:50:17.736Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W23:3074107b2adf": {
+    "keyThemes": [
+      "Anthropic IPO",
+      "Meta Hatch AI",
+      "Tracr diamond provenance",
+      "Macy’s luxury sales growth",
+      "Rhino USA TikTok Shop"
+    ],
+    "oneSentenceSummary": "Retailers’ use of AI to chase both mass efficiency and bespoke luxury experiences upends the assumption that scale and exclusivity cannot coexist digitally.",
+    "summaryCandidates": [
+      "Anthropic’s anticipated IPO signals that investors now see AI as a mature sector ready for public market scrutiny, not just speculative hype.",
+      "Demand for AI-powered luxury and ecommerce tools is surging just as doubts about real-world AI returns persist among even its top leadership.",
+      "Retailers’ use of AI to chase both mass efficiency and bespoke luxury experiences upends the assumption that scale and exclusivity cannot coexist digitally.",
+      "Legacy brands and tech giants alike are racing into direct-to-consumer AI shopping, exposing a structural convergence between Silicon Valley and heritage retail innovation."
+    ],
+    "cached_at": "2026-09-18T19:50:24.298Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W24:05e348eeb815": {
+    "keyThemes": [
+      "Anthropic Fable 5",
+      "Visa ChatGPT integration",
+      "agentic commerce",
+      "Farfetch First",
+      "Signet Jewelers revenue"
+    ],
+    "oneSentenceSummary": "AI innovation is simultaneously driving commerce efficiency and triggering national security crackdowns, revealing a curious tension between commercial acceleration and political containment.",
+    "summaryCandidates": [
+      "Upticks in regulatory action against pivotal AI models hint at a coming era where model provenance and provider alliances determine market viability as much as technical merit.",
+      "AI innovation is simultaneously driving commerce efficiency and triggering national security crackdowns, revealing a curious tension between commercial acceleration and political containment.",
+      "Rather than diminishing luxury’s human touch, AI’s rise is enabling new forms of brand differentiation and intimacy, challenging the view of technology as inherently depersonalizing.",
+      "Across ecommerce, payments, and jewellery, a quiet convergence on agent-led automation signals that human expertise is rapidly being encoded into scalable digital intermediaries."
+    ],
+    "cached_at": "2026-09-18T19:50:28.556Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W25:d6518126cd49": {
+    "keyThemes": [
+      "OpenAI revenue growth",
+      "Amazon AI chips",
+      "Shopify AI tracking tools",
+      "Akeneo PricingHUB acquisition",
+      "Chow Tai Fook sales rise"
+    ],
+    "oneSentenceSummary": "The narrative of AI democratizing commerce is complicated as only firms with luxury-level margins—or Amazon-scale resources—can afford meaningful participation in platform-driven intelligence.",
+    "summaryCandidates": [
+      "With hyperscale AI costs outpacing revenue gains, major players may soon prioritize efficiency and consolidation over relentless expansion in the next investment cycle.",
+      "AI's promise of automated growth collides with a reality where surging compute expenses force even leaders to pull back and restrict adoption.",
+      "The narrative of AI democratizing commerce is complicated as only firms with luxury-level margins—or Amazon-scale resources—can afford meaningful participation in platform-driven intelligence.",
+      "An undercurrent links operational innovation from Shopify to fulfilment anxieties and B2B platform launches, suggesting commerce is racing to recalibrate foundational infrastructure for an AI-mediated retail era."
+    ],
+    "cached_at": "2026-09-18T19:50:32.592Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W26:20617f9385c7": {
+    "keyThemes": [
+      "Amazon AI infrastructure",
+      "Flipkart quick commerce",
+      "Blue diamond auctions",
+      "OpenAI government restrictions",
+      "Saks Exemplar Luxury Group"
+    ],
+    "oneSentenceSummary": "Even as Google and Amazon lower barriers and decentralize platforms, the largest AI players are consolidating ecosystem power through hardware, access controls, and selective partnerships.",
+    "summaryCandidates": [
+      "AI hyperscalers racing into proprietary hardware and mega-infrastructure point to a coming era where control of compute, not just algorithms, defines industry leadership.",
+      "Even as Google and Amazon lower barriers and decentralize platforms, the largest AI players are consolidating ecosystem power through hardware, access controls, and selective partnerships.",
+      "The assumption that post-bankruptcy luxury brands must shrink or fade is upended as Saks re-emerges with a global, multi-brand vision under a new identity.",
+      "Luxury, commerce, and tech headlines alike reveal established giants embracing specialized AI and hyper-local strategies, signaling the slow erosion of one-size-fits-all business models."
+    ],
+    "cached_at": "2026-09-18T19:50:37.557Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W27:8d30862e259e": {
+    "keyThemes": [
+      "Microsoft AI deployment",
+      "Anthropic Claude Science",
+      "Square agentic commerce",
+      "Beaverbrooks traceable diamonds",
+      "Quick commerce India"
+    ],
+    "oneSentenceSummary": "As commerce becomes more automated with AI, small brands paradoxically face higher barriers to scale, even as tools promise democratization and efficiency.",
+    "summaryCandidates": [
+      "Microsoft’s $2.5B AI deployment play signals a looming arms race to operationalize foundation models at enterprise scale, with infrastructure becoming the next strategic moat.",
+      "As commerce becomes more automated with AI, small brands paradoxically face higher barriers to scale, even as tools promise democratization and efficiency.",
+      "The notion that quick commerce is a luxury is upended as it becomes a default urban infrastructure—highlighting how ubiquity, not exclusivity, now defines service innovation.",
+      "Multiple launches of agentic and privacy-first AI platforms suggest vertical integration and specialization are displacing one-size-fits-all models across both tech and retail."
+    ],
+    "cached_at": "2026-09-18T19:50:42.410Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W28:a2d98eb6e1cf": {
+    "keyThemes": [
+      "SK hynix US listing",
+      "Nanya Technology spending",
+      "Pandora jewellery program",
+      "M S Amazon partnership",
+      "AI token pricing"
+    ],
+    "oneSentenceSummary": "Assumptions that discovery and loyalty hinge on retailer control are upended as AI-driven traffic and platforms like Amazon quietly erode brands' gatekeeping power.",
+    "summaryCandidates": [
+      "Surging AI infrastructure investment foreshadows an impending arms race to control consumer data flows far beyond current ecommerce and luxury sector boundaries.",
+      "Even as brands invest billions in AI to streamline experiences, skyrocketing token costs ironically threaten to exclude all but the largest players from true innovation.",
+      "Assumptions that discovery and loyalty hinge on retailer control are upended as AI-driven traffic and platforms like Amazon quietly erode brands' gatekeeping power.",
+      "Multiple sectors, from fashion to jewellery, are rapidly blending physical and digital experiences, hinting at an irreversible hybridization of luxury retail and service models."
+    ],
+    "cached_at": "2026-09-18T19:50:46.501Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W29:851ea2b49582": {
+    "keyThemes": [
+      "Meta Anthropic compute lease",
+      "agentic AI platforms",
+      "Very Group pricing strategy",
+      "Tractor Supply Instacart",
+      "Jewellery AI recommendations"
+    ],
+    "oneSentenceSummary": "Meta’s compute leasing overture hints at the imminent emergence of hyperscale AI infrastructure as a traded commodity, upending current power dynamics in foundational models.",
+    "summaryCandidates": [
+      "Meta’s compute leasing overture hints at the imminent emergence of hyperscale AI infrastructure as a traded commodity, upending current power dynamics in foundational models.",
+      "Retailers deploying ever-sophisticated AI to combat fraud find themselves caught in the irony of eroding customer trust through the very protections that promise safety.",
+      "The rush to API pricing and compute brokering challenges the myth that AI access and innovation remain democratized, revealing a creeping concentration of technological privilege.",
+      "A surge in AI-driven solutions for both backend operations and consumer experiences—from healthcare agents to delivery to fraud prevention—signals convergence between digital scalability and real-world retail pragmatism."
+    ],
+    "cached_at": "2026-09-18T19:50:51.490Z",
     "model": "gpt-4.1-mini",
     "version": "3.1"
   }

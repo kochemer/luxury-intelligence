@@ -40,7 +40,7 @@
               "partnership"
             ]
           },
-          "aiSummary": "AI-generated summary: Meta Platforms is in talks with Anthropic for a potential $10 billion compute lease deal over two years, aiming to diversify Meta's revenue beyond advertising. The agreement, proposed by Anthropic in June, includes provisions allowing either party to exit early.",
+          "aiSummary": "Meta is considering a proposed two-year deal to lease computing power to Anthropic worth up to $10 billion, diversifying beyond advertising revenue.",
           "translations": {
             "da": {
               "title": "Meta og Anthropic i forhandlinger om potentiel $10 milliarder compute-lejeaftale: NYT",
@@ -74,7 +74,7 @@
               "compute"
             ]
           },
-          "aiSummary": "AI-generated summary: Meta, led by Zuckerberg, is reportedly negotiating with Anthropic to rent out excess AI compute capacity from its data centers, potentially marking Anthropic as the first major customer.",
+          "aiSummary": "Meta is reportedly negotiating to rent out surplus AI compute capacity to Anthropic, potentially securing its first major customer for the new service.",
           "translations": {
             "da": {
               "title": "Zuckerbergs plan om at sælge overskydende AI-kapacitet kan finde sin første store kunde i Anthropic",
@@ -108,7 +108,7 @@
               "funding"
             ]
           },
-          "aiSummary": "AI-generated summary: Bunkerhill Health has secured $55 million in a Series B funding round, led by investors including Sequoia Capital and Y Combinator, to expand its agentic AI platform, Carebricks, across health systems. The announcement highlights ongoing interest in healthcare AI, though key questions about its impact remain.",
+          "aiSummary": "Bunkerhill Health raised $55 million in Series B funding to expand its agentic AI platform Carebricks across health systems.",
           "translations": {
             "da": {
               "title": "Bunkerhill rejser 55 mio. USD for at skalere agentisk AI på tværs af sundhedssystemer",
@@ -142,7 +142,7 @@
               "openai"
             ]
           },
-          "aiSummary": "AI-generated summary: Anthropic will reduce Claude Fable 5 usage limits by half in Max and Team Premium plans starting July 20, with overall limits dropping by a third, while Pro users receive a $100 credit before switching to API pricing. This shift appears driven by competition from OpenAI's more affordable GPT-5.6 Sol.",
+          "aiSummary": "Anthropic will cut Claude Fable 5 limits by a third on July 20 and halve them in Max and Team Premium, while Pro users shift to API pricing.",
           "translations": {
             "da": {
               "title": "Anthropic halverer Claude Fable 5-grænser i Max og Team Premium og skubber Pro-brugere mod API-priser",
@@ -175,7 +175,7 @@
               "training"
             ]
           },
-          "aiSummary": "AI-generated summary: Indonesia's proposed copyright law revisions aim to recognize AI-assisted works involving human input while excluding fully AI-generated content, and require AI disclosures along with compensation from tech platforms to publishers for using news content in AI training.",
+          "aiSummary": "Indonesia’s draft copyright law recognises AI-assisted works with human input, excludes fully AI-generated content, and requires tech platforms to pay publishers for AI training use.",
           "translations": {
             "da": {
               "title": "Indonesiens ophavsretsrevision sætter Google og AI-platforme på mærkerne",
@@ -212,7 +212,7 @@
               "acquisition"
             ]
           },
-          "aiSummary": "AI-generated summary: Netflix has acquired Ben Affleck's AI filmmaking startup InterPositive for $587 million USD, marking a major investment in generative post-production technology. Founded in 2022, InterPositive develops specialized AI infrastructure tailored for filmmakers.",
+          "aiSummary": "Netflix acquired Ben Affleck’s AI filmmaking startup InterPositive for $587 million, marking one of its largest investments in generative post-production technology.",
           "translations": {
             "da": {
               "title": "Netflix betalte 587 millioner USD for Ben Afflecks AI-startup InterPositive",
@@ -245,7 +245,7 @@
               "agent"
             ]
           },
-          "aiSummary": "AI-generated summary: Vertu's luxury foldable phone, priced at $6,880 and featuring an AI agent, is evaluated on aspects like AI workflows, battery life, and security to reveal the practical experience of daily use.",
+          "aiSummary": "Vertu is charging $6,880 for its luxury foldable phone with built-in AI agent, promising enhanced workflows, battery life, and security for executives.",
           "translations": {
             "da": {
               "title": "Vertu vil have ledere til at betale 6.880 $ for en AI-agent – sådan fungerer den faktisk",
@@ -283,7 +283,7 @@
               "fulfillment"
             ]
           },
-          "aiSummary": "AI-generated summary: Tractor Supply has partnered with Instacart to offer one-hour delivery through the Instacart Marketplace, making over 2,400 Tractor Supply locations available to U.S. shoppers via the Instacart app and website. This collaboration aims to enhance ecommerce convenience by providing rapid fulfillment from Tractor Supply stores.",
+          "aiSummary": "Tractor Supply joined Instacart Marketplace, enabling one-hour delivery from over 2,400 U.S. stores via the Instacart app or website.",
           "translations": {
             "da": {
               "title": "Tractor Supply samarbejder med Instacart om levering på en time",
@@ -316,7 +316,7 @@
               "inventory"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Total Retail (2026-07-14) highlights how return fraud has emerged as a significant challenge for retailers, causing substantial losses through false claims, policy abuse, and unsellable inventory, despite strengthened fraud defenses at checkout.",
+          "aiSummary": "Return fraud and abuse now cost retailers more than checkout fraud, driving up losses through false claims, policy abuse, and unsellable inventory.",
           "translations": {
             "da": {
               "title": "Hvorfor returneringssvindel er blevet detailhandlens næste margin krise",
@@ -348,7 +348,7 @@
               "payment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how retailers, especially small to midsized ones, can enhance payment fraud prevention without compromising the seamless and fast customer experience that digital payment users expect. It highlights the challenge of balancing security measures with maintaining frictionless transactions in the growing ecommerce landscape.",
+          "aiSummary": "Small to midsized retailers face rising digital payment fraud risk as transaction volumes grow, but lack dedicated security resources to balance prevention with customer experience.",
           "translations": {
             "da": {
               "title": "Hvordan detailhandlere kan reducere betalingssvindel uden at forstyrre kundeoplevelsen",
@@ -381,7 +381,7 @@
               "online retail"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Digital Commerce 360 (2026-07-16) highlights three key ways online retailers are evolving their use of artificial intelligence in 2026, reflecting shifts in technology and strategies among major players like OpenAI, Shopify, and Walmart.",
+          "aiSummary": "OpenAI, Shopify and Walmart are driving 2026 ecommerce trends by adopting new AI strategies, including agentic commerce and evolving retailer approaches.",
           "translations": {
             "da": {
               "title": "E-handelstendenser: 3 vigtige måder onlineforhandlere bruger AI på i 2026",
@@ -413,7 +413,7 @@
               "marketplace"
             ]
           },
-          "aiSummary": "AI-generated summary: Despite a difficult macroeconomic environment in 2026, three digitally native startups—Suri, P.F. Candle Co, and Pretty Tasty Tea—have experienced a surge in Amazon sales, attributing the platform as a key driver of their growth, according to Modern Retail.",
+          "aiSummary": "Suri, P.F. Candle Co, and Pretty Tasty Tea report a surge in Amazon sales this year despite a challenging macroeconomic environment.",
           "translations": {
             "da": {
               "title": "Markedspladsoversigt: Hvad driver en stigning i Amazon-salg for 3 startups",
@@ -443,7 +443,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The Very Group has partnered with UiPath in a three-year agreement to implement AI-powered, agentic pricing strategies across its retail brands, aiming to enhance its ecommerce pricing approach.",
+          "aiSummary": "The Very Group signed a three-year deal with UiPath to deploy AI-powered agentic pricing across its retail brands.",
           "translations": {
             "da": {
               "title": "Very Group satser på agentisk AI for at forbedre prisstrategi",
@@ -476,7 +476,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: British subscription-based beauty retailer Beauty Pie has transitioned its ecommerce platform to Shopify to facilitate its upcoming growth phase, according to Internet Retailing on July 14, 2026.",
+          "aiSummary": "Beauty Pie has migrated its ecommerce platform to Shopify to support the subscription-based beauty retailer’s next phase of growth.",
           "translations": {
             "da": {
               "title": "Beauty Pie skifter til Shopify for at understøtte vækst",
@@ -514,7 +514,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: In the article \"Inside Foot Locker's Scaling Strategy for Smaller Sneaker Brands\" (Fashionista, 2026-07-16), Chief Merchant Michelle Wangs discusses how Foot Locker assesses emerging sneaker labels to determine their potential success in the competitive market.",
+          "aiSummary": "Foot Locker’s chief merchant Michelle Wangs details how the retailer selects smaller sneaker brands to scale within its competitive product lineup.",
           "translations": {
             "da": {
               "title": "Inden for Foot Lockers vækststrategi for mindre sneaker-mærker",
@@ -548,7 +548,7 @@
               "high-end"
             ]
           },
-          "aiSummary": "AI-generated summary: The article highlights the trending collaborations between high-end hotels and luxury designers, blending hospitality with style to create desirable luxury experiences without the need for travel.",
+          "aiSummary": "Bulgari, Missoni and The Ritz-Carlton launched exclusive homeware and accessories collaborations, offering luxury hotel style without the need for travel.",
           "translations": {
             "da": {
               "title": "Disse samarbejder mellem luksushoteller og designere er værd at tilføje til kurven – ingen flybillet nødvendig",
@@ -581,7 +581,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Pink Palm Puff, founded by 18-year-old Lily Balaisis, initially targeted young girls but is now aiming to expand its customer base beyond its core teen demographic.",
+          "aiSummary": "Pink Palm Puff, founded by 18-year-old Lily Balaisis, plans to expand its customer base beyond its core high school demographic.",
           "translations": {
             "da": {
               "title": "Den hurtigt voksende Pink Palm Puff sigter mod at udvide sig ud over sin kernegruppe af teenagere",
@@ -614,7 +614,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Action Bronson’s debut New Balance 2811 sneaker, branded as Baklava, has been released early, according to WWD on July 18, 2026.",
+          "aiSummary": "Action Bronson’s Baklava-branded New Balance 2811 sneaker received an early release ahead of its official debut.",
           "translations": {
             "da": {
               "title": "Action Bronsons debut New Balance signatursneaker er tilgængelig tidligt",
@@ -647,7 +647,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Gaultier is launching \"La Favorite,\" its first major feminine fragrance in 10 years, coinciding with the rising popularity of the brand’s Le Male masculine scent.",
+          "aiSummary": "Jean Paul Gaultier is launching La Favorite, its first major feminine fragrance in 10 years, as Le Male masculine scent surges in popularity.",
           "translations": {
             "da": {
               "title": "La Favorite: Gaultiers første store feminine duft i 10 år",
@@ -678,7 +678,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Fashion insiders express frustration with burnout, understaffing, and the pressure to produce cheap, disposable clothing, highlighting the stressful realities of the luxury and consumer fashion industry.",
+          "aiSummary": "Fashion industry professionals cite burnout, understaffing and workplace discrimination as key reasons for dissatisfaction and stress in their roles.",
           "translations": {
             "da": {
               "title": "Modeindustriens Indsidere Taler Ærligt om Udbrændthed, Underbemanding og Diskrimination på Arbejdspladsen",
@@ -711,7 +711,7 @@
               "exclusive"
             ]
           },
-          "aiSummary": "AI-generated summary: Bergdorf Goodman is dedicating its flagship windows to showcase Antonin Tron’s debut collection as creative director of Balmain, offering an exclusive one-month launch.",
+          "aiSummary": "Bergdorf Goodman is giving Antonin Tron’s debut Balmain collection a one-month exclusive launch and dedicating its flagship windows to the release.",
           "translations": {
             "da": {
               "title": "Bergdorf Goodman dedikerer vinduer til Antonin Trons Balmain-debut",
@@ -750,7 +750,7 @@
               "watch"
             ]
           },
-          "aiSummary": "AI-generated summary: Swiss brand Bianchet has introduced the Rotondo UltraFino in rose gold, expanding its collection beyond tonneau-shaped watches with a sleek, ultra-thin round design featuring an integrated bracelet and flying tourbillon movement. This new model adds versatility to the brand's offerings, following earlier titanium and carbon versions.",
+          "aiSummary": "Bianchet has launched the Rotondo UltraFino in rose gold, expanding its ultra-thin round watch line beyond titanium and carbon models.",
           "translations": {
             "da": {
               "title": "Introduktion – The Bianchet Rotondo UltraFino nu i rosaguldfarve",
@@ -784,7 +784,7 @@
               "jewellery"
             ]
           },
-          "aiSummary": "AI-generated summary: Following the introduction of stringent anti-money laundering regulations in the Australian jewellery industry, a report from New Zealand highlights the difficulties encountered by an experienced jeweller whose accounts were mistakenly frozen.",
+          "aiSummary": "An experienced New Zealand jeweller’s accounts were wrongly frozen within weeks of new anti-money laundering rules hitting the Australian jewellery sector.",
           "translations": {
             "da": {
               "title": "Smykkeforhandlers konti fejlagtigt frosset på grund af hvidvaskningsregler",
@@ -818,7 +818,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Masked thieves have stolen millions of dollars worth of jewellery from Musée Lalique in France, marking another major heist in the jewellery industry less than a year after a similar robbery at the Louvre in Paris.",
+          "aiSummary": "Masked thieves stole jewellery worth millions of dollars from Musée Lalique, following last year's high-profile Louvre heist in France.",
           "translations": {
             "da": {
               "title": "Endnu et fransk museum mål for milliontyveri af smykker",
@@ -852,7 +852,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: A recent study published in Jeweller - Business News on July 13, 2026, reveals the persistent limitations of Artificial Intelligence in delivering accurate jewellery recommendations to consumers.",
+          "aiSummary": "A new study finds Artificial Intelligence still struggles to deliver accurate jewellery recommendations for consumers.",
           "translations": {
             "da": {
               "title": "Forskning afslører AI’s fejlbehæftede anbefalinger til smykkeforbrugere",
@@ -883,7 +883,7 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: The article discusses the challenges of indoor cycling during winter and highlights Zwift as a popular indoor cycling option, featuring a limited edition collaboration between Bravur and Zwift that combines horology and indoor cycling.",
+          "aiSummary": "Bravur and Zwift launched a limited edition watch inspired by indoor cycling, blending horology with virtual training experiences.",
           "translations": {
             "da": {
               "title": "Horologi og indendørs cykling gjort sjovt: Bravur × Zwift Limited Edition",
@@ -900,5 +900,13 @@
   },
   "editorialTake": "Meta’s talks to lease $10 billion worth of AI compute to Anthropic mark a critical shift in how tech giants monetize their infrastructure. Instead of hoarding excess capacity, Meta is treating compute like a utility, betting that renting it out will offset costs and accelerate AI development. This move forces competitors to rethink their capital strategies: owning hardware is no longer enough, it’s about who can flexibly deploy and monetize it at scale.\n\nAnthropic’s willingness to pay for Meta’s compute signals a new battleground in AI: access to raw processing power as a service, not just proprietary models. This commoditization raises a tough question for AI startups and incumbents alike: will owning your own compute become a competitive advantage or a costly liability? The answer will shape who leads the next wave of AI innovation.",
   "coverImageUrl": "/weekly-images/2026-W29.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W29"
+  "coverImageAlt": "Weekly cover illustration for 2026-W29",
+  "oneSentenceSummary": "Meta’s compute leasing overture hints at the imminent emergence of hyperscale AI infrastructure as a traded commodity, upending current power dynamics in foundational models.",
+  "keyThemes": [
+    "Meta Anthropic compute lease",
+    "agentic AI platforms",
+    "Very Group pricing strategy",
+    "Tractor Supply Instacart",
+    "Jewellery AI recommendations"
+  ]
 }
