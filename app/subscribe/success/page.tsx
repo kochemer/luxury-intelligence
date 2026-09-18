@@ -7,12 +7,15 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-export default function SubscribeSuccessPage({
+export default async function SubscribeSuccessPage({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined>;
+  // Next 15+: searchParams is a Promise. The sync signature only surfaced as a
+  // type error once the build ran under webpack (next-pwa) on 2026-09-18.
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const plan = typeof searchParams.plan === 'string' ? searchParams.plan : null;
+  const params = await searchParams;
+  const plan = typeof params.plan === 'string' ? params.plan : null;
 
   const planLabel =
     plan === 'patron_monthly'

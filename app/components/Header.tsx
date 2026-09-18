@@ -9,7 +9,6 @@ import NavLinks from './NavLinks';
 import SearchBar from './SearchBar';
 import LanguageSwitcher from './LanguageSwitcher';
 import InstallPwaButton from './InstallPwaButton';
-import EnableNotificationsButton from './EnableNotificationsButton';
 import { useTheme } from '@/app/context/ThemeContext';
 
 function SunIcon() {
@@ -100,7 +99,6 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-2 shrink-0">
           <InstallPwaButton />
-          <EnableNotificationsButton />
           <LanguageSwitcher />
           <button
             type="button"
@@ -143,13 +141,10 @@ export default function Header() {
           aria-label="Navigation menu"
         >
           <div className="px-4 py-4 space-y-6">
-            {/* Utilities: PWA, Notifications, Language, Theme — 44px touch targets */}
+            {/* Utilities: PWA install, Language, Theme — 44px touch targets */}
             <div className="flex flex-wrap items-center gap-2 pb-4 border-b border-[var(--color-border)]">
               <div className="min-h-[44px] flex items-center">
                 <InstallPwaButton />
-              </div>
-              <div className="min-h-[44px] flex items-center">
-                <EnableNotificationsButton />
               </div>
               <LanguageSwitcher />
               <button

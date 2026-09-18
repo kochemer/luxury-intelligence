@@ -70,40 +70,31 @@ const nextConfig: NextConfig = {
   turbopack: {},
 };
 
+// `publicExcludes` is documented in next-pwa's README but missing from its
+// bundled typings, hence the assertion.
 const pwaConfig = withPWA({
   dest: "public",
-  register: true,
+  // Registration is owned by app/components/ServiceWorkerRegistration.tsx (it
+  // handles stale registrations and bounded retries). Letting next-pwa also
+  // inject its own register script meant two owners racing on first load.
+  register: false,
   skipWaiting: true,
   disable: process.env.NODE_ENV === "development",
-  // Import push-sw.js to add Web Push event handlers
-  importScripts: ["/push-sw.js"],
-  // Keep existing runtime caching and fallback configuration
-  // (next-pwa will use defaults if not specified)
-});
-
-// DEBUG — can be removed later
-// Log PWA configuration status at build time
-const isPwaEnabled = process.env.NODE_ENV !== "development";
-console.log('[PWA DEBUG] next-pwa status:', {
-  enabled: isPwaEnabled,
-  NODE_ENV: process.env.NODE_ENV,
-  VERCEL_ENV: process.env.VERCEL_ENV || 'not-set',
-  dest: 'public',
-  swFilename: 'sw.js',
-  swScope: '/',
-  manifestPath: '/manifest.webmanifest',
-});
-
-// DEBUG — Verify VAPID key is present at build time
-if (process.env.NODE_ENV === 'production') {
-  const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
-  if (vapidKey) {
-    console.log('[BUILD DEBUG] NEXT_PUBLIC_VAPID_PUBLIC_KEY is set (length:', vapidKey.length, ')');
-    console.log('[BUILD DEBUG] VAPID key prefix:', vapidKey.substring(0, 30) + '...');
-  } else {
-    console.warn('[BUILD DEBUG] ⚠️ NEXT_PUBLIC_VAPID_PUBLIC_KEY is NOT set in production build!');
-    console.warn('[BUILD DEBUG] This will cause push notifications to fail.');
-  }
-}
+  // Never precache media. next-pwa precaches everything under public/ by
+  // default, which put podcast MP3s (~15 MB each) and weekly cover PNGs
+  // (~2.5 MB each) into the install step: every first visit downloaded ~75 MB
+  // in the background, and one failed fetch failed the whole install. These
+  // files are served normally and cached by the runtime rules on demand.
+  publicExcludes: [
+    "!podcast/**/*",
+    "!weekly-images/**/*",
+    "!push-sw.js",
+    "!icons/README.md",
+    "!*.svg",
+    "!*.txt",
+  ],
+  // Web push was retired from the UI on 2026-09-18 (roadmap F2.4); the
+  // handlers in public/push-sw.js are no longer imported into the worker.
+} as Parameters<typeof withPWA>[0]);
 
 export default pwaConfig(nextConfig);

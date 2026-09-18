@@ -31,6 +31,11 @@ export default function ServiceWorkerRegistration() {
       return;
     }
 
+    // A failed install used to unregister and retry every 2 s with no limit,
+    // which on a broken precache turned every open tab into a request loop.
+    const MAX_INSTALL_RETRIES = 2;
+    let installRetries = 0;
+
     const cleanupAndRegister = async () => {
       try {
         const registrations = await navigator.serviceWorker.getRegistrations();
@@ -73,12 +78,16 @@ export default function ServiceWorkerRegistration() {
             if (registration.installing) {
               registration.installing.addEventListener('statechange', () => {
                 if (registration.installing?.state === 'redundant') {
-                  console.warn('[SW Registration] Service worker installation failed - unregistering and retrying...');
-                  // Unregister and retry after a delay
+                  if (installRetries >= MAX_INSTALL_RETRIES) {
+                    console.warn('[SW Registration] Service worker installation failed repeatedly - giving up until next page load');
+                    return;
+                  }
+                  installRetries++;
+                  console.warn(`[SW Registration] Service worker installation failed - retrying (${installRetries}/${MAX_INSTALL_RETRIES})...`);
                   registration.unregister().then(() => {
                     setTimeout(() => {
                       cleanupAndRegister();
-                    }, 2000);
+                    }, 2000 * installRetries);
                   });
                 } else if (registration.installing?.state === 'activated') {
                   console.log('[SW Registration] Service worker activated successfully');
