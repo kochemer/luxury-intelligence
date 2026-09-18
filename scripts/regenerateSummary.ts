@@ -69,6 +69,7 @@ async function regenerateWeek(weekLabel: string): Promise<void> {
   // Patch only the insight fields into the digest (preserve everything else)
   digest.oneSentenceSummary = result.oneSentenceSummary;
   digest.keyThemes = result.keyThemes;
+  digest.contentUpdatedAtISO = new Date().toISOString(); // sitemap lastmod → re-crawl hint
 
   await fs.writeFile(digestPath, JSON.stringify(digest, null, 2), 'utf-8');
 

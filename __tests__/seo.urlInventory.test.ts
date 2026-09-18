@@ -59,3 +59,37 @@ test('static pages use the shared STATIC_PAGE_LAST_MODIFIED constant', async () 
     'static-page lastModified must come from the exported constant, not a local copy'
   );
 });
+
+test('digest lastModified reflects a post-build content regeneration', async () => {
+  // scripts/regenerateSummar*.ts stamp contentUpdatedAtISO after rewriting
+  // page-visible text. Google uses sitemap lastmod as its re-crawl hint, so
+  // that stamp — not the original build time — must win when it is newer.
+  const { promises: fs } = await import('fs');
+  const weekLabels = await getAvailableWeekLabels(DIGESTS_DIR);
+  const entries = await getIndexableUrls(BASE_URL);
+  let checked = 0;
+  for (const weekLabel of weekLabels) {
+    const digest = JSON.parse(await fs.readFile(path.join(DIGESTS_DIR, `${weekLabel}.json`), 'utf-8'));
+    if (!digest.contentUpdatedAtISO) continue;
+    const entry = entries.find(e => e.url === `${BASE_URL}/digest/${weekLabelToSlug(weekLabel)}`);
+    assert(entry, `missing entry for ${weekLabel}`);
+    assert(
+      entry.lastModified.getTime() >= new Date(digest.contentUpdatedAtISO).getTime(),
+      `${weekLabel}: lastModified ${entry.lastModified.toISOString()} is older than contentUpdatedAtISO ${digest.contentUpdatedAtISO}`
+    );
+    checked++;
+  }
+  if (checked === 0) console.log('Skipping: no digest carries contentUpdatedAtISO');
+});
+
+test('locale pages are not in the sitemap inventory (roadmap F2.3)', async () => {
+  // /es and /da serve English content under a translated shell and are
+  // robots noindex; listing them would tell Google to index a page that asks
+  // not to be indexed (the same LIVE_NOINDEX_ON_INDEXABLE mistake as /feedback).
+  const entries = await getIndexableUrls(BASE_URL);
+  const locale = entries.filter(e => /\/(es|da)(\/|$)/.test(e.url));
+  assert.deepEqual(locale.map(e => e.url), [], 'locale URLs must not be listed');
+  for (const entry of entries) {
+    assert.equal(entry.alternates, undefined, `${entry.url} still declares hreflang alternates`);
+  }
+});

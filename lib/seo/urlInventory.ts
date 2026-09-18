@@ -62,8 +62,15 @@ export async function getAvailableWeekLabels(digestsDir: string): Promise<string
 async function getDigestBuiltAt(filePath: string): Promise<Date> {
   try {
     const raw = await fs.readFile(filePath, 'utf-8');
-    const digest = JSON.parse(raw) as { builtAtISO?: string; startISO?: string };
-    if (digest.builtAtISO) return new Date(digest.builtAtISO);
+    const digest = JSON.parse(raw) as { builtAtISO?: string; startISO?: string; contentUpdatedAtISO?: string };
+    // A post-build content regeneration (scripts/regenerateSummar*.ts) stamps
+    // contentUpdatedAtISO; that is the more recent change and the one crawlers
+    // should be told about via lastmod.
+    const candidates = [digest.contentUpdatedAtISO, digest.builtAtISO]
+      .filter((v): v is string => typeof v === 'string')
+      .map(v => new Date(v))
+      .filter(d => !Number.isNaN(d.getTime()));
+    if (candidates.length > 0) return new Date(Math.max(...candidates.map(d => d.getTime())));
     if (digest.startISO) return new Date(digest.startISO);
     return new Date();
   } catch {

@@ -87,6 +87,7 @@ export interface WeeklyDigest<T extends Article = Article> {
   // === Build metadata ===
   builtAtISO?: string; // ISO timestamp when digest was built
   builtAtLocal?: string; // Human-readable local time when built
+  contentUpdatedAtISO?: string; // Last time page-visible content was regenerated after the build (summaries, insight, themes) — drives sitemap lastmod
   
   // === Cover image ===
   coverImageUrl?: string; // URL to weekly cover image

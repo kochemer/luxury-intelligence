@@ -51,6 +51,7 @@ async function regenerateWeek(weekLabel: string): Promise<void> {
     throw new Error(`content-quality gate failed after regeneration: ${quality.errors.join('; ')}`);
   }
 
+  digest.contentUpdatedAtISO = new Date().toISOString(); // sitemap lastmod → re-crawl hint
   await fs.writeFile(digestPath, JSON.stringify(digest, null, 2) + '\n', 'utf-8');
   console.log(`[Regenerate Summaries] ${weekLabel}: ✓ saved`);
 }
