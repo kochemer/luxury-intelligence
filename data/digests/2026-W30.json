@@ -951,5 +951,13 @@
   },
   "editorialTake": "Moody's warning that Amazon, Meta, and Alphabet’s AI spending is threatening their credit quality is the clearest sign yet that the AI arms race is pushing hyperscalers into risky financial territory. These companies are piling on debt to fund AI investments that may not pay off quickly, turning what looked like a tech gold rush into a potential credit crunch. This isn’t just about flashy AI launches; it’s a fundamental test of how these giants balance innovation with financial discipline.\n\nIf the biggest players stumble under the weight of their AI bets, the ripple effects will hit ecommerce platforms and luxury brands that rely on their infrastructure and ad ecosystems. I’m watching how AMD’s Helios system challenges Nvidia here too: hardware competition will only intensify capital demands. The real question is whether any of these companies can find sustainable AI growth without blowing up their balance sheets first.",
   "coverImageUrl": "/weekly-images/2026-W30.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W30"
+  "coverImageAlt": "Weekly cover illustration for 2026-W30",
+  "oneSentenceSummary": "While AI promises seamless customer acquisition, the rise in failed payments paradoxically undermines subscription loyalty, revealing fragilities beneath technological optimism.",
+  "keyThemes": [
+    "Moody's AI credit risk",
+    "Shopify pay on conversion",
+    "Richemont jewellery sales",
+    "ESW Agentic Commerce",
+    "Anthropic Claude Opus 5"
+  ]
 }

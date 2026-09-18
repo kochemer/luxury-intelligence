@@ -384,16 +384,8 @@ export default async function DigestPage({
               )}
             />
 
-            {(() => {
-              const quote =
-                digest.weeklyInsight ||
-                digest.oneSentenceSummary ||
-                digest.introParagraph ||
-                digest.topics?.AI_and_Strategy?.top?.[0]?.aiSummary ||
-                digest.topics?.Ecommerce_Retail_Tech?.top?.[0]?.aiSummary ||
-                null;
-              return quote ? <WeeklyInsight quote={quote} /> : null;
-            })()}
+            {/* Insight or nothing: never fall back to an article summary here. */}
+            {digest.oneSentenceSummary && <WeeklyInsight quote={digest.oneSentenceSummary} />}
 
             {/* EditorSpotlight hidden on archived pages for now */}
 

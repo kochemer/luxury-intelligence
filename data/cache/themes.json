@@ -381,5 +381,157 @@
     "cached_at": "2026-03-12T21:26:18.290Z",
     "model": "gpt-4.1-mini",
     "version": "3.1"
+  },
+  "2026-W30:5ab11d88fdbf": {
+    "keyThemes": [
+      "Moody's AI credit risk",
+      "Shopify pay on conversion",
+      "Richemont jewellery sales",
+      "ESW Agentic Commerce",
+      "Anthropic Claude Opus 5"
+    ],
+    "oneSentenceSummary": "While AI promises seamless customer acquisition, the rise in failed payments paradoxically undermines subscription loyalty, revealing fragilities beneath technological optimism.",
+    "summaryCandidates": [
+      "Escalating AI investments by hyperscalers foreshadow a credit recalibration where innovation-fueled debt could constrain strategic agility in 2027.",
+      "While AI promises seamless customer acquisition, the rise in failed payments paradoxically undermines subscription loyalty, revealing fragilities beneath technological optimism.",
+      "The assumption that AI-driven ecommerce growth is universally beneficial is complicated by emerging payment failures and shifting shopping calendars that disrupt consumer behavior predictability.",
+      "Converging signals—from AI’s role in recommendation engines to financial strain on big tech—suggest a structural shift toward integrating credit risk management with AI-powered customer engagement."
+    ],
+    "cached_at": "2026-09-18T19:08:31.618Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W31:a836187b3fe7": {
+    "keyThemes": [
+      "Amazon OpenAI investment",
+      "AWS AI revenue",
+      "Chow Tai Fook sales",
+      "CIBJO synthetic diamonds",
+      "MediaTek AI chips"
+    ],
+    "oneSentenceSummary": "The assumption that AI price cuts always stimulate adoption falters as enterprise sensitivity to cost now drives more strategic and selective AI integration decisions.",
+    "summaryCandidates": [
+      "The trillion-dollar AI spend signals fierce consolidation where only tech giants with vast capital can shape AI’s future, risking narrower innovation diversity over the next year.",
+      "While AI labs call for cautious progress, Amazon and SpaceX’s relentless investments reveal an ironic divergence between public restraint and private acceleration in AI deployment.",
+      "The assumption that AI price cuts always stimulate adoption falters as enterprise sensitivity to cost now drives more strategic and selective AI integration decisions.",
+      "Rising AI automation in supply chains and luxury’s expanding global footprint together hint at a structural shift toward hyper-efficient, data-driven experiences across traditionally artisanal sectors."
+    ],
+    "cached_at": "2026-09-18T19:08:34.742Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W32:8f4f842ab09b": {
+    "keyThemes": [
+      "Michael Hill sales rebound",
+      "Visa BioCatch acquisition",
+      "Gorilla Commerce Walmart launch",
+      "Kohl’s Gemini AI assistant",
+      "GN Diamond Vendor of the Year"
+    ],
+    "oneSentenceSummary": "The narrative that AI primarily disrupts tech sectors falters as its integration into live shopping and physical retail challenges assumptions about digital-native innovation’s limits.",
+    "summaryCandidates": [
+      "Alibaba’s AI resurgence signals intensified global rivalry in foundational AI models, pushing ecommerce and luxury sectors toward faster integration of advanced personalization and automation.",
+      "Heavy AI investment by space and ecommerce firms contrasts with enduring human-centric luxury marketing, revealing tension between automation and artisanal brand experiences.",
+      "The narrative that AI primarily disrupts tech sectors falters as its integration into live shopping and physical retail challenges assumptions about digital-native innovation’s limits.",
+      "Cross-industry AI adoption—from customer support to live commerce and luxury brand storytelling—reflects a structural shift where data-driven intelligence underpins both mass and high-end consumer engagement."
+    ],
+    "cached_at": "2026-09-18T19:08:38.550Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W33:0ba3b95b536a": {
+    "keyThemes": [
+      "Anthropic revenue growth",
+      "Nvidia AI financing",
+      "Target digital twin platform",
+      "Pandora sales boost",
+      "Jupiter Ulta Beauty entry"
+    ],
+    "oneSentenceSummary": "Investor enthusiasm for AI valuations contrasts starkly with Nvidia’s cautious retrenchment, revealing growing tension between speculative fervor and pragmatic capital allocation in tech markets.",
+    "summaryCandidates": [
+      "Anthropic’s explosive revenue growth suggests AI’s monetization phase will accelerate, pressuring competitors to broaden enterprise adoption beyond research hype within the year ahead.",
+      "Investor enthusiasm for AI valuations contrasts starkly with Nvidia’s cautious retrenchment, revealing growing tension between speculative fervor and pragmatic capital allocation in tech markets.",
+      "The narrative that AI bubbles are over is complicated by record IPO bets and strategic financing moves, indicating sustained confidence despite mounting cautionary signals.",
+      "Converging developments in AI investment, e-commerce leadership changes, and retail tech deployments reveal a deeper shift toward integrating intelligent automation across luxury and consumer sectors."
+    ],
+    "cached_at": "2026-09-18T19:08:42.669Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W34:529f26765fd2": {
+    "keyThemes": [
+      "Amazon Prime Air delivery",
+      "OpenAI GPT 56 pricing",
+      "AI training data boom",
+      "UK retail sales July",
+      "Jewellery returns insights"
+    ],
+    "oneSentenceSummary": "The assumption that AI’s value lies primarily in model sophistication is challenged by Nvidia’s focus on system architecture and deployment as decisive competitive differentiators.",
+    "summaryCandidates": [
+      "Widespread AI adoption in ecommerce and luxury sectors will soon necessitate new hybrid human-AI operational roles rather than fully automated workflows.",
+      "Despite AI’s promise to enhance customer personalization, regulatory scrutiny on practices like personalized pricing reveals growing tensions between innovation and fairness.",
+      "The assumption that AI’s value lies primarily in model sophistication is challenged by Nvidia’s focus on system architecture and deployment as decisive competitive differentiators.",
+      "Converging investments in AI infrastructure, expanded delivery tech, and data platform integrations signal a systemic shift toward seamless, AI-driven, omnichannel retail ecosystems."
+    ],
+    "cached_at": "2026-09-18T19:08:46.161Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W35:15f9b5549a69": {
+    "keyThemes": [
+      "Nvidia Hugging Face Acquisition",
+      "WilliamsSonoma AI Assistant",
+      "Luxury Resale Demand",
+      "Super Clone Watches",
+      "Agentic Commerce"
+    ],
+    "oneSentenceSummary": "Nvidia's pursuit of Hugging Face quietly signals a consolidation race shifting AI platforms toward tighter vertical integration, raising new barriers for open innovation in the coming year.",
+    "summaryCandidates": [
+      "Nvidia's pursuit of Hugging Face quietly signals a consolidation race shifting AI platforms toward tighter vertical integration, raising new barriers for open innovation in the coming year.",
+      "Despite rising AI complexity, supply chain security debates ironically focus on external threats rather than the internal systemic risks created by fragmented enterprise agent ecosystems.",
+      "The surge in AI-driven resale challenges the narrative that luxury consumers prioritize exclusivity over sustainability, revealing a recalibration toward circular economy values within high-end markets.",
+      "The intersection of AI adoption in ecommerce personalization, luxury resale momentum, and AI assistant-driven revenue highlights a structural shift toward hyper-personalized, data-fueled consumer experiences across sectors."
+    ],
+    "cached_at": "2026-09-18T19:08:49.398Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W36:5b8f429c2c6a": {
+    "keyThemes": [
+      "Nvidia Hugging Face acquisition",
+      "AI data center boom",
+      "Lovisa sales growth",
+      "Sephora TikTok Shop",
+      "Diamond price recovery"
+    ],
+    "oneSentenceSummary": "Amid frenetic AI version releases, the industry paradoxically risks stagnation by overwhelming users with incremental changes that produce 'model fatigue' rather than meaningful progress.",
+    "summaryCandidates": [
+      "Nvidia’s $13 billion acquisition signals AI platforms will consolidate rapidly, centralizing innovation and possibly redefining competitive dynamics throughout 2027.",
+      "Amid frenetic AI version releases, the industry paradoxically risks stagnation by overwhelming users with incremental changes that produce 'model fatigue' rather than meaningful progress.",
+      "The rush toward conversational shopping and TikTok exclusives complicates the narrative that luxury in ecommerce must remain exclusive and traditional to maintain allure.",
+      "Converging trends in AI IPOs, instant payments integration, and retail tech adoption reveal a structural shift toward seamless, intelligence-driven commerce ecosystems across luxury and mass markets."
+    ],
+    "cached_at": "2026-09-18T19:08:53.393Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
+  },
+  "2026-W37:3d7331d7c290": {
+    "keyThemes": [
+      "Oracle AI cloud",
+      "Amazon Prime Video shopping",
+      "Palantir Foundry supply chain",
+      "MuseSelect creator commerce",
+      "Diamond market woes"
+    ],
+    "oneSentenceSummary": "The accelerating AI demand fueling Oracle’s data centres contrasts sharply with rising cyber threats exploiting AI, revealing AI as both growth engine and vulnerability amplifier in retail.",
+    "summaryCandidates": [
+      "Oracle’s AI-driven revenue surge despite massive debt foreshadows aggressive prioritization of cloud innovation over traditional fiscal conservatism in tech giants’ strategies.",
+      "The accelerating AI demand fueling Oracle’s data centres contrasts sharply with rising cyber threats exploiting AI, revealing AI as both growth engine and vulnerability amplifier in retail.",
+      "The notion that AI cloud expansion solely boosts efficiency is challenged by Amazon’s move to merge entertainment and commerce, signaling a blurring of content and transaction boundaries.",
+      "A shift towards identity-centric AI applications appears across cloud, retail, and ecommerce, indicating an emergent paradigm where personalized data drives everything from cyber defense to shopping experience."
+    ],
+    "cached_at": "2026-09-18T19:08:57.333Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.1"
   }
 }

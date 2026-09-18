@@ -29,6 +29,13 @@ export interface DigestContentQualityOptions {
   minSummaryCoverage?: number;
   /** Whether a cover image is required. */
   requireCover?: boolean;
+  /**
+   * Whether the weekly insight (`oneSentenceSummary`) and `keyThemes` are required.
+   * These feed the homepage pull-quote, the digest-page meta description, JSON-LD
+   * keywords and llms.txt — they were silently null for 34 weeks (W04–W37) because
+   * the pipeline's build path never called the generator.
+   */
+  requireInsight?: boolean;
 }
 
 export interface DigestContentQualityResult {
@@ -39,6 +46,10 @@ export interface DigestContentQualityResult {
   selectedCount: number;
   summarizedCount: number;
   hasCover: boolean;
+  /** Whether `oneSentenceSummary` is a non-empty string. */
+  hasInsight: boolean;
+  /** Number of non-empty `keyThemes` entries. */
+  themeCount: number;
 }
 
 export function checkDigestContentQuality(
@@ -47,6 +58,7 @@ export function checkDigestContentQuality(
 ): DigestContentQualityResult {
   const minSummaryCoverage = options.minSummaryCoverage ?? 0.5;
   const requireCover = options.requireCover ?? true;
+  const requireInsight = options.requireInsight ?? true;
 
   const selected = TOPIC_KEYS.flatMap(k => digest.topics?.[k]?.top ?? []);
   const selectedCount = selected.length;
@@ -57,6 +69,12 @@ export function checkDigestContentQuality(
 
   const hasCover =
     typeof digest.coverImageUrl === 'string' && digest.coverImageUrl.trim().length > 0;
+
+  const hasInsight =
+    typeof digest.oneSentenceSummary === 'string' && digest.oneSentenceSummary.trim().length > 0;
+  const themeCount = Array.isArray(digest.keyThemes)
+    ? digest.keyThemes.filter(t => typeof t === 'string' && t.trim().length > 0).length
+    : 0;
 
   const errors: string[] = [];
 
@@ -78,6 +96,21 @@ export function checkDigestContentQuality(
     );
   }
 
+  if (requireInsight && !hasInsight) {
+    errors.push(
+      'Missing weekly insight (oneSentenceSummary is empty). ' +
+        'This is the homepage pull-quote and the digest meta description; ' +
+        'generateThemesForDigest did not run or failed.'
+    );
+  }
+
+  if (requireInsight && themeCount === 0) {
+    errors.push(
+      'Missing key themes (keyThemes is empty). ' +
+        'generateThemesForDigest did not run or failed.'
+    );
+  }
+
   return {
     ok: errors.length === 0,
     errors,
@@ -85,5 +118,7 @@ export function checkDigestContentQuality(
     selectedCount,
     summarizedCount,
     hasCover,
+    hasInsight,
+    themeCount,
   };
 }

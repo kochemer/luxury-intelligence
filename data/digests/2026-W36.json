@@ -959,5 +959,13 @@
   },
   "editorialTake": "Nvidia’s $13 billion acquisition of Hugging Face is a clear bet on owning the AI developer community and tooling layer, not just the hardware stack. This move shifts Nvidia from being a component supplier to a platform enabler, locking in AI innovation around its GPUs. It forces competitors to rethink their AI strategies because Nvidia is now controlling both the silicon and the software ecosystems that developers rely on.\n\nMeanwhile, Target’s use of AI to supercharge its back-to-school push shows how retailers must embed AI deeply into operations, not just marketing. AI is becoming a table stake for inventory and customer engagement at scale. The real question is whether traditional retailers can keep pace with tech giants who own both the AI models and the data, or if they risk becoming commoditized execution arms.",
   "coverImageUrl": "/weekly-images/2026-W36.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W36"
+  "coverImageAlt": "Weekly cover illustration for 2026-W36",
+  "oneSentenceSummary": "Amid frenetic AI version releases, the industry paradoxically risks stagnation by overwhelming users with incremental changes that produce 'model fatigue' rather than meaningful progress.",
+  "keyThemes": [
+    "Nvidia Hugging Face acquisition",
+    "AI data center boom",
+    "Lovisa sales growth",
+    "Sephora TikTok Shop",
+    "Diamond price recovery"
+  ]
 }

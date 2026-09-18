@@ -958,5 +958,13 @@
   },
   "editorialTake": "Nvidia’s latest research makes a sharp point: the AI model itself is no longer the bottleneck. Instead, it’s the harness around the AI agents, the fine-tuning and orchestration, that drives real performance gains. This flips the usual narrative on its head and puts companies investing in AI infrastructure and agent management software, like Micro1 hitting a $500 million run rate, in the spotlight. The race isn’t just about building smarter models, it’s about building smarter systems to deploy them effectively.\n\nMeanwhile, Amazon’s plan to expand its Prime Air drone delivery sixfold this year signals a bet on operational scale as a competitive moat in ecommerce logistics. It’s not just about having drones, but about integrating them into urban supply chains at scale. The question is how quickly regulators and urban infrastructure can keep pace with this push. Can Amazon’s drone expansion actually shift consumer expectations on delivery speed, or will it run into practical limits that stall growth?",
   "coverImageUrl": "/weekly-images/2026-W34.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W34"
+  "coverImageAlt": "Weekly cover illustration for 2026-W34",
+  "oneSentenceSummary": "The assumption that AI’s value lies primarily in model sophistication is challenged by Nvidia’s focus on system architecture and deployment as decisive competitive differentiators.",
+  "keyThemes": [
+    "Amazon Prime Air delivery",
+    "OpenAI GPT 56 pricing",
+    "AI training data boom",
+    "UK retail sales July",
+    "Jewellery returns insights"
+  ]
 }

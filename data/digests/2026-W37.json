@@ -955,5 +955,13 @@
   },
   "editorialTake": "Oracle’s 30% revenue jump driven by AI cloud demand is a clear signal that legacy tech giants can still rewrite the playbook on growth. They are not just chasing AI hype but monetizing infrastructure at scale, with data centre revenues surging alongside. This shows that the AI race isn’t just about flashy models but about who controls the cloud backbone powering those models.\n\nAmazon making it easier to buy what you see on Prime Video highlights a subtle but powerful shift: content is becoming direct commerce. This isn’t just about convenience; it’s about turning passive viewers into active buyers within the same experience. The real question is whether Amazon can crack the code on seamless identity-driven transactions without fueling the very cyber threats that AI is now supercharging in retail.",
   "coverImageUrl": "/weekly-images/2026-W37.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W37"
+  "coverImageAlt": "Weekly cover illustration for 2026-W37",
+  "oneSentenceSummary": "The accelerating AI demand fueling Oracle’s data centres contrasts sharply with rising cyber threats exploiting AI, revealing AI as both growth engine and vulnerability amplifier in retail.",
+  "keyThemes": [
+    "Oracle AI cloud",
+    "Amazon Prime Video shopping",
+    "Palantir Foundry supply chain",
+    "MuseSelect creator commerce",
+    "Diamond market woes"
+  ]
 }

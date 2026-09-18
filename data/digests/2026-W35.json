@@ -961,5 +961,13 @@
   },
   "editorialTake": "Nvidia’s move to acquire Hugging Face for $12.9 billion is a clear bet on owning the open source AI frontier. This isn’t just about tech stack consolidation; it’s a strategic play to control the developer community and the data pipelines that feed AI innovation. Nvidia is positioning itself as the indispensable platform for AI development, which will make it harder for competitors to build independent ecosystems.\n\nMeanwhile, Williams-Sonoma’s 620% growth in AI assistant-driven revenue shows how AI is no longer a back-end experiment but a direct driver of sales in ecommerce. The gap between AI hype and real business impact is closing fast. The question now is whether other retailers can scale AI-driven personalization without losing control of customer experience or alienating shoppers with over-automation.",
   "coverImageUrl": "/weekly-images/2026-W35.png",
-  "coverImageAlt": "Weekly cover illustration for 2026-W35"
+  "coverImageAlt": "Weekly cover illustration for 2026-W35",
+  "oneSentenceSummary": "Nvidia's pursuit of Hugging Face quietly signals a consolidation race shifting AI platforms toward tighter vertical integration, raising new barriers for open innovation in the coming year.",
+  "keyThemes": [
+    "Nvidia Hugging Face Acquisition",
+    "WilliamsSonoma AI Assistant",
+    "Luxury Resale Demand",
+    "Super Clone Watches",
+    "Agentic Commerce"
+  ]
 }

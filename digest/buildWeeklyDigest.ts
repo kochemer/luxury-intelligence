@@ -634,6 +634,36 @@ export async function buildAndSaveWeeklyDigest(
     console.log(`[Build Weekly Digest] ✓ All translations validated successfully`);
   }
 
+  // Weekly insight + key themes. This feeds the homepage pull-quote, the digest
+  // meta description, JSON-LD keywords and llms.txt. It must run BEFORE the
+  // Editor's Take, which reads digest.oneSentenceSummary for context.
+  //
+  // History: scripts/buildWeeklyDigest.ts used to call this, but the pipeline
+  // orchestrator switched to this function on 2026-02-08 and the call was lost —
+  // every digest from W04 to W37 shipped with these fields null while every step
+  // reported ok. The content-quality gate now fails on a missing insight.
+  console.log(`[Build Weekly Digest] Generating weekly insight + key themes...`);
+  const { generateThemesForDigest } = await import('./generateThemes');
+  let themesResult = await generateThemesForDigest(digest);
+  if (!themesResult?.oneSentenceSummary || themesResult.keyThemes.length === 0) {
+    console.warn(`[Build Weekly Digest] ⚠ Insight/themes incomplete on first attempt — retrying (cache bypassed)...`);
+    themesResult = await generateThemesForDigest(digest, true);
+  }
+  if (!themesResult?.oneSentenceSummary) {
+    throw new Error(
+      'Weekly insight generation failed twice (oneSentenceSummary empty). ' +
+        'Refusing to save a digest without its pull-quote/meta description.'
+    );
+  }
+  digest.oneSentenceSummary = themesResult.oneSentenceSummary;
+  digest.keyThemes = themesResult.keyThemes;
+  console.log(`[Build Weekly Digest] ✓ Insight: "${themesResult.oneSentenceSummary}"`);
+  if (themesResult.keyThemes.length > 0) {
+    console.log(`[Build Weekly Digest] ✓ Key themes: ${themesResult.keyThemes.join(' · ')}`);
+  } else {
+    console.warn(`[Build Weekly Digest] ⚠ No key themes generated (content-quality gate will flag this)`);
+  }
+
   // Generate Editor's Take (after summaries so the AI has good context from aiSummary fields)
   // Skipped automatically if editorialTakeOverride is set in the existing digest JSON.
   console.log(`[Build Weekly Digest] Generating Editor's Take...`);

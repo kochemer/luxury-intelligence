@@ -277,17 +277,9 @@ export default async function Home() {
             />
           )}
 
-          {/* Weekly pull-quote — editorial insight between stats and category nav */}
-          {digest && (() => {
-            const quote =
-              digest.weeklyInsight ||
-              digest.oneSentenceSummary ||
-              digest.introParagraph ||
-              digest.topics?.AI_and_Strategy?.top?.[0]?.aiSummary ||
-              digest.topics?.Ecommerce_Retail_Tech?.top?.[0]?.aiSummary ||
-              null;
-            return quote ? <WeeklyInsight quote={quote} /> : null;
-          })()}
+          {/* Weekly pull-quote — editorial insight between stats and category nav.
+              Insight or nothing: never fall back to an article summary here. */}
+          {digest?.oneSentenceSummary && <WeeklyInsight quote={digest.oneSentenceSummary} />}
 
           {/* Podcast + stats on cream */}
           <div className="bg-[var(--color-bg)] rounded-t-xl md:rounded-t-2xl border border-b-0 border-t border-t-[var(--color-accent)] border-black/5 p-4 sm:p-6 md:p-8 lg:p-10">

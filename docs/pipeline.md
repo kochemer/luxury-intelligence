@@ -207,7 +207,7 @@ digest.coverImageUrl    public/podcast/      data/weeks/{week}/
 - `runWeeklyChecks({ digest, selectedArticles, podcastScriptText? })`: Run all checks
 - `printHealthCheckResults(result)`: Print health check summary
 
-**Integration**: Called automatically in `scripts/buildWeeklyDigest.ts` after digest is built but before saving.
+**Integration**: Called automatically by the pipeline (`scripts/runWeeklyPipeline.ts`) after the digest step, and by the manual rebuild script `scripts/buildWeeklyDigest.ts` (a thin wrapper around `buildAndSaveWeeklyDigest`).
 
 ---
 
@@ -335,7 +335,7 @@ rm -rf data/weeks/2026-W05/
 
 ## Health Checks
 
-Health checks run automatically during digest build (`scripts/buildWeeklyDigest.ts`) and print warnings (never fail the pipeline).
+Health checks run automatically after the digest build (pipeline and `scripts/buildWeeklyDigest.ts`) and print warnings (never fail the pipeline). The separate content-quality gate (`pipeline/checks/digestContentQuality.ts`) *is* blocking: it requires AI-summary coverage, a cover image, and — since 2026-09-18 — a non-empty `oneSentenceSummary` and `keyThemes`.
 
 ### Checks Implemented
 
