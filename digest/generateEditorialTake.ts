@@ -19,11 +19,15 @@ import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
 
 // ── Configuration ─────────────────────────────────────────────────────────────
-const TAKE_MODEL = process.env.EDITORIAL_TAKE_MODEL || getModelFor('summarize');
+// The strongest model we route to: this is the page's original content and
+// the argument it opens with (roadmap F3.1, 2026-09-18).
+const TAKE_MODEL = process.env.EDITORIAL_TAKE_MODEL || getModelFor('polish');
 const TEMPERATURE = 0.4; // Slightly higher than summaries — we want voice, not determinism
-const MAX_TOKENS = 400;
+const MAX_TOKENS = 800;
 const CACHE_KIND = 'editorial-take';
-const TAKE_VERSION = '1.1';
+const TAKE_VERSION = '2.0'; // 250–300 words, thesis + evidence + operator implication
+const MIN_WORDS = 180;
+const MAX_WORDS = 340;
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type TakeResult = {
@@ -79,33 +83,36 @@ function buildEditorialTakePrompt(digest: WeeklyDigest): string {
     if (!topic?.top?.length) continue;
     const topicName = getTopicDisplayName(key);
     articleLines.push(`\n[${topicName}]`);
-    for (const article of topic.top.slice(0, 4)) {
+    // The full week, not a sample: the take must draw evidence from at least
+    // three selected stories, so the model needs to see all of them.
+    for (const article of topic.top) {
       const summary = article.aiSummary || article.snippet || '';
-      articleLines.push(`- ${article.title}${summary ? `: ${summary.slice(0, 120)}` : ''}`);
+      articleLines.push(`- ${article.title} (${article.source})${summary ? `: ${summary.slice(0, 160)}` : ''}`);
     }
   }
 
-  const weeklyInsight = digest.weeklyInsight || digest.oneSentenceSummary || '';
+  const weeklyInsight = digest.oneSentenceSummary || '';
+  const themes = digest.keyThemes?.length ? digest.keyThemes.join(' · ') : '';
 
-  return `You are the editor of a weekly intelligence digest covering AI, ecommerce, luxury, and jewellery. Your background is in management consulting and ecommerce strategy.
+  return `You are the editor of a weekly intelligence digest read by people who run luxury and jewellery businesses: brand strategy, merchandising, ecommerce, competitive intelligence. Your background is in management consulting and ecommerce strategy.
 
-Write your Editor's Spotlight for this week. This is a short, opinionated column — punchy, specific, and personal. Think of it as the sharpest thing you'd say to a smart colleague who just asked "what actually mattered this week and why?"
+Write this week's Editor's Take: the column that opens the issue. It is the one piece of original argument on the page. A reader who reads nothing else should come away with a point of view they did not have before.
 
-THIS WEEK'S ARTICLES:
+THIS WEEK'S SELECTED STORIES:
 ${articleLines.join('\n')}
 
-${weeklyInsight ? `THIS WEEK'S INSIGHT (from our analysis): ${weeklyInsight}` : ''}
+${weeklyInsight ? `THIS WEEK'S ONE-LINE INSIGHT (already on the page, do not repeat it verbatim): ${weeklyInsight}` : ''}
+${themes ? `KEY THEMES: ${themes}` : ''}
 
-CONTENT RULES:
-1. Pick ONE concrete signal — a specific company move, number, or tension — that has real strategic implications. Not a vague theme.
-2. Name the companies, cite the numbers, reference the actual events from the articles above.
-3. State a clear, specific opinion. Not "this is worth watching" — but what you actually think it means and why it matters.
-4. End with one sharp forward-looking question or unresolved tension. Not rhetorical — something genuinely hard to answer.
+STRUCTURE (three or four paragraphs, 250-300 words total):
+1. THESIS. Open with the claim: the one thing this week's evidence actually shows. A specific, arguable statement, stated in the first sentence.
+2. EVIDENCE. Build the case from at least THREE of the stories above, named explicitly (company, number, decision). Show how they connect; do not list them. Every fact must come from the stories above; invent nothing.
+3. COUNTER. One sentence on the strongest objection to your thesis, and why it does not hold, or what would have to be true for it to hold.
+4. IMPLICATION. Close with what a luxury or jewellery operator should do differently, or watch for, in the next quarter because of this. Concrete, not "stay alert". If the week's evidence is mostly about AI or ecommerce, this paragraph is where you make it matter for luxury and jewellery specifically.
 
 FORMAT:
-- 2 short paragraphs. Each paragraph 3-5 sentences. Total 100-150 words.
-- Separate the paragraphs with a blank line (\\n\\n).
-- No headers. No bullet points. No numbered lists.
+- 250-300 words. Three or four paragraphs separated by a blank line (\n\n).
+- No headers. No bullet points. No numbered lists. No labels like "Thesis:".
 
 WRITING STYLE:
 - Short sentences. Vary rhythm. No padding.
@@ -125,6 +132,26 @@ Format your response as JSON:
 {
   "editorialTake": "Paragraph one here.\\n\\nParagraph two here."
 }`;
+}
+
+/**
+ * House style the model will not reliably follow on its own: no em/en dashes
+ * (27 of 38 regenerated takes used them despite the prompt's ban). A dash
+ * between clauses becomes a comma; a dash opening a list or an explanation
+ * becomes a colon. Also collapses whitespace inside paragraphs.
+ */
+export function normalizeTakeText(text: string): string {
+  return text
+    // Every dash becomes a comma. A colon would read better before an
+    // enumeration, but telling the two cases apart reliably is not worth the
+    // complexity; consistent beats clever here.
+    .replace(/\s*[—–]\s*/g, ', ')
+    .replace(/,\s*,/g, ',')
+    .replace(/\s+([,.;:])/g, '$1')
+    .split(/\n\s*\n/)
+    .map(p => p.replace(/[ \t]+/g, ' ').trim())
+    .filter(Boolean)
+    .join('\n\n');
 }
 
 // ── LLM call ──────────────────────────────────────────────────────────────────
@@ -151,10 +178,14 @@ async function callLLMForEditorialTake(digest: WeeklyDigest): Promise<TakeResult
     if (!content) return null;
 
     const parsed = JSON.parse(content);
-    const editorialTake = typeof parsed.editorialTake === 'string' ? parsed.editorialTake.trim() : '';
-    if (!editorialTake || editorialTake.length < 50) {
-      console.warn('[EditorialTake] Response too short, discarding');
+    const editorialTake = normalizeTakeText(typeof parsed.editorialTake === 'string' ? parsed.editorialTake : '');
+    const words = editorialTake.split(/\s+/).filter(Boolean).length;
+    if (!editorialTake || words < MIN_WORDS) {
+      console.warn(`[EditorialTake] Response too short (${words} words, need ≥${MIN_WORDS}), discarding`);
       return null;
+    }
+    if (words > MAX_WORDS) {
+      console.warn(`[EditorialTake] Response long (${words} words, target ≤300); keeping`);
     }
 
     return { editorialTake };

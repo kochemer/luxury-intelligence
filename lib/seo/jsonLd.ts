@@ -82,6 +82,16 @@ export function buildRootGraphLd(siteUrl: string, locale = 'en') {
         description: PUBLICATION_DESCRIPTION,
         inLanguage: locale,
         publisher: { '@id': entityId.organization(siteUrl) },
+        // The site has a real search page; declaring it lets engines and
+        // assistants route "search Luxury Intelligence for X" to it.
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${siteUrl}/search?q={search_term_string}`,
+          },
+          'query-input': 'required name=search_term_string',
+        },
       },
       buildOrganizationLd(siteUrl),
       buildEditorLd(siteUrl),
@@ -137,9 +147,57 @@ export function buildNewsArticleLd(args: {
       'Luxury & Consumer',
     ],
     ...(digest.startISO && { datePublished: digest.startISO }),
-    ...(digest.builtAtISO && { dateModified: digest.builtAtISO }),
+    ...((digest.contentUpdatedAtISO || digest.builtAtISO) && {
+      dateModified: digest.contentUpdatedAtISO || digest.builtAtISO,
+    }),
     ...(imageUrl && { image: [imageUrl] }),
     ...(digest.keyThemes?.length ? { keywords: digest.keyThemes.join(', ') } : {}),
+    // The two pieces of original text on the page, marked for voice
+    // assistants and answer engines. Selectors match app/components/
+    // WeeklyInsight.tsx and EditorSpotlight.tsx.
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.speakable-insight', '.speakable-take'],
+    },
+  };
+}
+
+/**
+ * The week's podcast episode as an AudioObject attached to the digest page.
+ *
+ * `duration` is ISO 8601 (PT17M0S). `encodingFormat` and `contentUrl` are what
+ * let a crawler treat the MP3 as media belonging to this page rather than an
+ * unrelated file it happened to find.
+ */
+export function buildAudioObjectLd(args: {
+  siteUrl: string;
+  pageUrl: string;
+  audioPath: string;
+  durationSeconds?: number;
+  name: string;
+  description?: string;
+  publishedAtISO?: string;
+  imageUrl?: string;
+}) {
+  const { siteUrl, pageUrl, audioPath, durationSeconds, name, description, publishedAtISO, imageUrl } = args;
+  const duration = durationSeconds != null
+    ? `PT${Math.floor(durationSeconds / 60)}M${Math.round(durationSeconds % 60)}S`
+    : undefined;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AudioObject',
+    name,
+    ...(description && { description }),
+    contentUrl: `${siteUrl}${audioPath}`,
+    encodingFormat: 'audio/mpeg',
+    ...(duration && { duration }),
+    ...(publishedAtISO && { uploadDate: publishedAtISO }),
+    ...(imageUrl && { thumbnailUrl: imageUrl }),
+    inLanguage: 'en',
+    isAccessibleForFree: true,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': entityId.webPage(pageUrl) },
+    publisher: { '@id': entityId.organization(siteUrl) },
+    isPartOf: { '@id': entityId.website(siteUrl) },
   };
 }
 

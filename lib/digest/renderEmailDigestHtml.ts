@@ -232,6 +232,22 @@ export function renderEmailDigestHtml(digest: EmailDigest, opts: RenderEmailDige
 
   const articleRows = leadRow + secondaryRows + tertiaryRows;
 
+  const takeBlock = digest.editorialTake ? `
+          <!-- Editor's Take -->
+          <tr>
+            <td class="outer-pad" style="background-color: ${C.bg}; padding: 0 32px 8px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="border-left: 2px solid ${C.accent}; padding: 4px 0 4px 20px;">
+                    <p style="margin: 0 0 14px 0; font-family: ${SANS}; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: ${C.accent};">Editor&#8217;s Take</p>
+                    ${digest.editorialTake.split(/\n\s*\n/).map(p => `<p style="margin: 0 0 14px 0; font-family: ${SERIF}; font-size: 17px; line-height: 1.7; color: ${C.textPrimary};">${escapeHtml(p.trim())}</p>`).join('\n                    ')}
+                    <p style="margin: 6px 0 0 0; font-family: ${SANS}; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: ${C.textSecond};">The Editor</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>` : '';
+
   const introBlock = digest.intro ? `
           <!-- Intro -->
           <tr>
@@ -278,6 +294,7 @@ export function renderEmailDigestHtml(digest: EmailDigest, opts: RenderEmailDige
           <tr><td style="height: 3px; background-color: ${C.accent};"></td></tr>
 
           ${introBlock}
+          ${takeBlock}
 
           ${articleRows}
 
@@ -329,6 +346,11 @@ export function renderEmailDigestPlaintext(digest: EmailDigest, unsubscribeUrl?:
 
   if (digest.intro) {
     text += `${digest.intro}\n\n`;
+    text += `${'─'.repeat(50)}\n\n`;
+  }
+
+  if (digest.editorialTake) {
+    text += `EDITOR'S TAKE\n\n${digest.editorialTake.trim()}\n\n— The Editor\n\n`;
     text += `${'─'.repeat(50)}\n\n`;
   }
 

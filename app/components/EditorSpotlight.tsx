@@ -70,7 +70,8 @@ export function EditorSpotlight({ text, weekLabel, isOverride = false }: EditorS
           )}
         </div>
 
-        <div className="mb-5 md:mb-6 space-y-4">
+        {/* .speakable-take is referenced by the NewsArticle `speakable` cssSelector in lib/seo/jsonLd.ts */}
+        <div className="speakable-take mb-5 md:mb-6 space-y-4">
           {text.split('\n\n').map((para, i) => (
             <p key={i} className="font-serif text-[1.0rem] sm:text-[1.0625rem] md:text-[1.125rem] leading-[1.78] text-[var(--color-text-primary)]">
               {para.trim()}

@@ -139,6 +139,8 @@ export interface EmailDigest {
   week: string;
   generatedAt: string;
   intro?: string;
+  /** The week's Editor's Take, copied from the digest JSON (roadmap F3.1). Paragraphs separated by \n\n. */
+  editorialTake?: string;
   readOneThing?: { title: string; url: string };
   items: EmailDigestItem[];
 }

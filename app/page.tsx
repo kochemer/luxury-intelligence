@@ -275,6 +275,17 @@ export default async function Home() {
               Insight or nothing: never fall back to an article summary here. */}
           {digest?.oneSentenceSummary && <WeeklyInsight quote={digest.oneSentenceSummary} />}
 
+          {/* Editor's Take — the page's original argument, above the lists (roadmap F3.1) */}
+          {digest?.editorialTake && (
+            <div className="max-w-3xl mx-auto px-4 sm:px-6">
+              <EditorSpotlight
+                text={digest.editorialTake}
+                weekLabel={digest.weekLabel}
+                isOverride={Boolean(digest.editorialTakeOverride)}
+              />
+            </div>
+          )}
+
           {/* Podcast + stats on cream */}
           <div className="bg-[var(--color-bg)] rounded-t-xl md:rounded-t-2xl border border-b-0 border-t border-t-[var(--color-accent)] border-black/5 p-4 sm:p-6 md:p-8 lg:p-10">
           {!digest ? (
@@ -315,6 +326,10 @@ export default async function Home() {
                     description="Listen to this week's key ecommerce, jewellery & luxury stories"
                     durationSeconds={podcast.duration}
                   />
+                  <p className="mt-3 text-[11px] tracking-[0.12em] uppercase text-[var(--color-text-secondary)]">
+                    Subscribe in your podcast app:{' '}
+                    <a href="/podcast/feed.xml" className="underline underline-offset-2 hover:text-[var(--color-accent)]">RSS feed</a>
+                  </p>
                 </div>
               )}
 

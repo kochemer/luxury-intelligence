@@ -28,7 +28,7 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { weekLabelToSlug, slugToWeekLabel } from '@/lib/utils/weekSlug';
 import { CATEGORY_COLORS } from '@/lib/constants/categoryColors';
 import { buildWeekTitle, buildWeekMetaDescription } from '@/lib/seo/metaText';
-import { buildNewsArticleLd, buildDigestItemListLd, buildBreadcrumbLd } from '@/lib/seo/jsonLd';
+import { buildNewsArticleLd, buildDigestItemListLd, buildBreadcrumbLd, buildAudioObjectLd } from '@/lib/seo/jsonLd';
 import type { WeeklyDigest } from '@/lib/types';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -229,6 +229,20 @@ export default async function DigestPage({
   // The week's curated selection, expressed as data rather than only prose.
   const itemListSchema = buildDigestItemListLd({ siteUrl, url: pageUrl, dateRange, digest });
 
+  // The week's podcast episode as media belonging to this page (roadmap F3.3).
+  const audioSchema = podcast?.audioPath
+    ? buildAudioObjectLd({
+        siteUrl,
+        pageUrl,
+        audioPath: podcast.audioPath,
+        durationSeconds: podcast.duration,
+        name: `${dateRange} · Luxury Intelligence Weekly`,
+        description: digest.oneSentenceSummary,
+        publishedAtISO: podcast.generatedAt,
+        imageUrl: digest.coverImageUrl ? `${siteUrl}${digest.coverImageUrl}` : undefined,
+      })
+    : null;
+
   const breadcrumbSchema = buildBreadcrumbLd({
     siteUrl,
     items: [
@@ -295,6 +309,7 @@ export default async function DigestPage({
       <JsonLd data={newsArticleSchema} />
       <JsonLd data={itemListSchema} />
       <JsonLd data={breadcrumbSchema} />
+      {audioSchema && <JsonLd data={audioSchema} />}
       <main className="w-full" style={{ minHeight: '100vh', background: 'var(--color-bg)' }}>
 
         {/* MAGAZINE COVER HERO — matches homepage style */}
@@ -387,7 +402,16 @@ export default async function DigestPage({
             {/* Insight or nothing: never fall back to an article summary here. */}
             {digest.oneSentenceSummary && <WeeklyInsight quote={digest.oneSentenceSummary} />}
 
-            {/* EditorSpotlight hidden on archived pages for now */}
+            {/* Editor's Take — the page's original argument, above the lists (roadmap F3.1) */}
+            {digest.editorialTake && (
+              <div className="max-w-3xl mx-auto px-4 sm:px-6">
+                <EditorSpotlight
+                  text={digest.editorialTake}
+                  weekLabel={digest.weekLabel}
+                  isOverride={Boolean(digest.editorialTakeOverride)}
+                />
+              </div>
+            )}
 
             <div className="bg-[var(--color-bg)] rounded-t-xl md:rounded-t-2xl border border-b-0 border-t border-t-[var(--color-accent)] border-black/5 p-4 sm:p-6 md:p-8 lg:p-10">
               {podcast && (
@@ -398,6 +422,10 @@ export default async function DigestPage({
                     description="Listen to this week's key ecommerce, jewellery & luxury stories"
                     durationSeconds={podcast.duration}
                   />
+                  <p className="mt-3 text-[11px] tracking-[0.12em] uppercase text-[var(--color-text-secondary)]">
+                    Subscribe in your podcast app:{' '}
+                    <a href="/podcast/feed.xml" className="underline underline-offset-2 hover:text-[var(--color-accent)]">RSS feed</a>
+                  </p>
                 </div>
               )}
 

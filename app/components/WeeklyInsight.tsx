@@ -41,7 +41,8 @@ export function WeeklyInsight({ quote }: { quote: string }) {
         &ldquo;
       </span>
 
-      <p className="font-serif italic text-[1.125rem] md:text-[1.375rem] leading-relaxed text-[var(--color-text-primary)] tracking-[-0.01em] relative">
+      {/* .speakable-insight is referenced by the NewsArticle `speakable` cssSelector in lib/seo/jsonLd.ts */}
+      <p className="speakable-insight font-serif italic text-[1.125rem] md:text-[1.375rem] leading-relaxed text-[var(--color-text-primary)] tracking-[-0.01em] relative">
         {quote}
       </p>
 

@@ -485,6 +485,8 @@ export async function buildWeeklyEmailDigest(weekLabel: string, topN: number = 8
     week: weekLabel,
     generatedAt: new Date().toISOString(),
     intro,
+    // The Editor's Take opens the email as it opens the page (roadmap F3.1).
+    editorialTake: digest.editorialTake?.trim() || undefined,
     readOneThing,
     items,
   };
