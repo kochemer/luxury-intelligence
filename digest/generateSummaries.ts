@@ -6,10 +6,32 @@
 import OpenAI from 'openai';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
 
-const AI_MODEL = getModelFor('summarize');
+const AI_MODEL = process.env.ARTICLE_SUMMARY_MODEL || getModelFor('summarize');
 const MAX_SNIPPET_LENGTH = 800;
 const MAX_OUTPUT_TOKENS = 100;
 const TEMPERATURE = 0.2;
+/** Soft ceiling from the prompt; longer output is kept but logged. */
+const TARGET_MAX_WORDS = 25;
+
+/**
+ * Normalise model output before it is stored: drop any assistant-style
+ * preamble/label the model still emits, unwrap quotes, collapse whitespace.
+ * (ArticleCard strips the old "AI-generated summary:" prefix at render time too,
+ * but that is a safety net — the JSON, email, llms.txt and JSON-LD all read the
+ * raw field.)
+ */
+export function cleanSummaryText(raw: string): string {
+  let s = raw.trim();
+  // Labels / disclaimers the old prompt trained us to expect.
+  s = s.replace(/^\*\*(?:AI[- ]generated summary|AI summary|Summary)\s*[:\-–—]?\s*\*\*\s*[:\-–—]?\s*/i, '');
+  s = s.replace(/^(?:AI[- ]generated summary|AI summary|Summary)\s*[:\-–—]\s*/i, '');
+  s = s.replace(/^(?:this is an )?AI[- ]generated summary[.:]?\s*/i, '');
+  // Wrapping quotes.
+  s = s.replace(/^["“'‘]([\s\S]*)["”'’]$/, '$1');
+  // Whitespace.
+  s = s.replace(/\s+/g, ' ').trim();
+  return s;
+}
 
 type TokenUsage = {
   prompt_tokens?: number;
@@ -56,16 +78,24 @@ async function generateAISummaryForArticle(
 
   const date = article.published_at ? new Date(article.published_at).toISOString().split('T')[0] : '';
 
-  const prompt = `As an AI assistant, produce a short summary (1-2 sentences) for this article based ONLY on the information provided below. Use only the title, source, date, topic, and snippet/description. DO NOT invent facts or reference information not provided. Clearly indicate this is an AI-generated summary.
+  const prompt = `You write one-line story summaries for a weekly intelligence digest read by luxury, jewellery and retail executives. Readers scan dozens of these; each one must earn its place.
 
-Article information:
-- Title: "${article.title}"
-- Source: ${article.source}
-- Published: ${date}
-- Topic: ${topicDisplayName}
-- Snippet/Description: ${truncatedSnippet}
+Write ONE sentence, maximum ${TARGET_MAX_WORDS} words, summarising the article below.
 
-Generate a concise summary (1-2 sentences) that captures the key points from the snippet.`;
+Rules:
+- Lead with the fact. The first words are the news itself (who did what, what changed, what the number is) — never the source, the date, or "the article".
+- Include at least one concrete anchor: a number, a named company/person/product, or a decision taken.
+- Use only the information given below. Do not invent, extrapolate, or add context that is not there.
+- No preamble, label, disclaimer or hedging: never "AI-generated", "this article", "the piece discusses", "according to", "highlights", "explores".
+- No wrapping quotes, no bullet, no trailing commentary. Output the sentence and nothing else.
+
+Article (${topicDisplayName} section):
+Title: ${article.title}
+Source: ${article.source}
+Published: ${date}
+Description: ${truncatedSnippet}
+
+Example of the required style (unrelated story): "Richemont's jewellery maisons grew sales 11% in Q1 as Cartier demand offset a 7% drop in watches."`;
 
   // Call OpenAI API with strong error handling
   try {
@@ -77,7 +107,14 @@ Generate a concise summary (1-2 sentences) that captures the key points from the
       messages: [{ role: "user", content: prompt }],
     });
     
-    const summary = res.choices[0]?.message?.content?.trim() || null;
+    const rawSummary = res.choices[0]?.message?.content?.trim() || '';
+    const summary = rawSummary ? cleanSummaryText(rawSummary) || null : null;
+    if (summary) {
+      const words = summary.split(/\s+/).length;
+      if (words > TARGET_MAX_WORDS + 10) {
+        console.warn(`[Summaries] ${words}-word summary (target ≤${TARGET_MAX_WORDS}) for "${article.title.substring(0, 50)}..."`);
+      }
+    }
     
     // Extract token usage if available (handle missing fields gracefully)
     const tokenUsage: TokenUsage = {};

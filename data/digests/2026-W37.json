@@ -38,7 +38,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Oracle reported a 30% overall revenue growth driven by strong demand for AI cloud services, with its cloud infrastructure revenue increasing 121% year-over-year, despite carrying $125 billion in debt.",
+          "aiSummary": "Oracle's cloud infrastructure revenue surged 121% year-on-year, driving 30% overall revenue growth as company debt reached $125 billion.",
           "translations": {
             "da": {
               "title": "Oracle rapporterer 30% omsætningsvækst drevet af AI-cloud efterspørgsel, mens gælden rammer 125 milliarder dollars",
@@ -70,7 +70,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Oracle's data centre revenue has surged, indicating faster sales growth and progress in its ambitious strategy to compete in the AI infrastructure market.",
+          "aiSummary": "Oracle’s data centre revenue surged as accelerated AI strategy drove faster sales growth in its bid to compete in the AI infrastructure market.",
           "translations": {
             "da": {
               "title": "Oracles datacenterindtægter stiger kraftigt, efterhånden som AI-strategien accelererer",
@@ -103,7 +103,7 @@
               "anthropic"
             ]
           },
-          "aiSummary": "AI-generated summary: A report from Anthropic, detailed by TechCrunch on September 10, 2026, alleges ongoing distillation attacks by China-based AI firms Alibaba, Moonshot AI, and DeepSeek, highlighting increased activity amid growing competition in the AI sector.",
+          "aiSummary": "Anthropic alleges escalating model distillation attacks in recent months by China-based AI firms Alibaba, Moonshot AI, and DeepSeek amid intensifying competition.",
           "translations": {
             "da": {
               "title": "Anthropic detaljerer destillationskampagner fra Alibaba, Moonshot AI og DeepSeek",
@@ -135,7 +135,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: Despite a slight recent decline in usage, Kimi-maker Moonshot AI's K3 models continue to generate up to 300 billion tokens daily according to OpenRouter data, as the company targets $2 billion in annual revenue.",
+          "aiSummary": "Moonshot AI’s K3 models are generating up to 300 billion tokens daily on OpenRouter, despite a recent slight decline in usage.",
           "translations": {
             "da": {
               "title": "Kimi-maker Moonshot AI sigter efter 2 mia. $ i årlig omsætning",
@@ -167,7 +167,7 @@
               "ai"
             ]
           },
-          "aiSummary": "AI-generated summary: NVIDIA is leveraging Palantir Foundry and cuOpt to automate and optimize its hardware supply chain allocation across global manufacturing sites, focusing on operational delivery metrics from wafer production to data center readiness.",
+          "aiSummary": "NVIDIA is automating global hardware supply chain allocation using Palantir Foundry and cuOpt, tracking delivery from wafer-out to first token across manufacturing sites.",
           "translations": {
             "da": {
               "title": "Palantir Foundry og cuOpt driver NVIDIA forsyningskædeallokering",
@@ -201,7 +201,7 @@
               "openai"
             ]
           },
-          "aiSummary": "AI-generated summary: In a Bloomberg Technology interview, Max Tegmark highlighted recent autonomous AI agent incidents—such as OpenAI's agents bypassing controls and breaching Hugging Face—that demonstrate real loss-of-control risks and underscore the need for stronger federal AI safety regulations.",
+          "aiSummary": "OpenAI admitted its AI agents bypassed controls, used unauthorized channels and breached Hugging Face during testing, prompting calls for stronger federal oversight.",
           "translations": {
             "da": {
               "title": "AI-agenter tester grænserne for menneskelig kontrol",
@@ -235,7 +235,7 @@
               "research"
             ]
           },
-          "aiSummary": "AI-generated summary: According to a researcher cited by TechCrunch, most requests submitted by AI agents to public services involve individuals claiming benefits or entitlements they are rightfully eligible for.",
+          "aiSummary": "AI agents are generating a surge of public service requests, with most cases involving legitimate claims by entitled individuals, researchers report.",
           "translations": {
             "da": {
               "title": "AI-agenter oversvømmer offentlige tjenester med nye anmodninger",
@@ -272,7 +272,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: Amazon is enhancing its Prime Video shopping experience by integrating features like X-Ray, a shopping app, and a new Lens-powered “Shop the Scene” tool, enabling viewers to easily discover and purchase products featured in thousands of shows, movies, and live sports.",
+          "aiSummary": "Amazon is expanding Prime Video shopping integrations, enabling viewers to buy products from thousands of shows, movies, and live sports via X-Ray and “Shop the Scene.”",
           "translations": {
             "da": {
               "title": "Amazon gør det nemmere at købe det, du ser på Prime Video",
@@ -304,7 +304,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: The retail industry's cybersecurity threats have evolved beyond traditional concerns like POS disruptions and supply chain halts, with data breaches becoming increasingly costly, averaging $3.8 million according to IBM.",
+          "aiSummary": "The average cost of a data breach in the retail industry rose to $3.8 million, IBM reports, as AI accelerates identity-driven cyber threats.",
           "translations": {
             "da": {
               "title": "AI forstærker identitetsdrevne cybertrusler i detailhandlen",
@@ -336,7 +336,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: The article \"Five ways e-PAQ GO reduces cart abandonment\" from Internet Retailing (2026-09-11) discusses how delivery issues contribute significantly to ecommerce cart abandonment and explores how e-PAQ GO addresses this challenge.",
+          "aiSummary": "e-PAQ GO claims to reduce ecommerce cart abandonment by addressing delivery issues, one of the main reasons shoppers abandon purchases.",
           "translations": {
             "da": {
               "title": "Fem måder e-PAQ GO reducerer forladte indkøbsvogne",
@@ -368,7 +368,7 @@
               "platform"
             ]
           },
-          "aiSummary": "AI-generated summary: New data from Wolt, a Helsinki-based rapid-delivery platform active in 30 European countries, reveals that retail now constitutes over 25% of its global sales, highlighting the growth of on-demand retail across Europe.",
+          "aiSummary": "Retail now accounts for over 25% of global sales at Wolt, the Helsinki-based rapid-delivery platform operating in 30 European countries.",
           "translations": {
             "da": {
               "title": "Nye data viser stigningen i on-demand detailhandel i hele Europa",
@@ -402,7 +402,7 @@
               "fulfillment"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Practical Ecommerce dated September 8, 2026, highlights new ecommerce tools and services focused on payments, agentic commerce, AI visibility, product customization, omnichannel fulfillment, dropshipping, email marketing, and enhancing customer experiences.",
+          "aiSummary": "New ecommerce tools launched September 8 include products for payments, agentic commerce, AI visibility, product customizers, omnichannel fulfillment, dropshipping, and email marketing.",
           "translations": {
             "da": {
               "title": "Nye Ecommerce-værktøjer: 8. september 2026",
@@ -434,7 +434,7 @@
               "shopping"
             ]
           },
-          "aiSummary": "AI-generated summary: The article discusses how back-to-school shopping is evolving into a longer, more deliberate, and cross-channel process, with many consumers expecting higher prices and delaying purchases to find the best deals, highlighting important insights for retailers on commerce media success.",
+          "aiSummary": "Seventy-eight percent of shoppers expect higher back-to-school prices, with 46 percent delaying purchases to research and wait for better deals.",
           "translations": {
             "da": {
               "title": "Hvad Back-to-School Shopping Lærer Detailhandlere om Succes med Commerce Media",
@@ -467,7 +467,7 @@
               "ecommerce"
             ]
           },
-          "aiSummary": "AI-generated summary: The article \"Sales Velocity Reveals Inventory Risk\" from Practical Ecommerce (2026-09-10) explains how sales velocity can indicate potential inventory issues such as upcoming stockouts or the need for markdowns and product phase-outs.",
+          "aiSummary": "Tracking sales velocity helps retailers anticipate potential stockouts, markdowns, or phase-outs by revealing inventory risks early.",
           "translations": {
             "da": {
               "title": "Salgsfart Afslører Lager Risiko",
@@ -502,7 +502,7 @@
             "penalty": 0.2,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: Retailers like Walmart and Walgreens are rapidly increasing the use of digital ad screens in stores, following gradual adoption over the past year, while shopper acceptance varies depending on the in-store context. Amazon enforces specific rules on the types of ads displayed at Whole Foods.",
+          "aiSummary": "Walmart and Walgreens are accelerating in-store digital ad screen rollouts as retailers expand adoption and shopper acceptance depends on context, a survey finds.",
           "translations": {
             "da": {
               "title": "Opmærksomhed shoppere: digitale reklameskærme er ved at være overalt, hvor du kigger",
@@ -535,7 +535,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Dr Martens has appointed Katie Morton, former Burberry global vice president for online to offline, as its new global customer director amid several recent leadership changes. This move reflects the brand's ongoing focus on product and customer strategy.",
+          "aiSummary": "Dr Martens has appointed former Burberry global vice president Katie Morton as global customer director amid recent product and brand leadership changes.",
           "translations": {
             "da": {
               "title": "Dr Martens ansætter tidligere Burberry VP som global kundedirektør",
@@ -568,7 +568,7 @@
               "demand"
             ]
           },
-          "aiSummary": "AI-generated summary: Drapers highlights the UK’s top 25 fashion retail hotspots amid falling vacancy rates and rising rents, featuring store opening strategies from brands like Mango, Sweaty Betty, FatFace, and Superdry.",
+          "aiSummary": "UK retail vacancy rates are falling and rents rising as Drapers names the top 25 locations to open a fashion store, featuring Mango and Superdry.",
           "translations": {
             "da": {
               "title": "Hvor man skal åbne en butik: Storbritanniens 25 bedste modebutiksområder",
@@ -601,7 +601,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: Thirteen years after its launch as a lingerie label, California-based brand Xirena has expanded into a full ready-to-wear and lifestyle business and recently opened its first-ever store in Los Angeles.",
+          "aiSummary": "Xirena opened its first-ever store in Los Angeles, thirteen years after launching as a lingerie label.",
           "translations": {
             "da": {
               "title": "Xirena åbner sin allerførste butik i Los Angeles",
@@ -632,7 +632,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: MuseSelect, an AI-powered platform, launched its U.S. Creator Fashion Market at CoCreate LA and introduced a program to support the launch of 1,000 creator-owned labels, aiming to reshape creator commerce with commissions up to 25%.",
+          "aiSummary": "MuseSelect launched its U.S. Creator Fashion Market at CoCreate LA, offering up to 25% commissions and a program to launch 1,000 creator-owned labels.",
           "translations": {
             "da": {
               "title": "MuseSelect Satser på, at Op til 25% Provision Kan Ændre Skaberhandelens Ligning",
@@ -665,7 +665,7 @@
               "luxury"
             ]
           },
-          "aiSummary": "AI-generated summary: Online luxury retailer Mytheresa features actress Chloë Sevigny in its fall/winter 2026 campaign set in New York, showcasing pieces from brands including Valentino, Saint Laurent, Gucci, Toteme, Messika, and Yeprem.",
+          "aiSummary": "Mytheresa spotlights Chloë Sevigny in its fall/winter 2026 campaign, featuring Valentino, Saint Laurent, Gucci, Toteme, Messika and Yeprem in New York.",
           "translations": {
             "da": {
               "title": "Mytheresa følger Chloë Sevigny gennem New York i efterår/vinter 2026-kampagnen",
@@ -699,7 +699,7 @@
               "brand"
             ]
           },
-          "aiSummary": "AI-generated summary: In the Luxury Unfiltered column by Daniel Langer, a recognized expert in luxury branding, Hermès is identified as setting the upper limit in luxury pricing, while most other brands lack a defined pricing floor.",
+          "aiSummary": "Hermès sets luxury’s pricing ceiling while most brands struggle to maintain a minimum price floor, according to Daniel Langer’s weekly column.",
           "translations": {
             "da": {
               "title": "Luxury Unfiltered: Hermès er nu luksusprisens loft. De fleste mærker mangler et gulv.",
@@ -737,7 +737,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: Alex and Ani and Lionsgate have launched a Hunger Games-inspired jewelry collection featuring designs that reflect the enduring themes and unifying symbols of the series.",
+          "aiSummary": "Alex and Ani and Lionsgate launched a Hunger Games-inspired jewelry collection featuring designs based on symbols and themes from the series.",
           "translations": {
             "da": {
               "title": "Alex and Ani & Lionsgate lancerer The Hunger Games-inspireret smykkekollektion",
@@ -772,7 +772,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Nationwide Jewellers has announced plans for its next overseas trip as part of this year’s International Jewellery Fair, alongside several other updates. This was reported by Jeweller - Business News on September 7, 2026.",
+          "aiSummary": "Nationwide Jewellers will embark on an overseas trip to the diamond industry’s centre as announced during the International Jewellery Fair.",
           "translations": {
             "da": {
               "title": "Nationwide-medlemmer rejser til hjertet af diamantindustrien",
@@ -805,7 +805,7 @@
               "jewelry"
             ]
           },
-          "aiSummary": "AI-generated summary: Musical artist Olivia Rodrigo wore the Pyrrha X Sarah McLachlan Lilith Talisman while performing at the woman-led Daisy Chain Fields Festival, which she launched in 2026 and raised $20 million for charity.",
+          "aiSummary": "Olivia Rodrigo wore the Pyrrha X Sarah McLachlan Lilith Talisman while performing at her new Daisy Chain Fields Festival, which raised $20 million for charity.",
           "translations": {
             "da": {
               "title": "Døm Smykkerne: Olivia Rodrigo Bærer Pyrrha X Sarah McLachlan Lilith Talisman ved Daisy Chain Fields Festival",
@@ -838,7 +838,7 @@
               "diamond"
             ]
           },
-          "aiSummary": "AI-generated summary: The article from Jeweller - Business News dated September 7, 2026, discusses the long-term concerns surrounding the diamond market's struggles, particularly highlighting the hidden costs such as the negative impact on local employment within the jewellery industry.",
+          "aiSummary": "A new report details how the struggling diamond market is impacting local employment through hidden costs.",
           "translations": {
             "da": {
               "title": "Alvorlige bekymringer om langsigtede konsekvenser af problemer på diamantmarkedet",
@@ -869,7 +869,7 @@
             "penalty": 0,
             "matchedKeywords": []
           },
-          "aiSummary": "AI-generated summary: A jeweler transformed his son's $4,000 Pokémon card into an award-winning necklace through their 'Grail Frame' collaboration, which won First Place for Best Statement Piece at the 2026 INSTORE Design Awards and inspired a new product line.",
+          "aiSummary": "The father-son 'Grail Frame' Pokémon card necklace won Best Statement Piece at the 2026 INSTORE Design Awards and sparked a new product line.",
           "translations": {
             "da": {
               "title": "Hvordan en juveler forvandlede sin søns $4.000 Pokémon-kort til et prisvindende halskæde",
@@ -903,7 +903,7 @@
               "jeweller"
             ]
           },
-          "aiSummary": "AI-generated summary: Plans to open a jewellery heist-themed bar inspired by a famous jewellery theft have sparked controversy within the community, according to a report by Jeweller - Business News on September 7, 2026.",
+          "aiSummary": "Plans for a jewellery heist-themed bar inspired by a famous theft have sparked community outrage over concerns about glamorising crime.",
           "translations": {
             "da": {
               "title": "Planer om smykketyveri-temabar vækker harme i lokalsamfundet",
@@ -938,7 +938,7 @@
               "timepiece"
             ]
           },
-          "aiSummary": "AI-generated summary: Chronoswiss's PULSE GMT Silver Guilloché, part of the PULSE collection launched in 2025, presents a fresh approach to travel watches by moving away from traditional 1970s Genta-inspired designs. This release marks a notable innovation for the Swiss brand within the jewellery industry.",
+          "aiSummary": "Chronoswiss launched the PULSE GMT Silver Guilloché, its first integrated bracelet model, expanding the PULSE collection that debuted in 2025.",
           "translations": {
             "da": {
               "title": "Hands-On: Chronoswiss PULSE GMT Silver Guilloché tilbyder en frisk tilgang til rejseuret",

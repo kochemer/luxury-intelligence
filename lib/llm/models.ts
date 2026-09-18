@@ -23,7 +23,13 @@ export type WorkflowName =
 export const DEFAULT_MODEL_BY_WORKFLOW: Record<WorkflowName, string> = {
   triage:    'gpt-4.1-mini',
   classify:  'gpt-4.1-mini',
-  summarize: 'gpt-4.1-mini',
+  // 'summarize' produces the most visible text on the site: the 28 article
+  // summaries, the weekly-insight candidates, the Editor's Take and the email
+  // intro. Upgraded from gpt-4.1-mini on 2026-09-18 (roadmap F1.4) — it runs
+  // ~60 short calls a week, so the full model's cost is cents.
+  summarize: 'gpt-4.1',
+  // Note: the reranker no longer reads this — see digest/rerankArticles.ts
+  // (RERANK_MODEL_PRIMARY defaults to gpt-4.1 since 2026-09-16).
   rank:      'o4-mini',
   script:    'gpt-4.1',
   polish:    'gpt-4.1',
