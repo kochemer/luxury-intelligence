@@ -159,12 +159,15 @@ Decisions taken with the owner (16 Sep 2026):
   terms to the negative prompt. Trade-off (flagged): the humor is milder without
   a person's reaction — sight-gags of over-accumulation (elevator crammed with
   sofas; a room drowning in cushions) rather than the buried-alive laugh.
-- **Open — image MODEL for realism.** gpt-image-1 has a recognisable "AI look"
-  ceiling that the prompt can only partly fix. Biggest remaining lever is a more
-  photorealistic model (FLUX1.1 pro or Google Imagen; Midjourney is best-looking
-  but has no API). Needs: abstract the hardcoded `gpt-image-1` call to be
-  provider-swappable (like the reranker), a provider API key, and a same-prompt
-  A/B to decide on evidence.
+- **Image model → gpt-image-2 (DONE, 18 Sep 2026).** gpt-image-1 had an "AI
+  look" ceiling the prompt couldn't fix. Switched the render to OpenAI's newest
+  model, **gpt-image-2**, via a new `COVER_IMAGE_MODEL` env var (default
+  gpt-image-2; read at call-time). Same Images API/key — a near drop-in.
+  Outcome: dramatically more photorealistic (the W35/W37 mocks look like real
+  editorial photos), AND cheaper (~$0.05/img vs ~$0.19 for gpt-image-1 high),
+  AND it pre-empts gpt-image-1's 2026-10-23 deprecation. Landscape 1536×1024 is
+  supported (no fallback to square). If we ever want to chase realism further,
+  the env var makes an A/B vs FLUX.2 / Imagen 4 a one-line flip.
 - Still open: decide one brand-appropriate art direction (premium vs. jokey),
   and optionally change the hero's `background-position` crop.
 

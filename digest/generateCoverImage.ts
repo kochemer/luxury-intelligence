@@ -66,12 +66,17 @@ export async function generateCoverImage(
 ): Promise<{ success: boolean; size?: string; model?: string }> {
   try {
     const openai = new OpenAI({ apiKey });
-    
-    console.log('Generating cover image with gpt-image-1...');
 
-    const model = 'gpt-image-1';
+    // Cover image model, env-overridable. Defaults to gpt-image-2 — the newest
+    // OpenAI image model: cheaper than gpt-image-1 high quality and more
+    // photorealistic. NOTE: gpt-image-1 is deprecated on 2026-10-23, so this
+    // also future-proofs the pipeline. Same Images API shape as gpt-image-1.
+    const model = process.env.COVER_IMAGE_MODEL?.trim() || 'gpt-image-2';
 
-    // gpt-image-1 supports 1024x1024 and 1536x1024 (wide format for cover)
+    console.log(`Generating cover image with ${model}...`);
+
+    // Landscape cover; if the model rejects this size the catch below retries
+    // at 1024x1024.
     let size: "1024x1024" | "1536x1024" = '1536x1024';
     let response;
     
