@@ -8,5 +8,6 @@
   "music": {
     "enabled": true,
     "track": "podcast-theme.mp3"
-  }
+  },
+  "fileSize": 8288640
 }

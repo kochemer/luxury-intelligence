@@ -7,8 +7,9 @@
  * Apple Podcasts Connect and YouTube Music; after that, new episodes are
  * picked up automatically (roadmap F3.2, 2026-09-18).
  *
- * Episode order is newest first. Weeks without a podcast.json or without the
- * MP3 on disk are skipped rather than published with a dead enclosure.
+ * Episode order is newest first. Weeks without a podcast.json, or whose
+ * podcast.json lacks fileSize (the MP3 byte count the pipeline records), are
+ * skipped rather than published with a dead or size-less enclosure.
  */
 
 import { promises as fs } from 'fs';
@@ -64,12 +65,11 @@ async function loadEpisode(siteUrl: string, weekLabel: string): Promise<Episode 
   try {
     const podcast = JSON.parse(
       await fs.readFile(path.join(root, 'data', 'weeks', weekLabel, 'podcast.json'), 'utf-8')
-    ) as { audioPath?: string; duration?: number; generatedAt?: string };
-    if (!podcast.audioPath) return null;
-
-    const audioFile = path.join(root, 'public', podcast.audioPath);
-    const stat = await fs.stat(audioFile);
-    if (!stat.isFile() || stat.size === 0) return null;
+    ) as { audioPath?: string; duration?: number; generatedAt?: string; fileSize?: number };
+    // The enclosure size comes from podcast.json (written by the pipeline),
+    // never from fs.stat on public/: touching public/podcast from here made
+    // Vercel's file tracer bundle every MP3 (595 MB) into this function.
+    if (!podcast.audioPath || !podcast.fileSize || podcast.fileSize <= 0) return null;
 
     const digest = JSON.parse(
       await fs.readFile(path.join(root, 'data', 'digests', `${weekLabel}.json`), 'utf-8')
@@ -93,7 +93,7 @@ async function loadEpisode(siteUrl: string, weekLabel: string): Promise<Episode 
       description,
       pageUrl: `${siteUrl}/digest/${weekLabelToSlug(weekLabel)}`,
       audioUrl: `${siteUrl}${podcast.audioPath}`,
-      audioBytes: stat.size,
+      audioBytes: podcast.fileSize,
       durationSeconds: Math.round(podcast.duration ?? 0),
       publishedAt: new Date(podcast.generatedAt ?? digest.endISO ?? Date.now()),
       imageUrl: digest.coverImageUrl ? `${siteUrl}${digest.coverImageUrl}` : undefined,

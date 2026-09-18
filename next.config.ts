@@ -46,9 +46,21 @@ const nextConfig: NextConfig = {
   // (runs locally), not at Vercel request time. Without this, api/build-digest
   // pulls in ~250 MB of raw article data and exceeds Vercel's function size limit.
   outputFileTracingExcludes: {
+    // Media under public/ is served by the CDN and must never ride along in a
+    // function bundle. Learned the hard way on 2026-09-18: the podcast feed
+    // route stat-ed public/podcast and the tracer packed 595 MB of MP3s into
+    // it, over the 250 MB limit.
+    '*': [
+      './public/podcast/**',
+      './public/weekly-images/**',
+    ],
+    // A route-specific list replaces the '*' list rather than merging with it,
+    // so the media globs are repeated here.
     '/api/build-digest': [
       './data/weeks/**',
       './data/articles.json',
+      './public/podcast/**',
+      './public/weekly-images/**',
     ],
   },
   // Permanent 308 redirects: /week/YYYY-Www → /digest/month-yyyy-week-n

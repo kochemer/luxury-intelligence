@@ -222,7 +222,10 @@ export async function buildWeeklyPodcast(weekLabel: string): Promise<{ success: 
     }
   }
 
-  // Save metadata
+  // Save metadata. fileSize feeds the RSS <enclosure length> in
+  // app/podcast/feed.xml/route.ts, which must not stat public/ itself (that
+  // makes Vercel's file tracer bundle every MP3 into the function).
+  const { size: fileSize } = await fs.stat(audioPath);
   const podcastMetadata = {
     week: weekLabel,
     audioPath: `/podcast/${weekLabel}.mp3`,
@@ -230,6 +233,7 @@ export async function buildWeeklyPodcast(weekLabel: string): Promise<{ success: 
     voice: audioResult.voice || 'unknown',
     generatedAt: new Date().toISOString(),
     duration: audioResult.duration,
+    fileSize,
   };
 
   const metadataPath = path.join(weekDir, 'podcast.json');

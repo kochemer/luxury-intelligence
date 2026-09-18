@@ -4,5 +4,6 @@
   "model": "tts-1",
   "voice": "alloy",
   "generatedAt": "2026-02-15T07:11:54.763Z",
-  "duration": 527
+  "duration": 527,
+  "fileSize": 11476320
 }
