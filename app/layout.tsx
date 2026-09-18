@@ -92,13 +92,7 @@ export const metadata: Metadata = {
   },
   description: "Luxury Ecommerce, Retail Technology & AI - Curated intelligence and AI-assisted summaries for luxury, ecommerce, and retail tech.",
   manifest: "/manifest.webmanifest",
-  alternates: {
-    types: {
-      // Podcast feed discovery (roadmap F3.2). Page-level metadata sets its own
-      // `alternates.canonical`; Next merges the two keys, so this survives.
-      "application/rss+xml": [{ url: "/podcast/feed.xml", title: "Luxury Intelligence Weekly (podcast)" }],
-    },
-  },
+
   icons: {
     icon: [
       { url: "/favicon.png", type: "image/png" },
@@ -136,6 +130,16 @@ export default async function RootLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
+        {/* Podcast feed discovery (roadmap F3.2). A literal tag rather than
+            metadata.alternates.types: pages set their own `alternates`
+            (canonical), and Next replaces the whole object instead of merging,
+            which silently dropped the feed link on every page. */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Luxury Intelligence Weekly (podcast)"
+          href="/podcast/feed.xml"
+        />
         {/* Blocking script: apply saved theme before first paint to prevent flash */}
         <script
           dangerouslySetInnerHTML={{
