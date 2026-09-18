@@ -84,20 +84,16 @@ export async function getIndexableUrls(baseUrl: string): Promise<IndexableUrlEnt
     ? await getDigestBuiltAt(path.join(digestsDir, `${latestWeekLabel}.json`))
     : STATIC_PAGE_LAST_MODIFIED;
 
-  const multilingual = (slug: '' | '/about' | '/archive' | '/methodology') => ({
-    languages: {
-      en: `${baseUrl}${slug || '/'}`,
-      es: `${baseUrl}/es${slug}`,
-      da: `${baseUrl}/da${slug}`,
-      'x-default': `${baseUrl}${slug || '/'}`,
-    },
-  });
-
+  // NOTE: no hreflang alternates. The /es and /da locale pages serve English
+  // article content under a translated shell, so the hreflang cluster told
+  // Google "three language versions" of the same text. They are now
+  // `robots: { index: false }` and omitted from the sitemap (roadmap F2.3,
+  // 2026-09-18). GSC showed 0 clicks / 0 impressions for every locale URL.
   const staticEntries: IndexableUrlEntry[] = [
-    { url: baseUrl, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 1.0, alternates: multilingual(''), kind: 'static' },
-    { url: `${baseUrl}/archive`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.6, alternates: multilingual('/archive'), kind: 'static' },
-    { url: `${baseUrl}/about`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, alternates: multilingual('/about'), kind: 'static' },
-    { url: `${baseUrl}/methodology`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, alternates: multilingual('/methodology'), kind: 'static' },
+    { url: baseUrl, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 1.0, kind: 'static' },
+    { url: `${baseUrl}/archive`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.6, kind: 'static' },
+    { url: `${baseUrl}/about`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, kind: 'static' },
+    { url: `${baseUrl}/methodology`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, kind: 'static' },
     { url: `${baseUrl}/email-digest`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.7, kind: 'static' },
     { url: `${baseUrl}/subscribe`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.8, kind: 'static' },
     { url: `${baseUrl}/support`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, kind: 'static' },
@@ -108,16 +104,6 @@ export async function getIndexableUrls(baseUrl: string): Promise<IndexableUrlEnt
     // the odd one out. Found by the live HTTP audit (LIVE_NOINDEX_ON_INDEXABLE).
   ];
 
-  const localeEntries: IndexableUrlEntry[] = [
-    { url: `${baseUrl}/es`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.8, alternates: multilingual(''), kind: 'locale' },
-    { url: `${baseUrl}/da`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.8, alternates: multilingual(''), kind: 'locale' },
-    { url: `${baseUrl}/es/about`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, alternates: multilingual('/about'), kind: 'locale' },
-    { url: `${baseUrl}/da/about`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, alternates: multilingual('/about'), kind: 'locale' },
-    { url: `${baseUrl}/es/archive`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.6, alternates: multilingual('/archive'), kind: 'locale' },
-    { url: `${baseUrl}/da/archive`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.6, alternates: multilingual('/archive'), kind: 'locale' },
-    { url: `${baseUrl}/es/methodology`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, alternates: multilingual('/methodology'), kind: 'locale' },
-    { url: `${baseUrl}/da/methodology`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, alternates: multilingual('/methodology'), kind: 'locale' },
-  ];
 
   const weekEntries: IndexableUrlEntry[] = await Promise.all(
     weekLabels.map(async (weekLabel) => {
@@ -133,5 +119,5 @@ export async function getIndexableUrls(baseUrl: string): Promise<IndexableUrlEnt
     })
   );
 
-  return [...staticEntries, ...localeEntries, ...weekEntries];
+  return [...staticEntries, ...weekEntries];
 }

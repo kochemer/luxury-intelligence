@@ -10,16 +10,12 @@ import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
+  // English-only content served under a locale prefix: not worth indexing (roadmap F2.3, 2026-09-18).
+  robots: { index: false, follow: true },
   title: 'Archivo – Resúmenes Semanales',
   description: 'Explora el archivo completo de resúmenes semanales de IA, ecommerce, lujo y joyería. Accede a todos los informes de inteligencia curados.',
   alternates: {
     canonical: `${siteUrl}/es/archive`,
-    languages: {
-      'en': `${siteUrl}/archive`,
-      'es': `${siteUrl}/es/archive`,
-      'da': `${siteUrl}/da/archive`,
-      'x-default': `${siteUrl}/archive`,
-    },
   },
   openGraph: {
     title: 'Archivo – Resúmenes Semanales',

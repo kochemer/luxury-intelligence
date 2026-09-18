@@ -9,6 +9,21 @@ The plan was to build the system, leave it running for a few weeks to collect
 Search Console data, then come back and decide what to do next based on what
 the data says.
 
+> **Update 2026-09-18** (content-side fixes, outside the SEO system itself —
+> see `luxury-intel-roadmap-2026-09.md`, Phase 1 + F2.3):
+> - Every digest page now has a real meta description and keywords: the weekly
+>   insight (`oneSentenceSummary`) and `keyThemes` had been null since W04
+>   because the pipeline never called their generator. Wired in, made blocking
+>   in the content-quality gate, and backfilled for every week on disk.
+> - Article summaries rewritten with a new prompt and gpt-4.1 (no more
+>   "The article from X dated Y…"), backfilled W52–W36.
+> - `/es` and `/da` pages are `noindex`, out of the sitemap, and the hreflang
+>   cluster is gone (backlog #8 resolved the `noindex` way). GSC had 0 clicks /
+>   0 impressions for every locale URL. robots.txt unchanged so Google can
+>   crawl them and see the tag.
+> Expect the weekly indexing score to move only after Google re-crawls; the
+> W37 report (indexing 25) is the baseline.
+
 ---
 
 ## Picking back up: do these in order

@@ -60,12 +60,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description: HOMEPAGE_DESCRIPTION,
     alternates: {
       canonical: `${siteUrl}/`,
-      languages: {
-        'en': `${siteUrl}/`,
-        'es': `${siteUrl}/es`,
-        'da': `${siteUrl}/da`,
-        'x-default': `${siteUrl}/`,
-      },
     },
     openGraph: {
       title: `${HOMEPAGE_TITLE} | Luxury Intelligence`,

@@ -24,16 +24,12 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
+  // English-only content served under a locale prefix: not worth indexing (roadmap F2.3, 2026-09-18).
+  robots: { index: false, follow: true },
   title: 'Digest Semanal de IA, Ecommerce y Lujo',
   description: 'Un digest semanal curado sobre IA y estrategia, tecnología de ecommerce y retail, y noticias del sector del lujo y la joyería. Actualizado cada semana.',
   alternates: {
     canonical: `${siteUrl}/es`,
-    languages: {
-      'en': `${siteUrl}/`,
-      'es': `${siteUrl}/es`,
-      'da': `${siteUrl}/da`,
-      'x-default': `${siteUrl}/`,
-    },
   },
   openGraph: {
     title: 'Digest Semanal de IA, Ecommerce y Lujo | Luxury Intelligence',

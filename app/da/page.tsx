@@ -24,16 +24,12 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
+  // English-only content served under a locale prefix: not worth indexing (roadmap F2.3, 2026-09-18).
+  robots: { index: false, follow: true },
   title: 'Ugentlig AI, E-handel & Luksus Digest',
   description: 'Et ugentligt kurateret digest om AI og strategi, e-handel og retail-teknologi samt nyheder fra luksus- og smykkebranchen. Opdateres ugentligt.',
   alternates: {
     canonical: `${siteUrl}/da`,
-    languages: {
-      'en': `${siteUrl}/`,
-      'es': `${siteUrl}/es`,
-      'da': `${siteUrl}/da`,
-      'x-default': `${siteUrl}/`,
-    },
   },
   openGraph: {
     title: 'Ugentlig AI, E-handel & Luksus Digest | Luxury Intelligence',

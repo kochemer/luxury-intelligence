@@ -11,12 +11,6 @@ export const metadata: Metadata = {
   description: 'How the weekly AI, ecommerce, luxury and jewellery digest is collected, ranked and summarized.',
   alternates: {
     canonical: `${getSiteUrlLazy()}/methodology`,
-    languages: {
-      'en': `${getSiteUrlLazy()}/methodology`,
-      'es': `${getSiteUrlLazy()}/es/methodology`,
-      'da': `${getSiteUrlLazy()}/da/methodology`,
-      'x-default': `${getSiteUrlLazy()}/methodology`,
-    },
   },
   openGraph: {
     title: 'Methodology – How the brief is curated',

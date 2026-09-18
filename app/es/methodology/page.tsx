@@ -5,16 +5,12 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
+  // English-only content served under a locale prefix: not worth indexing (roadmap F2.3, 2026-09-18).
+  robots: { index: false, follow: true },
   title: 'Metodología – Cómo se elabora',
   description: 'Cómo se recopila, clasifica y resume el resumen semanal de IA, ecommerce, lujo y joyería.',
   alternates: {
     canonical: `${siteUrl}/es/methodology`,
-    languages: {
-      'en': `${siteUrl}/methodology`,
-      'es': `${siteUrl}/es/methodology`,
-      'da': `${siteUrl}/da/methodology`,
-      'x-default': `${siteUrl}/methodology`,
-    },
   },
   openGraph: {
     title: 'Metodología – Cómo se elabora',

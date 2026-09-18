@@ -5,16 +5,12 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
+  // English-only content served under a locale prefix: not worth indexing (roadmap F2.3, 2026-09-18).
+  robots: { index: false, follow: true },
   title: 'Om',
   description: 'Hvordan Luxury Intelligence kuraterer, scorer og opsummerer ugens vigtigste nyheder inden for AI, ecommerce, luksus og smykker.',
   alternates: {
     canonical: `${siteUrl}/da/about`,
-    languages: {
-      'en': `${siteUrl}/about`,
-      'es': `${siteUrl}/es/about`,
-      'da': `${siteUrl}/da/about`,
-      'x-default': `${siteUrl}/about`,
-    },
   },
   openGraph: {
     title: 'Om – Luxury Intelligence',

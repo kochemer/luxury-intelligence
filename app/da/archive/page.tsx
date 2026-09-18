@@ -10,15 +10,11 @@ import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
+  // English-only content served under a locale prefix: not worth indexing (roadmap F2.3, 2026-09-18).
+  robots: { index: false, follow: true },
   title: 'Arkiv – Ugentlige Brancheoversigter',
   description: 'Gennemse det komplette arkiv af ugentlige AI, ecommerce, luksus og smykkebrancheoversigter. Få adgang til alle tidligere kurerede oversigter.',
   alternates: {
-    languages: {
-      'en': `${siteUrl}/archive`,
-      'es': `${siteUrl}/es/archive`,
-      'da': `${siteUrl}/da/archive`,
-      'x-default': `${siteUrl}/archive`,
-    },
     canonical: `${siteUrl}/da/archive`,
   },
   openGraph: {

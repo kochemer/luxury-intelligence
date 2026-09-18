@@ -5,16 +5,12 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
+  // English-only content served under a locale prefix: not worth indexing (roadmap F2.3, 2026-09-18).
+  robots: { index: false, follow: true },
   title: 'Metodologi – Sådan laves resuméet',
   description: 'Sådan indsamles, rangeres og opsummeres den ugentlige AI, ecommerce, luksus og smykkebrancheoversigt.',
   alternates: {
     canonical: `${siteUrl}/da/methodology`,
-    languages: {
-      'en': `${siteUrl}/methodology`,
-      'es': `${siteUrl}/es/methodology`,
-      'da': `${siteUrl}/da/methodology`,
-      'x-default': `${siteUrl}/methodology`,
-    },
   },
   openGraph: {
     title: 'Metodologi – Sådan laves resuméet',

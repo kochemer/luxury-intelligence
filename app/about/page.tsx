@@ -11,12 +11,6 @@ export const metadata: Metadata = {
   description: 'How Luxury Intelligence curates, scores, and summarises the week\'s most important news across AI, ecommerce, luxury, and jewellery.',
   alternates: {
     canonical: `${siteUrl}/about`,
-    languages: {
-      'en': `${siteUrl}/about`,
-      'es': `${siteUrl}/es/about`,
-      'da': `${siteUrl}/da/about`,
-      'x-default': `${siteUrl}/about`,
-    },
   },
   openGraph: {
     title: 'About – Luxury Intelligence',

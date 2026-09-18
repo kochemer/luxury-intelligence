@@ -25,12 +25,6 @@ export const metadata: Metadata = {
   description: 'Browse all editions of the Luxury Intelligence weekly digest. Weekly analysis of AI, ecommerce, jewellery, and luxury industry news.',
   alternates: {
     canonical: `${siteUrl}/archive`,
-    languages: {
-      'en': `${siteUrl}/archive`,
-      'es': `${siteUrl}/es/archive`,
-      'da': `${siteUrl}/da/archive`,
-      'x-default': `${siteUrl}/archive`,
-    },
   },
   openGraph: {
     title: 'Archive – All Weekly Digests | Luxury Intelligence',
