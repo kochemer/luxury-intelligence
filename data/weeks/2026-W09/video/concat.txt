@@ -1,5 +1,0 @@
-file 'C:/Users/koche/OneDrive/Desktop/Google Drive Physical/studying/AK Website Project Dec 2025/data/weeks/2026-W09/video/raw/seg-01.mp4'
-file 'C:/Users/koche/OneDrive/Desktop/Google Drive Physical/studying/AK Website Project Dec 2025/data/weeks/2026-W09/video/raw/seg-02.mp4'
-file 'C:/Users/koche/OneDrive/Desktop/Google Drive Physical/studying/AK Website Project Dec 2025/data/weeks/2026-W09/video/raw/seg-03.mp4'
-file 'C:/Users/koche/OneDrive/Desktop/Google Drive Physical/studying/AK Website Project Dec 2025/data/weeks/2026-W09/video/raw/seg-04.mp4'
-file 'C:/Users/koche/OneDrive/Desktop/Google Drive Physical/studying/AK Website Project Dec 2025/data/weeks/2026-W09/video/raw/seg-outro.mp4'

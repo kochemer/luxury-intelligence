@@ -117,7 +117,10 @@ jobs:
           # - data/weeks/*/health.json (health reports)
           # - data/articles.json (updated by RSS/page ingestion)
           # - data/source_yield.json (yield report)
-          # - data/weeks/{week}/ (discovery reports, email digest, podcast script)
+          # - data/weeks/{week}/*.{json,txt} (podcast.json, email-digest.json, scripts)
+          #   NOT the discovery/, podcast/, podcast-temp/ or video/ subdirs:
+          #   those are gitignored pipeline caches (~327 MB) that would
+          #   otherwise ship in every Vercel deployment.
           # - public/podcast/ (podcast audio files)
           # - public/weekly-images/ (cover images)
           # - data/cache/ (cache files for translations, reranking, etc.)
@@ -135,7 +138,7 @@ jobs:
           # - public/podcast/*.mp3
           # - public/weekly-images/*.png
           # - data/cache/ (any files under cache directory)
-          ALLOWED_PATTERN="^(data/digests/|data/weeks/[^/]+/health\.json|data/articles\.json|data/source_yield\.json|data/page_source_stats\.json|data/competitor-intel\.json|data/stock-history\.json|data/weeks/[^/]+/.*|public/podcast/[^/]+\.mp3|public/weekly-images/[^/]+\.png|data/cache/.*)"
+          ALLOWED_PATTERN="^(data/digests/|data/weeks/[^/]+/health\.json|data/articles\.json|data/source_yield\.json|data/page_source_stats\.json|data/competitor-intel\.json|data/stock-history\.json|data/weeks/[^/]+/[^/]+\.(json|txt)|public/podcast/[^/]+\.mp3|public/weekly-images/[^/]+\.png|data/cache/.*)"
           NON_ALLOWED_CHANGES=$(echo "$CHANGED_FILES" | grep -vE "$ALLOWED_PATTERN" || true)
           
           if [ -n "$NON_ALLOWED_CHANGES" ]; then
@@ -150,7 +153,7 @@ jobs:
             echo "  - data/page_source_stats.json (page ingestion stats)"
             echo "  - data/competitor-intel.json (competitor intelligence)"
             echo "  - data/stock-history.json (stock price history)"
-            echo "  - data/weeks/{week}/ (discovery reports, email digest, podcast script)"
+            echo "  - data/weeks/{week}/*.{json,txt} (podcast.json, email-digest.json, scripts)"
             echo "  - public/podcast/ (podcast audio files)"
             echo "  - public/weekly-images/ (cover images)"
             echo "  - data/cache/ (cache files)"
@@ -169,7 +172,7 @@ jobs:
       - name: Commit and push changes
         if: steps.build.outcome == 'success' && steps.check-changes.outputs.has_changes == 'true'
         run: |
-          git add data/digests/ data/weeks/*/health.json data/articles.json data/source_yield.json data/page_source_stats.json data/competitor-intel.json data/stock-history.json data/weeks/*/ public/podcast/*.mp3 public/weekly-images/*.png data/cache/
+          git add data/digests/ data/weeks/*/health.json data/articles.json data/source_yield.json data/page_source_stats.json data/competitor-intel.json data/stock-history.json data/weeks/*/*.json data/weeks/*/*.txt public/podcast/*.mp3 public/weekly-images/*.png data/cache/
           if git diff --staged --quiet; then
             echo "No staged changes to commit"
             exit 0
