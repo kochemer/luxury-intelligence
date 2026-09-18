@@ -92,6 +92,13 @@ export const metadata: Metadata = {
   },
   description: "Luxury Ecommerce, Retail Technology & AI - Curated intelligence and AI-assisted summaries for luxury, ecommerce, and retail tech.",
   manifest: "/manifest.webmanifest",
+  alternates: {
+    types: {
+      // Podcast feed discovery (roadmap F3.2). Page-level metadata sets its own
+      // `alternates.canonical`; Next merges the two keys, so this survives.
+      "application/rss+xml": [{ url: "/podcast/feed.xml", title: "Luxury Intelligence Weekly (podcast)" }],
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.png", type: "image/png" },
