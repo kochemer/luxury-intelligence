@@ -7,7 +7,7 @@
  * without an email (e.g. Stripe webhook creates before sign-up) are allowed.
  */
 
-import { eq, and, or, inArray, isNotNull } from 'drizzle-orm';
+import { eq, and, or, inArray, isNotNull, isNull, lt } from 'drizzle-orm';
 import { getDb } from './index';
 import { subscribers } from './schema';
 import type { Subscriber, NewSubscriber } from './schema';
@@ -173,4 +173,62 @@ export async function updateSubscriberByStripeCustomerId(
     .where(eq(subscribers.stripeCustomerId, stripeCustomerId))
     .returning();
   return rows[0] ?? null;
+}
+
+// ── Maintenance ───────────────────────────────────────────────────────────────
+
+export interface StaleSweepResult {
+  /** Rows older than the cutoff with planType='none' that opted into the digest → promoted to 'free'. */
+  promoted: string[];
+  /** Rows older than the cutoff with planType='none', no digest opt-in and no Stripe subscription → deleted. */
+  deleted: string[];
+}
+
+/**
+ * Clean up abandoned checkouts. A visitor who starts a paid checkout gets a
+ * `planType='none'` row before Stripe confirms anything; if they never finish,
+ * the row lingers forever, looks subscribed, and is silently excluded from
+ * every send. Runs nightly from .github/workflows/subscriber-sweep.yml.
+ *
+ * Rows that still carry a Stripe subscription id are never touched here —
+ * the Stripe webhook owns those.
+ */
+export async function sweepStaleNoneSubscribers(options: {
+  olderThanHours?: number;
+  dryRun?: boolean;
+} = {}): Promise<StaleSweepResult> {
+  const olderThanHours = options.olderThanHours ?? 24;
+  const cutoff = new Date(Date.now() - olderThanHours * 60 * 60 * 1000);
+  const db = getDb();
+
+  const stale = await db
+    .select()
+    .from(subscribers)
+    .where(and(
+      eq(subscribers.planType, 'none'),
+      lt(subscribers.createdAt, cutoff),
+      isNull(subscribers.stripeSubscriptionId),
+    ));
+
+  const toPromote = stale.filter(s => s.emailDigestEnabled && s.email);
+  const toDelete  = stale.filter(s => !s.emailDigestEnabled);
+
+  if (!options.dryRun) {
+    if (toPromote.length > 0) {
+      await db
+        .update(subscribers)
+        .set({ planType: 'free', updatedAt: now() })
+        .where(inArray(subscribers.id, toPromote.map(s => s.id)));
+    }
+    if (toDelete.length > 0) {
+      await db
+        .delete(subscribers)
+        .where(inArray(subscribers.id, toDelete.map(s => s.id)));
+    }
+  }
+
+  return {
+    promoted: toPromote.map(s => s.email ?? s.id),
+    deleted:  toDelete.map(s => s.email ?? s.id),
+  };
 }

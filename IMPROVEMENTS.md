@@ -149,7 +149,7 @@
   if at least one delivery succeeded; commit/push workflow steps gated with
   `if: always()` so a partial email failure no longer skips the digest commit.
 
-- [ ] **Stale `planType: 'none'` subscriber cleanup** — Abandoned Stripe checkouts
+- [x] **Stale `planType: 'none'` subscriber cleanup** *(done 2026-09-18: `scripts/sweepStaleSubscribers.ts` + nightly `subscriber-sweep.yml`)* — Abandoned Stripe checkouts
   leave silently-ineligible rows in the `subscribers` table (`planType='none'`,
   `paymentStatus=null`). These look subscribed but `getEligibleWeeklyDigestRecipients()`
   excludes them, so users never receive emails and never know why. Add a
@@ -158,7 +158,7 @@
   *Rationale: We hit this with kochemir@gmail.com after an abandoned Patron checkout.
   The fix was a one-off script — needs to be automated.*
 
-- [ ] **Resend bounce / complaint webhook** — Listen to Resend's
+- [x] **Resend bounce / complaint webhook** *(done 2026-09-18: `app/api/resend/webhook/route.ts`; owner must add the endpoint in Resend and set `RESEND_WEBHOOK_SECRET`)* — Listen to Resend's
   `email.bounced` and `email.complained` events; auto-set `emailDigestEnabled=false`
   on the corresponding subscriber. Currently a hard bounce repeats every Sunday
   until manually removed.
