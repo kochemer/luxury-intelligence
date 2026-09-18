@@ -26,7 +26,7 @@ const __dirname = path.dirname(__filename);
 
 // --- Configuration ---
 
-const SCENE_DIRECTOR_VERSION = 'v7'; // v7: NO humans (object/aftermath comedy only) + stronger real-camera realism (less "AI look")
+const SCENE_DIRECTOR_VERSION = 'v8'; // v8: BAN the "giant pile of one object" cliche; force varied comic mechanisms (substitution, one-thing-out-of-place, visual pun, single-object scale)
 const SCENE_DIRECTOR_MODEL = process.env.SCENE_DIRECTOR_MODEL || getModelFor('polish');
 const TEMPERATURE = 0.7; // Some creativity for scene generation
 const MAX_TOKENS = 2000;
@@ -234,10 +234,17 @@ ${noDiamonds}`;
 Your job is to invent ONE photorealistic scene that is a genuine VISUAL JOKE about the single LEAD STORY below. Not a metaphor, not a mood — an actual joke that makes someone who just read that headline snort. A metaphor says "this represents value"; a joke shows a funny SITUATION with a setup and a punchline. Aim for that.
 
 WHAT MAKES IT FUNNY (do this)
-- Pick the ONE clearest comic idea in the lead story and stage it as a concrete SITUATION told entirely through OBJECTS and their aftermath — the scene of something that just happened, is comically going wrong, or is absurdly overdone. NO people to react — the objects and the mess/arrangement carry the whole joke.
-- The engine of the joke is INCONGRUITY + EXAGGERATION: take one real thing from the story and push it to an absurd literal extreme (a thing far too big/small/many; the wrong tool for the job; a serious thing treated as trivial or vice-versa; a doorway/desk/room overwhelmed by it; a "just abandoned mid-action" moment).
-- It must read WITHOUT WORDS and WITHOUT PEOPLE — the gag has to work from objects, arrangement, scale, and implied action alone. A viewer should "get it" in one second.
-- The other articles are optional background flavour at most. Do NOT try to cram them all in — one clear joke beats a soup of references.
+- Pick the ONE clearest comic idea in the lead story and stage it as a concrete visual JOKE told through objects in a real setting. No people.
+- ⛔ HARD BAN — do NOT make the joke "a giant pile / mountain / heap / avalanche of one object" or "a room stuffed full of X". A big quantity of something is NOT a joke and it has become a repetitive cliché. If your idea is basically "lots of <thing>", THROW IT OUT and pick a different mechanism.
+- Choose a REAL comic MECHANISM, and use a DIFFERENT one than recent weeks:
+  • SUBSTITUTION — the wrong object doing a familiar job (a fire extinguisher plumbed in as a coffee machine; a boot used as a flower vase).
+  • ONE THING OUT OF PLACE — a single deadpan absurd object sitting calmly in an ordinary scene (a lone traffic cone enthroned on a boardroom chair).
+  • VISUAL PUN / LITERAL METAPHOR — make a phrase or idea from the story literally true in ONE object (a "bottleneck" as a real glass bottle wedged in a doorway; "burning through cash" as a matchbook shaped like a wallet).
+  • SINGLE-OBJECT SCALE — ONE object comically too big or too small for its place (a wall-sized light switch; a doll-house chair at a real desk). NOT many objects — one.
+  • AFTERMATH — one telling detail implying a funny event just happened (a single toppled chair; one muddy footprint trail leading to a locked safe).
+- Simple and specific beats busy: ONE clear focal gag, a nearly-normal scene around it. Two objects in a witty relationship usually beats a crowd of props.
+- It must read in one second, WITHOUT WORDS and WITHOUT PEOPLE.
+- The other articles are optional background flavour at most — one clear joke beats a soup of references.
 
 STYLE & TONE
 - Hyper-realistic: must look like an actual photograph, not an AI image (Getty/Shutterstock — something a human photographer could have shot)
@@ -258,10 +265,9 @@ MANDATORY RULES
 - ONE coherent scene (no collage, no multi-scene)
 
 CREATIVE GUIDANCE
-- With no people allowed, lean on AFTERMATH and IMPLIED ACTION: the empty chair, the overflowing doorway, the toppled stack, the one object comically out of place, the "you just missed it" moment. The mess or arrangement is the punchline.
-- Exaggerate ONE thing hard rather than adding many props. The funniest covers are simple: one clear absurd focal event.
-- Reject your first, most obvious idea — the second or third is usually funnier and less of a cliché.
-- Keep it concrete and real-world: recognizable, touchable objects and a believable place; the humour comes from what's happened, not from surreal effects.
+- The scene should look almost NORMAL except for ONE wrong/absurd thing that is the whole joke. Restraint is funnier than clutter.
+- Reject your first idea — for these stories the obvious first idea is almost always "a big pile of the thing", which is banned. The second or third idea is the funny one.
+- Keep it concrete, real-world and photographic; the humour comes from the single incongruity, not from mess, quantity, or surreal effects.
 
 COMEDIC REGISTER — pick ONE to vary the feel week to week:
 deadpan-corporate · absurdist · moody-but-well-lit (noir) · symmetrical/Wes-Anderson · documentary-candid · surreal-but-plausible
@@ -269,7 +275,7 @@ deadpan-corporate · absurdist · moody-but-well-lit (noir) · symmetrical/Wes-A
 BORINGNESS BREAKER (REQUIRED)
 You MUST select at least ONE Primary Humor Driver:
 1. "role reversal" - something valuable/serious placed in a humble or trivial role (or vice versa)
-2. "scale absurdity" - objects of mismatched size or importance next to each other
+2. "scale absurdity" - ONE object made comically too big or too small for its place (NOT a large quantity of things — one object, wrong size)
 3. "literal metaphor" - objects that literally embody an abstract idea from the stories (supply, demand, risk, hype, a "moat", a "bubble")
 4. "fish-out-of-water" - an object badly out of its normal context
 5. "visual punchline" - an arrangement whose wit only clicks a beat later

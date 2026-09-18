@@ -72,7 +72,7 @@ async function main() {
       <section>
         <h2>${week}${r?.concept ? ` — <span class="concept">${r.concept}</span>` : ''}</h2>
         <div class="pair">
-          <figure><figcaption>NEW (v4 prompt, quality:high)</figcaption>
+          <figure><figcaption>NEW (current code)</figcaption>
             <img src="cover-${week}.png" alt="new cover ${week}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'missing',textContent:'not generated'}))"></figure>
           <figure><figcaption>LIVE (current production)</figcaption>
             <img src="../public/weekly-images/${week}.png" alt="live cover ${week}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'missing',textContent:'no live image'}))"></figure>
@@ -95,7 +95,7 @@ async function main() {
   .missing { padding:40px; text-align:center; color:#999; background:#eee; border-radius:8px; font-style:italic; }
   @media (prefers-color-scheme: dark) { body{background:#14161a;color:#e8e8e8;} img{border-color:#333;} .missing{background:#222;} }
 </style></head><body>
-<header><h1>Cover comparison — new vs live</h1><p>Left = regenerated with the fixed Scene Director prompt (v4) at quality:high. Right = the current production cover. Local preview only — not published.</p></header>
+<header><h1>Cover comparison — new vs live</h1><p>Left = regenerated with the current Scene Director + image model. Right = the current production cover. Local preview only — not published.</p></header>
 ${rows}
 </body></html>`;
   const galleryPath = path.join(outDir, 'covers.html');

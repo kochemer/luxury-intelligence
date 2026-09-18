@@ -168,6 +168,22 @@ Decisions taken with the owner (16 Sep 2026):
   AND it pre-empts gpt-image-1's 2026-10-23 deprecation. Landscape 1536×1024 is
   supported (no fallback to square). If we ever want to chase realism further,
   the env var makes an A/B vs FLUX.2 / Imagen 4 a one-line flip.
+- **Anti-"pile" pass (DONE, 18 Sep 2026, Scene Director v8).** Owner: the v7
+  covers were all "a giant pile/mountain of one object" — a new monotony. Root
+  cause: v7 over-pushed "exaggerate quantity / overwhelmed / overflowing".
+  Fixed: HARD BAN on pile/mountain/heap/"stuffed full of X"; quantity is not a
+  joke. Replaced with a menu of real comic MECHANISMS to vary week to week
+  (substitution, one-thing-out-of-place, visual pun/literal metaphor,
+  single-object scale, aftermath) and "the scene looks normal except ONE wrong
+  thing". Result on W35–W37: no piles, varied (robot at a desk; robot arm
+  placing an apple in a locker; a lone mini cart) — but humor is hit-or-miss
+  (robot+apple lands; the mini-cart is a dud).
+- **Reality check on auto-humor.** Reliably *funny* on demand, with no people +
+  no text + photoreal + tied to a specific story, is not achievable every week.
+  We get clever/concrete/varied/realistic reliably; laugh-out-loud not always.
+  Recommended workflow: **preview each week with `npm run cover:mock` and
+  regenerate weak ones** (~$0.05, ~30s) — a human-in-the-loop gate so only good
+  covers ship. Optionally wire a "regenerate cover" control into the pipeline.
 - Still open: decide one brand-appropriate art direction (premium vs. jokey),
   and optionally change the hero's `background-position` crop.
 
