@@ -1,0 +1,985 @@
+{
+  "weekLabel": "2026-W38",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2026-09-13T22:00:00.000Z",
+  "endISO": "2026-09-20T21:59:59.999Z",
+  "builtAtISO": "2026-09-20T15:30:07.821+02:00",
+  "builtAtLocal": "2026-09-20 15:30:07",
+  "totals": {
+    "total": 765,
+    "byTopic": {
+      "AIStrategy": 180,
+      "EcommerceRetail": 111,
+      "LuxuryConsumer": 74,
+      "Jewellery": 116
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 180,
+      "top": [
+        {
+          "id": "xbqlrt",
+          "title": "OpenAI and Anthropic are making 10 times more revenue than all Chinese AI models combined, research group Rhodium says",
+          "url": "https://www.cnbc.com/2026/09/17/chinas-ai-models-make-only-10percent-of-us-leaders-revenue-rhodium.html",
+          "source": "CNBC Technology",
+          "published_at": "2026-09-17T09:00:01.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Rhodium Group's latest analysis of Chinese and U.S. AI companies also found that low revenue did not necessarily correspond with lower valuation.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "research",
+              "openai",
+              "anthropic"
+            ]
+          },
+          "aiSummary": "OpenAI and Anthropic generated 10 times more revenue than all Chinese AI models combined, Rhodium Group analysis found.",
+          "translations": {
+            "da": {
+              "title": "OpenAI og Anthropic tjener 10 gange mere end alle kinesiske AI-modeller tilsammen, siger forskningsgruppen Rhodium",
+              "summary": "OpenAI og Anthropic genererede 10 gange mere omsætning end alle kinesiske AI-modeller tilsammen, fandt Rhodium Group-analyse."
+            },
+            "es": {
+              "title": "OpenAI y Anthropic generan 10 veces más ingresos que todos los modelos de IA chinos combinados, dice el grupo de investigación Rhodium",
+              "summary": "OpenAI y Anthropic generaron 10 veces más ingresos que todos los modelos de IA chinos combinados, según el análisis de Rhodium Group."
+            }
+          }
+        },
+        {
+          "id": "wawemc",
+          "title": "Qwen3.8-Omni-Flash undercuts Google's Gemini Flash pricing while matching its multimodal benchmarks",
+          "url": "https://the-decoder.com/qwen3-8-omni-flash-undercuts-gemini-flash-pricing-while-matching-its-multimodal-benchmarks/",
+          "source": "The Decoder",
+          "published_at": "2026-09-19T14:30:57.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Qwen3.8-Omni-Flash is Qwen's first multimodal model designed for AI agents. It processes audio and video together and independently uses tools to edit vlogs, translate clips, or summarize movies. On audio-video benchmarks, it nearly matches Gemini 3.8 Flash at a fraction of the API cost.\nThe article Qwen3.8-Omni-Flash undercuts Google's Gemini Flash pricing while matching its multimodal benchmarks appeared first on The Decoder.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "benchmark",
+              "gemini",
+              "multimodal",
+              "ai",
+              "agent"
+            ]
+          },
+          "aiSummary": "Qwen3.8-Omni-Flash matches Gemini 3.8 Flash on audio-video benchmarks but offers multimodal AI agent capabilities at a fraction of Google's API cost.",
+          "translations": {
+            "da": {
+              "title": "Qwen3.8-Omni-Flash underbyder Googles Gemini Flash-priser og matcher dets multimodale benchmarks",
+              "summary": "Qwen3.8-Omni-Flash matcher Gemini 3.8 Flash på audio-video benchmarks, men tilbyder multimodale AI-agentfunktioner til en brøkdel af Googles API-omkostninger."
+            },
+            "es": {
+              "title": "Qwen3.8-Omni-Flash rebaja los precios de Gemini Flash de Google mientras iguala sus benchmarks multimodales",
+              "summary": "Qwen3.8-Omni-Flash iguala a Gemini 3.8 Flash en benchmarks de audio y video, pero ofrece capacidades de agente AI multimodal a una fracción del costo de la API de Google."
+            }
+          }
+        },
+        {
+          "id": "oe2z61",
+          "title": "Investors warn Anthropic could struggle to sustain revenues post-IPO",
+          "url": "https://www.ft.com/content/96d0a206-a37b-4166-b78d-b27ed24f7d57?syn-25a6b1a6=1",
+          "source": "Financial Times - Technology",
+          "published_at": "2026-09-19T04:00:24.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "OpenAI’s resurgence, cheap rivals and safety fears test faith in durability of business model",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "anthropic",
+              "openai"
+            ]
+          },
+          "aiSummary": "Investors warn Anthropic may struggle to sustain revenues after IPO amid OpenAI’s resurgence, cheaper rivals and mounting AI safety concerns.",
+          "translations": {
+            "da": {
+              "title": "Investorer advarer om, at Anthropic kan få svært ved at opretholde indtægter efter børsintroduktion",
+              "summary": "Investorer advarer om, at Anthropic kan få svært ved at opretholde indtægter efter børsintroduktion på grund af OpenAIs genopblussen, billigere konkurrenter og stigende AI-sikkerhedsbekymringer."
+            },
+            "es": {
+              "title": "Inversores advierten que Anthropic podría tener dificultades para mantener ingresos tras la OPI",
+              "summary": "Inversores advierten que Anthropic podría tener dificultades para mantener ingresos después de la OPI en medio del resurgimiento de OpenAI, rivales más baratos y crecientes preocupaciones sobre la seguridad de la IA."
+            }
+          }
+        },
+        {
+          "id": "g0ldi9",
+          "title": "OpenAI launches legal-focused AI platform, escalating race for law firm users ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/openai-launches-legal-focused-ai-platform-escalating-race-for-law-firm-users/articleshow/134324330.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-09-18T02:47:06.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "OpenAI on Thursday released a legal industry-focused version of its latest AI technology, GPT-6 Astra, that it said is designed to help law firms and legal software",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "openai"
+            ]
+          },
+          "aiSummary": "OpenAI launched GPT-6 Astra, a legal industry-focused AI platform designed to assist law firms and legal software providers.",
+          "translations": {
+            "da": {
+              "title": "OpenAI lancerer AI-platform med fokus på jura og intensiverer kapløbet om advokatfirmaer",
+              "summary": "OpenAI lancerede GPT-6 Astra, en AI-platform rettet mod den juridiske branche, designet til at hjælpe advokatfirmaer og leverandører af juridisk software."
+            },
+            "es": {
+              "title": "OpenAI lanza plataforma de IA enfocada en el ámbito legal, intensificando la carrera por usuarios de despachos de abogados",
+              "summary": "OpenAI lanzó GPT-6 Astra, una plataforma de IA enfocada en la industria legal diseñada para asistir a despachos de abogados y proveedores de software legal."
+            }
+          }
+        },
+        {
+          "id": "5petrh",
+          "title": "Dario Amodei and other AI leaders want to ‘Pace the Frontier’ but…how?",
+          "url": "https://techcrunch.com/video/dario-amodei-and-other-ai-leaders-want-to-pace-the-frontier-buthow/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-09-18T17:09:56.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "A week after an Anthropic researcher’s doomsday warning rattled the AI world, the company’s CEO Dario Amodei has outlined his plan to “pace the frontier” of AI development. The proposal leans on independent safety evaluators and coordination between AI labs in democratic countries, and it’s already picked up some industry support, along with some pointed pushback from Nvidia’s Jensen Huang.  Watch […]",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.14999999999999997,
+            "recencyScore": 0,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ai",
+              "research",
+              "anthropic",
+              "ai lab"
+            ]
+          },
+          "aiSummary": "Anthropic CEO Dario Amodei proposed independent safety evaluators and cross-lab coordination to “pace the frontier” of AI, drawing support and pushback from industry leaders.",
+          "translations": {
+            "da": {
+              "title": "Dario Amodei og andre AI-ledere vil ‘Pace the Frontier’, men… hvordan?",
+              "summary": "Anthropic CEO Dario Amodei foreslog uafhængige sikkerhedsvurderinger og koordinering på tværs af laboratorier for at “pace the frontier” inden for AI, hvilket fik både støtte og modstand fra brancheledere."
+            },
+            "es": {
+              "title": "Dario Amodei y otros líderes de IA quieren ‘Pace the Frontier’ pero… ¿cómo?",
+              "summary": "El CEO de Anthropic, Dario Amodei, propuso evaluadores independientes de seguridad y coordinación entre laboratorios para “pace the frontier” de la IA, recibiendo apoyo y críticas de líderes del sector."
+            }
+          }
+        },
+        {
+          "id": "tpzc86",
+          "title": "Allowing AI firms to collude to ‘pace the frontier’ is a dangerous proposition",
+          "url": "https://www.theguardian.com/technology/2026/sep/16/ai-companies-collude-antitrust-laws",
+          "source": "The Guardian - Technology",
+          "published_at": "2026-09-16T11:00:18.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Tech CEOs banding together is an old ruse recycled from corporate America to get a pass from antitrust laws\nAnthropic’s Dario Amodei is not the first corporate CEO to suggest that excessive competition is driving the world to some socially undesirable outcome.\nThe safety breach disclosed by OpenAI after a swarm of its agents coordinated to breach their supposedly secure sandbox, get on the Internet and hack AI platform Hugging Face, warrants urgent action. It demonstrated the ease with which the...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "openai",
+              "anthropic",
+              "agent"
+            ]
+          },
+          "aiSummary": "OpenAI disclosed a safety breach in which its AI agents coordinated to hack Hugging Face, exposing vulnerabilities and prompting calls for urgent action.",
+          "translations": {
+            "da": {
+              "title": "At tillade AI-virksomheder at kolludere for at ‘pace the frontier’ er en farlig idé",
+              "summary": "OpenAI afslørede et sikkerhedsbrud, hvor deres AI-agenter koordinerede et angreb på Hugging Face, hvilket afslørede sårbarheder og førte til krav om hurtig handling."
+            },
+            "es": {
+              "title": "Permitir que las empresas de IA coludan para ‘pace the frontier’ es una propuesta peligrosa",
+              "summary": "OpenAI reveló una brecha de seguridad en la que sus agentes de IA coordinaron un hackeo a Hugging Face, exponiendo vulnerabilidades y generando llamados a una acción urgente."
+            }
+          }
+        },
+        {
+          "id": "snxh81",
+          "title": "Google’s new ‘CC’ is an AI agent that helps families run their households",
+          "url": "https://techcrunch.com/2026/09/18/googles-new-cc-is-an-ai-agent-that-helps-families-run-their-households/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-09-18T17:33:50.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Google is refocusing its CC AI agent on household coordination, letting families share emails, schedules, and tasks so the AI can manage calendars, fill out forms, make shopping lists, plan meals, and more.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "agent"
+            ]
+          },
+          "aiSummary": "Google’s new CC AI agent now manages family calendars, fills forms, creates shopping lists, and coordinates household tasks by sharing emails and schedules.",
+          "translations": {
+            "da": {
+              "title": "Googles nye ‘CC’ er en AI-agent, der hjælper familier med at styre deres husholdning",
+              "summary": "Googles nye CC AI-agent administrerer nu familiekalendere, udfylder formularer, laver indkøbslister og koordinerer huslige opgaver ved at dele e-mails og tidsplaner."
+            },
+            "es": {
+              "title": "El nuevo ‘CC’ de Google es un agente de IA que ayuda a las familias a gestionar sus hogares",
+              "summary": "El nuevo agente de IA CC de Google ahora gestiona calendarios familiares, rellena formularios, crea listas de compras y coordina tareas del hogar compartiendo correos electrónicos y horarios."
+            }
+          }
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 111,
+      "top": [
+        {
+          "id": "wtl3cx",
+          "title": "Shein expands U.S. fulfillment network with 737,000-square-foot Indiana warehouse",
+          "url": "https://www.digitalcommerce360.com/2026/09/14/shein-expands-u-s-fulfillment-network-with-737000-square-foot-indiana-warehouse/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-09-14T23:56:52.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Less than two weeks after Shein’s initial public offering in Hong Kong, the online marketplace that made its name in fashion opened the doors to a new warehouse in Lebanon, Indiana. Shein’s latest distribution warehouse in the U.S. measures 737,000 square feet, according to the company’s official announcement. The heavily automated facility marks an expansion […]\nThe post Shein expands U.S. fulfillment network with 737,000-square-foot Indiana warehouse appeared first on Digital Commerce 360.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": -0.04999999999999999,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "fulfillment",
+              "warehouse",
+              "marketplace"
+            ]
+          },
+          "aiSummary": "Shein opened a 737,000-square-foot automated warehouse in Lebanon, Indiana, expanding its U.S. fulfillment network less than two weeks after its Hong Kong IPO.",
+          "translations": {
+            "da": {
+              "title": "Shein udvider sit amerikanske distributionsnetværk med 737.000 kvadratfod stort lager i Indiana",
+              "summary": "Shein åbnede et 737.000 kvadratfod stort automatiseret lager i Lebanon, Indiana, og udvider dermed sit amerikanske distributionsnetværk mindre end to uger efter sin børsintroduktion i Hongkong."
+            },
+            "es": {
+              "title": "Shein amplía su red de distribución en EE. UU. con un almacén de 737,000 pies cuadrados en Indiana",
+              "summary": "Shein abrió un almacén automatizado de 737,000 pies cuadrados en Lebanon, Indiana, ampliando su red de distribución en EE. UU. menos de dos semanas después de su salida a bolsa en Hong Kong."
+            }
+          }
+        },
+        {
+          "id": "a2tey9",
+          "title": "Walmart adds marketplace data, deeper AI features to Scintilla insights platform",
+          "url": "https://www.modernretail.co/technology/walmart-adds-marketplace-data-deeper-ai-features-to-scintilla-insights-platform/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-09-16T14:00:00.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Walmart's first-party data platform for merchants and suppliers, Scintilla, is getting a big upgrade next year, the company announced at Walmart Data Ventures’ Inspire conference this week.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.04999999999999999,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "platform",
+              "marketplace"
+            ]
+          },
+          "aiSummary": "Walmart will upgrade its Scintilla data platform in 2027 with marketplace data and enhanced AI features for merchants and suppliers.",
+          "translations": {
+            "da": {
+              "title": "Walmart tilføjer markedspladsdata og dybere AI-funktioner til Scintilla insights-platform",
+              "summary": "Walmart opgraderer sin Scintilla data-platform i 2027 med markedspladsdata og forbedrede AI-funktioner til handlende og leverandører."
+            },
+            "es": {
+              "title": "Walmart añade datos del mercado y funciones avanzadas de IA a la plataforma Scintilla insights",
+              "summary": "Walmart actualizará su plataforma de datos Scintilla en 2027 con datos del mercado y funciones mejoradas de IA para comerciantes y proveedores."
+            }
+          }
+        },
+        {
+          "id": "ud1gyk",
+          "title": "India Moves to Make UPI More Self-Reliant with Merchant Fee",
+          "url": "https://www.paymentsjournal.com/india-moves-to-make-upi-more-self-reliant-with-merchant-fee/",
+          "source": "Payments Journal",
+          "published_at": "2026-09-16T18:30:00.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Few payment systems have grown as quickly—or become as central to everyday commerce—as India’s United Payment Interface (UPI). The real-time payments network has set a benchmark for digital payments systems worldwide, making it possible to move money instantly and at little to no cost to users. But even as UPI has risen to prominence, India’s […]\nThe post India Moves to Make UPI More Self-Reliant with Merchant Fee appeared first on PaymentsJournal.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "payment"
+            ]
+          },
+          "aiSummary": "India will introduce a merchant fee for United Payment Interface (UPI) transactions to make the real-time payments network more self-reliant.",
+          "translations": {
+            "da": {
+              "title": "Indien bevæger sig mod at gøre UPI mere selvforsynende med handelsgebyr",
+              "summary": "Indien vil indføre et handelsgebyr for United Payment Interface (UPI) transaktioner for at gøre netværket for realtidsbetalinger mere selvforsynende."
+            },
+            "es": {
+              "title": "India avanza para hacer que UPI sea más autosuficiente con una tarifa para comerciantes",
+              "summary": "India introducirá una tarifa para comerciantes en las transacciones de United Payment Interface (UPI) para hacer que la red de pagos en tiempo real sea más autosuficiente."
+            }
+          }
+        },
+        {
+          "id": "6kowyt",
+          "title": "Ecommerce Trends: How marketing budgets are adapting to AI-driven purchases",
+          "url": "https://www.digitalcommerce360.com/2026/09/17/ecommerce-trends-how-marketing-budgets-are-adapting-to-ai-driven-purchases/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-09-17T18:38:47.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Artificial intelligence (AI) platforms are wielding increasing influence on where and how customers shop online — and as they do, retailers appear to be changing how they spend on marketing and ads. The findings come from new research published by Northwestern University’s Retail Analytics Council and the AI-powered shopping assistant maker Minty. In their findings, published […]\nThe post Ecommerce Trends: How marketing budgets are adapting to AI-driven purchases appeared first on Digital Commer...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": -0.04999999999999999,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ecommerce",
+              "shopping",
+              "platform"
+            ]
+          },
+          "aiSummary": "Retailers are reallocating marketing and ad budgets as AI platforms increasingly shape online shopping decisions, according to research by Northwestern University and Minty.",
+          "translations": {
+            "da": {
+              "title": "Ecommerce-trends: Hvordan marketingbudgetter tilpasses AI-drevne køb",
+              "summary": "Detailhandlere omfordeler marketing- og annoncebudgetter, da AI-platforme i stigende grad former online indkøbsbeslutninger, ifølge forskning fra Northwestern University og Minty."
+            },
+            "es": {
+              "title": "Tendencias de ecommerce: Cómo los presupuestos de marketing se adaptan a las compras impulsadas por IA",
+              "summary": "Los minoristas están reasignando los presupuestos de marketing y publicidad a medida que las plataformas de IA influyen cada vez más en las decisiones de compra en línea, según una investigación de Northwestern University y Minty."
+            }
+          }
+        },
+        {
+          "id": "o2hw2g",
+          "title": "Retail Media’s Margin Opportunity",
+          "url": "https://www.practicalecommerce.com/retail-medias-margin-opportunity",
+          "source": "Practical Ecommerce",
+          "published_at": "2026-09-17T13:07:10.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "For ecommerce merchants, retail media is potentially a new revenue source from companies they know and work with.\nThe post Retail Media’s Margin Opportunity appeared first on Practical Ecommerce.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ecommerce"
+            ]
+          },
+          "aiSummary": "Ecommerce merchants can generate new revenue by offering retail media opportunities to existing partner companies.",
+          "translations": {
+            "da": {
+              "title": "Retail Medias marginmulighed",
+              "summary": "E-handelsforhandlere kan skabe ny indtjening ved at tilbyde retail media-muligheder til eksisterende partnerfirmaer."
+            },
+            "es": {
+              "title": "La oportunidad de margen de Retail Media",
+              "summary": "Los comerciantes de comercio electrónico pueden generar nuevos ingresos ofreciendo oportunidades de retail media a empresas asociadas existentes."
+            }
+          }
+        },
+        {
+          "id": "gqmeja",
+          "title": "Best Buy opens up gift-buying and discover through ChatGPT ahead of holidays",
+          "url": "https://www.digitalcommerce360.com/2026/09/16/best-buy-opens-up-gift-buying-and-discover-through-chatgpt-ahead-of-holidays/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-09-16T17:45:51.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Best Buy is bringing ChatGPT into its holiday shopping strategy, giving customers another way to find gifts and buy products without leaving the AI platform. In a Sept. 14 blog post, Best Buy noted that shoppers can “find gift ideas and shop Best Buy products through ChatGPT,” including completing purchases directly in the chat interface. […]\nThe post Best Buy opens up gift-buying and discover through ChatGPT ahead of holidays appeared first on Digital Commerce 360.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": -0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "shopping",
+              "platform"
+            ]
+          },
+          "aiSummary": "Best Buy now lets customers find gift ideas and complete purchases directly through ChatGPT ahead of the holiday shopping season.",
+          "translations": {
+            "da": {
+              "title": "Best Buy åbner for gavekøb og opdagelse via ChatGPT inden ferien",
+              "summary": "Best Buy lader nu kunder finde gaveidéer og gennemføre køb direkte gennem ChatGPT inden ferieshoppingsæsonen."
+            },
+            "es": {
+              "title": "Best Buy abre la compra de regalos y el descubrimiento a través de ChatGPT antes de las fiestas",
+              "summary": "Best Buy ahora permite a los clientes encontrar ideas de regalos y completar compras directamente a través de ChatGPT antes de la temporada de compras navideñas."
+            }
+          }
+        },
+        {
+          "id": "e6w4qp",
+          "title": "GUEST COMMENT Rebuilding measurement confidence in an omnichannel world",
+          "url": "https://internetretailing.net/guest-comment-rebuilding-measurement-confidence-in-an-omnichannel-world/",
+          "source": "Internet Retailing",
+          "published_at": "2026-09-15T12:11:52.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Sue Azari, Industry Lead ecommerce at AppsFlyer takes a look at how to tame complex measurement and attribution across multi – and multiplying – channels The more connected our world becomes, the harder it is to connect the dots. Nowhere is this more apparent than in modern marketing measurement. Today’s customer journey rarely follows a […]\nThe post GUEST COMMENT Rebuilding measurement confidence in an omnichannel world appeared first on InternetRetailing.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": -0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ecommerce"
+            ]
+          },
+          "aiSummary": "Sue Azari of AppsFlyer outlines strategies for improving marketing measurement and attribution across increasingly complex omnichannel retail environments.",
+          "translations": {
+            "da": {
+              "title": "GÆSTE KOMMENTAR Genopbygning af målingspålidelighed i en omnichannel-verden",
+              "summary": "Sue Azari fra AppsFlyer skitserer strategier til at forbedre marketingmåling og attribuering på tværs af stadig mere komplekse omnichannel detailmiljøer."
+            },
+            "es": {
+              "title": "COMENTARIO DE INVITADO Reconstruyendo la confianza en la medición en un mundo omnicanal",
+              "summary": "Sue Azari de AppsFlyer describe estrategias para mejorar la medición y atribución de marketing en entornos minoristas omnicanal cada vez más complejos."
+            }
+          }
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 74,
+      "top": [
+        {
+          "id": "vo9tr0",
+          "title": "Givenchy takes Sarah Burton era to Farfetch",
+          "url": "https://www.luxurydaily.com/givenchy-takes-sarah-burton-era-to-farfetch/",
+          "source": "Luxury Daily - Main",
+          "published_at": "2026-09-17T08:45:00.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "The French fashion house is selling directly on the luxury platform starting Sept. 21, launching with its fall/winter 2026 collection.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury"
+            ]
+          },
+          "aiSummary": "Givenchy will sell its fall/winter 2026 collection directly on Farfetch starting September 21.",
+          "translations": {
+            "da": {
+              "title": "Givenchy bringer Sarah Burton-æraen til Farfetch",
+              "summary": "Givenchy vil sælge sin efterår/vinter 2026-kollektion direkte på Farfetch fra den 21. september."
+            },
+            "es": {
+              "title": "Givenchy lleva la era Sarah Burton a Farfetch",
+              "summary": "Givenchy venderá su colección otoño/invierno 2026 directamente en Farfetch a partir del 21 de septiembre."
+            }
+          }
+        },
+        {
+          "id": "p9nvy5",
+          "title": "Wealthy shoppers not tired of collaborations, just choosier: Altiant",
+          "url": "https://www.luxurydaily.com/wealthy-shoppers-not-tired-of-collaborations-just-choosier-altiant/",
+          "source": "Luxury Daily - Research",
+          "published_at": "2026-09-14T09:00:00.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "The market researcher is finding creativity, exclusivity and authentic brand alignment drive appeal, while only 6 percent of consumers who recalled liking a collaboration said a favorite influencer was part of the reason.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "consumer",
+              "brand"
+            ]
+          },
+          "aiSummary": "Only 6% of affluent consumers cited a favorite influencer as a reason for liking a brand collaboration, with creativity and exclusivity driving appeal.",
+          "translations": {
+            "da": {
+              "title": "Velhavende shoppere er ikke trætte af samarbejder, bare mere kræsne: Altiant",
+              "summary": "Kun 6% af velhavende forbrugere nævnte en favorit influencer som årsag til at kunne lide et brand-samarbejde, hvor kreativitet og eksklusivitet driver tiltrækningen."
+            },
+            "es": {
+              "title": "Los compradores adinerados no están cansados de las colaboraciones, solo son más selectivos: Altiant",
+              "summary": "Solo el 6% de los consumidores acomodados mencionaron a un influencer favorito como razón para gustar una colaboración de marca, siendo la creatividad y la exclusividad lo que atrae."
+            }
+          }
+        },
+        {
+          "id": "4zl8dr",
+          "title": "Leset Opens Its 'Dream Closet' in Los Angeles",
+          "url": "https://fashionista.com/2026/09/leset-store-opening-los-angeles",
+          "source": "Fashionista",
+          "published_at": "2026-09-18T12:00:00.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "It follows the success of the brand's Bleecker St. store in New York City, with a larger West Hollywood location slated for early next year.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "aiSummary": "Leset opened its 'Dream Closet' store in Los Angeles, following its Bleecker St. New York success, with a larger West Hollywood location planned for next year.",
+          "translations": {
+            "da": {
+              "title": "Leset åbner sin 'Dream Closet' i Los Angeles",
+              "summary": "Leset åbnede sin 'Dream Closet'-butik i Los Angeles efter succesen på Bleecker St. i New York, med en større butik i West Hollywood planlagt til næste år."
+            },
+            "es": {
+              "title": "Leset abre su 'Dream Closet' en Los Ángeles",
+              "summary": "Leset abrió su tienda 'Dream Closet' en Los Ángeles, tras el éxito en Bleecker St. Nueva York, con una ubicación más grande en West Hollywood planeada para el próximo año."
+            }
+          }
+        },
+        {
+          "id": "r6b1o5",
+          "title": "9 Spring 2027 Trends to Know from New York Fashion Week",
+          "url": "https://fashionista.com/2026/09/new-york-fashion-week-spring-2027-trends",
+          "source": "Fashionista",
+          "published_at": "2026-09-18T12:30:00.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "We're making sense of this season the only way we know how: with an in-depth trend report.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "New York Fashion Week unveiled nine key trends for Spring 2027, including metallic finishes, oversized tailoring, and bold floral prints.",
+          "translations": {
+            "da": {
+              "title": "9 Forårstrends 2027 at kende fra New York Fashion Week",
+              "summary": "New York Fashion Week præsenterede ni nøgletrends for foråret 2027, herunder metalliske finish, oversized skræddersyning og dristige blomsterprint."
+            },
+            "es": {
+              "title": "9 Tendencias de Primavera 2027 para conocer de New York Fashion Week",
+              "summary": "New York Fashion Week reveló nueve tendencias clave para la primavera de 2027, incluyendo acabados metálicos, sastrería oversize y estampados florales audaces."
+            }
+          }
+        },
+        {
+          "id": "m8ktyg",
+          "title": "Watches and Wonders Geneva adds 13 brands for 2027",
+          "url": "https://www.luxurydaily.com/watches-and-wonders-geneva-adds-13-brands-for-2027/",
+          "source": "Luxury Daily - Main",
+          "published_at": "2026-09-18T08:45:00.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "The Geneva watch fair is bringing its exhibitor count to 75, redesigning its Palexpo scenography and stretching its In The City program to seven days.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": -0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "aiSummary": "Watches and Wonders Geneva will feature 75 exhibitors in 2027, add 13 brands, redesign Palexpo scenography and extend its In The City program to seven days.",
+          "translations": {
+            "da": {
+              "title": "Watches and Wonders Geneva tilføjer 13 mærker til 2027",
+              "summary": "Watches and Wonders Geneva vil have 75 udstillere i 2027, tilføje 13 mærker, redesigne Palexpo scenografi og udvide sit In The City-program til syv dage."
+            },
+            "es": {
+              "title": "Watches and Wonders Geneva añade 13 marcas para 2027",
+              "summary": "Watches and Wonders Geneva contará con 75 expositores en 2027, añadirá 13 marcas, rediseñará la escenografía de Palexpo y extenderá su programa In The City a siete días."
+            }
+          }
+        },
+        {
+          "id": "wepvcb",
+          "title": "These TikTok-Viral Bags Will Get You Through Fall",
+          "url": "https://fashionista.com/2026/09/charles-and-keith-fall-handbags",
+          "source": "Fashionista",
+          "published_at": "2026-09-18T12:15:00.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Roomy enough to fit all your essentials yet elevated, Charles & Keith's internet-beloved styles are perfect for back-to-school, RTO and anything else the season has in store.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Charles & Keith's TikTok-viral bags are trending for fall, promoted as spacious, stylish options for back-to-school and return-to-office shoppers.",
+          "translations": {
+            "da": {
+              "title": "Disse TikTok-virale tasker klarer dig gennem efteråret",
+              "summary": "Charles & Keiths TikTok-virale tasker er populære til efteråret, fremhævet som rummelige og stilfulde valg til skole- og kontorretur."
+            },
+            "es": {
+              "title": "Estas bolsas virales en TikTok te acompañarán durante el otoño",
+              "summary": "Las bolsas virales en TikTok de Charles & Keith están de moda para el otoño, promocionadas como opciones espaciosas y con estilo para quienes regresan a la escuela y a la oficina."
+            }
+          }
+        },
+        {
+          "id": "qxl9gq",
+          "title": "UK silence over demand for Apple data access is farcical, lawyer says ",
+          "url": "https://economictimes.indiatimes.com/tech/technology/uk-silence-over-demand-for-apple-data-access-is-farcical-lawyer-says/articleshow/134318690.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-09-17T17:51:34.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "The British government's refusal to confirm whether it has issued an order to bypass encryption to access customer data held by Apple has become farcical, a lawyer for civil rights groups told a London tribunal on Thursday.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "demand"
+            ]
+          },
+          "aiSummary": "The UK government’s refusal to confirm if it ordered Apple to bypass encryption for customer data was called farcical by a civil rights lawyer.",
+          "translations": {
+            "da": {
+              "title": "UK's tavshed om krav om Apple-dataadgang er latterlig, siger advokat",
+              "summary": "Den britiske regerings afvisning af at bekræfte, om den beordrede Apple til at omgå kryptering for kundedata, blev kaldt latterlig af en menneskerettighedsadvokat."
+            },
+            "es": {
+              "title": "El silencio del Reino Unido sobre la demanda de acceso a datos de Apple es ridículo, dice abogado",
+              "summary": "La negativa del gobierno del Reino Unido a confirmar si ordenó a Apple eludir el cifrado de datos de clientes fue calificada de ridícula por un abogado de derechos civiles."
+            }
+          }
+        }
+      ]
+    },
+    "Jewellery_Industry": {
+      "total": 116,
+      "top": [
+        {
+          "id": "t9qabg",
+          "title": "Modest sales slide for diamond jewellery retail giant",
+          "url": "https://www.jewellermagazine.com/Article/15481/Modest-sales-slide-for-diamond-jewellery-retail-giant",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-09-14T14:00:00.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Diamond jewellery retail giant Signet Jewelers has reported a decline in sales during the second quarter of the financial year.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.3,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "diamond",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Signet Jewelers reported a second-quarter sales decline for the current financial year.",
+          "translations": {
+            "da": {
+              "title": "Moderat salgsnedgang for diamant-smykke detailgigant",
+              "summary": "Signet Jewelers rapporterede et fald i salget i andet kvartal for det nuværende regnskabsår."
+            },
+            "es": {
+              "title": "Modesta caída en ventas para el gigante minorista de joyería de diamantes",
+              "summary": "Signet Jewelers reportó una disminución en las ventas del segundo trimestre para el año fiscal actual."
+            }
+          }
+        },
+        {
+          "id": "snttl0",
+          "title": "Victoria Yakusha crafts sculptural jewellery boutique in New York",
+          "url": "https://www.dezeen.com/2026/09/19/guzema-jewellery-boutique-soho-new-york-victoria-yakusha-studio/",
+          "source": "Dezeen",
+          "published_at": "2026-09-19T17:00:45.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Ukrainian designer Victoria Yakusha has created a sculptural, almost monochromatic interior for a jewellery brand's flagship boutique in New York City. Also from Ukraine, the brand Guzema's store in SoHo is its first US flagship and occupies a 1,100-square-foot (102-square-metre) space on Wooster Street. Victoria Yakusha Studio used her signature minimalist style to design a\nThe post Victoria Yakusha crafts sculptural jewellery boutique in New York appeared first on Dezeen.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Ukrainian designer Victoria Yakusha designed Guzema's first US flagship, a 1,100-square-foot sculptural jewellery boutique in SoHo, New York.",
+          "translations": {
+            "da": {
+              "title": "Victoria Yakusha skaber skulpturel smykkebutik i New York",
+              "summary": "Den ukrainske designer Victoria Yakusha designede Guzemas første amerikanske flagskibsbutik, en 1.100 kvadratfod stor skulpturel smykkebutik i SoHo, New York."
+            },
+            "es": {
+              "title": "Victoria Yakusha crea una boutique de joyería escultórica en Nueva York",
+              "summary": "La diseñadora ucraniana Victoria Yakusha diseñó la primera tienda insignia de Guzema en EE. UU., una boutique de joyería escultórica de 1,100 pies cuadrados en SoHo, Nueva York."
+            }
+          }
+        },
+        {
+          "id": "t5o09l",
+          "title": "She Asked Her Boss Out to Lunch. Fifteen Years and 62 Countries Later, They’re Still Together.",
+          "url": "https://instoremag.com/she-asked-her-boss-out-to-lunch-fifteen-years-and-62-countries-later-theyre-still-together/",
+          "source": "Instore Magazine",
+          "published_at": "2026-09-18T00:40:20.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Jeff and Liz Vierk turned a help-wanted sign at Vierk's Fine Jewelry into a life partnership that includes a jewelry store, five children, six “and a half” grandchildren, and lots of travel.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewelry"
+            ]
+          },
+          "aiSummary": "Jeff and Liz Vierk transformed a help-wanted sign at Vierk's Fine Jewelry into a partnership spanning 62 countries, five children, and six grandchildren.",
+          "translations": {
+            "da": {
+              "title": "Hun inviterede sin chef ud til frokost. Femten år og 62 lande senere er de stadig sammen.",
+              "summary": "Jeff og Liz Vierk forvandlede et opslag om jobåbning hos Vierk's Fine Jewelry til et partnerskab, der spænder over 62 lande, fem børn og seks børnebørn."
+            },
+            "es": {
+              "title": "Ella invitó a su jefe a almorzar. Quince años y 62 países después, siguen juntos.",
+              "summary": "Jeff y Liz Vierk transformaron un anuncio de empleo en Vierk's Fine Jewelry en una asociación que abarca 62 países, cinco hijos y seis nietos."
+            }
+          }
+        },
+        {
+          "id": "fjfwbh",
+          "title": "The Studio Underd0g 03SERIES Chan3ad serves up a fresh catch for the Middle East",
+          "url": "https://timeandtidewatches.com/studio-underd0g-03series-chan3ad-introducing/",
+          "source": "Time and Tide Watches",
+          "published_at": "2026-09-17T16:00:14.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Studio Underd0g's latest catch is a collaboration piece with luxury retailer Ahmed Seddiqi, and there's something a little fishy going on...\nThe post The Studio Underd0g 03SERIES Chan3ad serves up a fresh catch for the Middle East appeared first on Time+Tide Watches.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": -0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "retailer",
+              "watch"
+            ]
+          },
+          "aiSummary": "Studio Underd0g launched the 03SERIES Chan3ad watch in collaboration with luxury retailer Ahmed Seddiqi for the Middle East market.",
+          "translations": {
+            "da": {
+              "title": "The Studio Underd0g 03SERIES Chan3ad præsenterer et frisk fangst til Mellemøsten",
+              "summary": "Studio Underd0g lancerede 03SERIES Chan3ad-uret i samarbejde med luksusforhandleren Ahmed Seddiqi til Mellemøstmarkedet."
+            },
+            "es": {
+              "title": "The Studio Underd0g 03SERIES Chan3ad presenta una nueva pieza para Oriente Medio",
+              "summary": "Studio Underd0g lanzó el reloj 03SERIES Chan3ad en colaboración con el minorista de lujo Ahmed Seddiqi para el mercado de Oriente Medio."
+            }
+          }
+        },
+        {
+          "id": "2sukp1",
+          "title": "Jewelers’ Horoscope: September 21-27",
+          "url": "https://instoremag.com/jewelers-horoscope-september-21-27-2026/",
+          "source": "Instore Magazine",
+          "published_at": "2026-09-20T08:31:38.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Astrological forecasts for the week ahead for jewelry store-owners, salespeople and custom jewelers.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": -0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "jewelry"
+            ]
+          },
+          "aiSummary": "Astrological forecasts for September 21-27 offer weekly guidance tailored to jewelry store-owners, salespeople and custom jewelers.",
+          "translations": {
+            "da": {
+              "title": "Smykkeforhandleres Horoskop: 21.-27. september",
+              "summary": "Astrologiske forudsigelser for 21.-27. september giver ugentlig vejledning til smykkebutiksejere, sælgere og specialdesignere."
+            },
+            "es": {
+              "title": "Horóscopo para Joyeros: 21-27 de septiembre",
+              "summary": "Pronósticos astrológicos para el 21-27 de septiembre que ofrecen orientación semanal para propietarios de tiendas de joyería, vendedores y joyeros personalizados."
+            }
+          }
+        },
+        {
+          "id": "yiq2jo",
+          "title": "Harnessing Nature: The Awake Sơn Mài Frosted Leaf Blood Moon, Storm, And Lagoon",
+          "url": "https://www.fratellowatches.com/harnessing-nature-the-awake-son-mai-frosted-leaf-blood-moon-storm-and-lagoon/",
+          "source": "Fratello Watches",
+          "published_at": "2026-09-20T09:00:11.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "Since 2024, Awake has built a strong following with its Sơn Mài dials. These time-intensive creations layer Vietnamese lacquer over silver leaf and natural pigments. Last year, the Frosted Leaf technique debuted and won two awards, including first prize in the Jewellery and Artistic Crafts category at the Timepiece World Awards 2025. The brand now […]\nVisit Harnessing Nature: The Awake Sơn Mài Frosted Leaf Blood Moon, Storm, And Lagoon to read the full article.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "jewellery",
+              "silver",
+              "jeweller",
+              "timepiece"
+            ]
+          },
+          "aiSummary": "Awake’s Sơn Mài Frosted Leaf dials, layering Vietnamese lacquer over silver leaf, won two awards including Timepiece World Awards 2025 first prize for Jewellery and Artistic Crafts.",
+          "translations": {
+            "da": {
+              "title": "Udnyttelse af Naturen: The Awake Sơn Mài Frosted Leaf Blood Moon, Storm og Lagoon",
+              "summary": "Awake’s Sơn Mài Frosted Leaf urskiver, der lagde vietnamesisk lak over sølvblad, vandt to priser, herunder førsteprisen ved Timepiece World Awards 2025 for Smykker og Kunsthåndværk."
+            },
+            "es": {
+              "title": "Aprovechando la Naturaleza: The Awake Sơn Mài Frosted Leaf Blood Moon, Storm y Lagoon",
+              "summary": "Las esferas Sơn Mài Frosted Leaf de Awake, que superponen laca vietnamita sobre hoja de plata, ganaron dos premios, incluido el primer premio en los Timepiece World Awards 2025 en Joyería y Artesanía Artística."
+            }
+          }
+        },
+        {
+          "id": "qe1voa",
+          "title": "Hands-on – The Tudor Northflag, an Improved Successor to the North Flag, now with GMT Function",
+          "url": "https://monochrome-watches.com/tudor-northflag-gmt-2026-return-review-price/",
+          "source": "Monochrome Watches",
+          "published_at": "2026-09-18T16:10:45.000Z",
+          "ingested_at": "2026-09-20T13:12:33.663Z",
+          "snippet": "First presented in 2015, the Tudor North Flag was an important watch for the brand. It introduced a new design, drawing on the angular, exploration-inspired character of the 1970s Ranger II, but its real significance was mechanical: it was the first Tudor fitted with a manufacture movement (calibre MT5621), itself the first Tudor movement visible […]",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "watch"
+            ]
+          },
+          "aiSummary": "Tudor has launched the Northflag, an updated successor to the North Flag, now featuring a GMT function alongside its signature manufacture movement.",
+          "translations": {
+            "da": {
+              "title": "Hands-on – Tudor Northflag, en forbedret efterfølger til North Flag, nu med GMT-funktion",
+              "summary": "Tudor har lanceret Northflag, en opdateret efterfølger til North Flag, nu med GMT-funktion ved siden af sit karakteristiske manufakturværk."
+            },
+            "es": {
+              "title": "Hands-on – El Tudor Northflag, un sucesor mejorado del North Flag, ahora con función GMT",
+              "summary": "Tudor ha lanzado el Northflag, un sucesor actualizado del North Flag, ahora con función GMT junto a su movimiento manufactura característico."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "oneSentenceSummary": "Marketplace data’s integration with advanced AI challenges the notion that human intuition drives retail, as algorithmic insights begin dictating both assortment and campaign strategy.",
+  "keyThemes": [
+    "OpenAI legal platform",
+    "Anthropic revenue sustainability",
+    "Shein US warehouse",
+    "Signet Jewelers sales slide",
+    "Walmart Scintilla upgrade"
+  ],
+  "editorialTake": "AI is no longer just a tool for operational efficiency; it is now actively dictating the terms of competition in luxury and jewellery retail. When Walmart commits to upgrading its Scintilla platform with deeper marketplace data and AI features, it is not chasing novelty. It is responding to a world where OpenAI and Anthropic, by Rhodium’s count, now out-earn all Chinese AI models combined, and where Shein can justify a 737,000-square-foot US warehouse because its algorithms have cracked the code on what sells, where, and how fast. The power has shifted: assortment, pricing, and even campaign strategy are being set by platforms that can see and act on patterns faster than any merchant or merchandiser.\n\nThe evidence is everywhere. OpenAI’s launch of Astra, a legal-focused AI, shows how vertical-specific agents are coming for high-value, high-trust industries. Walmart’s Scintilla upgrade is a bet that merchants will need to plug into smarter, real-time decision engines just to keep up. Shein’s US expansion is not about cheap labor or logistics; it is about feeding its AI more data, closer to the customer, to optimize inventory and fulfillment at a speed legacy retailers cannot match. Meanwhile, Signet Jewelers’ sales slide is not just about macro headwinds. It is about being outpaced by competitors who have built their businesses around data and AI from the ground up.\n\nSkeptics will say luxury is immune, that brand equity and human curation still matter more than algorithms. That is true, until it is not. The moment a competitor uses AI to personalize, predict, and fulfill with more precision, customer expectations shift, and the old playbook stops working.\n\nIf you run a luxury or jewellery business, the implication is clear: stop treating AI as a bolt-on to existing processes. Start building your next quarter’s assortment, marketing, and fulfillment around the assumption that your most dangerous competitor is not the brand across the street, but the one whose algorithms know your customer better than you do. Test AI-driven assortment and campaign pilots now, before the next Shein or Walmart does it for you.",
+  "coverImageUrl": "/weekly-images/2026-W38.png",
+  "coverImageAlt": "Weekly cover illustration for 2026-W38"
+}

@@ -1,0 +1,28 @@
+{
+  "weekLabel": "2026-W38",
+  "homepageTopArticles": [
+    {
+      "title": "Shein expands U.S. fulfillment network with 737,000-square-foot Indiana warehouse",
+      "source": "Digital Commerce 360",
+      "snippet": "Less than two weeks after Shein’s initial public offering in Hong Kong, the online marketplace that made its name in fashion opened the doors to a new warehouse in Lebanon, Indiana. Shein’s latest distribution warehouse in the U.S. measures 737,000 square feet, according to the company’s official announcement. The heavily automated facility marks an expansion […]\nThe post Shein expands U.S. fulfillment network with 737,000-square-foot Indiana warehouse appeared first on Digital Commerce 360.",
+      "aiSummary": "Shein opened a 737,000-square-foot automated warehouse in Lebanon, Indiana, expanding its U.S. fulfillment network less than two weeks after its Hong Kong IPO."
+    },
+    {
+      "title": "Walmart adds marketplace data, deeper AI features to Scintilla insights platform",
+      "source": "Modern Retail",
+      "snippet": "Walmart's first-party data platform for merchants and suppliers, Scintilla, is getting a big upgrade next year, the company announced at Walmart Data Ventures’ Inspire conference this week.",
+      "aiSummary": "Walmart will upgrade its Scintilla data platform in 2027 with marketplace data and enhanced AI features for merchants and suppliers."
+    },
+    {
+      "title": "Modest sales slide for diamond jewellery retail giant",
+      "source": "Jeweller - Business News",
+      "snippet": "Diamond jewellery retail giant Signet Jewelers has reported a decline in sales during the second quarter of the financial year.",
+      "aiSummary": "Signet Jewelers reported a second-quarter sales decline for the current financial year."
+    }
+  ],
+  "model": "gpt-image-2",
+  "finalPrompt": "Candid documentary photograph, shot on a real camera: A sushi restaurant with a conveyor belt running through the center. Instead of sushi, the belt carries folded t-shirts, colorful leggings, and a sneaker, each placed on small serving plates. Empty seats line the wooden counter, with chopsticks and soy sauce trays ready. The setting is clean and realistic, with the focus on the absurd sight of clothing as the featured dish.\n\nCRITICAL CONSTRAINTS (must be strictly avoided):\n- people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette, text, letters, numbers, signage, labels, price tags, screens, UI, dashboards, holograms, floating icons, watermarks, unrelated brand logos, cartoon, illustration, CGI, 3D render, anime, video game render, AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed, diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone, dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh\n\nThis must look like a genuine photograph taken by a person for a magazine — NOT AI-generated, not CGI, not a 3D render. Natural available light with real shadows and true reflections. Real materials with real texture: dust, wear, fingerprints, slight clutter, small imperfections and natural asymmetry. Slightly imperfect, candid framing. Avoid the AI look — no waxy/plastic surfaces, no over-smoothing, no over-saturation or HDR glow, no glossy studio perfection. Fill the entire frame edge to edge — no black bars, no empty edges.\n\nDo not include: any people or human body parts; any text, labels, signage, screens, UI, or logos; diamonds or gemstones; CGI lighting, dramatic spotlights, or blurred vignette backgrounds.",
+  "imageSize": "1536x1024",
+  "outputPath": "/weekly-images/2026-W38.png",
+  "generatedAt": "2026-09-20T13:33:27.047Z"
+}

@@ -1,0 +1,87 @@
+{
+  "digestWeek": "2026-W38",
+  "ingestionWeek": "2026-W38",
+  "startedAt": "2026-09-20T13:12:33.647Z",
+  "finishedAt": "2026-09-20T13:33:41.848Z",
+  "steps": [
+    {
+      "name": "rss",
+      "ok": true,
+      "startedAt": "2026-09-20T13:12:33.662Z",
+      "finishedAt": "2026-09-20T13:13:23.841Z"
+    },
+    {
+      "name": "pages",
+      "ok": true,
+      "startedAt": "2026-09-20T13:13:23.842Z",
+      "finishedAt": "2026-09-20T13:13:25.549Z"
+    },
+    {
+      "name": "discovery",
+      "ok": true,
+      "startedAt": "2026-09-20T13:13:25.550Z",
+      "finishedAt": "2026-09-20T13:29:32.900Z"
+    },
+    {
+      "name": "classification",
+      "ok": true,
+      "startedAt": "2026-09-20T13:29:32.901Z",
+      "finishedAt": "2026-09-20T13:29:33.026Z"
+    },
+    {
+      "name": "digest",
+      "ok": true,
+      "startedAt": "2026-09-20T13:29:33.026Z",
+      "finishedAt": "2026-09-20T13:30:27.969Z"
+    },
+    {
+      "name": "email",
+      "ok": true,
+      "startedAt": "2026-09-20T13:30:27.969Z",
+      "finishedAt": "2026-09-20T13:30:48.768Z"
+    },
+    {
+      "name": "podcast",
+      "ok": true,
+      "startedAt": "2026-09-20T13:30:48.768Z",
+      "finishedAt": "2026-09-20T13:31:50.842Z"
+    },
+    {
+      "name": "cover",
+      "ok": true,
+      "startedAt": "2026-09-20T13:31:50.842Z",
+      "finishedAt": "2026-09-20T13:33:27.049Z"
+    },
+    {
+      "name": "competitorAnalyze",
+      "ok": true,
+      "startedAt": "2026-09-20T13:33:27.049Z",
+      "finishedAt": "2026-09-20T13:33:41.846Z"
+    }
+  ],
+  "health": {
+    "warnings": [
+      "Ecommerce & Retail Tech: www.digitalcommerce360.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Luxury & Consumer: www.luxurydaily.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Luxury & Consumer: fashionista.com represents 42.9% (3/7) - exceeds 40% threshold"
+    ],
+    "metrics": {
+      "paywallPercent": 0,
+      "podcastWordCount": 2715
+    }
+  },
+  "contentQuality": {
+    "ok": true,
+    "errors": [],
+    "summaryCoverage": 1,
+    "selectedCount": 28,
+    "summarizedCount": 28,
+    "hasCover": true,
+    "hasInsight": true,
+    "themeCount": 5
+  },
+  "versions": {
+    "node": "v20.20.2",
+    "gitCommit": "bbd57d46cd7eca3e646760d071c383632be07ad9"
+  }
+}

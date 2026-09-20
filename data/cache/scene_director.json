@@ -893,5 +893,29 @@
     "version": "v3",
     "cached_at": "2026-09-13T11:48:37.730Z",
     "variant": "safe"
+  },
+  "99e58baa70f047d5d3b03a07760bf05e703690b6d6d8dbde277a32c5fbe8253e": {
+    "output": {
+      "concept": "warehouse-conveyor-sushi-belt-fast-fashion",
+      "setting": "sushi restaurant conveyor belt",
+      "primaryHumorDriver": "role reversal",
+      "secondaryEnhancer": "unexpected texture/material combo",
+      "sceneDescription": "Joke: Shein's vast new warehouse is all about fast, automated fulfillment, so the punchline is presenting high-speed fashion items like sushi on a restaurant conveyor belt. Scene: In a sushi restaurant, instead of plates of sushi, the conveyor belt is carrying neatly folded t-shirts, leggings, and shoes as if they're the daily special, with chopsticks and soy sauce trays at empty seats, riffing on Shein's rapid delivery service.",
+      "finalImagePrompt": "A sushi restaurant with a conveyor belt running through the center. Instead of sushi, the belt carries folded t-shirts, colorful leggings, and a sneaker, each placed on small serving plates. Empty seats line the wooden counter, with chopsticks and soy sauce trays ready. The setting is clean and realistic, with the focus on the absurd sight of clothing as the featured dish.",
+      "negativePrompt": [
+        "people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette",
+        "text, letters, numbers, signage, labels, price tags",
+        "screens, UI, dashboards, holograms, floating icons",
+        "watermarks, unrelated brand logos",
+        "cartoon, illustration, CGI, 3D render, anime, video game render",
+        "AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed",
+        "diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone",
+        "dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh"
+      ],
+      "confidence": 0.98
+    },
+    "version": "v8",
+    "cached_at": "2026-09-20T13:31:53.430Z",
+    "variant": "safe"
   }
 }
