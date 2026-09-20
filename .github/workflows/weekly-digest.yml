@@ -6,6 +6,11 @@ on:
     - cron: '0 6 * * 0'
   workflow_dispatch:
     # Allow manual trigger
+    inputs:
+      send_email:
+        description: 'Send the subscriber email. Set false when re-running a week whose email already went out (the send script has no idempotency check, and data/email/sent/ is gitignored, so a re-run would double-send).'
+        type: boolean
+        default: true
 
 concurrency:
   group: weekly-digest
@@ -80,6 +85,11 @@ jobs:
           echo '${{ secrets.EMAIL_RECIPIENTS_JSON }}' > data/email/recipients.json
 
       - name: Send weekly email digest (dry-run unless enabled)
+        # Scheduled runs always send. Manual runs send unless send_email=false.
+        # Written as an event-name check because on a schedule the `inputs`
+        # context is null, and GitHub casts null and false both to 0, so
+        # `inputs.send_email != false` would wrongly skip the weekly send.
+        if: github.event_name != 'workflow_dispatch' || inputs.send_email
         env:
           EMAIL_SEND_ENABLED: ${{ vars.EMAIL_SEND_ENABLED }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
@@ -105,7 +115,7 @@ jobs:
         if: steps.build.outcome == 'success'
         id: check-changes
         run: |
-          git status --porcelain > /tmp/changes.txt
+          git status --porcelain -uall > /tmp/changes.txt
           if [ ! -s /tmp/changes.txt ]; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
             echo "No digest changes; nothing to commit"
@@ -126,7 +136,11 @@ jobs:
           # - data/cache/ (cache files for translations, reranking, etc.)
           # - data/page_source_stats.json (page ingestion stats)
           # - data/competitor-intel.json (competitor intelligence, updated weekly)
-          CHANGED_FILES=$(git status --porcelain | awk '{print $2}')
+          # -uall is required: without it git collapses a wholly-untracked
+          # directory (a brand-new data/weeks/<week>/) into a single "dir/"
+          # entry, which no file-level pattern below can match. cut -c4- keeps
+          # paths with spaces intact, unlike awk '{print $2}'.
+          CHANGED_FILES=$(git status --porcelain -uall | cut -c4-)
           # Pattern matches:
           # - data/digests/*.json
           # - data/weeks/*/health.json
@@ -134,7 +148,7 @@ jobs:
           # - data/source_yield.json
           # - data/page_source_stats.json
           # - data/competitor-intel.json
-          # - data/weeks/*/ (any files under weeks directory)
+          # - data/weeks/*/*.{json,txt} (top level only, not cache subdirs)
           # - public/podcast/*.mp3
           # - public/weekly-images/*.png
           # - data/cache/ (any files under cache directory)
