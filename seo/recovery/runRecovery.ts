@@ -34,8 +34,21 @@ export type RecoveryStatus =
   | 'rolled-back'        // outage found, reverted, site recovered
   | 'rollback-failed'    // reverted, but the site is still down
   | 'no-target'          // outage found, but nothing safe to roll back to
+  | 'would-roll-back'    // outage found, a target exists, but acting wasn't allowed
   | 'provider-outage'    // Vercel itself is down — a rollback would not help
   | 'not-authenticated'; // cannot act
+
+/**
+ * What a rollback costs you, and the reason every message about one has to say
+ * so: Vercel turns OFF auto-assignment of production domains afterwards.
+ * Pushes to main still build, but they do not go live until someone promotes a
+ * deployment. An automated rollback that nobody follows up on therefore
+ * freezes publishing — including the Sunday digest — while looking healthy.
+ */
+export const DEPLOYS_FROZEN_WARNING =
+  'Vercel has turned OFF auto-assignment of production domains. Pushes to main will build but will NOT go live ' +
+  'until you undo the rollback: press "Undo Rollback" on the project overview, or run `vercel promote <deployment-url>`. ' +
+  'Until then the weekly digest cannot publish.';
 
 export interface RecoveryResult {
   status: RecoveryStatus;
@@ -168,24 +181,27 @@ export async function runRecovery(
     };
   }
 
-  const target = await findRollbackTarget();
-  if (!target) {
+  const choice = await findRollbackTarget();
+  if (!choice.target) {
     return {
       ...base,
       status: 'no-target',
-      detail: `${failed.length}/${probes.length} pages failing, but no earlier healthy production deployment was found.`,
+      detail: `${failed.length}/${probes.length} pages failing, but there is no eligible deployment to roll back to. ${choice.reason}`,
       recommendation:
-        'Nothing safe to roll back to — rolling back to a failed deployment would just move the outage. ' +
-        'Investigate the deployment manually.',
+        'Nothing safe to roll back to, so this needs you: check the build logs for the current production ' +
+        'deployment, fix forward, and deploy.',
     };
   }
+  const target = choice.target;
 
   if (!act) {
     return {
       ...base,
-      status: 'no-target',
-      detail: `${failed.length}/${probes.length} pages failing. Would roll back to ${target.url} (${target.age} old), but --act was not set.`,
-      recommendation: `Re-run with --act to perform the rollback, or do it manually: vercel rollback ${target.url} --yes`,
+      status: 'would-roll-back',
+      detail: `${failed.length}/${probes.length} pages failing. Would roll back to ${target.url} (${target.age} old), but acting was not allowed.`,
+      recommendation:
+        `Re-run with --act to perform the rollback, or do it manually: vercel rollback ${target.url} --yes — ` +
+        `then note that ${DEPLOYS_FROZEN_WARNING}`,
     };
   }
 
@@ -219,17 +235,21 @@ export async function runRecovery(
   }
 
   // A Vercel rollback changes which build serves traffic; it does not change
-  // what is on main. Left alone, the bad commit is still HEAD and the next
-  // unrelated push redeploys it — a fix that quietly undoes itself. So at
-  // autonomy level, revert the code too, keeping git and production agreed.
+  // what is on main. So at autonomy level, revert the code too, keeping git and
+  // production agreed — otherwise the bad commit is still HEAD and whoever
+  // promotes the next deployment ships it again.
+  //
+  // Note what reverting does NOT do: it cannot bring the site back to
+  // auto-deploying. Vercel disables auto-assignment of production domains at
+  // rollback, and only a promote re-enables it.
   let revertNote = '';
   if (revertCommits) {
     const reverted = await revertHeadCommit();
     revertNote = reverted.ok
-      ? ` The offending commit was also reverted on main (${reverted.detail}), so the next deploy will not reintroduce it.`
-      : ` ⚠ The deployment was rolled back but reverting the commit on main FAILED (${reverted.detail}) — the bad code is still HEAD and the next push will redeploy it. Revert it by hand.`;
+      ? ` The offending commit was also reverted on main (${reverted.detail}), so the code and the live build now agree.`
+      : ` ⚠ The deployment was rolled back but reverting the commit on main FAILED (${reverted.detail}) — the bad code is still HEAD. Revert it by hand.`;
   } else {
-    revertNote = ' The commit that caused it is still on main, so the next deploy will reintroduce it until you revert or fix it.';
+    revertNote = ' The commit that caused it is still on main, so fix or revert it before promoting anything.';
   }
 
   return {
@@ -238,9 +258,10 @@ export async function runRecovery(
     detail: `Production was failing on ${failed.length}/${probes.length} sampled pages. ` +
             `Rolled back to ${target.url} (${target.age} old). The site now responds normally.${revertNote}`,
     rolledBackTo: target,
-    recommendation: revertCommits
-      ? 'Site restored and main reverted. Work out what the reverted commit got wrong before re-landing it.'
-      : 'The site is back up on the previous deployment, but main still contains the commit that broke it. ' +
-        'Revert or fix it before the next deploy.',
+    recommendation:
+      `${DEPLOYS_FROZEN_WARNING} ` +
+      (revertCommits
+        ? 'Main has been reverted, so work out what the reverted commit got wrong, then promote a good deployment.'
+        : 'Main still contains the commit that broke it: fix or revert it, then promote a good deployment.'),
   };
 }

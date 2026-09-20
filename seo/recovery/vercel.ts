@@ -83,19 +83,49 @@ export async function listProductionDeployments(): Promise<Deployment[]> {
   return deployments;
 }
 
-/**
- * The deployment to roll back to: the most recent *healthy* production
- * deployment that is not the one currently live.
- *
- * Returns null when there is no such candidate — rolling back to a deployment
- * that itself errored would replace one outage with another.
- */
-export async function findRollbackTarget(): Promise<Deployment | null> {
-  const deployments = await listProductionDeployments();
-  if (deployments.length < 2) return null;
+export interface RollbackChoice {
+  target: Deployment | null;
+  /** Why this target, or why there isn't one. Goes straight into the email. */
+  reason: string;
+}
 
-  // Index 0 is current; look past it for the newest Ready one.
-  return deployments.slice(1).find(d => d.status === 'Ready') ?? null;
+/**
+ * Choose what to roll back to: the deployment immediately before the current
+ * one, and only if it is healthy.
+ *
+ * Deliberately not "the newest healthy deployment further back". On Vercel's
+ * Hobby plan you can only roll back to the immediately previous production
+ * deployment — reaching further is a Pro feature — so a target two or more
+ * deployments back would simply be refused, after the site had already been
+ * down long enough for the monitor to notice. Better to report that there is
+ * nothing to roll back to and let a human act.
+ *
+ * Separated from the CLI call so the decision can be tested without network.
+ */
+export function chooseRollbackTarget(deployments: Deployment[]): RollbackChoice {
+  if (deployments.length === 0) {
+    return { target: null, reason: 'No production deployments were listed — the Vercel CLI returned nothing usable.' };
+  }
+  if (deployments.length < 2) {
+    return { target: null, reason: 'Only one production deployment exists, so there is nothing earlier to roll back to.' };
+  }
+
+  const previous = deployments[1]!;
+  if (previous.status !== 'Ready') {
+    return {
+      target: null,
+      reason: `The immediately previous production deployment (${previous.url}) is "${previous.status}", not Ready. ` +
+              'Rolling back to a failed build would swap one outage for another, and on the Hobby plan no earlier ' +
+              'deployment is eligible.',
+    };
+  }
+
+  return { target: previous, reason: `The deployment immediately before the current one (${previous.url}, ${previous.age} old) is Ready.` };
+}
+
+/** Production deployments from the CLI, run through {@link chooseRollbackTarget}. */
+export async function findRollbackTarget(): Promise<RollbackChoice> {
+  return chooseRollbackTarget(await listProductionDeployments());
 }
 
 export async function rollbackTo(deployment: Deployment): Promise<{ ok: boolean; output: string }> {

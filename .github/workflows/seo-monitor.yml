@@ -14,6 +14,10 @@ on:
         description: 'Send a test alert email instead of monitoring (verifies delivery end to end)'
         type: boolean
         default: false
+      check_recovery_auth:
+        description: 'Verify the Vercel token can list deployments (changes nothing)'
+        type: boolean
+        default: false
 
 concurrency:
   group: seo-monitor
@@ -39,6 +43,17 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # Recovery only ever runs when the site is already broken, so a token
+      # that has expired or was scoped wrongly would be discovered during an
+      # incident. This proves it works, on demand, without touching anything.
+      - name: Verify Vercel credentials
+        if: inputs.check_recovery_auth == 'true'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          npm i -g vercel@50
+          npm run seo:recover -- --check-auth
 
       - name: Run SEO monitor
         id: monitor
@@ -84,6 +99,10 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
         run: |
+          # The CLI is installed here rather than in a top-level step so the
+          # daily healthy run doesn't pay for it. Pinned to a major version:
+          # deployment listing parses the CLI's table output.
+          npm i -g vercel@50
           set +e
           npm run seo:recover
           echo "recover_exit=$?" >> "$GITHUB_OUTPUT"
