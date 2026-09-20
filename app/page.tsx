@@ -50,8 +50,7 @@ const HOMEPAGE_DESCRIPTION = 'A weekly curated digest covering AI & strategy, ec
 // Falls back to /api/og when the digest isn't ready (e.g. before first build
 // of the week) or the cover image isn't available.
 export async function generateMetadata(): Promise<Metadata> {
-  const weekLabel = getCurrentDigestWeek();
-  const digest = await loadDigest(weekLabel);
+  const { digest } = await resolveDigest();
   const ogImage = digest?.coverImageUrl
     ? `${siteUrl}${digest.coverImageUrl}`
     : `${siteUrl}/api/og`;
@@ -89,6 +88,45 @@ async function loadDigest(weekLabel: string): Promise<WeeklyDigest | null> {
     console.error(`Failed to load digest for ${weekLabel}:`, err);
     return null;
   }
+}
+
+// The digest week rolls over at Sunday 00:00 local, but the pipeline does not
+// commit that week's digest until ~06:25 UTC — and if the weekly run fails, the
+// file never lands at all. Without a fallback the homepage renders its empty
+// "not built yet" state for those hours every Sunday, and for a whole week
+// whenever a run breaks. Fall back to the newest digest already on disk so a
+// late or failed build delays the update instead of blanking the front page.
+async function findLatestDigestWeek(maxWeek: string): Promise<string | null> {
+  try {
+    const dir = path.join(process.cwd(), 'data', 'digests');
+    const entries = await fs.readdir(dir);
+    // Weekly digests only: the directory also holds monthly files (2026-01.json).
+    // Labels are zero-padded YYYY-Www, so a lexicographic sort is chronological.
+    const weeks = entries
+      .filter((f) => /^\d{4}-W\d{2}\.json$/.test(f))
+      .map((f) => f.slice(0, -'.json'.length))
+      .filter((w) => w <= maxWeek) // never surface a week that hasn't aired yet
+      .sort();
+    return weeks.length > 0 ? weeks[weeks.length - 1] : null;
+  } catch {
+    return null;
+  }
+}
+
+// Returns the digest to render plus the week it actually came from, so the
+// issue line, rating widget and digest link all describe the same issue.
+async function resolveDigest(): Promise<{ digest: WeeklyDigest | null; weekLabel: string }> {
+  const currentWeek = getCurrentDigestWeek();
+  const current = await loadDigest(currentWeek);
+  if (current) return { digest: current, weekLabel: currentWeek };
+
+  const fallbackWeek = await findLatestDigestWeek(currentWeek);
+  if (!fallbackWeek) return { digest: null, weekLabel: currentWeek };
+
+  const fallback = await loadDigest(fallbackWeek);
+  return fallback
+    ? { digest: fallback, weekLabel: fallbackWeek }
+    : { digest: null, weekLabel: currentWeek };
 }
 
 type PodcastMetadata = {
@@ -180,8 +218,7 @@ const CATEGORY_CARDS: Array<{
 
 export default async function Home() {
   // Use shared utility to get current digest week (synchronized with email digest page)
-  const weekLabel = getCurrentDigestWeek();
-  const digest = await loadDigest(weekLabel);
+  const { digest, weekLabel } = await resolveDigest();
   const podcast = await loadPodcastForWeek(weekLabel);
 
   // HERO section (always present)
