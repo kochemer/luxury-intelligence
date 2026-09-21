@@ -23,11 +23,11 @@ import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models
 // the argument it opens with (roadmap F3.1, 2026-09-18).
 const TAKE_MODEL = process.env.EDITORIAL_TAKE_MODEL || getModelFor('polish');
 const TEMPERATURE = 0.4; // Slightly higher than summaries — we want voice, not determinism
-const MAX_TOKENS = 800;
+const MAX_TOKENS = 600;
 const CACHE_KIND = 'editorial-take';
-const TAKE_VERSION = '2.0'; // 250–300 words, thesis + evidence + operator implication
-const MIN_WORDS = 180;
-const MAX_WORDS = 340;
+const TAKE_VERSION = '2.1'; // 170–210 words (was 250–300; owner: "too chunky", 2026-09-21)
+const MIN_WORDS = 130;
+const MAX_WORDS = 230; // above this, one condensing pass (see condenseTake)
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type TakeResult = {
@@ -104,14 +104,14 @@ ${articleLines.join('\n')}
 ${weeklyInsight ? `THIS WEEK'S ONE-LINE INSIGHT (already on the page, do not repeat it verbatim): ${weeklyInsight}` : ''}
 ${themes ? `KEY THEMES: ${themes}` : ''}
 
-STRUCTURE (three or four paragraphs, 250-300 words total):
+STRUCTURE (exactly three short paragraphs, 150-180 words total):
 1. THESIS. Open with the claim: the one thing this week's evidence actually shows. A specific, arguable statement, stated in the first sentence.
-2. EVIDENCE. Build the case from at least THREE of the stories above, named explicitly (company, number, decision). Show how they connect; do not list them. Every fact must come from the stories above; invent nothing.
-3. COUNTER. One sentence on the strongest objection to your thesis, and why it does not hold, or what would have to be true for it to hold.
-4. IMPLICATION. Close with what a luxury or jewellery operator should do differently, or watch for, in the next quarter because of this. Concrete, not "stay alert". If the week's evidence is mostly about AI or ecommerce, this paragraph is where you make it matter for luxury and jewellery specifically.
+2. EVIDENCE AND COUNTER. Build the case from at least THREE of the stories above, named explicitly (company, number, decision). Show how they connect; do not list them. Every fact must come from the stories above; invent nothing. End this paragraph with one sentence on the strongest objection and why it does not hold.
+3. IMPLICATION. Close with what a luxury or jewellery operator should do differently, or watch for, in the next quarter because of this. Concrete, not "stay alert". If the week's evidence is mostly about AI or ecommerce, this paragraph is where you make it matter for luxury and jewellery specifically.
 
 FORMAT:
-- 250-300 words. Three or four paragraphs separated by a blank line (\n\n).
+- 150-180 words, hard limit: count them before answering. Exactly three paragraphs separated by a blank line (\n\n). Each paragraph 2-3 sentences.
+- If a sentence does not advance the argument, cut it. Short beats complete.
 - No headers. No bullet points. No numbered lists. No labels like "Thesis:".
 
 WRITING STYLE:
@@ -154,6 +154,37 @@ export function normalizeTakeText(text: string): string {
     .join('\n\n');
 }
 
+/**
+ * The model reliably overshoots a word range in a long generative prompt, but
+ * follows a pure "cut this to N words" edit well. One pass, same model,
+ * temperature 0; returns null on any failure so the caller keeps the original.
+ */
+async function condenseTake(openai: OpenAI, text: string): Promise<string | null> {
+  try {
+    const response = await openai.chat.completions.create({
+      model: TAKE_MODEL,
+      ...temperatureParam(TAKE_MODEL, 0),
+      ...maxTokensParam(TAKE_MODEL, MAX_TOKENS),
+      messages: [{
+        role: 'user',
+        content: `Cut this editorial column to 170-200 words. Keep exactly three paragraphs separated by a blank line, the opening claim, every company name and number that remains load-bearing, and the closing recommendation. Remove repetition and any sentence that restates an earlier point. Do not add anything new. Keep first person. No em dashes.
+
+Respond as JSON: {"editorialTake": "..."}
+
+COLUMN:
+${text}`,
+      }],
+      response_format: { type: 'json_object' },
+    });
+    const content = response.choices[0]?.message?.content?.trim();
+    if (!content) return null;
+    const parsed = JSON.parse(content);
+    return typeof parsed.editorialTake === 'string' ? normalizeTakeText(parsed.editorialTake) : null;
+  } catch {
+    return null;
+  }
+}
+
 // ── LLM call ──────────────────────────────────────────────────────────────────
 async function callLLMForEditorialTake(digest: WeeklyDigest): Promise<TakeResult | null> {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -185,7 +216,14 @@ async function callLLMForEditorialTake(digest: WeeklyDigest): Promise<TakeResult
       return null;
     }
     if (words > MAX_WORDS) {
-      console.warn(`[EditorialTake] Response long (${words} words, target ≤300); keeping`);
+      console.warn(`[EditorialTake] Response long (${words} words); condensing...`);
+      const condensed = await condenseTake(openai, editorialTake);
+      const condensedWords = condensed ? condensed.split(/\s+/).filter(Boolean).length : 0;
+      if (condensed && condensedWords >= MIN_WORDS && condensedWords < words) {
+        console.log(`[EditorialTake] Condensed ${words} → ${condensedWords} words`);
+        return { editorialTake: condensed };
+      }
+      console.warn(`[EditorialTake] Condensing did not help (${condensedWords} words); keeping original`);
     }
 
     return { editorialTake };
@@ -228,7 +266,14 @@ export async function generateEditorialTakeForDigest(
   }
 
   console.log(`[EditorialTake] Generating editorial take for ${digest.weekLabel}...`);
-  const result = await callLLMForEditorialTake(digest);
+  let result = await callLLMForEditorialTake(digest);
+  // Three short paragraphs is the point of the 2.1 format; two ~100-word
+  // blocks read as the wall of text it replaced. One retry, then accept.
+  if (result && result.editorialTake.split(/\n\s*\n/).length < 3) {
+    console.warn(`[EditorialTake] Got fewer than 3 paragraphs for ${digest.weekLabel}; retrying once`);
+    const retry = await callLLMForEditorialTake(digest);
+    if (retry && retry.editorialTake.split(/\n\s*\n/).length >= 3) result = retry;
+  }
 
   if (!result) {
     console.warn(`[EditorialTake] Generation failed for ${digest.weekLabel}`);
