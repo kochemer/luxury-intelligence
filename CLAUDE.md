@@ -156,10 +156,10 @@ SEO docs, by purpose:
 | `docs/seo-backlog.md` | unscheduled ideas and the remaining work to make repair/recovery act unattended |
 
 When resuming SEO work, start with the checklist in `docs/seo-status.md`. As of
-2026-09-13 detection and email are live in CI. Repair and rollback are built
-but **cannot act in CI yet** (no Claude Code / Vercel CLI in the workflow, no
-`VERCEL_TOKEN`, ledgers not persisted). Don't assume they have been fixing
-things.
+2026-09-21 detection, email and **rollback** are live in CI. Repair is built
+but **cannot act in CI yet** (no Claude Code in the workflow, ledgers not
+persisted). Don't assume it has been fixing things. After any rollback, Vercel
+stops deploying pushes until someone undoes it — see `docs/seo-system.md`.
 
 ### Testing
 

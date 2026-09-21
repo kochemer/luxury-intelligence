@@ -143,7 +143,9 @@ Two caveats, both detailed in [seo-status.md](seo-status.md):
 - **The `autonomy` merge grant is declared but not implemented.** Repair opens
   a PR at every level above `observe`. Rollback and commit reverts do read
   their grants.
-- **A grant is not the same as being able to act in CI.** As of 2026-09-13 the
+- **A grant is not the same as being able to act in CI.** Rollback became able
+  to act on 2026-09-21. Repair still can't: the workflow doesn't install Claude
+  Code (see seo-status.md). The original note, from 2026-09-13, read: the
   monitor workflow doesn't install Claude Code or the Vercel CLI and has no
   `VERCEL_TOKEN`. At `recover` (the current level) repair and rollback would
   trigger but fail to act.
@@ -257,9 +259,21 @@ decorative image. `PAGE_FETCH_STATE_UNSPECIFIED` means Google never fetched
 the page, not that fetching failed. Both shipped as false positives and both
 now have regression tests.
 
-**A Vercel rollback does not revert git.** It changes which build serves
-traffic; the bad commit stays on `main` and the next push redeploys it. That
-is why `autonomy` also grants `canRevertCommits`.
+**A Vercel rollback freezes deploys, and does not revert git.** After a
+rollback Vercel turns off auto-assignment of production domains: pushes to
+`main` still build, but nothing goes live, including the Sunday digest, until
+someone presses **Undo Rollback** or runs `vercel promote <url>`. The bad commit
+also stays on `main`, so whoever promotes next would ship it again. That is why
+`autonomy` grants `canRevertCommits`, and why every recovery outcome is emailed
+with the freeze spelled out (`DEPLOYS_FROZEN_WARNING` in
+`seo/recovery/runRecovery.ts`). An earlier version of this doc claimed the next
+push would redeploy automatically. It won't.
+
+**On Hobby, rollback reaches one deployment back.** Pro can roll back to any
+earlier production deployment; Hobby only to the immediately previous one.
+`chooseRollbackTarget()` therefore only considers that one, and reports
+"nothing to roll back to" if it isn't healthy, rather than attempting a
+rollback Vercel would refuse.
 
 **`data/seo/` must stay in the weekly workflow's commit allowlist** or the
 digest pipeline hard-fails on files it did not expect.

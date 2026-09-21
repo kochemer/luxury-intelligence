@@ -14,7 +14,7 @@ import {
   OUTAGE_SAMPLE_SIZE,
   RECOVERY_SETTLE_MS,
 } from '../seo/config';
-import { chooseRollbackTarget, type Deployment } from '../seo/recovery/vercel';
+import { chooseRollbackTarget, parseDeploymentLine, type Deployment } from '../seo/recovery/vercel';
 import { DEPLOYS_FROZEN_WARNING, type RecoveryResult } from '../seo/recovery/runRecovery';
 import {
   shouldNotify,
@@ -71,27 +71,55 @@ function deployment(url: string, status: string, age = '2h'): Deployment {
   return { url, status, age, environment: 'Production' };
 }
 
-test('the rollback target is the deployment immediately before the current one', () => {
+test('a failed build on top is not live, so the target is the one before the live deployment', () => {
+  // The Error build never went live: b is what's serving. Rolling back to b —
+  // what the first version did — changes nothing while the site stays down.
   const choice = chooseRollbackTarget([
     deployment('https://a.vercel.app', 'Error', '10m'),
     deployment('https://b.vercel.app', 'Ready', '2h'),
     deployment('https://c.vercel.app', 'Ready', '1d'),
   ]);
 
-  assert.equal(choice.target?.url, 'https://b.vercel.app');
+  assert.equal(choice.target?.url, 'https://c.vercel.app');
+  assert.notEqual(choice.target?.url, 'https://b.vercel.app', 'never "roll back" to what is already live');
 });
 
-test('it never reaches past the immediately previous deployment', () => {
-  // Vercel's Hobby plan only allows rolling back one step. Picking the older
-  // healthy deployment would be refused by Vercel while the site stayed down.
+test('builds in progress are skipped — the case the first CI check hit', () => {
+  // Exactly the shape seen on 2026-09-21: two builds from fresh pushes on top.
+  const choice = chooseRollbackTarget([
+    deployment('https://q.vercel.app', 'Building', '2m'),
+    deployment('https://o.vercel.app', 'Queued', '3m'),
+    deployment('https://live.vercel.app', 'Ready', '23h'),
+    deployment('https://prev.vercel.app', 'Ready', '1d'),
+    deployment('https://older.vercel.app', 'Ready', '2d'),
+  ]);
+
+  assert.equal(choice.target?.url, 'https://prev.vercel.app');
+});
+
+test('it never reaches past the deployment live before the current one', () => {
+  // Vercel's Hobby plan only allows rolling back one step. With a single
+  // deployment ever having gone live, there is no eligible target.
   const choice = chooseRollbackTarget([
     deployment('https://a.vercel.app', 'Error', '10m'),
     deployment('https://b.vercel.app', 'Error', '2h'),
     deployment('https://c.vercel.app', 'Ready', '1d'),
   ]);
 
-  assert.equal(choice.target, null, 'an older healthy deployment is not an eligible target');
-  assert.match(choice.reason, /not Ready|Hobby/i, 'the reason must explain why, since it goes into the email');
+  assert.equal(choice.target, null, 'nothing went live before c, so there is nothing to roll back to');
+  assert.match(choice.reason, /only one/i, 'the reason must explain why, since it goes into the email');
+});
+
+test('CLI rows are parsed with their real status', () => {
+  const row = (status: string, env = 'Production') =>
+    `  3m   kochemers-projects/luxury-intelligence   https://luxury-intelligence-q2g5mvrs4-kochemers-projects.vercel.app   ● ${status}   ${env}   --`;
+
+  assert.equal(parseDeploymentLine(row('Building'))?.status, 'Building', 'not flattened to "Unknown"');
+  assert.equal(parseDeploymentLine(row('Ready'))?.status, 'Ready');
+  assert.equal(parseDeploymentLine(row('Error'))?.status, 'Error');
+  assert.equal(parseDeploymentLine(row('Ready'))?.age, '3m');
+  assert.equal(parseDeploymentLine(row('Ready', 'Preview')), null, 'preview deployments are never rollback targets');
+  assert.equal(parseDeploymentLine('Fetching deployments'), null);
 });
 
 test('one deployment, or none, means nothing to roll back to', () => {

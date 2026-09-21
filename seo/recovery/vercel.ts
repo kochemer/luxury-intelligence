@@ -67,20 +67,30 @@ export async function listProductionDeployments(): Promise<Deployment[]> {
   const { ok, output } = await vercel(['ls', PROJECT]);
   if (!ok) return [];
 
-  const deployments: Deployment[] = [];
-  for (const line of output.split('\n')) {
-    const url = line.match(/https:\/\/[^\s]+\.vercel\.app/)?.[0];
-    if (!url) continue;
-    if (!/Production/i.test(line)) continue;
+  return output
+    .split('\n')
+    .map(parseDeploymentLine)
+    .filter((d): d is Deployment => d !== null);
+}
 
-    deployments.push({
-      url,
-      age: line.trim().split(/\s+/)[0] ?? '?',
-      status: /●\s*Ready/i.test(line) ? 'Ready' : /Error/i.test(line) ? 'Error' : 'Unknown',
-      environment: 'Production',
-    });
-  }
-  return deployments;
+/**
+ * One row of `vercel ls` output, e.g.
+ *   3m  kochemers-projects/luxury-intelligence  https://…vercel.app  ● Building  Production  --
+ *
+ * The status is read as written (Ready, Building, Queued, Error, Canceled…)
+ * rather than mapped onto Ready/Error: the first CI run labelled two
+ * in-progress builds "Unknown", which hid what they were.
+ */
+export function parseDeploymentLine(line: string): Deployment | null {
+  const url = line.match(/https:\/\/[^\s]+\.vercel\.app/)?.[0];
+  if (!url || !/Production/i.test(line)) return null;
+
+  return {
+    url,
+    age: line.trim().split(/\s+/)[0] ?? '?',
+    status: line.match(/●\s*([A-Za-z]+)/)?.[1] ?? 'Unknown',
+    environment: 'Production',
+  };
 }
 
 export interface RollbackChoice {
@@ -90,15 +100,24 @@ export interface RollbackChoice {
 }
 
 /**
- * Choose what to roll back to: the deployment immediately before the current
- * one, and only if it is healthy.
+ * Choose what to roll back to: the production deployment that was live
+ * immediately before the one live now.
  *
- * Deliberately not "the newest healthy deployment further back". On Vercel's
- * Hobby plan you can only roll back to the immediately previous production
- * deployment — reaching further is a Pro feature — so a target two or more
- * deployments back would simply be refused, after the site had already been
- * down long enough for the monitor to notice. Better to report that there is
- * nothing to roll back to and let a human act.
+ * `vercel ls` lists newest first, and the newest row is often NOT what is
+ * serving traffic: a build still Queued or Building, or one that failed with
+ * Error, never went live. Treating the newest row as "current" — as the first
+ * version did — breaks in two ways. After a failed build it picks the
+ * deployment that is already live as the rollback target, a no-op while the
+ * site stays down. During a build it finds nothing at all. The CI credential
+ * check on 2026-09-21 caught the second: two in-progress builds sat on top.
+ *
+ * So: only Ready deployments ever went live. The newest Ready one is live, and
+ * the Ready one before it is the target.
+ *
+ * Never further back than that. On Vercel's Hobby plan only the immediately
+ * previous production deployment is eligible for rollback; reaching further is
+ * a Pro feature, and Vercel would refuse after the site had already been down
+ * long enough for the monitor to notice.
  *
  * Separated from the CLI call so the decision can be tested without network.
  */
@@ -106,21 +125,23 @@ export function chooseRollbackTarget(deployments: Deployment[]): RollbackChoice 
   if (deployments.length === 0) {
     return { target: null, reason: 'No production deployments were listed — the Vercel CLI returned nothing usable.' };
   }
-  if (deployments.length < 2) {
-    return { target: null, reason: 'Only one production deployment exists, so there is nothing earlier to roll back to.' };
-  }
 
-  const previous = deployments[1]!;
-  if (previous.status !== 'Ready') {
+  const wentLive = deployments.filter(d => d.status === 'Ready');
+  if (wentLive.length === 0) {
+    return { target: null, reason: 'No production deployment is Ready, so none can be identified as live or as a target.' };
+  }
+  if (wentLive.length < 2) {
     return {
       target: null,
-      reason: `The immediately previous production deployment (${previous.url}) is "${previous.status}", not Ready. ` +
-              'Rolling back to a failed build would swap one outage for another, and on the Hobby plan no earlier ' +
-              'deployment is eligible.',
+      reason: `Only one production deployment has gone live (${wentLive[0]!.url}), so there is nothing earlier to roll back to.`,
     };
   }
 
-  return { target: previous, reason: `The deployment immediately before the current one (${previous.url}, ${previous.age} old) is Ready.` };
+  const [live, previous] = [wentLive[0]!, wentLive[1]!];
+  return {
+    target: previous,
+    reason: `Live now: ${live.url} (${live.age} old). The one live before it, ${previous.url} (${previous.age} old), is Ready.`,
+  };
 }
 
 /** Production deployments from the CLI, run through {@link chooseRollbackTarget}. */

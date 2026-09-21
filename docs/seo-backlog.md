@@ -159,13 +159,16 @@ for a signal that is not there.
 Found while documenting on 2026-09-13. Built, but not yet able to act
 unattended. Details in [seo-status.md](seo-status.md#what-is-running-and-what-only-looks-like-it-is).
 
-### 11. Make repair and recovery work in CI
+### 11. Make repair work in CI (recovery half done 2026-09-21)
 
-Install Claude Code and the Vercel CLI in `seo-monitor.yml`. Add a
-`VERCEL_TOKEN` secret (the owner creates it). Give repair `GH_TOKEN` and
-`pull-requests: write`. Commit the repair ledger and spend files. Stop
-`abandon()` resetting `data/seo/`. Email recovery outcomes. Rehearse with a
-deliberate breakage on a branch.
+**Done:** `VERCEL_TOKEN` secret, Vercel CLI in the workflow, recovery outcomes
+emailed, rollback target limited to what Hobby allows, credential check
+verified in CI.
+
+**Left, for repair:** install Claude Code in `seo-monitor.yml`. Give repair
+`GH_TOKEN` and `pull-requests: write`. Commit the repair ledger and spend
+files. Stop `abandon()` resetting `data/seo/`. Rehearse with a deliberate
+breakage on a branch.
 
 **Why first:** until then, "self-fixing" means "self-reporting". **Effort:**
 medium, and `.github/` is human-only by policy.

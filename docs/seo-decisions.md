@@ -175,11 +175,19 @@ gone, no new findings) and the orchestrator ships a PR.
 
 ### D14. Recovery automates the reversal, never the repair
 **Decided:** only when 3 of 8 sampled pages fail, and only after checking that
-Vercel itself is up: roll back to the last healthy deployment. `git revert`
-(never reset) of the bad commit only at `autonomy`.
+Vercel itself is up: roll back to the **immediately previous** deployment, if
+it is healthy. `git revert` (never reset) of the bad commit only at `autonomy`.
+Every outcome except "healthy" is emailed.
 **Why:** a single 404 is often deliberate. Rolling back during a provider
-outage fixes nothing and destroys evidence. A Vercel rollback doesn't change
-`main`, so the next push would redeploy the bad commit.
+outage fixes nothing and destroys evidence. Hobby can only roll back one
+deployment, so aiming further back would just be refused.
+**Consequence to remember (corrected 2026-09-21):** a rollback turns off
+Vercel's auto-assignment of production domains, so **no push goes live**
+until someone undoes the rollback (`vercel promote` or the dashboard button).
+The original entry here said the next push would redeploy the bad commit;
+Vercel's docs say otherwise. So recovery never undoes the freeze itself: that
+would put the broken build back. It emails you instead, with the freeze called
+out in the subject line.
 **Not automated, deliberately:** DNS/registrar changes (untestable, 48h
 propagation, would take down email and payments) and reconsideration requests.
 

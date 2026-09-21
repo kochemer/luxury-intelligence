@@ -97,15 +97,21 @@ the full set. The weekly job flags it if it goes stale again (over 30 days).
 | Indexing audit (URL Inspection, sitemap health) | ✅ | weekly | produces the 23/53 figure |
 | Link graph, image weight | ✅ | weekly | found and fixed the 94 MB archive |
 | **Repair agent** (Claude fixes code defects) | ✅ | ⚠️ **step exists, cannot act in CI** | drilled locally on Windows only |
-| **Recovery** (roll production back) | ✅ | ⚠️ **step exists, cannot act in CI** | never exercised against a real outage |
+| **Recovery** (roll production back) | ✅ | ✅ **live in CI since 2026-09-21** (triggers when the monitor finds problems) | token verified in CI; never exercised against a real outage |
 | Optimiser agent (acts on improvement ideas) | ❌ | — | deliberately not built yet |
 | Measurement loop (did a change help?) | ❌ | — | deferred until ~5,000 impressions/month |
 
-**So today:** if the site breaks, the monitor detects it and **emails you**,
-autonomously. Nothing gets **fixed** automatically yet. Repair and recovery
-have never been triggered, because the site has been healthy every day. If
-they were, they would fail for the reasons below and you would fix it by hand
-from the alert.
+**So today (updated 2026-09-21):** if the site breaks, the monitor detects it
+and **emails you**. If at least 3 of 8 sampled pages are failing, recovery
+**rolls production back** to the previous deployment and emails the outcome.
+Code defects are still **not fixed** automatically: repair can't act in CI
+yet (reasons below). Neither step has been triggered by a real incident; the
+site has been healthy every day.
+
+**After an automatic rollback, deploys are frozen.** Vercel stops putting new
+pushes live, including the Sunday digest, until you press **Undo Rollback**
+on the project page or run `vercel promote <url>`. Do that once the fix is
+deployed. The recovery email says this in its subject line.
 
 GitHub runs scheduled jobs late. Observed delays were 4–5 hours (the Sunday
 08:00 job ran at 13:13). Expect alerts that day, not that minute.
@@ -131,21 +137,38 @@ run, because the step has never been triggered.
    workflow commits it. The same problem would then look new every day and
    re-alert daily.
 
-### Why recovery cannot act in CI
+### Recovery: now live (2026-09-20/21)
 
-1. **No Vercel credentials.** The Vercel CLI is not installed and there is no
-   `VERCEL_TOKEN` secret, so recovery stops at `not-authenticated`.
-2. **Its outcome is not emailed.** The result is only in the run log. The
-   monitor's alert still arrives.
+- `VERCEL_TOKEN` secret added by the owner on 2026-09-18. Verified in CI: it
+  lists production deployments. Its scope and expiry are whatever was chosen
+  at creation; see [vercel.com/account/tokens](https://vercel.com/account/tokens).
+- The Vercel CLI (`vercel@50`) is installed in the recovery step.
+- Every outcome except "healthy" is emailed (`seo/recovery/notify.ts`).
+- Rollback targets only the deployment live before the current one: the only
+  one Hobby allows.
+- **Check the token:** Actions → *SEO Monitor* → Run workflow → tick
+  `check_recovery_auth`. It changes nothing. Run it after changing the token,
+  and before its expiry date (an expired token fails silently until an outage).
+- **Known limitation:** `vercel ls` doesn't say which deployment is live, so
+  "live" is inferred as the newest Ready one. While deploys are frozen after a
+  rollback, that's wrong: a second outage would target the deployment already
+  serving, and report `rollback-failed`. That errs toward emailing you rather
+  than doing damage.
 
-### Enabling both (a task for when you're back)
+Two bugs were caught by the first CI credential check, before any incident
+depended on them. The workflow step never ran (a boolean input compared to the
+string `'true'`). And in-progress builds at the top of the list were treated as
+live.
 
-- [ ] **You:** create a Vercel access token and add it as the `VERCEL_TOKEN` repo secret.
-- [ ] Install the Vercel CLI and Claude Code in `seo-monitor.yml`.
+### Enabling repair (still to do)
+
+- [x] ~~**You:** create a Vercel access token and add it as the `VERCEL_TOKEN` repo secret.~~ Done 2026-09-18.
+- [x] ~~Install the Vercel CLI in `seo-monitor.yml`.~~ Done.
+- [x] ~~Email the recovery outcome.~~ Done.
+- [ ] Install Claude Code in `seo-monitor.yml`.
 - [ ] Give the repair step `GH_TOKEN: ${{ github.token }}` and the job `pull-requests: write`.
 - [ ] Commit `repair-ledger.json` and `repair-spend.json` alongside `monitor-state.json`.
 - [ ] Stop `abandon()` from resetting `data/seo/` (or persist state before repair runs).
-- [ ] Email the recovery outcome.
 - [ ] Rehearse: break something on a branch, confirm a PR appears and the gates run in CI.
 
 `.github/` is on the agents' deny list, so this is human work by design.
@@ -200,7 +223,7 @@ No secret values here, only where things are.
 | Alert/summary recipient | secret `SEO_ALERT_EMAIL` | the owner's Gmail |
 | Email sending | secrets `RESEND_API_KEY`, `EMAIL_FROM` | shared with the digest emails |
 | Repair agent | secret `ANTHROPIC_API_KEY` | model `sonnet`, $2/run, $15/30 days (`seo/config.ts`) |
-| Rollback | secret `VERCEL_TOKEN` | **missing** |
+| Rollback | secret `VERCEL_TOKEN` | added 2026-09-18, verified in CI 2026-09-21. Scope and expiry: see vercel.com/account/tokens |
 | Vercel | project `luxury-intelligence` | legacy duplicate project deleted by the owner, Sept 2026 |
 
 ---
