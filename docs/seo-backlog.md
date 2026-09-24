@@ -165,8 +165,14 @@ unattended. Details in [seo-status.md](seo-status.md#what-is-running-and-what-on
 emailed, rollback target limited to what Hobby allows, credential check
 verified in CI.
 
-**Left, for repair:** install Claude Code in `seo-monitor.yml`. Give repair
-`GH_TOKEN` and `pull-requests: write`. Commit the repair ledger and spend
+**Done 2026-09-24:** repair gets `GH_TOKEN` and `pull-requests: write`; repo
+setting "Allow GitHub Actions to create and approve pull requests" enabled;
+`check_repair_pr` dispatch input proves it end to end (opened and closed
+draft PR #9).
+
+**Left, for repair:** install Claude Code in `seo-monitor.yml` (the agent
+spawns the `claude` binary, which the runner does not have, so today every
+repair attempt ends as `agent-failed`). Commit the repair ledger and spend
 files. Stop `abandon()` resetting `data/seo/`. Rehearse with a deliberate
 breakage on a branch.
 
