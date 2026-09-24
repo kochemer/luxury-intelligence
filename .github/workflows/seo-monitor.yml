@@ -18,6 +18,10 @@ on:
         description: 'Verify the Vercel token can list deployments (changes nothing)'
         type: boolean
         default: false
+      check_repair_pr:
+        description: 'Verify repair can open a pull request (opens a draft PR, then closes it and deletes the branch)'
+        type: boolean
+        default: false
 
 concurrency:
   group: seo-monitor
@@ -28,6 +32,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      # Repair opens its fixes as pull requests with `gh pr create`. Without
+      # this (and the repo setting "Allow GitHub Actions to create and approve
+      # pull requests"), a verified fix would be pushed as a branch and the PR
+      # step would fail with only a warning in the log.
+      pull-requests: write
 
     steps:
       - name: Checkout repository
@@ -57,6 +66,31 @@ jobs:
         run: |
           npm i -g vercel@50
           npm run seo:recover -- --check-auth
+
+      # Repair only runs on a day the site is broken, so a missing permission
+      # would otherwise be discovered mid-incident. This exercises the exact
+      # path repair uses — push a branch, `gh pr create` — then cleans up.
+      - name: Verify repair can open a pull request
+        if: inputs.check_repair_pr == true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          branch="seo-repair-pr-check-${{ github.run_id }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          # Always return to the original branch so later steps (which commit
+          # monitor state to main) are unaffected, whatever happens below.
+          trap 'git checkout - >/dev/null 2>&1 || true' EXIT
+          git commit --allow-empty -m "seo: repair PR permission check (auto-closed)"
+          git push -u origin "$branch"
+          url=$(gh pr create --draft \
+            --title "seo: repair PR permission check (auto-closed)" \
+            --body "Opened by the SEO monitor's check_repair_pr input to prove the repair step can open pull requests. Closed automatically.")
+          echo "Opened $url"
+          gh pr close "$url" --delete-branch --comment "Permission check passed; closing automatically."
+          echo "✅ Repair can open pull requests ($url, closed)" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Run SEO monitor
         id: monitor
@@ -121,6 +155,8 @@ jobs:
           SEO_BASE_URL: https://luxury-intel.com
           SEO_AGENT_AUTHORITY: ${{ vars.SEO_AGENT_AUTHORITY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # gh reads this to open the fix as a pull request.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
           GSC_PRIVATE_KEY_B64: ${{ secrets.GSC_PRIVATE_KEY_B64 }}
           GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
