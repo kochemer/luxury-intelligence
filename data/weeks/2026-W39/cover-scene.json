@@ -1,0 +1,19 @@
+{
+  "concept": "shopping-cart-security-guard-blocks-museum-entry",
+  "setting": "art museum gallery entrance",
+  "primaryHumorDriver": "role reversal",
+  "secondaryEnhancer": "anachronism (old vs new tech)",
+  "sceneDescription": "Joke: Amazon blocks Meta’s AI shopping agent from entering its shopping platform; setup is a museum entrance with a classic velvet rope and an old-fashioned security guard desk, but instead of a guard, a shopping cart stands in front of the rope, sternly 'guarding' the entrance, while a sleek, futuristic VR headset sits forlornly just outside the rope. Punchline: The cart plays bouncer, embodying Amazon blocking Meta Muse, riffing on the turf war. The scene: A softly lit art museum lobby; the velvet rope and desk are normal except for the lone shopping cart with its handle pointed toward the VR headset, which is left just outside the 'entry', capturing the moment of access denied.",
+  "finalImagePrompt": "In a clean, airy art museum entrance, a traditional velvet rope blocks the way into a gallery. Behind the rope, instead of a guard, stands an ordinary metal shopping cart facing outward, planted firmly by the entrance. In front of the rope, just outside reach, sits a single modern VR headset on the floor, as if waiting to get in. The room is otherwise empty, with marble floors and gallery signage turned away.",
+  "negativePrompt": [
+    "people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette",
+    "text, letters, numbers, signage, labels, price tags",
+    "screens, UI, dashboards, holograms, floating icons",
+    "watermarks, unrelated brand logos",
+    "cartoon, illustration, CGI, 3D render, anime, video game render",
+    "AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed",
+    "diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone",
+    "dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh"
+  ],
+  "confidence": 0.92
+}

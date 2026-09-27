@@ -1,0 +1,88 @@
+{
+  "digestWeek": "2026-W39",
+  "ingestionWeek": "2026-W39",
+  "startedAt": "2026-09-27T11:48:28.145Z",
+  "finishedAt": "2026-09-27T12:09:26.338Z",
+  "steps": [
+    {
+      "name": "rss",
+      "ok": true,
+      "startedAt": "2026-09-27T11:48:28.165Z",
+      "finishedAt": "2026-09-27T11:49:14.708Z"
+    },
+    {
+      "name": "pages",
+      "ok": true,
+      "startedAt": "2026-09-27T11:49:14.708Z",
+      "finishedAt": "2026-09-27T11:49:16.318Z"
+    },
+    {
+      "name": "discovery",
+      "ok": true,
+      "startedAt": "2026-09-27T11:49:16.318Z",
+      "finishedAt": "2026-09-27T12:05:50.239Z"
+    },
+    {
+      "name": "classification",
+      "ok": true,
+      "startedAt": "2026-09-27T12:05:50.239Z",
+      "finishedAt": "2026-09-27T12:05:50.379Z"
+    },
+    {
+      "name": "digest",
+      "ok": true,
+      "startedAt": "2026-09-27T12:05:50.379Z",
+      "finishedAt": "2026-09-27T12:06:43.185Z"
+    },
+    {
+      "name": "email",
+      "ok": true,
+      "startedAt": "2026-09-27T12:06:43.185Z",
+      "finishedAt": "2026-09-27T12:07:00.543Z"
+    },
+    {
+      "name": "podcast",
+      "ok": true,
+      "startedAt": "2026-09-27T12:07:00.543Z",
+      "finishedAt": "2026-09-27T12:07:45.462Z"
+    },
+    {
+      "name": "cover",
+      "ok": true,
+      "startedAt": "2026-09-27T12:07:45.462Z",
+      "finishedAt": "2026-09-27T12:09:14.654Z"
+    },
+    {
+      "name": "competitorAnalyze",
+      "ok": true,
+      "startedAt": "2026-09-27T12:09:14.654Z",
+      "finishedAt": "2026-09-27T12:09:26.335Z"
+    }
+  ],
+  "health": {
+    "warnings": [
+      "AI & Strategy: economictimes.indiatimes.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Luxury & Consumer: fashionista.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Jewellery Industry: www.jewellermagazine.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Jewellery Industry: www.retail-jeweller.com represents 42.9% (3/7) - exceeds 40% threshold"
+    ],
+    "metrics": {
+      "paywallPercent": 0,
+      "podcastWordCount": 1926
+    }
+  },
+  "contentQuality": {
+    "ok": true,
+    "errors": [],
+    "summaryCoverage": 1,
+    "selectedCount": 28,
+    "summarizedCount": 28,
+    "hasCover": true,
+    "hasInsight": true,
+    "themeCount": 5
+  },
+  "versions": {
+    "node": "v20.20.2",
+    "gitCommit": "3311023634c8c0c1df053ac6d76c7c220524f25f"
+  }
+}

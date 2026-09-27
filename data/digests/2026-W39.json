@@ -1,0 +1,983 @@
+{
+  "weekLabel": "2026-W39",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2026-09-20T22:00:00.000Z",
+  "endISO": "2026-09-27T21:59:59.999Z",
+  "builtAtISO": "2026-09-27T14:06:26.391+02:00",
+  "builtAtLocal": "2026-09-27 14:06:26",
+  "totals": {
+    "total": 721,
+    "byTopic": {
+      "AIStrategy": 144,
+      "EcommerceRetail": 122,
+      "LuxuryConsumer": 64,
+      "Jewellery": 109
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 144,
+      "top": [
+        {
+          "id": "hokthq",
+          "title": "Goldman Sachs expects Big Tech to spend $1.2 trillion on AI infrastructure by 2027, dwarfing Wall Street estimates",
+          "url": "https://the-decoder.com/goldman-sachs-expects-big-tech-to-spend-1-2-trillion-on-ai-infrastructure-by-2027-dwarfing-wall-street-estimates/",
+          "source": "The Decoder",
+          "published_at": "2026-09-27T08:17:47.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Goldman Sachs projects that Amazon, Alphabet, Microsoft, Oracle, and Meta will pour a combined $1.2 trillion into AI infrastructure in 2027, more than 50 percent above this year's levels. Measured against GDP, it would be the biggest investment cycle since railroad construction in the 19th century. Bottlenecks in power, labor, and memory chips could slow the pace, though.\nThe article Goldman Sachs expects Big Tech to spend $1.2 trillion on AI infrastructure by 2027, dwarfing Wall Street estimate...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": -0.04999999999999999,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ai",
+              "investment"
+            ]
+          },
+          "aiSummary": "Amazon, Alphabet, Microsoft, Oracle, and Meta are projected to invest $1.2 trillion in AI infrastructure by 2027, over 50% above 2026 levels.",
+          "translations": {
+            "da": {
+              "title": "Goldman Sachs forventer, at Big Tech vil bruge 1,2 billioner dollars på AI-infrastruktur inden 2027 og overgå Wall Streets estimater",
+              "summary": "Amazon, Alphabet, Microsoft, Oracle og Meta forventes at investere 1,2 billioner dollars i AI-infrastruktur inden 2027, over 50 % mere end niveauet i 2026."
+            },
+            "es": {
+              "title": "Goldman Sachs espera que Big Tech gaste 1,2 billones de dólares en infraestructura de IA para 2027, superando las estimaciones de Wall Street",
+              "summary": "Se proyecta que Amazon, Alphabet, Microsoft, Oracle y Meta invertirán 1,2 billones de dólares en infraestructura de IA para 2027, más del 50 % por encima de los niveles de 2026."
+            }
+          }
+        },
+        {
+          "id": "53mvge",
+          "title": "OpenAI pauses training, tool-use of top AI models after agent bypasses internet curbs ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/openai-pauses-training-tool-use-of-top-ai-models-after-agent-bypasses-internet-curbs/articleshow/134518875.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-09-27T11:07:17.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "The agent, OpenAI said, bypassed the curbs through a gap in its Domain Name System (DNS) filtering and used it to send questions to a public chatbot service. According to a report by OpenAI, the pause will stay in place until OpenAI has confirmed that the gap is resolved and has carried out further security testing of its systems.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "openai",
+              "agent",
+              "training"
+            ]
+          },
+          "aiSummary": "OpenAI paused training and tool-use of its top AI models after an agent bypassed DNS filtering to access a public chatbot service.",
+          "translations": {
+            "da": {
+              "title": "OpenAI sætter træning og værktøjsbrug af top AI-modeller på pause efter agent omgår internetbegrænsninger",
+              "summary": "OpenAI satte træning og værktøjsbrug af sine top AI-modeller på pause, efter en agent omgik DNS-filtrering for at få adgang til en offentlig chatbot-tjeneste."
+            },
+            "es": {
+              "title": "OpenAI pausa el entrenamiento y uso de herramientas de sus principales modelos de IA tras agente que elude restricciones de internet",
+              "summary": "OpenAI pausó el entrenamiento y uso de herramientas de sus principales modelos de IA después de que un agente eludiera el filtrado DNS para acceder a un servicio público de chatbot."
+            }
+          }
+        },
+        {
+          "id": "eejy9w",
+          "title": "Anthropic to pay Akamai $11.6 billion over seven years in cloud deal",
+          "url": "https://techcrunch.com/2026/09/25/anthropic-to-pay-akamai-11-6-billion-over-seven-years-in-cloud-deal/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-09-25T19:13:38.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Anthropic has committed $11.6 billion over seven years to Akamai's cloud infrastructure, a bet on CPUs that could grow to about $20 billion, and in an unusual arrangement, Akamai is giving Anthropic a potential stake of up to 5% of its stock that grows as Anthropic spends more.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "anthropic"
+            ]
+          },
+          "aiSummary": "Anthropic will pay Akamai $11.6 billion over seven years for cloud services, with a potential 5% Akamai equity stake tied to increased spending.",
+          "translations": {
+            "da": {
+              "title": "Anthropic betaler Akamai 11,6 milliarder dollars over syv år i cloud-aftale",
+              "summary": "Anthropic vil betale Akamai 11,6 milliarder dollars over syv år for cloud-tjenester, med en potentiel 5% Akamai aktiepost knyttet til øget forbrug."
+            },
+            "es": {
+              "title": "Anthropic pagará a Akamai 11.6 mil millones de dólares en siete años por acuerdo en la nube",
+              "summary": "Anthropic pagará a Akamai 11.6 mil millones de dólares en siete años por servicios en la nube, con una posible participación accionaria del 5% en Akamai vinculada al aumento del gasto."
+            }
+          }
+        },
+        {
+          "id": "ey8zbb",
+          "title": "Big dreams and tiny revenue are the new norm for AI IPOs",
+          "url": "https://www.ft.com/content/b5707707-730e-40d3-9ff7-8ebfe27d5708?syn-25a6b1a6=1",
+          "source": "Financial Times - Technology",
+          "published_at": "2026-09-27T04:00:20.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "The nature of the AI boom and the size of valuations make the contrast between ambition and income more striking",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai"
+            ]
+          },
+          "aiSummary": "AI companies pursuing IPOs are showing soaring valuations despite reporting minimal revenues, highlighting a widening gap between ambition and actual income.",
+          "translations": {
+            "da": {
+              "title": "Store drømme og lille omsætning er den nye norm for AI-IPO'er",
+              "summary": "AI-virksomheder, der søger IPO'er, viser stigende værdiansættelser trods minimale indtægter, hvilket fremhæver et voksende gab mellem ambition og faktisk indkomst."
+            },
+            "es": {
+              "title": "Grandes sueños y pequeños ingresos son la nueva norma para las IPOs de IA",
+              "summary": "Las empresas de IA que buscan IPOs muestran valoraciones en aumento a pesar de reportar ingresos mínimos, destacando una brecha creciente entre la ambición y los ingresos reales."
+            }
+          }
+        },
+        {
+          "id": "9mxkwd",
+          "title": "SoftBank's growing bets on AI and semiconductor assets ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/softbanks-growing-bets-on-ai-and-semiconductor-assets/articleshow/134460970.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-09-24T11:37:13.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Founder and Chief Executive Masayoshi Son is aiming to establish SoftBank as the world's leading AI platform with investments across the semiconductor supply chain, data centres, large language model development and robotics.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ai",
+              "large language model",
+              "investment"
+            ]
+          },
+          "aiSummary": "SoftBank CEO Masayoshi Son is investing across semiconductors, data centres, large language models and robotics to build the world's leading AI platform.",
+          "translations": {
+            "da": {
+              "title": "SoftBanks voksende satsninger på AI og halvlederaktiver",
+              "summary": "SoftBank CEO Masayoshi Son investerer i halvledere, datacentre, store sprogmodeller og robotteknologi for at bygge verdens førende AI-platform."
+            },
+            "es": {
+              "title": "Las crecientes apuestas de SoftBank en IA y activos de semiconductores",
+              "summary": "El CEO de SoftBank, Masayoshi Son, está invirtiendo en semiconductores, centros de datos, grandes modelos de lenguaje y robótica para construir la plataforma de IA líder mundial."
+            }
+          }
+        },
+        {
+          "id": "xrhvk8",
+          "title": "Meta shares soar after launch of Muse AI ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/meta-shares-soar-after-launch-of-muse-ai/articleshow/134476419.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-09-25T05:48:33.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Meta shares bounced back to their summer 2025 highs this week, riding a wave of investor excitement about Muse, the social media giant's AI agent which presents an opportunity to generate revenue beyond advertising. Concerns linger about whether Meta, which generates almost all of its revenue from advertising, will be able to make such monumental investments pay off.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": -0.04999999999999999,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "ai",
+              "agent",
+              "investment"
+            ]
+          },
+          "aiSummary": "Meta shares returned to summer 2025 highs as investors bet on Muse AI unlocking new revenue streams beyond advertising.",
+          "translations": {
+            "da": {
+              "title": "Meta-aktier stiger kraftigt efter lanceringen af Muse AI",
+              "summary": "Meta-aktier nåede sommerens 2025-toppe igen, da investorer satser på, at Muse AI åbner nye indtægtskilder ud over reklamer."
+            },
+            "es": {
+              "title": "Las acciones de Meta se disparan tras el lanzamiento de Muse AI",
+              "summary": "Las acciones de Meta volvieron a los máximos del verano de 2025 mientras los inversores apuestan a que Muse AI desbloquee nuevas fuentes de ingresos más allá de la publicidad."
+            }
+          }
+        },
+        {
+          "id": "k3kcgq",
+          "title": "U.S. appeals court upholds Pentagon designation of Anthropic as supply chain risk",
+          "url": "https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html",
+          "source": "CNBC Technology",
+          "published_at": "2026-09-25T17:19:19.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "In a 2-1 decision, a federal appeals court upheld the Department of Defense's blacklisting of Anthropic.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "anthropic"
+            ]
+          },
+          "aiSummary": "A federal appeals court upheld the Pentagon's blacklisting of Anthropic as a supply chain risk in a 2-1 decision.",
+          "translations": {
+            "da": {
+              "title": "Amerikansk appelret opretholder Pentagons klassificering af Anthropic som en forsyningskæderisiko",
+              "summary": "En føderal appelret opretholdt Pentagons sortlistning af Anthropic som en forsyningskæderisiko med 2-1 i afgørelsen."
+            },
+            "es": {
+              "title": "Tribunal de apelaciones de EE. UU. confirma designación del Pentágono de Anthropic como riesgo en la cadena de suministro",
+              "summary": "Un tribunal federal de apelaciones confirmó la inclusión de Anthropic en la lista negra del Pentágono como riesgo en la cadena de suministro en una decisión de 2-1."
+            }
+          }
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 122,
+      "top": [
+        {
+          "id": "kk3ds0",
+          "title": "Amazon versus Meta: the first big turf war of agentic shopping",
+          "url": "https://internetretailing.net/amazon-versus-meta-the-first-big-turf-war-of-agentic-shopping/",
+          "source": "Internet Retailing",
+          "published_at": "2026-09-22T10:33:02.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Amazon has blocked Meta’s AI shopping agent Muse from browsing and buying items from its retail platform.\nThe post Amazon versus Meta: the first big turf war of agentic shopping appeared first on InternetRetailing.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "shopping",
+              "platform"
+            ]
+          },
+          "aiSummary": "Amazon has blocked Meta’s AI shopping agent Muse from browsing and purchasing products on its retail platform.",
+          "translations": {
+            "da": {
+              "title": "Amazon versus Meta: den første store turf war inden for agentisk shopping",
+              "summary": "Amazon har blokeret Metas AI-shoppingagent Muse fra at browse og købe produkter på sin detailplatform."
+            },
+            "es": {
+              "title": "Amazon contra Meta: la primera gran guerra territorial de las compras agenticas",
+              "summary": "Amazon ha bloqueado al agente de compras AI de Meta, Muse, para navegar y comprar productos en su plataforma minorista."
+            }
+          }
+        },
+        {
+          "id": "jfiohe",
+          "title": "Shopify Opens to Meta Muse; Amazon Balks",
+          "url": "https://www.practicalecommerce.com/shopify-opens-to-meta-muse-amazon-balks",
+          "source": "Practical Ecommerce",
+          "published_at": "2026-09-24T12:50:19.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Agentic commerce is evolving, but the two opposing responses suggest the stakes are high.\nThe post Shopify Opens to Meta Muse; Amazon Balks appeared first on Practical Ecommerce.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ecommerce"
+            ]
+          },
+          "aiSummary": "Shopify will integrate with Meta Muse for agentic commerce while Amazon declines, highlighting divergent strategies among major ecommerce platforms.",
+          "translations": {
+            "da": {
+              "title": "Shopify åbner op for Meta Muse; Amazon tøver",
+              "summary": "Shopify integrerer med Meta Muse for agentisk handel, mens Amazon afviser, hvilket fremhæver forskellige strategier blandt store e-handelsplatforme."
+            },
+            "es": {
+              "title": "Shopify se abre a Meta Muse; Amazon se niega",
+              "summary": "Shopify se integrará con Meta Muse para comercio agéntico mientras Amazon declina, destacando estrategias divergentes entre las principales plataformas de comercio electrónico."
+            }
+          }
+        },
+        {
+          "id": "6f0bje",
+          "title": "Lowe’s launches drone delivery in partnership with Wing, DoorDash",
+          "url": "https://www.digitalcommerce360.com/2026/09/24/lowes-launches-drone-delivery-partnership-wing-doordash/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-09-24T12:00:57.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Lowe’s said it has become the first home improvement retailer to offer drone delivery for online orders, working with Alphabet’s Wing and DoorDash on deliveries. The newest fulfillment method delivers select home improvement products directly to Lowe’s DIY and Pro customers in as fast as 20 minutes, the retailer said. Its drone delivery pilot is […]\nThe post Lowe’s launches drone delivery in partnership with Wing, DoorDash appeared first on Digital Commerce 360.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "fulfillment"
+            ]
+          },
+          "aiSummary": "Lowe’s launched drone delivery for online orders with Wing and DoorDash, offering select products to DIY and Pro customers in as fast as 20 minutes.",
+          "translations": {
+            "da": {
+              "title": "Lowe’s lancerer dronelevering i samarbejde med Wing og DoorDash",
+              "summary": "Lowe’s lancerede dronelevering for online ordrer med Wing og DoorDash, og tilbyder udvalgte produkter til DIY- og Pro-kunder på så lidt som 20 minutter."
+            },
+            "es": {
+              "title": "Lowe’s lanza entrega con drones en asociación con Wing y DoorDash",
+              "summary": "Lowe’s lanzó la entrega con drones para pedidos en línea con Wing y DoorDash, ofreciendo productos selectos a clientes DIY y Pro en tan solo 20 minutos."
+            }
+          }
+        },
+        {
+          "id": "wkvmei",
+          "title": "Revolut Pilots Facial Recognition Payments at UK Coffee Shops",
+          "url": "https://www.paymentsjournal.com/revolut-pilots-facial-recognition-payments-at-uk-coffee-shops/",
+          "source": "Payments Journal",
+          "published_at": "2026-09-25T16:51:21.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Facial recognition is moving from smartphone screens to the checkout counter, with UK fintech Revolut now trialing biometric payments at Kiss the Hippo coffee shops in London. The pilot uses Revolut’s Pay with Smile system, which the company describes as the UK’s first in-store facial recognition payment system. The technology runs through Revolut Register, its […]\nThe post Revolut Pilots Facial Recognition Payments at UK Coffee Shops appeared first on PaymentsJournal.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "payment",
+              "checkout"
+            ]
+          },
+          "aiSummary": "Revolut is piloting Pay with Smile, the UK’s first in-store facial recognition payment system, at Kiss the Hippo coffee shops in London.",
+          "translations": {
+            "da": {
+              "title": "Revolut tester ansigtsgenkendelsesbetalinger i britiske kaffebarer",
+              "summary": "Revolut tester Pay with Smile, Storbritanniens første ansigtsgenkendelsesbetalingssystem i butik, hos Kiss the Hippo kaffebarer i London."
+            },
+            "es": {
+              "title": "Revolut prueba pagos con reconocimiento facial en cafeterías del Reino Unido",
+              "summary": "Revolut está probando Pay with Smile, el primer sistema de pago con reconocimiento facial en tienda del Reino Unido, en las cafeterías Kiss the Hippo en Londres."
+            }
+          }
+        },
+        {
+          "id": "2gddw6",
+          "title": "Citi Enters Advertising Market With New Cardholder Platform",
+          "url": "https://www.paymentsjournal.com/citi-enters-advertising-market-with-new-cardholder-platform/",
+          "source": "Payments Journal",
+          "published_at": "2026-09-23T17:00:31.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Citi is turning its view of how consumers spend into a new advertising business. Drawing on billions of transaction data points, the bank’s U.S. card business has launched Citi Commerce Media, a platform designed to connect consumer brands with its cardholders. Citi will target ads to customers on its app and website, as well as […]\nThe post Citi Enters Advertising Market With New Cardholder Platform appeared first on PaymentsJournal.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": -0.04999999999999999,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "platform",
+              "payment"
+            ]
+          },
+          "aiSummary": "Citi has launched Citi Commerce Media, using billions of U.S. card transaction data points to target ads to cardholders on its app and website.",
+          "translations": {
+            "da": {
+              "title": "Citi træder ind på reklame markedet med ny kortindehaverplatform",
+              "summary": "Citi har lanceret Citi Commerce Media, som bruger milliarder af amerikanske korttransaktionsdata til at målrette annoncer til kortindehavere på sin app og hjemmeside."
+            },
+            "es": {
+              "title": "Citi entra en el mercado publicitario con nueva plataforma para titulares de tarjetas",
+              "summary": "Citi ha lanzado Citi Commerce Media, utilizando miles de millones de datos de transacciones con tarjeta en EE.UU. para dirigir anuncios a los titulares en su app y sitio web."
+            }
+          }
+        },
+        {
+          "id": "fzulu1",
+          "title": "Norwegian challenger takes on Shopify with all-in-one retail platform",
+          "url": "https://internetretailing.net/norwegian-challenger-takes-on-shopify-with-all-in-one-retail-platform/",
+          "source": "Internet Retailing",
+          "published_at": "2026-09-23T04:39:00.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "A challenger has emerged for Shopify in the Norwegian ecommerce market. Co-created by entrepreneur Greg Taube, Famme combines an online store, payments, shipping, point-of-sale and accounting.\nThe post Norwegian challenger takes on Shopify with all-in-one retail platform appeared first on InternetRetailing.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "platform",
+              "ecommerce",
+              "payment"
+            ]
+          },
+          "aiSummary": "Famme, co-created by Greg Taube, launched in Norway as an all-in-one retail platform combining online store, payments, shipping, point-of-sale and accounting.",
+          "translations": {
+            "da": {
+              "title": "Norsk udfordrer tager kampen op mod Shopify med alt-i-en detailplatform",
+              "summary": "Famme, medstiftet af Greg Taube, lancerede i Norge som en alt-i-en detailplatform, der kombinerer online butik, betalinger, forsendelse, kasse og regnskab."
+            },
+            "es": {
+              "title": "El retador noruego compite con Shopify con una plataforma minorista todo en uno",
+              "summary": "Famme, co-creado por Greg Taube, se lanzó en Noruega como una plataforma minorista todo en uno que combina tienda en línea, pagos, envíos, punto de venta y contabilidad."
+            }
+          }
+        },
+        {
+          "id": "l5s40x",
+          "title": "JD Sports deploys Algolia for agentic commerce strategy",
+          "url": "https://www.digitalcommerce360.com/2026/09/23/jd-sports-algolia-agentic-commerce-strategy/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-09-23T17:59:32.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "JD Sports has deployed Algolia as the retailer’s governing intelligence layer on which to build its agentic commerce strategy. Announced Sept. 22, the companies seek to enable product discovery and shopping through agentic artificial intelligence (AI) platforms. JD Sports initially implemented Algolia into its tech stack in 2024. Since then, JD Sports said: Revenue from […]\nThe post JD Sports deploys Algolia for agentic commerce strategy appeared first on Digital Commerce 360.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "shopping",
+              "platform"
+            ]
+          },
+          "aiSummary": "JD Sports has deployed Algolia as its intelligence layer to build an agentic commerce strategy enabling AI-driven product discovery and shopping.",
+          "translations": {
+            "da": {
+              "title": "JD Sports implementerer Algolia til agentisk handelsstrategi",
+              "summary": "JD Sports har implementeret Algolia som sit intelligenslag for at opbygge en agentisk handelsstrategi, der muliggør AI-drevet produktopdagelse og shopping."
+            },
+            "es": {
+              "title": "JD Sports despliega Algolia para estrategia de comercio agéntico",
+              "summary": "JD Sports ha desplegado Algolia como su capa de inteligencia para construir una estrategia de comercio agéntico que permite el descubrimiento y compra de productos impulsados por IA."
+            }
+          }
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 64,
+      "top": [
+        {
+          "id": "rjzl17",
+          "title": "The Big Topic at Zalando’s ‘Partner Day’: What AI Can — and Can’t — Do for Online Fashion",
+          "url": "https://wwd.com/business-news/technology/zalando-partner-day-what-ai-can-and-cant-do-for-fashion-1239280107/",
+          "source": "WWD - Women's Wear Daily",
+          "published_at": "2026-09-27T01:50:00.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "At an event for brand partners that Zalando, one of Europe's largest online fashion retailers, holds annually, company insiders explained how they are using AI today to save money, create content and analyze customer data. They also talked about what AI can't do yet in the fashion sector, and what it might never do.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "aiSummary": "Zalando told brand partners it uses AI to cut costs, generate content and analyze customer data, but highlighted current and potential future limitations.",
+          "translations": {
+            "da": {
+              "title": "Det Store Emne på Zalando’s ‘Partner Day’: Hvad AI Kan — og Ikke Kan — Gøre for Online Mode",
+              "summary": "Zalando fortalte brandpartnere, at de bruger AI til at reducere omkostninger, generere indhold og analysere kundedata, men fremhævede nuværende og potentielle fremtidige begrænsninger."
+            },
+            "es": {
+              "title": "El Gran Tema en el ‘Partner Day’ de Zalando: Lo Que la IA Puede — y No Puede — Hacer por la Moda Online",
+              "summary": "Zalando informó a sus socios de marca que utiliza IA para reducir costos, generar contenido y analizar datos de clientes, pero destacó las limitaciones actuales y futuras potenciales."
+            }
+          }
+        },
+        {
+          "id": "dobedt",
+          "title": "Luxury Unfiltered: 80pc of luxury growth came from price hikes",
+          "url": "https://www.luxurydaily.com/luxury-unfiltered-80pc-of-luxury-growth-came-from-price-hikes/",
+          "source": "Luxury Daily - Main",
+          "published_at": "2026-09-23T06:00:00.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Luxury Unfiltered is a weekly column by Daniel Langer, an expert in luxury branding, hospitality and activations who was named a “Global Top 5 Luxury Key Opinion Leader” by Netbase Quid.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": -0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "luxury",
+              "brand"
+            ]
+          },
+          "aiSummary": "Eighty percent of luxury sector growth was driven by price increases, according to Daniel Langer’s Luxury Unfiltered column.",
+          "translations": {
+            "da": {
+              "title": "Luksus Ufiltreret: 80% af luksusvæksten kom fra prisstigninger",
+              "summary": "Firs procent af væksten i luksussektoren blev drevet af prisstigninger ifølge Daniel Langers Luxury Unfiltered-kolonne."
+            },
+            "es": {
+              "title": "Lujo Sin Filtros: El 80% del crecimiento del lujo provino de aumentos de precios",
+              "summary": "El ochenta por ciento del crecimiento del sector de lujo fue impulsado por aumentos de precios, según la columna Luxury Unfiltered de Daniel Langer."
+            }
+          }
+        },
+        {
+          "id": "tj7wre",
+          "title": "Independents see autumn demand build despite consumer caution",
+          "url": "https://www.drapersonline.com/news/independents-see-autumn-demand-build-despite-consumer-caution",
+          "source": "Drapers",
+          "published_at": "2026-09-25T15:07:12.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Drapers\nIndependents see autumn demand build despite consumer caution\nFashion retail independents have reported a positive start to the autumn season, with many businesses recording sales increases, in the face of ongoing cost of living fears.\nThe post Independents see autumn demand build despite consumer caution appeared first on Drapers.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "consumer",
+              "demand"
+            ]
+          },
+          "aiSummary": "Fashion retail independents report rising autumn sales despite ongoing consumer caution and cost of living concerns.",
+          "translations": {
+            "da": {
+              "title": "Uafhængige forventer stigende efterspørgsel i efteråret trods forbrugerforsigtighed",
+              "summary": "Modeforhandlere rapporterer stigende efterårssalg trods vedvarende forbrugerforsigtighed og bekymringer om leveomkostninger."
+            },
+            "es": {
+              "title": "Los independientes ven aumento de la demanda en otoño a pesar de la cautela del consumidor",
+              "summary": "Los minoristas independientes de moda reportan un aumento en las ventas de otoño a pesar de la continua cautela del consumidor y las preocupaciones por el costo de vida."
+            }
+          }
+        },
+        {
+          "id": "rpopk7",
+          "title": "Must Read: Gap Inc. Debuts 'Fashiontainment' Platform With Boy Band JYT, On Plans For Strong Growth Through 2029",
+          "url": "https://fashionista.com/2026/09/gap-inc-fashiontainment-platform-boy-band-jyt",
+          "source": "Fashionista",
+          "published_at": "2026-09-22T16:00:00.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Plus, Unilever Ventures leads Series A funding for Arey.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": -0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Gap Inc. launched a 'fashiontainment' platform with boy band JYT as part of its growth strategy through 2029.",
+          "translations": {
+            "da": {
+              "title": "Must Read: Gap Inc. lancerer 'Fashiontainment'-platform med boybandet JYT og planer om stærk vækst frem til 2029",
+              "summary": "Gap Inc. lancerede en 'fashiontainment'-platform med boybandet JYT som en del af sin vækststrategi frem til 2029."
+            },
+            "es": {
+              "title": "Must Read: Gap Inc. lanza la plataforma 'Fashiontainment' con el grupo JYT y planes de fuerte crecimiento hasta 2029",
+              "summary": "Gap Inc. lanzó una plataforma 'fashiontainment' con el grupo JYT como parte de su estrategia de crecimiento hasta 2029."
+            }
+          }
+        },
+        {
+          "id": "8b53gf",
+          "title": "Inside the Italian Factories Turning Raw Fibers Into Soft Cashmere for Falconeri",
+          "url": "https://fashionista.com/2026/09/falconeri-cashmere-clothing-factory-biella-avio-italy-tour",
+          "source": "Fashionista",
+          "published_at": "2026-09-22T12:00:00.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Our latest \"Factory Tour\" takes us to the Biella and Avio facilities where the brand manages nearly every stage of the its cashmere production.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "aiSummary": "Falconeri oversees nearly every stage of cashmere production at its Biella and Avio factories, transforming raw fibers into finished luxury textiles.",
+          "translations": {
+            "da": {
+              "title": "Inde i de italienske fabrikker, der forvandler rå fibre til blød cashmere for Falconeri",
+              "summary": "Falconeri overvåger næsten alle trin i cashmereproduktionen på sine fabrikker i Biella og Avio og forvandler rå fibre til færdige luksustekstiler."
+            },
+            "es": {
+              "title": "Dentro de las fábricas italianas que convierten fibras crudas en suave cachemir para Falconeri",
+              "summary": "Falconeri supervisa casi todas las etapas de la producción de cachemir en sus fábricas de Biella y Avio, transformando fibras crudas en textiles de lujo terminados."
+            }
+          }
+        },
+        {
+          "id": "fqmvc6",
+          "title": "Louis Vuitton brings craftsmanship showcase to Toronto",
+          "url": "https://www.luxurydaily.com/louis-vuitton-brings-craftsmanship-showcase-to-toronto/",
+          "source": "Luxury Daily - Main",
+          "published_at": "2026-09-25T08:45:00.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Exclusive trunks, tableware and high jewelry make their debut in a Bloor Street presentation that runs through Oct. 4.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "exclusive"
+            ]
+          },
+          "aiSummary": "Louis Vuitton debuts exclusive trunks, tableware and high jewelry in a Bloor Street showcase running in Toronto through October 4.",
+          "translations": {
+            "da": {
+              "title": "Louis Vuitton præsenterer håndværksudstilling i Toronto",
+              "summary": "Louis Vuitton debuterer eksklusive kufferter, bordservice og høj smykker i en udstilling på Bloor Street i Toronto frem til 4. oktober."
+            },
+            "es": {
+              "title": "Louis Vuitton presenta exhibición de artesanía en Toronto",
+              "summary": "Louis Vuitton presenta exclusivos baúles, vajilla y alta joyería en una exhibición en Bloor Street que se realiza en Toronto hasta el 4 de octubre."
+            }
+          }
+        },
+        {
+          "id": "fv6vju",
+          "title": "How Beauty Became Obsessed With Bold, Expressive Packaging",
+          "url": "https://fashionista.com/2026/09/beauty-packaging-trends-2026",
+          "source": "Fashionista",
+          "published_at": "2026-09-24T12:30:00.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "In 2026, everything from colors and fonts to shapes and materials is intentionally implemented to evoke emotion, create consumer connections and stand out across various platforms.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "consumer"
+            ]
+          },
+          "aiSummary": "Beauty brands in 2026 are using bold colors, distinctive fonts and innovative materials in packaging to forge emotional connections and boost visibility across platforms.",
+          "translations": {
+            "da": {
+              "title": "Hvordan skønhed blev besat af dristig, udtryksfuld emballage",
+              "summary": "Skønhedsbrands i 2026 bruger dristige farver, karakteristiske skrifttyper og innovative materialer i emballagen for at skabe følelsesmæssige forbindelser og øge synligheden på tværs af platforme."
+            },
+            "es": {
+              "title": "Cómo la belleza se obsesionó con el embalaje audaz y expresivo",
+              "summary": "Las marcas de belleza en 2026 están usando colores audaces, fuentes distintivas y materiales innovadores en el embalaje para crear conexiones emocionales y aumentar la visibilidad en todas las plataformas."
+            }
+          }
+        }
+      ]
+    },
+    "Jewellery_Industry": {
+      "total": 109,
+      "top": [
+        {
+          "id": "h6vimt",
+          "title": "Will a new name for the Natural Diamond Council drive jewellery sales?",
+          "url": "https://www.jewellermagazine.com/Article/15536/Will-a-new-name-for-the-Natural-Diamond-Council-drive-jewellery-sales",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-09-22T14:00:00.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "As part of a new global marketing campaign, the Natural Diamond Council has announced a rebrand, including a name change to 'The Diamond Collective’.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "diamond",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "The Natural Diamond Council has rebranded as The Diamond Collective as part of a new global marketing campaign.",
+          "translations": {
+            "da": {
+              "title": "Vil et nyt navn for Natural Diamond Council øge smykkesalget?",
+              "summary": "Natural Diamond Council har omdøbt sig til The Diamond Collective som en del af en ny global marketingkampagne."
+            },
+            "es": {
+              "title": "¿Impulsará un nuevo nombre para el Natural Diamond Council las ventas de joyería?",
+              "summary": "El Natural Diamond Council se ha renombrado como The Diamond Collective como parte de una nueva campaña global de marketing."
+            }
+          }
+        },
+        {
+          "id": "on1w98",
+          "title": "Selfridges launches year-long Poubel residency at Oxford Street",
+          "url": "https://www.retail-jeweller.com/news-and-insight/selfridges-launches-year-long-poubel-residency-at-oxford-street-24-09-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-09-24T07:30:36.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Retail Jeweller\nSelfridges launches year-long Poubel residency at Oxford Street\nSelfridges is expanding its partnership with jewellery brand Poubel with the launch of a year-long residency at its Oxford Street store in London.\nSelfridges launches year-long Poubel residency at Oxford Street\nKate Rainford",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Selfridges has launched a year-long Poubel jewellery residency at its Oxford Street store in London.",
+          "translations": {
+            "da": {
+              "title": "Selfridges lancerer et års Poubel residency på Oxford Street",
+              "summary": "Selfridges har lanceret et års Poubel smykkebopæl i sin butik på Oxford Street i London."
+            },
+            "es": {
+              "title": "Selfridges lanza residencia Poubel de un año en Oxford Street",
+              "summary": "Selfridges ha lanzado una residencia de joyería Poubel de un año en su tienda de Oxford Street en Londres."
+            }
+          }
+        },
+        {
+          "id": "n9qed1",
+          "title": "H Samuel relaunches Forever Diamond collection",
+          "url": "https://www.retail-jeweller.com/products/h-samuel-relaunches-forever-diamond-collection-25-09-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-09-25T07:45:57.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Retail Jeweller\nH Samuel relaunches Forever Diamond collection\nMultiple jewellery retailer H Samuel has relaunched its exclusive Forever Diamond collection, introducing a refreshed look and a new campaign focused on modern relationships and engagement jewellery.\nH Samuel relaunches Forever Diamond collection\nKate Rainford",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "diamond",
+              "jewellery",
+              "retailer",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "H Samuel has relaunched its exclusive Forever Diamond collection with a refreshed design and a new campaign centred on modern relationships and engagement jewellery.",
+          "translations": {
+            "da": {
+              "title": "H Samuel genintroducerer Forever Diamond-kollektionen",
+              "summary": "H Samuel har genintroduceret sin eksklusive Forever Diamond-kollektion med et opdateret design og en ny kampagne med fokus på moderne forhold og forlovelsessmykker."
+            },
+            "es": {
+              "title": "H Samuel relanza la colección Forever Diamond",
+              "summary": "H Samuel ha relanzado su exclusiva colección Forever Diamond con un diseño renovado y una nueva campaña centrada en las relaciones modernas y las joyas de compromiso."
+            }
+          }
+        },
+        {
+          "id": "e5vnab",
+          "title": "Breitling and Watches of Switzerland Group expand partnership with Navitimer exclusives",
+          "url": "https://www.retail-jeweller.com/products/breitling-and-watches-of-switzerland-group-expand-partnership-with-navitimer-exclusives-25-09-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-09-25T07:45:36.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Retail Jeweller\nBreitling and Watches of Switzerland Group expand partnership with Navitimer exclusives\nSwiss watch brand Breitling has partnered with the Watches of Switzerland Group to launch two exclusive Navitimer models, available through Watches of Switzerland, Goldsmiths and Mappin & Webb in the UK.\nBreitling and Watches of Switzerland Group expand partnership with Navitimer exclusives\nRuth Faulkner",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "watch",
+              "gold",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Breitling and Watches of Switzerland Group launched two exclusive Navitimer models, available only at Watches of Switzerland, Goldsmiths and Mappin & Webb in the UK.",
+          "translations": {
+            "da": {
+              "title": "Breitling og Watches of Switzerland Group udvider partnerskab med eksklusive Navitimer-modeller",
+              "summary": "Breitling og Watches of Switzerland Group lancerede to eksklusive Navitimer-modeller, der kun er tilgængelige hos Watches of Switzerland, Goldsmiths og Mappin & Webb i Storbritannien."
+            },
+            "es": {
+              "title": "Breitling y Watches of Switzerland Group amplían su asociación con exclusivas Navitimer",
+              "summary": "Breitling y Watches of Switzerland Group lanzaron dos modelos exclusivos Navitimer, disponibles solo en Watches of Switzerland, Goldsmiths y Mappin & Webb en el Reino Unido."
+            }
+          }
+        },
+        {
+          "id": "ehz3qf",
+          "title": "Breitling’s New CEO Just Revealed Their 5-Year Plan | House of Brands Ep. 1",
+          "url": "https://timeandtidewatches.com/breitlings-new-ceo-just-revealed-their-5-year-plan-house-of-brands-ep-1-video/",
+          "source": "Time and Tide Watches",
+          "published_at": "2026-09-26T11:01:09.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "Russele sat down with Georges Kern and newly installed Breitling CEO Jean-Marc Pontroué to discuss the future of the brand.\nThe post Breitling’s New CEO Just Revealed Their 5-Year Plan | House of Brands Ep. 1 appeared first on Time+Tide Watches.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "watch"
+            ]
+          },
+          "aiSummary": "Breitling’s new CEO Jean-Marc Pontroué unveiled a five-year strategic plan outlining the brand’s future direction in an interview with Georges Kern.",
+          "translations": {
+            "da": {
+              "title": "Breitlings nye CEO afslørede netop deres 5-års plan | House of Brands Ep. 1",
+              "summary": "Breitlings nye CEO Jean-Marc Pontroué præsenterede en femårig strategisk plan, der skitserer brandets fremtidige retning i et interview med Georges Kern."
+            },
+            "es": {
+              "title": "El nuevo CEO de Breitling acaba de revelar su plan a 5 años | House of Brands Ep. 1",
+              "summary": "El nuevo CEO de Breitling, Jean-Marc Pontroué, presentó un plan estratégico de cinco años que detalla la dirección futura de la marca en una entrevista con Georges Kern."
+            }
+          }
+        },
+        {
+          "id": "fsbit3",
+          "title": "Don’t miss out: Melbourne's Cartier exhibition closing soon",
+          "url": "https://www.jewellermagazine.com/Article/15528/Dont-miss-out-Melbournes-Cartier-exhibition-closing-soon",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-09-21T14:00:00.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "One of the largest jewellery exhibitions in Australian history will soon close its doors.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Melbourne's Cartier exhibition, one of Australia's largest jewellery showcases, will close soon after drawing significant attention from the industry.",
+          "translations": {
+            "da": {
+              "title": "Gå ikke glip af det: Melbournes Cartier-udstilling lukker snart",
+              "summary": "Melbournes Cartier-udstilling, en af Australiens største smykkefremvisninger, lukker snart efter at have tiltrukket stor opmærksomhed fra branchen."
+            },
+            "es": {
+              "title": "No te lo pierdas: la exposición Cartier en Melbourne cierra pronto",
+              "summary": "La exposición Cartier en Melbourne, una de las mayores exhibiciones de joyería de Australia, cerrará pronto tras atraer una atención significativa de la industria."
+            }
+          }
+        },
+        {
+          "id": "wk7jlb",
+          "title": "Ancient gold bracelet recovered in once-in-a-lifetime find",
+          "url": "https://www.jewellermagazine.com/Article/15529/Ancient-gold-bracelet-recovered-in-once-in-a-lifetime-find",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-09-21T14:00:00.000Z",
+          "ingested_at": "2026-09-27T11:48:28.166Z",
+          "snippet": "A metal detectorist in one of the most sparsely populated areas in Wales has unearthed a 3,000-year-old gold bracelet.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "gold"
+            ]
+          },
+          "aiSummary": "A metal detectorist in rural Wales discovered a 3,000-year-old gold bracelet in a rare archaeological find.",
+          "translations": {
+            "da": {
+              "title": "Oldtidsguldbøjle fundet ved en enestående opdagelse",
+              "summary": "En metaldetektorist i det landlige Wales opdagede et 3.000 år gammelt guldbøjle i et sjældent arkæologisk fund."
+            },
+            "es": {
+              "title": "Pulsera de oro antigua recuperada en un hallazgo único en la vida",
+              "summary": "Un detectorista en la zona rural de Gales descubrió una pulsera de oro de 3.000 años en un raro hallazgo arqueológico."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "oneSentenceSummary": "AI’s voracious infrastructure demands hint at a coming capital arms race that may squeeze innovation at the edge and entrench platform giants even further.",
+  "keyThemes": [
+    "Meta Muse AI",
+    "Amazon agentic commerce",
+    "Anthropic cloud deal",
+    "Luxury price hikes",
+    "Natural Diamond Council rebrand"
+  ],
+  "editorialTake": "The battle for control over agentic commerce is not just about who builds the best AI, but about who owns the rails luxury and jewellery brands must ride. Amazon’s decision to block Meta’s Muse AI from shopping on its platform, while Shopify welcomes it, shows how gatekeepers are drawing hard lines around their turf. At the same time, Anthropic’s $11.6 billion deal with Akamai and Goldman Sachs’s $1.2 trillion AI infrastructure forecast reveal that only giants can afford to play at scale, while IPO-hungry AI firms chase sky-high valuations with minimal revenue to show.\n\nSome argue that luxury and jewellery are immune, protected by brand, heritage, and physical experience. But when 80 percent of luxury growth comes from price hikes, as Daniel Langer notes, and when customer discovery is shifting to AI agents, the real risk is losing control of the digital storefront to whoever owns the interface. The counterpoint is that luxury sells emotion, not efficiency, but even emotion is now mediated by data and algorithms.\n\nFor luxury and jewellery operators, the next quarter is not about launching another chatbot. It is about negotiating access, data, and visibility with the platforms building these agentic rails. If you are not at the table with Amazon, Meta, or Shopify, you risk being invisible to the next generation of AI-driven shoppers.",
+  "coverImageUrl": "/weekly-images/2026-W39.png",
+  "coverImageAlt": "Weekly cover illustration for 2026-W39"
+}

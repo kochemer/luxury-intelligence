@@ -244,5 +244,11 @@
     "cached_at": "2026-09-21T13:09:38.373Z",
     "model": "gpt-4.1",
     "version": "2.1"
+  },
+  "2026-W39:20196d130775": {
+    "editorialTake": "The battle for control over agentic commerce is not just about who builds the best AI, but about who owns the rails luxury and jewellery brands must ride. Amazon’s decision to block Meta’s Muse AI from shopping on its platform, while Shopify welcomes it, shows how gatekeepers are drawing hard lines around their turf. At the same time, Anthropic’s $11.6 billion deal with Akamai and Goldman Sachs’s $1.2 trillion AI infrastructure forecast reveal that only giants can afford to play at scale, while IPO-hungry AI firms chase sky-high valuations with minimal revenue to show.\n\nSome argue that luxury and jewellery are immune, protected by brand, heritage, and physical experience. But when 80 percent of luxury growth comes from price hikes, as Daniel Langer notes, and when customer discovery is shifting to AI agents, the real risk is losing control of the digital storefront to whoever owns the interface. The counterpoint is that luxury sells emotion, not efficiency, but even emotion is now mediated by data and algorithms.\n\nFor luxury and jewellery operators, the next quarter is not about launching another chatbot. It is about negotiating access, data, and visibility with the platforms building these agentic rails. If you are not at the table with Amazon, Meta, or Shopify, you risk being invisible to the next generation of AI-driven shoppers.",
+    "cached_at": "2026-09-27T12:06:43.183Z",
+    "model": "gpt-4.1",
+    "version": "2.1"
   }
 }

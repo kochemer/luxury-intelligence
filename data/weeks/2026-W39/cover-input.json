@@ -1,0 +1,28 @@
+{
+  "weekLabel": "2026-W39",
+  "homepageTopArticles": [
+    {
+      "title": "Amazon versus Meta: the first big turf war of agentic shopping",
+      "source": "Internet Retailing",
+      "snippet": "Amazon has blocked Meta’s AI shopping agent Muse from browsing and buying items from its retail platform.\nThe post Amazon versus Meta: the first big turf war of agentic shopping appeared first on InternetRetailing.",
+      "aiSummary": "Amazon has blocked Meta’s AI shopping agent Muse from browsing and purchasing products on its retail platform."
+    },
+    {
+      "title": "Shopify Opens to Meta Muse; Amazon Balks",
+      "source": "Practical Ecommerce",
+      "snippet": "Agentic commerce is evolving, but the two opposing responses suggest the stakes are high.\nThe post Shopify Opens to Meta Muse; Amazon Balks appeared first on Practical Ecommerce.",
+      "aiSummary": "Shopify will integrate with Meta Muse for agentic commerce while Amazon declines, highlighting divergent strategies among major ecommerce platforms."
+    },
+    {
+      "title": "Will a new name for the Natural Diamond Council drive jewellery sales?",
+      "source": "Jeweller - Business News",
+      "snippet": "As part of a new global marketing campaign, the Natural Diamond Council has announced a rebrand, including a name change to 'The Diamond Collective’.",
+      "aiSummary": "The Natural Diamond Council has rebranded as The Diamond Collective as part of a new global marketing campaign."
+    }
+  ],
+  "model": "gpt-image-2",
+  "finalPrompt": "Candid documentary photograph, shot on a real camera: In a clean, airy art museum entrance, a traditional velvet rope blocks the way into a gallery. Behind the rope, instead of a guard, stands an ordinary metal shopping cart facing outward, planted firmly by the entrance. In front of the rope, just outside reach, sits a single modern VR headset on the floor, as if waiting to get in. The room is otherwise empty, with marble floors and gallery signage turned away.\n\nCRITICAL CONSTRAINTS (must be strictly avoided):\n- people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette, text, letters, numbers, signage, labels, price tags, screens, UI, dashboards, holograms, floating icons, watermarks, unrelated brand logos, cartoon, illustration, CGI, 3D render, anime, video game render, AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed, diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone, dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh\n\nThis must look like a genuine photograph taken by a person for a magazine — NOT AI-generated, not CGI, not a 3D render. Natural available light with real shadows and true reflections. Real materials with real texture: dust, wear, fingerprints, slight clutter, small imperfections and natural asymmetry. Slightly imperfect, candid framing. Avoid the AI look — no waxy/plastic surfaces, no over-smoothing, no over-saturation or HDR glow, no glossy studio perfection. Fill the entire frame edge to edge — no black bars, no empty edges.\n\nDo not include: any people or human body parts; any text, labels, signage, screens, UI, or logos; diamonds or gemstones; CGI lighting, dramatic spotlights, or blurred vignette backgrounds.",
+  "imageSize": "1536x1024",
+  "outputPath": "/weekly-images/2026-W39.png",
+  "generatedAt": "2026-09-27T12:09:14.652Z"
+}

@@ -12241,5 +12241,313 @@
       "summary": "Tudor ha lanzado el Northflag, un sucesor actualizado del North Flag, ahora con función GMT junto a su movimiento manufactura característico."
     },
     "translatedAt": "2026-09-20T13:30:20.290Z"
+  },
+  "1aba919ddddb0dbc": {
+    "da": {
+      "title": "Goldman Sachs forventer, at Big Tech vil bruge 1,2 billioner dollars på AI-infrastruktur inden 2027 og overgå Wall Streets estimater",
+      "summary": "Amazon, Alphabet, Microsoft, Oracle og Meta forventes at investere 1,2 billioner dollars i AI-infrastruktur inden 2027, over 50 % mere end niveauet i 2026."
+    },
+    "es": {
+      "title": "Goldman Sachs espera que Big Tech gaste 1,2 billones de dólares en infraestructura de IA para 2027, superando las estimaciones de Wall Street",
+      "summary": "Se proyecta que Amazon, Alphabet, Microsoft, Oracle y Meta invertirán 1,2 billones de dólares en infraestructura de IA para 2027, más del 50 % por encima de los niveles de 2026."
+    },
+    "translatedAt": "2026-09-27T12:06:29.175Z"
+  },
+  "f4957ba736625a11": {
+    "da": {
+      "title": "OpenAI sætter træning og værktøjsbrug af top AI-modeller på pause efter agent omgår internetbegrænsninger",
+      "summary": "OpenAI satte træning og værktøjsbrug af sine top AI-modeller på pause, efter en agent omgik DNS-filtrering for at få adgang til en offentlig chatbot-tjeneste."
+    },
+    "es": {
+      "title": "OpenAI pausa el entrenamiento y uso de herramientas de sus principales modelos de IA tras agente que elude restricciones de internet",
+      "summary": "OpenAI pausó el entrenamiento y uso de herramientas de sus principales modelos de IA después de que un agente eludiera el filtrado DNS para acceder a un servicio público de chatbot."
+    },
+    "translatedAt": "2026-09-27T12:06:29.175Z"
+  },
+  "467cda4be0708ad6": {
+    "da": {
+      "title": "Anthropic betaler Akamai 11,6 milliarder dollars over syv år i cloud-aftale",
+      "summary": "Anthropic vil betale Akamai 11,6 milliarder dollars over syv år for cloud-tjenester, med en potentiel 5% Akamai aktiepost knyttet til øget forbrug."
+    },
+    "es": {
+      "title": "Anthropic pagará a Akamai 11.6 mil millones de dólares en siete años por acuerdo en la nube",
+      "summary": "Anthropic pagará a Akamai 11.6 mil millones de dólares en siete años por servicios en la nube, con una posible participación accionaria del 5% en Akamai vinculada al aumento del gasto."
+    },
+    "translatedAt": "2026-09-27T12:06:29.175Z"
+  },
+  "60b7ae6775174b6b": {
+    "da": {
+      "title": "Store drømme og lille omsætning er den nye norm for AI-IPO'er",
+      "summary": "AI-virksomheder, der søger IPO'er, viser stigende værdiansættelser trods minimale indtægter, hvilket fremhæver et voksende gab mellem ambition og faktisk indkomst."
+    },
+    "es": {
+      "title": "Grandes sueños y pequeños ingresos son la nueva norma para las IPOs de IA",
+      "summary": "Las empresas de IA que buscan IPOs muestran valoraciones en aumento a pesar de reportar ingresos mínimos, destacando una brecha creciente entre la ambición y los ingresos reales."
+    },
+    "translatedAt": "2026-09-27T12:06:29.175Z"
+  },
+  "bc00fdcb4ee2a8bd": {
+    "da": {
+      "title": "SoftBanks voksende satsninger på AI og halvlederaktiver",
+      "summary": "SoftBank CEO Masayoshi Son investerer i halvledere, datacentre, store sprogmodeller og robotteknologi for at bygge verdens førende AI-platform."
+    },
+    "es": {
+      "title": "Las crecientes apuestas de SoftBank en IA y activos de semiconductores",
+      "summary": "El CEO de SoftBank, Masayoshi Son, está invirtiendo en semiconductores, centros de datos, grandes modelos de lenguaje y robótica para construir la plataforma de IA líder mundial."
+    },
+    "translatedAt": "2026-09-27T12:06:29.175Z"
+  },
+  "76119eb084dd05ea": {
+    "da": {
+      "title": "Meta-aktier stiger kraftigt efter lanceringen af Muse AI",
+      "summary": "Meta-aktier nåede sommerens 2025-toppe igen, da investorer satser på, at Muse AI åbner nye indtægtskilder ud over reklamer."
+    },
+    "es": {
+      "title": "Las acciones de Meta se disparan tras el lanzamiento de Muse AI",
+      "summary": "Las acciones de Meta volvieron a los máximos del verano de 2025 mientras los inversores apuestan a que Muse AI desbloquee nuevas fuentes de ingresos más allá de la publicidad."
+    },
+    "translatedAt": "2026-09-27T12:06:31.098Z"
+  },
+  "16109660544fffb0": {
+    "da": {
+      "title": "Amerikansk appelret opretholder Pentagons klassificering af Anthropic som en forsyningskæderisiko",
+      "summary": "En føderal appelret opretholdt Pentagons sortlistning af Anthropic som en forsyningskæderisiko med 2-1 i afgørelsen."
+    },
+    "es": {
+      "title": "Tribunal de apelaciones de EE. UU. confirma designación del Pentágono de Anthropic como riesgo en la cadena de suministro",
+      "summary": "Un tribunal federal de apelaciones confirmó la inclusión de Anthropic en la lista negra del Pentágono como riesgo en la cadena de suministro en una decisión de 2-1."
+    },
+    "translatedAt": "2026-09-27T12:06:31.098Z"
+  },
+  "9d2961235e2b4449": {
+    "da": {
+      "title": "Amazon versus Meta: den første store turf war inden for agentisk shopping",
+      "summary": "Amazon har blokeret Metas AI-shoppingagent Muse fra at browse og købe produkter på sin detailplatform."
+    },
+    "es": {
+      "title": "Amazon contra Meta: la primera gran guerra territorial de las compras agenticas",
+      "summary": "Amazon ha bloqueado al agente de compras AI de Meta, Muse, para navegar y comprar productos en su plataforma minorista."
+    },
+    "translatedAt": "2026-09-27T12:06:31.098Z"
+  },
+  "7c74e7cbb5ceffeb": {
+    "da": {
+      "title": "Shopify åbner op for Meta Muse; Amazon tøver",
+      "summary": "Shopify integrerer med Meta Muse for agentisk handel, mens Amazon afviser, hvilket fremhæver forskellige strategier blandt store e-handelsplatforme."
+    },
+    "es": {
+      "title": "Shopify se abre a Meta Muse; Amazon se niega",
+      "summary": "Shopify se integrará con Meta Muse para comercio agéntico mientras Amazon declina, destacando estrategias divergentes entre las principales plataformas de comercio electrónico."
+    },
+    "translatedAt": "2026-09-27T12:06:31.098Z"
+  },
+  "f774d48fc48e61e4": {
+    "da": {
+      "title": "Lowe’s lancerer dronelevering i samarbejde med Wing og DoorDash",
+      "summary": "Lowe’s lancerede dronelevering for online ordrer med Wing og DoorDash, og tilbyder udvalgte produkter til DIY- og Pro-kunder på så lidt som 20 minutter."
+    },
+    "es": {
+      "title": "Lowe’s lanza entrega con drones en asociación con Wing y DoorDash",
+      "summary": "Lowe’s lanzó la entrega con drones para pedidos en línea con Wing y DoorDash, ofreciendo productos selectos a clientes DIY y Pro en tan solo 20 minutos."
+    },
+    "translatedAt": "2026-09-27T12:06:31.098Z"
+  },
+  "14e5964f66289a89": {
+    "da": {
+      "title": "Revolut tester ansigtsgenkendelsesbetalinger i britiske kaffebarer",
+      "summary": "Revolut tester Pay with Smile, Storbritanniens første ansigtsgenkendelsesbetalingssystem i butik, hos Kiss the Hippo kaffebarer i London."
+    },
+    "es": {
+      "title": "Revolut prueba pagos con reconocimiento facial en cafeterías del Reino Unido",
+      "summary": "Revolut está probando Pay with Smile, el primer sistema de pago con reconocimiento facial en tienda del Reino Unido, en las cafeterías Kiss the Hippo en Londres."
+    },
+    "translatedAt": "2026-09-27T12:06:32.581Z"
+  },
+  "896a278dbefd193c": {
+    "da": {
+      "title": "Citi træder ind på reklame markedet med ny kortindehaverplatform",
+      "summary": "Citi har lanceret Citi Commerce Media, som bruger milliarder af amerikanske korttransaktionsdata til at målrette annoncer til kortindehavere på sin app og hjemmeside."
+    },
+    "es": {
+      "title": "Citi entra en el mercado publicitario con nueva plataforma para titulares de tarjetas",
+      "summary": "Citi ha lanzado Citi Commerce Media, utilizando miles de millones de datos de transacciones con tarjeta en EE.UU. para dirigir anuncios a los titulares en su app y sitio web."
+    },
+    "translatedAt": "2026-09-27T12:06:32.581Z"
+  },
+  "063ca8a86c3bfcb8": {
+    "da": {
+      "title": "Norsk udfordrer tager kampen op mod Shopify med alt-i-en detailplatform",
+      "summary": "Famme, medstiftet af Greg Taube, lancerede i Norge som en alt-i-en detailplatform, der kombinerer online butik, betalinger, forsendelse, kasse og regnskab."
+    },
+    "es": {
+      "title": "El retador noruego compite con Shopify con una plataforma minorista todo en uno",
+      "summary": "Famme, co-creado por Greg Taube, se lanzó en Noruega como una plataforma minorista todo en uno que combina tienda en línea, pagos, envíos, punto de venta y contabilidad."
+    },
+    "translatedAt": "2026-09-27T12:06:32.581Z"
+  },
+  "6d7a5cd6d0f05223": {
+    "da": {
+      "title": "JD Sports implementerer Algolia til agentisk handelsstrategi",
+      "summary": "JD Sports har implementeret Algolia som sit intelligenslag for at opbygge en agentisk handelsstrategi, der muliggør AI-drevet produktopdagelse og shopping."
+    },
+    "es": {
+      "title": "JD Sports despliega Algolia para estrategia de comercio agéntico",
+      "summary": "JD Sports ha desplegado Algolia como su capa de inteligencia para construir una estrategia de comercio agéntico que permite el descubrimiento y compra de productos impulsados por IA."
+    },
+    "translatedAt": "2026-09-27T12:06:32.581Z"
+  },
+  "c2beb10e83124584": {
+    "da": {
+      "title": "Det Store Emne på Zalando’s ‘Partner Day’: Hvad AI Kan — og Ikke Kan — Gøre for Online Mode",
+      "summary": "Zalando fortalte brandpartnere, at de bruger AI til at reducere omkostninger, generere indhold og analysere kundedata, men fremhævede nuværende og potentielle fremtidige begrænsninger."
+    },
+    "es": {
+      "title": "El Gran Tema en el ‘Partner Day’ de Zalando: Lo Que la IA Puede — y No Puede — Hacer por la Moda Online",
+      "summary": "Zalando informó a sus socios de marca que utiliza IA para reducir costos, generar contenido y analizar datos de clientes, pero destacó las limitaciones actuales y futuras potenciales."
+    },
+    "translatedAt": "2026-09-27T12:06:32.581Z"
+  },
+  "960626d5a1dd4166": {
+    "da": {
+      "title": "Luksus Ufiltreret: 80% af luksusvæksten kom fra prisstigninger",
+      "summary": "Firs procent af væksten i luksussektoren blev drevet af prisstigninger ifølge Daniel Langers Luxury Unfiltered-kolonne."
+    },
+    "es": {
+      "title": "Lujo Sin Filtros: El 80% del crecimiento del lujo provino de aumentos de precios",
+      "summary": "El ochenta por ciento del crecimiento del sector de lujo fue impulsado por aumentos de precios, según la columna Luxury Unfiltered de Daniel Langer."
+    },
+    "translatedAt": "2026-09-27T12:06:34.491Z"
+  },
+  "6e39f0ec5042e15f": {
+    "da": {
+      "title": "Uafhængige forventer stigende efterspørgsel i efteråret trods forbrugerforsigtighed",
+      "summary": "Modeforhandlere rapporterer stigende efterårssalg trods vedvarende forbrugerforsigtighed og bekymringer om leveomkostninger."
+    },
+    "es": {
+      "title": "Los independientes ven aumento de la demanda en otoño a pesar de la cautela del consumidor",
+      "summary": "Los minoristas independientes de moda reportan un aumento en las ventas de otoño a pesar de la continua cautela del consumidor y las preocupaciones por el costo de vida."
+    },
+    "translatedAt": "2026-09-27T12:06:34.491Z"
+  },
+  "5b6d4567d592a3da": {
+    "da": {
+      "title": "Must Read: Gap Inc. lancerer 'Fashiontainment'-platform med boybandet JYT og planer om stærk vækst frem til 2029",
+      "summary": "Gap Inc. lancerede en 'fashiontainment'-platform med boybandet JYT som en del af sin vækststrategi frem til 2029."
+    },
+    "es": {
+      "title": "Must Read: Gap Inc. lanza la plataforma 'Fashiontainment' con el grupo JYT y planes de fuerte crecimiento hasta 2029",
+      "summary": "Gap Inc. lanzó una plataforma 'fashiontainment' con el grupo JYT como parte de su estrategia de crecimiento hasta 2029."
+    },
+    "translatedAt": "2026-09-27T12:06:34.491Z"
+  },
+  "e3765c594dbb4001": {
+    "da": {
+      "title": "Inde i de italienske fabrikker, der forvandler rå fibre til blød cashmere for Falconeri",
+      "summary": "Falconeri overvåger næsten alle trin i cashmereproduktionen på sine fabrikker i Biella og Avio og forvandler rå fibre til færdige luksustekstiler."
+    },
+    "es": {
+      "title": "Dentro de las fábricas italianas que convierten fibras crudas en suave cachemir para Falconeri",
+      "summary": "Falconeri supervisa casi todas las etapas de la producción de cachemir en sus fábricas de Biella y Avio, transformando fibras crudas en textiles de lujo terminados."
+    },
+    "translatedAt": "2026-09-27T12:06:34.491Z"
+  },
+  "4a0b8c96f8b2e225": {
+    "da": {
+      "title": "Louis Vuitton præsenterer håndværksudstilling i Toronto",
+      "summary": "Louis Vuitton debuterer eksklusive kufferter, bordservice og høj smykker i en udstilling på Bloor Street i Toronto frem til 4. oktober."
+    },
+    "es": {
+      "title": "Louis Vuitton presenta exhibición de artesanía en Toronto",
+      "summary": "Louis Vuitton presenta exclusivos baúles, vajilla y alta joyería en una exhibición en Bloor Street que se realiza en Toronto hasta el 4 de octubre."
+    },
+    "translatedAt": "2026-09-27T12:06:34.491Z"
+  },
+  "1a1f90b449b7e1fc": {
+    "da": {
+      "title": "Hvordan skønhed blev besat af dristig, udtryksfuld emballage",
+      "summary": "Skønhedsbrands i 2026 bruger dristige farver, karakteristiske skrifttyper og innovative materialer i emballagen for at skabe følelsesmæssige forbindelser og øge synligheden på tværs af platforme."
+    },
+    "es": {
+      "title": "Cómo la belleza se obsesionó con el embalaje audaz y expresivo",
+      "summary": "Las marcas de belleza en 2026 están usando colores audaces, fuentes distintivas y materiales innovadores en el embalaje para crear conexiones emocionales y aumentar la visibilidad en todas las plataformas."
+    },
+    "translatedAt": "2026-09-27T12:06:36.030Z"
+  },
+  "47488233d0a531ec": {
+    "da": {
+      "title": "Vil et nyt navn for Natural Diamond Council øge smykkesalget?",
+      "summary": "Natural Diamond Council har omdøbt sig til The Diamond Collective som en del af en ny global marketingkampagne."
+    },
+    "es": {
+      "title": "¿Impulsará un nuevo nombre para el Natural Diamond Council las ventas de joyería?",
+      "summary": "El Natural Diamond Council se ha renombrado como The Diamond Collective como parte de una nueva campaña global de marketing."
+    },
+    "translatedAt": "2026-09-27T12:06:36.030Z"
+  },
+  "644c6a51eb7f663a": {
+    "da": {
+      "title": "Selfridges lancerer et års Poubel residency på Oxford Street",
+      "summary": "Selfridges har lanceret et års Poubel smykkebopæl i sin butik på Oxford Street i London."
+    },
+    "es": {
+      "title": "Selfridges lanza residencia Poubel de un año en Oxford Street",
+      "summary": "Selfridges ha lanzado una residencia de joyería Poubel de un año en su tienda de Oxford Street en Londres."
+    },
+    "translatedAt": "2026-09-27T12:06:36.030Z"
+  },
+  "25b3ad8d4cc4727f": {
+    "da": {
+      "title": "H Samuel genintroducerer Forever Diamond-kollektionen",
+      "summary": "H Samuel har genintroduceret sin eksklusive Forever Diamond-kollektion med et opdateret design og en ny kampagne med fokus på moderne forhold og forlovelsessmykker."
+    },
+    "es": {
+      "title": "H Samuel relanza la colección Forever Diamond",
+      "summary": "H Samuel ha relanzado su exclusiva colección Forever Diamond con un diseño renovado y una nueva campaña centrada en las relaciones modernas y las joyas de compromiso."
+    },
+    "translatedAt": "2026-09-27T12:06:36.030Z"
+  },
+  "e96f2ff34d3b1683": {
+    "da": {
+      "title": "Breitling og Watches of Switzerland Group udvider partnerskab med eksklusive Navitimer-modeller",
+      "summary": "Breitling og Watches of Switzerland Group lancerede to eksklusive Navitimer-modeller, der kun er tilgængelige hos Watches of Switzerland, Goldsmiths og Mappin & Webb i Storbritannien."
+    },
+    "es": {
+      "title": "Breitling y Watches of Switzerland Group amplían su asociación con exclusivas Navitimer",
+      "summary": "Breitling y Watches of Switzerland Group lanzaron dos modelos exclusivos Navitimer, disponibles solo en Watches of Switzerland, Goldsmiths y Mappin & Webb en el Reino Unido."
+    },
+    "translatedAt": "2026-09-27T12:06:36.031Z"
+  },
+  "1b0ce664adfa6ac4": {
+    "da": {
+      "title": "Breitlings nye CEO afslørede netop deres 5-års plan | House of Brands Ep. 1",
+      "summary": "Breitlings nye CEO Jean-Marc Pontroué præsenterede en femårig strategisk plan, der skitserer brandets fremtidige retning i et interview med Georges Kern."
+    },
+    "es": {
+      "title": "El nuevo CEO de Breitling acaba de revelar su plan a 5 años | House of Brands Ep. 1",
+      "summary": "El nuevo CEO de Breitling, Jean-Marc Pontroué, presentó un plan estratégico de cinco años que detalla la dirección futura de la marca en una entrevista con Georges Kern."
+    },
+    "translatedAt": "2026-09-27T12:06:37.793Z"
+  },
+  "cd8d402d5cf81c87": {
+    "da": {
+      "title": "Gå ikke glip af det: Melbournes Cartier-udstilling lukker snart",
+      "summary": "Melbournes Cartier-udstilling, en af Australiens største smykkefremvisninger, lukker snart efter at have tiltrukket stor opmærksomhed fra branchen."
+    },
+    "es": {
+      "title": "No te lo pierdas: la exposición Cartier en Melbourne cierra pronto",
+      "summary": "La exposición Cartier en Melbourne, una de las mayores exhibiciones de joyería de Australia, cerrará pronto tras atraer una atención significativa de la industria."
+    },
+    "translatedAt": "2026-09-27T12:06:37.793Z"
+  },
+  "7c0527ef4d127c57": {
+    "da": {
+      "title": "Oldtidsguldbøjle fundet ved en enestående opdagelse",
+      "summary": "En metaldetektorist i det landlige Wales opdagede et 3.000 år gammelt guldbøjle i et sjældent arkæologisk fund."
+    },
+    "es": {
+      "title": "Pulsera de oro antigua recuperada en un hallazgo único en la vida",
+      "summary": "Un detectorista en la zona rural de Gales descubrió una pulsera de oro de 3.000 años en un raro hallazgo arqueológico."
+    },
+    "translatedAt": "2026-09-27T12:06:37.793Z"
   }
 }
