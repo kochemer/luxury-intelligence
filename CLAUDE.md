@@ -156,9 +156,10 @@ SEO docs, by purpose:
 | `docs/seo-backlog.md` | unscheduled ideas and the remaining work to make repair/recovery act unattended |
 
 When resuming SEO work, start with the checklist in `docs/seo-status.md`. As of
-2026-09-21 detection, email and **rollback** are live in CI. Repair is built
-but **cannot act in CI yet** (no Claude Code in the workflow, ledgers not
-persisted). Don't assume it has been fixing things. After any rollback, Vercel
+2026-10-04 detection, email, **rollback** and **repair** can all act in CI.
+Repair opens pull requests for review, never merges. Neither has been
+triggered by a real incident yet, and repair hasn't had an end-to-end
+rehearsal. The weekly pass records search traffic. After any rollback, Vercel
 stops deploying pushes until someone undoes it — see `docs/seo-system.md`.
 
 ### Testing

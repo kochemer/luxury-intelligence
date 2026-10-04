@@ -159,7 +159,7 @@ for a signal that is not there.
 Found while documenting on 2026-09-13. Built, but not yet able to act
 unattended. Details in [seo-status.md](seo-status.md#what-is-running-and-what-only-looks-like-it-is).
 
-### 11. Make repair work in CI (recovery half done 2026-09-21)
+### 11. ~~Make repair and recovery work in CI~~ — done 2026-10-04, except a rehearsal
 
 **Done:** `VERCEL_TOKEN` secret, Vercel CLI in the workflow, recovery outcomes
 emailed, rollback target limited to what Hobby allows, credential check
@@ -170,14 +170,12 @@ setting "Allow GitHub Actions to create and approve pull requests" enabled;
 `check_repair_pr` dispatch input proves it end to end (opened and closed
 draft PR #9).
 
-**Left, for repair:** install Claude Code in `seo-monitor.yml` (the agent
-spawns the `claude` binary, which the runner does not have, so today every
-repair attempt ends as `agent-failed`). Commit the repair ledger and spend
-files. Stop `abandon()` resetting `data/seo/`. Rehearse with a deliberate
-breakage on a branch.
+**Done 2026-10-04:** Claude Code installed in the repair step; ledger and spend
+files committed by "Persist SEO state"; `abandon()` no longer wipes
+`data/seo/`; `ANTHROPIC_API_KEY` secret replaced (the old key was rejected);
+`check_repair_agent` dispatch input verifies the agent in CI.
 
-**Why first:** until then, "self-fixing" means "self-reporting". **Effort:**
-medium, and `.github/` is human-only by policy.
+**Left:** an end-to-end rehearsal with a deliberate breakage on a branch.
 
 ### 12. Decide what `autonomy` means for merges
 
@@ -186,14 +184,14 @@ implement merge-after-six-gates, or remove the grant so the level doesn't
 promise something it can't do. **Effort:** small, but a real decision about
 unreviewed changes reaching production.
 
-### 13. Repairable-code contract test
+### 13. ~~Repairable-code contract test~~ — done 2026-10-04
 
 `REPAIRABLE_CODES` has drifted: it lists `LIVE_JSONLD_MISSING_ARTICLE` (the
 check now emits `…_NEWSARTICLE`) and `STATIC_SITEMAP_URL_MISMATCH` (emitted by
 nothing). Correct the list and add a test that every repairable code is emitted
 by some check. **Effort:** small. Touches the policy file, so review it.
 
-### 14. Quiet the favicon noise in the image audit
+### 14. ~~Quiet the favicon noise in the image audit~~ — done 2026-10-04
 
 56 of the "not responsive" images are Google's 32px favicon service, which
 also sends no `Content-Length`. Exempt images under ~64px and that host.

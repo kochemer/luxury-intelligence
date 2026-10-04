@@ -107,11 +107,17 @@ Two emails, both to `SEO_ALERT_EMAIL`, with opposite rules:
 | **Weekly summary** | `seo-weekly.yml`, Sundays 08:00 UTC | **every week**, even when all is clear | it is the weekly job's deliverable; silence would be indistinguishable from the job not running |
 | **Daily alert** | `seo-monitor.yml`, daily 07:00 UTC | **only** when a problem appears or clears | an alert that also says "still fine" gets filtered, and is then useless on the day it matters |
 
-The weekly summary leads with three numbers rather than the score: **site
-health** (`STATIC_*`/`LIVE_*` findings), **Google indexes N of M** (with the
-change since last week) and **improvement ideas** (`OPT_*`). The score alone
+The weekly summary leads with four numbers rather than the score: **search
+impressions** (28 days, with the change against the 28 days before), **Google
+indexes N of M** (with the change since last week), **site health**
+(`STATIC_*`/`LIVE_*` findings) and **improvement ideas** (`OPT_*`). A
+"Search traffic" section lists top pages and queries. The score alone
 misleads: a week where the site is spotless but Google has not crawled half of
 it scores 25/100.
+
+Each Sunday's pass also commits a full Search Console snapshot to
+`data/seo/gsc/` (about six months kept). Google itself keeps 16 months; these
+are the durable record for the later "did that change help?" loop.
 
 Both go through `seo/shared/email.ts`. A send counts as delivered only with no
 error **and** a Resend message id. If either email cannot be delivered, its

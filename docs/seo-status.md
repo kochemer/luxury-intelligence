@@ -93,20 +93,22 @@ the full set. The weekly job flags it if it goes stale again (over 30 days).
 |---|---|---|---|
 | Daily monitor + alert email | ✅ | ✅ every day, 07:00 UTC | test alert delivered from CI, Resend id `57744023…` |
 | Weekly pass + summary email | ✅ | ✅ Sundays, 08:00 UTC | two real summaries delivered 13 Sep (`ff19b548…`, `e9dc7097…`) |
+| Search traffic tracking | ✅ | ✅ weekly since 2026-10-04: snapshot committed, impressions lead the email | preview rendered with real data; first scheduled run 4 Oct |
 | Static + live audit | ✅ | inside both jobs | 0 defects on 53 pages |
 | Indexing audit (URL Inspection, sitemap health) | ✅ | weekly | produces the 23/53 figure |
 | Link graph, image weight | ✅ | weekly | found and fixed the 94 MB archive |
-| **Repair agent** (Claude fixes code defects) | ✅ | ⚠️ **step exists, cannot act in CI** | drilled locally on Windows only |
+| **Repair agent** (Claude fixes code defects, opens a PR) | ✅ | ✅ **able to act in CI since 2026-10-04** (triggers on repairable critical/high findings) | each part verified in CI separately; no end-to-end rehearsal yet |
 | **Recovery** (roll production back) | ✅ | ✅ **live in CI since 2026-09-21** (triggers when the monitor finds problems) | token verified in CI; never exercised against a real outage |
 | Optimiser agent (acts on improvement ideas) | ❌ | — | deliberately not built yet |
 | Measurement loop (did a change help?) | ❌ | — | deferred until ~5,000 impressions/month |
 
-**So today (updated 2026-09-21):** if the site breaks, the monitor detects it
+**So today (updated 2026-10-04):** if the site breaks, the monitor detects it
 and **emails you**. If at least 3 of 8 sampled pages are failing, recovery
 **rolls production back** to the previous deployment and emails the outcome.
-Code defects are still **not fixed** automatically: repair can't act in CI
-yet (reasons below). Neither step has been triggered by a real incident; the
-site has been healthy every day.
+If the problem is a code defect on the repairable list, the repair agent
+writes a fix, the six gates check it, and it is opened as a **pull request for
+you to review** — never merged automatically. Neither step has been triggered
+by a real incident; the site has been healthy every day.
 
 **After an automatic rollback, deploys are frozen.** Vercel stops putting new
 pushes live, including the Sunday digest, until you press **Undo Rollback**
@@ -116,26 +118,31 @@ deployed. The recovery email says this in its subject line.
 GitHub runs scheduled jobs late. Observed delays were 4–5 hours (the Sunday
 08:00 job ran at 13:13). Expect alerts that day, not that minute.
 
-### Why repair cannot act in CI
+### Repair: able to act (2026-10-04)
 
-Confirmed by reading `seo-monitor.yml` and `seo/repair/`. Never observed in a
-run, because the step has never been triggered.
+The four blockers found on 2026-09-13, and how each was closed:
 
-1. **Claude Code is not installed** in the workflow, and not a dependency. The
-   agent spawns `claude`, the spawn fails, and the attempt is recorded as
-   `agent-failed`.
-2. **It could not open a PR** even if it ran: the step gets no `GH_TOKEN`, and
-   the job lacks `pull-requests: write`.
-3. **Its ledgers are not saved.** `data/seo/repair-ledger.json` (the
-   two-attempts-per-finding circuit breaker) and `data/seo/repair-spend.json`
-   (the $15/30-day cap) are written in the runner and discarded. Only
-   `monitor-state.json` is committed. The **$2 per-run cap still holds**,
-   because the Claude CLI enforces it. The monthly cap and circuit breaker
-   would not survive between runs.
-4. **Discarding a failed repair wipes the monitor's unsaved state.** `abandon()`
-   runs `git reset --hard`, which reverts `monitor-state.json` before the
-   workflow commits it. The same problem would then look new every day and
-   re-alert daily.
+1. **Claude Code wasn't installed in CI.** The repair step now installs
+   `@anthropic-ai/claude-code@2`.
+2. **It couldn't open a PR.** Fixed 2026-09-24: `GH_TOKEN`,
+   `pull-requests: write`, and the repo setting allowing Actions to create PRs.
+3. **Its ledgers weren't saved.** "Persist SEO state" now commits
+   `repair-ledger.json` (circuit breaker) and `repair-spend.json` ($15/30
+   days), runs even when repair fails, and returns to `main` first if a crash
+   left the repair branch checked out.
+4. **Discarding a failed repair wiped the monitor's state** (`git reset
+   --hard`), which would have caused a duplicate alert every day. It now
+   discards only outside `data/seo/`, which the agent can't write, and
+   unstages first so a file the agent `git add`ed isn't carried to `main`.
+
+Also on 2026-10-04: the `ANTHROPIC_API_KEY` secret was replaced. The old one
+was rejected by the API ("not scoped to a workspace"), so every repair would
+have failed even with the CLI installed. The new key is the one in
+`.env.local`.
+
+**Check it:** Actions → *SEO Monitor* → Run workflow → tick
+`check_repair_agent` (installs the CLI, one call, ~$0.01) or
+`check_repair_pr` (opens and closes a draft PR).
 
 ### Recovery: now live (2026-09-20/21)
 
@@ -160,16 +167,11 @@ depended on them. The workflow step never ran (a boolean input compared to the
 string `'true'`). And in-progress builds at the top of the list were treated as
 live.
 
-### Enabling repair (still to do)
+### Remaining for repair
 
-- [x] ~~**You:** create a Vercel access token and add it as the `VERCEL_TOKEN` repo secret.~~ Done 2026-09-18.
-- [x] ~~Install the Vercel CLI in `seo-monitor.yml`.~~ Done.
-- [x] ~~Email the recovery outcome.~~ Done.
-- [ ] Install Claude Code in `seo-monitor.yml`.
-- [ ] Give the repair step `GH_TOKEN: ${{ github.token }}` and the job `pull-requests: write`.
-- [ ] Commit `repair-ledger.json` and `repair-spend.json` alongside `monitor-state.json`.
-- [ ] Stop `abandon()` from resetting `data/seo/` (or persist state before repair runs).
-- [ ] Rehearse: break something on a branch, confirm a PR appears and the gates run in CI.
+- [ ] Rehearse end to end: introduce a repairable defect on a branch, confirm
+      the agent fixes it, the gates run in CI, and a PR appears. Each part has
+      been verified separately; the whole chain hasn't.
 
 `.github/` is on the agents' deny list, so this is human work by design.
 
@@ -182,17 +184,13 @@ live.
   `runRepair` opens a PR at every level above `observe`. Rollback and commit
   reverts *are* wired to authority. Implement the merge, or drop the grant,
   before ever raising the level to `autonomy`.
-- **Repairable-code drift.** `REPAIRABLE_CODES` in `seo/repair/policy.ts`
-  lists `LIVE_JSONLD_MISSING_ARTICLE`, but the check now emits
-  `LIVE_JSONLD_MISSING_NEWSARTICLE` after the `NewsArticle` switch.
-  `STATIC_SITEMAP_URL_MISMATCH` is emitted by no check at all. No practical
-  effect today: JSON-LD findings are `medium`, and only `critical`/`high` reach
-  repair. Fix it together with a contract test asserting every repairable code
-  is emitted somewhere.
-- **Favicon noise in the image audit.** `OPT_IMAGE_NOT_RESPONSIVE` counts 56
-  Google-favicon images (32px) as needing `srcset`, and `OPT_ASSET_SIZE_UNKNOWN`
-  flags the same service for sending no `Content-Length`. Exempt tiny images
-  and the favicon service.
+- ~~**Repairable-code drift.**~~ Fixed 2026-10-04, with a contract test that
+  every code the policy names is one some check emits.
+- ~~**Favicon noise in the image audit.**~~ Fixed 2026-10-04: favicons declare
+  16px, and images declared ≤ 64px are skipped.
+- **The repairable JSON-LD codes never reach repair.** They're `medium`
+  severity, and only `critical`/`high` findings are passed to repair.
+  Harmless, but they're effectively decorative entries in the policy.
 - **Stale comment.** `seo-monitor.yml` says it runs "an hour after the Sunday
   digest build". GitHub's cron delays make that unreliable.
 - **Root `tsc` skips `scripts/`.** Handled: `npm run typecheck:seo` covers the
