@@ -63,11 +63,29 @@ function branchName(finding: Finding): string {
   return `seo-autofix-${slug}-${stamp}-${finding.id.split(':')[1] ?? 'x'}`;
 }
 
-/** Restore the repo to a clean state on the original branch. */
-async function abandon(originalBranch: string, branch: string, keep = false): Promise<void> {
-  if (keep) { await git(['add', '-A']); await git(['stash', 'push', '-m', 'seo-repair-failed']); await git(['checkout', originalBranch]); return; }
-  await git(['reset', '--hard']);
-  await git(['clean', '-fd']);
+/**
+ * Everything the agent did is discarded; this system's own records are not.
+ *
+ * `data/seo/` holds state written by the processes around the agent, not by
+ * it: the monitor's state from earlier in the same CI job, and the spend
+ * record written moments before a failed run is discarded. A blanket
+ * `git reset --hard` wiped both. Losing the monitor state made a repairable
+ * defect look new every day — a daily duplicate alert. Losing the spend
+ * record undercounted the 30-day budget.
+ *
+ * Excluding `data/seo/` cannot keep agent work: the agent's tool permissions
+ * (`buildAllowedTools`) do not reach it.
+ */
+export const PRESERVED_ON_DISCARD = 'data/seo';
+
+/** Restore the repo to a clean state on the original branch. Exported for tests. */
+export async function abandon(originalBranch: string, branch: string): Promise<void> {
+  const keep = `:(exclude)${PRESERVED_ON_DISCARD}`;
+  // The agent may `git add`, so unstage first: a staged new file is not
+  // "untracked", `clean` would skip it, and it would ride along to main.
+  await git(['reset', '-q', '--', '.', keep]);
+  await git(['checkout', 'HEAD', '--', '.', keep]);   // tracked files back to HEAD
+  await git(['clean', '-fd', '--', '.', keep]);       // agent-created files gone
   await git(['checkout', originalBranch]);
   await git(['branch', '-D', branch]);
 }

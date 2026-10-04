@@ -18,6 +18,10 @@ on:
         description: 'Verify the Vercel token can list deployments (changes nothing)'
         type: boolean
         default: false
+      check_repair_agent:
+        description: 'Verify the repair agent (Claude Code + ANTHROPIC_API_KEY) runs in CI — one tiny call, ~$0.001'
+        type: boolean
+        default: false
       check_repair_pr:
         description: 'Verify repair can open a pull request (opens a draft PR, then closes it and deletes the branch)'
         type: boolean
@@ -91,6 +95,29 @@ jobs:
           echo "Opened $url"
           gh pr close "$url" --delete-branch --comment "Permission check passed; closing automatically."
           echo "✅ Repair can open pull requests ($url, closed)" >> "$GITHUB_STEP_SUMMARY"
+
+      # Same idea as the two checks around it: repair only runs during an
+      # incident, so a missing CLI or a revoked/rotated API key would only be
+      # discovered then. Installs exactly what the repair step installs and
+      # makes one minimal call under a hard 5-cent cap.
+      - name: Verify repair agent
+        if: inputs.check_repair_agent == true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "✗ ANTHROPIC_API_KEY secret is not set." ; exit 1
+          fi
+          npm i -g @anthropic-ai/claude-code@2
+          claude --version
+          out=$(claude -p "Reply with exactly: OK" --model haiku --max-budget-usd 0.05 --output-format json)
+          echo "$out" | node -e '
+            let s=""; process.stdin.on("data",d=>s+=d).on("end",()=>{
+              const j=JSON.parse(s);
+              if (j.is_error) { console.error("✗ Agent call failed:", j.result); process.exit(1); }
+              console.log("✓ Repair agent runs. Reply:", JSON.stringify(j.result), "cost $" + (j.total_cost_usd ?? 0).toFixed(4));
+            });'
+          echo "✅ Repair agent runs in CI" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Run SEO monitor
         id: monitor
@@ -166,24 +193,45 @@ jobs:
             echo "The monitor's email alert is still the notification path."
             exit 0
           fi
+          # The agent is the Claude Code CLI, spawned as `claude`. Without it
+          # every attempt ended "agent-failed". Installed here, not up front,
+          # so healthy days don't pay for it. Pinned to a major version: the
+          # flags in seo/repair/agent.ts (--max-budget-usd, --output-format)
+          # are part of its contract. It authenticates with ANTHROPIC_API_KEY.
+          npm i -g @anthropic-ai/claude-code@2
           set +e
           npm run seo:repair
           echo "repair_exit=$?" >> "$GITHUB_OUTPUT"
           set -e
 
 
-      - name: Persist monitor state
-        # State is what makes alerts fire on transitions rather than every day,
-        # so it has to survive between runs. Only this one file is ever
-        # committed by this workflow.
+      - name: Persist SEO state
+        # Three files, each of which only works if it survives between runs:
+        #   monitor-state.json  makes alerts fire on transitions, not daily
+        #   repair-ledger.json  the circuit breaker (2 attempts per finding)
+        #   repair-spend.json   the rolling 30-day spend cap
+        # Only these are ever committed by this workflow. `if: always()` so a
+        # failed repair step can't skip it.
+        if: always()
         run: |
-          if [ -z "$(git status --porcelain data/seo/monitor-state.json)" ]; then
+          FILES="data/seo/monitor-state.json data/seo/repair-ledger.json data/seo/repair-spend.json"
+          # A repair that crashed can leave its branch checked out. These files
+          # are never touched by the agent, so carry them back to main.
+          if [ "$(git rev-parse --abbrev-ref HEAD)" != "main" ]; then
+            echo "Not on main after repair — returning to main with state files."
+            git checkout main
+          fi
+          CHANGED=""
+          for f in $FILES; do
+            if [ -f "$f" ] && [ -n "$(git status --porcelain -- "$f")" ]; then CHANGED="$CHANGED $f"; fi
+          done
+          if [ -z "$CHANGED" ]; then
             echo "No state change to commit"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/seo/monitor-state.json
+          git add $CHANGED
           git commit -m "seo: update monitor state [skip ci]"
           git pull --rebase origin main
           git push
