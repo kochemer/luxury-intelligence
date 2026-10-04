@@ -17,7 +17,8 @@ export type WorkflowName =
   | 'summarize'
   | 'rank'
   | 'script'
-  | 'polish';
+  | 'polish'
+  | 'markets';
 
 // ── Default model per workflow ──────────────────────────────────
 export const DEFAULT_MODEL_BY_WORKFLOW: Record<WorkflowName, string> = {
@@ -33,6 +34,10 @@ export const DEFAULT_MODEL_BY_WORKFLOW: Record<WorkflowName, string> = {
   rank:      'o4-mini',
   script:    'gpt-4.1',
   polish:    'gpt-4.1',
+  // Markets pages: deciding whether a headline is a company move, and the
+  // weekly sentences. Visible on public pages, and wrong labels are worse
+  // than none, so the full model. A few cached calls a week.
+  markets:   'gpt-4.1',
 };
 
 // ── Env-var names (uppercase) ───────────────────────────────────
@@ -43,6 +48,7 @@ const ENV_KEY: Record<WorkflowName, string> = {
   rank:      'LLM_MODEL_RANK',
   script:    'LLM_MODEL_SCRIPT',
   polish:    'LLM_MODEL_POLISH',
+  markets:   'LLM_MODEL_MARKETS',
 };
 
 /**
