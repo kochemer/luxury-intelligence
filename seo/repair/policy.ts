@@ -28,13 +28,16 @@ export const REPAIRABLE_CODES = new Set<string>([
   'LIVE_CANONICAL_MISMATCH',
   'LIVE_UNEXPECTED_REDIRECT',
   'STATIC_DIGEST_MISSING_FROM_SITEMAP',
-  'STATIC_SITEMAP_URL_MISMATCH',
   'STATIC_ROBOTS_DISALLOW_CONFLICT',
   'LIVE_ROBOTS_NO_SITEMAP',
 
   // Structured data defects — verifiable against a schema.
+  // The MISSING_* codes are built from expectedJsonLdTypes() in liveAudit.ts,
+  // so they change when the expected schema does: this said
+  // MISSING_ARTICLE for weeks after the page moved to NewsArticle. A contract
+  // test now checks every code here is one some check can actually emit.
   'LIVE_JSONLD_INVALID',
-  'LIVE_JSONLD_MISSING_ARTICLE',
+  'LIVE_JSONLD_MISSING_NEWSARTICLE',
   'LIVE_JSONLD_MISSING_BREADCRUMBLIST',
 
   // On-page structure.

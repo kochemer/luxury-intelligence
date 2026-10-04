@@ -31,7 +31,7 @@ import {
 } from '../lib/seo/jsonLd';
 import { renderedWeekTitle, buildWeekMetaDescription } from '../lib/seo/metaText';
 import { formatDateRange } from '../lib/utils/formatDate';
-import { TITLE_MAX_RENDERED, DESCRIPTION_MAX } from '../seo/config';
+import { TITLE_MAX_RENDERED, DESCRIPTION_MIN, DESCRIPTION_MAX } from '../seo/config';
 import type { IndexableUrlEntry } from '../lib/seo/urlInventory';
 import type { WeeklyDigest } from '../lib/types';
 
@@ -150,9 +150,41 @@ test('config thresholds are internally consistent', () => {
   // A threshold pair that crosses over silently disables a check: if the
   // minimum exceeded the maximum, every description would be "out of range"
   // and the finding would be meaningless.
-  const { DESCRIPTION_MIN, DESCRIPTION_MAX: max } = require('../seo/config') as {
-    DESCRIPTION_MIN: number; DESCRIPTION_MAX: number;
-  };
-  assert(DESCRIPTION_MIN < max, 'DESCRIPTION_MIN must be below DESCRIPTION_MAX');
+  assert(DESCRIPTION_MIN < DESCRIPTION_MAX, 'DESCRIPTION_MIN must be below DESCRIPTION_MAX');
   assert(TITLE_MAX_RENDERED > 20, 'a title limit this low would flag every page');
+});
+
+// ── The repair policy names codes that checks actually emit ───────────────
+
+/**
+ * Every finding code some check can emit: quoted UPPER_SNAKE literals in the
+ * producers, plus the JSON-LD codes liveAudit builds at runtime from
+ * expectedJsonLdTypes() — the ones that went stale before.
+ */
+async function emittableCodes(): Promise<Set<string>> {
+  const codes = new Set<string>();
+  for (const dir of ['seo/audit', 'seo/monitor', 'seo/optimize', 'seo/gsc']) {
+    for (const file of await fs.readdir(path.join(process.cwd(), dir))) {
+      if (!file.endsWith('.ts')) continue;
+      const src = await fs.readFile(path.join(process.cwd(), dir, file), 'utf-8');
+      for (const m of src.matchAll(/['"`]((?:STATIC|LIVE|GSC|OPT)_[A-Z0-9_]+)['"`]/g)) codes.add(m[1]!);
+    }
+  }
+  for (const kind of ['digest', 'static', 'locale'] as const) {
+    for (const t of expectedJsonLdTypes({ ...digestEntry, kind })) codes.add(`LIVE_JSONLD_MISSING_${t.toUpperCase()}`);
+  }
+  return codes;
+}
+
+test('every code the repair policy names is one a check can emit', async () => {
+  // A code nothing emits is a dead permission: the agent was meant to fix
+  // something, and silently never will. Found twice: MISSING_ARTICLE after the
+  // NewsArticle switch, and STATIC_SITEMAP_URL_MISMATCH, which no check had.
+  const { REPAIRABLE_CODES, ESCALATE_ONLY_CODES } = await import('../seo/repair/policy');
+  const emittable = await emittableCodes();
+
+  const dead = [...REPAIRABLE_CODES, ...Object.keys(ESCALATE_ONLY_CODES)].filter(c => !emittable.has(c));
+  assert.deepEqual(dead, [],
+    `seo/repair/policy.ts names codes no check emits: ${dead.join(', ')}. ` +
+    'Rename them to what the check emits now, or remove them.');
 });
