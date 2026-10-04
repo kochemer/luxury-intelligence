@@ -110,7 +110,13 @@ jobs:
           fi
           npm i -g @anthropic-ai/claude-code@2
           claude --version
-          out=$(claude -p "Reply with exactly: OK" --model haiku --max-budget-usd 0.05 --output-format json)
+          # `|| code=$?` so a failure still reaches the parser below and prints
+          # its reason; under `bash -e` a failing $(...) ends the step silently.
+          code=0
+          out=$(claude -p "Reply with exactly: OK" --model haiku --max-budget-usd 0.05 --output-format json 2>&1) || code=$?
+          if ! echo "$out" | node -e 'JSON.parse(require("fs").readFileSync(0,"utf8"))' 2>/dev/null; then
+            echo "✗ Agent call failed (exit $code). Output:"; echo "$out" | head -20; exit 1
+          fi
           echo "$out" | node -e '
             let s=""; process.stdin.on("data",d=>s+=d).on("end",()=>{
               const j=JSON.parse(s);
