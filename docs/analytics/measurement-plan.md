@@ -70,7 +70,7 @@ All events must include:
 **Rules:**
 
 1. **UTMs override referrer:** If any UTM is present on the request, use UTM-based channel resolution; do not use referrer for that hit.
-2. **No UTMs:** Infer channel from `referrer_domain`: search engines → `search`, known social domains → `organic_social`, known email domains / links → `email`, other external → `referral`, no referrer → `direct`.
+2. **No UTMs:** Infer channel from `referrer_domain`: AI assistants → `ai_assistant`, search engines → `search`, known social domains → `organic_social`, known email domains / links → `email`, other external → `referral`, no referrer → `direct`.
 3. **Persistence:** Store last-click attribution (channel, source, medium, campaign) in session storage; optionally persist in a first-party cookie (e.g. 30 days) for cross-session consistency. Attach the same last-click set to every event in the session/page.
 
 **Channel mapping (last-click):**
@@ -78,6 +78,7 @@ All events must include:
 | Resolved channel | Typical source / medium / conditions |
 |------------------|--------------------------------------|
 | `paid_search` | `utm_medium=cpc` (or `ppc`, `paid`) and search-like source (e.g. `google`, `bing`) |
+| `ai_assistant` | Referrer from an AI assistant (ChatGPT, Perplexity, Gemini, Copilot, Claude), no UTMs. Checked before `search` because Gemini is on a google.com subdomain. Added 2026-10-04 |
 | `search` | Organic referrer from known search engine, no UTMs |
 | `paid_social` | `utm_medium=paid_social` or social source + paid medium |
 | `organic_social` | Referrer from known social domain, no UTMs or organic UTM |

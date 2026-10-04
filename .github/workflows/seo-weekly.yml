@@ -52,6 +52,9 @@ jobs:
           SEO_ALERT_EMAIL: ${{ secrets.SEO_ALERT_EMAIL }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          # Visitors section (seo/analytics/visitors.ts). Read-only; the public
+          # API key and EU region are defaults in that module.
+          AMPLITUDE_SECRET_KEY: ${{ secrets.AMPLITUDE_SECRET_KEY }}
         run: |
           # Exit 1 means "a human should look", not "the job failed" — the
           # distinction the daily monitor workflow also makes.

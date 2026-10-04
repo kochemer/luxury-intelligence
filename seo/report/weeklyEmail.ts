@@ -17,7 +17,7 @@
 
 import { escapeHtml } from '@/lib/digest/renderEmailDigestHtml';
 import { deliverEmail, getEmailConfig, type EmailSender, type DeliveryResult } from '../shared/email';
-import type { Finding, SeoReport, TrafficSummary } from '../types';
+import type { Finding, SeoReport, TrafficSummary, VisitorSummary } from '../types';
 
 export type FindingGroup = 'health' | 'indexing' | 'ideas';
 
@@ -102,6 +102,7 @@ export interface WeeklySummary {
   actionable: number;
   indexing: { indexed: number; inspected: number; change: number | null } | null;
   traffic: TrafficSummary | null;
+  visitors: VisitorSummary | null;
   isFirstReport: boolean;
 }
 
@@ -119,6 +120,7 @@ export function summarise(report: SeoReport): WeeklySummary {
       ? { ...current, change: previous ? current.indexed - previous.indexed : null }
       : null,
     traffic: report.inputs.traffic ?? null,
+    visitors: report.inputs.visitors ?? null,
     isFirstReport: !report.delta.previousWeek,
   };
 }
@@ -126,9 +128,10 @@ export function summarise(report: SeoReport): WeeklySummary {
 export function buildWeeklySubject(report: SeoReport): string {
   const s = summarise(report);
   const traffic = s.traffic ? ` · ${s.traffic.current.impressions} impressions` : '';
+  const people = s.visitors ? ` · ${s.visitors.people} visitor${s.visitors.people === 1 ? '' : 's'}` : '';
   const indexed = s.indexing ? ` · ${s.indexing.indexed}/${s.indexing.inspected} pages indexed` : '';
   const verdict = s.actionable > 0 ? `${s.actionable} to look at` : 'all clear';
-  return `SEO weekly — ${report.week}: ${verdict}${traffic}${indexed}`;
+  return `SEO weekly — ${report.week}: ${verdict}${traffic}${people}${indexed}`;
 }
 
 function tile(label: string, value: string, note: string, tone: 'good' | 'warn' | 'neutral'): string {
@@ -174,6 +177,29 @@ function renderTraffic(t: TrafficSummary): string {
     <ul style="padding-left:18px;margin:0;font-size:13px">${queries}</ul>`;
 }
 
+/** "8 (+1 vs prior week)" — no percentages: at single digits they exaggerate. */
+export function visitorsNote(v: VisitorSummary): string {
+  const diff = v.people - v.previousPeople;
+  return `${diff === 0 ? 'same as' : `${signed(diff)} vs`} prior week · ${v.botsExcluded} bot${v.botsExcluded === 1 ? '' : 's'} filtered out`;
+}
+
+/** Referring domains come from visitors' browsers, so they are escaped like everything else. */
+function renderVisitors(v: VisitorSummary): string {
+  const channels = v.channels.length === 0
+    ? '<li>No visits recorded.</li>'
+    : v.channels.map(c => `<li>${escapeHtml(c.channel)} — ${c.visitors}</li>`).join('');
+  const refs = v.referrers.length === 0
+    ? ''
+    : `<p style="font-size:13px;margin:10px 0 4px"><strong>Referring sites</strong></p>
+       <ul style="padding-left:18px;margin:0;font-size:13px">${v.referrers.map(r => `<li>${escapeHtml(r.domain)} — ${r.visitors}</li>`).join('')}</ul>`;
+  return `
+    <h3 style="font-family:Georgia,serif;font-size:17px;margin:24px 0 8px">Visitors</h3>
+    <p style="font-size:13px;color:#6B7280;margin:0 0 8px">${escapeHtml(v.window.start)} → ${escapeHtml(v.window.end)} · ${v.people} people, ${escapeHtml(visitorsNote(v))}. From Amplitude; a person arriving twice by different routes counts under both sources.</p>
+    <p style="font-size:13px;margin:0 0 4px"><strong>Where they came from</strong></p>
+    <ul style="padding-left:18px;margin:0;font-size:13px">${channels}</ul>
+    ${refs}`;
+}
+
 export function buildWeeklyEmailHtml(ctx: WeeklyEmailContext): string {
   const { report } = ctx;
   const s = summarise(report);
@@ -199,6 +225,7 @@ export function buildWeeklyEmailHtml(ctx: WeeklyEmailContext): string {
     : tile('Search impressions', '—', 'not available this week', 'neutral');
 
   const trafficBlock = s.traffic ? renderTraffic(s.traffic) : '';
+  const visitorsBlock = s.visitors ? renderVisitors(s.visitors) : '';
 
   const actionable = collapseByCode(report.findings.filter(f => ACTIONABLE.has(f.severity)));
   const ideas = collapseByCode(report.findings.filter(f => !ACTIONABLE.has(f.severity) && groupOf(f.code) === 'ideas'));
@@ -239,6 +266,8 @@ export function buildWeeklyEmailHtml(ctx: WeeklyEmailContext): string {
     <h3 style="font-family:Georgia,serif;font-size:17px;margin:24px 0 8px">Since last week</h3>
     ${changed}
 
+    ${visitorsBlock}
+
     ${trafficBlock}
 
     ${ideasBlock}
@@ -258,6 +287,7 @@ export function buildWeeklyEmailText(ctx: WeeklyEmailContext): string {
     `${report.siteUrl} · ${report.week}`,
     '',
     `Search impressions: ${s.traffic ? `${s.traffic.current.impressions} (${trafficNote(s.traffic)})` : 'not available this week'}`,
+    `Visitors:          ${s.visitors ? `${s.visitors.people} people (${visitorsNote(s.visitors)})` : 'not available this week'}`,
     `Site health:       ${s.healthIssues === 0 ? 'Clean' : `${s.healthIssues} technical issue(s)`}`,
     `Google indexes:    ${s.indexing
       ? `${s.indexing.indexed} of ${s.indexing.inspected}${s.indexing.change === null ? ' (first week tracked)' : ` (${signed(s.indexing.change)} since last week)`}`
@@ -282,6 +312,14 @@ export function buildWeeklyEmailText(ctx: WeeklyEmailContext): string {
   lines.push(s.isFirstReport
     ? '  First weekly report — next Sunday will show what changed.'
     : `  ${report.delta.newFindings.length} new, ${report.delta.resolvedFindings.length} resolved since ${report.delta.previousWeek}. Score ${report.score.overall} (${signed(report.delta.scoreChange)}).`);
+
+  if (s.visitors) {
+    const v = s.visitors;
+    lines.push('', `VISITORS (${v.window.start} to ${v.window.end})`);
+    lines.push(`  ${v.people} people, ${visitorsNote(v)}`);
+    for (const c of v.channels) lines.push(`  ${c.channel}: ${c.visitors}`);
+    if (v.referrers.length) lines.push(`  Referring sites: ${v.referrers.map(r => `${r.domain} (${r.visitors})`).join(', ')}`);
+  }
 
   if (s.traffic) {
     lines.push('', `SEARCH TRAFFIC (${s.traffic.window.start} to ${s.traffic.window.end})`);

@@ -37,7 +37,8 @@ import { getCurrentDigestWeek, validateWeekLabel } from '../lib/utils/getCurrent
 import { getGscClient } from '../seo/gsc/client';
 import { pullSnapshot, summariseTraffic } from '../seo/gsc/snapshot';
 import { writeSnapshot } from '../seo/gsc/store';
-import type { Finding, Category, TrafficSummary } from '../seo/types';
+import { getVisitorSummary } from '../seo/analytics/visitors';
+import type { Finding, Category, TrafficSummary, VisitorSummary } from '../seo/types';
 
 const CANONICAL_URL = 'https://luxury-intel.com';
 const REPORT_PREFIX = 'weekly';
@@ -63,25 +64,25 @@ async function main() {
   // Sequential, not parallel: each of these fetches all 52 pages or queries a
   // rate-limited API, and running them together would triple the concurrent
   // load on production for no wall-clock benefit worth having.
-  console.log('[Weekly] 1/5 Static + live audit...');
+  console.log('[Weekly] 1/6 Static + live audit...');
   const audit = await runAudit({ baseUrl });
 
-  console.log('[Weekly] 2/5 Asking Google about each page...');
+  console.log('[Weekly] 2/6 Asking Google about each page...');
   const indexing = await runIndexingAudit(baseUrl, (done, total) => {
     if (done % 20 === 0 || done === total) process.stdout.write(`\r         inspected ${done}/${total}`);
   });
   process.stdout.write('\n');
 
-  console.log('[Weekly] 3/5 Internal link graph...');
+  console.log('[Weekly] 3/6 Internal link graph...');
   const links = await analyseLinkGraph(baseUrl);
 
-  console.log('[Weekly] 4/5 Asset weight...');
+  console.log('[Weekly] 4/6 Asset weight...');
   const assets = await runAssetAudit(baseUrl);
 
   // Traffic is the outcome everything else here serves, so it belongs in the
   // weekly record. A Search Console hiccup must not cost you the rest of the
   // report, though: on failure the email says traffic wasn't available.
-  console.log('[Weekly] 5/5 Search traffic...');
+  console.log('[Weekly] 5/6 Search traffic...');
   let traffic: TrafficSummary | null = null;
   const gsc = getGscClient();
   if (gsc) {
@@ -92,6 +93,17 @@ async function main() {
     } catch (err) {
       console.warn(`[Weekly] ⚠ Could not pull search traffic: ${err instanceof Error ? err.message : err}`);
     }
+  }
+
+  // The other half of the loop: who actually arrived, bots filtered out.
+  // Same rule as search traffic: an Amplitude problem never costs the report.
+  console.log('[Weekly] 6/6 Visitors...');
+  let visitors: VisitorSummary | null = null;
+  try {
+    visitors = await getVisitorSummary();
+    if (!visitors) console.log('         (no AMPLITUDE_SECRET_KEY — visitors section omitted)');
+  } catch (err) {
+    console.warn(`[Weekly] ⚠ Could not pull visitors: ${err instanceof Error ? err.message : err}`);
   }
 
   const findings: Finding[] = [
@@ -124,6 +136,7 @@ async function main() {
       ? { indexing: { indexed: indexedCount, inspected: indexing.inspected } }
       : {}),
     ...(traffic ? { traffic } : {}),
+    ...(visitors ? { visitors } : {}),
   }, REPORT_PREFIX);
 
   const { mdPath } = await writeReport(report, REPORT_PREFIX);
@@ -152,6 +165,12 @@ async function main() {
     const t = report.inputs.traffic;
     console.log(`[Weekly] Search traffic, 28 days: ${t.current.impressions} impressions (prev ${t.previous.impressions}), ` +
       `${t.current.clicks} clicks (prev ${t.previous.clicks})`);
+  }
+
+  if (report.inputs.visitors) {
+    const v = report.inputs.visitors;
+    console.log(`[Weekly] Visitors ${v.window.start}..${v.window.end}: ${v.people} people (prev ${v.previousPeople}), ` +
+      `${v.botsExcluded} bots excluded · ${v.channels.map(c => `${c.channel} ${c.visitors}`).join(', ') || 'no sources'}`);
   }
 
   console.log(`[Weekly] Report: ${mdPath}`);

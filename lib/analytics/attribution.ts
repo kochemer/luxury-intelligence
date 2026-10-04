@@ -30,6 +30,11 @@ export interface FirstTouchAttribution {
   acq_campaign_first_touch?: string;
 }
 
+// Checked before search engines: Gemini lives on a google.com subdomain.
+const AI_ASSISTANTS = [
+  'chatgpt.com', 'openai.com', 'perplexity.ai', 'gemini.google', 'copilot.microsoft',
+  'claude.ai', 'you.com', 'poe.com',
+];
 const SEARCH_ENGINES = ['google', 'bing', 'duckduckgo', 'yahoo', 'baidu', 'ecosia', 'search.brave.com', 'brave.com'];
 const SOCIAL_DOMAINS = [
   'facebook', 'instagram', 'tiktok', 'x.com', 'twitter', 't.co', // t.co = Twitter link shortener
@@ -54,6 +59,7 @@ function inferChannel(medium: string | undefined, referrerDomain: string | undef
     return 'other';
   }
   if (referrerDomain) {
+    if (domainContains(referrerDomain, AI_ASSISTANTS)) return 'ai_assistant';
     if (domainContains(referrerDomain, SEARCH_ENGINES)) return 'search';
     if (domainContains(referrerDomain, SOCIAL_DOMAINS)) return 'organic_social';
     return 'referral';

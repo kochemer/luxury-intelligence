@@ -68,6 +68,12 @@ export interface AuditInputs {
    */
   traffic?: TrafficSummary;
   /**
+   * People who visited last week, from Amplitude with bots filtered out. The
+   * other half of the loop: Search Console says what Google showed, this says
+   * who came. Absent when no Amplitude secret key is configured.
+   */
+  visitors?: VisitorSummary;
+  /**
    * Categories this run actually audited. Anything absent is reported as
    * "not checked" rather than scored 100 — a category nobody looked at must
    * never render as a clean bill of health.
@@ -81,6 +87,30 @@ export interface TrafficTotals {
   clicks: number;
   /** Average position, 1 = top. */
   position: number;
+}
+
+/** Plain-language traffic sources, from the referring domain. */
+export type VisitorChannel =
+  | 'Search'
+  | 'AI assistants'
+  | 'LinkedIn'
+  | 'Teams / Outlook'
+  | 'Other social'
+  | 'Other sites'
+  | 'Direct / email';
+
+export interface VisitorSummary {
+  /** The last 7 complete days (UTC). */
+  window: { start: string; end: string };
+  /** Unique people, bots excluded. */
+  people: number;
+  /** Same measure for the 7 days before. */
+  previousPeople: number;
+  /** Tracked visitors removed by the bot filter this week. */
+  botsExcluded: number;
+  channels: Array<{ channel: VisitorChannel; visitors: number }>;
+  /** Top referring sites, direct traffic excluded. */
+  referrers: Array<{ domain: string; visitors: number }>;
 }
 
 export interface TrafficSummary {

@@ -119,6 +119,16 @@ Each Sunday's pass also commits a full Search Console snapshot to
 `data/seo/gsc/` (about six months kept). Google itself keeps 16 months; these
 are the durable record for the later "did that change help?" loop.
 
+Since 2026-10-04 the weekly summary also has a **Visitors** section: people
+who arrived in the last 7 complete days, the week before, how many bots were
+filtered out, and which channels they came through (search, AI assistants,
+LinkedIn, Teams/Outlook, direct). It reads Amplitude's automatic session
+activity through the Dashboard REST API (`seo/analytics/visitors.ts`,
+`AMPLITUDE_SECRET_KEY`, EU region). Two things to know before trusting it:
+most raw Amplitude "visitors" are crawlers (Baidu, 360Spider, HeadlessChrome
+in data centres), which the filter removes heuristically; and the numbers are
+single digits a week, so they are reported, never alerted on.
+
 Both go through `seo/shared/email.ts`. A send counts as delivered only with no
 error **and** a Resend message id. If either email cannot be delivered, its
 workflow fails (exit 2), so GitHub notifies you instead. A failed daily alert
