@@ -21,7 +21,7 @@ import { buildVoice, run } from './voice';
 import { renderVideo } from './render';
 
 const OUTRO: Scene = {
-  vo: 'This has been Luxury Intel in 60 seconds. The full digest is at luxury-intel dot com. See you next week.',
+  vo: 'This has been Luxury Intel in 60 seconds. Full digest at luxury-intel dot com.',
   visual: { kind: 'outro', big: '', small: '', items: [], emoji: '', bars: [] },
 };
 /** Hold the last frame a moment after the narration ends. */

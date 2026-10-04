@@ -34,37 +34,41 @@ the information sticks.
   can be checked. On-screen text uses compact forms ("80%", "$11.6B").
 - Rhetorical questions are fine, at most two.
 
-## Structure (about 55 seconds, 115 to 130 spoken words, not counting the outro)
-1. Cold open (0 to 5s): the most surprising fact or tension, stated flatly. One line
-   that makes someone stop scrolling. It can start like a news report, e.g. "It's
-   late September, and luxury just admitted something."
-2. What happened (5 to 25s): the facts, fast. Who, what, how much. Every number is from the source.
-3. Why it matters (25 to 45s): the mechanism, i.e. what it changes for brands, retailers or
+## Structure (about 55 seconds, 95 to 115 spoken words, not counting the outro)
+The narrator speaks at a calm, natural pace with real pauses between sentences, so
+fewer words than you might expect fit in a minute. Leave room for the jokes to land.
+1. Cold open (about 10s): the most surprising fact or tension, stated flatly.
+   It can start like a news report, e.g. "It's late September, and luxury just admitted something."
+2. What happened (about 10 to 20s): the facts. Who, what, how much. Every number is from the source.
+3. Why it matters (about 10 to 15s): the mechanism, i.e. what it changes for brands, retailers or
    shoppers. This is where the insight is. One clear "so what".
-4. The twist or joke callback (45 to 55s): the ironic angle and a sharp final line.
+4. The twist or joke callback (about 10s): the ironic angle and a sharp final line.
 5. The fixed outro is added automatically. Don't write one.
 
 ## Visual rhythm
-- A new visual every 2 to 4 seconds. Hard cuts, so each scene is one beat.
-- 14 to 20 scenes. Each scene's narration is one or two short sentences.
-- Mix the visual kinds and never use the same kind three times in a row.
-- At least 2 humor visuals (meme, code, versus, emoji) placed at punchlines.
-- On-screen text is short: "big" max 6 words (stat: one number), "small" max 8 words,
-  list items max 5 words each.
+- Few, longer scenes: 5 to 6 scenes of about 10 seconds each (18 to 24 spoken words per scene).
+  A cut only happens between scenes, so each scene is one complete idea, not one beat.
+- Because a scene stays on screen for ~10 seconds, choose visuals that build up while it
+  plays: list items, meme lines, code lines, versus sides and bars appear one after another
+  across the scene. Order the items in the same order the narration mentions them.
+- Use a different visual kind for each scene where possible.
+- At least 2 humor visuals (meme, code, versus, emoji) among the scenes.
+- On-screen text is short: "big" max 7 words (stat: one number), "small" max 10 words,
+  list items max 6 words each.
 
 ## Visual kinds (pick per scene)
 - title: big punchy statement + small kicker. For cold open and section turns.
 - headline: the news itself as a headline card. big = headline (may be shortened),
   small = the outlet name exactly as given.
 - stat: one big number (big) with a label (small). Count-up animation.
-- list: 2 to 4 items that pop in one after another.
+- list: 3 to 4 items that appear one after another as the narration reaches them.
 - versus: exactly 2 items, each formatted "LABEL — text" (e.g. "WHAT THEY SAY — Craftsmanship",
   "WHAT IT IS — Price hike"). Comparison jokes.
-- meme: a text-only meme. items = 2 to 3 lines in a well-known text format, e.g.
+- meme: a text-only meme. items = 2 to 4 lines in a well-known text format (the punchline line appears last), e.g.
   ["Nobody:", "Luxury CFOs: +9% again"], or ["Me: buys the bag", "The bag: 80% price hike"].
   No images. Don't attribute invented lines to real, named people or real brands' staff.
   Generic roles (CFOs, shoppers, the algorithm) are fine.
-- code: a tiny pseudo-code joke, 2 to 5 lines in items (JavaScript-ish), small = filename.
+- code: a tiny pseudo-code joke, 3 to 6 lines of at most 30 characters each (typed out over the scene) in items (JavaScript-ish), small = filename.
   E.g. ["if (demand < forecast) {", "  price *= 1.1; // heritage", "}"]. Fireship's
   trademark is a code gag, and this is the luxury version. Numbers in code must also be
   supported by the source, or be 0, 1 or 2.

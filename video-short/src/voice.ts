@@ -1,11 +1,10 @@
 /**
  * Narration: one TTS clip per scene, so scene timing comes straight from clip
  * durations (no forced alignment needed). Leading/trailing silence is trimmed
- * and a fixed beat inserted between scenes, which gives the hard-cut rhythm.
+ * and a short breath inserted between scenes. Pauses inside a clip are kept.
  *
- * Uses OpenAI gpt-4o-mini-tts because it takes a delivery instruction. The
- * ElevenLabs key in .env.local is an API key *ID*, not a key, so that path
- * currently fails (the podcast silently falls back to tts-1 for the same reason).
+ * OpenAI gpt-4o-mini-tts: cheap, and it takes a delivery instruction.
+ * (The project is moving away from ElevenLabs.)
  */
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -18,16 +17,12 @@ import type { Scene } from './script';
 export const TTS_MODEL = 'gpt-4o-mini-tts';
 export const TTS_VOICE = process.env.VIDEO_SHORT_VOICE ?? 'ash';
 const INSTRUCTIONS =
-  'Dry, deadpan tech-news delivery. Fast and crisp, about 180 words per minute. ' +
-  'Confident, slightly sardonic, unimpressed by hype. Land punchlines flat with a tiny pause before them. ' +
+  'Dry, deadpan news delivery at a calm, natural pace. Pause naturally between sentences. ' +
+  'Confident, slightly sardonic, unimpressed by hype. Land punchlines flat with a short pause before them. ' +
   'No radio-announcer warmth, no sing-song, no exaggerated excitement.';
 
-/** Silence after each scene. Short, so it reads as a cut, not a pause. */
-const GAP_S = 0.12;
-/** Story narration target (outro excluded): ~55s + ~4s outro = about a minute. */
-const TARGET_STORY_S = 55;
-/** Beyond ~1.3x, atempo starts to sound processed. Past that, the script is too long. */
-const MAX_TEMPO = 1.3;
+/** Silence after each scene: a breath before the next cut. */
+const GAP_S = 0.5;
 
 export interface TimedScene extends Scene {
   start: number;
@@ -98,29 +93,14 @@ export async function buildVoice(scenes: Scene[], budget: Budget, outDir: string
     return { result: files, actualUsd: (seconds / 60) * TTS_USD_PER_MINUTE, detail: { seconds, generated: fresh.size, cached: files.length - fresh.size, voice: TTS_VOICE } };
   });
 
-  // Pass 1: trim both ends and squeeze pauses inside the clip down to ~0.1s.
-  // gpt-4o-mini-tts ignores pace instructions and pauses at every full stop,
-  // which put the first W39 render at ~105 wpm.
-  const squeezed: string[] = [];
-  for (const [i, raw] of clips.entries()) {
-    const out = path.join(clipDir, `trim-${String(i).padStart(2, '0')}.wav`);
-    await run('ffmpeg', ['-y', '-i', raw, '-af',
-      'silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_duration=0.15:stop_threshold=-45dB:stop_silence=0.1,' +
-      'areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse',
-      '-ar', '48000', '-ac', '1', out]);
-    squeezed.push(out);
-  }
-
-  // Pass 2: one tempo for the whole video (pitch-preserving), so the story
-  // fits TARGET_STORY_S. The outro is the last clip and is excluded from the sum.
-  let storyS = 0;
-  for (const f of squeezed.slice(0, -1)) storyS += (await duration(f)) + GAP_S;
-  const tempo = Math.min(MAX_TEMPO, Math.max(1, storyS / TARGET_STORY_S));
-  console.log(`[voice] story speech ${storyS.toFixed(1)}s -> tempo x${tempo.toFixed(2)}`);
+  // Trim silence at the clip's ends only. Pauses inside the clip are kept
+  // as the voice delivered them, and the speed is left natural.
   const trimmed: string[] = [];
-  for (const [i, f] of squeezed.entries()) {
+  for (const [i, raw] of clips.entries()) {
     const out = path.join(clipDir, `scene-${String(i).padStart(2, '0')}.wav`);
-    await run('ffmpeg', ['-y', '-i', f, '-af', `atempo=${tempo.toFixed(4)},apad=pad_dur=${GAP_S}`, '-ar', '48000', '-ac', '1', out]);
+    await run('ffmpeg', ['-y', '-i', raw, '-af',
+      `silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,apad=pad_dur=${GAP_S}`,
+      '-ar', '48000', '-ac', '1', out]);
     trimmed.push(out);
   }
 

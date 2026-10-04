@@ -190,16 +190,19 @@ function build(scene) {
       el.innerHTML = `<div class="big">${v.big.split(/\s+/).map(w => `<span class="w">${esc(w)}</span>`).join(' ')}</div>` +
         (v.small ? `<div class="kicker">${esc(v.small)}</div>` : '');
       const ws = [...el.querySelectorAll('.w')], k = el.querySelector('.kicker');
-      update = lt => {
+      update = (lt, D) => {
         ws.forEach((w, i) => { const p = easeOutBack((lt - i * 0.06) / 0.22); w.style.opacity = clamp((lt - i * 0.06) / 0.08); w.style.transform = `translateY(${(1 - p) * 60}px)`; });
-        if (k) k.style.opacity = clamp((lt - 0.25) / 0.2);
+        if (k) k.style.opacity = clamp((lt - Math.min(2.5, D * 0.3)) / 0.3);
       };
       break;
     }
     case 'headline': {
       el.innerHTML = `<div class="headline-card"><div class="src">${esc(v.small)}</div><div class="hl">${esc(v.big)}</div><div class="stamp">THIS WEEK</div></div>`;
-      const c = el.firstChild;
-      update = lt => { const p = easeOutBack(lt / 0.32); c.style.transform = `translateY(${(1 - p) * 500}px) rotate(${-2.5 * p}deg)`; };
+      const c = el.firstChild, st = el.querySelector('.stamp');
+      update = (lt, D) => {
+        const p = easeOutBack(lt / 0.32); c.style.transform = `translateY(${(1 - p) * 500}px) rotate(${-2.5 * p}deg)`;
+        const q = easeOutBack((lt - D * 0.4) / 0.2); st.style.opacity = clamp((lt - D * 0.4) / 0.05); st.style.transform = `scale(${1.6 - 0.6 * q})`;
+      };
       break;
     }
     case 'stat': {
@@ -218,8 +221,9 @@ function build(scene) {
         `<div class="list">${v.items.map((it, i) => `<div class="item"><b>${i + 1}</b><span>${esc(it)}</span></div>`).join('')}</div>`;
       const its = [...el.querySelectorAll('.item')];
       update = (lt, D) => {
-        const step = Math.min(0.55, (D * 0.65) / Math.max(1, its.length));
-        its.forEach((it, i) => { const q = easeOutBack((lt - i * step) / 0.22); it.style.opacity = clamp((lt - i * step) / 0.08); it.style.transform = `translateX(${(1 - q) * -120}px)`; });
+        // Spread items across the scene so they arrive roughly as the narration reaches them.
+        const step = (D * 0.75) / Math.max(1, its.length);
+        its.forEach((it, i) => { const at = 0.2 + i * step; const q = easeOutBack((lt - at) / 0.25); it.style.opacity = clamp((lt - at) / 0.1); it.style.transform = `translateX(${(1 - q) * -120}px)`; });
       };
       break;
     }
@@ -230,7 +234,7 @@ function build(scene) {
         (v.small ? `<div class="kicker">${esc(v.small)}</div>` : '');
       const A = el.querySelector('.vs-a'), B = el.querySelector('.vs-b'), M = el.querySelector('.vs-mid');
       update = (lt, D) => {
-        const tb = Math.min(0.9, D * 0.4);
+        const tb = D * 0.45;
         A.style.transform = `translateX(${(1 - easeOutBack(lt / 0.25)) * -900}px)`;
         M.style.opacity = clamp((lt - tb + 0.15) / 0.1);
         B.style.transform = `translateX(${(1 - easeOutBack((lt - tb) / 0.25)) * 900}px)`;
@@ -243,13 +247,18 @@ function build(scene) {
       update = (lt, D) => {
         card.style.transform = `scale(${0.9 + 0.1 * easeOutBack(lt / 0.2)})`;
         // Setup lines together, punchline lands later.
-        const punchAt = Math.min(1.1, D * 0.45);
-        ls.forEach((l, i) => { const at = i === ls.length - 1 ? punchAt : i * 0.12; l.style.opacity = clamp((lt - at) / 0.06); });
+        const n = ls.length, punchAt = D * 0.55;
+        ls.forEach((l, i) => { const at = i === n - 1 ? punchAt : (i * punchAt * 0.6) / Math.max(1, n - 2); l.style.opacity = clamp((lt - at) / 0.1); });
       };
       break;
     }
     case 'code': {
-      const lines = v.items.map(String);
+      // Long "code; // comment" lines would force a tiny font. Move the comment
+      // onto its own line above the statement, keeping the indentation.
+      const lines = v.items.map(String).flatMap(l => {
+        const m = l.match(/^(\s*)(.*?);?\s*(\/\/.*)$/);
+        return l.length > 30 && m && m[2].trim() ? [m[1] + m[3], m[1] + m[2] + ';'] : [l];
+      });
       el.innerHTML = `<div class="code"><div class="bar"><span class="dot" style="background:#FF5F57"></span><span class="dot" style="background:#FEBC2E"></span><span class="dot" style="background:#28C840"></span><span class="fname">${esc(v.small || 'pricing.js')}</span></div><pre></pre></div>`;
       const pre = el.querySelector('pre'), full = lines.join('\n');
       // Size the font to the longest line so nothing wraps (mono glyph ~0.6em wide).
@@ -257,7 +266,7 @@ function build(scene) {
       pre.style.fontSize = Math.min(44, Math.floor(860 / (longest * 0.6))) + 'px';
       pre.style.whiteSpace = 'pre';
       update = (lt, D) => {
-        const n = Math.floor(full.length * clamp(lt / Math.max(0.6, D * 0.6)));
+        const n = Math.floor(full.length * clamp(lt / Math.max(0.6, D * 0.7)));
         const shown = full.slice(0, n).split('\n');
         pre.innerHTML = shown.map(highlightCode).join('\n') + (n < full.length || Math.floor(lt * 2.5) % 2 === 0 ? '<span class="cursor"></span>' : '');
       };
@@ -268,7 +277,7 @@ function build(scene) {
       el.innerHTML = `<div class="bars">${v.bars.map(b => `<div class="row"><div class="lab"><span>${esc(b.label)}</span><span>${esc(b.display)}</span></div><div class="track"><div class="fill" data-w="${(Math.abs(b.value) / max) * 100}"></div></div></div>`).join('')}` +
         (v.small ? `<div class="cap">${esc(v.small)}</div>` : '') + `</div>`;
       const fs = [...el.querySelectorAll('.fill')];
-      update = lt => fs.forEach((f, i) => { f.style.width = (Number(f.dataset.w) * easeOut((lt - i * 0.15) / 0.6)) + '%'; });
+      update = (lt, D) => fs.forEach((f, i) => { f.style.width = (Number(f.dataset.w) * easeOut((lt - i * D * 0.2) / 0.8)) + '%'; });
       break;
     }
     case 'emoji': {
@@ -338,7 +347,7 @@ window.__renderAt = (t) => {
     active.update(lt, D);
     // Pop in, then a slow push-in for the rest of the beat.
     const pop = 0.94 + 0.06 * easeOutBack(lt / 0.18);
-    active.el.style.transform = `scale(${pop * (1 + 0.025 * clamp(lt / D))})`;
+    active.el.style.transform = `scale(${pop * (1 + 0.04 * clamp(lt / D))})`;
     active.el.style.opacity = clamp(lt / 0.06);
     document.getElementById('flash').style.opacity = lt < 0.05 && active.scene.start > 0 ? 0.12 : 0;
   }
