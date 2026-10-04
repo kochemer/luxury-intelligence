@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Standalone video tool with its own deps; not part of the app.
+    "video-short/**",
   ]),
 ]);
 

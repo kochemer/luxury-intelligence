@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Luxury Intel in 60 Seconds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter+Tight:wght@500;700;800;900&family=JetBrains+Mono:wght@500;700&family=Noto+Color+Emoji&display=block" rel="stylesheet">
+<style>
+/*
+ * Every frame is a pure function of time: renderAt(t) sets inline styles.
+ * No CSS transitions or animations, so headless capture is deterministic.
+ */
+:root {
+  --bg: #0A0A0C;
+  --ink: #F5F0E6;
+  --muted: #8E887A;
+  --gold: #D9B44A;
+  --gold-deep: #8B6914;
+  --red: #FF5A4E;
+  --teal: #4FD1C5;
+  --paper: #F4EEE1;
+  --sans: 'Inter Tight', system-ui, sans-serif;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --emoji: 'Noto Color Emoji', 'Segoe UI Emoji', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+body { color: var(--ink); font-family: var(--sans); position: relative; font-variant-numeric: lining-nums; }
+
+/* Backdrop: faint grid + warm glow. Cheap to rasterize (no filters). */
+#bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(900px 700px at 50% 38%, rgba(217,180,74,0.10), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 90px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 90px),
+    var(--bg);
+}
+
+/* Header: brand + issue */
+#header {
+  position: absolute; top: 120px; left: 72px; right: 72px;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.wordmark { font-family: var(--serif); font-weight: 700; font-size: 46px; letter-spacing: 0.02em; color: var(--gold); }
+.wordmark i { font-style: italic; color: var(--ink); font-weight: 600; }
+.issue { font-family: var(--mono); font-size: 26px; color: var(--muted); letter-spacing: 0.08em; }
+#progress { position: absolute; top: 196px; left: 72px; right: 72px; height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+#progress > div { height: 100%; width: 0; background: var(--gold); }
+
+/* Stage: where scenes live. Kept above the bottom ~420px (platform UI). */
+#stage { position: absolute; top: 260px; left: 72px; right: 72px; height: 1000px; }
+.scene { position: absolute; inset: 0; display: none; flex-direction: column; justify-content: center; align-items: center; text-align: center; transform-origin: 50% 50%; }
+
+/* Captions */
+#captions {
+  position: absolute; top: 1300px; left: 60px; right: 60px; height: 190px;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--sans); font-weight: 900; font-size: 74px; line-height: 1.05;
+  text-transform: uppercase; letter-spacing: -0.01em;
+  text-shadow: 0 4px 0 rgba(0,0,0,0.85), 0 0 24px rgba(0,0,0,0.6);
+}
+#captions span { margin: 0 0.14em; }
+#captions .on { color: var(--gold); }
+
+#flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+
+/* ── Scene kinds ───────────────────────────── */
+.kicker { font-family: var(--mono); font-size: 32px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-top: 40px; }
+.big { font-family: var(--sans); font-weight: 900; font-size: 120px; line-height: 0.98; letter-spacing: -0.03em; }
+.big .w { display: inline-block; margin: 0 0.12em; }
+
+.headline-card {
+  background: var(--paper); color: #141414; width: 920px; padding: 56px 56px 48px; text-align: left;
+  border-radius: 6px; box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+}
+.headline-card .src { font-family: var(--mono); font-weight: 700; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); border-bottom: 2px solid #1414141f; padding-bottom: 18px; margin-bottom: 26px; }
+.headline-card .hl { font-family: var(--serif); font-weight: 700; font-size: 84px; line-height: 1.02; }
+.headline-card .stamp { display: inline-block; margin-top: 30px; font-family: var(--mono); font-size: 22px; color: #fff; background: #141414; padding: 8px 14px; letter-spacing: 0.1em; }
+
+.stat-num { font-family: var(--sans); font-weight: 900; font-size: 260px; line-height: 0.9; letter-spacing: -0.05em; color: var(--gold); }
+.stat-label { font-family: var(--sans); font-weight: 700; font-size: 54px; line-height: 1.1; margin-top: 30px; max-width: 900px; }
+
+.list { width: 900px; text-align: left; }
+.list .item { display: flex; align-items: center; gap: 28px; font-weight: 800; font-size: 72px; line-height: 1.05; margin: 22px 0; }
+.list .item b { font-family: var(--mono); font-size: 40px; color: var(--bg); background: var(--gold); border-radius: 50%; min-width: 72px; height: 72px; display: grid; place-items: center; }
+.list-title { font-family: var(--mono); font-size: 32px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 30px; align-self: flex-start; }
+
+.versus { display: flex; flex-direction: column; gap: 34px; width: 920px; }
+.vs-card { border-radius: 10px; padding: 40px 44px; text-align: left; }
+.vs-card .lab { font-family: var(--mono); font-weight: 700; font-size: 28px; letter-spacing: 0.14em; margin-bottom: 14px; }
+.vs-card .txt { font-weight: 900; font-size: 82px; line-height: 1; letter-spacing: -0.02em; }
+.vs-a { background: rgba(255,90,78,0.12); border: 3px solid var(--red); }
+.vs-a .lab { color: var(--red); }
+.vs-b { background: rgba(217,180,74,0.12); border: 3px solid var(--gold); }
+.vs-b .lab { color: var(--gold); }
+.vs-mid { font-family: var(--serif); font-style: italic; font-size: 60px; color: var(--muted); text-align: center; margin: -10px 0; }
+
+.meme { background: #fff; color: #0f0f0f; width: 920px; padding: 60px 56px; border-radius: 8px; text-align: left; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+.meme .line { font-family: var(--sans); font-weight: 800; font-size: 68px; line-height: 1.12; margin: 14px 0; }
+.meme .line.last { color: #0f0f0f; }
+
+.code { width: 940px; background: #111318; border: 2px solid #262a33; border-radius: 14px; text-align: left; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+.code .bar { display: flex; align-items: center; gap: 12px; padding: 20px 26px; background: #181b22; border-bottom: 2px solid #262a33; }
+.code .dot { width: 20px; height: 20px; border-radius: 50%; }
+.code .fname { font-family: var(--mono); font-size: 26px; color: var(--muted); margin-left: 16px; }
+.code pre { font-family: var(--mono); font-weight: 500; font-size: 44px; line-height: 1.45; padding: 34px 36px 40px; white-space: pre-wrap; word-break: break-word; color: #E6E1D6; }
+.code .kw { color: #FF7AB2; } .code .num { color: var(--gold); } .code .str { color: #9FE870; } .code .com { color: #6B7280; font-style: italic; } .code .fn { color: var(--teal); }
+.cursor { display: inline-block; width: 0.55em; height: 1em; background: var(--gold); vertical-align: -0.12em; }
+
+.bars { width: 920px; text-align: left; }
+.bars .row { margin: 26px 0; }
+.bars .lab { font-weight: 800; font-size: 46px; margin-bottom: 12px; display: flex; justify-content: space-between; }
+.bars .lab span:last-child { color: var(--gold); font-family: var(--mono); }
+.bars .track { height: 64px; background: rgba(255,255,255,0.06); border-radius: 6px; overflow: hidden; }
+.bars .fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold-deep), var(--gold)); }
+.bars .cap { font-family: var(--mono); font-size: 30px; color: var(--muted); margin-top: 30px; letter-spacing: 0.06em; }
+
+.emoji { font-family: var(--emoji); font-size: 360px; line-height: 1; }
+.emoji-cap { font-weight: 900; font-size: 92px; line-height: 1; margin-top: 40px; letter-spacing: -0.02em; }
+
+.k-outro .mark { font-family: var(--serif); font-weight: 700; font-size: 130px; color: var(--gold); line-height: 0.95; }
+.k-outro .mark i { color: var(--ink); font-weight: 600; }
+.k-outro .url { font-family: var(--mono); font-size: 48px; margin-top: 50px; color: var(--ink); border: 3px solid var(--gold); padding: 18px 34px; border-radius: 8px; }
+.k-outro .sub { font-family: var(--sans); font-weight: 700; font-size: 44px; color: var(--muted); margin-top: 40px; }
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<div id="header">
+  <div class="wordmark">Luxury <i>Intel</i></div>
+  <div class="issue" id="issue"></div>
+</div>
+<div id="progress"><div></div></div>
+<div id="stage"></div>
+<div id="captions"></div>
+<div id="flash"></div>
+
+<script>
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const easeOut = x => 1 - Math.pow(1 - clamp(x), 3);
+const easeOutBack = x => { x = clamp(x); const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+let DATA = null;
+let SCENES = [];   // { el, scene, update(lt, D) }
+let CHUNKS = [];   // caption chunks: { words: [{text,start,end}], start, end }
+
+/** Split "$11.6B" into { pre: "$", num: 11.6, dec: 1, post: "B" } for the count-up. */
+function parseStat(s) {
+  const m = String(s).match(/^(.*?)(\d[\d,]*(?:\.\d+)?)(.*)$/);
+  if (!m) return null;
+  const n = m[2].replace(/,/g, '');
+  return { pre: m[1], num: Number(n), dec: (n.split('.')[1] || '').length, post: m[3], commas: m[2].includes(',') };
+}
+function fmtStat(p, v) {
+  let s = v.toFixed(p.dec);
+  if (p.commas) s = Number(s).toLocaleString('en-US', { minimumFractionDigits: p.dec, maximumFractionDigits: p.dec });
+  return p.pre + s + p.post;
+}
+
+function highlightCode(line) {
+  let h = esc(line);
+  h = h.replace(/(\/\/.*)$/, '<span class="com">$1</span>');
+  h = h.replace(/(&quot;.*?&quot;|'.*?')/g, '<span class="str">$1</span>');
+  h = h.replace(/\b(if|else|while|for|const|let|return|await|async|new|function|true|false|null)\b/g, '<span class="kw">$1</span>');
+  h = h.replace(/\b(\d+(?:\.\d+)?)\b(?![^<]*>)/g, '<span class="num">$1</span>');
+  h = h.replace(/\b([a-zA-Z_]\w*)(?=\()/g, '<span class="fn">$1</span>');
+  return h;
+}
+
+/** Shrink font-size until the element fits its box. Runs once at setup. */
+function fit(el, maxW, maxH, min = 28) {
+  let fs = parseFloat(getComputedStyle(el).fontSize);
+  while ((el.scrollWidth > maxW || el.scrollHeight > maxH) && fs > min) {
+    fs -= 2; el.style.fontSize = fs + 'px';
+  }
+}
+
+function build(scene) {
+  const v = scene.visual;
+  const el = document.createElement('div');
+  el.className = 'scene k-' + v.kind; // prefixed: .meme/.code etc. are card classes
+  let update = () => {};
+
+  switch (v.kind) {
+    case 'title': {
+      el.innerHTML = `<div class="big">${v.big.split(/\s+/).map(w => `<span class="w">${esc(w)}</span>`).join(' ')}</div>` +
+        (v.small ? `<div class="kicker">${esc(v.small)}</div>` : '');
+      const ws = [...el.querySelectorAll('.w')], k = el.querySelector('.kicker');
+      update = lt => {
+        ws.forEach((w, i) => { const p = easeOutBack((lt - i * 0.06) / 0.22); w.style.opacity = clamp((lt - i * 0.06) / 0.08); w.style.transform = `translateY(${(1 - p) * 60}px)`; });
+        if (k) k.style.opacity = clamp((lt - 0.25) / 0.2);
+      };
+      break;
+    }
+    case 'headline': {
+      el.innerHTML = `<div class="headline-card"><div class="src">${esc(v.small)}</div><div class="hl">${esc(v.big)}</div><div class="stamp">THIS WEEK</div></div>`;
+      const c = el.firstChild;
+      update = lt => { const p = easeOutBack(lt / 0.32); c.style.transform = `translateY(${(1 - p) * 500}px) rotate(${-2.5 * p}deg)`; };
+      break;
+    }
+    case 'stat': {
+      el.innerHTML = `<div class="stat-num"></div><div class="stat-label">${esc(v.small)}</div>`;
+      const n = el.querySelector('.stat-num'), lab = el.querySelector('.stat-label'), p = parseStat(v.big);
+      n.textContent = v.big;
+      update = lt => {
+        if (p) n.textContent = fmtStat(p, p.num * easeOut(lt / 0.7));
+        n.style.transform = `scale(${0.85 + 0.15 * easeOutBack(lt / 0.3)})`;
+        lab.style.opacity = clamp((lt - 0.3) / 0.2);
+      };
+      break;
+    }
+    case 'list': {
+      el.innerHTML = (v.big ? `<div class="list-title">${esc(v.big)}</div>` : '') +
+        `<div class="list">${v.items.map((it, i) => `<div class="item"><b>${i + 1}</b><span>${esc(it)}</span></div>`).join('')}</div>`;
+      const its = [...el.querySelectorAll('.item')];
+      update = (lt, D) => {
+        const step = Math.min(0.55, (D * 0.65) / Math.max(1, its.length));
+        its.forEach((it, i) => { const q = easeOutBack((lt - i * step) / 0.22); it.style.opacity = clamp((lt - i * step) / 0.08); it.style.transform = `translateX(${(1 - q) * -120}px)`; });
+      };
+      break;
+    }
+    case 'versus': {
+      const [a, b] = [0, 1].map(i => { const s = String(v.items[i] || ''); const k = s.split(/\s+[—–-]\s+/); return k.length > 1 ? { lab: k[0], txt: k.slice(1).join(' — ') } : { lab: '', txt: s }; });
+      el.innerHTML = `<div class="versus"><div class="vs-card vs-a"><div class="lab">${esc(a.lab)}</div><div class="txt">${esc(a.txt)}</div></div>` +
+        `<div class="vs-mid">vs.</div><div class="vs-card vs-b"><div class="lab">${esc(b.lab)}</div><div class="txt">${esc(b.txt)}</div></div></div>` +
+        (v.small ? `<div class="kicker">${esc(v.small)}</div>` : '');
+      const A = el.querySelector('.vs-a'), B = el.querySelector('.vs-b'), M = el.querySelector('.vs-mid');
+      update = (lt, D) => {
+        const tb = Math.min(0.9, D * 0.4);
+        A.style.transform = `translateX(${(1 - easeOutBack(lt / 0.25)) * -900}px)`;
+        M.style.opacity = clamp((lt - tb + 0.15) / 0.1);
+        B.style.transform = `translateX(${(1 - easeOutBack((lt - tb) / 0.25)) * 900}px)`;
+      };
+      break;
+    }
+    case 'meme': {
+      el.innerHTML = `<div class="meme">${v.items.map((l, i, arr) => `<div class="line${i === arr.length - 1 ? ' last' : ''}">${esc(l)}</div>`).join('')}</div>`;
+      const ls = [...el.querySelectorAll('.line')], card = el.firstChild;
+      update = (lt, D) => {
+        card.style.transform = `scale(${0.9 + 0.1 * easeOutBack(lt / 0.2)})`;
+        // Setup lines together, punchline lands later.
+        const punchAt = Math.min(1.1, D * 0.45);
+        ls.forEach((l, i) => { const at = i === ls.length - 1 ? punchAt : i * 0.12; l.style.opacity = clamp((lt - at) / 0.06); });
+      };
+      break;
+    }
+    case 'code': {
+      const lines = v.items.map(String);
+      el.innerHTML = `<div class="code"><div class="bar"><span class="dot" style="background:#FF5F57"></span><span class="dot" style="background:#FEBC2E"></span><span class="dot" style="background:#28C840"></span><span class="fname">${esc(v.small || 'pricing.js')}</span></div><pre></pre></div>`;
+      const pre = el.querySelector('pre'), full = lines.join('\n');
+      // Size the font to the longest line so nothing wraps (mono glyph ~0.6em wide).
+      const longest = Math.max(...lines.map(l => l.length), 1);
+      pre.style.fontSize = Math.min(44, Math.floor(860 / (longest * 0.6))) + 'px';
+      pre.style.whiteSpace = 'pre';
+      update = (lt, D) => {
+        const n = Math.floor(full.length * clamp(lt / Math.max(0.6, D * 0.6)));
+        const shown = full.slice(0, n).split('\n');
+        pre.innerHTML = shown.map(highlightCode).join('\n') + (n < full.length || Math.floor(lt * 2.5) % 2 === 0 ? '<span class="cursor"></span>' : '');
+      };
+      break;
+    }
+    case 'bars': {
+      const max = Math.max(...v.bars.map(b => Math.abs(b.value)), 1e-9);
+      el.innerHTML = `<div class="bars">${v.bars.map(b => `<div class="row"><div class="lab"><span>${esc(b.label)}</span><span>${esc(b.display)}</span></div><div class="track"><div class="fill" data-w="${(Math.abs(b.value) / max) * 100}"></div></div></div>`).join('')}` +
+        (v.small ? `<div class="cap">${esc(v.small)}</div>` : '') + `</div>`;
+      const fs = [...el.querySelectorAll('.fill')];
+      update = lt => fs.forEach((f, i) => { f.style.width = (Number(f.dataset.w) * easeOut((lt - i * 0.15) / 0.6)) + '%'; });
+      break;
+    }
+    case 'emoji': {
+      el.innerHTML = `<div class="emoji">${esc(v.emoji || '💀')}</div>` + (v.big ? `<div class="emoji-cap">${esc(v.big)}</div>` : '');
+      const e = el.querySelector('.emoji'), c = el.querySelector('.emoji-cap');
+      update = lt => {
+        e.style.transform = `scale(${easeOutBack(lt / 0.28)}) rotate(${Math.sin(lt * 6) * 4}deg)`;
+        if (c) c.style.opacity = clamp((lt - 0.2) / 0.12);
+      };
+      break;
+    }
+    case 'outro': {
+      el.innerHTML = `<div class="mark">Luxury<br><i>Intel</i></div><div class="kicker">in 60 seconds</div><div class="url">luxury-intel.com</div><div class="sub">The full weekly digest, free.</div>`;
+      const parts = [...el.children];
+      update = lt => parts.forEach((p, i) => { p.style.opacity = clamp((lt - i * 0.15) / 0.2); p.style.transform = `translateY(${(1 - easeOut((lt - i * 0.15) / 0.3)) * 40}px)`; });
+      break;
+    }
+  }
+  return { el, scene, update };
+}
+
+function buildCaptions(scenes) {
+  const chunks = [];
+  for (const s of scenes) {
+    let cur = [];
+    const flush = () => { if (cur.length) chunks.push({ words: cur, start: cur[0].start, end: cur[cur.length - 1].end }); cur = []; };
+    for (const w of s.words) {
+      cur.push(w);
+      if (cur.length >= 3 || /[.,!?;:]$/.test(w.text)) flush();
+    }
+    flush();
+  }
+  return chunks;
+}
+
+window.__setup = async (data) => {
+  DATA = data;
+  document.getElementById('issue').textContent = data.issue;
+  const stage = document.getElementById('stage');
+  await document.fonts.ready;
+  SCENES = data.scenes.map(build);
+  for (const s of SCENES) {
+    stage.appendChild(s.el);
+    s.el.style.display = 'flex';
+    // Fit the biggest text to the stage once, before any transforms.
+    for (const sel of ['.big', '.headline-card .hl', '.stat-num', '.stat-label', '.emoji-cap', '.vs-card .txt', '.meme .line', '.list .item']) {
+      s.el.querySelectorAll(sel).forEach(e => fit(e, e.clientWidth || 936, sel === '.headline-card .hl' ? 520 : 600));
+    }
+    if (s.el.scrollHeight > 1000) { const k = 1000 / s.el.scrollHeight; s.el.style.zoom = k; }
+    s.el.style.display = 'none';
+  }
+  CHUNKS = buildCaptions(data.scenes.filter(s => s.visual.kind !== 'outro'));
+  return true;
+};
+
+window.__renderAt = (t) => {
+  const total = DATA.total;
+  let active = null;
+  for (const s of SCENES) {
+    const on = t >= s.scene.start && t < s.scene.end;
+    s.el.style.display = on ? 'flex' : 'none';
+    if (on) active = s;
+  }
+  if (!active && SCENES.length) active = SCENES[SCENES.length - 1], active.el.style.display = 'flex';
+  if (active) {
+    const lt = t - active.scene.start, D = active.scene.end - active.scene.start;
+    active.update(lt, D);
+    // Pop in, then a slow push-in for the rest of the beat.
+    const pop = 0.94 + 0.06 * easeOutBack(lt / 0.18);
+    active.el.style.transform = `scale(${pop * (1 + 0.025 * clamp(lt / D))})`;
+    active.el.style.opacity = clamp(lt / 0.06);
+    document.getElementById('flash').style.opacity = lt < 0.05 && active.scene.start > 0 ? 0.12 : 0;
+  }
+  document.querySelector('#progress > div').style.width = (clamp(t / total) * 100) + '%';
+
+  const cap = document.getElementById('captions');
+  const ch = CHUNKS.find(c => t >= c.start && t < c.end + 0.08);
+  cap.innerHTML = ch ? ch.words.map(w => `<span class="${t >= w.start && t < w.end + 0.02 ? 'on' : ''}">${esc(w.text)}</span>`).join(' ') : '';
+};
+</script>
+</body>
+</html>

@@ -53,6 +53,9 @@ const nextConfig: NextConfig = {
     '*': [
       './public/podcast/**',
       './public/weekly-images/**',
+      // Weekly short video tool + its renders (see video-short/package.json).
+      './video-short/**',
+      './data/weeks/**/video-short/**',
     ],
     // A route-specific list replaces the '*' list rather than merging with it,
     // so the media globs are repeated here.
@@ -61,6 +64,7 @@ const nextConfig: NextConfig = {
       './data/articles.json',
       './public/podcast/**',
       './public/weekly-images/**',
+      './video-short/**',
     ],
   },
   // Permanent 308 redirects: /week/YYYY-Www → /digest/month-yyyy-week-n

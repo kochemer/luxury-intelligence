@@ -1,0 +1,12 @@
+{
+  "name": "lux-intel-video-short",
+  "private": true,
+  "description": "60-second weekly short video. Isolated from the Next.js app on purpose: its own deps, excluded from tsconfig, never deployed to Vercel.",
+  "scripts": {
+    "short": "cd .. && npx tsx video-short/src/run.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "playwright-core": "^1.63.0"
+  }
+}
