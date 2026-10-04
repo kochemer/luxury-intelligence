@@ -1,0 +1,28 @@
+{
+  "weekLabel": "2026-W40",
+  "homepageTopArticles": [
+    {
+      "title": "Shopify debuts Canvas, a way to build online stores by chatting with AI",
+      "source": "TechCrunch - Commerce",
+      "snippet": "Shopify’s new Canvas site builder lets merchants create and customize their online stores by chatting with its AI agent Sidekick, while watching the changes happen in real time.",
+      "aiSummary": "Shopify launched Canvas, enabling merchants to build and customize online stores in real time by chatting with its AI agent Sidekick."
+    },
+    {
+      "title": "Kroger takes key step forward in tying retail media creative with digital sales",
+      "source": "Grocery Dive",
+      "snippet": "The grocer, in partnership with Vidmob and MMA Global, was able to forecast e-commerce conversion of ad creative with 81% accuracy.",
+      "aiSummary": "Kroger, partnering with Vidmob and MMA Global, forecasted e-commerce conversion of ad creative with 81% accuracy."
+    },
+    {
+      "title": "Pandora expands manufacturing capacity by 50% with Vietnam facility",
+      "source": "Retail Jeweller UK",
+      "snippet": "Retail Jeweller\nPandora expands manufacturing capacity by 50% with Vietnam facility\nJewellery behemoth Pandora has opened a $150m manufacturing facility in Ho Chi Minh City, Vietnam, increasing its production capacity by 50% and establishing its first production site outside Thailand.\nPandora expands manufacturing capacity by 50% with Vietnam facility\nRuth Faulkner",
+      "aiSummary": "Pandora opened a $150m facility in Ho Chi Minh City, boosting manufacturing capacity by 50% and marking its first production site outside Thailand."
+    }
+  ],
+  "model": "gpt-image-2",
+  "finalPrompt": "Candid documentary photograph, shot on a real camera: A corporate meeting room with a large whiteboard taking up most of one wall. On the whiteboard, instead of drawn plans, there are dozens of colorful plastic chat bubble magnets arranged to form the outline of a shopfront—door, windows, even a little awning. The table beneath holds scattered dry-erase markers and a mug. The room is empty, natural daylight filtering in, and everything else looks perfectly normal.\n\nCRITICAL CONSTRAINTS (must be strictly avoided):\n- people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette, text, letters, numbers, signage, labels, price tags, screens, UI, dashboards, holograms, floating icons, watermarks, unrelated brand logos, cartoon, illustration, CGI, 3D render, anime, video game render, AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed, diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone, dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh\n\nThis must look like a genuine photograph taken by a person for a magazine — NOT AI-generated, not CGI, not a 3D render. Natural available light with real shadows and true reflections. Real materials with real texture: dust, wear, fingerprints, slight clutter, small imperfections and natural asymmetry. Slightly imperfect, candid framing. Avoid the AI look — no waxy/plastic surfaces, no over-smoothing, no over-saturation or HDR glow, no glossy studio perfection. Fill the entire frame edge to edge — no black bars, no empty edges.\n\nDo not include: any people or human body parts; any text, labels, signage, screens, UI, or logos; diamonds or gemstones; CGI lighting, dramatic spotlights, or blurred vignette backgrounds.",
+  "imageSize": "1536x1024",
+  "outputPath": "/weekly-images/2026-W40.png",
+  "generatedAt": "2026-10-04T12:28:33.344Z"
+}

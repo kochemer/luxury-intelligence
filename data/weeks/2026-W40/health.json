@@ -1,0 +1,87 @@
+{
+  "digestWeek": "2026-W40",
+  "ingestionWeek": "2026-W40",
+  "startedAt": "2026-10-04T12:08:16.609Z",
+  "finishedAt": "2026-10-04T12:28:46.624Z",
+  "steps": [
+    {
+      "name": "rss",
+      "ok": true,
+      "startedAt": "2026-10-04T12:08:16.620Z",
+      "finishedAt": "2026-10-04T12:09:05.665Z"
+    },
+    {
+      "name": "pages",
+      "ok": true,
+      "startedAt": "2026-10-04T12:09:05.665Z",
+      "finishedAt": "2026-10-04T12:09:07.579Z"
+    },
+    {
+      "name": "discovery",
+      "ok": true,
+      "startedAt": "2026-10-04T12:09:07.579Z",
+      "finishedAt": "2026-10-04T12:25:09.879Z"
+    },
+    {
+      "name": "classification",
+      "ok": true,
+      "startedAt": "2026-10-04T12:25:09.879Z",
+      "finishedAt": "2026-10-04T12:25:09.975Z"
+    },
+    {
+      "name": "digest",
+      "ok": true,
+      "startedAt": "2026-10-04T12:25:09.976Z",
+      "finishedAt": "2026-10-04T12:25:58.144Z"
+    },
+    {
+      "name": "email",
+      "ok": true,
+      "startedAt": "2026-10-04T12:25:58.145Z",
+      "finishedAt": "2026-10-04T12:26:14.849Z"
+    },
+    {
+      "name": "podcast",
+      "ok": true,
+      "startedAt": "2026-10-04T12:26:14.849Z",
+      "finishedAt": "2026-10-04T12:27:14.192Z"
+    },
+    {
+      "name": "cover",
+      "ok": true,
+      "startedAt": "2026-10-04T12:27:14.192Z",
+      "finishedAt": "2026-10-04T12:28:33.345Z"
+    },
+    {
+      "name": "competitorAnalyze",
+      "ok": true,
+      "startedAt": "2026-10-04T12:28:33.345Z",
+      "finishedAt": "2026-10-04T12:28:46.623Z"
+    }
+  ],
+  "health": {
+    "warnings": [
+      "Luxury & Consumer: fashionista.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Jewellery Industry: www.retail-jeweller.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Jewellery Industry: www.jewellermagazine.com represents 42.9% (3/7) - exceeds 40% threshold"
+    ],
+    "metrics": {
+      "paywallPercent": 0,
+      "podcastWordCount": 2378
+    }
+  },
+  "contentQuality": {
+    "ok": true,
+    "errors": [],
+    "summaryCoverage": 1,
+    "selectedCount": 28,
+    "summarizedCount": 28,
+    "hasCover": true,
+    "hasInsight": true,
+    "themeCount": 5
+  },
+  "versions": {
+    "node": "v20.20.2",
+    "gitCommit": "42002c2dbf8ac5487424b6d56fae96bbe5cc5852"
+  }
+}

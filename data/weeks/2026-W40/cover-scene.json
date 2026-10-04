@@ -1,0 +1,19 @@
+{
+  "concept": "office-whiteboard-chat-bubble-magnet",
+  "setting": "corporate meeting room with whiteboard",
+  "primaryHumorDriver": "literal metaphor",
+  "secondaryEnhancer": "unexpected texture/material combo",
+  "sceneDescription": "JOKE: Shopify's AI lets you build an online store just by chatting—so the punchline is literally 'building a store' out of chat bubbles. The scene is a glass-walled meeting room where a whiteboard is covered not with marker notes but with 3D plastic 'chat bubble' fridge magnets, some stacked up to form the outline of a storefront. No people. The humor comes from the absurd literalness of constructing a store out of chat bubbles, riffing on the story's 'build store by chatting with AI' claim.",
+  "finalImagePrompt": "A corporate meeting room with a large whiteboard taking up most of one wall. On the whiteboard, instead of drawn plans, there are dozens of colorful plastic chat bubble magnets arranged to form the outline of a shopfront—door, windows, even a little awning. The table beneath holds scattered dry-erase markers and a mug. The room is empty, natural daylight filtering in, and everything else looks perfectly normal.",
+  "negativePrompt": [
+    "people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette",
+    "text, letters, numbers, signage, labels, price tags",
+    "screens, UI, dashboards, holograms, floating icons",
+    "watermarks, unrelated brand logos",
+    "cartoon, illustration, CGI, 3D render, anime, video game render",
+    "AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed",
+    "diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone",
+    "dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh"
+  ],
+  "confidence": 0.98
+}

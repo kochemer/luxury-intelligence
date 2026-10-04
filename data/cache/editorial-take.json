@@ -250,5 +250,11 @@
     "cached_at": "2026-09-27T12:06:43.183Z",
     "model": "gpt-4.1",
     "version": "2.1"
+  },
+  "2026-W40:9d1878ee7256": {
+    "editorialTake": "AI agents are no longer just backend tools, they are becoming the storefront itself. Shopify’s Canvas lets merchants build entire shops by chatting with an AI, while OpenAI’s Dot can handle both enterprise workflows and personal errands in the same breath. Amazon’s move to block Meta’s Muse agent from its checkout shows the stakes: whoever controls the agent controls the customer relationship, not just the transaction.\n\nThe shift is not theoretical. Shopify is betting merchants will want to design stores through conversation, not code. OpenAI’s Dot is already taking orders and handling office tasks, blurring the line between B2B and B2C. Amazon’s defensive play against Meta signals that agentic commerce will be a battleground for direct access to shoppers. Some argue AI cannot replace human expertise, especially in jewellery, but as agentic interfaces become the front door, the real risk is ceding the customer relationship entirely to platforms.\n\nLuxury and jewellery operators should test conversational interfaces now, before platforms insert themselves between brand and buyer. Use the next quarter to pilot AI-powered storefronts or appointment booking, and measure where human expertise adds value. The goal: keep the relationship personal, even as the interface becomes conversational.",
+    "cached_at": "2026-10-04T12:25:58.143Z",
+    "model": "gpt-4.1",
+    "version": "2.1"
   }
 }

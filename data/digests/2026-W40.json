@@ -1,0 +1,972 @@
+{
+  "weekLabel": "2026-W40",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2026-09-27T22:00:00.000Z",
+  "endISO": "2026-10-04T21:59:59.999Z",
+  "builtAtISO": "2026-10-04T14:25:44.032+02:00",
+  "builtAtLocal": "2026-10-04 14:25:44",
+  "totals": {
+    "total": 717,
+    "byTopic": {
+      "AIStrategy": 153,
+      "EcommerceRetail": 119,
+      "LuxuryConsumer": 60,
+      "Jewellery": 108
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 153,
+      "top": [
+        {
+          "id": "xj6h2i",
+          "title": "Anthropic warns government attitudes may hurt customer ties, IPO prospectus shows ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/anthropic-warns-government-attitudes-may-hurt-customer-ties-ipo-prospectus-shows/articleshow/134637989.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-10-02T11:12:36.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Companies routinely warn that policy changes could affect their business, particularly government contractors. For example, SpaceX said in its IPO filing that maintaining strong relationships with US government agencies is critical to its business and warned that any deterioration in those relationships could materially harm its ability to retain existing business and win new opportunities.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "anthropic",
+              "policy"
+            ]
+          },
+          "aiSummary": "Anthropic’s IPO prospectus warns that negative government attitudes could damage customer relationships and impact its business prospects.",
+          "translations": {
+            "da": {
+              "title": "Anthropic advarer om, at regeringens holdninger kan skade kundeforhold, viser IPO-prospekt",
+              "summary": "Anthropics IPO-prospekt advarer om, at negative regeringsholdninger kan skade kundeforhold og påvirke forretningsudsigterne."
+            },
+            "es": {
+              "title": "Anthropic advierte que las actitudes gubernamentales pueden dañar las relaciones con clientes, muestra el prospecto de la IPO",
+              "summary": "El prospecto de la IPO de Anthropic advierte que las actitudes negativas del gobierno podrían dañar las relaciones con clientes e impactar sus perspectivas comerciales."
+            }
+          }
+        },
+        {
+          "id": "7fdp3",
+          "title": "Amazon releases its own Jev clone as decision models flood the web",
+          "url": "https://techcrunch.com/2026/10/01/amazon-releases-its-own-jev-clone-as-decision-models-flood-the-web/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-10-01T16:49:22.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Amazon Web Services' Strand Labs has released the latest Jevalike decision model, Strands Decider 2B.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15,
+            "recencyScore": 0,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Amazon Web Services' Strand Labs launched Strands Decider 2B, its latest Jevalike decision model, as decision models proliferate online.",
+          "translations": {
+            "da": {
+              "title": "Amazon lancerer sin egen Jev-klon, mens beslutningsmodeller oversvømmer nettet",
+              "summary": "Amazon Web Services' Strand Labs har lanceret Strands Decider 2B, deres nyeste Jevalike beslutningsmodel, i takt med at beslutningsmodeller breder sig online."
+            },
+            "es": {
+              "title": "Amazon lanza su propio clon de Jev mientras los modelos de decisión inundan la web",
+              "summary": "Strand Labs de Amazon Web Services lanzó Strands Decider 2B, su último modelo de decisión tipo Jevalike, mientras los modelos de decisión proliferan en línea."
+            }
+          }
+        },
+        {
+          "id": "2fthqy",
+          "title": "OpenAI’s Dot agent is enterprise software that can also order your dinner",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1004096/openai-chatgpt-dots-hands-on-agent",
+          "source": "The Verge",
+          "published_at": "2026-10-02T18:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "New helpful little guy just dropped. | Photo: Allison Johnson / The Verge\t\n\nIt's a tale as old as last week: OpenAI's new agent platform, called Dots, is full of cute little guys who can do your bidding. \nBut unlike the ultra-approachable Meta Muse, Dots feel very much like using workplace software that happens to be able to order you a burrito - emphasis on work. \nOpenAI announced Dots earlier this week. Like Muse, Dots have blobby, anthropomorphic avatars and customizable names. In the future,...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "openai",
+              "agent"
+            ]
+          },
+          "aiSummary": "OpenAI launched Dots, an enterprise agent platform with customizable avatars that handles workplace tasks and can also order food like burritos.",
+          "translations": {
+            "da": {
+              "title": "OpenAIs Dot-agent er virksomhedsoftware, der også kan bestille din middag",
+              "summary": "OpenAI lancerede Dots, en enterprise-agentplatform med tilpassede avatarer, der håndterer arbejdsopgaver og også kan bestille mad som burritos."
+            },
+            "es": {
+              "title": "El agente Dot de OpenAI es software empresarial que también puede pedir tu cena",
+              "summary": "OpenAI lanzó Dots, una plataforma de agentes empresariales con avatares personalizables que gestiona tareas laborales y también puede pedir comida como burritos."
+            }
+          }
+        },
+        {
+          "id": "pj7jn2",
+          "title": "Synopsys shares jump on robust growth outlook, OpenAI and AWS deals ",
+          "url": "https://economictimes.indiatimes.com/tech/technology/synopsys-shares-jump-on-robust-growth-outlook-openai-and-aws-deals/articleshow/134626421.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-10-01T19:09:02.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Synopsys shares jumped 10% on Thursday after the chip-design software maker forecast fiscal 2027 revenue and profit above analysts' estimates and unveiled deals with OpenAI and Amazon Web Services.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "openai"
+            ]
+          },
+          "aiSummary": "Synopsys shares rose 10% after forecasting fiscal 2027 revenue and profit above estimates and announcing new deals with OpenAI and AWS.",
+          "translations": {
+            "da": {
+              "title": "Synopsys-aktier stiger på stærk vækstforventning, OpenAI og AWS-aftaler",
+              "summary": "Synopsys-aktier steg 10% efter at have forudsagt omsætning og overskud for regnskabsåret 2027 over forventningerne og annonceret nye aftaler med OpenAI og AWS."
+            },
+            "es": {
+              "title": "Acciones de Synopsys suben por perspectivas de crecimiento robusto y acuerdos con OpenAI y AWS",
+              "summary": "Las acciones de Synopsys subieron un 10% tras prever ingresos y beneficios para el año fiscal 2027 por encima de las estimaciones y anunciar nuevos acuerdos con OpenAI y AWS."
+            }
+          }
+        },
+        {
+          "id": "m2cqm",
+          "title": "AI is making cyberattacks faster and harder to detect, Interpol warns. Here’s what companies should watch",
+          "url": "https://www.cnbc.com/2026/10/02/interpol-cyberattack-cyberthreat-agentic-ai.html",
+          "source": "CNBC Technology",
+          "published_at": "2026-10-02T04:57:38.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "An Interpol executive warns AI is making existing cyber threats faster and harder to detect, while companies face new risks from the rise of agentic AI.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "agent"
+            ]
+          },
+          "aiSummary": "Interpol warns AI is accelerating cyberattacks and making them harder to detect, while agentic AI introduces new risks for companies.",
+          "translations": {
+            "da": {
+              "title": "AI gør cyberangreb hurtigere og sværere at opdage, advarer Interpol. Her er, hvad virksomheder bør være opmærksomme på",
+              "summary": "Interpol advarer om, at AI accelererer cyberangreb og gør dem sværere at opdage, mens agentisk AI introducerer nye risici for virksomheder."
+            },
+            "es": {
+              "title": "La IA está acelerando los ciberataques y haciéndolos más difíciles de detectar, advierte Interpol. Esto es lo que las empresas deben vigilar",
+              "summary": "Interpol advierte que la IA está acelerando los ciberataques y haciéndolos más difíciles de detectar, mientras que la IA agente introduce nuevos riesgos para las empresas."
+            }
+          }
+        },
+        {
+          "id": "65hw6i",
+          "title": "Meta, Amazon, And The Real Question About Agentic Commerce",
+          "url": "https://www.forrester.com/blogs/meta-amazon-and-the-real-question-about-agentic-commerce/",
+          "source": "Forrester Blog",
+          "published_at": "2026-10-03T00:41:40.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Recent media reports have highlighted Amazon’s decision to block Meta’s Muse AI agent from making purchases on its marketplace. Muse has quickly gained attention for its ability to research products, complete tasks, and shop on behalf of consumers, while Amazon appears focused on maintaining direct control of the customer relationship and checkout experience.   The situation […]",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "agent",
+              "ai",
+              "research"
+            ]
+          },
+          "aiSummary": "Amazon blocked Meta’s Muse AI agent from making purchases on its marketplace, aiming to retain direct control over customer relationships and checkout.",
+          "translations": {
+            "da": {
+              "title": "Meta, Amazon og det reelle spørgsmål om agentisk handel",
+              "summary": "Amazon blokerede Meta’s Muse AI-agent fra at foretage køb på sin markedsplads for at bevare direkte kontrol over kundeforhold og betaling."
+            },
+            "es": {
+              "title": "Meta, Amazon y la verdadera cuestión sobre el comercio agéntico",
+              "summary": "Amazon bloqueó al agente Muse AI de Meta para realizar compras en su mercado, buscando mantener el control directo sobre las relaciones con los clientes y el pago."
+            }
+          }
+        },
+        {
+          "id": "4d7g01",
+          "title": "One More Note on Agents, Meta Connect, Meta Enterprise Platform",
+          "url": "https://stratechery.com/2026/one-more-note-on-agents-meta-connect-meta-enterprise-platform/",
+          "source": "Stratechery",
+          "published_at": "2026-09-29T10:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Meta has the chance to own the consumer agentic space; going for enterprise is a big mistake.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "agent"
+            ]
+          },
+          "aiSummary": "Meta risks missing its opportunity to dominate consumer agentic AI by prioritising enterprise with its Meta Enterprise Platform strategy.",
+          "translations": {
+            "da": {
+              "title": "Endnu en note om Agents, Meta Connect, Meta Enterprise Platform",
+              "summary": "Meta risikerer at miste sin chance for at dominere forbrugeragentisk AI ved at prioritere erhverv med sin Meta Enterprise Platform-strategi."
+            },
+            "es": {
+              "title": "Una nota más sobre Agents, Meta Connect, Meta Enterprise Platform",
+              "summary": "Meta corre el riesgo de perder su oportunidad de dominar la IA agentiva para consumidores al priorizar la empresa con su estrategia Meta Enterprise Platform."
+            }
+          }
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 119,
+      "top": [
+        {
+          "id": "qsmdmh",
+          "title": "Shopify debuts Canvas, a way to build online stores by chatting with AI",
+          "url": "https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/",
+          "source": "TechCrunch - Commerce",
+          "published_at": "2026-10-01T16:44:35.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Shopify’s new Canvas site builder lets merchants create and customize their online stores by chatting with its AI agent Sidekick, while watching the changes happen in real time.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Shopify launched Canvas, enabling merchants to build and customize online stores in real time by chatting with its AI agent Sidekick.",
+          "translations": {
+            "da": {
+              "title": "Shopify lancerer Canvas, en måde at bygge netbutikker ved at chatte med AI",
+              "summary": "Shopify lancerede Canvas, der gør det muligt for handlende at bygge og tilpasse netbutikker i realtid ved at chatte med deres AI-agent Sidekick."
+            },
+            "es": {
+              "title": "Shopify presenta Canvas, una forma de crear tiendas en línea chateando con IA",
+              "summary": "Shopify lanzó Canvas, que permite a los comerciantes crear y personalizar tiendas en línea en tiempo real chateando con su agente de IA Sidekick."
+            }
+          }
+        },
+        {
+          "id": "cgm79p",
+          "title": "Kroger takes key step forward in tying retail media creative with digital sales",
+          "url": "https://www.grocerydive.com/news/kroger-ai-and-predictive-scoring-e-commerce/831891/",
+          "source": "Grocery Dive",
+          "published_at": "2026-10-01T15:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "The grocer, in partnership with Vidmob and MMA Global, was able to forecast e-commerce conversion of ad creative with 81% accuracy.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": -0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "e-commerce"
+            ]
+          },
+          "aiSummary": "Kroger, partnering with Vidmob and MMA Global, forecasted e-commerce conversion of ad creative with 81% accuracy.",
+          "translations": {
+            "da": {
+              "title": "Kroger tager vigtigt skridt fremad i at forbinde detailmediekreativitet med digitale salg",
+              "summary": "Kroger, i samarbejde med Vidmob og MMA Global, forudsagde e-handelskonvertering af annoncekreativitet med 81 % nøjagtighed."
+            },
+            "es": {
+              "title": "Kroger da un paso clave para vincular la creatividad en medios minoristas con las ventas digitales",
+              "summary": "Kroger, en asociación con Vidmob y MMA Global, pronosticó la conversión de comercio electrónico de creatividades publicitarias con un 81 % de precisión."
+            }
+          }
+        },
+        {
+          "id": "lw3vpz",
+          "title": "Merchants Want More Than Payments from Their POS System",
+          "url": "https://www.paymentsjournal.com/merchants-want-more-than-payments-from-their-pos-system/",
+          "source": "Payments Journal",
+          "published_at": "2026-10-02T18:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Point-of-sale (POS) solutions are moving beyond the checkout, bringing together capabilities that range from inventory management to reconciliation. That expansion has raised the bar for merchants. A UK study of the merchant payments market from Castles Technology identified five factors that most influence POS selection: reliability and performance, ease of use, payment flexibility, integration with […]\nThe post Merchants Want More Than Payments from Their POS System appeared first on PaymentsJ...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "payment",
+              "checkout",
+              "inventory"
+            ]
+          },
+          "aiSummary": "A UK Castles Technology study found merchants now prioritise POS systems offering reliability, ease of use, payment flexibility, and integration beyond basic payments.",
+          "translations": {
+            "da": {
+              "title": "Handlende ønsker mere end betalinger fra deres POS-system",
+              "summary": "En britisk Castles Technology-undersøgelse viste, at handlende nu prioriterer POS-systemer med pålidelighed, brugervenlighed, betalingsfleksibilitet og integration ud over grundlæggende betalinger."
+            },
+            "es": {
+              "title": "Los comerciantes quieren más que pagos de su sistema POS",
+              "summary": "Un estudio de Castles Technology en Reino Unido encontró que los comerciantes ahora priorizan sistemas POS que ofrecen fiabilidad, facilidad de uso, flexibilidad de pago e integración más allá de los pagos básicos."
+            }
+          }
+        },
+        {
+          "id": "9h9dah",
+          "title": "DoorDash expands access to agentic ordering for offices, corporate customers",
+          "url": "https://www.digitalcommerce360.com/2026/10/01/doordash-expands-access-to-agentic-ordering-for-offices-corporate-customers/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-10-01T22:10:33.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "DoorDash put its latest artificial intelligence (AI), delivery and ordering options on display at its Dash Forward event in San Francisco on Tuesday, opening up agentic ordering to workplaces for new users. In addition to showing off new drones and its Dasher Returns services, the last-mile delivery platform and marketplace named its first corporate customers […]\nThe post DoorDash expands access to agentic ordering for offices, corporate customers appeared first on Digital Commerce 360.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": -0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "platform",
+              "marketplace"
+            ]
+          },
+          "aiSummary": "DoorDash launched agentic AI ordering for offices and named its first corporate customers at the Dash Forward event in San Francisco.",
+          "translations": {
+            "da": {
+              "title": "DoorDash udvider adgang til agentisk bestilling for kontorer og erhvervskunder",
+              "summary": "DoorDash lancerede agentisk AI-bestilling for kontorer og præsenterede sine første erhvervskunder ved Dash Forward-arrangementet i San Francisco."
+            },
+            "es": {
+              "title": "DoorDash amplía el acceso a pedidos agenticos para oficinas y clientes corporativos",
+              "summary": "DoorDash lanzó pedidos agenticos con IA para oficinas y presentó a sus primeros clientes corporativos en el evento Dash Forward en San Francisco."
+            }
+          }
+        },
+        {
+          "id": "jrba1z",
+          "title": "AI Shopping Could Mean Fewer Returns",
+          "url": "https://www.practicalecommerce.com/ai-shopping-could-mean-fewer-returns",
+          "source": "Practical Ecommerce",
+          "published_at": "2026-10-01T12:34:12.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Better-informed shoppers are more likely to purchase items they will ultimately keep.\nThe post AI Shopping Could Mean Fewer Returns appeared first on Practical Ecommerce.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "shopping",
+              "ecommerce"
+            ]
+          },
+          "aiSummary": "AI-powered shopping tools are reducing product returns by helping customers make more informed purchase decisions.",
+          "translations": {
+            "da": {
+              "title": "AI-shopping kan betyde færre returneringer",
+              "summary": "AI-drevne shoppingværktøjer reducerer produktreturneringer ved at hjælpe kunder med at træffe mere informerede købsbeslutninger."
+            },
+            "es": {
+              "title": "Las compras con IA podrían significar menos devoluciones",
+              "summary": "Las herramientas de compra impulsadas por IA están reduciendo las devoluciones de productos al ayudar a los clientes a tomar decisiones de compra más informadas."
+            }
+          }
+        },
+        {
+          "id": "t8rb4b",
+          "title": "Small Businesses Weigh Their Options in Cross-Border Payments",
+          "url": "https://www.paymentsjournal.com/small-businesses-weigh-their-options-in-cross-border-payments/",
+          "source": "Payments Journal",
+          "published_at": "2026-09-28T13:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Cross-border payments are no longer just for major corporations. Small businesses routinely buy inventory from overseas, pay international contractors, sell through global marketplaces, and serve customers around the world. Yet, in part because of their origins in commercial banking, cross-border payments—both outgoing and incoming—can still be expensive and difficult to manage for smaller businesses. In […]\nThe post Small Businesses Weigh Their Options in Cross-Border Payments appeared first on...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "payment",
+              "marketplace",
+              "inventory"
+            ]
+          },
+          "aiSummary": "Small businesses face high costs and complexity managing cross-border payments as they increasingly buy inventory, pay contractors, and sell to customers overseas.",
+          "translations": {
+            "da": {
+              "title": "Små virksomheder overvejer deres muligheder ved grænseoverskridende betalinger",
+              "summary": "Små virksomheder står over for høje omkostninger og kompleksitet ved håndtering af grænseoverskridende betalinger, da de i stigende grad køber lager, betaler entreprenører og sælger til kunder i udlandet."
+            },
+            "es": {
+              "title": "Pequeñas empresas evalúan sus opciones en pagos transfronterizos",
+              "summary": "Las pequeñas empresas enfrentan altos costos y complejidad al gestionar pagos transfronterizos mientras compran inventario, pagan a contratistas y venden a clientes en el extranjero."
+            }
+          }
+        },
+        {
+          "id": "6a8s31",
+          "title": "Don’t Make Them Count",
+          "url": "https://www.practicalecommerce.com/dont-make-them-count",
+          "source": "Practical Ecommerce",
+          "published_at": "2026-09-29T14:21:36.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Four examples from merchants offer little-known cues to expedite conversions.\nThe post Don’t Make Them Count appeared first on Practical Ecommerce.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ecommerce"
+            ]
+          },
+          "aiSummary": "Four merchants reveal little-known website cues that accelerate ecommerce conversions by reducing customer effort at checkout.",
+          "translations": {
+            "da": {
+              "title": "Lad dem ikke tælle",
+              "summary": "Fire handlende afslører lidt kendte webstedsindikatorer, der øger ecommerce-konverteringer ved at reducere kundens indsats ved kassen."
+            },
+            "es": {
+              "title": "No los hagas contar",
+              "summary": "Cuatro comerciantes revelan señales poco conocidas en sitios web que aceleran las conversiones de comercio electrónico al reducir el esfuerzo del cliente en el pago."
+            }
+          }
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 60,
+      "top": [
+        {
+          "id": "86qrth",
+          "title": "Getting Into Beauty Retail Is Difficult — Staying There Is Even Harder",
+          "url": "https://fashionista.com/2026/10/beauty-retail-challenges-how-to-be-successful",
+          "source": "Fashionista",
+          "published_at": "2026-10-02T12:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Retail placement was once viewed as the ultimate sign of success. Now, stricter margins, inventory requirements and performance expectations are forcing beauty brands to reconsider what it takes to survive on the shelf.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "aiSummary": "Stricter margins, tougher inventory rules and rising performance demands are prompting beauty brands to rethink the value of traditional retail placement.",
+          "translations": {
+            "da": {
+              "title": "Det er svært at komme ind i skønhedsdetailhandel – det er endnu sværere at blive der",
+              "summary": "Strammere marginer, strengere lagerregler og stigende præstationskrav får skønhedsbrands til at genoverveje værdien af traditionel detailplacering."
+            },
+            "es": {
+              "title": "Entrar en el comercio minorista de belleza es difícil — mantenerse allí es aún más difícil",
+              "summary": "Márgenes más estrictos, reglas de inventario más duras y mayores demandas de rendimiento están llevando a las marcas de belleza a replantear el valor de la colocación minorista tradicional."
+            }
+          }
+        },
+        {
+          "id": "pbecfv",
+          "title": "Tommy Hilfiger and Calvin Klein Were New York Fashion Week's Most Talked-About Brands",
+          "url": "https://fashionista.com/2026/09/nyfw-spring-2027-top-designers-celebrities-influencers-miv-launchmetrics-data",
+          "source": "Fashionista",
+          "published_at": "2026-09-30T12:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Newcomers like Conner Ives and Magda Butrym also made waves for Spring 2027, according to analysis by Launchmetrics.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": -0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "aiSummary": "Tommy Hilfiger and Calvin Klein generated the most buzz at New York Fashion Week Spring 2027, with Conner Ives and Magda Butrym also drawing attention.",
+          "translations": {
+            "da": {
+              "title": "Tommy Hilfiger og Calvin Klein var de mest omtalte brands ved New York Fashion Week",
+              "summary": "Tommy Hilfiger og Calvin Klein skabte mest opmærksomhed ved New York Fashion Week Spring 2027, hvor Conner Ives og Magda Butrym også tiltrak sig opmærksomhed."
+            },
+            "es": {
+              "title": "Tommy Hilfiger y Calvin Klein fueron las marcas más comentadas en la Semana de la Moda de Nueva York",
+              "summary": "Tommy Hilfiger y Calvin Klein generaron el mayor revuelo en la Semana de la Moda de Nueva York Primavera 2027, con Conner Ives y Magda Butrym también llamando la atención."
+            }
+          }
+        },
+        {
+          "id": "6ru2jd",
+          "title": "Exclusive: Coty names new US consumer beauty chief as it rebuilds brand support",
+          "url": "https://www.glossy.co/beauty/coty-kara-langan-us-consumer-beauty-marketing/?utm_campaign=glossydis&utm_medium=rss&utm_source=general-rss",
+          "source": "Glossy",
+          "published_at": "2026-10-01T10:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Kara Langan joins Coty as the company rebalances creator and traditional advertising, restores support for Sally Hansen and builds out its mass fragrance business.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": -0.04999999999999999,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "consumer",
+              "brand",
+              "exclusive"
+            ]
+          },
+          "aiSummary": "Kara Langan joins Coty as US consumer beauty chief to boost Sally Hansen support and expand the company’s mass fragrance business.",
+          "translations": {
+            "da": {
+              "title": "Eksklusivt: Coty udnævner ny chef for amerikansk forbrugerbeauty, mens de genopbygger brandstøtte",
+              "summary": "Kara Langan tiltræder som chef for amerikansk forbrugerbeauty hos Coty for at styrke Sally Hansen-støtten og udvide virksomhedens masseparfume-forretning."
+            },
+            "es": {
+              "title": "Exclusiva: Coty nombra nueva jefa de belleza de consumo en EE. UU. mientras reconstruye el apoyo a la marca",
+              "summary": "Kara Langan se une a Coty como jefa de belleza de consumo en EE. UU. para impulsar el apoyo a Sally Hansen y expandir el negocio de fragancias masivas de la compañía."
+            }
+          }
+        },
+        {
+          "id": "u1ug8l",
+          "title": "Must Read: Jay-Z's Investment Platform May Acquire 50% Stake in Fenty Beauty, How Emerging Designers Approach Celebrity Placements",
+          "url": "https://fashionista.com/2026/10/jay-z-marcypen-capital-partners-fenty-beauty-50-percent-stake",
+          "source": "Fashionista",
+          "published_at": "2026-10-01T16:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Plus, Apple Martin makes her runway debut at Chloé.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": -0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Jay-Z's investment platform is in talks to acquire a 50% stake in Fenty Beauty.",
+          "translations": {
+            "da": {
+              "title": "Must Read: Jay-Z's investeringsplatform kan erhverve 50% andel i Fenty Beauty, hvordan nye designere håndterer kendisplaceringer",
+              "summary": "Jay-Z's investeringsplatform er i samtaler om at erhverve en 50% andel i Fenty Beauty."
+            },
+            "es": {
+              "title": "Must Read: La plataforma de inversión de Jay-Z podría adquirir el 50% de Fenty Beauty, cómo los diseñadores emergentes abordan las colocaciones de celebridades",
+              "summary": "La plataforma de inversión de Jay-Z está en negociaciones para adquirir una participación del 50% en Fenty Beauty."
+            }
+          }
+        },
+        {
+          "id": "kpo499",
+          "title": "Delvaux welcomes Yanina Novitskaya as next CEO",
+          "url": "https://www.luxurydaily.com/delvaux-welcomes-yanina-novitskaya-as-next-ceo/",
+          "source": "Luxury Daily - Main",
+          "published_at": "2026-09-30T08:45:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "With international growth among her priorities, the longtime Cartier executive will take charge of the Belgian leather goods house Dec. 1.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Delvaux has appointed longtime Cartier executive Yanina Novitskaya as CEO, effective December 1, with international growth among her priorities.",
+          "translations": {
+            "da": {
+              "title": "Delvaux byder Yanina Novitskaya velkommen som næste CEO",
+              "summary": "Delvaux har udnævnt den erfarne Cartier-direktør Yanina Novitskaya som CEO med virkning fra 1. december, hvor international vækst er en af hendes prioriteter."
+            },
+            "es": {
+              "title": "Delvaux da la bienvenida a Yanina Novitskaya como próxima CEO",
+              "summary": "Delvaux ha nombrado a Yanina Novitskaya, ejecutiva veterana de Cartier, como CEO a partir del 1 de diciembre, con el crecimiento internacional entre sus prioridades."
+            }
+          }
+        },
+        {
+          "id": "5nom60",
+          "title": "Zenith, Guerlain, Moynat, Samaritaine board British Pullman for collectors",
+          "url": "https://www.luxurydaily.com/zenith-guerlain-moynat-samaritaine-board-british-pullman-for-collectors/",
+          "source": "Luxury Daily - Main",
+          "published_at": "2026-09-29T09:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Four LVMH maisons hosted around 60 guests aboard Belmond’s restored Art Deco train, presenting hands-on workshops and a shared cabinet of curiosities.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Zenith, Guerlain, Moynat and Samaritaine hosted 60 collectors on Belmond’s British Pullman for workshops and a joint cabinet of curiosities.",
+          "translations": {
+            "da": {
+              "title": "Zenith, Guerlain, Moynat, Samaritaine ombord på British Pullman for samlere",
+              "summary": "Zenith, Guerlain, Moynat og Samaritaine bød 60 samlere velkommen på Belmonds British Pullman til workshops og et fælles kabinet af kuriositeter."
+            },
+            "es": {
+              "title": "Zenith, Guerlain, Moynat, Samaritaine a bordo del British Pullman para coleccionistas",
+              "summary": "Zenith, Guerlain, Moynat y Samaritaine recibieron a 60 coleccionistas en el British Pullman de Belmond para talleres y un gabinete conjunto de curiosidades."
+            }
+          }
+        },
+        {
+          "id": "nl0xax",
+          "title": "Inside 3 Luxurious Omakase Restaurant Opening in Midtown Manhattan This Fall",
+          "url": "https://robbreport.com/food-drink/dining/3-sushiya-opening-nyc-fall-1238644406/",
+          "source": "Robb Report",
+          "published_at": "2026-10-03T19:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Will there be enough room, and demand, for all of them?",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "demand"
+            ]
+          },
+          "aiSummary": "Three new luxury omakase restaurants are set to open in Midtown Manhattan this fall, intensifying competition for affluent diners.",
+          "translations": {
+            "da": {
+              "title": "Indenfor 3 luksuriøse Omakase-restauranter, der åbner i Midtown Manhattan denne efterår",
+              "summary": "Tre nye luksuriøse omakase-restauranter åbner i Midtown Manhattan denne efterår og øger konkurrencen om velhavende gæster."
+            },
+            "es": {
+              "title": "Dentro de 3 lujosos restaurantes Omakase que abrirán en Midtown Manhattan este otoño",
+              "summary": "Tres nuevos restaurantes de lujo omakase abrirán en Midtown Manhattan este otoño, intensificando la competencia por comensales adinerados."
+            }
+          }
+        }
+      ]
+    },
+    "Jewellery_Industry": {
+      "total": 108,
+      "top": [
+        {
+          "id": "29ndyb",
+          "title": "Pandora expands manufacturing capacity by 50% with Vietnam facility",
+          "url": "https://www.retail-jeweller.com/products/brands/pandora-expands-manufacturing-capacity-by-50-with-vietnam-facility-02-10-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-10-02T08:00:41.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Retail Jeweller\nPandora expands manufacturing capacity by 50% with Vietnam facility\nJewellery behemoth Pandora has opened a $150m manufacturing facility in Ho Chi Minh City, Vietnam, increasing its production capacity by 50% and establishing its first production site outside Thailand.\nPandora expands manufacturing capacity by 50% with Vietnam facility\nRuth Faulkner",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Pandora opened a $150m facility in Ho Chi Minh City, boosting manufacturing capacity by 50% and marking its first production site outside Thailand.",
+          "translations": {
+            "da": {
+              "title": "Pandora udvider produktionskapaciteten med 50 % med facilitet i Vietnam",
+              "summary": "Pandora åbnede en facilitet til 150 mio. $ i Ho Chi Minh City, hvilket øger produktionskapaciteten med 50 % og markerer deres første produktionssted uden for Thailand."
+            },
+            "es": {
+              "title": "Pandora amplía su capacidad de fabricación en un 50 % con instalación en Vietnam",
+              "summary": "Pandora abrió una instalación de 150 millones de dólares en Ho Chi Minh, aumentando la capacidad de fabricación en un 50 % y marcando su primer sitio de producción fuera de Tailandia."
+            }
+          }
+        },
+        {
+          "id": "8rsnun",
+          "title": "INDUSTRY OPINION: The case for the smart jewellery storefront",
+          "url": "https://www.retail-jeweller.com/news-and-insight/people/industry-opinion/industry-opinion-the-case-for-the-smart-jewellery-storefront-01-10-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-10-01T07:40:42.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Retail Jeweller\nINDUSTRY OPINION: The case for the smart jewellery storefront\nZohar Gilad, chief executive and co-founder of Fast Simon, explains why artificial intelligence (AI), won't be able to take over the jewellery store front.\nINDUSTRY OPINION: The case for the smart jewellery storefront\nKate Rainford",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": -0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Fast Simon CEO Zohar Gilad argues artificial intelligence cannot fully replace human expertise at the jewellery storefront.",
+          "translations": {
+            "da": {
+              "title": "BRANCHEMENING: Argumentet for den smarte smykkebutik",
+              "summary": "Fast Simon CEO Zohar Gilad argumenterer for, at kunstig intelligens ikke fuldt ud kan erstatte menneskelig ekspertise i smykkebutikken."
+            },
+            "es": {
+              "title": "OPINIÓN DE LA INDUSTRIA: El caso de la tienda inteligente de joyería",
+              "summary": "El CEO de Fast Simon, Zohar Gilad, sostiene que la inteligencia artificial no puede reemplazar completamente la experiencia humana en la tienda de joyería."
+            }
+          }
+        },
+        {
+          "id": "hgls9b",
+          "title": "Polygon Launches Redesigned Marketplace for Gem and Jewelry Trade With No Commissions and Video Listings",
+          "url": "https://instoremag.com/polygon-launches-redesigned-marketplace-for-gem-and-jewelry-trade-with-no-commissions-and-video-listings/",
+          "source": "Instore Magazine",
+          "published_at": "2026-10-02T21:38:14.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "The vetted trade-only platform at polygon.net offers visual browsing, make-an-offer tools and a new handbags and luxury accessories category.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": -0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "jewelry",
+              "gem"
+            ]
+          },
+          "aiSummary": "Polygon launched a redesigned, commission-free marketplace at polygon.net with video listings, make-an-offer tools, and a new handbags and luxury accessories category.",
+          "translations": {
+            "da": {
+              "title": "Polygon lancerer redesignet markedsplads for handel med ædelsten og smykker uden kommission og med videoannoncer",
+              "summary": "Polygon lancerede en redesignet, kommissionsfri markedsplads på polygon.net med videoannoncer, forhandlingsværktøjer og en ny kategori for håndtasker og luksustilbehør."
+            },
+            "es": {
+              "title": "Polygon lanza mercado rediseñado para comercio de gemas y joyería sin comisiones y con listados en video",
+              "summary": "Polygon lanzó un mercado rediseñado y sin comisiones en polygon.net con listados en video, herramientas para hacer ofertas y una nueva categoría de bolsos y accesorios de lujo."
+            }
+          }
+        },
+        {
+          "id": "jxs9h5",
+          "title": "Watches of Switzerland Group partners with Monica Vinader",
+          "url": "https://www.retail-jeweller.com/news-and-insight/watches-of-switzerland-group-partners-with-monica-vinader-02-10-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-10-02T08:00:48.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Retail Jeweller\nWatches of Switzerland Group partners with Monica Vinader\nThe Watches of Switzerland Group has partnered with Monica Vinader, bringing the brand to Goldsmiths and Mappin & Webb.\nWatches of Switzerland Group partners with Monica Vinader\nKate Rainford",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": -0.04999999999999999,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "watch",
+              "gold",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Watches of Switzerland Group has partnered with Monica Vinader to introduce the brand at Goldsmiths and Mappin & Webb stores.",
+          "translations": {
+            "da": {
+              "title": "Watches of Switzerland Group samarbejder med Monica Vinader",
+              "summary": "Watches of Switzerland Group har indgået partnerskab med Monica Vinader for at introducere mærket i Goldsmiths og Mappin & Webb butikker."
+            },
+            "es": {
+              "title": "Watches of Switzerland Group se asocia con Monica Vinader",
+              "summary": "Watches of Switzerland Group se ha asociado con Monica Vinader para introducir la marca en las tiendas Goldsmiths y Mappin & Webb."
+            }
+          }
+        },
+        {
+          "id": "tqe6lm",
+          "title": "Retail theft rises, jewellery crime declines in Victoria",
+          "url": "https://www.jewellermagazine.com/Article/15545/Retail-theft-rises-jewellery-crime-declines-in-Victoria",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-09-28T14:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Concerning data compiled in New South Wales and Victoria have highlighted the prevalence of crimes targeting retail businesses.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Retail theft increased while jewellery-related crime declined in Victoria, according to newly compiled data from New South Wales and Victoria.",
+          "translations": {
+            "da": {
+              "title": "Detailtyveri stiger, smykkekriminalitet falder i Victoria",
+              "summary": "Detailtyveri steg, mens smykkekriminalitet faldt i Victoria ifølge nyligt indsamlede data fra New South Wales og Victoria."
+            },
+            "es": {
+              "title": "Aumentan los robos en comercios, disminuyen los delitos relacionados con joyas en Victoria",
+              "summary": "Los robos en comercios aumentaron mientras que los delitos relacionados con joyas disminuyeron en Victoria, según datos recién compilados de New South Wales y Victoria."
+            }
+          }
+        },
+        {
+          "id": "qnuwfn",
+          "title": "Argyle Pink Diamonds reveals new ownership",
+          "url": "https://www.jewellermagazine.com/Article/15546/Argyle-Pink-Diamonds-reveals-new-ownership",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-10-01T14:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Rio Tinto has announced the sale of the Argyle Pink Diamonds brand to British luxury jeweller Boodles.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "diamond",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Rio Tinto sold the Argyle Pink Diamonds brand to British luxury jeweller Boodles.",
+          "translations": {
+            "da": {
+              "title": "Argyle Pink Diamonds afslører ny ejer",
+              "summary": "Rio Tinto solgte Argyle Pink Diamonds-mærket til den britiske luksussmykkeforhandler Boodles."
+            },
+            "es": {
+              "title": "Argyle Pink Diamonds revela nueva propiedad",
+              "summary": "Rio Tinto vendió la marca Argyle Pink Diamonds al joyero de lujo británico Boodles."
+            }
+          }
+        },
+        {
+          "id": "2xmn7",
+          "title": "Gold jewellery smuggler makes expensive mistake",
+          "url": "https://www.jewellermagazine.com/Article/15541/Gold-jewellery-smuggler-makes-expensive-mistake",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-09-28T14:00:00.000Z",
+          "ingested_at": "2026-10-04T12:08:16.621Z",
+          "snippet": "Earlier this month, a traveller was busted at a Sydney airport attempting to smuggle more than $1 million worth of gold jewellery into the country.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "gold",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "A traveller was caught at Sydney airport smuggling over $1 million in gold jewellery earlier this month.",
+          "translations": {
+            "da": {
+              "title": "Guldjuvelsmykke-smugler begår dyr fejl",
+              "summary": "En rejsende blev fanget i Sydney lufthavn med over 1 million dollars i guldjuvelsmykker tidligere på måneden."
+            },
+            "es": {
+              "title": "Contrabandista de joyas de oro comete costoso error",
+              "summary": "Un viajero fue detenido en el aeropuerto de Sydney transportando más de 1 millón de dólares en joyas de oro a principios de este mes."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "oneSentenceSummary": "Assumptions that generative AI merely streamlines backend workflows are scrambled as platforms like Shopify Canvas and OpenAI’s Dot redefine the storefront as a conversational interface.",
+  "keyThemes": [
+    "Pandora manufacturing expansion",
+    "Shopify Canvas site builder",
+    "Agentic commerce",
+    "Synopsys OpenAI partnership",
+    "Argyle Pink Diamonds sale"
+  ],
+  "editorialTake": "AI agents are no longer just backend tools, they are becoming the storefront itself. Shopify’s Canvas lets merchants build entire shops by chatting with an AI, while OpenAI’s Dot can handle both enterprise workflows and personal errands in the same breath. Amazon’s move to block Meta’s Muse agent from its checkout shows the stakes: whoever controls the agent controls the customer relationship, not just the transaction.\n\nThe shift is not theoretical. Shopify is betting merchants will want to design stores through conversation, not code. OpenAI’s Dot is already taking orders and handling office tasks, blurring the line between B2B and B2C. Amazon’s defensive play against Meta signals that agentic commerce will be a battleground for direct access to shoppers. Some argue AI cannot replace human expertise, especially in jewellery, but as agentic interfaces become the front door, the real risk is ceding the customer relationship entirely to platforms.\n\nLuxury and jewellery operators should test conversational interfaces now, before platforms insert themselves between brand and buyer. Use the next quarter to pilot AI-powered storefronts or appointment booking, and measure where human expertise adds value. The goal: keep the relationship personal, even as the interface becomes conversational.",
+  "coverImageUrl": "/weekly-images/2026-W40.png",
+  "coverImageAlt": "Weekly cover illustration for 2026-W40"
+}

@@ -1,0 +1,84 @@
+{
+  "week": "2026-W40",
+  "generatedAt": "2026-10-04T12:26:14.849Z",
+  "intro": "This week’s intelligence digest highlights pivotal developments at the intersection of retail, technology, and AI. Key stories include Shopify’s launch of Canvas, new leadership at Coty, and advances in retail media and POS systems, alongside strategic moves from Amazon and Anthropic. These updates underscore the accelerating integration of AI and digital innovation across the retail and luxury landscape.",
+  "editorialTake": "AI agents are no longer just backend tools, they are becoming the storefront itself. Shopify’s Canvas lets merchants build entire shops by chatting with an AI, while OpenAI’s Dot can handle both enterprise workflows and personal errands in the same breath. Amazon’s move to block Meta’s Muse agent from its checkout shows the stakes: whoever controls the agent controls the customer relationship, not just the transaction.\n\nThe shift is not theoretical. Shopify is betting merchants will want to design stores through conversation, not code. OpenAI’s Dot is already taking orders and handling office tasks, blurring the line between B2B and B2C. Amazon’s defensive play against Meta signals that agentic commerce will be a battleground for direct access to shoppers. Some argue AI cannot replace human expertise, especially in jewellery, but as agentic interfaces become the front door, the real risk is ceding the customer relationship entirely to platforms.\n\nLuxury and jewellery operators should test conversational interfaces now, before platforms insert themselves between brand and buyer. Use the next quarter to pilot AI-powered storefronts or appointment booking, and measure where human expertise adds value. The goal: keep the relationship personal, even as the interface becomes conversational.",
+  "readOneThing": {
+    "title": "Shopify debuts Canvas, a way to build online stores by chatting with AI",
+    "url": "https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/"
+  },
+  "items": [
+    {
+      "rank": 1,
+      "title": "Shopify debuts Canvas, a way to build online stores by chatting with AI",
+      "url": "https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/",
+      "source": "TechCrunch - Commerce",
+      "bullets": [
+        "Shopify has launched Canvas, a new tool that enables merchants to build and customize their online stores by chatting with its AI agent, Sidekick.",
+        "Canvas allows users to see real-time updates and interact with the actual store code, but currently lacks support for third-party themes, app blocks, and mobile devices.",
+        "This release positions Shopify alongside other companies like Wix, Squarespace, and Webflow, which have also introduced AI-powered website builders in recent years."
+      ],
+      "summary": "Shopify launched Canvas, enabling merchants to build and customize online stores in real time by chatting with its AI agent Sidekick."
+    },
+    {
+      "rank": 2,
+      "title": "Anthropic warns government attitudes may hurt customer ties, IPO prospectus shows ",
+      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/anthropic-warns-government-attitudes-may-hurt-customer-ties-ipo-prospectus-shows/articleshow/134637989.cms",
+      "source": "Economic Times - Technology",
+      "bullets": [
+        "Anthropic stated in its IPO prospectus that negative government attitudes toward its technology could impact its relationships with commercial customers and partners.",
+        "The company revealed that revenue from government agency contracts accounts for less than 1% of its annual revenue and cited recent federal actions affecting its business.",
+        "In February, the US president ordered federal agencies to stop using Anthropic's models, and in June, the Department of Commerce temporarily restricted exports of its Fable 5 and Mythos 5 models."
+      ],
+      "summary": "Anthropic’s IPO prospectus warns that negative government attitudes could damage customer relationships and impact its business prospects."
+    },
+    {
+      "rank": 3,
+      "title": "Exclusive: Coty names new US consumer beauty chief as it rebuilds brand support",
+      "url": "https://www.glossy.co/beauty/coty-kara-langan-us-consumer-beauty-marketing/?utm_campaign=glossydis&utm_medium=rss&utm_source=general-rss",
+      "source": "Glossy",
+      "bullets": [
+        "Divisional sales for Coty's Consumer Beauty segment declined 7% on a like-for-like basis in fiscal 2026, prompting renewed investment in marketing and product development.",
+        "Langan, who starts October 13, will report to Amaury Devallois and have a dotted-line relationship to Gordon von Bretten as Coty continues its strategic review of its beauty portfolio through the end of 2026.",
+        "Consumer Beauty business as it restores marketing support behind CoverGirl and Sally Hansen and rebalances spending across creators and traditional advertising"
+      ],
+      "summary": "Kara Langan joins Coty as US consumer beauty chief to boost Sally Hansen support and expand the company’s mass fragrance business."
+    },
+    {
+      "rank": 4,
+      "title": "Kroger takes key step forward in tying retail media creative with digital sales",
+      "url": "https://www.grocerydive.com/news/kroger-ai-and-predictive-scoring-e-commerce/831891/",
+      "source": "Grocery Dive",
+      "bullets": [
+        "Kroger partnered with Vidmob and MMA Global to use predictive creative scoring to forecast e-commerce purchase conversions before launching ad campaigns.",
+        "The study found that predictive creative scoring could forecast e-commerce conversion with 81% accuracy, and aligning creative with recommendations led to a fourfold improvement in conversion rates.",
+        "Vidmob analyzed over 1,900 video and image assets from Kroger campaigns across Meta and Google’s DV360, continuing efforts to measure and optimize creative quality using AI tools."
+      ],
+      "summary": "Kroger, partnering with Vidmob and MMA Global, forecasted e-commerce conversion of ad creative with 81% accuracy."
+    },
+    {
+      "rank": 5,
+      "title": "Amazon releases its own Jev clone as decision models flood the web",
+      "url": "https://techcrunch.com/2026/10/01/amazon-releases-its-own-jev-clone-as-decision-models-flood-the-web/",
+      "source": "TechCrunch - AI",
+      "bullets": [
+        "Amazon Web Services has released Strands Decider 2B, an open source decision model designed for efficient, confident workflow automation, inspired by TypeSafe’s Jev model.",
+        "Strands Decider 2B is small enough to run locally, delivers confidence scores with each decision, and briefly topped the Jevbench ranking for its size.",
+        "This release coincides with a surge in similar decision models from various researchers and a comparable offering announced by OpenAI in the same week."
+      ],
+      "summary": "Amazon Web Services' Strand Labs launched Strands Decider 2B, its latest Jevalike decision model, as decision models proliferate online."
+    },
+    {
+      "rank": 6,
+      "title": "Merchants Want More Than Payments from Their POS System",
+      "url": "https://www.paymentsjournal.com/merchants-want-more-than-payments-from-their-pos-system/",
+      "source": "Payments Journal",
+      "bullets": [
+        "Point-of-sale systems are evolving to offer merchants integrated capabilities beyond payments, such as inventory management, reconciliation, and workflow control throughout the customer journey.",
+        "A UK study by Castles Technology identified five key factors influencing POS selection: reliability, ease of use, payment flexibility, integration with business platforms, and transparent pricing and support.",
+        "The rise of vertical SaaS platforms and embedded payments providers is driving a global shift, with POS solutions increasingly tailored to the specific needs of niche businesses and industries."
+      ],
+      "summary": "A UK Castles Technology study found merchants now prioritise POS systems offering reliability, ease of use, payment flexibility, and integration beyond basic payments."
+    }
+  ]
+}

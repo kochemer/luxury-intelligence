@@ -5422,5 +5422,197 @@
     ],
     "cached_at": "2026-09-27T12:06:26.389Z",
     "model": "gpt-4.1"
+  },
+  "2026-W40:AI_and_Strategy:gpt-4.1:i18:d3a03a8143be": {
+    "selected": [
+      {
+        "id": "12",
+        "rank": 1,
+        "why": "Anthropic IPO filing highlights regulatory risk to AI labs",
+        "confidence": 0.95
+      },
+      {
+        "id": "10",
+        "rank": 2,
+        "why": "Amazon launches new decision model, signaling model proliferation",
+        "confidence": 0.92
+      },
+      {
+        "id": "16",
+        "rank": 3,
+        "why": "OpenAI Dot agent shows agentic AI moving into enterprise workflows",
+        "confidence": 0.91
+      },
+      {
+        "id": "5",
+        "rank": 4,
+        "why": "Synopsys growth, OpenAI/AWS deals show AI industry economics",
+        "confidence": 0.9
+      },
+      {
+        "id": "14",
+        "rank": 5,
+        "why": "Interpol warns AI is accelerating cyberattack sophistication",
+        "confidence": 0.88
+      },
+      {
+        "id": "0",
+        "rank": 6,
+        "why": "Meta-Amazon agentic commerce clash highlights platform power dynamics",
+        "confidence": 0.87
+      },
+      {
+        "id": "17",
+        "rank": 7,
+        "why": "Meta's agentic strategy analysis—consumer vs. enterprise implications",
+        "confidence": 0.85
+      }
+    ],
+    "cached_at": "2026-10-04T12:25:18.776Z",
+    "model": "gpt-4.1"
+  },
+  "2026-W40:Ecommerce_Retail_Tech:gpt-4.1:i18:c264491686eb": {
+    "selected": [
+      {
+        "id": "9",
+        "rank": 1,
+        "why": "Shopify's AI-driven store builder signals major platform innovation",
+        "confidence": 0.95
+      },
+      {
+        "id": "11",
+        "rank": 2,
+        "why": "Kroger links retail media creative to digital sales with AI",
+        "confidence": 0.92
+      },
+      {
+        "id": "16",
+        "rank": 3,
+        "why": "POS systems evolving beyond payments impacts commerce operations",
+        "confidence": 0.9
+      },
+      {
+        "id": "10",
+        "rank": 4,
+        "why": "DoorDash expands AI ordering for corporate customers, broadening fulfillment tech",
+        "confidence": 0.88
+      },
+      {
+        "id": "15",
+        "rank": 5,
+        "why": "AI shopping's impact on returns addresses key ecommerce pain point",
+        "confidence": 0.87
+      },
+      {
+        "id": "17",
+        "rank": 6,
+        "why": "Cross-border payments for SMBs expands global ecommerce participation",
+        "confidence": 0.85
+      },
+      {
+        "id": "3",
+        "rank": 7,
+        "why": "Merchant case studies reveal actionable conversion optimization tactics",
+        "confidence": 0.83
+      }
+    ],
+    "cached_at": "2026-10-04T12:25:27.230Z",
+    "model": "gpt-4.1"
+  },
+  "2026-W40:Luxury_and_Consumer:gpt-4.1:i18:c311bc72bd97": {
+    "selected": [
+      {
+        "id": "2",
+        "rank": 1,
+        "why": "Explores retail placement challenges with actionable insights for beauty brands",
+        "confidence": 0.95
+      },
+      {
+        "id": "6",
+        "rank": 2,
+        "why": "Provides data-driven analysis of brand buzz and influencer impact at NYFW",
+        "confidence": 0.9
+      },
+      {
+        "id": "5",
+        "rank": 3,
+        "why": "Leadership change with focus on brand support and marketing strategy",
+        "confidence": 0.88
+      },
+      {
+        "id": "17",
+        "rank": 4,
+        "why": "Potential major investment in Fenty Beauty with retail implications",
+        "confidence": 0.87
+      },
+      {
+        "id": "16",
+        "rank": 5,
+        "why": "Highlights a brand simplifying beauty routines, relevant to CX and merchandising",
+        "confidence": 0.85
+      },
+      {
+        "id": "13",
+        "rank": 6,
+        "why": "New CEO with international growth focus for luxury retail expansion",
+        "confidence": 0.83
+      },
+      {
+        "id": "15",
+        "rank": 7,
+        "why": "LVMH maisons' experiential retail event offers luxury engagement insights",
+        "confidence": 0.82
+      }
+    ],
+    "cached_at": "2026-10-04T12:25:35.533Z",
+    "model": "gpt-4.1"
+  },
+  "2026-W40:Jewellery_Industry:gpt-4.1:i18:c1ceb27405df": {
+    "selected": [
+      {
+        "id": "15",
+        "rank": 1,
+        "why": "Directly relevant to Pandora; major supply chain and capacity expansion",
+        "confidence": 0.98
+      },
+      {
+        "id": "10",
+        "rank": 2,
+        "why": "Smart storefronts: actionable CX and digital integration insights",
+        "confidence": 0.92
+      },
+      {
+        "id": "1",
+        "rank": 3,
+        "why": "Marketplace redesign with no commissions; new ecommerce model",
+        "confidence": 0.88
+      },
+      {
+        "id": "7",
+        "rank": 4,
+        "why": "Retail partnership highlights omnichannel and brand collaboration trends",
+        "confidence": 0.85
+      },
+      {
+        "id": "9",
+        "rank": 5,
+        "why": "Inventory acquisition impacts product assortment and supply chain",
+        "confidence": 0.84
+      },
+      {
+        "id": "11",
+        "rank": 6,
+        "why": "Retail theft and crime data: operational and security implications",
+        "confidence": 0.83
+      },
+      {
+        "id": "12",
+        "rank": 7,
+        "why": "Brand ownership change affects luxury positioning and sourcing",
+        "confidence": 0.8
+      }
+    ],
+    "cached_at": "2026-10-04T12:25:44.030Z",
+    "model": "gpt-4.1"
   }
 }
