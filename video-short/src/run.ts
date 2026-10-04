@@ -17,8 +17,8 @@ import { loadEnv } from '../../lib/env';
 import { Budget, WEEKLY_CAP_USD } from './budget';
 import { selectStory } from './story';
 import { writeScript, type Scene } from './script';
-import { buildVoice, run } from './voice';
-import { renderVideo } from './render';
+import { buildVoice, run, TEMPO } from './voice';
+import { renderVideo, FORMATS, type Format } from './render';
 
 const OUTRO: Scene = {
   vo: 'This has been Luxury Intel in 60 seconds. Full digest at luxury-intel dot com.',
@@ -59,26 +59,31 @@ async function main() {
   await fs.writeFile(path.join(outDir, 'timeline.json'), JSON.stringify({ total, issue, scenes: timed }, null, 2));
   console.log(`[short] narration ${audioTotal.toFixed(1)}s, ${timed.length} scenes`);
 
-  const out = path.join(outDir, `luxury-intel-60s-${week}.mp4`);
-  await renderVideo({ scenes: timed, total, issue, audio, out, previewEvery: process.argv.includes('--previews') ? 90 : undefined });
+  // Same timeline and audio, two layouts: vertical (mobile) and horizontal (desktop).
+  // Each render runs the spill check first and refuses to render if text doesn't fit.
+  const outputs: Record<string, { file: string; sizeMB: number }> = {};
+  for (const format of ['portrait', 'landscape'] as Format[]) {
+    const out = path.join(outDir, `luxury-intel-60s-${week}-${FORMATS[format].label}.mp4`);
+    await renderVideo({ scenes: timed, total, issue, format, audio, out, previewEvery: process.argv.includes('--previews') ? 90 : undefined });
 
-  // Vercel guard: refuse to finish if the MP4 isn't gitignored.
-  try {
-    await run('git', ['check-ignore', '-q', out]);
-  } catch {
-    throw new Error(`${out} is NOT gitignored. It could be committed and deployed to Vercel. Fix .gitignore before going further.`);
+    // Vercel guard: refuse to finish if the MP4 isn't gitignored.
+    try {
+      await run('git', ['check-ignore', '-q', out]);
+    } catch {
+      throw new Error(`${out} is NOT gitignored. It could be committed and deployed to Vercel. Fix .gitignore before going further.`);
+    }
+    outputs[FORMATS[format].label] = { file: out, sizeMB: Number(((await fs.stat(out)).size / 1e6).toFixed(1)) };
   }
 
-  const size = (await fs.stat(out)).size;
   const meta = {
     week, title: script.title, story: { title: story.title, url: story.url, source: story.source },
     why: story.selection.why, angle: story.selection.angle,
-    durationS: Number(total.toFixed(2)), sizeMB: Number((size / 1e6).toFixed(1)),
+    durationS: Number(total.toFixed(2)), outputs, voiceTempo: TEMPO,
     spentUsd: Number(budget.spentUsd.toFixed(4)), capUsd: WEEKLY_CAP_USD,
     published: false,
   };
   await fs.writeFile(path.join(outDir, 'meta.json'), JSON.stringify(meta, null, 2));
-  console.log(`[short] done: ${out}\n${JSON.stringify(meta, null, 2)}`);
+  console.log(`[short] done\n${JSON.stringify(meta, null, 2)}`);
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

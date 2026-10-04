@@ -26,7 +26,10 @@
   --emoji: 'Noto Color Emoji', 'Segoe UI Emoji', sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+/* Size comes from the format class: portrait (mobile) or landscape (desktop). */
+html, body { overflow: hidden; background: var(--bg); }
+body.portrait { width: 1080px; height: 1920px; }
+body.landscape { width: 1920px; height: 1080px; }
 body { color: var(--ink); font-family: var(--sans); position: relative; font-variant-numeric: lining-nums; }
 
 /* Backdrop: faint grid + warm glow. Cheap to rasterize (no filters). */
@@ -73,7 +76,7 @@ body { color: var(--ink); font-family: var(--sans); position: relative; font-var
 .big .w { display: inline-block; margin: 0 0.12em; }
 
 .headline-card {
-  background: var(--paper); color: #141414; width: 920px; padding: 56px 56px 48px; text-align: left;
+  background: var(--paper); color: #141414; width: 100%; max-width: 920px; padding: 56px 56px 48px; text-align: left;
   border-radius: 6px; box-shadow: 0 30px 80px rgba(0,0,0,0.55);
 }
 .headline-card .src { font-family: var(--mono); font-weight: 700; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); border-bottom: 2px solid #1414141f; padding-bottom: 18px; margin-bottom: 26px; }
@@ -83,12 +86,12 @@ body { color: var(--ink); font-family: var(--sans); position: relative; font-var
 .stat-num { font-family: var(--sans); font-weight: 900; font-size: 260px; line-height: 0.9; letter-spacing: -0.05em; color: var(--gold); }
 .stat-label { font-family: var(--sans); font-weight: 700; font-size: 54px; line-height: 1.1; margin-top: 30px; max-width: 900px; }
 
-.list { width: 900px; text-align: left; }
+.list { width: 100%; max-width: 900px; text-align: left; }
 .list .item { display: flex; align-items: center; gap: 28px; font-weight: 800; font-size: 72px; line-height: 1.05; margin: 22px 0; }
 .list .item b { font-family: var(--mono); font-size: 40px; color: var(--bg); background: var(--gold); border-radius: 50%; min-width: 72px; height: 72px; display: grid; place-items: center; }
 .list-title { font-family: var(--mono); font-size: 32px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 30px; align-self: flex-start; }
 
-.versus { display: flex; flex-direction: column; gap: 34px; width: 920px; }
+.versus { display: flex; flex-direction: column; gap: 34px; width: 100%; max-width: 920px; }
 .vs-card { border-radius: 10px; padding: 40px 44px; text-align: left; }
 .vs-card .lab { font-family: var(--mono); font-weight: 700; font-size: 28px; letter-spacing: 0.14em; margin-bottom: 14px; }
 .vs-card .txt { font-weight: 900; font-size: 82px; line-height: 1; letter-spacing: -0.02em; }
@@ -98,11 +101,11 @@ body { color: var(--ink); font-family: var(--sans); position: relative; font-var
 .vs-b .lab { color: var(--gold); }
 .vs-mid { font-family: var(--serif); font-style: italic; font-size: 60px; color: var(--muted); text-align: center; margin: -10px 0; }
 
-.meme { background: #fff; color: #0f0f0f; width: 920px; padding: 60px 56px; border-radius: 8px; text-align: left; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+.meme { background: #fff; color: #0f0f0f; width: 100%; max-width: 920px; padding: 60px 56px; border-radius: 8px; text-align: left; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
 .meme .line { font-family: var(--sans); font-weight: 800; font-size: 68px; line-height: 1.12; margin: 14px 0; }
 .meme .line.last { color: #0f0f0f; }
 
-.code { width: 940px; background: #111318; border: 2px solid #262a33; border-radius: 14px; text-align: left; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+.code { width: 100%; max-width: 940px; background: #111318; border: 2px solid #262a33; border-radius: 14px; text-align: left; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
 .code .bar { display: flex; align-items: center; gap: 12px; padding: 20px 26px; background: #181b22; border-bottom: 2px solid #262a33; }
 .code .dot { width: 20px; height: 20px; border-radius: 50%; }
 .code .fname { font-family: var(--mono); font-size: 26px; color: var(--muted); margin-left: 16px; }
@@ -110,7 +113,7 @@ body { color: var(--ink); font-family: var(--sans); position: relative; font-var
 .code .kw { color: #FF7AB2; } .code .num { color: var(--gold); } .code .str { color: #9FE870; } .code .com { color: #6B7280; font-style: italic; } .code .fn { color: var(--teal); }
 .cursor { display: inline-block; width: 0.55em; height: 1em; background: var(--gold); vertical-align: -0.12em; }
 
-.bars { width: 920px; text-align: left; }
+.bars { width: 100%; max-width: 920px; text-align: left; }
 .bars .row { margin: 26px 0; }
 .bars .lab { font-weight: 800; font-size: 46px; margin-bottom: 12px; display: flex; justify-content: space-between; }
 .bars .lab span:last-child { color: var(--gold); font-family: var(--mono); }
@@ -125,6 +128,29 @@ body { color: var(--ink); font-family: var(--sans); position: relative; font-var
 .k-outro .mark i { color: var(--ink); font-weight: 600; }
 .k-outro .url { font-family: var(--mono); font-size: 48px; margin-top: 50px; color: var(--ink); border: 3px solid var(--gold); padding: 18px 34px; border-radius: 8px; }
 .k-outro .sub { font-family: var(--sans); font-weight: 700; font-size: 44px; color: var(--muted); margin-top: 40px; }
+
+/* ── Landscape (desktop, 1920x1080) ─────────── */
+body.landscape #header { top: 46px; left: 100px; right: 100px; }
+body.landscape #progress { top: 112px; left: 100px; right: 100px; }
+body.landscape #stage { top: 150px; left: 160px; right: 160px; height: 690px; }
+body.landscape #captions { top: 862px; left: 140px; right: 140px; height: 150px; font-size: 62px; }
+body.landscape .big { font-size: 112px; }
+body.landscape .headline-card { max-width: 1300px; }
+body.landscape .list { max-width: 1000px; }
+body.landscape .list-title { align-self: center; width: 100%; max-width: 1000px; text-align: left; }
+body.landscape .meme { max-width: 1250px; }
+body.landscape .code, body.landscape .bars { max-width: 1300px; }
+body.landscape .versus { flex-direction: row; align-items: stretch; max-width: 1560px; gap: 30px; }
+body.landscape .vs-card { flex: 1; }
+body.landscape .vs-mid { align-self: center; margin: 0; }
+body.landscape .stat-num { font-size: 230px; }
+body.landscape .stat-label { max-width: 1300px; }
+body.landscape .emoji { font-size: 250px; }
+body.landscape .emoji-cap { margin-top: 24px; }
+body.landscape .kicker { margin-top: 28px; }
+body.landscape .k-outro .mark { font-size: 104px; }
+body.landscape .k-outro .url { margin-top: 30px; }
+body.landscape .k-outro .sub { margin-top: 24px; }
 </style>
 </head>
 <body>
@@ -145,6 +171,19 @@ const easeOutBack = x => { x = clamp(x); const c1 = 1.70158, c3 = c1 + 1; return
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 let DATA = null;
+let LAYOUT = null;
+
+/*
+ * Safe areas per format. The spill check (window.__checkLayout) requires every
+ * visible piece of text to sit inside these boxes. Portrait keeps clear of the
+ * Shorts/Reels/TikTok UI at the bottom; landscape keeps a title-safe margin.
+ */
+const LAYOUTS = {
+  portrait: { w: 1080, h: 1920, codeW: 860, fitH: 600,
+    stage: { l: 56, t: 230, r: 1024, b: 1280 }, caps: { l: 40, t: 1285, r: 1040, b: 1500 }, header: { l: 56, t: 90, r: 1024, b: 215 } },
+  landscape: { w: 1920, h: 1080, codeW: 1220, fitH: 420,
+    stage: { l: 110, t: 140, r: 1810, b: 850 }, caps: { l: 110, t: 852, r: 1810, b: 1025 }, header: { l: 80, t: 30, r: 1840, b: 125 } },
+};
 let SCENES = [];   // { el, scene, update(lt, D) }
 let CHUNKS = [];   // caption chunks: { words: [{text,start,end}], start, end }
 
@@ -235,9 +274,13 @@ function build(scene) {
       const A = el.querySelector('.vs-a'), B = el.querySelector('.vs-b'), M = el.querySelector('.vs-mid');
       update = (lt, D) => {
         const tb = D * 0.45;
-        A.style.transform = `translateX(${(1 - easeOutBack(lt / 0.25)) * -900}px)`;
+        // Fade + short slide. Parking a card off-frame left a sliver visible at
+        // the edge until its entrance (caught by the spill check).
+        A.style.opacity = clamp(lt / 0.12);
+        A.style.transform = `translateX(${(1 - easeOutBack(lt / 0.25)) * -160}px)`;
         M.style.opacity = clamp((lt - tb + 0.15) / 0.1);
-        B.style.transform = `translateX(${(1 - easeOutBack((lt - tb) / 0.25)) * 900}px)`;
+        B.style.opacity = clamp((lt - tb) / 0.12);
+        B.style.transform = `translateX(${(1 - easeOutBack((lt - tb) / 0.25)) * 160}px)`;
       };
       break;
     }
@@ -263,7 +306,7 @@ function build(scene) {
       const pre = el.querySelector('pre'), full = lines.join('\n');
       // Size the font to the longest line so nothing wraps (mono glyph ~0.6em wide).
       const longest = Math.max(...lines.map(l => l.length), 1);
-      pre.style.fontSize = Math.min(44, Math.floor(860 / (longest * 0.6))) + 'px';
+      pre.style.fontSize = Math.min(44, Math.floor(LAYOUT.codeW / (longest * 0.6))) + 'px';
       pre.style.whiteSpace = 'pre';
       update = (lt, D) => {
         const n = Math.floor(full.length * clamp(lt / Math.max(0.6, D * 0.7)));
@@ -315,6 +358,10 @@ function buildCaptions(scenes) {
 
 window.__setup = async (data) => {
   DATA = data;
+  LAYOUT = LAYOUTS[data.format || 'portrait'];
+  document.body.className = data.format || 'portrait';
+  document.documentElement.style.width = LAYOUT.w + 'px';
+  document.documentElement.style.height = LAYOUT.h + 'px';
   document.getElementById('issue').textContent = data.issue;
   const stage = document.getElementById('stage');
   await document.fonts.ready;
@@ -324,9 +371,9 @@ window.__setup = async (data) => {
     s.el.style.display = 'flex';
     // Fit the biggest text to the stage once, before any transforms.
     for (const sel of ['.big', '.headline-card .hl', '.stat-num', '.stat-label', '.emoji-cap', '.vs-card .txt', '.meme .line', '.list .item']) {
-      s.el.querySelectorAll(sel).forEach(e => fit(e, e.clientWidth || 936, sel === '.headline-card .hl' ? 520 : 600));
+      s.el.querySelectorAll(sel).forEach(e => fit(e, e.clientWidth || LAYOUT.stage.r - LAYOUT.stage.l, sel === '.headline-card .hl' ? LAYOUT.fitH * 0.85 : LAYOUT.fitH));
     }
-    if (s.el.scrollHeight > 1000) { const k = 1000 / s.el.scrollHeight; s.el.style.zoom = k; }
+    s.fitScale = 1; // reduced by __checkLayout if the scene spills
     s.el.style.display = 'none';
   }
   CHUNKS = buildCaptions(data.scenes.filter(s => s.visual.kind !== 'outro'));
@@ -347,15 +394,93 @@ window.__renderAt = (t) => {
     active.update(lt, D);
     // Pop in, then a slow push-in for the rest of the beat.
     const pop = 0.94 + 0.06 * easeOutBack(lt / 0.18);
-    active.el.style.transform = `scale(${pop * (1 + 0.04 * clamp(lt / D))})`;
+    active.el.style.transform = `scale(${pop * (1 + 0.04 * clamp(lt / D)) * active.fitScale})`;
     active.el.style.opacity = clamp(lt / 0.06);
     document.getElementById('flash').style.opacity = lt < 0.05 && active.scene.start > 0 ? 0.12 : 0;
   }
   document.querySelector('#progress > div').style.width = (clamp(t / total) * 100) + '%';
 
   const cap = document.getElementById('captions');
-  const ch = CHUNKS.find(c => t >= c.start && t < c.end + 0.08);
+  // Latest chunk that has started (chunks overlap by the 0.08s linger).
+  const ch = CHUNKS.findLast(c => t >= c.start && t < c.end + 0.08);
   cap.innerHTML = ch ? ch.words.map(w => `<span class="${t >= w.start && t < w.end + 0.02 ? 'on' : ''}">${esc(w.text)}</span>`).join(' ') : '';
+  cap.style.fontSize = ch && ch.fontSize ? ch.fontSize + 'px' : '';
+};
+
+// ── Spill check ────────────────────────────────────────────────────
+
+/** Effective opacity, walking up the tree (opacity multiplies). */
+function opacityOf(el) {
+  let o = 1;
+  for (let e = el; e && e !== document.body; e = e.parentElement) o *= Number(getComputedStyle(e).opacity);
+  return o;
+}
+
+/** Bounding box of all visible text under root (actual glyph extents, not element boxes). */
+function textBox(root) {
+  const box = { l: Infinity, t: Infinity, r: -Infinity, b: -Infinity };
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+    if (!n.textContent.trim() || opacityOf(n.parentElement) < 0.05) continue;
+    const range = document.createRange();
+    range.selectNodeContents(n);
+    for (const r of range.getClientRects()) {
+      if (r.width < 1 || r.height < 1) continue;
+      // Fully off-frame text is an entrance animation, not a spill.
+      if (r.right <= 0 || r.left >= LAYOUT.w || r.bottom <= 0 || r.top >= LAYOUT.h) continue;
+      box.l = Math.min(box.l, r.left); box.t = Math.min(box.t, r.top);
+      box.r = Math.max(box.r, r.right); box.b = Math.max(box.b, r.bottom);
+    }
+  }
+  return box.l === Infinity ? null : box;
+}
+
+const inside = (b, s) => !b || (b.l >= s.l && b.t >= s.t && b.r <= s.r && b.b <= s.b);
+const fmtBox = b => b ? `[${Math.round(b.l)},${Math.round(b.t)} -> ${Math.round(b.r)},${Math.round(b.b)}]` : 'none';
+
+/**
+ * For every scene, render its settled states (early, mid, and the very end,
+ * where every item is revealed and the push-in is largest) and require all
+ * visible text inside the stage safe area. A spilling scene is scaled down in
+ * 4% steps (max 12). Caption chunks shrink their font the same way. Returns
+ * what was adjusted and anything that still spills.
+ */
+window.__checkLayout = () => {
+  const fixes = [], violations = [];
+  SCENES.forEach((s, i) => {
+    const D = s.scene.end - s.scene.start;
+    const times = [s.scene.start + Math.min(1.2, D * 0.3), s.scene.start + D * 0.6, s.scene.end - 0.02];
+    let tries = 0, bad = null;
+    for (; tries <= 12; tries++) {
+      bad = null;
+      for (const t of times) {
+        window.__renderAt(t);
+        const b = textBox(s.el);
+        if (!inside(b, LAYOUT.stage)) { bad = { t, b }; break; }
+      }
+      if (!bad) break;
+      s.fitScale *= 0.96;
+    }
+    if (tries > 0 && !bad) fixes.push(`scene ${i + 1} (${s.scene.visual.kind}): scaled to ${(s.fitScale * 100).toFixed(0)}% to fit`);
+    if (bad) violations.push(`scene ${i + 1} (${s.scene.visual.kind}) spills at t=${bad.t.toFixed(2)}: text ${fmtBox(bad.b)} vs safe ${fmtBox(LAYOUT.stage)}`);
+  });
+
+  const cap = document.getElementById('captions');
+  CHUNKS.forEach(c => {
+    window.__renderAt(c.start + 0.01);
+    let fs = parseFloat(getComputedStyle(cap).fontSize), b = textBox(cap), shrunk = false;
+    while (!inside(b, LAYOUT.caps) && fs > 30) {
+      fs -= 4; c.fontSize = fs; shrunk = true;
+      window.__renderAt(c.start + 0.01); b = textBox(cap);
+    }
+    const label = c.words.map(w => w.text).join(' ');
+    if (shrunk && inside(b, LAYOUT.caps)) fixes.push(`caption "${label}": font ${fs}px`);
+    if (!inside(b, LAYOUT.caps)) violations.push(`caption "${label}" spills: ${fmtBox(b)}`);
+  });
+
+  const hb = textBox(document.getElementById('header'));
+  if (!inside(hb, LAYOUT.header)) violations.push(`header spills: ${fmtBox(hb)}`);
+  return { fixes, violations };
 };
 </script>
 </body>

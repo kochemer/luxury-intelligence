@@ -34,8 +34,8 @@ the information sticks.
   can be checked. On-screen text uses compact forms ("80%", "$11.6B").
 - Rhetorical questions are fine, at most two.
 
-## Structure (about 55 seconds, 95 to 115 spoken words, not counting the outro)
-The narrator speaks at a calm, natural pace with real pauses between sentences, so
+## Structure (about 55 seconds, 110 to 130 spoken words, not counting the outro)
+The narrator keeps real pauses between sentences (played back at 1.25x), so
 fewer words than you might expect fit in a minute. Leave room for the jokes to land.
 1. Cold open (about 10s): the most surprising fact or tension, stated flatly.
    It can start like a news report, e.g. "It's late September, and luxury just admitted something."
@@ -46,7 +46,7 @@ fewer words than you might expect fit in a minute. Leave room for the jokes to l
 5. The fixed outro is added automatically. Don't write one.
 
 ## Visual rhythm
-- Few, longer scenes: 5 to 6 scenes of about 10 seconds each (18 to 24 spoken words per scene).
+- Few, longer scenes: 5 to 6 scenes of about 10 seconds each (20 to 26 spoken words per scene).
   A cut only happens between scenes, so each scene is one complete idea, not one beat.
 - Because a scene stays on screen for ~10 seconds, choose visuals that build up while it
   plays: list items, meme lines, code lines, versus sides and bars appear one after another

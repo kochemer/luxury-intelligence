@@ -38,6 +38,8 @@ async function main() {
   });
   const audio = path.join(outDir, 'silence.wav');
   await run('ffmpeg', ['-y', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=mono', '-t', String(t), audio]);
-  await renderVideo({ scenes, total: t, issue: 'W39 · SEP 2026', audio, out: path.join(outDir, 'preview.mp4'), previewEvery: 33 });
+  for (const format of ['portrait', 'landscape'] as const) {
+    await renderVideo({ scenes, total: t, issue: 'W39 · SEP 2026', format, audio, out: path.join(outDir, `preview-${format}.mp4`), previewEvery: 33 });
+  }
 }
 main().catch(e => { console.error(e); process.exit(1); });
