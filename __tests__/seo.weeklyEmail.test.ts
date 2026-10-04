@@ -14,10 +14,13 @@ import {
   buildWeeklyEmailHtml,
   buildWeeklyEmailText,
   sendWeeklyEmail,
+  percentChange,
 } from '../seo/report/weeklyEmail';
 import { buildReport } from '../seo/report/buildReport';
 import type { EmailSender, OutgoingEmail } from '../seo/shared/email';
-import type { AuditInputs, Finding, SeoReport } from '../seo/types';
+import type { AuditInputs, Finding, SeoReport, TrafficSummary } from '../seo/types';
+import { summariseTraffic } from '../seo/gsc/snapshot';
+import type { GscSnapshot } from '../seo/gsc/store';
 
 const INPUTS: AuditInputs = {
   gscAvailable: true, liveChecked: true, urlsAudited: 52, urlsMetaChecked: 37,
@@ -202,4 +205,72 @@ test('buildReport carries last week\'s indexing count forward within the same re
     await fs.rm(prevPath, { force: true });
     await fs.rm(otherFamilyPath, { force: true });
   }
+});
+
+// ── Search traffic ────────────────────────────────────────────────────────
+
+const TRAFFIC: TrafficSummary = {
+  window: { start: '2026-09-04', end: '2026-10-01' },
+  current: { impressions: 306, clicks: 4, position: 6.6 },
+  previous: { impressions: 161, clicks: 2, position: 12.6 },
+  pagesWithImpressions: 27,
+  topPages: [{ path: '/digest/september-2026-week-36', impressions: 119, clicks: 0, position: 7.1 }],
+  topQueries: [{ query: 'luxury intelligence', impressions: 13, clicks: 2, position: 3.6 }],
+};
+
+test('traffic leads the email: impressions in the subject, a tile, and where they came from', () => {
+  const r = report({ inputs: { ...INPUTS, indexing: { indexed: 22, inspected: 47 }, traffic: TRAFFIC } });
+
+  assert.match(buildWeeklySubject(r), /306 impressions/);
+  const html = buildWeeklyEmailHtml({ report: r });
+  assert.match(html, /Search impressions/);
+  assert.match(html, /\+90% vs prior 28 days · 4 clicks/);
+  assert.match(html, /september-2026-week-36 — 119 impressions/);
+  assert.match(buildWeeklyEmailText({ report: r }), /Search impressions: 306 \(\+90% vs prior 28 days · 4 clicks\)/);
+});
+
+test('without traffic data the email says so instead of showing zero', () => {
+  const html = buildWeeklyEmailHtml({ report: report() });
+  assert.match(html, /not available this week/);
+  assert.doesNotMatch(buildWeeklySubject(report()), /impressions/);
+});
+
+test('search queries are escaped — strangers type them', () => {
+  const r = report({ inputs: { ...INPUTS, traffic: {
+    ...TRAFFIC, topQueries: [{ query: '<script>alert(1)</script>', impressions: 1, clicks: 0, position: 50 }],
+  } } });
+  const html = buildWeeklyEmailHtml({ report: r });
+
+  assert(!html.includes('<script>alert'), 'a query must never reach the email as markup');
+  assert.match(html, /&lt;script&gt;/);
+});
+
+test('percentage change has no baseline from zero', () => {
+  assert.equal(percentChange(306, 161), '+90%');
+  assert.equal(percentChange(50, 100), '-50%');
+  assert.equal(percentChange(5, 0), null, '"+∞%" or "+100%" from nothing would mislead');
+});
+
+test('summariseTraffic keeps totals, top pages by impressions, and paths not full URLs', () => {
+  const row = (key: string, impressions: number) => ({ keys: [key], clicks: 0, impressions, ctr: 0, position: 5 });
+  const snapshot: GscSnapshot = {
+    version: 1,
+    pulledAtISO: '2026-10-04T07:00:00.000Z',
+    siteUrl: 'https://luxury-intel.com/',
+    windows: { current: { start: '2026-09-04', end: '2026-10-01' }, previous: { start: '2026-08-07', end: '2026-09-03' } },
+    totals: {
+      current: { clicks: 4, impressions: 306, ctr: 0.013, position: 6.6, days: 28 },
+      previous: { clicks: 2, impressions: 161, ctr: 0.012, position: 12.6, days: 28 },
+    },
+    pages: [row('https://luxury-intel.com/', 67), row('https://luxury-intel.com/digest/a', 119), row('https://luxury-intel.com/digest/b', 3), row('https://luxury-intel.com/digest/c', 30)],
+    queries: [row('luxury intelligence', 13)],
+    queryPages: [],
+  };
+
+  const t = summariseTraffic(snapshot);
+  assert.equal(t.current.impressions, 306);
+  assert.equal(t.previous.impressions, 161);
+  assert.equal(t.pagesWithImpressions, 4);
+  assert.deepEqual(t.topPages.map(p => p.path), ['/digest/a', '/', '/digest/c'], 'sorted by impressions, top 3, as paths');
+  assert.equal(t.topQueries[0]!.query, 'luxury intelligence');
 });

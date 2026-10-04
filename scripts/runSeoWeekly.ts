@@ -34,7 +34,10 @@ import { buildReport } from '../seo/report/buildReport';
 import { writeReport } from '../seo/report/writeReport';
 import { sendWeeklyEmail } from '../seo/report/weeklyEmail';
 import { getCurrentDigestWeek, validateWeekLabel } from '../lib/utils/getCurrentDigestWeek';
-import type { Finding, Category } from '../seo/types';
+import { getGscClient } from '../seo/gsc/client';
+import { pullSnapshot, summariseTraffic } from '../seo/gsc/snapshot';
+import { writeSnapshot } from '../seo/gsc/store';
+import type { Finding, Category, TrafficSummary } from '../seo/types';
 
 const CANONICAL_URL = 'https://luxury-intel.com';
 const REPORT_PREFIX = 'weekly';
@@ -60,20 +63,36 @@ async function main() {
   // Sequential, not parallel: each of these fetches all 52 pages or queries a
   // rate-limited API, and running them together would triple the concurrent
   // load on production for no wall-clock benefit worth having.
-  console.log('[Weekly] 1/4 Static + live audit...');
+  console.log('[Weekly] 1/5 Static + live audit...');
   const audit = await runAudit({ baseUrl });
 
-  console.log('[Weekly] 2/4 Asking Google about each page...');
+  console.log('[Weekly] 2/5 Asking Google about each page...');
   const indexing = await runIndexingAudit(baseUrl, (done, total) => {
     if (done % 20 === 0 || done === total) process.stdout.write(`\r         inspected ${done}/${total}`);
   });
   process.stdout.write('\n');
 
-  console.log('[Weekly] 3/4 Internal link graph...');
+  console.log('[Weekly] 3/5 Internal link graph...');
   const links = await analyseLinkGraph(baseUrl);
 
-  console.log('[Weekly] 4/4 Asset weight...');
+  console.log('[Weekly] 4/5 Asset weight...');
   const assets = await runAssetAudit(baseUrl);
+
+  // Traffic is the outcome everything else here serves, so it belongs in the
+  // weekly record. A Search Console hiccup must not cost you the rest of the
+  // report, though: on failure the email says traffic wasn't available.
+  console.log('[Weekly] 5/5 Search traffic...');
+  let traffic: TrafficSummary | null = null;
+  const gsc = getGscClient();
+  if (gsc) {
+    try {
+      const snapshot = await pullSnapshot(gsc);
+      await writeSnapshot(snapshot);
+      traffic = summariseTraffic(snapshot);
+    } catch (err) {
+      console.warn(`[Weekly] ⚠ Could not pull search traffic: ${err instanceof Error ? err.message : err}`);
+    }
+  }
 
   const findings: Finding[] = [
     ...audit.findings,
@@ -104,6 +123,7 @@ async function main() {
     ...(indexing && indexedCount !== null
       ? { indexing: { indexed: indexedCount, inspected: indexing.inspected } }
       : {}),
+    ...(traffic ? { traffic } : {}),
   }, REPORT_PREFIX);
 
   const { mdPath } = await writeReport(report, REPORT_PREFIX);
@@ -127,6 +147,11 @@ async function main() {
     console.log(`[Weekly] Google indexes ${report.inputs.indexing.indexed}/${report.inputs.indexing.inspected} pages`);
   } else {
     console.log('[Weekly] ⚠ No Search Console credentials — indexing was NOT checked this run.');
+  }
+  if (report.inputs.traffic) {
+    const t = report.inputs.traffic;
+    console.log(`[Weekly] Search traffic, 28 days: ${t.current.impressions} impressions (prev ${t.previous.impressions}), ` +
+      `${t.current.clicks} clicks (prev ${t.previous.clicks})`);
   }
 
   console.log(`[Weekly] Report: ${mdPath}`);

@@ -17,7 +17,7 @@
 
 import { escapeHtml } from '@/lib/digest/renderEmailDigestHtml';
 import { deliverEmail, getEmailConfig, type EmailSender, type DeliveryResult } from '../shared/email';
-import type { Finding, SeoReport } from '../types';
+import type { Finding, SeoReport, TrafficSummary } from '../types';
 
 export type FindingGroup = 'health' | 'indexing' | 'ideas';
 
@@ -80,11 +80,28 @@ function signed(n: number): string {
   return n > 0 ? `+${n}` : String(n);
 }
 
+/**
+ * Percentage change for display. Null when there is no baseline to compare
+ * against — "+∞%" or "+100%" from zero would both be misleading.
+ */
+export function percentChange(current: number, previous: number): string | null {
+  if (previous === 0) return null;
+  const pct = Math.round(((current - previous) / previous) * 100);
+  return pct > 0 ? `+${pct}%` : `${pct}%`;
+}
+
+function trafficNote(t: TrafficSummary): string {
+  const change = percentChange(t.current.impressions, t.previous.impressions);
+  const clicks = `${t.current.clicks} click${t.current.clicks === 1 ? '' : 's'}`;
+  return change ? `${change} vs prior 28 days · ${clicks}` : `28 days · ${clicks}`;
+}
+
 export interface WeeklySummary {
   healthIssues: number;
   ideas: number;
   actionable: number;
   indexing: { indexed: number; inspected: number; change: number | null } | null;
+  traffic: TrafficSummary | null;
   isFirstReport: boolean;
 }
 
@@ -101,21 +118,23 @@ export function summarise(report: SeoReport): WeeklySummary {
     indexing: current
       ? { ...current, change: previous ? current.indexed - previous.indexed : null }
       : null,
+    traffic: report.inputs.traffic ?? null,
     isFirstReport: !report.delta.previousWeek,
   };
 }
 
 export function buildWeeklySubject(report: SeoReport): string {
   const s = summarise(report);
+  const traffic = s.traffic ? ` · ${s.traffic.current.impressions} impressions` : '';
   const indexed = s.indexing ? ` · ${s.indexing.indexed}/${s.indexing.inspected} pages indexed` : '';
   const verdict = s.actionable > 0 ? `${s.actionable} to look at` : 'all clear';
-  return `SEO weekly — ${report.week}: ${verdict}${indexed}`;
+  return `SEO weekly — ${report.week}: ${verdict}${traffic}${indexed}`;
 }
 
 function tile(label: string, value: string, note: string, tone: 'good' | 'warn' | 'neutral'): string {
   const colour = tone === 'good' ? '#047857' : tone === 'warn' ? '#B45309' : '#1A1A1A';
   return `
-    <td style="width:33%;padding:14px 12px;border:1px solid #E5E7EB;background:#FFFFFF;vertical-align:top">
+    <td style="width:50%;padding:14px 12px;border:1px solid #E5E7EB;background:#FFFFFF;vertical-align:top">
       <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#6B7280">${escapeHtml(label)}</div>
       <div style="font-family:Georgia,serif;font-size:22px;color:${colour};margin:4px 0 2px">${escapeHtml(value)}</div>
       <div style="font-size:12px;color:#6B7280">${escapeHtml(note)}</div>
@@ -133,6 +152,26 @@ function renderGroup(g: CodeGroup): string {
       ${examples}
       <div style="font-size:13px;color:#8B6914;margin-top:3px">→ ${escapeHtml(g.recommendation)}</div>
     </li>`;
+}
+
+/** Search queries are typed by strangers, so every value here is escaped. */
+function renderTraffic(t: TrafficSummary): string {
+  const pos = (n: number) => n.toFixed(1);
+  const n = (count: number, word: string) => `${count} ${word}${count === 1 ? '' : 's'}`;
+  const pages = t.topPages.map(p =>
+    `<li>${escapeHtml(p.path)} — ${n(p.impressions, 'impression')}, ${n(p.clicks, 'click')}, position ${pos(p.position)}</li>`).join('');
+  const queries = t.topQueries.length === 0
+    ? '<li>None above Google’s privacy threshold.</li>'
+    : t.topQueries.map(q =>
+        `<li>"${escapeHtml(q.query)}" — ${n(q.impressions, 'impression')}, position ${pos(q.position)}</li>`).join('');
+
+  return `
+    <h3 style="font-family:Georgia,serif;font-size:17px;margin:24px 0 8px">Search traffic</h3>
+    <p style="font-size:13px;color:#6B7280;margin:0 0 8px">${escapeHtml(t.window.start)} → ${escapeHtml(t.window.end)} · ${t.pagesWithImpressions} pages appeared in results · average position ${pos(t.current.position)}</p>
+    <p style="font-size:13px;margin:0 0 4px"><strong>Top pages</strong></p>
+    <ul style="padding-left:18px;margin:0 0 10px;font-size:13px">${pages}</ul>
+    <p style="font-size:13px;margin:0 0 4px"><strong>Queries</strong> <span style="color:#6B7280">(Google hides low-volume ones)</span></p>
+    <ul style="padding-left:18px;margin:0;font-size:13px">${queries}</ul>`;
 }
 
 export function buildWeeklyEmailHtml(ctx: WeeklyEmailContext): string {
@@ -153,6 +192,13 @@ export function buildWeeklyEmailHtml(ctx: WeeklyEmailContext): string {
     : tile('Google indexes', '—', 'not checked this week', 'neutral');
 
   const ideasTile = tile('Improvement ideas', String(s.ideas), s.ideas === 0 ? 'nothing to improve' : 'optional', 'neutral');
+
+  // Leads the email: it is the outcome the other three exist to improve.
+  const trafficTile = s.traffic
+    ? tile('Search impressions', String(s.traffic.current.impressions), trafficNote(s.traffic), 'neutral')
+    : tile('Search impressions', '—', 'not available this week', 'neutral');
+
+  const trafficBlock = s.traffic ? renderTraffic(s.traffic) : '';
 
   const actionable = collapseByCode(report.findings.filter(f => ACTIONABLE.has(f.severity)));
   const ideas = collapseByCode(report.findings.filter(f => !ACTIONABLE.has(f.severity) && groupOf(f.code) === 'ideas'));
@@ -183,7 +229,8 @@ export function buildWeeklyEmailHtml(ctx: WeeklyEmailContext): string {
     <p style="color:#6B7280;margin:0 0 18px;font-size:13px">${escapeHtml(report.siteUrl)} · ${escapeHtml(report.week)}</p>
 
     <table role="presentation" cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;margin:0 0 22px">
-      <tr>${healthTile}${indexingTile}${ideasTile}</tr>
+      <tr>${trafficTile}${indexingTile}</tr>
+      <tr>${healthTile}${ideasTile}</tr>
     </table>
 
     <h3 style="font-family:Georgia,serif;font-size:17px;margin:0 0 8px">Needs a look</h3>
@@ -191,6 +238,8 @@ export function buildWeeklyEmailHtml(ctx: WeeklyEmailContext): string {
 
     <h3 style="font-family:Georgia,serif;font-size:17px;margin:24px 0 8px">Since last week</h3>
     ${changed}
+
+    ${trafficBlock}
 
     ${ideasBlock}
 
@@ -208,6 +257,7 @@ export function buildWeeklyEmailText(ctx: WeeklyEmailContext): string {
     `Luxury Intelligence — SEO weekly`,
     `${report.siteUrl} · ${report.week}`,
     '',
+    `Search impressions: ${s.traffic ? `${s.traffic.current.impressions} (${trafficNote(s.traffic)})` : 'not available this week'}`,
     `Site health:       ${s.healthIssues === 0 ? 'Clean' : `${s.healthIssues} technical issue(s)`}`,
     `Google indexes:    ${s.indexing
       ? `${s.indexing.indexed} of ${s.indexing.inspected}${s.indexing.change === null ? ' (first week tracked)' : ` (${signed(s.indexing.change)} since last week)`}`
@@ -232,6 +282,14 @@ export function buildWeeklyEmailText(ctx: WeeklyEmailContext): string {
   lines.push(s.isFirstReport
     ? '  First weekly report — next Sunday will show what changed.'
     : `  ${report.delta.newFindings.length} new, ${report.delta.resolvedFindings.length} resolved since ${report.delta.previousWeek}. Score ${report.score.overall} (${signed(report.delta.scoreChange)}).`);
+
+  if (s.traffic) {
+    lines.push('', `SEARCH TRAFFIC (${s.traffic.window.start} to ${s.traffic.window.end})`);
+    for (const p of s.traffic.topPages) lines.push(`  ${p.path}: ${p.impressions} impressions, ${p.clicks} clicks, position ${p.position.toFixed(1)}`);
+    lines.push(s.traffic.topQueries.length
+      ? `  Queries: ${s.traffic.topQueries.map(q => `"${q.query}" (${q.impressions})`).join(', ')}`
+      : '  Queries: none above Google’s privacy threshold');
+  }
 
   if (ctx.reportUrl) lines.push('', `Full report: ${ctx.reportUrl}`);
   if (ctx.runUrl) lines.push(`This run: ${ctx.runUrl}`);

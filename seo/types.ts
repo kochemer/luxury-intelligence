@@ -63,6 +63,11 @@ export interface AuditInputs {
    */
   indexing?: { indexed: number; inspected: number };
   /**
+   * Search traffic from Search Console, when the weekly pass pulled it. The
+   * outcome every other number here is in service of.
+   */
+  traffic?: TrafficSummary;
+  /**
    * Categories this run actually audited. Anything absent is reported as
    * "not checked" rather than scored 100 — a category nobody looked at must
    * never render as a clean bill of health.
@@ -71,6 +76,25 @@ export interface AuditInputs {
 }
 
 /** `null` means "not audited in this run", which is distinct from "audited, no findings" (100). */
+export interface TrafficTotals {
+  impressions: number;
+  clicks: number;
+  /** Average position, 1 = top. */
+  position: number;
+}
+
+export interface TrafficSummary {
+  window: { start: string; end: string };
+  /** The 28-day window ending ~3 days ago (Search Console's data lag). */
+  current: TrafficTotals;
+  /** The 28 days before that. */
+  previous: TrafficTotals;
+  pagesWithImpressions: number;
+  topPages: { path: string; impressions: number; clicks: number; position: number }[];
+  /** Only queries above Google's privacy threshold are ever reported. */
+  topQueries: { query: string; impressions: number; clicks: number; position: number }[];
+}
+
 export type CategoryScores = Record<Category, number | null>;
 
 export interface ReportDelta {

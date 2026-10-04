@@ -10,8 +10,8 @@ import { loadEnv } from '../lib/env';
 loadEnv();
 
 import { getGscClient, verifyGscAccess } from '../seo/gsc/client';
-import { queryTotals, querySearchAnalytics, getWindows } from '../seo/gsc/searchAnalytics';
-import { writeSnapshot, type GscSnapshot } from '../seo/gsc/store';
+import { writeSnapshot } from '../seo/gsc/store';
+import { pullSnapshot } from '../seo/gsc/snapshot';
 
 function pct(n: number): string {
   return `${(n * 100).toFixed(2)}%`;
@@ -40,27 +40,11 @@ async function main() {
   console.log(`[GSC] ✓ ${access.message}`);
   if (verifyOnly) return;
 
-  const { current, previous } = getWindows();
+  const snapshot = await pullSnapshot(client);
+  const { current, previous } = snapshot.windows;
   console.log(`[GSC] Window: ${current.start} → ${current.end} (vs ${previous.start} → ${previous.end})`);
-
-  const [totalsCurrent, totalsPrevious, pages, queries, queryPages] = await Promise.all([
-    queryTotals(client, current),
-    queryTotals(client, previous),
-    querySearchAnalytics(client, current, ['page'], 1000),
-    querySearchAnalytics(client, current, ['query'], 1000),
-    querySearchAnalytics(client, current, ['query', 'page'], 5000),
-  ]);
-
-  const snapshot: GscSnapshot = {
-    version: 1,
-    pulledAtISO: new Date().toISOString(),
-    siteUrl: client.siteUrl,
-    windows: { current, previous },
-    totals: { current: totalsCurrent, previous: totalsPrevious },
-    pages,
-    queries,
-    queryPages,
-  };
+  const { current: totalsCurrent, previous: totalsPrevious } = snapshot.totals;
+  const { pages, queries } = snapshot;
 
   const savedTo = await writeSnapshot(snapshot);
 
