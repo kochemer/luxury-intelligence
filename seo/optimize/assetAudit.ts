@@ -21,8 +21,10 @@ import {
   LIVE_USER_AGENT,
   IMAGE_HEAVY_BYTES,
   IMAGE_CRITICAL_BYTES,
+  SMALL_IMAGE_MAX_PX,
 } from '../config';
 import type { Finding, Category } from '../types';
+import type { PageImage } from '../audit/analyzeHtml';
 import { makeFinding } from '../shared/finding';
 import { fetchAndAnalyse, mapWithConcurrency } from '../shared/fetch';
 
@@ -46,6 +48,21 @@ async function measureAsset(url: string): Promise<{ bytes: number; type: string 
   } catch {
     return null;
   }
+}
+
+/**
+ * Images too small for weight, srcset or lazy-loading to matter.
+ *
+ * Without this, every weekly email led with "56 images serve one size to every
+ * device" — all of them the 16px source favicons, cross-origin from Google's
+ * favicon service, which also omits Content-Length and so tripped "size
+ * unknown" too. Two of three improvement ideas, every week, about nothing.
+ *
+ * Decided from the declared width, so it exempts what the markup says is tiny,
+ * not a hostname list that would hide a large image served from the same host.
+ */
+export function isNegligibleImage(image: Pick<PageImage, 'width'>): boolean {
+  return image.width !== null && image.width <= SMALL_IMAGE_MAX_PX;
 }
 
 export interface AssetAuditResult {
@@ -83,6 +100,7 @@ export async function runAssetAudit(baseUrl: string): Promise<AssetAuditResult> 
       // Next's optimiser already handles format, size and compression, so its
       // URLs are not worth measuring or reporting.
       if (image.optimised) continue;
+      if (isNegligibleImage(image)) continue;
 
       record(assetPages, absolute);
       if (!image.hasSrcSet) record(unoptimised, absolute);

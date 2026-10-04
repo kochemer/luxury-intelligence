@@ -55,6 +55,8 @@ export interface PageImage {
   /** True when routed through Next's optimiser, which handles format and size. */
   optimised: boolean;
   alt: string | null;
+  /** Declared width attribute in px, or null when absent or not a number. */
+  width: number | null;
 }
 
 export interface InternalLink {
@@ -138,6 +140,7 @@ export function analyzeHtml(html: string, url: string): PageAnalysis {
       // format and generates sizes. A raw path means none of that happened.
       optimised: src.includes('/_next/image'),
       alt: alt ?? null,
+      width: Number.parseInt($(el).attr('width') ?? '', 10) || null,
     });
 
     // Only an *absent* alt attribute is a defect. `alt=""` is the correct,

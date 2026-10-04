@@ -107,6 +107,8 @@ export const THIN_CONTENT_CHARS = 1200;
  */
 export const IMAGE_HEAVY_BYTES = 300_000;      // 300 KB — worth compressing
 export const IMAGE_CRITICAL_BYTES = 1_000_000; // 1 MB — will dominate LCP
+/** Images declared at or below this width are icons: weight and srcset don't matter. */
+export const SMALL_IMAGE_MAX_PX = 64;
 
 // ── Repair agent cost controls ──────────────────────────────────────────────
 /**

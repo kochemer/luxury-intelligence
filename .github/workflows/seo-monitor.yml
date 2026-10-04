@@ -19,7 +19,7 @@ on:
         type: boolean
         default: false
       check_repair_agent:
-        description: 'Verify the repair agent (Claude Code + ANTHROPIC_API_KEY) runs in CI — one tiny call, ~$0.001'
+        description: 'Verify the repair agent (Claude Code + ANTHROPIC_API_KEY) runs in CI — one tiny call, ~$0.01'
         type: boolean
         default: false
       check_repair_pr:

@@ -104,6 +104,8 @@ export default function ArticleCard({
               // in adjacent text.
               loading="lazy"
               decoding="async"
+              width={16}
+              height={16}
               src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
               alt=""
               className="w-4 h-4 rounded-sm inline-block opacity-60"
@@ -187,6 +189,8 @@ export default function ArticleCard({
               // in adjacent text.
               loading="lazy"
               decoding="async"
+              width={16}
+              height={16}
               src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
               alt=""
               className="w-4 h-4 rounded-sm inline-block opacity-60"

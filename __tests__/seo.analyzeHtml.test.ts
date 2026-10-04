@@ -105,3 +105,22 @@ test('missing elements yield nulls rather than throwing', () => {
   assert.deepEqual(a.h1s, []);
   assert.deepEqual(a.jsonLd, []);
 });
+
+test('declared image width is captured, and icons are exempt from weight checks', async () => {
+  const { isNegligibleImage } = await import('../seo/optimize/assetAudit');
+  const a = analyzeHtml(`
+    <html><body>
+      <img src="https://www.google.com/s2/favicons?domain=x.com&sz=32" width="16" height="16" alt="">
+      <img src="/cover.png" width="1200" alt="Cover">
+      <img src="/unsized.png" alt="No size">
+    </body></html>`, 'https://luxury-intel.com/digest/x');
+
+  const [favicon, cover, unsized] = a.images;
+  assert.equal(favicon!.width, 16);
+  assert.equal(cover!.width, 1200);
+  assert.equal(unsized!.width, null);
+
+  assert.equal(isNegligibleImage(favicon!), true, 'a 16px favicon is not worth a srcset finding');
+  assert.equal(isNegligibleImage(cover!), false, 'a cover image must still be weighed');
+  assert.equal(isNegligibleImage(unsized!), false, 'undeclared size is not proof of small — keep checking it');
+});
