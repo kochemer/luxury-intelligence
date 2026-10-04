@@ -20,7 +20,7 @@ import { ownCandidates, newsCandidates, dedupe } from './candidates';
 import { classifyCandidates } from './classifyMoves';
 import { writeSummary } from './summary';
 import { fetchPrices } from './prices';
-import { mergeEvents, latestMoveFor } from './moves';
+import { mergeEvents, latestMoveFor, displayTitle } from './moves';
 
 const DATA_DIR = path.join(process.cwd(), 'data', 'markets');
 const DAY = 864e5;
@@ -83,9 +83,11 @@ export async function buildMarkets(options: BuildOptions = {}): Promise<BuildSum
     const moves: MarketMove[] = mergeEvents(candidates.flatMap(c => {
       const r = results.get(c.key);
       if (!r?.isMove || !r.type) return [];
+      const headline = r.headline ?? c.title;
+      const tracked = brands.find(b => b.name === c.brand)!;
       return [{
         date: c.date, brand: c.brand, type: r.type, importance: r.importance ?? 'minor', outlets: 1,
-        headline: r.headline ?? c.title, originalTitle: c.title, source: c.source, url: c.url,
+        headline, originalTitle: c.title, title: displayTitle(c.title, headline, tracked), source: c.source, url: c.url,
       }];
     }));
 

@@ -22,7 +22,7 @@ import { buildWeeklyEmailDigest } from '../email/buildWeeklyEmailDigest';
 import { buildWeeklyPodcast } from '../podcast/buildWeeklyPodcast';
 import { regenerateCover } from '../digest/regenerateCover';
 import { printModelRouting } from '../lib/llm/models';
-import { runCompetitorAnalyze } from './competitorAnalyze';
+import { buildMarkets } from '../markets/buildMarkets';
 import { pingIndexNowForWeek } from '../lib/utils/indexNow';
 
 export type RunWeeklyPipelineOptions = {
@@ -36,7 +36,8 @@ export type RunWeeklyPipelineOptions = {
   skipClassification?: boolean;
   skipEmail?: boolean;
   skipDigest?: boolean;
-  skipCompetitorAnalyze?: boolean;
+  /** Skip the Markets pages build (replaced Competitor Watch on 2026-10-04). */
+  skipMarkets?: boolean;
   forceRebuild?: boolean;      // Force rebuild even if digest exists
   maxTotalArticles?: number;   // Max total articles across all categories (default: 40)
   maxArticlesPerCategory?: number; // Max articles per category (default: 10)
@@ -576,27 +577,28 @@ export async function runWeeklyPipeline(options: RunWeeklyPipelineOptions = {}):
     console.log(`[Pipeline] Skipping cover`);
   }
 
-  // Step 9: Competitor Intelligence Analysis
-  if (!options.skipCompetitorAnalyze) {
-    const step = await runStep('competitorAnalyze', async () => {
-      console.log(`[Pipeline] Step 9/9: Competitor Intelligence Analysis (${digestWeek})...`);
-      return await runCompetitorAnalyze(digestWeek);
+  // Step 9: Markets pages (share of voice, moves, prices). Non-critical: a
+  // failure here never blocks the digest. Reads the digest built above.
+  if (!options.skipMarkets) {
+    const step = await runStep('markets', async () => {
+      console.log(`[Pipeline] Step 9/9: Markets pages (${digestWeek})...`);
+      return await buildMarkets();
     });
     steps.push({
-      name: 'competitorAnalyze',
+      name: 'markets',
       ok: step.ok,
       startedAt: step.startedAt,
       finishedAt: step.finishedAt,
       error: step.error,
     });
     if (!step.ok) {
-      console.error(`[Pipeline] ✗ Competitor analyze failed: ${step.error}`);
+      console.error(`[Pipeline] ✗ Markets build failed: ${step.error}`);
     } else {
-      console.log(`[Pipeline] ✓ Competitor intelligence analysis complete`);
+      console.log(`[Pipeline] ✓ Markets pages built`);
     }
     console.log('');
   } else {
-    console.log(`[Pipeline] Skipping competitor intelligence analysis`);
+    console.log(`[Pipeline] Skipping markets pages`);
   }
 
   // Run health checks (if digest is available)

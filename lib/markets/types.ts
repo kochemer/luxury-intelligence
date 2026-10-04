@@ -28,9 +28,18 @@ export interface MarketMove {
   importance: 'major' | 'minor';
   /** How many outlets reported this same event (merged into one move). */
   outlets: number;
-  /** Neutral restatement when it passed checks, otherwise the original headline. */
+  /**
+   * Neutral restatement when it passed checks, otherwise the original.
+   * Used to merge reports of one event, and shown only when the publisher's
+   * headline is unusable: a restatement can change the meaning in ways no
+   * check catches ("Virginie Viard departs Chanel" from an interview two
+   * years after she left).
+   */
   headline: string;
+  /** The publisher's headline, exactly as published. */
   originalTitle: string;
+  /** What the page shows: the publisher's headline if usable, else the restatement. See displayTitle(). */
+  title: string;
   source: string;
   url: string;
 }

@@ -67,8 +67,18 @@ const nextConfig: NextConfig = {
       './video-short/**',
     ],
   },
-  // Permanent 308 redirects: /week/YYYY-Www → /digest/month-yyyy-week-n
-  redirects: buildWeekRedirects,
+  // Permanent 308 redirects: /week/YYYY-Www → /digest/month-yyyy-week-n,
+  // plus Competitor Watch, replaced by the Markets pages on 2026-10-04.
+  async redirects() {
+    return [
+      ...(await buildWeekRedirects()),
+      { source: '/competitor-watch', destination: '/markets/jewellery', permanent: true },
+      { source: '/es/competitor-watch', destination: '/markets/jewellery', permanent: true },
+      { source: '/da/competitor-watch', destination: '/markets/jewellery', permanent: true },
+      // Not permanent: /markets may become an overview page later.
+      { source: '/markets', destination: '/markets/luxury', permanent: false },
+    ];
+  },
   // Security headers applied to all routes
   async headers() {
     return [

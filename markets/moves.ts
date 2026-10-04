@@ -10,6 +10,7 @@
  */
 
 import type { MarketMove } from '@/lib/markets/types';
+import { mentionsBrand, type TrackedBrand } from './brands';
 
 const MERGE_WINDOW_DAYS = 14;
 const SIMILARITY = 0.5;
@@ -75,4 +76,20 @@ export function mergeEvents(moves: MarketMove[]): MarketMove[] {
 export function latestMoveFor(brand: string, moves: MarketMove[]): MarketMove | null {
   const own = moves.filter(m => m.brand === brand);
   return own.find(m => m.importance === 'major') ?? own[0] ?? null;
+}
+
+/**
+ * What the page shows for a move.
+ *
+ * The publisher's headline by default: it's attributable and can't misstate
+ * the story. Falls back to the checked restatement only when the original
+ * is unusable on its own: it doesn't name the brand ("New releases from
+ * Blancpain, Czapek, Grand Seiko and more" under Rolex), or it's a fragment
+ * list ("Prada - Fashion Week - atmosphere - Womenswear - …").
+ */
+export function displayTitle(originalTitle: string, restatement: string, brand: TrackedBrand): string {
+  const cleaned = originalTitle.replace(/\s+[|–-]\s+[^|–-]{2,40}$/, '').trim();
+  const fragments = cleaned.split(/\s+-\s+/).length >= 3;
+  if (!fragments && cleaned.length <= 120 && mentionsBrand(brand, cleaned)) return cleaned;
+  return restatement;
 }

@@ -89,3 +89,11 @@ test('a trend is only reported with enough articles and a baseline', () => {
   assert.equal(rising, 2);
   assert(TREND_MIN_MENTIONS >= 10, 'below ~10 articles a ratio is noise');
 });
+
+test('both Markets pages are in the sitemap inventory', async () => {
+  const { getIndexableUrls } = await import('../lib/seo/urlInventory');
+  const { MARKET_IDS } = await import('../lib/markets/types');
+  const urls = (await getIndexableUrls('https://luxury-intel.com')).map(e => e.url);
+  for (const m of MARKET_IDS) assert(urls.includes(`https://luxury-intel.com/markets/${m}`), `/markets/${m} missing from the sitemap`);
+  assert(!urls.some(u => u.includes('competitor-watch')), 'Competitor Watch redirects now and must not be listed');
+});

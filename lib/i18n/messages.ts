@@ -20,7 +20,7 @@ export type Messages = {
     support: string;
     feedback: string;
     subscribeCta: string;
-    competitorWatch: string;
+    markets: string;
   };
   digest: {
     week: string;
@@ -94,7 +94,7 @@ const en: Messages = {
     support: 'Support',
     feedback: 'Feedback',
     subscribeCta: 'Subscribe',
-    competitorWatch: 'Competitor Watch',
+    markets: 'Markets',
   },
   digest: {
     week: 'Week',
@@ -169,7 +169,7 @@ const da: Messages = {
     support: 'Support',
     feedback: 'Feedback',
     subscribeCta: 'Abonner',
-    competitorWatch: 'Konkurrent-overvågning',
+    markets: 'Markeder',
   },
   digest: {
     week: 'Uge',
@@ -244,7 +244,7 @@ const es: Messages = {
     support: 'Soporte',
     feedback: 'Opinión',
     subscribeCta: 'Suscribirse',
-    competitorWatch: 'Seguimiento de Competidores',
+    markets: 'Mercados',
   },
   digest: {
     week: 'Semana',

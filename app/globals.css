@@ -10,6 +10,10 @@
   --color-accent-light: #F5F0E6;
   --color-deep: #1B2A4A;
   --color-border: #e5e7eb;
+  /* Market pages: share-price direction and neutral bars */
+  --color-up: #2F6B4F;
+  --color-down: #A64235;
+  --color-bar: #D9D1BF;
   --background: var(--color-bg);
   --foreground: var(--color-text-primary);
 
@@ -60,6 +64,9 @@
   --color-accent-light: #1e1c18;
   --color-border: rgba(255,255,255,0.08);
   --color-deep: #070604;
+  --color-up: #6FBF95;
+  --color-down: #E08878;
+  --color-bar: #3A3730;
 }
 
 html {

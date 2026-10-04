@@ -104,6 +104,9 @@ export async function getIndexableUrls(baseUrl: string): Promise<IndexableUrlEnt
     { url: `${baseUrl}/email-digest`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.7, kind: 'static' },
     { url: `${baseUrl}/subscribe`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.8, kind: 'static' },
     { url: `${baseUrl}/support`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, kind: 'static' },
+    // Markets pages are rebuilt with every weekly digest.
+    { url: `${baseUrl}/markets/luxury`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.7, kind: 'static' },
+    { url: `${baseUrl}/markets/jewellery`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.7, kind: 'static' },
     // NOTE: /feedback is deliberately NOT listed. app/feedback/page.tsx serves
     // `robots: { index: false }`, so listing it told Google to index a page that
     // simultaneously asked not to be indexed. Its /es and /da counterparts were

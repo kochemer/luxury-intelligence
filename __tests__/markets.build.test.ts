@@ -44,7 +44,7 @@ test('"not a move" carries no type or headline', () => {
 // ── Summary ─────────────────────────────────────────────────────────────────
 
 const move = (brand: string, originalTitle: string): MarketMove => ({
-  date: '2026-09-14', brand, type: 'Results', importance: 'major', outlets: 1, headline: originalTitle, originalTitle, source: 's', url: 'u',
+  date: '2026-09-14', brand, type: 'Results', importance: 'major', outlets: 1, headline: originalTitle, originalTitle, title: originalTitle, source: 's', url: 'u',
 });
 const MOVES = [move('Signet', 'Modest sales slide for diamond jewellery retail giant'),
   move('De Beers', 'Rapid network expansion planned for Forevermark'),
@@ -108,7 +108,7 @@ import { mergeEvents, latestMoveFor } from '../markets/moves';
 
 const mv = (o: Partial<MarketMove>): MarketMove => ({
   date: '2026-09-15', brand: 'Rolex', type: 'Collection', importance: 'minor', outlets: 1,
-  headline: 'x', originalTitle: 'x', source: 's', url: 'u', ...o,
+  headline: 'x', originalTitle: 'x', title: 'x', source: 's', url: 'u', ...o,
 });
 
 test('the same event from several outlets becomes one move with an outlet count', () => {
@@ -160,4 +160,18 @@ test('reports of one deal sharing only a name are merged; unrelated same-day mov
     mv({ brand: 'Dior', date: '2026-10-02', headline: 'Dior shows Summer 2027 high jewellery in Paris' }),
   ]);
   assert.equal(seasons.length, 2, 'a season or city is not a shared event');
+});
+
+test('the page shows the publisher’s headline unless it can’t stand on its own', async () => {
+  const { displayTitle } = await import('../markets/moves');
+  const { BRANDS } = await import('../markets/brands');
+  const b = (n: string) => BRANDS.find(x => x.name === n)!;
+  assert.equal(displayTitle('Pandora expands manufacturing capacity by 50% with Vietnam facility', 'x', b('Pandora')),
+    'Pandora expands manufacturing capacity by 50% with Vietnam facility');
+  assert.equal(displayTitle('Burberry Returns to the Basis of Things for Summer 2027 - Prestige Online', 'x', b('Burberry')),
+    'Burberry Returns to the Basis of Things for Summer 2027', 'publisher suffix trimmed');
+  assert.equal(displayTitle('New releases from Blancpain, Czapek, Grand Seiko and more', 'Rolex unveils annual calendar watch', b('Rolex')),
+    'Rolex unveils annual calendar watch', 'a headline that doesn’t name the brand falls back');
+  assert.equal(displayTitle('Prada - Fashion Week - atmosphere - Womenswear - Spring-Summer 2027 - Milan', 'Prada shows Spring-Summer 2027 in Milan', b('Prada')),
+    'Prada shows Spring-Summer 2027 in Milan', 'a fragment list falls back');
 });

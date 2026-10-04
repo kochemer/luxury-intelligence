@@ -30,6 +30,8 @@ function parseArgs(): RunWeeklyPipelineOptions {
       options.skipPodcast = true;
     } else if (arg === '--skipCover' || arg === '--skipCover=true') {
       options.skipCover = true;
+    } else if (arg === '--skipMarkets' || arg === '--skipMarkets=true') {
+      options.skipMarkets = true;
     } else if (arg === '--skipDiscovery' || arg === '--skipDiscovery=true') {
       options.skipDiscovery = true;
     } else if (arg === '--skipClassification' || arg === '--skipClassification=true') {

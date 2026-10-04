@@ -68,7 +68,7 @@ export default function Header() {
   const primaryLinks = [
     { href: `${prefix}/` || '/', label: t.nav.home },
     { href: `${prefix}/archive`, label: t.nav.archive },
-    { href: `${prefix}/competitor-watch`, label: t.nav.competitorWatch },
+    { href: '/markets/luxury', label: t.nav.markets },
     { href: `${prefix}/about`, label: t.nav.about },
     { href: `${prefix}/methodology`, label: t.nav.methodology },
   ];
@@ -160,7 +160,8 @@ export default function Header() {
               <p className="text-xs uppercase tracking-wide text-[var(--color-text-secondary)] mb-2">Menu</p>
               <ul className="space-y-0">
                 {primaryLinks.map((link) => {
-                  const isActive = pathname.replace(/\/$/, '') === link.href.replace(/\/$/, '');
+                  const isActive = pathname.replace(/\/$/, '') === link.href.replace(/\/$/, '')
+                    || (link.href.startsWith('/markets/') && pathname.startsWith('/markets/'));
                   return (
                     <li key={link.href}>
                       <Link

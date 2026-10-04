@@ -1,0 +1,1805 @@
+{
+ "version": 4,
+ "items": {
+  "f340d7adfe9a7227": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "854230afc00815dc": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Gucci launches Primavera campaign with Tom Brady and Kate Moss"
+  },
+  "d665b0a8938641e5": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "7b1be6b720bb723e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "cb7eb156bfa35579": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a8a7a40e0c34a7ca": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a235867caf4b4132": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Chanel launches new high-jewellery necklace with Sri Lankan sapphire"
+  },
+  "2c40e2f2e2531472": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Burberry features FKA twigs and Romeo Beckham in winter collection campaign"
+  },
+  "9b933e8db81e2c3f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "90fb646ff3ff6282": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Gucci adds new designs to Horsebit collection"
+  },
+  "5a619031f913a729": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "major",
+   "headline": "Kering appoints CEOs at Pomellato and DoDo"
+  },
+  "216f8f92074a362c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "5a10ab5f0bdbddba": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "97a4385b98cbda2f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "b2b38e7ea4669cdf": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c55ea479571f858d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "f64a3fc16f64c779": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3faf033cbb72a7f1": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Moncler celebrates two decades in New York with citywide exhibition"
+  },
+  "04d3f39abfaffcda": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c7d787a48fd157b9": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Dior launches Backstage Glow-Up Skin Tint"
+  },
+  "70d60ea66d194724": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Chanel opens Coco Mademoiselle pop-up in New York"
+  },
+  "9595d3e0037b123a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "66842b9aca5a25b1": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Kering brings Generation Award to India with Reliance"
+  },
+  "f2c715cead4f4242": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Louis Vuitton adds five Tambour Spin Time watches to permanent collection"
+  },
+  "18b927c29474c118": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c049e09aa0b6f8fc": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a6dbcf6532b7d949": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Chanel launches Camélia jewellery collection"
+  },
+  "b81a55d99e9739ec": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "cc2a639bc98631b3": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Louis Vuitton unveils Kubic armchair at Paris Design Week"
+  },
+  "d8a3ebe28a906709": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "9b224842d5227d37": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "4d5e8981777e69fa": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Kering Foundation raises over $5 million at Caring for Women Dinner"
+  },
+  "acbfa0cc59260884": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Dior and A24 announce two-year creative partnership"
+  },
+  "d5f71f6368b71e0e": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Moncler opens largest store worldwide on Fifth Avenue"
+  },
+  "95320a205711a8c6": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "major",
+   "headline": "Richemont names Anton Rupert co-deputy chairman"
+  },
+  "532cafa455928527": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Dior opens spa at Venice’s Hotel Cipriani"
+  },
+  "b3a9fcd5779d796c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "86fffac71bf3b7cc": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Jony Ive designs second Moncler outerwear collection"
+  },
+  "ff0197418701eb3f": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Rolex unveils Perpetual Padellone annual calendar watches"
+  },
+  "91690c64d90d2848": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Rolex announces new Perpetual Padellone watch"
+  },
+  "faba7ff1953045f4": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Rolex launches Perpetual Padellone annual calendar watch"
+  },
+  "e11a56b01b8b2236": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Rolex unveils Perpetual Padellone annual calendar watch"
+  },
+  "932d2ffe6dd2b37a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "784eaa2dc0f55b95": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8428c3b4fb629699": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "069b6ba080739ac6": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "LVMH signs agreement to buy Hermès heir’s shares"
+  },
+  "743d0493f4da78db": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "bcd7f718bbd5ece7": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Rolex announces annual calendar watch with official nickname"
+  },
+  "4c0fd41013c62ba5": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "834afc51352ff809": {
+   "isMove": true,
+   "type": "Pricing",
+   "importance": "major",
+   "headline": "Gucci cuts prices"
+  },
+  "11f6b297fcafd91d": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Prada unveils expanded space in Milan’s Galleria"
+  },
+  "b94bb830d9bfed13": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Chanel profiles 2026 Next Prize winners"
+  },
+  "f560aacd9fef16fb": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "major",
+   "headline": "Burberry debuts 170th anniversary show at V&A Museum"
+  },
+  "fd66db10958e89c2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "572070cf017167d4": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "4288daef482a43a0": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "major",
+   "headline": "Arnault family to simplify LVMH ownership structure"
+  },
+  "fb23eb296022013f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "621f08c2154ed5ca": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Chanel appoints Lucia Pieroni as head of makeup creative direction"
+  },
+  "d8837a827ee1f185": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ebbd05ded481e179": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "fc8ffe081729eb41": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d403d737019a75aa": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d0db5e1600674c92": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "092851666acd3360": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "major",
+   "headline": "Dior to stage Cruise 2028 show in Shanghai"
+  },
+  "6a2078f402c82822": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "b2119b9d76ec9b8e": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "major",
+   "headline": "Chanel reveals location for Cruise 2027 show"
+  },
+  "13f7cba82dc019de": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "69aa19aebe0d1298": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "39730842946c5c57": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "LVMH maisons host event aboard British Pullman train"
+  },
+  "4d5c4bb9e34f4a18": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "b811a7f0e7b69fd9": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "17ef68995aa57ff5": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "minor",
+   "headline": "LVMH discloses share transactions"
+  },
+  "ab4d6e8750b961cf": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "M&S strikes beauty deal with LVMH's Sephora"
+  },
+  "3b1e4fd8b6ae6f08": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e7aa0ff2cb5a6f45": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e4ddc02614635090": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "eaf33be84e3895be": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e58b6257a5289c39": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ca33a3f406625316": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Louis Vuitton releases Monterey Ceramic watch"
+  },
+  "2a6d0668cb99d946": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "16b0e714f5d3db8c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "19ef179eff297dfa": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "5cc463fcc1cba2b6": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Burberry unveils Summer 2027 collection"
+  },
+  "f61f0420921ea7f5": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "major",
+   "headline": "Richemont AGM approves dividends"
+  },
+  "6842faf3c5cc2326": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Moncler opens Fifth Avenue flagship and plans board review"
+  },
+  "6ca0221de84a3cb3": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Chanel names Lucia Pieroni creative makeup director"
+  },
+  "49dc2e061ff805b4": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "46f07bda195e0d44": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "major",
+   "headline": "LVMH promotes Clara Boissonnas to CEO of Pucci"
+  },
+  "05cbfd2d32e11439": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "major",
+   "headline": "LVMH promotes leather goods executive to CEO of Pucci"
+  },
+  "cd3a805c676b8f3b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1fcb8d87b1fed4df": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Louis Vuitton launches Artycapucines collection inspired by Keith Haring"
+  },
+  "f3643ffd4b719340": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Louis Vuitton unveils new bag collection inspired by Keith Haring"
+  },
+  "add5ff8791d0d959": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d7794d0a94d1b5ff": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "Louis Vuitton China sales decline amid Molly Tea backlash"
+  },
+  "62f5b50df73dd02d": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Louis Vuitton launches new product to rival Swatch Royal Pop"
+  },
+  "93146a7049ac60ff": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d7c2e88232c4f29a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "4b7e7608be724b74": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6f6e24cc304a1eb8": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "minor",
+   "headline": "Kering launches Kering Academy for Excellence"
+  },
+  "0834161239327a70": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "406d7a9cb8335518": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "106a122b02492ec4": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "29123cd2ce55bfec": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "06ba3f9780cdd36c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "7c1a9b4af51b5c7b": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Prada and Axiom unveil LCVG lunar suit inner layer"
+  },
+  "e645cfd00c81c95d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "63f92fce8b56efbc": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "major",
+   "headline": "Prada presents Womenswear Spring-Summer 2027 show in Milan"
+  },
+  "8567475c084ce2ed": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Burberry appoints former Superdry tech chief as VP"
+  },
+  "7fc0e55060c51c5e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "f5dee969766184e3": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Richemont appoints Novitskaya to lead Delvaux"
+  },
+  "3d0d42737027014d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c87c6b1347dc0633": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ee56b77c8c324731": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "Moncler approves September 30, 2026 interim statement"
+  },
+  "d6a7eb34ac2c922d": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "major",
+   "headline": "Moncler Grenoble to show in Switzerland for Fall 2027"
+  },
+  "6cc0971c0ed7f007": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1bf8ebddd71b2fc5": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Hermès opens permanent store in Williamsburg"
+  },
+  "3ed65255cc0d9fce": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "92a952ba73340dda": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "2405e5b16864416b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "f82c1f5831c03161": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "11a06bc27ff384d3": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a783d58d515ef643": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Chanel supports next generation of women writers"
+  },
+  "26d732c559062b9c": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Chanel J12 Boat Race trophies to be awarded on Thames in 2027"
+  },
+  "ad5a6923588f9903": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1677e26a6445f7f2": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Clara Boissonnas moves from Louis Vuitton to Pucci at LVMH"
+  },
+  "760041603379136a": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Clément Marchal appointed Head of AI Solutions at LVMH"
+  },
+  "e952e90940caddfb": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "97409beaf366f375": {
+   "isMove": true,
+   "type": "Legal",
+   "importance": "major",
+   "headline": "Louis Vuitton wins €920K in luxury upcycling case"
+  },
+  "9264e2ae12312a4e": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Clara Boissonnas moves from Louis Vuitton to Pucci at LVMH"
+  },
+  "f1e7a82dc601016f": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Dior partners with World Wildlife Fund for puma conservation"
+  },
+  "49b45b6f6f46a7dd": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "03f4d2ed0b7431d1": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Dior and Harper’s Bazaar host book party at Paris Fashion Week"
+  },
+  "b66fb2d9fa1e3626": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Dior restores 13 fragrance icons with Dioriginals"
+  },
+  "23a4cb7904aee8db": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Jonathan Anderson designs Dior Summer 2027 collection"
+  },
+  "d1f65a65bd11ed4b": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Dior unveils high-jewellery collection inspired by garden and skies"
+  },
+  "c53141621142707e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "39b70bae770cd476": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "30cdfd77ba60ab11": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ffb93575a6146828": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "0502b9bc8d26e925": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "624e70e7eeb1c34c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "5a4ce6d92caf09ce": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "48649f3403845447": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "f0ad8717c677c533": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "Kering confirms challenging end to summer"
+  },
+  "66fb9609432bcc02": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "minor",
+   "headline": "Kering Accademia per le Eccellenze launches first academic year"
+  },
+  "43c1d2b288194c7a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "bc361a9a7a6febc6": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "83ae55f395a73535": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "47429cf91cb9c839": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "551e29e4dd236c6c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "dc580ddd6a1788e8": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6c2cf73db16c5e73": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "25069eef3b1af2a5": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Burberry appoints Dafydd Moore as VP of business technology"
+  },
+  "1e79366c817bae08": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Burberry appoints Dafydd Moore as Vice President Business Technology"
+  },
+  "340cfb77c195b7a1": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "dd08e0629ce69225": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "Richemont reports strong sales growth and watch market improvement"
+  },
+  "a638899d72e0d61f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "fde015e66e208d5b": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Richemont unveils inaugural cohort work through three-week pop-up"
+  },
+  "94b03cd6c11c4d76": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "major",
+   "headline": "Moncler Grenoble Fall/Winter 2027 show heads to Engadin"
+  },
+  "f620672437d85964": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "12bc3f92fb3caa7d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "2fa2a764475b25ab": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "b2ab866eaca89f1c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "59c26d43bd77cb6a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "cab2e226017f7ff9": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "515ff31c12eddde2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3fe41e104d6086ad": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Louis Vuitton presents AW26 men’s collection"
+  },
+  "05b92c79c2b5b5ec": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8c691d35d826130e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "7f3e932d449196fe": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Hermès unveils Spring 2027 collection"
+  },
+  "04799c8059073c0b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ef0cb6e970050426": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "766c0dd501621231": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "518083847ad2ae81": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d5dca3ceb5684944": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Moncler Grenoble to unveil Fall/Winter 2027 collection in Engadin Valley"
+  },
+  "4c26bcaa23a441be": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Hermès presents Spring 2027 collection"
+  },
+  "b41f522f4c720084": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "927c22ba7031f89d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "92318bf7104dab05": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "eceaba803a884cac": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "major",
+   "headline": "Chanel to present Cruise 2027/28 show in Deauville"
+  },
+  "3625921f2aaac9b9": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "559eff4b4c934801": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "12fee71da02223fc": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a9a9274c7bbca683": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "0c1d41520aaf8f74": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "14b945adae83cf8c": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "major",
+   "headline": "Hermès staged Paris runway show with sheer knits and thigh-high slits"
+  },
+  "81023a97bea740c2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "dbbf57e2ef1411c8": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "Kering reported Q2 FY2026 earnings"
+  },
+  "a9720841fee8af06": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Gucci launched new horsebit jewellery"
+  },
+  "639f92a23729db4f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "319317369a44f130": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "5b4ca2506b6a927c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "155f3d6fa41e6789": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "4c93cfdf441848c1": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Mejuri launches new collection for entry-level and established customers"
+  },
+  "03886d606fab752e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "99b3e6a591ce6932": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Bulgari Hotel Milano opens Da Niko restaurant"
+  },
+  "1e15c8613f529f4a": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Bulgari launches Octo Finissimo Dual Time x Vianney Halter watch"
+  },
+  "395bf21fa7e657c1": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Chow Tai Fook opens first Australian boutique in Sydney"
+  },
+  "9a9932dabb754b11": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "7cffc2bb80192b08": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Bulgari launches New York event with ambassadors Anne Hathaway and Dua Lipa"
+  },
+  "5ac78ccae153705f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "199c1cf819ee3572": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "major",
+   "headline": null
+  },
+  "ffb5a216229ab4ef": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Chow Tai Fook applies to issue RMB 10 billion in Panda bonds"
+  },
+  "9ca74d93316dad10": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "De Beers plans rapid network expansion for Forevermark in India"
+  },
+  "f703e7b6231d9e89": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Bulgari collaborates with Vianney Halter"
+  },
+  "7186bf21ab95f022": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Pandora announces expansion of jewellery collection"
+  },
+  "11c1d75af98cec3e": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "Signet Jewelers reports sales decline in second quarter"
+  },
+  "e20c3ff4585a5916": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "40f94b69f666bea8": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "f2b49925b4e18d6b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "03a552073af38f3f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c13dd994bf7c5499": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "33cbf3d1b1c03871": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "b11f5b53c916eeff": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "9f0510befe715ec0": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Van Cleef & Arpels adds enamelling to Alhambra collection"
+  },
+  "858c0c08f56d71e8": {
+   "isMove": true,
+   "type": "Pricing",
+   "importance": "minor",
+   "headline": "Monica Vinader launches Black Friday sale"
+  },
+  "2de940a869b1eb85": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c50464b64c9ab8c4": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Bulgari launches new fragrance"
+  },
+  "095a0b198279f059": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Van Cleef & Arpels launches Jour Nuit collection"
+  },
+  "251c255bf8776475": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Brilliant Earth launches Elizabeth Taylor collection"
+  },
+  "19c0a0eaf98786af": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Brilliant Earth partners with House of Taylor and Elizabeth Taylor Estate"
+  },
+  "ff8d0f2d0c2a610f": {
+   "isMove": true,
+   "type": "Pricing",
+   "importance": "minor",
+   "headline": "Monica Vinader offers discount on necklace in flash sale"
+  },
+  "c438e0122fd27f9c": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Bulgari collaborates with Vianney Halter on new watch"
+  },
+  "60ed3012bfb9ec11": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Van Cleef & Arpels extends timeline for new Palm Beach store"
+  },
+  "9d5a5618114c7ba8": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Van Cleef & Arpels launches Extraordinary Dials collection"
+  },
+  "dedc6ee208b25ae6": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "9dac6aac37aa2ac3": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "5852ed29bfeca056": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c58dfc00144c0361": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "03163fe321773758": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Van Cleef & Arpels collaborates with The Wires on AI product discovery"
+  },
+  "b42379b6bce11076": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Bulgari launches advertising campaign with Zendaya and Anne Hathaway"
+  },
+  "ba9c6d70a52630c7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ee8faeacd3e1e1c6": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d34e1ed0d8c5523a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a29bde8910184253": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Brilliant Earth launched Elizabeth Taylor campaign"
+  },
+  "49d5fae662d5369f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8e84dfec3a8bfaed": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "52ea40586334a34b": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Tiffany & Co. preserved Jean Schlumberger artefacts with Musée des Arts décoratifs"
+  },
+  "303418157f6d903d": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Van Cleef & Arpels launched pink Alhambra collection"
+  },
+  "852335da1c30e558": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "42911b419fac7edf": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Swarovski collaborated with Nespresso on advent calendars"
+  },
+  "13da3b806ffb5c92": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Swarovski showed holiday and spring jewels in Paris"
+  },
+  "33daec25cceb3659": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6953bd52c3ea674b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "0101560504e5a3aa": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c635f0e250b2de3f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "de8f4f0f68bb2d42": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "aa4b91a83a583bf2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "5891a7de4a4eafee": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "277b67b50d4f27ce": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "20b1ba6921a2972d": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "De Beers took full ownership of Gahcho Kué diamond mine"
+  },
+  "302d02ed115cb849": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "De Beers acquires 49% stake in Gahcho Kué mine"
+  },
+  "d6d27529d22d7a94": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "De Beers launches cultural campaign with Homo Faber and Frieze Masters"
+  },
+  "80fe229c6d361aab": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "De Beers to acquire stake in Canadian diamond mine"
+  },
+  "c45430aca063ffe1": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Swarovski unveils first collaboration with Nespresso"
+  },
+  "18ba81ac258037fd": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "73db40d162c22f3a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "59c533e6d254ae1b": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Monica Vinader partners with Watches of Switzerland Group"
+  },
+  "786ad960c38bb827": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Pandora opens manufacturing facility in Vietnam"
+  },
+  "9abc51bd31d5fdab": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "89b3e19a8b7fb3b7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ed0c97710e338bad": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6fde06b50fe21be7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8f0d2310bd871b78": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Cartier launches LOVE unlimited collection in gold and diamonds"
+  },
+  "b9007a52b27c8aec": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Cartier expands LOVE Universe collection"
+  },
+  "0922ef96de13a6e8": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "920ad95b0fc1e48e": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Tiffany & Co. launches Eternity collection"
+  },
+  "24c6f23e2384793a": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Tiffany & Co. opens Blue Box Café at South Coast Plaza"
+  },
+  "28428b1b57349127": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "b7145bd2b1ef573d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "aedaf0d0629927bd": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "minor",
+   "headline": "Tiffany & Co. preserves legacy of Jean Schlumberger"
+  },
+  "067c0f6cec25d71e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ab1ebfef70658abb": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Pandora launches Pandora Wonders creative platform"
+  },
+  "524723fdf23bd5c3": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Pandora opens new manufacturing facility in Vietnam"
+  },
+  "e7eedf3dd3d40694": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Pandora opens world’s largest fine jewellery crafting facility in Vietnam"
+  },
+  "b57055ed89424314": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Pandora opens renewables-powered jewellery facility in Vietnam"
+  },
+  "0d3f74b57b57aa6f": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Pandora opens world’s largest jewellery factory in Vietnam"
+  },
+  "acb691e8319bfdac": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a7392448edb9a97c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "9694bbb5ac8f2abd": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "5a882b73e5e44f59": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "bbd93cf67acc11ec": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "De Beers renews Okavango Eternal partnership with National Geographic Society"
+  },
+  "7cf07b39b98eb0c2": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "De Beers unveils Vibrations collection inspired by water"
+  },
+  "9aae4105b22c0bdb": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8b28b493a316f013": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "54d1493647b2bcdd": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "7cc08d4f9277dc79": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Bulgari revives gold and steel pairing for signature collections"
+  },
+  "c317c88204f08178": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ad6a54033f2a6127": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Pandora releases new Disney spacer charms at Walt Disney World"
+  },
+  "844913f3d3bfb16d": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Pandora launches Winnie the Pooh and EPCOT logo charms at Walt Disney World"
+  },
+  "c786784e13a9651f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e6260ef35cc8ba1a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e31393596c05098b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "7427d82a72e62f73": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "59c929036af3582d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "666c76ba7b88b7f2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c1f95390231c548b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8840ae9dfdd18a02": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Swarovski launched Christmas ornaments made from Nespresso capsules"
+  },
+  "4a778c4e2aad4712": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Swarovski collaborated with Nespresso on a coffee machine"
+  },
+  "5ec8493512834e8c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  }
+ }
+}

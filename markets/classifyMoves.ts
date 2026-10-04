@@ -20,7 +20,7 @@ import type { Candidate } from './candidates';
 const CACHE_PATH = path.join(process.cwd(), 'data', 'markets', 'classified.json');
 const BATCH = 20;
 /** Bump to re-classify everything after a prompt change. */
-const PROMPT_VERSION = 3;
+const PROMPT_VERSION = 4;
 
 export interface Classification {
   isMove: boolean;
@@ -71,7 +71,7 @@ function prompt(items: Candidate[]): string {
 
 For each item, decide whether it reports a MOVE by the named brand: something the company itself did or announced. Moves include results and trading updates, leadership appointments or departures, new collections or products, store openings and retail changes, price changes, acquisitions, stakes, divestments, collaborations, fashion shows and events it staged, advertising campaigns or ambassadors, legal actions involving it, and corporate decisions.
 
-NOT moves: reviews, opinion, guides, podcasts, round-ups where the brand is one of many, market commentary, and news about another company or person that only mentions the brand. Auction sales and resale of the brand's past pieces are NEVER moves: the auction house acted, not the brand.
+NOT moves: reviews, opinion, guides, podcasts, round-ups where the brand is one of many, market commentary, interviews and retrospectives about past events (e.g. a former executive speaking about leaving years ago is not a departure), and news about another company or person that only mentions the brand. Auction sales and resale of the brand's past pieces are NEVER moves: the auction house acted, not the brand.
 
 Rate each move's "importance":
 - "major": financial results or trading updates, CEO / creative director / board-level appointments and departures, acquisitions, stakes and divestments, price changes, flagship openings or market entries, new main-line collections and the brand's own main fashion show, legal actions, strategic decisions.

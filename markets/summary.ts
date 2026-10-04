@@ -3,7 +3,7 @@
  *
  * Generated only from the week's classified moves, and checked: every
  * sentence must name a brand from those moves, and contain no number that
- * isn't in them. If the model fails the checks twice, the section is left
+ * isn't in them. If the model fails the checks three times, the section is left
  * out. A missing summary costs nothing; a confidently wrong one on a public
  * page costs credibility.
  */
@@ -35,10 +35,10 @@ export async function writeSummary(market: MarketId, moves: MarketMove[]): Promi
   const model = getModelFor('markets');
   let feedback = '';
 
-  for (let attempt = 0; attempt < 2; attempt++) {
+  for (let attempt = 0; attempt < 3; attempt++) {
     const prompt = `Write at most 3 sentences (2 is ideal) summarising the most important things ${market === 'luxury' ? 'luxury houses' : 'jewellery brands'} did this week, for an industry briefing.
 
-Rules: use only the facts below. Name the brand in every sentence. British English. Plain and factual: no hype, no exclamation marks, no speculation, no numbers that aren't below. Group related moves when it reads naturally. Each sentence under 200 characters.
+Rules: use only the facts below. Name the brand in every sentence. British English. Plain and factual: no hype, no exclamation marks, no speculation, no numbers that aren't below. Group related moves when it reads naturally, but keep each sentence under 30 words: a reader should take it in at a glance. Leave out minor details rather than run long.
 ${feedback}
 Moves:
 ${moves.map(m => `- ${m.date} · ${m.brand} · ${m.type} · ${m.originalTitle}`).join('\n')}
@@ -48,7 +48,7 @@ Return JSON: {"sentences": ["...", "..."]}`;
     try {
       const resp = await openai.chat.completions.create({
         model,
-        ...temperatureParam(model, 0.3),
+        ...temperatureParam(model, 0),
         ...maxTokensParam(model, 500),
         messages: [{ role: 'user', content: prompt }],
         response_format: { type: 'json_object' },

@@ -100,16 +100,11 @@ jobs:
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
         run: npm run email:weekly
 
-      - name: Run competitor analysis
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: npm run competitor:analyze
-
       # Commit only when the "Build weekly digest" step SUCCEEDED. That step is
       # the gate: it now exits 1 not just on a missing digest but also when the
       # content-quality gate fails (no AI summaries or no cover image), so a
       # hollow digest is never committed or deployed. A later partial failure
-      # (email send, competitor analysis) still lets the good digest commit,
+      # (such as the email send) still lets the good digest commit,
       # because those are separate steps and the build outcome stays 'success'.
       - name: Check for changes
         if: steps.build.outcome == 'success'
@@ -135,7 +130,7 @@ jobs:
           # - public/weekly-images/ (cover images)
           # - data/cache/ (cache files for translations, reranking, etc.)
           # - data/page_source_stats.json (page ingestion stats)
-          # - data/competitor-intel.json (competitor intelligence, updated weekly)
+          # - data/markets/*.json (Markets pages, rebuilt weekly)
           # -uall is required: without it git collapses a wholly-untracked
           # directory (a brand-new data/weeks/<week>/) into a single "dir/"
           # entry, which no file-level pattern below can match. cut -c4- keeps
@@ -152,7 +147,7 @@ jobs:
           # - public/podcast/*.mp3
           # - public/weekly-images/*.png
           # - data/cache/ (any files under cache directory)
-          ALLOWED_PATTERN="^(data/digests/|data/weeks/[^/]+/health\.json|data/articles\.json|data/source_yield\.json|data/page_source_stats\.json|data/competitor-intel\.json|data/stock-history\.json|data/weeks/[^/]+/[^/]+\.(json|txt)|public/podcast/[^/]+\.mp3|public/weekly-images/[^/]+\.png|data/cache/.*)"
+          ALLOWED_PATTERN="^(data/digests/|data/weeks/[^/]+/health\.json|data/articles\.json|data/source_yield\.json|data/page_source_stats\.json|data/competitor-intel\.json|data/stock-history\.json|data/markets/[^/]+\.json|data/weeks/[^/]+/[^/]+\.(json|txt)|public/podcast/[^/]+\.mp3|public/weekly-images/[^/]+\.png|data/cache/.*)"
           NON_ALLOWED_CHANGES=$(echo "$CHANGED_FILES" | grep -vE "$ALLOWED_PATTERN" || true)
           
           if [ -n "$NON_ALLOWED_CHANGES" ]; then
@@ -165,7 +160,7 @@ jobs:
             echo "  - data/articles.json (article database)"
             echo "  - data/source_yield.json (source yield report)"
             echo "  - data/page_source_stats.json (page ingestion stats)"
-            echo "  - data/competitor-intel.json (competitor intelligence)"
+            echo "  - data/markets/*.json (Markets pages)"
             echo "  - data/stock-history.json (stock price history)"
             echo "  - data/weeks/{week}/*.{json,txt} (podcast.json, email-digest.json, scripts)"
             echo "  - public/podcast/ (podcast audio files)"
@@ -186,7 +181,7 @@ jobs:
       - name: Commit and push changes
         if: steps.build.outcome == 'success' && steps.check-changes.outputs.has_changes == 'true'
         run: |
-          git add data/digests/ data/weeks/*/health.json data/articles.json data/source_yield.json data/page_source_stats.json data/competitor-intel.json data/stock-history.json data/weeks/*/*.json data/weeks/*/*.txt public/podcast/*.mp3 public/weekly-images/*.png data/cache/
+          git add data/digests/ data/weeks/*/health.json data/articles.json data/source_yield.json data/page_source_stats.json data/competitor-intel.json data/stock-history.json data/markets/ data/weeks/*/*.json data/weeks/*/*.txt public/podcast/*.mp3 public/weekly-images/*.png data/cache/
           if git diff --staged --quiet; then
             echo "No staged changes to commit"
             exit 0

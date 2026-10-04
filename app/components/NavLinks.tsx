@@ -15,14 +15,16 @@ export default function NavLinks() {
     { href: `${prefix}/` || '/', label: t.nav.home },
     { href: '/email-digest', label: t.nav.emailDigest },
     { href: `${prefix}/archive`, label: t.nav.archive },
-    { href: `${prefix}/competitor-watch`, label: t.nav.competitorWatch },
+    { href: '/markets/luxury', label: t.nav.markets },
     { href: `${prefix}/about`, label: t.nav.about },
   ];
 
   return (
     <>
       {primaryLinks.map((link) => {
-        const isActive = pathname.replace(/\/$/, '') === link.href.replace(/\/$/, '');
+        const isActive = pathname.replace(/\/$/, '') === link.href.replace(/\/$/, '')
+          // Both market pages light up the one Markets link.
+          || (link.href.startsWith('/markets/') && pathname.startsWith('/markets/'));
         return (
         <li key={link.href} className="whitespace-nowrap">
           <Link
@@ -63,7 +65,7 @@ export function FooterNavLinks() {
   ];
   const secondary = [
     { href: '/email-digest', label: t.nav.emailDigest },
-    { href: `${prefix}/competitor-watch`, label: t.nav.competitorWatch },
+    { href: '/markets/luxury', label: t.nav.markets },
     { href: `${prefix}/support`, label: t.nav.support },
     { href: `${prefix}/feedback`, label: t.nav.feedback },
   ];

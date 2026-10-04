@@ -27,8 +27,6 @@ export default function robots(): MetadataRoute.Robots {
     '/da/support',
     '/es/feedback',
     '/da/feedback',
-    '/es/competitor-watch',
-    '/da/competitor-watch',
   ];
 
   return {

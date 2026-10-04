@@ -33,7 +33,9 @@ Generic framing. No brand is privileged; Pandora is one of twelve jewellery name
 | Share of voice counts only the publication's own sources | A stable, explainable basis. Mixing in other feeds would change the method silently. |
 | Moves also draw on a Google News feed per brand | Four jewellery brands had zero coverage in 12 weeks; without this their rows are empty. Used for moves only, never for share-of-voice counts. |
 | An LLM decides whether the brand is the subject and what kind of move it is | Keyword matching tagged podcasts, roundups and "Alexandre Arnault joins Nike's board" as brand moves. |
-| The LLM rewrites nothing it can't be checked against | A move keeps its original headline and link. A neutral restatement is used only if it names the brand and is short, otherwise the original headline is shown. |
+| The page shows the publisher's headline | Changed during the build. A checked restatement turned an interview with Chanel's former designer into "Virginie Viard departs Chanel": wrong as current news, and no automatic check catches a change of meaning. The restatement is now shown only when the original doesn't name the brand or is a fragment list, and is otherwise used just to merge duplicate reports. |
+| Moves are rated major or minor | Added during the build. Six weeks produced ~70 luxury moves, many of them product drops; Pandora's "latest move" was Winnie the Pooh charms rather than the Vietnam factory. The page shows major moves by default. |
+| One event from several outlets is one move | Added during the build: the Rolex Padellone launch arrived as four moves. Merged on the restated headline or shared names, with an outlet count kept. |
 | The weekly summary is generated from classified moves only, and validated | Each sentence must name a brand present in the input, and no number may appear that isn't in the input. On failure, the section is omitted rather than shown wrong. |
 | Trends only for brands with 10+ articles in 12 weeks | Below that, ratios are noise (see the Signal Index analysis). |
 | Brand matching fixes known false positives | `jared` matched Jared Kushner; `Pandora` matched the Pandora Papers. |
@@ -57,8 +59,11 @@ app/markets/[market]/page.tsx two static pages, server-rendered
 scripts/buildMarkets.ts       npm run markets:build
 ```
 
-The pipeline's step 9 (`competitorAnalyze`) and the CI step that runs it are
-replaced by `markets`, which is non-critical: a failure never blocks a digest.
+The pipeline's step 9 (`competitorAnalyze`) and the separate CI step that
+also ran it (it ran twice a week) are replaced by `markets`, which is
+non-critical: a failure never blocks a digest. The old analyser code in
+`pipeline/competitorAnalyze.ts` and `data/competitor-intel.json` are left in
+place, unused, for removal once the new pages have run for a few weeks.
 `data/markets/` joins the CI commit allowlist.
 
 ## Testing

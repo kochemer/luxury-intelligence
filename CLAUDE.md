@@ -162,6 +162,16 @@ triggered by a real incident yet, and repair hasn't had an end-to-end
 rehearsal. The weekly pass records search traffic. After any rollback, Vercel
 stops deploying pushes until someone undoes it — see `docs/seo-system.md`.
 
+### Markets pages
+
+`/markets/luxury` and `/markets/jewellery` replaced Competitor Watch on
+2026-10-04 (old URLs redirect). Data is built by `markets/` (`npm run
+markets:build`, also pipeline step 9) into `data/markets/{market}.json`.
+Design and the reasons behind it: `docs/superpowers/specs/2026-10-04-markets-pages-design.md`.
+Brand patterns and their known false positives live in `markets/brands.ts`,
+pinned by `__tests__/markets.brands.test.ts`. Move classifications are cached
+in `data/markets/classified.json`; bump `PROMPT_VERSION` to redo them.
+
 ### Testing
 
 Node.js built-in `node:test`. `npm test` runs `__tests__/**/*.test.ts` —
