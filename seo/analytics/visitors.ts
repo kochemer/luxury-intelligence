@@ -9,8 +9,10 @@
  * account on 2026-10-04 rather than assumed:
  *
  * 1. Count Amplitude's automatic session activity (`_active`), not the site's
- *    own `page_view`. The site's events only fire for visitors who accept the
- *    cookie banner (1–2 a week); session tracking covers everyone.
+ *    own `page_view`. Until 2026-10-05 session tracking covered everyone;
+ *    since the consent fix Amplitude only runs for visitors who accept
+ *    cookies, so this is now the fallback. The primary source is the
+ *    cookieless counter (lib/analytics/visits.ts, getCounterVisitorSummary).
  *
  * 2. Most "visitors" are bots. Of 143 in 28 days, 71 were Baidu's renderer and
  *    360Spider, and most US traffic was HeadlessChrome / desktop-Linux browsers
@@ -168,6 +170,7 @@ export async function getVisitorSummary(now = new Date()): Promise<VisitorSummar
 
   const peopleCount = collapsedTotal(people);
   return {
+    source: 'amplitude',
     window: { start: iso(current.start), end: iso(current.end) },
     people: peopleCount,
     previousPeople: collapsedTotal(prevPeople),

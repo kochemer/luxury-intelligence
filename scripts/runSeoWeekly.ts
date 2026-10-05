@@ -38,6 +38,7 @@ import { getGscClient } from '../seo/gsc/client';
 import { pullSnapshot, summariseTraffic } from '../seo/gsc/snapshot';
 import { writeSnapshot } from '../seo/gsc/store';
 import { getVisitorSummary } from '../seo/analytics/visitors';
+import { getCounterVisitorSummary } from '../lib/analytics/visits';
 import type { Finding, Category, TrafficSummary, VisitorSummary } from '../seo/types';
 
 const CANONICAL_URL = 'https://luxury-intel.com';
@@ -96,14 +97,24 @@ async function main() {
   }
 
   // The other half of the loop: who actually arrived, bots filtered out.
-  // Same rule as search traffic: an Amplitude problem never costs the report.
+  // The site's cookieless counter first (it sees everyone); Amplitude, which
+  // since the consent fix only sees visitors who accept cookies, as fallback.
+  // Same rule as search traffic: a visitors problem never costs the report.
   console.log('[Weekly] 6/6 Visitors...');
   let visitors: VisitorSummary | null = null;
   try {
-    visitors = await getVisitorSummary();
-    if (!visitors) console.log('         (no AMPLITUDE_SECRET_KEY — visitors section omitted)');
+    visitors = await getCounterVisitorSummary();
+    if (!visitors) console.log('         (counter has no data for the week — trying Amplitude)');
   } catch (err) {
-    console.warn(`[Weekly] ⚠ Could not pull visitors: ${err instanceof Error ? err.message : err}`);
+    console.warn(`[Weekly] ⚠ Could not read the visit counter: ${err instanceof Error ? err.message : err}`);
+  }
+  if (!visitors) {
+    try {
+      visitors = await getVisitorSummary();
+      if (!visitors) console.log('         (no AMPLITUDE_SECRET_KEY — visitors section omitted)');
+    } catch (err) {
+      console.warn(`[Weekly] ⚠ Could not pull visitors: ${err instanceof Error ? err.message : err}`);
+    }
   }
 
   const findings: Finding[] = [
@@ -169,7 +180,7 @@ async function main() {
 
   if (report.inputs.visitors) {
     const v = report.inputs.visitors;
-    console.log(`[Weekly] Visitors ${v.window.start}..${v.window.end}: ${v.people} people (prev ${v.previousPeople}), ` +
+    console.log(`[Weekly] Visitors ${v.window.start}..${v.window.end}: ${v.people} people (prev ${v.previousPeople ?? 'n/a'}, ${v.source ?? 'amplitude'}), ` +
       `${v.botsExcluded} bots excluded · ${v.channels.map(c => `${c.channel} ${c.visitors}`).join(', ') || 'no sources'}`);
   }
 

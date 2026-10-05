@@ -129,6 +129,15 @@ most raw Amplitude "visitors" are crawlers (Baidu, 360Spider, HeadlessChrome
 in data centres), which the filter removes heuristically; and the numbers are
 single digits a week, so they are reported, never alerted on.
 
+Since 2026-10-05 Amplitude only runs for visitors who accept cookies, so the
+Visitors section reads the site's own **cookieless counter** first
+(`lib/analytics/visits.ts`, tables `page_hits` / `analytics_salts`, written by
+`/api/hit`; needs `DATABASE_URL` in the weekly workflow). It sees every
+visitor, but counts a person once per day they visit (the salt behind the
+visitor hash rotates daily), so weekly "people" is a sum of daily visitors.
+Amplitude is the fallback when the counter has no data for the week; the email
+says which source it used.
+
 Both go through `seo/shared/email.ts`. A send counts as delivered only with no
 error **and** a Resend message id. If either email cannot be delivered, its
 workflow fails (exit 2), so GitHub notifies you instead. A failed daily alert

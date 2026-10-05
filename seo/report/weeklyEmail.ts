@@ -179,8 +179,19 @@ function renderTraffic(t: TrafficSummary): string {
 
 /** "8 (+1 vs prior week)" — no percentages: at single digits they exaggerate. */
 export function visitorsNote(v: VisitorSummary): string {
+  const bots = `${v.botsExcluded} bot${v.botsExcluded === 1 ? '' : 's'} filtered out`;
+  if (v.previousPeople === null) return `no prior week to compare · ${bots}`;
   const diff = v.people - v.previousPeople;
-  return `${diff === 0 ? 'same as' : `${signed(diff)} vs`} prior week · ${v.botsExcluded} bot${v.botsExcluded === 1 ? '' : 's'} filtered out`;
+  return `${diff === 0 ? 'same as' : `${signed(diff)} vs`} prior week · ${bots}`;
+}
+
+/** One line on what the visitor numbers mean, which depends on their source. */
+export function visitorsSourceNote(v: VisitorSummary): string {
+  if (v.source === 'counter') {
+    const since = v.countingSince ? ` Counting began ${v.countingSince}, so this week is partial.` : '';
+    return `From the site's own cookieless counter, which sees every visitor; someone who visits on several days counts once per day.${since}`;
+  }
+  return 'From Amplitude, which only sees visitors who accepted cookies; a person arriving twice by different routes counts under both sources.';
 }
 
 /** Referring domains come from visitors' browsers, so they are escaped like everything else. */
@@ -194,7 +205,7 @@ function renderVisitors(v: VisitorSummary): string {
        <ul style="padding-left:18px;margin:0;font-size:13px">${v.referrers.map(r => `<li>${escapeHtml(r.domain)} — ${r.visitors}</li>`).join('')}</ul>`;
   return `
     <h3 style="font-family:Georgia,serif;font-size:17px;margin:24px 0 8px">Visitors</h3>
-    <p style="font-size:13px;color:#6B7280;margin:0 0 8px">${escapeHtml(v.window.start)} → ${escapeHtml(v.window.end)} · ${v.people} people, ${escapeHtml(visitorsNote(v))}. From Amplitude; a person arriving twice by different routes counts under both sources.</p>
+    <p style="font-size:13px;color:#6B7280;margin:0 0 8px">${escapeHtml(v.window.start)} → ${escapeHtml(v.window.end)} · ${v.people} people, ${escapeHtml(visitorsNote(v))}. ${escapeHtml(visitorsSourceNote(v))}</p>
     <p style="font-size:13px;margin:0 0 4px"><strong>Where they came from</strong></p>
     <ul style="padding-left:18px;margin:0;font-size:13px">${channels}</ul>
     ${refs}`;
@@ -317,6 +328,7 @@ export function buildWeeklyEmailText(ctx: WeeklyEmailContext): string {
     const v = s.visitors;
     lines.push('', `VISITORS (${v.window.start} to ${v.window.end})`);
     lines.push(`  ${v.people} people, ${visitorsNote(v)}`);
+    lines.push(`  ${visitorsSourceNote(v)}`);
     for (const c of v.channels) lines.push(`  ${c.channel}: ${c.visitors}`);
     if (v.referrers.length) lines.push(`  Referring sites: ${v.referrers.map(r => `${r.domain} (${r.visitors})`).join(', ')}`);
   }

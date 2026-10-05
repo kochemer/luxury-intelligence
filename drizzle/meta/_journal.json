@@ -8,6 +8,13 @@
       "when": 1773516972561,
       "tag": "0000_bizarre_vampiro",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791184425640,
+      "tag": "0001_wandering_lord_tyger",
+      "breakpoints": true
     }
   ]
 }

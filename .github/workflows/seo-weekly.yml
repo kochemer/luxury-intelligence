@@ -55,6 +55,8 @@ jobs:
           # Visitors section (seo/analytics/visitors.ts). Read-only; the public
           # API key and EU region are defaults in that module.
           AMPLITUDE_SECRET_KEY: ${{ secrets.AMPLITUDE_SECRET_KEY }}
+          # Cookieless visit counter (page_hits), the primary visitors source.
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           # Exit 1 means "a human should look", not "the job failed" — the
           # distinction the daily monitor workflow also makes.

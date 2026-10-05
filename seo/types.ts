@@ -102,10 +102,19 @@ export type VisitorChannel =
 export interface VisitorSummary {
   /** The last 7 complete days (UTC). */
   window: { start: string; end: string };
+  /**
+   * Where the numbers come from. 'counter' (since 2026-10-05) is the site's
+   * cookieless counter and covers every visitor, counting a person once per
+   * day they visit. 'amplitude' only sees visitors who accepted cookies.
+   * Absent on reports written before the counter existed (= amplitude).
+   */
+  source?: 'counter' | 'amplitude';
+  /** Set when counting began inside the window, so the week is partial. */
+  countingSince?: string;
   /** Unique people, bots excluded. */
   people: number;
-  /** Same measure for the 7 days before. */
-  previousPeople: number;
+  /** Same measure for the 7 days before; null when nothing was counted then. */
+  previousPeople: number | null;
   /** Tracked visitors removed by the bot filter this week. */
   botsExcluded: number;
   channels: Array<{ channel: VisitorChannel; visitors: number }>;

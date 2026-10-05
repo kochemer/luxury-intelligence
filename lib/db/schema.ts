@@ -5,6 +5,9 @@ import {
   boolean,
   timestamp,
   uuid,
+  bigserial,
+  date,
+  index,
 } from 'drizzle-orm/pg-core';
 
 // ── Enums ─────────────────────────────────────────────────────────────────────
@@ -49,6 +52,34 @@ export const subscribers = pgTable('subscribers', {
 
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+});
+
+// ── Cookieless visit counter ──────────────────────────────────────────────────
+// One row per page view, written by /api/hit for every visitor (no consent
+// needed: no cookies, no IP, no stable identifier). `visitor` is a one-way
+// hash of IP + user agent with that day's salt; salts older than a day are
+// deleted, after which the hash can't be linked to anyone. See
+// lib/analytics/visits.ts.
+
+export const pageHits = pgTable('page_hits', {
+  id:       bigserial('id', { mode: 'number' }).primaryKey(),
+  day:      date('day').notNull(),
+  path:     text('path').notNull(),
+  /** First page of a page load (landing); channel/referrer only meaningful here. */
+  entry:    boolean('entry').notNull().default(false),
+  channel:  text('channel'),
+  referrer: text('referrer'),
+  country:  text('country'),
+  device:   text('device'),
+  /** Null for bots — they're stored only so the number filtered out is known. */
+  visitor:  text('visitor'),
+  bot:      boolean('bot').notNull().default(false),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+}, t => [index('page_hits_day_idx').on(t.day)]);
+
+export const analyticsSalts = pgTable('analytics_salts', {
+  day:  date('day').primaryKey(),
+  salt: text('salt').notNull(),
 });
 
 // ── Inferred TypeScript types ─────────────────────────────────────────────────
