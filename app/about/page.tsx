@@ -289,16 +289,16 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Privacy Card — linked from the consent banner and footer as /about#privacy */}
+        {/* Privacy Policy — linked from the consent banner and footer as /about#privacy */}
         <div id="privacy" className="scroll-mt-24 bg-[var(--color-surface)] rounded-xl shadow-sm border border-[var(--color-border)] p-6 md:p-8 mb-12 md:mb-16">
           <h2 className="text-section font-semibold text-[var(--color-text-primary)] mb-2">
-            Privacy & Cookies
+            Privacy Policy
           </h2>
           <p className="text-meta text-[var(--color-text-secondary)] mb-6">Last updated 5 October 2026</p>
           <div className="space-y-4 text-body text-[var(--color-text-secondary)]">
             <p>
-              <strong className="text-[var(--color-text-primary)]">Who is responsible.</strong> Luxury Intelligence
-              is run by its editor in Copenhagen, Denmark, who is the data controller. Questions or requests:{' '}
+              <strong className="text-[var(--color-text-primary)]">Data controller.</strong> Luxury Intelligence
+              (luxury-intel.com), Copenhagen, Denmark. Questions or requests:{' '}
               <a href="mailto:feedback@luxury-intel.com?subject=Privacy" className="text-[var(--color-accent)] underline underline-offset-2">feedback@luxury-intel.com</a>.
             </p>
             <p>
