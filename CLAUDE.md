@@ -22,6 +22,10 @@ belongs and maps every doc with its status. The short version:
   memory. If you find one there, move it into the repo.
 - No new diagnostic `.md` files at the repo root. Finished reports go to `docs/archive/`.
 - Before committing, ask: would the next agent hit what I just hit? If yes, write it down.
+- **Enforced:** a `commit-msg` hook and CI run `npm run docs:check`. If your
+  commit touches an area with a home doc and not the doc, it is rejected unless
+  the message has a `Docs-Skip: <reason>` trailer. Never use `--no-verify`.
+  Details: `docs/README.md` §6.
 
 ## Commands
 
@@ -43,6 +47,10 @@ npm run digest:weekly             # Full pipeline: ingest → discover → class
 npm run ingest        # RSS + page ingestion
 npm run discover      # Discovery (find new candidate articles)
 npm run cover         # Regenerate cover image
+npm run digest:mock / cover:mock     # Build a fake digest / cover without API calls
+npm run selection:snapshot / selection:diff   # Compare article selection before/after a ranking change
+npm run print-yield / validate:feeds / pool:health / debug:discovery-dates   # Source and discovery diagnostics
+npm run competitor:analyze   # Legacy Competitor Watch, unused since 2026-10-04
 npm run podcast       # Build weekly podcast audio
 npm run email:weekly  # Send weekly email digest (NOT idempotent: re-running double-sends)
 npm run markets:build # /markets pages data (also pipeline step 9)
@@ -82,7 +90,8 @@ Module-level detail, artifacts and caches: `docs/pipeline.md`.
 | Path | Purpose |
 |------|---------|
 | `app/` | Next.js App Router pages and API routes |
-| `app/api/` | API routes: `subscribe/`, `stripe/webhook`, `push/`, `build-digest`, `unsubscribe`, `og` |
+| `app/api/` | API routes: `api/subscribe`, `api/stripe` (webhook), `api/push`, `api/build-digest`, `api/unsubscribe`, `api/og`, `api/hit` (visit counter), `api/ratings` (digest star ratings), `api/search` (article search over `data/articles.json`), `api/resend` (bounce/complaint webhook) |
+| `app/health/` | `/health`: latest digest's per-topic counts, a quick manual sanity page |
 | `app/[es|da]/` | i18n locale sub-routes (Spanish, Danish) |
 | `app/digest/[slug]/` | Dynamic digest page (slug = `month-yyyy-week-n`) |
 | `pipeline/` | `runWeeklyPipeline.ts` orchestrates all weekly steps; `checks/` = content-quality gates. `competitorAnalyze.ts` is unused since 2026-10-04 (delete after a few weeks) |
@@ -97,15 +106,24 @@ Module-level detail, artifacts and caches: `docs/pipeline.md`.
 | `video/` | Older FFmpeg-based video clip composer |
 | `video-short/` | Weekly 60s short; its own package, isolated from the root build |
 | `scoring/` | Article relevance scoring utilities |
+| `config/` | Static config (`jewelleryCompanies.ts`) |
+| `drizzle/` | Generated SQL migrations + snapshots (`npx drizzle-kit generate`); don't hand-edit |
+| `assets/` | Source audio for the podcast (see `assets/audio/README.md`) |
+| `tools/` | Bundled FFmpeg notes (`tools/ffmpeg/README.md`) |
+| `__tests__/` | `node:test` suites (see Testing) |
+| `docs/` | All docs; start at `docs/README.md` |
 | `lib/` | Shared utilities: `db/`, `llm/`, `i18n/`, `stripe/`, `analytics/`, `seo/`, `markets/`, `utils/`, `env.ts` |
 | `data/` | Runtime JSON store: `articles.json`, `digests/`, `weeks/`, `markets/`, `seo/`, caches |
 | `scripts/` | Entry points and maintenance scripts (run with `tsx`) |
 | `hooks/` | React hooks (`useCountUp`, `useReveal`), not git hooks |
+| `.githooks/` | Git hooks (`commit-msg` runs the docs check). Enabled by `npm install` |
 | `.github/workflows/` | Weekly digest, SEO weekly + daily monitor, subscriber sweep (see `docs/operations.md`) |
 
 ### Database
 
-Neon Postgres via Drizzle ORM. Schema at `lib/db/schema.ts` — single `subscribers` table with `plan_type` enum (`none | free | supporter_monthly | patron_monthly`) and Stripe fields. Run `loadEnv()` from `lib/env.ts` before accessing `DATABASE_URL` in scripts (handles Windows UTF-16 `.env.local` encoding).
+Neon Postgres via Drizzle ORM. Schema at `lib/db/schema.ts`, three tables:
+`subscribers` (`plan_type` enum `none | free | supporter_monthly | patron_monthly`, plus Stripe fields),
+`page_hits` (cookieless visit counter) and `analytics_salts` (daily salt for the visitor hash, deleted after a day). Run `loadEnv()` from `lib/env.ts` before accessing `DATABASE_URL` in scripts (handles Windows UTF-16 `.env.local` encoding).
 
 ### Routing & i18n
 
@@ -136,6 +154,12 @@ Scripts must call `loadEnv()` from `lib/env.ts` at startup. Key variables:
 | `KV_REST_API_URL`, `KV_REST_API_TOKEN` | Vercel KV (push subscription storage) |
 | `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID` | Podcast TTS (the local `.env.local` value is a key ID, so local runs use OpenAI) |
 | `UNSUBSCRIBE_SECRET` | Email unsubscribe token signing |
+| `STRIPE_PRICE_SUPPORTER_MONTHLY`, `STRIPE_PRICE_PATRON_MONTHLY` | Stripe price IDs for the paid tiers |
+| `ANALYTICS_PASSWORD` | Gate for the private `/analytics` dashboard |
+| `INDEXNOW_KEY` | IndexNow pings after publishing |
+| `NEXT_PUBLIC_FEEDBACK_FORM_ACTION` | Form endpoint for `/feedback` |
+
+Optional tuning knobs (model overrides, selection limits, debug flags) are listed in `docs/operations.md`.
 
 ### PWA
 

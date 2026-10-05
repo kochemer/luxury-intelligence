@@ -1,0 +1,5 @@
+#!/bin/sh
+# Docs drift check: see docs/README.md §6. Skipped in CI, where the scheduled
+# pipelines commit generated data and docs-check.yml covers pushes instead.
+[ -n "$CI" ] && exit 0
+exec node scripts/checkDocs.mjs --commit-msg "$1"

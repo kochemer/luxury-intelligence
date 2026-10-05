@@ -85,6 +85,53 @@ If it's wrong:
 When you finish a task, before committing, ask: *would the next agent hit the
 same thing I just hit?* If yes, write it down in its home from §1.
 
+## 6. How this is enforced
+
+Rules alone drift, so the checkable parts are checked by `scripts/checkDocs.mjs`
+(`npm run docs:check`). It runs in three places:
+
+| Where | When | Effect |
+|---|---|---|
+| `.githooks/commit-msg` | Every local commit, by any agent or human (installed by `npm install` via the `prepare` script) | Blocks the commit |
+| `.github/workflows/docs-check.yml` | Every push to `main` and every PR | Red ✗ on the commit and a GitHub email. Doesn't stop the Vercel deploy |
+| `npm test` (`__tests__/docs.check.test.ts`) | Whenever tests run | Test failure |
+
+**What it checks (fails):** every env var used in code is documented; every
+npm script, top-level directory, app route, API route, DB table and workflow is
+mentioned in the docs; every `.md` file is in the doc map below; every
+repo-rooted path cited in the core docs exists.
+
+**Co-change rule (commit hook only):** a commit that touches an area with a
+home doc must also touch that doc, or carry a trailer explaining why not:
+
+```
+Docs-Skip: prompt wording tweak, no documented behaviour changed
+```
+
+| Code touched | Home doc(s), any one satisfies the rule |
+|---|---|
+| `pipeline/` | `docs/pipeline.md` |
+| `ingestion/`, `discovery/`, `classification/`, `digest/`, `scoring/`, `podcast/`, `email/` | `docs/pipeline.md`, `RANKING_METHODOLOGY.md`, `DISCOVERY_USAGE.md`, `docs/PAYWALL_AWARE_SELECTION.md` |
+| `.github/workflows/`, `next.config.ts` | `docs/operations.md` |
+| `seo/`, `lib/seo/` | any `docs/seo-*.md` |
+| `markets/`, `lib/markets/` | `CLAUDE.md` or the markets spec |
+| `video-short/src/`, `video-short/template/` | `video-short/README.md` |
+| `lib/db/schema.ts`, `middleware.ts`, `lib/env.ts` | `CLAUDE.md` |
+
+The trailer is the escape hatch, and it's meant to make "no doc needed" a
+decision someone wrote down, not something nobody thought about. Don't write a
+reason that isn't true.
+
+**Warns:** a doc whose "Checked" date in the map is over 120 days old.
+
+**Not checkable:** whether what a doc *says* is still true. That depends on
+agents following §5. When the checker fails on something you didn't cause,
+fix it anyway: it means an earlier commit skipped the hook. **Never commit with
+`--no-verify`** to get past it.
+
+When you add a new subsystem with its own home doc, add a row to the
+`CO_CHANGE` table in `scripts/checkDocs.mjs` and to the table above.
+
 ---
 
 ## Doc map
@@ -117,4 +164,9 @@ when you verify or rewrite a doc.
 | `SEO_METADATA.md`, `SEO_ROUTES.md` | Per-file SEO metadata and routes | current | 2026-09-09 |
 | `IMPROVEMENTS.md` | Product / GEO / infra backlog | current | 2026-09-18 |
 | `video-short/README.md` | Weekly 60s short video tool | current | 2026-10-05 |
+| `assets/audio/README.md` | Podcast source audio | reference | — |
+| `tools/ffmpeg/README.md` | Bundled FFmpeg | reference | — |
 | `docs/archive/*` | Finished one-off reports | historical | — |
+
+Generated reports under `data/` (e.g. `data/seo/weekly-*.md`) are pipeline
+output, not docs, and aren't listed here.

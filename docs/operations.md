@@ -20,6 +20,7 @@ Facts are as of 2026-10-05 unless dated otherwise.
 | `seo-weekly.yml` | Sun 08:00 | Full SEO pass, GSC snapshot, weekly email |
 | `seo-monitor.yml` | Daily 07:00 | Detects outages; emails only on change; can roll back and open repair PRs |
 | `subscriber-sweep.yml` | Daily 03:17 | Subscriber cleanup (uses `DATABASE_URL` secret) |
+| `docs-check.yml` | Every push / PR | `scripts/checkDocs.mjs`: docs still match the code (see `docs/README.md` §6) |
 
 ## Build
 
@@ -82,3 +83,21 @@ future deployment.
   2. `public/weekly-images/*.png` (~100 MB) → WebP.
 - Old deployments can be purged with `vercel remove <project> --safe --yes`
   (`--safe` keeps anything holding a live alias).
+
+## Optional environment variables (tuning knobs)
+
+Required variables are in the `CLAUDE.md` env table. These are optional
+overrides; leave them unset unless you mean to change behaviour.
+
+| Variables | Effect |
+|---|---|
+| `SELECTION_MODEL`, `RERANK_MODEL`, `RERANKER_MODEL_PRIMARY`, `RERANKER_MODEL_FALLBACK`, `QUERY_DELTA_MODEL`, `ARTICLE_SUMMARY_MODEL`, `SUMMARY_GENERATOR_MODEL`, `SUMMARY_JUDGE_MODEL`, `THEME_MODEL`, `INTRO_MODEL`, `EDITORIAL_TAKE_MODEL`, `EMAIL_DIGEST_MODEL`, `SCENE_DIRECTOR_MODEL`, `TRANSLATE_MODEL_FALLBACK` | Per-step OpenAI model overrides |
+| `MAX_TOTAL_ARTICLES`, `MAX_ARTICLES_PER_CATEGORY`, `MIN_ARTICLES_PER_CATEGORY` | Digest size limits in the pipeline |
+| `RERANK_MAX_ITEMS`, `RERANK_MAX_CHARS`, `RERANK_COOLDOWN_MS`, `RERANK_DEBUG` | Rerank batch size, prompt size, rate limiting, logging |
+| `COMMERCE_MATERIALITY_WEIGHT_ECOM`, `_EMAIL`, `_OTHER` | Weights in `scoring/commerceMateriality.ts` |
+| `DISCOVERY_TIME_BOUND`, `DISCOVERY_EXTRA_EXCLUDES` | Discovery search window; extra URL exclude regexes |
+| `SEO_BASE_URL`, `SEO_ALERT_EMAIL`, `CLAUDE_BIN` | SEO monitor target (production by default), alert recipient, path to the Claude binary for repair |
+| `AMPLITUDE_API_KEY`, `AMPLITUDE_SERVER_ZONE` | Server-side Amplitude export for the weekly email (EU zone) |
+| `NEXT_PUBLIC_VERCEL_ENV` | Set by Vercel; tags analytics events with the environment |
+| `VIDEO_RENDER_ENABLED` | Must be `true` for the old `video/` pipeline to render (costs money) |
+| `VIDEO_SHORT_CAP_USD`, `VIDEO_SHORT_TEMPO`, `VIDEO_SHORT_VOICE` | `video-short/` spend cap, voice speed, TTS voice |
