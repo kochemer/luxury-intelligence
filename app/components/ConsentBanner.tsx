@@ -1,25 +1,32 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getAnalyticsConsent, setAnalyticsConsent } from '@/lib/analytics';
+import {
+  getAnalyticsConsent,
+  hasConsentChoice,
+  setAnalyticsConsent,
+  clearAnalyticsStorage,
+  CONSENT_OPEN_EVENT,
+} from '@/lib/analytics';
 
 /**
  * Cookie/analytics consent banner.
- * Shows once to visitors who haven't made a choice.
- * Persists choice to localStorage via consent.ts.
- * Hidden in dev (consent is auto-granted there).
+ * Shows to visitors who haven't made a choice, and again whenever the footer's
+ * "Cookie settings" link is used. Amplitude starts only after Accept
+ * (AmplitudeInit listens for the change). Declining after having accepted
+ * clears Amplitude's storage and reloads so the SDK stops recording.
+ * Hidden in dev on first load (consent is auto-granted there).
  */
 export default function ConsentBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Dev auto-grants consent — no banner needed
-    if (process.env.NODE_ENV === 'development') return;
-
-    const stored = localStorage.getItem('li_analytics_consent_v1');
-    if (!stored) {
+    if (process.env.NODE_ENV !== 'development' && !hasConsentChoice()) {
       setVisible(true);
     }
+    const open = () => setVisible(true);
+    window.addEventListener(CONSENT_OPEN_EVENT, open);
+    return () => window.removeEventListener(CONSENT_OPEN_EVENT, open);
   }, []);
 
   function handleAccept() {
@@ -28,8 +35,13 @@ export default function ConsentBanner() {
   }
 
   function handleDecline() {
+    const wasGranted = getAnalyticsConsent();
     setAnalyticsConsent('denied');
     setVisible(false);
+    if (wasGranted) {
+      clearAnalyticsStorage();
+      window.location.reload();
+    }
   }
 
   if (!visible) return null;
@@ -43,13 +55,14 @@ export default function ConsentBanner() {
     >
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
         <p className="font-sans text-[13px] text-[#999] leading-relaxed flex-1">
-          We use analytics to understand how readers engage with the digest.
-          No advertising. No third-party data sharing.{' '}
+          With your permission we use analytics cookies and session recordings (Amplitude, stored
+          in the EU) to see how readers use the digest. Form fields are masked. No advertising, and
+          your data is never sold. Without permission we only count visits anonymously, with no cookies.{' '}
           <a
-            href="/methodology"
+            href="/about#privacy"
             className="text-[var(--color-accent)] hover:underline"
           >
-            Learn more
+            Privacy details
           </a>
           .
         </p>

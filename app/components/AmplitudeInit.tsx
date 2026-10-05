@@ -1,102 +1,94 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import * as amplitude from '@amplitude/unified';
+import {
+  getAnalyticsConsent,
+  track,
+  CONSENT_CHANGE_EVENT,
+  type ConsentValue,
+} from '@/lib/analytics';
 
-export default function AmplitudeInit() {
-  const initializedRef = useRef(false);
+/**
+ * Starts Amplitude (analytics + session replay) — but only for visitors who
+ * accepted the consent banner. Nothing loads, no cookies are set and nothing
+ * is recorded before that. Visitors who decline are still counted, anonymously
+ * and without cookies, by VisitCounter.
+ *
+ * Withdrawing consent (footer "Cookie settings" → Decline) is handled by
+ * ConsentBanner: it clears Amplitude's storage and reloads, so the SDK is gone.
+ */
 
-  useEffect(() => {
-    // Ensure this only runs on the client
-    if (typeof window === 'undefined') {
-      return;
-    }
+let initialized = false;
 
-    // Ensure amplitude is only initialized once during the lifecycle of the application
-    if (initializedRef.current) {
-      return;
-    }
+function initAmplitude(): boolean {
+  if (initialized) return true;
 
-    const apiKey = process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY || '2f72d6d40500d170bda25421e23d7975';
-    
-    if (!apiKey) {
-      console.warn('Amplitude API key not found. Analytics will not be initialized.');
-      return;
-    }
+  const apiKey = process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY || '2f72d6d40500d170bda25421e23d7975';
 
-    // Suppress Amplitude console errors by temporarily overriding console.error
-    const originalConsoleError = console.error;
-    const errorSuppressionTimeout = setTimeout(() => {
-      // Restore console.error after a short delay to allow Amplitude to initialize
-      console.error = originalConsoleError;
-    }, 2000);
+  // In development, skip initialization to avoid network errors interfering with navigation
+  if (process.env.NODE_ENV === 'development') {
+    console.info('[Amplitude] Skipped initialization in development mode');
+    initialized = true;
+    return true;
+  }
 
-    // Temporarily suppress Amplitude-related errors
-    console.error = (...args: any[]) => {
-      const errorString = args.join(' ');
-      // Only suppress errors that appear to be from Amplitude SDK
-      if (errorString.includes('amplitude') || errorString.includes('Amplitude') || 
-          errorString.includes('@amplitude') || errorString.includes('Destination')) {
-        // Silently ignore Amplitude SDK errors
-        return;
-      }
-      // Pass through other errors
-      originalConsoleError.apply(console, args);
-    };
+  // The SDK logs noisy errors while starting; hide only Amplitude's for a moment.
+  const originalConsoleError = console.error;
+  console.error = (...args: unknown[]) => {
+    const s = args.join(' ');
+    if (s.includes('amplitude') || s.includes('Amplitude') || s.includes('Destination')) return;
+    originalConsoleError.apply(console, args);
+  };
+  const restore = () => { console.error = originalConsoleError; };
+  setTimeout(restore, 2000);
 
-    // Initialize Amplitude Analytics and Session Replay with EU server zone
-    try {
-      // In development, skip initialization to avoid network errors interfering with navigation
-      if (process.env.NODE_ENV === 'development') {
-        console.info('[Amplitude] Skipped initialization in development mode');
-        initializedRef.current = true;
-        return;
-      }
-
-      amplitude.initAll(apiKey, {
-        serverZone: 'EU',
-        analytics: {
-          autocapture: {
-            // Page views are fired manually via AnalyticsPageView — disable auto to avoid duplicates.
-            pageViews: false,
-            // Sessions managed by Amplitude internally.
-            sessions: true,
-            // Element interactions disabled: noisy, risks capturing form field values (PII).
-            elementInteractions: false,
-          },
+  try {
+    void amplitude.initAll(apiKey, {
+      serverZone: 'EU',
+      analytics: {
+        // Don't store visitors' IP addresses in Amplitude.
+        trackingOptions: { ipAddress: false },
+        autocapture: {
+          // Page views are fired manually via AnalyticsPageView — disable auto to avoid duplicates.
+          pageViews: false,
+          // Sessions managed by Amplitude internally.
+          sessions: true,
+          // Element interactions disabled: noisy, risks capturing form field values (PII).
+          elementInteractions: false,
         },
-        sessionReplay: {
-          sampleRate: 1,
-        },
-      });
-
-      initializedRef.current = true;
-      console.info('[Amplitude] initialized with Analytics and Session Replay', { 
-        hasKey: true, 
-        serverZone: 'EU',
-        analytics: true,
-        sessionReplay: true,
-      });
-
-      // Restore console.error after initialization
-      clearTimeout(errorSuppressionTimeout);
-      console.error = originalConsoleError;
-    } catch (error: any) {
-      // Restore console.error on error
-      clearTimeout(errorSuppressionTimeout);
-      console.error = originalConsoleError;
-      // Silently handle synchronous errors during initialization
-      console.warn('[Amplitude] initialization warning (non-critical):', error?.message || error);
-    }
-
-    // Cleanup: restore console.error if component unmounts
-    return () => {
-      clearTimeout(errorSuppressionTimeout);
-      console.error = originalConsoleError;
-    };
-  }, []);
-
-  // This component renders nothing
-  return null;
+      },
+      sessionReplay: {
+        sampleRate: 1,
+        // Mask everything typed into form fields (e.g. the subscribe email box).
+        privacyConfig: { defaultMaskLevel: 'medium' },
+      },
+    }).catch(() => { /* network/SDK errors are non-critical */ });
+    initialized = true;
+    return true;
+  } catch (error: unknown) {
+    console.warn('[Amplitude] initialization warning (non-critical):', (error as Error)?.message || error);
+    restore();
+    return false;
+  }
 }
 
+export default function AmplitudeInit() {
+  useEffect(() => {
+    if (getAnalyticsConsent()) initAmplitude();
+
+    function onConsentChange(e: Event) {
+      const value = (e as CustomEvent<ConsentValue>).detail;
+      if (value !== 'granted' || initialized) return;
+      if (initAmplitude()) {
+        // The page view for the page they accepted on was skipped (no consent yet) — send it now.
+        track('page_view', { page_title: document.title });
+      }
+    }
+
+    window.addEventListener(CONSENT_CHANGE_EVENT, onConsentChange);
+    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, onConsentChange);
+  }, []);
+
+  return null;
+}

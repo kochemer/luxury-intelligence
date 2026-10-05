@@ -6,6 +6,7 @@ import { getMessages, detectLocaleFromPathname } from '@/lib/i18n/messages';
 import BrandPattern from './BrandPattern';
 import GrainOverlay from './GrainOverlay';
 import MastheadLockup from './MastheadLockup';
+import { openConsentSettings } from '@/lib/analytics';
 
 export default function Footer() {
   const pathname = usePathname() || '/';
@@ -97,6 +98,18 @@ export default function Footer() {
       {/* Bottom disclaimer */}
       <div className="relative max-w-5xl mx-auto mt-12 pt-4 border-t border-white/10 text-[11px] text-[#666] text-center">
         {t.footer.disclaimer}
+        <span className="mx-2">·</span>
+        <Link href="/about#privacy" className="hover:text-[#999] transition-colors">
+          {t.footer.privacy}
+        </Link>
+        <span className="mx-2">·</span>
+        <button
+          type="button"
+          onClick={openConsentSettings}
+          className="hover:text-[#999] transition-colors underline-offset-2"
+        >
+          {t.footer.cookieSettings}
+        </button>
       </div>
     </footer>
   );

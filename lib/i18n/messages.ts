@@ -71,6 +71,8 @@ export type Messages = {
     stayInformed: string;
     stayInformedDesc: string;
     disclaimer: string;
+    privacy: string;
+    cookieSettings: string;
   };
   search: {
     placeholder: string;
@@ -148,6 +150,8 @@ const en: Messages = {
     stayInformed: 'Stay Informed',
     stayInformedDesc: 'Get the weekly digest in your inbox.',
     disclaimer: 'AI-assisted summaries — Not investment or business advice. Curated by The Editor.',
+    privacy: 'Privacy',
+    cookieSettings: 'Cookie settings',
   },
   search: {
     placeholder: 'Search articles…',
@@ -226,6 +230,8 @@ const da: Messages = {
     stayInformed: 'Bliv informeret',
     stayInformedDesc: 'Få den ugentlige oversigt i din indbakke.',
     disclaimer: 'AI-assisterede sammenfatninger — Ikke investerings- eller forretningsrådgivning. Kurateret af redaktøren.',
+    privacy: 'Privatliv',
+    cookieSettings: 'Cookieindstillinger',
   },
   search: {
     placeholder: 'Søg artikler…',
@@ -304,6 +310,8 @@ const es: Messages = {
     stayInformed: 'Mantente informado',
     stayInformedDesc: 'Recibe el resumen semanal en tu bandeja de entrada.',
     disclaimer: 'Resúmenes con IA — No son asesoramiento de inversión ni empresarial. Curado por el editor.',
+    privacy: 'Privacidad',
+    cookieSettings: 'Configuración de cookies',
   },
   search: {
     placeholder: 'Buscar artículos…',

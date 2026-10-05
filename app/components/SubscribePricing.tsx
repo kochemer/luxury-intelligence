@@ -154,6 +154,7 @@ export default function SubscribePricing() {
   // ── Render ────────────────────────────────────────────────────────────────
 
   return (
+    <>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
 
       {/* ── Free / Subscriber ─────────────────────────────────────────── */}
@@ -325,5 +326,10 @@ export default function SubscribePricing() {
       </div>
 
     </div>
+    <p className="mt-4 font-sans text-xs text-[var(--color-text-secondary)]">
+      We use your email only to send the digest and manage your plan; payments are handled by Stripe.
+      Unsubscribe any time. <a href="/about#privacy" className="underline underline-offset-2 hover:text-[var(--color-accent)]">Privacy details</a>.
+    </p>
+    </>
   );
 }

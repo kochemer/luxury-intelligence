@@ -289,6 +289,51 @@ export default function AboutPage() {
           </p>
         </div>
 
+        {/* Privacy Card — linked from the consent banner and footer as /about#privacy */}
+        <div id="privacy" className="scroll-mt-24 bg-[var(--color-surface)] rounded-xl shadow-sm border border-[var(--color-border)] p-6 md:p-8 mb-12 md:mb-16">
+          <h2 className="text-section font-semibold text-[var(--color-text-primary)] mb-2">
+            Privacy & Cookies
+          </h2>
+          <p className="text-meta text-[var(--color-text-secondary)] mb-6">Last updated 5 October 2026</p>
+          <div className="space-y-4 text-body text-[var(--color-text-secondary)]">
+            <p>
+              <strong className="text-[var(--color-text-primary)]">Who is responsible.</strong> Luxury Intelligence
+              is run by its editor in Copenhagen, Denmark, who is the data controller. Questions or requests:{' '}
+              <a href="mailto:feedback@luxury-intel.com?subject=Privacy" className="text-[var(--color-accent)] underline underline-offset-2">feedback@luxury-intel.com</a>.
+            </p>
+            <p>
+              <strong className="text-[var(--color-text-primary)]">If you just read the site.</strong> Every visit
+              is counted anonymously: the page, the site that linked to it, your country and device type. No cookies
+              are set and no IP address or identifier is stored — telling visitors apart within a single day uses a
+              one-way code whose key is deleted daily.
+            </p>
+            <p>
+              <strong className="text-[var(--color-text-primary)]">If you accept analytics cookies.</strong> We also
+              use Amplitude (data stored in the EU) to understand which stories and features are used, including
+              session recordings of how pages are used. Text typed into form fields is masked and IP addresses are
+              not stored. This runs only with your consent, which you can withdraw at any time via{' '}
+              <em>Cookie settings</em> in the footer.
+            </p>
+            <p>
+              <strong className="text-[var(--color-text-primary)]">If you subscribe or support.</strong> We store your
+              email address and plan to send the digest (via Resend), and payments are handled by Stripe — we never
+              see your card details. Your email is kept until you unsubscribe or ask us to delete it; payment records
+              are kept as accounting law requires. Messages sent through the feedback form go to us via Formspree.
+            </p>
+            <p>
+              <strong className="text-[var(--color-text-primary)]">Where data goes.</strong> The site is hosted on
+              Vercel and subscriber data is held in a Neon database; some of these providers process data in the
+              United States under the EU–US Data Privacy Framework or Standard Contractual Clauses. We never sell
+              data and run no advertising.
+            </p>
+            <p>
+              <strong className="text-[var(--color-text-primary)]">Your rights.</strong> You can ask to see, correct,
+              export or delete your data, or object to its use, by emailing the address above. You may also complain
+              to the Danish Data Protection Agency (Datatilsynet).
+            </p>
+          </div>
+        </div>
+
         {/* Navigation */}
         <div style={{
           textAlign: 'center',

@@ -11,7 +11,15 @@ import { getAnalyticsConsent } from './consent';
 export type { LastClickAttribution, FirstTouchAttribution } from './attribution';
 export { getLastClickAttribution, getFirstTouchAttribution } from './attribution';
 export { getGlobalEventProps } from './context';
-export { getAnalyticsConsent, setAnalyticsConsent } from './consent';
+export {
+  getAnalyticsConsent,
+  setAnalyticsConsent,
+  hasConsentChoice,
+  openConsentSettings,
+  clearAnalyticsStorage,
+  CONSENT_CHANGE_EVENT,
+  CONSENT_OPEN_EVENT,
+} from './consent';
 export type { ConsentValue } from './consent';
 
 // ——— Allowlisted event names (from docs/analytics/measurement-plan.md) ———
