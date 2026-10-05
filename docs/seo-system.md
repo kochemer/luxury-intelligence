@@ -138,6 +138,14 @@ visitor hash rotates daily), so weekly "people" is a sum of daily visitors.
 Amplitude is the fallback when the counter has no data for the week; the email
 says which source it used.
 
+The private `/analytics` page reads Search Console **live** with the same
+credentials, through `lib/analytics/searchConsole.ts` — a small fetch +
+`node:crypto` OAuth client, not `seo/gsc/client.ts`, because `googleapis` is
+too big for a Vercel function. That is why `normalizePrivateKey` lives in
+`seo/gsc/privateKey.ts` (re-exported from `client.ts`): importing it must not
+pull in `googleapis`. The page needs `GSC_CLIENT_EMAIL`, `GSC_PRIVATE_KEY_B64`
+and `GSC_SITE_URL` in Vercel as well as in GitHub.
+
 Both go through `seo/shared/email.ts`. A send counts as delivered only with no
 error **and** a Resend message id. If either email cannot be delivered, its
 workflow fails (exit 2), so GitHub notifies you instead. A failed daily alert

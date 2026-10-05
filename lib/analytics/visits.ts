@@ -210,6 +210,20 @@ export function lastDays(n: number, now = new Date()): { current: Range; previou
   };
 }
 
+/** The N days ending today (today partial), and the N before. For live views. */
+export function daysEndingToday(n: number, now = new Date()): { current: Range; previous: Range } {
+  return lastDays(n, new Date(now.getTime() + 86_400_000));
+}
+
+/** Every day in a range, so charts show zero days instead of skipping them. */
+export function eachDay(range: Range): string[] {
+  const out: string[] = [];
+  for (let t = Date.parse(`${range.start}T00:00:00Z`); t <= Date.parse(`${range.end}T00:00:00Z`); t += 86_400_000) {
+    out.push(new Date(t).toISOString().slice(0, 10));
+  }
+  return out;
+}
+
 /**
  * The weekly email's visitor section, from the counter. Null when there's no
  * database or the counter has nothing for the last 7 days yet, so the caller

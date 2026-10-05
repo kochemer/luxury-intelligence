@@ -1,21 +1,23 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { cookies } from 'next/headers';
 import { unstable_cache } from 'next/cache';
 import { sql } from 'drizzle-orm';
 import { getDb } from '@/lib/db';
 import { analyticsPassword, isValidSession, SESSION_COOKIE } from '@/lib/analytics/adminAuth';
-import { getVisitStats, getCounterStartDay, lastDays, type VisitStats } from '@/lib/analytics/visits';
+import { getVisitStats, getCounterStartDay, daysEndingToday, lastDays, eachDay } from '@/lib/analytics/visits';
+import { getSearchData } from '@/lib/analytics/searchConsole';
 import { getEventTotals } from '@/seo/analytics/visitors';
-import weekly from '@/data/seo/weekly-latest.json';
-import type { SeoReport } from '@/seo/types';
 import LoginForm from './LoginForm';
+import TrendChart from './TrendChart';
 import { logout } from './actions';
 
 /**
- * Private analytics for the owner: visitors (cookieless counter), reader
- * behaviour (Amplitude, consenting readers only), Google search (latest weekly
- * SEO snapshot) and subscribers. Password-gated (lib/analytics/adminAuth.ts),
- * noindex, disallowed in robots, not in the sitemap or any menu.
+ * Private analytics for the owner: visitors (cookieless counter), Google
+ * search (live from Search Console), reader behaviour (Amplitude, consenting
+ * readers only) and subscribers. `?days=` picks the period for everything.
+ * Password-gated (lib/analytics/adminAuth.ts), noindex, disallowed in robots,
+ * not in the sitemap or any menu.
  */
 
 export const dynamic = 'force-dynamic';
@@ -24,6 +26,10 @@ export const metadata: Metadata = {
   title: 'Analytics',
   robots: { index: false, follow: false, nocache: true },
 };
+
+const RANGES = [7, 14, 28, 90] as const;
+const ACCENT = '#8B6914';
+const SECOND = '#2563EB';
 
 const AMPLITUDE_EVENTS = [
   'page_view', 'digest_view', 'article_click', 'share_clicked',
@@ -48,6 +54,13 @@ const amplitudeTotals = unstable_cache(
   { revalidate: 3600 },
 );
 
+// Search Console data only changes a few times a day.
+const searchData = unstable_cache(
+  async (start: string, end: string) => getSearchData(start, end),
+  ['analytics-search-console'],
+  { revalidate: 3 * 3600 },
+);
+
 async function subscriberCounts(): Promise<Array<{ plan: string; n: number }>> {
   const rows = await getDb().execute(sql`
     select plan_type as plan, count(*) as n from subscribers
@@ -65,7 +78,7 @@ async function settle<T>(p: Promise<T>): Promise<{ ok: true; value: T } | { ok: 
   }
 }
 
-export default async function AnalyticsPage() {
+export default async function AnalyticsPage({ searchParams }: { searchParams: Promise<{ days?: string }> }) {
   const password = analyticsPassword();
   const session = (await cookies()).get(SESSION_COOKIE)?.value;
 
@@ -82,28 +95,73 @@ export default async function AnalyticsPage() {
     return <Shell><LoginForm /></Shell>;
   }
 
-  const w7 = lastDays(7);
-  const w28 = lastDays(28);
+  const params = await searchParams;
+  const days = RANGES.find(r => String(r) === params.days) ?? 28;
+  const visitRange = daysEndingToday(days);
+  // Google's numbers lag, so its period ends yesterday.
+  const searchRange = lastDays(days);
 
-  const [startDay, s7, p7, s28, amp, subs] = await Promise.all([
+  const [startDay, cur, prev, search, searchPrev, amp, subs] = await Promise.all([
     settle(getCounterStartDay()),
-    settle(getVisitStats(w7.current)),
-    settle(getVisitStats(w7.previous)),
-    settle(getVisitStats(w28.current)),
-    settle(amplitudeTotals(w28.current.start, w28.current.end)),
+    settle(getVisitStats(visitRange.current)),
+    settle(getVisitStats(visitRange.previous)),
+    settle(searchData(searchRange.current.start, searchRange.current.end)),
+    settle(searchData(searchRange.previous.start, searchRange.previous.end)),
+    settle(amplitudeTotals(visitRange.current.start, visitRange.current.end)),
     settle(subscriberCounts()),
   ]);
 
-  const report = weekly as unknown as SeoReport;
-  const traffic = report.inputs.traffic;
-  const indexing = report.inputs.indexing;
+  const counterStart = startDay.ok ? startDay.value : null;
+  // No comparison until the counter covered the whole previous period.
+  const comparable = !!counterStart && counterStart <= visitRange.previous.start;
+
+  const visitChart = cur.ok
+    ? (() => {
+        const byDay = new Map(cur.value.daily.map(d => [d.day, d]));
+        // Days before counting began are blank, not zero.
+        const counted = (day: string) => !!counterStart && day >= counterStart;
+        return eachDay(visitRange.current).map(day => ({
+          day,
+          visitors: counted(day) ? byDay.get(day)?.visitors ?? 0 : null,
+          pageviews: counted(day) ? byDay.get(day)?.pageviews ?? 0 : null,
+        }));
+      })()
+    : [];
+
+  const searchChart = search.ok && search.value
+    ? (() => {
+        const byDay = new Map(search.value.daily.map(d => [d.day, d]));
+        return eachDay(searchRange.current).map(day => {
+          const d = byDay.get(day);
+          return {
+            day,
+            impressions: d?.impressions ?? 0,
+            clicks: d?.clicks ?? 0,
+          };
+        });
+      })()
+    : [];
+
+  const prevSearch = searchPrev.ok ? searchPrev.value?.totals : undefined;
 
   return (
     <Shell>
-      <div className="flex items-center justify-between gap-4 mb-2">
-        <p className="text-meta text-[var(--color-text-secondary)]">
-          Complete days only (UTC), up to {w7.current.end}.
-        </p>
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-2">
+        <nav className="flex gap-1" aria-label="Period">
+          {RANGES.map(r => (
+            <Link
+              key={r}
+              href={`/analytics?days=${r}`}
+              className={`px-3 py-1.5 rounded-[2px] text-[13px] border transition-colors ${
+                r === days
+                  ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-white'
+                  : 'border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-accent)]'
+              }`}
+            >
+              {r} days
+            </Link>
+          ))}
+        </nav>
         <form action={logout}>
           <button type="submit" className="text-meta text-[var(--color-text-secondary)] underline underline-offset-2 hover:text-[var(--color-accent)]">
             Sign out
@@ -114,36 +172,82 @@ export default async function AnalyticsPage() {
       {/* ── Visitors ─────────────────────────────────────────── */}
       <Section
         title="Visitors"
-        note={`Cookieless counter: every visitor, bots removed. A person counts once per day they visit.${
+        note={`Last ${days} days including today so far, compared with the ${days} before. Cookieless counter: every visitor, bots removed; a person counts once per day they visit.${
           startDay.ok && startDay.value ? ` Counting since ${startDay.value}.` : ' No visits counted yet.'
         }`}
       >
-        {s7.ok && p7.ok && s28.ok ? (
+        {cur.ok && prev.ok ? (
           <>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-              <Stat label="Visitors · 7 days" value={s7.value.visitors} prev={p7.value.visitors} />
-              <Stat label="Page views · 7 days" value={s7.value.pageviews} prev={p7.value.pageviews} />
-              <Stat label="Visitors · 28 days" value={s28.value.visitors} />
-              <Stat label="Bots filtered · 28 days" value={s28.value.botsExcluded} />
+              <Stat label="Visitors" value={cur.value.visitors} prev={comparable ? prev.value.visitors : undefined} />
+              <Stat label="Page views" value={cur.value.pageviews} prev={comparable ? prev.value.pageviews : undefined} />
+              <Stat label="Avg visitors / day" value={Math.round((cur.value.visitors / days) * 10) / 10} />
+              <Stat label="Bots filtered" value={cur.value.botsExcluded} />
             </div>
-            <DailyBars stats={s28.value} range={w28.current} />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              <Table title="Where they came from (28 days)" rows={s28.value.channels.map(r => [r.name, r.visitors])} />
-              <Table title="Referring sites" rows={s28.value.referrers.map(r => [r.name, r.visitors])} />
-              <Table title="Top pages (views)" rows={s28.value.pages.map(r => [r.name, r.pageviews])} />
-              <Table title="Countries" rows={s28.value.countries.map(r => [r.name, r.visitors])} />
-              <Table title="Devices" rows={s28.value.devices.map(r => [r.name, r.visitors])} />
+            <TrendChart
+              data={visitChart}
+              series={[
+                { key: 'visitors', label: 'Visitors', color: ACCENT },
+                { key: 'pageviews', label: 'Page views', color: SECOND },
+              ]}
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              <Table title="Where they came from" rows={cur.value.channels.map(r => [r.name, r.visitors])} />
+              <Table title="Referring sites" rows={cur.value.referrers.map(r => [r.name, r.visitors])} />
+              <Table title="Top pages (views)" rows={cur.value.pages.map(r => [r.name, r.pageviews])} />
+              <Table title="Countries" rows={cur.value.countries.map(r => [r.name, r.visitors])} />
+              <Table title="Devices" rows={cur.value.devices.map(r => [r.name, r.visitors])} />
             </div>
           </>
         ) : (
-          <ErrorNote error={[s7, p7, s28].find(r => !r.ok) as { error: string }} />
+          <ErrorNote error={[cur, prev].find(r => !r.ok) as { error: string }} />
+        )}
+      </Section>
+
+      {/* ── Google ───────────────────────────────────────────── */}
+      <Section
+        title="Google search"
+        note={`Live from Search Console, ${searchRange.current.start} → ${searchRange.current.end}, compared with the ${days} days before. Google revises the last two days, so a dip at the end is often not real.`}
+      >
+        {!search.ok ? (
+          <ErrorNote error={search} />
+        ) : !search.value ? (
+          <p className="text-meta text-[var(--color-text-secondary)]">
+            Add <code>GSC_CLIENT_EMAIL</code>, <code>GSC_PRIVATE_KEY_B64</code> and <code>GSC_SITE_URL</code> in Vercel to show this.
+          </p>
+        ) : (
+          <>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+              <Stat label="Impressions" value={search.value.totals.impressions} prev={prevSearch?.impressions} />
+              <Stat label="Clicks" value={search.value.totals.clicks} prev={prevSearch?.clicks} />
+              <Stat label="Avg position (1 = top)" value={Math.round(search.value.totals.position * 10) / 10} />
+              <Stat
+                label="Click rate"
+                value={search.value.totals.impressions
+                  ? Math.round((search.value.totals.clicks / search.value.totals.impressions) * 1000) / 10
+                  : 0}
+                suffix="%"
+              />
+            </div>
+            <TrendChart
+              data={searchChart}
+              series={[
+                { key: 'impressions', label: 'Impressions', color: ACCENT },
+                { key: 'clicks', label: 'Clicks', color: SECOND },
+              ]}
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              <Table title="Top queries (impressions)" rows={search.value.queries.map(q => [q.name, q.impressions])} />
+              <Table title="Top pages (impressions)" rows={search.value.pages.map(p => [p.name, p.impressions])} />
+            </div>
+          </>
         )}
       </Section>
 
       {/* ── Reader behaviour ─────────────────────────────────── */}
       <Section
-        title="Reader behaviour · 28 days"
-        note="From Amplitude, so only readers who accepted cookies — treat as a sample, not totals. Session recordings are in Amplitude itself."
+        title="Reader behaviour"
+        note={`Last ${days} days. From Amplitude, so only readers who accepted cookies — treat as a sample, not totals. Session recordings are in Amplitude itself.`}
       >
         {!amp.ok ? (
           <ErrorNote error={amp} />
@@ -158,31 +262,6 @@ export default async function AnalyticsPage() {
               <Stat key={e.event} label={EVENT_LABELS[e.event] ?? e.event} value={e.total} />
             ))}
           </div>
-        )}
-      </Section>
-
-      {/* ── Google ───────────────────────────────────────────── */}
-      <Section
-        title="Google search"
-        note={`From Search Console via the weekly SEO run (${report.week}, ${report.generatedAtISO.slice(0, 10)}).${
-          traffic ? ` Window ${traffic.window.start} → ${traffic.window.end}.` : ''
-        }`}
-      >
-        {traffic ? (
-          <>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-              <Stat label="Impressions · 28 days" value={traffic.current.impressions} prev={traffic.previous?.impressions} />
-              <Stat label="Clicks · 28 days" value={traffic.current.clicks} prev={traffic.previous?.clicks} />
-              <Stat label="Avg position" value={Math.round(traffic.current.position * 10) / 10} />
-              {indexing && <Stat label="Pages indexed" value={indexing.indexed} suffix={` / ${indexing.inspected}`} />}
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Table title="Top queries (impressions)" rows={traffic.topQueries.map(q => [q.query, q.impressions])} />
-              <Table title="Top pages (impressions)" rows={traffic.topPages.map(p => [p.path, p.impressions])} />
-            </div>
-          </>
-        ) : (
-          <p className="text-meta text-[var(--color-text-secondary)]">No Search Console data in the latest weekly report.</p>
         )}
       </Section>
 
@@ -241,43 +320,12 @@ function Stat({ label, value, prev, suffix }: { label: string; value: number; pr
   );
 }
 
-function DailyBars({ stats, range }: { stats: VisitStats; range: { start: string; end: string } }) {
-  const byDay = new Map(stats.daily.map(d => [d.day, d.visitors]));
-  const days: string[] = [];
-  for (let t = Date.parse(range.start); t <= Date.parse(range.end); t += 86_400_000) {
-    days.push(new Date(t).toISOString().slice(0, 10));
-  }
-  const max = Math.max(1, ...days.map(d => byDay.get(d) ?? 0));
-  return (
-    <div>
-      <p className="text-meta text-[var(--color-text-secondary)] mb-2">Visitors per day · 28 days (peak {max})</p>
-      <div className="flex items-end gap-[3px] h-28 border-b border-[var(--color-border)]">
-        {days.map(d => {
-          const v = byDay.get(d) ?? 0;
-          return (
-            <div
-              key={d}
-              title={`${d}: ${v}`}
-              className="flex-1 bg-[var(--color-accent)] rounded-t-[2px] min-h-[1px]"
-              style={{ height: `${(v / max) * 100}%`, opacity: v ? 0.85 : 0.15 }}
-            />
-          );
-        })}
-      </div>
-      <div className="flex justify-between text-[11px] text-[var(--color-text-secondary)] mt-1">
-        <span>{range.start}</span>
-        <span>{range.end}</span>
-      </div>
-    </div>
-  );
-}
-
 function Table({ title, rows }: { title: string; rows: Array<[string, number]> }) {
   return (
     <div>
       <p className="text-meta font-semibold text-[var(--color-text-primary)] mb-2">{title}</p>
       {rows.length === 0 ? (
-        <p className="text-meta text-[var(--color-text-secondary)]">Nothing yet.</p>
+        <p className="text-meta text-[var(--color-text-secondary)]">No visits in this period yet.</p>
       ) : (
         <ul className="text-[13px] divide-y divide-[var(--color-border)]">
           {rows.map(([name, n]) => (
