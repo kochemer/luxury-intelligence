@@ -123,6 +123,7 @@ const JEWELLERY_SOURCES = [
   "The Jewellery Editor", "Retail Jeweller", "Instore Magazine",
   "Watchonista", "Worn & Wound", "SJX Watches", "Time and Tide", "Quill & Pad",
   "WatchPro", "A Blog to Watch", "Monochrome Watches", "Fratello",
+  "Hodinkee",
 ];
 
 // Generic patterns that indicate jewellery sources (case-insensitive partial match)
@@ -146,7 +147,9 @@ const RETAIL_COMMERCE_SOURCE_PATTERNS = [
 // Specific fashion/luxury sources that should be automatically classified as Luxury_and_Consumer
 const FASHION_LUXURY_SOURCES = [
   "Business of Fashion", "Vogue", "WWD", "Women's Wear Daily", "The Business of Fashion",
-  "Luxury Daily", "Luxury Society", "Robb Report"
+  "Luxury Daily", "Luxury Society", "Robb Report",
+  // Travel-retail luxury trade (titles rarely carry fashion keywords)
+  "Moodie Davitt"
 ];
 
 // Generic patterns that indicate fashion/luxury sources (case-insensitive partial match)

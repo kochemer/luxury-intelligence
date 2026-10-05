@@ -148,6 +148,7 @@ when you verify or rewrite a doc.
 | `docs/README.md` | This file: doc rules and map | current | 2026-10-05 |
 | `docs/operations.md` | Deploy, CI, re-runs, platform limits | current | 2026-10-05 |
 | `docs/pipeline.md` | Weekly pipeline modules, artifacts, caches, change recipes | current for step order + digest build; module/cache sections reference | 2026-10-05 |
+| `docs/sources-status.md` | Ingestion sources: dated measurements, open cleanup review (~2027-01-05) | current | 2026-10-05 |
 | `docs/automation.md` | GitHub Actions setup and secrets | reference | 2026-09-13 |
 | `docs/seo-system.md` | SEO system architecture, read first for SEO | current | 2026-10-04 |
 | `docs/seo-status.md` | SEO dated state, resume checklist | current | 2026-10-04 |

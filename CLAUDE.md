@@ -117,7 +117,7 @@ Module-level detail, artifacts and caches: `docs/pipeline.md`.
 | `scripts/` | Entry points and maintenance scripts (run with `tsx`) |
 | `hooks/` | React hooks (`useCountUp`, `useReveal`), not git hooks |
 | `.githooks/` | Git hooks (`commit-msg` runs the docs check). Enabled by `npm install` |
-| `.github/workflows/` | Weekly digest, SEO weekly + daily monitor, subscriber sweep (see `docs/operations.md`) |
+| `.github/workflows/` | Weekly digest, daily RSS ingestion (cache buffer, never commits), SEO weekly + daily monitor, subscriber sweep (see `docs/operations.md`) |
 
 ### Database
 

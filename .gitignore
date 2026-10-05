@@ -88,3 +88,6 @@ public/sw.js
 public/sw.js.map
 public/workbox-*.js
 public/workbox-*.js.map
+
+# Daily-ingestion buffer restored from the Actions cache (see daily-ingest.yml)
+.ingest-buffer/

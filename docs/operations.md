@@ -16,7 +16,8 @@ Facts are as of 2026-10-05 unless dated otherwise.
 
 | Workflow | Schedule (UTC) | What it does |
 |---|---|---|
-| `weekly-digest.yml` | Sun 06:00 | `digest:weekly`, emails subscribers, commits `data/weeks/*/*.{json,txt}` + digest JSON |
+| `weekly-digest.yml` | Sun 06:00 | Restores + merges the daily ingestion buffer, then `digest:weekly`, emails subscribers, commits `data/weeks/*/*.{json,txt}` + digest JSON |
+| `daily-ingest.yml` | Mon–Sat 05:30 | RSS + pages only (`--mode=rss`, no Tavily, no secrets). Keeps `data/articles.json` + `data/source_yield.json` in the Actions cache (`.ingest-buffer/`, key `ingest-buffer-*`), **never commits** (a commit = a Vercel deploy). Step summary lists failing sources |
 | `seo-weekly.yml` | Sun 08:00 | Full SEO pass, GSC snapshot, weekly email |
 | `seo-monitor.yml` | Daily 07:00 | Detects outages; emails only on change; can roll back and open repair PRs |
 | `subscriber-sweep.yml` | Daily 03:17 | Subscriber cleanup (uses `DATABASE_URL` secret) |
@@ -61,6 +62,10 @@ Facts are as of 2026-10-05 unless dated otherwise.
   `data/email/sent/` is gitignored. Re-running an already-emailed week sends it
   again to every subscriber. Use the workflow's `send_email=false` dispatch
   input for re-runs.
+- The daily ingestion buffer lives only in the Actions cache. If it is evicted
+  (unused 7 days) or a daily run fails, the Sunday build still runs its own RSS
+  step; WordPress feeds with `paginate` backfill the week, others lose the gap.
+  `scripts/mergeIngestBuffer.ts` only ever adds articles, never removes.
 - The workflow's "Check for changes" guard needs `git status --porcelain -uall`.
   Without `-uall`, a new untracked week directory collapses to one line and
   fails the file-level allow-list (W38 incident, fixed in `bbd57d4`).
@@ -94,6 +99,7 @@ overrides; leave them unset unless you mean to change behaviour.
 | `SELECTION_MODEL`, `RERANK_MODEL`, `RERANKER_MODEL_PRIMARY`, `RERANKER_MODEL_FALLBACK`, `QUERY_DELTA_MODEL`, `ARTICLE_SUMMARY_MODEL`, `SUMMARY_GENERATOR_MODEL`, `SUMMARY_JUDGE_MODEL`, `THEME_MODEL`, `INTRO_MODEL`, `EDITORIAL_TAKE_MODEL`, `EMAIL_DIGEST_MODEL`, `SCENE_DIRECTOR_MODEL`, `TRANSLATE_MODEL_FALLBACK` | Per-step OpenAI model overrides. Defaults per workflow live in `lib/llm/`; each workflow can also be overridden with `LLM_MODEL_<WORKFLOW>` (e.g. `LLM_MODEL_SUMMARIZE`) |
 | `MAX_TOTAL_ARTICLES`, `MAX_ARTICLES_PER_CATEGORY`, `MIN_ARTICLES_PER_CATEGORY` | Digest size limits in the pipeline |
 | `RERANK_MAX_ITEMS`, `RERANK_MAX_CHARS`, `RERANK_COOLDOWN_MS`, `RERANK_DEBUG` | Rerank batch size, prompt size, rate limiting, logging |
+| `RERANK_TRIM_MAX_PER_SOURCE` | Max candidates per source when trimming to `RERANK_MAX_ITEMS` before the LLM (default 4) |
 | `COMMERCE_MATERIALITY_WEIGHT_ECOM`, `_EMAIL`, `_OTHER` | Weights in `scoring/commerceMateriality.ts` |
 | `DISCOVERY_TIME_BOUND`, `DISCOVERY_EXTRA_EXCLUDES` | Discovery search window; extra URL exclude regexes |
 | `SEO_BASE_URL`, `SEO_ALERT_EMAIL`, `CLAUDE_BIN` | SEO monitor target (production by default), alert recipient, path to the Claude binary for repair |

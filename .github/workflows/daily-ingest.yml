@@ -1,0 +1,82 @@
+name: Daily RSS Ingestion
+
+# Many feeds list only their latest 10-30 items, so a once-a-week fetch on
+# Sunday misses most of a busy outlet's week (WWD: ~280/week, we saw 10).
+# This job polls RSS + pages Mon–Sat and keeps the result in an Actions cache
+# (.ingest-buffer/) that the Sunday digest build restores and merges.
+#
+# Deliberately does NOT commit: every push to main is a Vercel deploy.
+# Deliberately RSS/pages only (--mode=rss): discovery uses Tavily, which is
+# metered, and stays weekly. No secrets needed.
+
+on:
+  schedule:
+    # 05:30 UTC Mon–Sat. Sunday's ingestion is the first step of weekly-digest.yml.
+    - cron: '30 5 * * 1-6'
+  workflow_dispatch:
+
+# Own group, not weekly-digest's: GitHub keeps one pending run per group, so a
+# queued daily run could otherwise cancel a pending weekly build. Overlap is
+# harmless — the weekly build only reads the buffer, and merging is a union.
+concurrency:
+  group: daily-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Restore ingestion buffer
+        uses: actions/cache/restore@v4
+        with:
+          path: .ingest-buffer
+          key: ingest-buffer-${{ github.run_id }}
+          restore-keys: ingest-buffer-
+
+      - name: Merge buffer into working tree
+        run: npx tsx scripts/mergeIngestBuffer.ts
+
+      - name: Ingest RSS + pages
+        run: npx tsx ingestion/runIngestion.ts --mode=rss
+
+      - name: Update buffer
+        run: |
+          mkdir -p .ingest-buffer
+          cp data/articles.json data/source_yield.json .ingest-buffer/
+
+      - name: Save ingestion buffer
+        uses: actions/cache/save@v4
+        with:
+          path: .ingest-buffer
+          key: ingest-buffer-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Summary
+        run: |
+          node -e '
+            const r = require("./data/source_yield.json");
+            const failed = r.sources.filter(s => (s.failedRuns || 0) > 0);
+            const lines = [
+              `### Ingestion ${r.week}: run ${r.runs}`,
+              `New articles this week so far: **${r.summary.totalNewArticles}** from ${r.summary.totalSources} sources`,
+              "",
+              failed.length ? "| Failing source | failed runs | last error |\n|---|---|---|" : "No source failures.",
+              ...failed.map(s => `| ${s.sourceName} | ${s.failedRuns}/${s.runs} | ${(s.lastError || "").replace(/\|/g, "/")} |`),
+            ];
+            require("fs").appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
+          '

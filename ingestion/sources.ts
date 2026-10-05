@@ -33,6 +33,18 @@
  */
 import { SourceFeed, SourcePage } from './types.js';
 
+/**
+ * Bing News RSS search restricted to one site. Used for outlets whose own feed
+ * blocks GitHub Actions IPs (Cloudflare) or has no usable feed. Unlike Google
+ * News RSS, Bing items carry a real snippet and the publisher URL (unwrapped in
+ * `fetchRss.ts#unwrapBingNewsUrl`). Returns only the ~10-14 latest items, so it
+ * relies on the daily ingestion run to cover a full week. Unofficial endpoint:
+ * if it stops working, the yield report shows it under `failedRuns`.
+ */
+function bingNews(site: string): string {
+  return `https://www.bing.com/news/search?q=${encodeURIComponent(`site:${site}`)}&format=rss&setlang=en-US&cc=US`;
+}
+
 // --- Tier 1: Global Business & News ---
 const TIER_1_FEEDS: SourceFeed[] = [
   // Reuters - Business: Removed (tools/rss is an index page, not a feed; public feeds deprecated)
@@ -142,6 +154,18 @@ const TIER_2_FEEDS: SourceFeed[] = [
   // The Drum: Removed (all URL variants return 404; no stable public RSS)
 
   {
+    name: "Inside Retail Asia",
+    url: "https://insideretail.asia/feed/",
+    tier: 2,
+    sourceType: "retail"
+  },
+  {
+    name: "Retail TouchPoints (via Bing News)",
+    url: bingNews("retailtouchpoints.com"),
+    tier: 2,
+    sourceType: "retail"
+  },
+  {
     name: "Sourcing Journal",
     url: "https://sourcingjournal.com/feed/",
     tier: 2,
@@ -245,7 +269,8 @@ const FASHION_LUXURY_FEEDS: SourceFeed[] = [
     url: "https://www.luxurydaily.com/feed/",
     tier: 2,
     sourceType: "fashion_luxury",
-    categoryHint: "Fashion & Luxury"
+    categoryHint: "Fashion & Luxury",
+    paginate: 2
   },
   // Vogue Business: Removed (no public RSS feed found; all URLs return 404)
   {
@@ -253,7 +278,8 @@ const FASHION_LUXURY_FEEDS: SourceFeed[] = [
     url: "https://www.drapersonline.com/feed/",
     tier: 2,
     sourceType: "fashion_luxury",
-    categoryHint: "Fashion & Luxury"
+    categoryHint: "Fashion & Luxury",
+    paginate: 5
   },
   // The Impression: Removed (returns HTML instead of RSS; blocked)
   // Jing Daily: Removed (404)
@@ -283,14 +309,16 @@ const FASHION_LUXURY_FEEDS: SourceFeed[] = [
     url: "https://robbreport.com/feed/",
     tier: 2,
     sourceType: "fashion_luxury",
-    categoryHint: "Fashion & Luxury"
+    categoryHint: "Fashion & Luxury",
+    paginate: 3
   },
   {
     name: "Footwear News",
     url: "https://footwearnews.com/feed/",
     tier: 2,
     sourceType: "fashion_luxury",
-    categoryHint: "Fashion & Luxury"
+    categoryHint: "Fashion & Luxury",
+    paginate: 3
   },
   {
     name: "Luxe Digital",
@@ -334,6 +362,76 @@ const FASHION_LUXURY_FEEDS: SourceFeed[] = [
     sourceType: "fashion_luxury",
     categoryHint: "Fashion & Luxury"
   },
+  // --- Added 5 Oct 2026: source-coverage expansion (all RSS-validated) ---
+  {
+    name: "FashionUnited",
+    url: "https://fashionunited.com/rss-news",
+    tier: 2,
+    sourceType: "fashion_luxury",
+    categoryHint: "Fashion & Luxury"
+  },
+  // WWD's main feed is a ~280/week firehose (beauty, celebrity); only the
+  // business section is worth paginating.
+  {
+    name: "WWD - Business News",
+    url: "https://wwd.com/business-news/feed/",
+    tier: 2,
+    sourceType: "fashion_luxury",
+    categoryHint: "Fashion & Luxury",
+    paginate: 3
+  },
+  {
+    name: "CPP-Luxury",
+    url: "https://www.cpp-luxury.com/feed/",
+    tier: 2,
+    sourceType: "fashion_luxury",
+    categoryHint: "Fashion & Luxury"
+  },
+  {
+    name: "Moodie Davitt Report",
+    url: "https://www.moodiedavittreport.com/feed/",
+    tier: 2,
+    sourceType: "fashion_luxury",
+    categoryHint: "Fashion & Luxury",
+    paginate: 4
+  },
+  {
+    name: "The Industry.fashion",
+    url: "https://www.theindustry.fashion/feed/",
+    tier: 2,
+    sourceType: "fashion_luxury",
+    categoryHint: "Fashion & Luxury"
+  },
+  // Bing News proxies: these outlets' own feeds are blocked from CI or absent.
+  {
+    name: "Business of Fashion (via Bing News)",
+    url: bingNews("businessoffashion.com"),
+    tier: 2,
+    sourceType: "fashion_luxury",
+    categoryHint: "Fashion & Luxury"
+  },
+  {
+    name: "Vogue Business (via Bing News)",
+    url: bingNews("vogue.com/business"),
+    tier: 2,
+    sourceType: "fashion_luxury",
+    categoryHint: "Fashion & Luxury"
+  },
+  {
+    name: "Jing Daily (via Bing News)",
+    url: bingNews("jingdaily.com"),
+    tier: 2,
+    sourceType: "fashion_luxury",
+    categoryHint: "Fashion & Luxury"
+  },
+  // ww. = the international English edition; other subdomains are local-language.
+  {
+    name: "FashionNetwork (via Bing News)",
+    url: bingNews("ww.fashionnetwork.com"),
+    tier: 2,
+    sourceType: "fashion_luxury",
+    categoryHint: "Fashion & Luxury"
+  },
 ];
 
 // --- Tier 2: Jewellery Industry ---
@@ -372,14 +470,16 @@ const JEWELLERY_FEEDS: SourceFeed[] = [
     url: "https://monochrome-watches.com/feed/",
     tier: 2,
     sourceType: "jewellery",
-    categoryHint: "Jewellery Industry"
+    categoryHint: "Jewellery Industry",
+    paginate: 2
   },
   {
     name: "Fratello Watches",
     url: "https://fratellowatches.com/feed/",
     tier: 2,
     sourceType: "jewellery",
-    categoryHint: "Jewellery Industry"
+    categoryHint: "Jewellery Industry",
+    paginate: 3
   },
   {
     name: "Professional Jeweller",
@@ -396,7 +496,8 @@ const JEWELLERY_FEEDS: SourceFeed[] = [
     url: "https://instoremag.com/feed/",
     tier: 2,
     sourceType: "jewellery",
-    categoryHint: "Jewellery Industry"
+    categoryHint: "Jewellery Industry",
+    paginate: 5
   },
   {
     name: "WatchPro",
@@ -418,7 +519,8 @@ const JEWELLERY_FEEDS: SourceFeed[] = [
     url: "https://www.retail-jeweller.com/feed/",
     tier: 2,
     sourceType: "jewellery",
-    categoryHint: "Jewellery Industry"
+    categoryHint: "Jewellery Industry",
+    paginate: 3
   },
   {
     name: "Watchonista",
@@ -451,6 +553,52 @@ const JEWELLERY_FEEDS: SourceFeed[] = [
   {
     name: "Quill & Pad",
     url: "https://quillandpad.com/feed/",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  // --- Added 5 Oct 2026: US jewellery trade press (previously zero coverage) ---
+  // The old jckonline.com/feed/ is empty; the editorial feed is the live one.
+  {
+    name: "JCK - Editorial",
+    url: "https://www.jckonline.com/editorial-article/feed/",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry",
+    paginate: 2
+  },
+  {
+    name: "Rapaport News",
+    url: "https://www.rapaport.com/feed/",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry",
+    paginate: 2
+  },
+  {
+    name: "Hodinkee",
+    url: "https://www.hodinkee.com/articles/rss.xml",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "National Jeweler (via Bing News)",
+    url: bingNews("nationaljeweler.com"),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Professional Jeweller (via Bing News)",
+    url: bingNews("professionaljeweller.com"),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "WatchPro (via Bing News)",
+    url: bingNews("watchpro.com"),
     tier: 2,
     sourceType: "jewellery",
     categoryHint: "Jewellery Industry"

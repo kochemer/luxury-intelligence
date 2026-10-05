@@ -14,6 +14,9 @@ export type SourceFeed = {
   tier?: 1 | 2 | 3 | 4 | 5 | 6; // Source tier classification
   sourceType?: 'news' | 'retail' | 'academic' | 'specialist' | 'consultancy' | 'platform' | 'fashion_luxury' | 'jewellery' | 'blog'; // Source type for categorization
   categoryHint?: 'Fashion & Luxury' | 'Jewellery Industry'; // Optional hint for classification (non-binding)
+  // Max feed pages to read via WordPress `?paged=N` (default 1). Stops early once
+  // a page reaches items older than 8 days, so it only backfills the current week.
+  paginate?: number;
 };
 
 export type SourcePage = {

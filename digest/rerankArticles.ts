@@ -101,6 +101,41 @@ const SNIPPET_MAX_LENGTH = 350;
 const RERANK_MAX_ITEMS = parseInt(process.env.RERANK_MAX_ITEMS || '18', 10);
 /** Maximum total characters sent per LLM call (approx. token budget guard). */
 const RERANK_MAX_CHARS = parseInt(process.env.RERANK_MAX_CHARS || '80000', 10);
+/**
+ * Per-source cap when trimming candidates down to RERANK_MAX_ITEMS (default 4).
+ * The trim score is a keyword count, so one high-volume, keyword-dense outlet
+ * (e.g. FashionUnited, ~100 items/week since 2026-10-05) could otherwise fill
+ * most of the LLM's window before it sees anyone else.
+ */
+const RERANK_TRIM_MAX_PER_SOURCE = parseInt(process.env.RERANK_TRIM_MAX_PER_SOURCE || '4', 10);
+
+/**
+ * Takes the first `n` items (input already sorted best-first) with at most
+ * `cap` per source. If that leaves fewer than `n` (too few distinct sources),
+ * backfills with the skipped items in their original order.
+ */
+export function takeTopPerSourceCapped<T extends { source: string }>(sorted: T[], n: number, cap: number): T[] {
+  const picked: T[] = [];
+  const counts = new Map<string, number>();
+  for (const item of sorted) {
+    if (picked.length >= n) break;
+    const key = item.source.trim().toLowerCase();
+    const c = counts.get(key) ?? 0;
+    if (c < cap) {
+      picked.push(item);
+      counts.set(key, c + 1);
+    }
+  }
+  if (picked.length < n) {
+    const pickedSet = new Set(picked);
+    for (const item of sorted) {
+      if (picked.length >= n) break;
+      if (!pickedSet.has(item)) picked.push(item);
+    }
+  }
+  return picked;
+}
+
 /** Cooldown between sequential category LLM calls to avoid TPM exhaustion. */
 const RERANK_COOLDOWN_MS = parseInt(process.env.RERANK_COOLDOWN_MS || '6500', 10);
 
@@ -321,8 +356,8 @@ function trimCandidatesToBudget(candidates: CandidateArticle[]): {
   
   scored.sort((a, b) => b.score - a.score);
   
-  // Take top RERANK_MAX_ITEMS
-  const topItems = scored.slice(0, RERANK_MAX_ITEMS).map(s => s.candidate);
+  // Take top RERANK_MAX_ITEMS, at most RERANK_TRIM_MAX_PER_SOURCE per source
+  const topItems = takeTopPerSourceCapped(scored.map(s => s.candidate), RERANK_MAX_ITEMS, RERANK_TRIM_MAX_PER_SOURCE);
   
   // Then trim to char budget by dropping lowest-scored items
   let totalChars = 0;

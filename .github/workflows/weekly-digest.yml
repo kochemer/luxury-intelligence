@@ -64,6 +64,18 @@ jobs:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: npm run digest:preflight
 
+      # Articles collected by daily-ingest.yml Mon–Sat (Actions cache, not git).
+      # Missing cache = no-op; the pipeline's own RSS step still runs.
+      - name: Restore daily ingestion buffer
+        uses: actions/cache/restore@v4
+        with:
+          path: .ingest-buffer
+          key: ingest-buffer-${{ github.run_id }}
+          restore-keys: ingest-buffer-
+
+      - name: Merge daily ingestion buffer
+        run: npx tsx scripts/mergeIngestBuffer.ts
+
       - name: Build weekly digest
         id: build
         env:

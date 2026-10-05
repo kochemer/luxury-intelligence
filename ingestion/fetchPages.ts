@@ -201,11 +201,13 @@ export async function runPageIngestion(): Promise<{ added: number; stats: PageIn
     
     if (res.status !== 200) {
       console.log(`[${page.name}] ERROR: Fetch failed (status ${res.status})`);
+      addPageYield(page.name, 0, 0, 0, 0, `HTTP ${res.status}`);
       sourceStats.push(stats);
       continue;
     }
     if (!res.data || res.data.length === 0) {
       console.log(`[${page.name}] ERROR: No data received`);
+      addPageYield(page.name, 0, 0, 0, 0, 'No data received');
       sourceStats.push(stats);
       continue;
     }
@@ -223,6 +225,7 @@ export async function runPageIngestion(): Promise<{ added: number; stats: PageIn
       
       if (items.length === 0) {
         console.log(`[${page.name}] WARNING: Fallback selector also found 0 items, skipping this source`);
+        addPageYield(page.name, 0, 0, 0, 0, 'Selectors matched 0 items');
         sourceStats.push(stats);
         continue;
       } else {

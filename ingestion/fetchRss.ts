@@ -80,6 +80,66 @@ async function fetchFeedWithRetry(
   return lastRes as Response;
 }
 
+const PAGINATE_LOOKBACK_MS = 8 * 24 * 60 * 60 * 1000;
+
+/** Appends WordPress's `paged=N` to a feed URL. */
+export function pagedFeedUrl(url: string, page: number): string {
+  return `${url}${url.includes('?') ? '&' : '?'}paged=${page}`;
+}
+
+/**
+ * Bing News RSS links are click-tracking redirects
+ * (`bing.com/news/apiclick.aspx?...&url=<encoded article URL>&...`). Returns the
+ * real article URL so dedupe works against the publisher's own feed and the
+ * digest links straight to the publisher. Other URLs pass through unchanged.
+ */
+export function unwrapBingNewsUrl(url: string): string {
+  try {
+    const u = new URL(url);
+    if (!u.hostname.endsWith('bing.com') || !u.pathname.includes('apiclick')) return url;
+    return u.searchParams.get('url') || url;
+  } catch {
+    return url;
+  }
+}
+
+/**
+ * Reads pages 2..`maxPages` of a WordPress feed so a weekly-scale backfill
+ * survives feeds that only list their latest 10 items. Stops at the first
+ * non-200, a page with no unseen links, or a page reaching items older than
+ * the lookback. A failure on page N keeps pages 1..N-1.
+ */
+async function fetchExtraPages(
+  parser: Parser,
+  feedUrl: string,
+  maxPages: number,
+  headers: Record<string, string>,
+  firstPageItems: Parser.Item[]
+): Promise<Parser.Item[]> {
+  const items: Parser.Item[] = [];
+  const seen = new Set(firstPageItems.map(i => i.link));
+  const cutoff = Date.now() - PAGINATE_LOOKBACK_MS;
+  const reachedCutoff = (page: Parser.Item[]) =>
+    page.some(i => new Date(i.isoDate || i.pubDate || 0).getTime() < cutoff);
+
+  if (reachedCutoff(firstPageItems)) return items;
+  for (let page = 2; page <= maxPages; page++) {
+    try {
+      const res = await fetchFeedWithRetry(pagedFeedUrl(feedUrl, page), headers, 2);
+      if (res.status !== 200) break;
+      const pageItems = (await parser.parseString(await res.text())).items || [];
+      const fresh = pageItems.filter(i => i.link && !seen.has(i.link));
+      if (fresh.length === 0) break;
+      fresh.forEach(i => seen.add(i.link));
+      items.push(...fresh);
+      if (reachedCutoff(pageItems)) break;
+    } catch {
+      break;
+    }
+  }
+  return items;
+}
+
 export async function runRssIngestion(): Promise<{ added: number; updated: number; feeds: RssFeedStats[] }> {
   const parser = new Parser();
   const allNewArticles: Article[] = [];
@@ -124,10 +184,17 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
       let feedItemsUpdated = 0;
       let feedItemsParsed = 0;
       let feedNewArticles = 0;
-      
-      for (const item of rss.items || []) {
+
+      const items = rss.items || [];
+      if (feed.paginate && feed.paginate > 1) {
+        const extra = await fetchExtraPages(parser, feed.url, feed.paginate, headers, items);
+        if (extra.length > 0) console.log(`[${feed.name}] pagination added ${extra.length} older items`);
+        items.push(...extra);
+      }
+
+      for (const item of items) {
         const title = item.title || '';
-        const url = item.link || '';
+        const url = unwrapBingNewsUrl(item.link || '');
         const isoDate = item.isoDate || item.pubDate;
         if (!url || !title || !isoDate) continue;
         
@@ -189,7 +256,9 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
         console.log(`[${feed.name}] processed ${feedItemsProcessed} items, matched ${feedItemsMatched} existing, updated ${feedItemsUpdated} with snippets`);
       }
     } catch (err) {
-      console.warn(`Failed to fetch feed "${feed.name}": ${(err as Error).message}`);
+      const message = (err as Error).message;
+      console.warn(`Failed to fetch feed "${feed.name}": ${message}`);
+      addRssYield(feed.name, 0, 0, 0, 0, message.slice(0, 200));
       continue;
     }
   }

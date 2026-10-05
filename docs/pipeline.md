@@ -110,7 +110,10 @@ The orchestrator's own numbering (`pipeline/runWeeklyPipeline.ts`): rss → page
 - `runIngestion.ts`: Main entry point, orchestrates RSS + page + discovery ingestion
 - `fetchRss.ts`: Parse RSS feeds, extract articles, merge into `data/articles.json`
 - `fetchPages.ts`: Fetch static pages, extract articles using CSS selectors
-- `sources.ts`: RSS feed and page source definitions
+- `sources.ts`: RSS feed and page source definitions. `paginate: N` reads WordPress `?paged=2..N` back to 8 days; `bingNews(site)` builds a Bing News RSS proxy for outlets that block CI or have no feed (links are unwrapped to the publisher URL in `fetchRss.ts`)
+- `sourceYield.ts`: `data/source_yield.json`, accumulated per ingestion week across the daily runs and the Sunday run; failing sources are recorded (`failedRuns`, `lastError`)
+
+**Runs daily.** `.github/workflows/daily-ingest.yml` runs `--mode=rss` Mon–Sat into an Actions-cache buffer; the Sunday build merges it with `scripts/mergeIngestBuffer.ts` before the pipeline. Many feeds list only their latest 10–30 items, so a Sunday-only fetch missed most of a busy outlet's week. Source state and the measured effect: `docs/sources-status.md`.
 
 **Key Functions**:
 - `runRssIngestion()`: Fetch all RSS feeds, parse, deduplicate, save
@@ -409,10 +412,16 @@ Metrics: Podcast words: 2100
    {
      name: 'Source Name',
      url: 'https://example.com/feed.xml',
-     categoryHint: 'AI_and_Strategy' // optional
+     categoryHint: 'AI_and_Strategy', // optional
+     paginate: 3 // optional, WordPress feeds that list only ~10 items
    }
    ```
-3. Run ingestion: `npm run ingest`
+   Feed blocked from CI or missing? Use `url: bingNews('example.com')`.
+2b. Classification routes many sources by **name** (`classification/classifyTopics.ts`):
+   if the outlet's titles rarely carry category keywords, add its name to
+   `JEWELLERY_SOURCES` / `FASHION_LUXURY_SOURCES`, and to `RSS_SOURCE_CATEGORY`
+   in `ingestion/ingestionReport.ts`. Names must be unique (tested).
+3. Run ingestion: `npm run ingest -- --mode=rss` and check `data/source_yield.json`
 
 ### Add a New Static Page Source
 

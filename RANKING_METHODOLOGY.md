@@ -146,7 +146,7 @@ Use LLM to intelligently select and rank the top 7 articles from the candidate p
 ### Candidate Trimming
 If candidates exceed budget (items or chars), trim using:
 1. **Score-based selection:** Score candidates using `scoreCandidateForTrimming()` (considers materiality, tier, flags)
-2. **Take top N items:** Select top `RERANK_MAX_ITEMS` by score
+2. **Take top N items:** Select top `RERANK_MAX_ITEMS` by score, at most `RERANK_TRIM_MAX_PER_SOURCE` (default 4) per source, backfilled if too few sources (since 2026-10-05)
 3. **Char budget:** Drop lowest-scored items until within `RERANK_MAX_CHARS`
 
 ### Caching
