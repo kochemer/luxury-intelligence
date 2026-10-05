@@ -7,7 +7,7 @@ import { getDb } from '@/lib/db';
 import { analyticsPassword, isValidSession, SESSION_COOKIE } from '@/lib/analytics/adminAuth';
 import { getVisitStats, getCounterStartDay, daysEndingToday, lastDays, eachDay } from '@/lib/analytics/visits';
 import { getSearchData } from '@/lib/analytics/searchConsole';
-import { getEventTotals } from '@/seo/analytics/visitors';
+import { getEventTotals, getDailyPeople } from '@/seo/analytics/visitors';
 import LoginForm from './LoginForm';
 import TrendChart from './TrendChart';
 import { logout } from './actions';
@@ -52,6 +52,14 @@ const amplitudeTotals = unstable_cache(
     getEventTotals(AMPLITUDE_EVENTS, { start: new Date(`${start}T00:00:00Z`), end: new Date(`${end}T00:00:00Z`) }),
   ['analytics-amplitude-totals'],
   { revalidate: 3600 },
+);
+
+// History for the visitors chart from before the counter existed.
+const amplitudeHistory = unstable_cache(
+  async (start: string, end: string) =>
+    getDailyPeople({ start: new Date(`${start}T00:00:00Z`), end: new Date(`${end}T00:00:00Z`) }),
+  ['analytics-amplitude-history'],
+  { revalidate: 6 * 3600 },
 );
 
 // Search Console data only changes a few times a day.
@@ -101,7 +109,7 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
   // Google's numbers lag, so its period ends yesterday.
   const searchRange = lastDays(days);
 
-  const [startDay, cur, prev, search, searchPrev, amp, subs] = await Promise.all([
+  const [startDay, cur, prev, search, searchPrev, amp, subs, history] = await Promise.all([
     settle(getCounterStartDay()),
     settle(getVisitStats(visitRange.current)),
     settle(getVisitStats(visitRange.previous)),
@@ -109,6 +117,7 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
     settle(searchData(searchRange.previous.start, searchRange.previous.end)),
     settle(amplitudeTotals(visitRange.current.start, visitRange.current.end)),
     settle(subscriberCounts()),
+    settle(amplitudeHistory(visitRange.current.start, visitRange.current.end)),
   ]);
 
   const counterStart = startDay.ok ? startDay.value : null;
@@ -118,12 +127,14 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
   const visitChart = cur.ok
     ? (() => {
         const byDay = new Map(cur.value.daily.map(d => [d.day, d]));
-        // Days before counting began are blank, not zero.
+        // Days before counting began come from Amplitude (dashed line), not zero.
         const counted = (day: string) => !!counterStart && day >= counterStart;
+        const before = new Map((history.ok && history.value ? history.value : []).map(h => [h.day, h.people]));
         return eachDay(visitRange.current).map(day => ({
           day,
           visitors: counted(day) ? byDay.get(day)?.visitors ?? 0 : null,
           pageviews: counted(day) ? byDay.get(day)?.pageviews ?? 0 : null,
+          earlier: counted(day) ? null : before.get(day) ?? 0,
         }));
       })()
     : [];
@@ -189,6 +200,9 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
               series={[
                 { key: 'visitors', label: 'Visitors', color: ACCENT },
                 { key: 'pageviews', label: 'Page views', color: SECOND },
+                ...(history.ok && history.value
+                  ? [{ key: 'earlier', label: 'Visitors before 5 Oct (Amplitude, bots filtered)', color: ACCENT, dashed: true }]
+                  : []),
               ]}
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">

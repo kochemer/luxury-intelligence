@@ -90,6 +90,7 @@ interface SegmentationData {
   series: number[][];
   seriesCollapsed: Array<Array<{ value: number }>>;
   seriesLabels: Array<string | [number, string]>;
+  xValues?: string[];
 }
 
 function getConfig(): { auth: string; base: string } | null {
@@ -210,4 +211,18 @@ export async function getEventTotals(
     }
   }
   return { people, events: totals };
+}
+
+/**
+ * Bot-filtered people per day, for the /analytics chart's history before the
+ * cookieless counter existed (until 2026-10-05 Amplitude saw every visitor).
+ * Null without a secret key; throws on API errors.
+ */
+export async function getDailyPeople(
+  window: { start: Date; end: Date },
+): Promise<Array<{ day: string; people: number }> | null> {
+  const cfg = getConfig();
+  if (!cfg) return null;
+  const data = await segmentation(cfg, window, { filters: HUMAN_FILTERS });
+  return (data.xValues ?? []).map((day, i) => ({ day: day.slice(0, 10), people: data.series[0]?.[i] ?? 0 }));
 }

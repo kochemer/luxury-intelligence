@@ -12,6 +12,7 @@ export interface TrendSeries {
   right?: boolean;
   /** Smaller is better (e.g. search position): flips the axis. */
   reversed?: boolean;
+  dashed?: boolean;
 }
 
 const fmtDay = (d: string) => {
@@ -24,6 +25,7 @@ export default function TrendChart({
   data, series, height = 260,
 }: { data: Array<Record<string, string | number | null>>; series: TrendSeries[]; height?: number }) {
   const hasRight = series.some(s => s.right);
+  const points = (key: string) => data.filter(d => d[key] !== null && d[key] !== undefined).length;
   const rightReversed = series.some(s => s.right && s.reversed);
   return (
     <div style={{ width: '100%', height }}>
@@ -64,9 +66,13 @@ export default function TrendChart({
               name={s.label}
               stroke={s.color}
               strokeWidth={2}
-              dot={data.length <= 31 ? { r: 2.5 } : false}
+              strokeDasharray={s.dashed ? '5 4' : undefined}
+              strokeOpacity={s.dashed ? 0.6 : 1}
+              // Dots on short ranges, and always when a series has few points
+              // (a single point would otherwise be invisible).
+              dot={data.length <= 31 || points(s.key) <= 3 ? { r: data.length <= 31 ? 2.5 : 3 } : false}
               activeDot={{ r: 4 }}
-              connectNulls
+              connectNulls={false}
               isAnimationActive={false}
             />
           ))}
