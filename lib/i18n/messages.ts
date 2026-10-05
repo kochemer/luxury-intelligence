@@ -20,7 +20,11 @@ export type Messages = {
     support: string;
     feedback: string;
     subscribeCta: string;
-    markets: string;
+    luxuryMarket: string;
+    jewelleryMarket: string;
+    /** Shorter forms for the desktop nav between 1024 and 1280px. */
+    luxuryMarketShort: string;
+    jewelleryMarketShort: string;
   };
   digest: {
     week: string;
@@ -94,7 +98,10 @@ const en: Messages = {
     support: 'Support',
     feedback: 'Feedback',
     subscribeCta: 'Subscribe',
-    markets: 'Markets',
+    luxuryMarket: 'Luxury market',
+    jewelleryMarket: 'Jewellery market',
+    luxuryMarketShort: 'Luxury',
+    jewelleryMarketShort: 'Jewellery',
   },
   digest: {
     week: 'Week',
@@ -169,7 +176,10 @@ const da: Messages = {
     support: 'Support',
     feedback: 'Feedback',
     subscribeCta: 'Abonner',
-    markets: 'Markeder',
+    luxuryMarket: 'Luksusmarkedet',
+    jewelleryMarket: 'Smykkemarkedet',
+    luxuryMarketShort: 'Luksus',
+    jewelleryMarketShort: 'Smykker',
   },
   digest: {
     week: 'Uge',
@@ -244,7 +254,10 @@ const es: Messages = {
     support: 'Soporte',
     feedback: 'Opinión',
     subscribeCta: 'Suscribirse',
-    markets: 'Mercados',
+    luxuryMarket: 'Mercado del lujo',
+    jewelleryMarket: 'Mercado de joyería',
+    luxuryMarketShort: 'Lujo',
+    jewelleryMarketShort: 'Joyería',
   },
   digest: {
     week: 'Semana',

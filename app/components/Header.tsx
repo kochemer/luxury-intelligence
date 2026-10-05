@@ -68,7 +68,8 @@ export default function Header() {
   const primaryLinks = [
     { href: `${prefix}/` || '/', label: t.nav.home },
     { href: `${prefix}/archive`, label: t.nav.archive },
-    { href: '/markets/luxury', label: t.nav.markets },
+    { href: '/markets/luxury', label: t.nav.luxuryMarket },
+    { href: '/markets/jewellery', label: t.nav.jewelleryMarket },
     { href: `${prefix}/about`, label: t.nav.about },
     { href: `${prefix}/methodology`, label: t.nav.methodology },
   ];
@@ -83,8 +84,11 @@ export default function Header() {
       className="sticky top-0 z-30 bg-[var(--color-bg)]/85 backdrop-blur border-b border-[var(--color-accent)]"
       style={{ boxShadow: '0 1px 10px 0 rgba(0,0,0,0.03)' }}
     >
-      {/* Desktop: Logo | Search | Nav | PWA | Notifications | Globe | Theme */}
-      <div className="hidden md:flex md:items-center md:justify-between md:px-4 md:py-0.5 lg:px-6 md:h-14 gap-4">
+      {/* Desktop: Logo | Search | Nav | PWA | Notifications | Globe | Theme.
+          From 1180px, not md: with two market links the row needs ~1150px
+          and wrapped into a broken second line at 1024. Checked at 1180
+          and 1280; narrower screens get the menu button. */}
+      <div className="hidden min-[1180px]:flex min-[1180px]:items-center min-[1180px]:justify-between min-[1180px]:px-6 min-[1180px]:py-0.5 min-[1180px]:h-14 gap-4">
         <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity shrink-0">
           <Image src="/favicon.png" alt="Luxury Intelligence" width={36} height={36} className="flex-shrink-0" />
           <span className="font-sans font-semibold text-base lg:text-lg tracking-tight">Luxury Intelligence</span>
@@ -112,7 +116,7 @@ export default function Header() {
       </div>
 
       {/* Mobile: Search bar on top, then Logo | Burger (utilities in drawer) */}
-      <div className="flex flex-col md:hidden">
+      <div className="flex flex-col min-[1180px]:hidden">
         <div className="px-4 py-2 border-b border-[var(--color-border)]/50">
           <SearchBar compact />
         </div>
@@ -136,7 +140,7 @@ export default function Header() {
       {/* Mobile drawer: utilities, primary nav, secondary nav, Subscribe CTA */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden border-t border-[var(--color-accent)] bg-[var(--color-surface)] max-h-[85vh] overflow-y-auto"
+          className="min-[1180px]:hidden border-t border-[var(--color-accent)] bg-[var(--color-surface)] max-h-[85vh] overflow-y-auto"
           role="dialog"
           aria-label="Navigation menu"
         >
@@ -160,8 +164,7 @@ export default function Header() {
               <p className="text-xs uppercase tracking-wide text-[var(--color-text-secondary)] mb-2">Menu</p>
               <ul className="space-y-0">
                 {primaryLinks.map((link) => {
-                  const isActive = pathname.replace(/\/$/, '') === link.href.replace(/\/$/, '')
-                    || (link.href.startsWith('/markets/') && pathname.startsWith('/markets/'));
+                  const isActive = pathname.replace(/\/$/, '') === link.href.replace(/\/$/, '');
                   return (
                     <li key={link.href}>
                       <Link

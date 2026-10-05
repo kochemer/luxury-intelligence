@@ -68,27 +68,21 @@ export default async function MarketPage({ params }: Params) {
     <div className="max-w-[1120px] mx-auto px-4 md:px-8 py-10 md:py-14 text-[var(--color-text-primary)]">
       <JsonLd data={buildBreadcrumbLd({
         siteUrl,
-        items: [{ name: 'Home', url: `${siteUrl}/` }, { name: `${MARKET_LABEL[market]} markets` }],
+        items: [{ name: 'Home', url: `${siteUrl}/` }, { name: `${MARKET_LABEL[market]} market` }],
       })} />
 
-      <header className="pb-2">
-        <p className="intel-section-label text-[var(--color-accent)] mb-3">Markets</p>
+      {/* Each market is its own page with its own nav entry; the other one is a link away. */}
+      <header className="pb-6 border-b border-[var(--color-border)]">
+        <p className="intel-section-label text-[var(--color-accent)] mb-3">Weekly market intelligence</p>
         <h1 className="font-display font-semibold leading-none tracking-[-0.01em] mb-3" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>
-          {MARKET_LABEL[market]}
+          {MARKET_LABEL[market]} market
         </h1>
         <p className="text-[var(--color-text-secondary)] max-w-[62ch]">{copy.dek}</p>
-        <nav className="flex gap-1 mt-6 border-b border-[var(--color-border)]" aria-label="Markets">
-          {MARKET_IDS.map(m => (
-            <Link
-              key={m}
-              href={`/markets/${m}`}
-              aria-current={m === market ? 'page' : undefined}
-              className={`px-3.5 py-2.5 -mb-px text-[14px] font-medium border-b-2 no-underline ${m === market ? 'border-[var(--color-accent)] text-[var(--color-text-primary)]' : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]'}`}
-            >
-              {MARKET_LABEL[m]}
-            </Link>
-          ))}
-        </nav>
+        {MARKET_IDS.filter(m => m !== market).map(m => (
+          <Link key={m} href={`/markets/${m}`} className="inline-block mt-3 text-[14px] text-[var(--color-accent)] hover:text-[var(--color-text-primary)]">
+            {MARKET_LABEL[m]} market →
+          </Link>
+        ))}
       </header>
 
       {!data ? (

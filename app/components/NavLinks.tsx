@@ -11,27 +11,33 @@ export default function NavLinks() {
   const t = getMessages(locale);
   const prefix = locale === 'en' ? '' : `/${locale}`;
 
-  const primaryLinks = [
+  const primaryLinks: { href: string; label: string; short?: string }[] = [
     { href: `${prefix}/` || '/', label: t.nav.home },
     { href: '/email-digest', label: t.nav.emailDigest },
     { href: `${prefix}/archive`, label: t.nav.archive },
-    { href: '/markets/luxury', label: t.nav.markets },
+    { href: '/markets/luxury', label: t.nav.luxuryMarket, short: t.nav.luxuryMarketShort },
+    { href: '/markets/jewellery', label: t.nav.jewelleryMarket, short: t.nav.jewelleryMarketShort },
     { href: `${prefix}/about`, label: t.nav.about },
   ];
 
   return (
     <>
       {primaryLinks.map((link) => {
-        const isActive = pathname.replace(/\/$/, '') === link.href.replace(/\/$/, '')
-          // Both market pages light up the one Markets link.
-          || (link.href.startsWith('/markets/') && pathname.startsWith('/markets/'));
+        const isActive = pathname.replace(/\/$/, '') === link.href.replace(/\/$/, '');
         return (
         <li key={link.href} className="whitespace-nowrap">
           <Link
             href={link.href}
             className={`link-underline px-2 py-2 md:px-1.5 md:py-0.5 rounded flex items-center min-h-[44px] md:min-h-0 text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)] no-underline relative ${isActive ? 'after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:h-[2px] after:bg-[var(--color-accent)]' : ''}`}
+            aria-label={link.short ? link.label : undefined}
           >
-            {link.label}
+            {/* Full label from 1280px; shorter between 1024 and 1280 so the row fits. */}
+            {link.short ? (
+              <>
+                <span className="xl:hidden">{link.short}</span>
+                <span className="hidden xl:inline">{link.label}</span>
+              </>
+            ) : link.label}
           </Link>
         </li>
         );
@@ -65,7 +71,8 @@ export function FooterNavLinks() {
   ];
   const secondary = [
     { href: '/email-digest', label: t.nav.emailDigest },
-    { href: '/markets/luxury', label: t.nav.markets },
+    { href: '/markets/luxury', label: t.nav.luxuryMarket },
+    { href: '/markets/jewellery', label: t.nav.jewelleryMarket },
     { href: `${prefix}/support`, label: t.nav.support },
     { href: `${prefix}/feedback`, label: t.nav.feedback },
   ];
