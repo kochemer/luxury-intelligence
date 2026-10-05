@@ -223,6 +223,19 @@ What to work on next comes from the owner's roadmap `luxury-intel-roadmap-2026-0
 backlogs: `IMPROVEMENTS.md`, `docs/improvement-plan.md`, `docs/seo-backlog.md`.
 See `docs/README.md` §4 for how they relate.
 
+### Privacy, visit counter and /analytics
+
+- Amplitude (analytics + session replay) starts **only after consent**
+  (`app/components/AmplitudeInit.tsx`, `lib/analytics/consent.ts`). Don't add
+  anything that loads a third-party tracker or writes browser storage before
+  `getAnalyticsConsent()` is true. Privacy notice: `/about#privacy`.
+- Every visit is counted without cookies by `VisitCounter` → `/api/hit` →
+  `page_hits` (`lib/analytics/visits.ts`). No IPs stored; the visitor hash
+  uses a daily salt that is deleted after a day.
+- `/analytics` is a private dashboard behind `ANALYTICS_PASSWORD` (Vercel env);
+  it also needs `AMPLITUDE_SECRET_KEY` in Vercel for the reader-behaviour
+  section. Keep it out of the sitemap/menus; it is disallowed in robots.
+
 ### Testing
 
 Node.js built-in `node:test`. `npm test` runs `__tests__/**/*.test.ts` —

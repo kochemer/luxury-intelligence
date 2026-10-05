@@ -108,15 +108,15 @@ function getConfig(): { auth: string; base: string } | null {
 async function segmentation(
   cfg: { auth: string; base: string },
   window: Window,
-  options: { filters?: unknown[]; groupBy?: string } = {},
+  options: { filters?: unknown[]; groupBy?: string; eventType?: string; metric?: 'uniques' | 'totals' } = {},
 ): Promise<SegmentationData> {
-  const event: Record<string, unknown> = { event_type: '_active' };
+  const event: Record<string, unknown> = { event_type: options.eventType ?? '_active' };
   if (options.filters) event.filters = options.filters;
   if (options.groupBy) event.group_by = [{ type: 'user', value: options.groupBy }];
 
   const params = new URLSearchParams({
     e: JSON.stringify(event),
-    m: 'uniques',
+    m: options.metric ?? 'uniques',
     start: ymd(window.start),
     end: ymd(window.end),
     i: '1',
@@ -183,4 +183,31 @@ export async function getVisitorSummary(now = new Date()): Promise<VisitorSummar
       .sort((a, b) => b.visitors - a.visitors)
       .slice(0, 6),
   };
+}
+
+/**
+ * Totals of the site's own events over a window, plus how many (consenting,
+ * bot-filtered) people were active. For the private /analytics page. Null
+ * without a secret key; throws on API errors.
+ */
+export async function getEventTotals(
+  events: readonly string[],
+  window: { start: Date; end: Date },
+): Promise<{ people: number; events: Array<{ event: string; total: number }> } | null> {
+  const cfg = getConfig();
+  if (!cfg) return null;
+  // Sequential for the same rate-limit reason as above.
+  const people = collapsedTotal(await segmentation(cfg, window, { filters: HUMAN_FILTERS }));
+  const totals: Array<{ event: string; total: number }> = [];
+  for (const event of events) {
+    try {
+      const data = await segmentation(cfg, window, { eventType: event, metric: 'totals' });
+      totals.push({ event, total: collapsedTotal(data) });
+    } catch (err) {
+      // Amplitude rejects an event type it has never received; that's a zero.
+      if (err instanceof Error && /Invalid chart definition/.test(err.message)) totals.push({ event, total: 0 });
+      else throw err;
+    }
+  }
+  return { people, events: totals };
 }

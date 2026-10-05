@@ -21,6 +21,7 @@ export default function robots(): MetadataRoute.Robots {
   // and /search are listed — English /subscribe & /support stay indexable.
   const disallowedPaths = [
     '/search',
+    '/analytics', // private, password-protected owner dashboard
     '/es/subscribe',
     '/da/subscribe',
     '/es/support',
