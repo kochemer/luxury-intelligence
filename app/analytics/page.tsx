@@ -247,7 +247,7 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
       {/* ── Reader behaviour ─────────────────────────────────── */}
       <Section
         title="Reader behaviour"
-        note={`Last ${days} days. From Amplitude, so only readers who accepted cookies — treat as a sample, not totals. Session recordings are in Amplitude itself.`}
+        note={`Last ${days} days, from Amplitude. Until 5 Oct 2026 Amplitude tracked every visitor (bots partly filtered); since then only readers who accept cookies, so expect these to drop — use Visitors above for counts. Session recordings are in Amplitude itself.`}
       >
         {!amp.ok ? (
           <ErrorNote error={amp} />
@@ -257,7 +257,7 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
           </p>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <Stat label="Consenting readers" value={amp.value.people} />
+            <Stat label="Amplitude users" value={amp.value.people} />
             {amp.value.events.map(e => (
               <Stat key={e.event} label={EVENT_LABELS[e.event] ?? e.event} value={e.total} />
             ))}
