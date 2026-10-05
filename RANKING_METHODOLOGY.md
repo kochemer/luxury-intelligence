@@ -1,5 +1,10 @@
 # Ranking & Re-Ranking Methodology
 
+> Checked 2026-10-05: top 7 per topic and the rerank models below match the
+> code. Other details (prompt wording, weights) date from Jan 2026; verify in
+> `digest/rerankArticles.ts` before relying on them. Owner-deferred changes to
+> selection (roadmap F1.5, F2.1, F2.2) aren't built.
+
 ## Overview
 
 The article selection pipeline uses a **hybrid approach** combining deterministic pre-filtering with LLM-based reranking, followed by post-processing to enforce diversity constraints. The system processes articles through multiple phases to select the top 7 articles per category.
@@ -130,7 +135,7 @@ scoreTotal = recencyScore + sourceWeight + keywordBoost - penalty
 Use LLM to intelligently select and rank the top 7 articles from the candidate pool.
 
 ### Configuration
-- **Primary Model:** `gpt-4o-mini` (env: `RERANKER_MODEL_PRIMARY`)
+- **Primary Model:** `gpt-4.1` since 2026-09-16 (env: `RERANKER_MODEL_PRIMARY`, then `RERANK_MODEL`)
 - **Fallback Model:** `gpt-4.1-mini` (env: `RERANKER_MODEL_FALLBACK`)
 - **Temperature:** `0` (deterministic)
 - **Max Tokens:** `2000`

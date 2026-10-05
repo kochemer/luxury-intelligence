@@ -1,9 +1,8 @@
 # Pipeline Documentation
 
-> Partly stale as of 2026-10-05: doesn't yet cover pipeline step 9 (markets,
-> see `CLAUDE.md`), the editorial take (F3.1), themes as a required gate (F1.1)
-> or `/podcast/feed.xml`. Trust module and artifact paths, but verify step
-> order against `pipeline/runWeeklyPipeline.ts`.
+> Step order and the digest-build sub-steps were verified against the code on
+> 2026-10-05. Module, cache and recipe sections below are older; verify paths
+> before relying on them.
 
 ## Overview
 
@@ -68,19 +67,34 @@ digest.coverImageUrl    public/podcast/      data/weeks/{week}/
 4. **Selection & Reranking** (`digest/`)
    - Filter articles by week date range (CET timezone)
    - Apply relevance scoring (LLM-based reranking with deterministic fallback)
-   - Select top N per topic (default: 7)
+   - Select top N per topic (`TOP_N = 7` in `digest/buildWeeklyDigest.ts`)
    - Apply diversity constraints (max 3 per source)
 
-5. **Publishing** (`digest/`, `podcast/`, `email/`)
-   - Generate AI summaries for selected articles
-   - Translate titles/summaries to Danish (DA) and Spanish (ES)
-   - Generate weekly intro text
-   - Generate cover image scene description
-   - Build email digest format
-   - Generate podcast script
-   - Synthesize podcast audio (OpenAI TTS)
+5. **Digest build** (`digest/buildWeeklyDigest.ts#buildAndSaveWeeklyDigest`), in this order:
+   - AI summaries for the selected articles (`generateSummaries.ts`)
+   - DA/ES translations of titles and summaries (`lib/i18n/translate.ts`)
+   - `oneSentenceSummary` + `keyThemes` (`generateThemes.ts`). **Required**:
+     retried once, then the digest step fails. Between 2026-02-08 and W37 this
+     call was missing and every digest shipped with these null while all steps
+     reported ok. Themes are stripped of `.,;:!?`, so "GPT-5.6" becomes "GPT-56".
+   - Editor's Take (`generateEditorialTake.ts`, 3 short paragraphs, ~170–210 words), which reads
+     `oneSentenceSummary`, so it must run after themes
+   - Content-quality gate (`checkDigestContentQuality`) before the JSON is written
+   - `weeklyInsight` / `introParagraph` (`generateIntro.ts`) aren't produced by
+     this path and the hero no longer renders them (roadmap F1.2). Don't build on them.
 
-6. **Health Checks** (`pipeline/checks/`)
+6. **Distribution**, after the digest: email digest (`email/`), podcast script +
+   TTS (`podcast/`, ElevenLabs with OpenAI `tts-1` fallback; served as
+   `/podcast/feed.xml`), cover image (`npm run cover` logic).
+
+7. **Markets** (step 9 in the orchestrator, `markets/`): builds
+   `data/markets/{luxury,jewellery}.json` for `/markets/*`. Non-critical: a
+   failure never blocks the digest.
+
+The orchestrator's own numbering (`pipeline/runWeeklyPipeline.ts`): rss → pages
+→ discovery → classification → digest → email → podcast → cover → markets.
+
+8. **Health Checks** (`pipeline/checks/`)
    - Validate paywall percentage (< 30%)
    - Check category minimums (≥ 3 articles per category)
    - Validate podcast script length (1500-3500 words)

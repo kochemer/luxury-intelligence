@@ -244,7 +244,7 @@ in `data/markets/classified.json`; bump `PROMPT_VERSION` to redo them.
 
 What to work on next comes from the owner's roadmap `luxury-intel-roadmap-2026-09.md`
 (repo root, **untracked on purpose**, so it may not exist in your clone). Other
-backlogs: `IMPROVEMENTS.md`, `docs/improvement-plan.md`, `docs/seo-backlog.md`.
+backlogs: `IMPROVEMENTS.md` (product ideas + engineering plan) and `docs/seo-backlog.md`.
 See `docs/README.md` §4 for how they relate.
 
 ### Privacy, visit counter and /analytics

@@ -65,8 +65,7 @@ A docs-only change is a normal commit and gets pushed like any other.
 | File | Scope | Tracked? |
 |---|---|---|
 | `luxury-intel-roadmap-2026-09.md` | Owner's product roadmap (F1.x–F3.x, N1–N5). Sets the order of work. | **Untracked on purpose.** Exists only in the owner's working copy, so don't assume other clones have it. |
-| `IMPROVEMENTS.md` | General product, GEO and infrastructure ideas | Yes |
-| `docs/improvement-plan.md` | Codebase-simplification and selection-quality phases | Yes |
+| `IMPROVEMENTS.md` | General product, GEO and infrastructure ideas, plus the phased engineering plan (merged in 2026-10-05; old file in `docs/archive/improvement-plan.md`) | Yes |
 | `docs/seo-backlog.md` | SEO system work | Yes |
 
 When an item appears in more than one, the roadmap wins on priority and the
@@ -148,21 +147,20 @@ when you verify or rewrite a doc.
 | `CLAUDE.md` | Orientation for every agent | current | 2026-10-05 |
 | `docs/README.md` | This file: doc rules and map | current | 2026-10-05 |
 | `docs/operations.md` | Deploy, CI, re-runs, platform limits | current | 2026-10-05 |
-| `docs/pipeline.md` | Weekly pipeline modules, artifacts, caches, change recipes | reference (markets step 9, editorial take and podcast feed not covered) | 2026-10-05 |
+| `docs/pipeline.md` | Weekly pipeline modules, artifacts, caches, change recipes | current for step order + digest build; module/cache sections reference | 2026-10-05 |
 | `docs/automation.md` | GitHub Actions setup and secrets | reference | 2026-09-13 |
 | `docs/seo-system.md` | SEO system architecture, read first for SEO | current | 2026-10-04 |
 | `docs/seo-status.md` | SEO dated state, resume checklist | current | 2026-10-04 |
 | `docs/seo-decisions.md` | SEO design reasoning | current | 2026-09-21 |
 | `docs/seo-backlog.md` | SEO remaining work | current | 2026-10-04 |
 | `docs/superpowers/specs/2026-10-04-markets-pages-design.md` | Markets pages design | current | 2026-10-04 |
-| `docs/improvement-plan.md` | Simplification / selection / cover-image phases | reference (Area 1 Phase 1 done; Phase 2 not started as of 2026-10-05) | 2026-10-05 |
 | `docs/analytics/measurement-plan.md` | Analytics events and attribution | reference | — |
 | `docs/PAYWALL_AWARE_SELECTION.md` | Paywall detection in selection | reference | 2026-01-18 |
 | `docs/PODCAST_SCRIPT_LENGTH_IMPROVEMENTS.md` | Jan 2026 problem analysis for podcast length | historical | 2026-01-18 |
-| `RANKING_METHODOLOGY.md` | Selection and rerank method | reference (predates F1.4 model change and F2.x) | 2026-01-27 |
+| `RANKING_METHODOLOGY.md` | Selection and rerank method | reference (top-N + models verified; prompt/weights from Jan) | 2026-10-05 |
 | `DISCOVERY_USAGE.md` | Web discovery (Tavily) usage | reference | 2026-01-12 |
 | `SEO_METADATA.md`, `SEO_ROUTES.md` | Per-file SEO metadata and routes | current | 2026-09-09 |
-| `IMPROVEMENTS.md` | Product / GEO / infra backlog | current | 2026-09-18 |
+| `IMPROVEMENTS.md` | Product / GEO / infra backlog + engineering plan | current | 2026-10-05 |
 | `video-short/README.md` | Weekly 60s short video tool | current | 2026-10-05 |
 | `assets/audio/README.md` | Podcast source audio | reference | — |
 | `tools/ffmpeg/README.md` | Bundled FFmpeg | reference | — |
