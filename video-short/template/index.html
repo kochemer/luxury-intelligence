@@ -12,14 +12,17 @@
  * No CSS transitions or animations, so headless capture is deterministic.
  */
 :root {
-  --bg: #0A0A0C;
-  --ink: #F5F0E6;
-  --muted: #8E887A;
-  --gold: #D9B44A;
+  /* Light theme (owner, 2026-10-05): cream page, ink text, site gold. */
+  --bg: #F7F3EA;
+  --ink: #17140F;
+  --muted: #776F62;
+  --gold: #A87C12;        /* accent text on cream */
+  --gold-bright: #E2BE55; /* fills, highlights */
   --gold-deep: #8B6914;
-  --red: #FF5A4E;
+  --red: #C8372B;
   --teal: #4FD1C5;
-  --paper: #F4EEE1;
+  --paper: #FFFFFF;
+  --line: rgba(23,20,15,0.12);
   --sans: 'Inter Tight', system-ui, sans-serif;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -36,9 +39,9 @@ body { color: var(--ink); font-family: var(--sans); position: relative; font-var
 #bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(900px 700px at 50% 38%, rgba(217,180,74,0.10), transparent 70%),
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 90px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 90px),
+    radial-gradient(900px 700px at 50% 38%, rgba(226,190,85,0.22), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(23,20,15,0.035) 0 1px, transparent 1px 90px),
+    repeating-linear-gradient(90deg, rgba(23,20,15,0.035) 0 1px, transparent 1px 90px),
     var(--bg);
 }
 
@@ -47,11 +50,11 @@ body { color: var(--ink); font-family: var(--sans); position: relative; font-var
   position: absolute; top: 120px; left: 72px; right: 72px;
   display: flex; justify-content: space-between; align-items: baseline;
 }
-.wordmark { font-family: var(--serif); font-weight: 700; font-size: 46px; letter-spacing: 0.02em; color: var(--gold); }
+.wordmark { font-family: var(--serif); font-weight: 700; font-size: 46px; letter-spacing: 0.02em; color: var(--gold-deep); }
 .wordmark i { font-style: italic; color: var(--ink); font-weight: 600; }
 .issue { font-family: var(--mono); font-size: 26px; color: var(--muted); letter-spacing: 0.08em; }
-#progress { position: absolute; top: 196px; left: 72px; right: 72px; height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
-#progress > div { height: 100%; width: 0; background: var(--gold); }
+#progress { position: absolute; top: 196px; left: 72px; right: 72px; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+#progress > div { height: 100%; width: 0; background: var(--gold-deep); }
 
 /* Stage: where scenes live. Kept above the bottom ~420px (platform UI). */
 #stage { position: absolute; top: 260px; left: 72px; right: 72px; height: 1000px; }
@@ -63,49 +66,49 @@ body { color: var(--ink); font-family: var(--sans); position: relative; font-var
   display: flex; align-items: center; justify-content: center; text-align: center;
   font-family: var(--sans); font-weight: 900; font-size: 74px; line-height: 1.05;
   text-transform: uppercase; letter-spacing: -0.01em;
-  text-shadow: 0 4px 0 rgba(0,0,0,0.85), 0 0 24px rgba(0,0,0,0.6);
+  color: var(--ink);
 }
-#captions span { margin: 0 0.14em; }
-#captions .on { color: var(--gold); }
+#captions span { margin: 0 0.06em; padding: 0 0.1em; border-radius: 10px; }
+#captions .on { background: var(--gold-bright); }
 
-#flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+#flash { position: absolute; inset: 0; background: var(--ink); opacity: 0; pointer-events: none; }
 
 /* ── Scene kinds ───────────────────────────── */
-.kicker { font-family: var(--mono); font-size: 32px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-top: 40px; }
+.kicker { font-family: var(--mono); font-size: 32px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); margin-top: 40px; }
 .big { font-family: var(--sans); font-weight: 900; font-size: 120px; line-height: 0.98; letter-spacing: -0.03em; }
 .big .w { display: inline-block; margin: 0 0.12em; }
 
 .headline-card {
   background: var(--paper); color: #141414; width: 100%; max-width: 920px; padding: 56px 56px 48px; text-align: left;
-  border-radius: 6px; box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+  border-radius: 6px; border: 2px solid var(--ink); box-shadow: 0 24px 60px rgba(23,20,15,0.18);
 }
 .headline-card .src { font-family: var(--mono); font-weight: 700; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); border-bottom: 2px solid #1414141f; padding-bottom: 18px; margin-bottom: 26px; }
 .headline-card .hl { font-family: var(--serif); font-weight: 700; font-size: 84px; line-height: 1.02; }
 .headline-card .stamp { display: inline-block; margin-top: 30px; font-family: var(--mono); font-size: 22px; color: #fff; background: #141414; padding: 8px 14px; letter-spacing: 0.1em; }
 
-.stat-num { font-family: var(--sans); font-weight: 900; font-size: 260px; line-height: 0.9; letter-spacing: -0.05em; color: var(--gold); }
+.stat-num { font-family: var(--sans); font-weight: 900; font-size: 260px; line-height: 0.9; letter-spacing: -0.05em; color: var(--gold-deep); }
 .stat-label { font-family: var(--sans); font-weight: 700; font-size: 54px; line-height: 1.1; margin-top: 30px; max-width: 900px; }
 
 .list { width: 100%; max-width: 900px; text-align: left; }
 .list .item { display: flex; align-items: center; gap: 28px; font-weight: 800; font-size: 72px; line-height: 1.05; margin: 22px 0; }
-.list .item b { font-family: var(--mono); font-size: 40px; color: var(--bg); background: var(--gold); border-radius: 50%; min-width: 72px; height: 72px; display: grid; place-items: center; }
-.list-title { font-family: var(--mono); font-size: 32px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 30px; align-self: flex-start; }
+.list .item b { font-family: var(--mono); font-size: 40px; color: var(--ink); background: var(--gold-bright); border-radius: 50%; min-width: 72px; height: 72px; display: grid; place-items: center; }
+.list-title { font-family: var(--mono); font-size: 32px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 30px; align-self: flex-start; }
 
 .versus { display: flex; flex-direction: column; gap: 34px; width: 100%; max-width: 920px; }
 .vs-card { border-radius: 10px; padding: 40px 44px; text-align: left; }
 .vs-card .lab { font-family: var(--mono); font-weight: 700; font-size: 28px; letter-spacing: 0.14em; margin-bottom: 14px; }
 .vs-card .txt { font-weight: 900; font-size: 82px; line-height: 1; letter-spacing: -0.02em; }
-.vs-a { background: rgba(255,90,78,0.12); border: 3px solid var(--red); }
+.vs-a { background: rgba(200,55,43,0.07); border: 3px solid var(--red); }
 .vs-a .lab { color: var(--red); }
-.vs-b { background: rgba(217,180,74,0.12); border: 3px solid var(--gold); }
-.vs-b .lab { color: var(--gold); }
+.vs-b { background: rgba(226,190,85,0.16); border: 3px solid var(--gold-deep); }
+.vs-b .lab { color: var(--gold-deep); }
 .vs-mid { font-family: var(--serif); font-style: italic; font-size: 60px; color: var(--muted); text-align: center; margin: -10px 0; }
 
-.meme { background: #fff; color: #0f0f0f; width: 100%; max-width: 920px; padding: 60px 56px; border-radius: 8px; text-align: left; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+.meme { background: #fff; color: #0f0f0f; width: 100%; max-width: 920px; padding: 60px 56px; border-radius: 8px; text-align: left; border: 2px solid var(--ink); box-shadow: 0 24px 60px rgba(23,20,15,0.18); }
 .meme .line { font-family: var(--sans); font-weight: 800; font-size: 68px; line-height: 1.12; margin: 14px 0; }
 .meme .line.last { color: #0f0f0f; }
 
-.code { width: 100%; max-width: 940px; background: #111318; border: 2px solid #262a33; border-radius: 14px; text-align: left; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+.code { width: 100%; max-width: 940px; background: #111318; border: 2px solid #262a33; border-radius: 14px; text-align: left; overflow: hidden; box-shadow: 0 24px 60px rgba(23,20,15,0.25); }
 .code .bar { display: flex; align-items: center; gap: 12px; padding: 20px 26px; background: #181b22; border-bottom: 2px solid #262a33; }
 .code .dot { width: 20px; height: 20px; border-radius: 50%; }
 .code .fname { font-family: var(--mono); font-size: 26px; color: var(--muted); margin-left: 16px; }
@@ -116,18 +119,35 @@ body { color: var(--ink); font-family: var(--sans); position: relative; font-var
 .bars { width: 100%; max-width: 920px; text-align: left; }
 .bars .row { margin: 26px 0; }
 .bars .lab { font-weight: 800; font-size: 46px; margin-bottom: 12px; display: flex; justify-content: space-between; }
-.bars .lab span:last-child { color: var(--gold); font-family: var(--mono); }
-.bars .track { height: 64px; background: rgba(255,255,255,0.06); border-radius: 6px; overflow: hidden; }
-.bars .fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold-deep), var(--gold)); }
+.bars .lab span:last-child { color: var(--gold-deep); font-family: var(--mono); }
+.bars .track { height: 64px; background: var(--line); border-radius: 6px; overflow: hidden; }
+.bars .fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright)); }
 .bars .cap { font-family: var(--mono); font-size: 30px; color: var(--muted); margin-top: 30px; letter-spacing: 0.06em; }
 
 .emoji { font-family: var(--emoji); font-size: 360px; line-height: 1; }
 .emoji-cap { font-weight: 900; font-size: 92px; line-height: 1; margin-top: 40px; letter-spacing: -0.02em; }
 
-.k-outro .mark { font-family: var(--serif); font-weight: 700; font-size: 130px; color: var(--gold); line-height: 0.95; }
-.k-outro .mark i { color: var(--ink); font-weight: 600; }
-.k-outro .url { font-family: var(--mono); font-size: 48px; margin-top: 50px; color: var(--ink); border: 3px solid var(--gold); padding: 18px 34px; border-radius: 8px; }
-.k-outro .sub { font-family: var(--sans); font-weight: 700; font-size: 44px; color: var(--muted); margin-top: 40px; }
+.k-outro .follow { font-family: var(--sans); font-weight: 800; font-size: 64px; line-height: 1.05; }
+.k-outro .url { font-family: var(--mono); font-weight: 700; font-size: 60px; margin-top: 36px; color: var(--ink); background: var(--gold-bright); padding: 20px 38px; border-radius: 10px; }
+
+/* Intro: quick dramatic entrance. */
+/* Full-bleed ink band holding the whole title block; it wipes in from the left. */
+.k-intro .band { position: relative; width: 140%; padding: 80px 0 70px; background: var(--ink); display: flex; flex-direction: column; align-items: center; transform-origin: 0 50%; }
+.k-intro .mark { position: relative; font-family: var(--serif); font-weight: 700; font-size: 150px; line-height: 0.92; color: var(--gold-bright); }
+.k-intro .mark i { color: var(--bg); font-weight: 600; }
+.k-intro .hot { position: relative; display: inline-block; margin-top: 56px; font-family: var(--sans); font-weight: 900; font-size: 64px; letter-spacing: 0.02em; color: var(--paper); background: var(--red); padding: 12px 30px; border-radius: 8px; text-transform: uppercase; }
+.k-intro .sec { position: relative; margin-top: 30px; font-family: var(--mono); font-weight: 700; font-size: 38px; letter-spacing: 0.16em; color: var(--gold-bright); }
+
+/* Brand marks: logo (brand color), wordmark (typeset name) or icon. */
+.marks { display: flex; gap: 46px; align-items: center; justify-content: center; margin-bottom: 44px; }
+.mk { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.mk svg { width: 120px; height: 120px; display: block; }
+.mk.icon svg { stroke: var(--ink); stroke-width: 1.6; }
+.mk .nm { font-family: var(--mono); font-weight: 700; font-size: 24px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.mk.wordmark .wm { font-family: var(--sans); font-weight: 900; font-size: 60px; letter-spacing: -0.02em; color: var(--ink); border: 3px solid var(--ink); border-radius: 14px; padding: 18px 30px; background: var(--paper); }
+.vs-card .vs-mark { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+.vs-card .vs-mark svg { width: 64px; height: 64px; }
+.vs-card .vs-mark .wm { font-family: var(--sans); font-weight: 900; font-size: 34px; color: var(--ink); border: 2px solid var(--ink); border-radius: 10px; padding: 6px 14px; background: var(--paper); }
 
 /* ── Landscape (desktop, 1920x1080) ─────────── */
 body.landscape #header { top: 46px; left: 100px; right: 100px; }
@@ -148,9 +168,11 @@ body.landscape .stat-label { max-width: 1300px; }
 body.landscape .emoji { font-size: 250px; }
 body.landscape .emoji-cap { margin-top: 24px; }
 body.landscape .kicker { margin-top: 28px; }
-body.landscape .k-outro .mark { font-size: 104px; }
-body.landscape .k-outro .url { margin-top: 30px; }
-body.landscape .k-outro .sub { margin-top: 24px; }
+body.landscape .k-intro .mark { font-size: 130px; }
+body.landscape .k-intro .band { width: 130%; padding: 60px 0 54px; }
+body.landscape .k-intro .hot { margin-top: 40px; }
+body.landscape .marks { margin-bottom: 30px; }
+body.landscape .mk svg { width: 100px; height: 100px; }
 </style>
 </head>
 <body>
@@ -200,6 +222,19 @@ function fmtStat(p, v) {
   return p.pre + s + p.post;
 }
 
+/** Marks row for a scene (logos in brand color, wordmarks, icons). */
+function marksHtml(marks) {
+  if (!marks || !marks.length) return '';
+  return `<div class="marks">${marks.map(m =>
+    m.kind === 'wordmark' ? `<div class="mk wordmark"><div class="wm">${esc(m.name)}</div></div>`
+    : m.kind === 'logo' ? `<div class="mk logo">${m.svg}<div class="nm">${esc(m.name)}</div></div>`
+    : `<div class="mk icon">${m.svg}</div>`).join('')}</div>`;
+}
+function vsMarkHtml(m) {
+  if (!m) return '';
+  return `<div class="vs-mark">${m.kind === 'wordmark' ? `<span class="wm">${esc(m.name)}</span>` : m.svg}</div>`;
+}
+
 function highlightCode(line) {
   let h = esc(line);
   h = h.replace(/(\/\/.*)$/, '<span class="com">$1</span>');
@@ -223,6 +258,8 @@ function build(scene) {
   const el = document.createElement('div');
   el.className = 'scene k-' + v.kind; // prefixed: .meme/.code etc. are card classes
   let update = () => {};
+  const brandMarks = (scene.marks || []).filter(m => m.kind !== 'icon');
+  const rowMarks = ['versus', 'intro', 'outro'].includes(v.kind) ? [] : (v.kind === 'emoji' ? brandMarks : scene.marks || []);
 
   switch (v.kind) {
     case 'title': {
@@ -267,9 +304,11 @@ function build(scene) {
       break;
     }
     case 'versus': {
-      const [a, b] = [0, 1].map(i => { const s = String(v.items[i] || ''); const k = s.split(/\s+[—–-]\s+/); return k.length > 1 ? { lab: k[0], txt: k.slice(1).join(' — ') } : { lab: '', txt: s }; });
-      el.innerHTML = `<div class="versus"><div class="vs-card vs-a"><div class="lab">${esc(a.lab)}</div><div class="txt">${esc(a.txt)}</div></div>` +
-        `<div class="vs-mid">vs.</div><div class="vs-card vs-b"><div class="lab">${esc(b.lab)}</div><div class="txt">${esc(b.txt)}</div></div></div>` +
+      // "LABEL: text" (older scripts used a dash separator).
+      const [a, b] = [0, 1].map(i => { const s = String(v.items[i] || ''); const k = s.match(/^([^:]{1,40}):\s+(.+)$/) || s.match(/^(.+?)\s+[—–-]\s+(.+)$/); return k ? { lab: k[1], txt: k[2] } : { lab: '', txt: s }; });
+      const bm = brandMarks;
+      el.innerHTML = `<div class="versus"><div class="vs-card vs-a">${vsMarkHtml(bm[0])}<div class="lab">${esc(a.lab)}</div><div class="txt">${esc(a.txt)}</div></div>` +
+        `<div class="vs-mid">vs.</div><div class="vs-card vs-b">${vsMarkHtml(bm[1])}<div class="lab">${esc(b.lab)}</div><div class="txt">${esc(b.txt)}</div></div></div>` +
         (v.small ? `<div class="kicker">${esc(v.small)}</div>` : '');
       const A = el.querySelector('.vs-a'), B = el.querySelector('.vs-b'), M = el.querySelector('.vs-mid');
       update = (lt, D) => {
@@ -333,11 +372,33 @@ function build(scene) {
       break;
     }
     case 'outro': {
-      el.innerHTML = `<div class="mark">Luxury<br><i>Intel</i></div><div class="kicker">in 60 seconds</div><div class="url">luxury-intel.com</div><div class="sub">The full weekly digest, free.</div>`;
+      el.innerHTML = `<div class="follow">Follow the full digest at</div><div class="url">luxury-intel.com</div>`;
       const parts = [...el.children];
-      update = lt => parts.forEach((p, i) => { p.style.opacity = clamp((lt - i * 0.15) / 0.2); p.style.transform = `translateY(${(1 - easeOut((lt - i * 0.15) / 0.3)) * 40}px)`; });
+      update = lt => parts.forEach((p, i) => { p.style.opacity = clamp((lt - i * 0.2) / 0.2); p.style.transform = `translateY(${(1 - easeOutBack((lt - i * 0.2) / 0.3)) * 40}px)`; });
       break;
     }
+    case 'intro': {
+      // Ink bar wipes in, wordmark slams down with a small shake, then the stamp.
+      el.innerHTML = `<div class="band"><div class="mark">Luxury <i>Intel</i></div><div class="hot">Weekly hot take</div><div class="sec">IN 60 SECONDS</div></div>`;
+      const bar = el.firstChild, [mark, hot, sec] = bar.children;
+      update = (lt, D) => {
+        bar.style.transform = `scaleX(${easeOut(lt / 0.25)})`;
+        const m = clamp((lt - 0.15) / 0.22);
+        const shake = lt > 0.37 && lt < 0.6 ? Math.sin(lt * 90) * 8 * (1 - (lt - 0.37) / 0.23) : 0;
+        mark.style.opacity = clamp((lt - 0.15) / 0.06);
+        mark.style.transform = `translateX(${shake}px) scale(${1.8 - 0.8 * easeOut(m)})`;
+        const h = easeOutBack((lt - Math.min(0.9, D * 0.3)) / 0.25);
+        hot.style.opacity = clamp((lt - Math.min(0.9, D * 0.3)) / 0.05);
+        hot.style.transform = `rotate(${-4 * h}deg) scale(${2 - h})`;
+        sec.style.opacity = clamp((lt - Math.min(1.3, D * 0.45)) / 0.2);
+      };
+      break;
+    }
+  }
+  if (rowMarks.length) {
+    el.insertAdjacentHTML('afterbegin', marksHtml(rowMarks));
+    const row = el.querySelector('.marks'), inner = update;
+    update = (lt, D) => { inner(lt, D); row.style.opacity = clamp((lt - 0.1) / 0.2); row.style.transform = `translateY(${(1 - easeOutBack((lt - 0.1) / 0.3)) * -40}px)`; };
   }
   return { el, scene, update };
 }
@@ -376,7 +437,7 @@ window.__setup = async (data) => {
     s.fitScale = 1; // reduced by __checkLayout if the scene spills
     s.el.style.display = 'none';
   }
-  CHUNKS = buildCaptions(data.scenes.filter(s => s.visual.kind !== 'outro'));
+  CHUNKS = buildCaptions(data.scenes.filter(s => s.visual.kind !== 'outro' && s.visual.kind !== 'intro'));
   return true;
 };
 
@@ -431,6 +492,14 @@ function textBox(root) {
       box.l = Math.min(box.l, r.left); box.t = Math.min(box.t, r.top);
       box.r = Math.max(box.r, r.right); box.b = Math.max(box.b, r.bottom);
     }
+  }
+  // Logos and icons can spill too.
+  for (const g of root.querySelectorAll('svg')) {
+    if (opacityOf(g) < 0.05) continue;
+    const r = g.getBoundingClientRect();
+    if (r.width < 1 || r.right <= 0 || r.left >= LAYOUT.w || r.bottom <= 0 || r.top >= LAYOUT.h) continue;
+    box.l = Math.min(box.l, r.left); box.t = Math.min(box.t, r.top);
+    box.r = Math.max(box.r, r.right); box.b = Math.max(box.b, r.bottom);
   }
   return box.l === Infinity ? null : box;
 }

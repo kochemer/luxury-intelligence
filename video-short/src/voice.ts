@@ -24,10 +24,10 @@ const INSTRUCTIONS =
 /** Silence after each scene: a breath before the next cut. */
 const GAP_S = 0.4;
 /**
- * Playback speed for the narration (owner's call, 2026-10-04). ffmpeg atempo
- * keeps the pitch, and the voice's own pauses are kept, just 1.25x shorter.
+ * Playback speed for the narration (owner set 1.2x on 2026-10-05). ffmpeg atempo
+ * keeps the pitch, and the voice's own pauses are kept, just 1.2x shorter.
  */
-export const TEMPO = Number(process.env.VIDEO_SHORT_TEMPO ?? 1.25);
+export const TEMPO = Number(process.env.VIDEO_SHORT_TEMPO ?? 1.2);
 
 export interface TimedScene extends Scene {
   start: number;
@@ -103,8 +103,14 @@ export async function buildVoice(scenes: Scene[], budget: Budget, outDir: string
   const trimmed: string[] = [];
   for (const [i, raw] of clips.entries()) {
     const out = path.join(clipDir, `scene-${String(i).padStart(2, '0')}.wav`);
+    // Story scenes keep the voice's own pauses. The fixed intro/outro lines are
+    // bookends and should be snappy, so their inner pauses are squeezed to 0.12s.
+    const bookend = ['intro', 'outro'].includes(scenes[i].visual.kind);
+    const head = bookend
+      ? 'silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_duration=0.15:stop_threshold=-40dB:stop_silence=0.12'
+      : 'silenceremove=start_periods=1:start_threshold=-45dB';
     await run('ffmpeg', ['-y', '-i', raw, '-af',
-      `silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,atempo=${TEMPO},apad=pad_dur=${GAP_S}`,
+      `${head},areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,atempo=${TEMPO},apad=pad_dur=${GAP_S}`,
       '-ar', '48000', '-ac', '1', out]);
     trimmed.push(out);
   }
