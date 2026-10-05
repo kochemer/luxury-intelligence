@@ -1,5 +1,10 @@
 # Pipeline Documentation
 
+> Partly stale as of 2026-10-05: doesn't yet cover pipeline step 9 (markets,
+> see `CLAUDE.md`), the editorial take (F3.1), themes as a required gate (F1.1)
+> or `/podcast/feed.xml`. Trust module and artifact paths, but verify step
+> order against `pipeline/runWeeklyPipeline.ts`.
+
 ## Overview
 
 The Luxury Intelligence pipeline produces a weekly digest of curated articles across four topics:

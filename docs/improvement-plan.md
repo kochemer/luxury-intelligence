@@ -1,13 +1,15 @@
 # Luxury Intelligence — Improvement Plan
 
-Living plan across four areas. Phase 1 (codebase simplification) is being
-implemented now; later phases are scoped but not yet started. Each phase is a
+Living plan across four areas. Status as of 2026-10-05: Area 1 Phase 1 is
+done (root docs archived, legacy cover-image fallback removed); Area 1 Phase 2
+is not started (`topInfo` prop still present). Check the other areas against
+the code before acting on them. Each phase is a
 self-contained, committable chunk that must leave the app compiling, building,
 and deploying cleanly.
 
 ## Area 1 — Codebase simplification
 
-### Phase 1 (implementing now) — pure cleanup, no behaviour change
+### Phase 1 [DONE] — pure cleanup, no behaviour change
 - **Archive one-off root docs.** ~20 diagnostic/fix/report markdown files at the
   repo root (`COVER_IMAGE_*`, `PWA_*`, `RERANK_*`, `REFACTOR_PLAN`,
   `*_DIAGNOSIS`, `ORCHESTRATOR_*`, `BORINGNESS_BREAKER`, `VAPID_KEY_DIAGNOSTIC`,

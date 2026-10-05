@@ -1,152 +1,26 @@
-# AK-Website-v1
+# Luxury Intelligence
 
-First repository for the AK website
-
-<!-- Force fresh build: 2026-01-02 -->
-
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+Source for [luxury-intel.com](https://luxury-intel.com): a weekly digest of
+luxury, jewellery, e-commerce and retail-tech news, with an email, a podcast
+and market pages. Next.js 16 on Vercel; the weekly content is built by a
+GitHub Actions pipeline every Sunday.
 
 ```bash
-npm run dev
+npm install
+npm run dev        # http://localhost:3000
+npm test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser.
+Secrets live in `.env.local` (not committed). Run `npm run digest:preflight`
+to see which ones the pipeline needs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where to read next
 
-## How to refresh the monthly digest (manual)
+- **[`CLAUDE.md`](CLAUDE.md)**: commands, architecture and the rules that are
+  easy to break. Written for AI agents, and the best overview for humans too.
+- **[`docs/README.md`](docs/README.md)**: map of every doc and the rules for
+  keeping them current.
+- **[`docs/operations.md`](docs/operations.md)**: deploying, CI, re-running a week.
 
-1. **Run ingestion**
-    ```bash
-    npm run ingest:pages
-    ```
-2. **Build monthly digest**
-    ```bash
-    npm run build:digest
-    ```
-3. **Commit & push**
-    ```bash
-    git add .
-    git commit -m "Update articles and monthly digest"
-    git push
-    ```
-4. **Vercel deploys automatically**
-
-## Learn More
-
-To learn more about Next.js, take a look at:
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Learn Next.js](https://nextjs.org/learn)
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
-
-See [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Web Push Notifications
-
-### Setup
-
-1. **Generate VAPID keys:**
-   ```bash
-   npm run generate-vapid
-   ```
-   This will output public and private keys, plus a random admin secret.
-
-2. **Set environment variables locally (`.env.local`):**
-   ```bash
-   NEXT_PUBLIC_VAPID_PUBLIC_KEY=<public-key-from-step-1>
-   VAPID_PRIVATE_KEY=<private-key-from-step-1>
-   VAPID_SUBJECT=mailto:your-email@example.com
-   PUSH_ADMIN_SECRET=<random-secret-from-step-1>
-   ```
-
-3. **Set environment variables on Vercel:**
-   - Go to your Vercel project → Settings → Environment Variables
-   - Add all four variables from step 2
-   - For production, also add Vercel KV variables (if using KV storage):
-     - `KV_REST_API_URL`
-     - `KV_REST_API_TOKEN`
-     - `KV_REST_API_READ_ONLY_TOKEN`
-
-4. **Subscribe on Android/Chrome:**
-   - Open the site on Android Chrome (or desktop Chrome)
-   - Click "Enable notifications" button in the header
-   - Grant notification permission when prompted
-   - Subscription is automatically saved
-
-5. **Test push notification:**
-   ```bash
-   # Using curl (replace YOUR_SECRET with your PUSH_ADMIN_SECRET)
-   curl -X POST "http://localhost:3000/api/push/send-test" \
-     -H "x-admin-secret: YOUR_SECRET" \
-     -H "Content-Type: application/json"
-   
-   # Or with query param
-   curl "http://localhost:3000/api/push/send-test?secret=YOUR_SECRET&limit=5"
-   ```
-   
-   On production:
-   ```bash
-   curl -X POST "https://luxury-intel.com/api/push/send-test" \
-     -H "x-admin-secret: YOUR_SECRET"
-   ```
-
-6. **Verify notification arrives:**
-   - Check that the notification appears on your Android device
-   - Click the notification to verify it opens the correct URL
-   - Check server logs for send results
-
-### Storage
-
-- **Production:** Uses Vercel KV (if configured) for persistent storage
-- **Development:** Falls back to in-memory Map (data lost on restart)
-- Subscriptions are deduplicated by endpoint
-
-### Service Worker
-
-The service worker handles push events and notification clicks:
-- Push payload fields: `title`, `body`, `url`, `icon`, `badge`, `tag`
-- Notification click opens the URL specified in payload
-- Handlers are defined in `public/push-sw.js`
-
-## FFmpeg Installation
-
-FFmpeg is required for video composition (concatenating segments, adding voiceover, burning subtitles).
-
-### Installation Instructions
-
-**macOS:**
-```bash
-brew install ffmpeg
-```
-
-**Ubuntu/Debian (CI):**
-```bash
-sudo apt-get update && sudo apt-get install -y ffmpeg
-```
-
-**Windows:**
-```bash
-winget install Gyan.FFmpeg
-```
-
-Or visit [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html) for other platforms.
-
-### Verification
-
-After installation, verify FFmpeg is available:
-```bash
-ffmpeg -version
-```
-
-If you see version information, FFmpeg is installed correctly.
-
-<!-- trigger build -->
-trigger rebuild
+FFmpeg is needed for the podcast and video steps (`winget install Gyan.FFmpeg`
+on Windows, `apt-get install ffmpeg` in CI).
