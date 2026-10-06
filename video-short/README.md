@@ -41,8 +41,8 @@ Output (gitignored): `data/weeks/<week>/video-short/` (mp4s, `script.json`,
   wordmarks, and logos are never scraped. Every brand must be named in the
   source article. `meta.json` → `logosUsed` lists the logos to review before
   anything is published.
-- Story length target: 105–120 words, so the whole video lands near a minute
-  with the bookends.
+- Story length target: 140–160 words (at 180 wpm, about 50 s), so the whole
+  video lands near a minute with the bookends.
 
 ## Things that will bite you
 
@@ -53,6 +53,12 @@ Output (gitignored): `data/weeks/<week>/video-short/` (mp4s, `script.json`,
   (an ESM package can't import the root's CommonJS modules). It's excluded from the root `tsconfig`, eslint and output tracing;
   `__tests__/videoShort.isolation.test.ts` guards that.
 - `ELEVENLABS_API_KEY` in `.env.local` is a key *ID*, not a key.
+- **"1.2×" means 1.2× normal speech (about 180 wpm), not 1.2× whatever the TTS
+  returns.** gpt-4o-mini-tts reads at roughly 115–125 wpm whatever the
+  instruction says, so a plain `atempo=1.2` came out around 140 wpm and the
+  owner heard it as 1× (2026-10-06). `voice.ts` measures the raw pace on every
+  run and picks the atempo to hit `TEMPO × NORMAL_WPM` (capped at 1.6×).
+  `meta.json` → `voicePace` records raw wpm, atempo and final wpm.
 - Simple Icons titles can belong to a different company than the one you mean
   ("Hermes" is the parcel carrier, not Hermès). Add such names to
   `COLLISIONS` in `src/marks.ts`; they then render as wordmarks.

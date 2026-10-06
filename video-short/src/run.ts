@@ -55,7 +55,7 @@ async function main() {
   const script = await writeScript(story, budget, outDir, dateLine, String(end.getUTCFullYear()));
   const scenes = [INTRO, ...script.scenes, OUTRO];
 
-  const { timed, audio, total: audioTotal } = await buildVoice(scenes, budget, outDir);
+  const { timed, audio, total: audioTotal, pace } = await buildVoice(scenes, budget, outDir);
   const total = audioTotal + TAIL_S;
   // The last scene (the outro) holds through the tail.
   timed[timed.length - 1].end = total;
@@ -90,7 +90,7 @@ async function main() {
   const meta = {
     week, title: script.title, story: { title: story.title, url: story.url, source: story.source },
     why: story.selection.why, angle: story.selection.angle,
-    durationS: Number(total.toFixed(2)), outputs, voiceTempo: TEMPO,
+    durationS: Number(total.toFixed(2)), outputs, voiceTempo: TEMPO, voicePace: pace,
     // Brand logos shown in the video: review before publishing.
     logosUsed: [...logosUsed],
     spentUsd: Number(budget.spentUsd.toFixed(4)), capUsd: WEEKLY_CAP_USD,
