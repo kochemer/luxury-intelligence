@@ -5,7 +5,7 @@ import { unstable_cache } from 'next/cache';
 import { sql } from 'drizzle-orm';
 import { getDb } from '@/lib/db';
 import { analyticsPassword, isValidSession, SESSION_COOKIE } from '@/lib/analytics/adminAuth';
-import { getVisitStats, getCounterStartDay, daysEndingToday, lastDays, eachDay, HISTORY_END } from '@/lib/analytics/visits';
+import { getVisitStats, getCounterStartDay, getArticleClicks, daysEndingToday, lastDays, eachDay, HISTORY_END } from '@/lib/analytics/visits';
 import { getSearchData } from '@/lib/analytics/searchConsole';
 import LoginForm from './LoginForm';
 import TrendChart from './TrendChart';
@@ -80,13 +80,15 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
   // Google's numbers lag, so its period ends yesterday.
   const searchRange = lastDays(days);
 
-  const [startDay, cur, prev, search, searchPrev, subs] = await Promise.all([
+  const [startDay, cur, prev, search, searchPrev, subs, clicks, clicksPrev] = await Promise.all([
     settle(getCounterStartDay()),
     settle(getVisitStats(visitRange.current)),
     settle(getVisitStats(visitRange.previous)),
     settle(searchData(searchRange.current.start, searchRange.current.end)),
     settle(searchData(searchRange.previous.start, searchRange.previous.end)),
     settle(subscriberCounts()),
+    settle(getArticleClicks(visitRange.current)),
+    settle(getArticleClicks(visitRange.previous)),
   ]);
 
   const counterStart = startDay.ok ? startDay.value : null;
@@ -172,6 +174,58 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
         )}
       </Section>
 
+      {/* ── Articles clicked ─────────────────────────────────── */}
+      <Section
+        title="Articles clicked"
+        note={`${fmtDate(visitRange.current.start)} – today. Every reader's clicks through to an article, counted anonymously (which article, which day — nothing about the reader). Before ${fmtDate(HISTORY_END)} from Amplitude, which only recorded clicks for everyone in Jan–Mar and for readers who accepted cookies after that.`}
+      >
+        {clicks.ok && clicksPrev.ok ? (
+          <>
+            {picker}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+              <Stat label={`Clicks · ${days} days`} value={clicks.value.total} prev={clicksPrev.value.total} />
+              <Stat label="Different articles" value={clicks.value.articles} />
+              <Stat
+                label="Clicks per visitor"
+                value={cur.ok && cur.value.visitors ? Math.round((clicks.value.total / cur.value.visitors) * 100) / 100 : 0}
+              />
+            </div>
+            {clicks.value.total > 0 && (
+              <TrendChart
+                height={200}
+                data={(() => {
+                  const byDay = new Map(clicks.value.daily.map(d => [d.day, d.clicks]));
+                  return eachDay(visitRange.current).map(day => ({ day, clicks: byDay.get(day) ?? 0 }));
+                })()}
+                series={[{ key: 'clicks', label: 'Article clicks', color: ACCENT }]}
+              />
+            )}
+            <div className="mt-8">
+              <p className="text-meta font-semibold text-[var(--color-text-primary)] mb-2">Top articles · {days} days</p>
+              {clicks.value.top.length === 0 ? (
+                <p className="text-meta text-[var(--color-text-secondary)]">No article clicks in this period yet.</p>
+              ) : (
+                <ol className="text-[13px] divide-y divide-[var(--color-border)]">
+                  {clicks.value.top.map(a => (
+                    <li key={a.url} className="flex justify-between gap-4 py-2">
+                      <span className="min-w-0">
+                        <a href={a.url} target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] line-clamp-2">
+                          {a.title || titleFromUrl(a.url)}
+                        </a>
+                        <span className="block text-[12px] text-[var(--color-text-secondary)]">{a.source || hostOf(a.url)}</span>
+                      </span>
+                      <span className="tabular-nums text-[var(--color-text-primary)] shrink-0">{a.clicks}</span>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </div>
+          </>
+        ) : (
+          <ErrorNote error={[clicks, clicksPrev].find(r => !r.ok) as { error: string }} />
+        )}
+      </Section>
+
       {/* ── Google ───────────────────────────────────────────── */}
       <Section
         title="Google search"
@@ -229,6 +283,21 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
 }
 
 // ── Pieces ───────────────────────────────────────────────────────────────────
+
+function hostOf(url: string): string {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; }
+}
+
+/** For clicks Amplitude recorded on articles that aren't in any digest file. */
+function titleFromUrl(url: string): string {
+  try {
+    const slug = new URL(url).pathname.split('/').filter(Boolean).pop() ?? '';
+    const words = decodeURIComponent(slug).replace(/\.[a-z]+$/i, '').replace(/[-_]+/g, ' ').replace(/\b\d{5,}\b/g, '').trim();
+    return words ? words.charAt(0).toUpperCase() + words.slice(1) : url;
+  } catch {
+    return url;
+  }
+}
 
 function Shell({ children, aside }: { children: React.ReactNode; aside?: React.ReactNode }) {
   return (

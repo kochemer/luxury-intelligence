@@ -22,6 +22,13 @@
       "when": 1791268571636,
       "tag": "0002_lyrical_susan_delgado",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791270332191,
+      "tag": "0003_fearless_paper_doll",
+      "breakpoints": true
     }
   ]
 }

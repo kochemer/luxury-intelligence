@@ -96,6 +96,19 @@ export const visitHistory = pgTable('visit_history', {
   n:     integer('n').notNull(),
 }, t => [primaryKey({ columns: [t.day, t.dim, t.value] })]);
 
+// Outbound article clicks, counted anonymously like page views: per day and
+// article only — no visitor hash, IP or cookie. Written by /api/click for
+// every reader (lib/analytics/visits.ts recordArticleClick); days up to
+// HISTORY_END also hold clicks imported from Amplitude by
+// scripts/backfillVisitHistory.ts.
+export const articleClicks = pgTable('article_clicks', {
+  day:    date('day').notNull(),
+  url:    text('url').notNull(),
+  title:  text('title').notNull().default(''),
+  source: text('source').notNull().default(''),
+  n:      integer('n').notNull(),
+}, t => [primaryKey({ columns: [t.day, t.url] })]);
+
 // ── Inferred TypeScript types ─────────────────────────────────────────────────
 
 export type Subscriber    = typeof subscribers.$inferSelect;

@@ -7,7 +7,7 @@ on:
     inputs:
       from:
         description: 'First day to import (YYYY-MM-DD)'
-        default: '2026-03-01'
+        default: '2026-01-01'
 
 permissions:
   contents: read

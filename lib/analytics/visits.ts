@@ -322,3 +322,69 @@ export async function getCounterVisitorSummary(now = new Date()): Promise<Visito
     referrers: cur.referrers.slice(0, 6).map(r => ({ domain: r.name, visitors: r.visitors })),
   };
 }
+
+// ── Article clicks ───────────────────────────────────────────────────────────
+
+/** An outbound article link worth counting: http(s), bounded, no fragment. */
+export function cleanArticleUrl(url: unknown): string | null {
+  if (typeof url !== 'string' || url.length > 600) return null;
+  try {
+    const u = new URL(url);
+    if (u.protocol !== 'https:' && u.protocol !== 'http:') return null;
+    // The site itself (incl. its old vercel.app address) is not an article.
+    if (/(^|\.)luxury-intel\.com$|\.vercel\.app$/.test(u.hostname) || u.hostname === 'localhost') return null;
+    u.hash = '';
+    return u.toString();
+  } catch {
+    return null;
+  }
+}
+
+const clip = (v: unknown, max: number) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
+
+/**
+ * Counts one click on an article. Anonymous by construction: the row is
+ * (day, article) and a counter; nothing about the reader is stored.
+ */
+export async function recordArticleClick(input: {
+  url: unknown; title: unknown; source: unknown; userAgent: string | null; webdriver?: unknown; now?: Date;
+}): Promise<boolean> {
+  const url = cleanArticleUrl(input.url);
+  if (!url || input.webdriver === true || isBotUserAgent(input.userAgent)) return false;
+  const day = utcDay(input.now ?? new Date());
+  await getDb().execute(sql`
+    insert into article_clicks (day, url, title, source, n)
+    values (${day}, ${url}, ${clip(input.title, 300)}, ${clip(input.source, 120)}, 1)
+    on conflict (day, url) do update set n = article_clicks.n + 1,
+      title = case when article_clicks.title = '' then excluded.title else article_clicks.title end,
+      source = case when article_clicks.source = '' then excluded.source else article_clicks.source end`);
+  return true;
+}
+
+export interface ArticleClickStats {
+  total: number;
+  /** Distinct articles clicked (top is capped; this isn't). */
+  articles: number;
+  daily: Array<{ day: string; clicks: number }>;
+  top: Array<{ url: string; title: string; source: string; clicks: number }>;
+}
+
+export async function getArticleClicks(range: Range, limit = 15): Promise<ArticleClickStats> {
+  const db = getDb();
+  const within = sql`day between ${range.start}::date and ${range.end}::date`;
+  const [daily, top, distinct] = await Promise.all([
+    db.execute(sql`select day::text as day, sum(n) as clicks from article_clicks where ${within} group by day order by day`),
+    db.execute(sql`select url, max(title) as title, max(source) as source, sum(n) as clicks
+      from article_clicks where ${within} group by url order by 4 desc, 2 limit ${limit}`),
+    db.execute(sql`select count(distinct url) as n from article_clicks where ${within}`),
+  ]);
+  const dailyRows = (daily.rows as Row[]).map(r => ({ day: String(r.day), clicks: num(r.clicks) }));
+  return {
+    total: dailyRows.reduce((s, d) => s + d.clicks, 0),
+    articles: num((distinct.rows[0] as Row | undefined)?.n),
+    daily: dailyRows,
+    top: (top.rows as Row[]).map(r => ({
+      url: String(r.url), title: String(r.title ?? ''), source: String(r.source ?? ''), clicks: num(r.clicks),
+    })),
+  };
+}

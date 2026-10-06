@@ -106,14 +106,23 @@ function getConfig(): { auth: string; base: string } | null {
   };
 }
 
+interface SegmentOptions {
+  filters?: unknown[];
+  groupBy?: string;
+  /** 'user' for user properties (default), 'event' for event properties. */
+  groupType?: 'user' | 'event';
+  eventType?: string;
+  metric?: 'uniques' | 'totals';
+}
+
 async function segmentation(
   cfg: { auth: string; base: string },
   window: Window,
-  options: { filters?: unknown[]; groupBy?: string; eventType?: string; metric?: 'uniques' | 'totals' } = {},
+  options: SegmentOptions = {},
 ): Promise<SegmentationData> {
   const event: Record<string, unknown> = { event_type: options.eventType ?? '_active' };
   if (options.filters) event.filters = options.filters;
-  if (options.groupBy) event.group_by = [{ type: 'user', value: options.groupBy }];
+  if (options.groupBy) event.group_by = [{ type: options.groupType ?? 'user', value: options.groupBy }];
 
   const params = new URLSearchParams({
     e: JSON.stringify(event),
@@ -194,7 +203,7 @@ export async function getVisitorSummary(now = new Date()): Promise<VisitorSummar
  */
 export async function segmentDaily(
   window: { start: Date; end: Date },
-  options: { filters?: unknown[]; groupBy?: string; eventType?: string; metric?: 'uniques' | 'totals' } = {},
+  options: SegmentOptions = {},
 ): Promise<{ days: string[]; groups: Array<{ label: string; values: number[] }> } | null> {
   const cfg = getConfig();
   if (!cfg) return null;

@@ -5,7 +5,7 @@
 
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
-import { isBotUserAgent, deviceFromUserAgent, referrerDomain, cleanPath, lastDays, daysEndingToday, eachDay, deviceFromAmplitude, countryName } from '../lib/analytics/visits';
+import { isBotUserAgent, deviceFromUserAgent, referrerDomain, cleanPath, lastDays, daysEndingToday, eachDay, deviceFromAmplitude, countryName, cleanArticleUrl } from '../lib/analytics/visits';
 import { visitorsNote, visitorsSourceNote } from '../seo/report/weeklyEmail';
 import type { VisitorSummary } from '../seo/types';
 
@@ -95,4 +95,15 @@ test('live ranges end today; every day in a range is listed', () => {
   assert.deepEqual(previous, { start: '2026-09-23', end: '2026-09-29' });
   assert.equal(eachDay(current).length, 7);
   assert.equal(eachDay(current)[6], '2026-10-06');
+});
+
+test('article clicks: only outbound article links count, without fragments', () => {
+  assert.equal(cleanArticleUrl('https://www.retaildive.com/news/x/123/#comments'), 'https://www.retaildive.com/news/x/123/');
+  assert.equal(cleanArticleUrl('https://luxury-intel.com/archive'), null);
+  assert.equal(cleanArticleUrl('https://luxury-intelligence.vercel.app/'), null);
+  assert.equal(cleanArticleUrl('http://localhost:3000/'), null);
+  assert.equal(cleanArticleUrl('javascript:alert(1)'), null);
+  assert.equal(cleanArticleUrl('not a url'), null);
+  assert.equal(cleanArticleUrl(42), null);
+  assert.equal(cleanArticleUrl('https://x.com/' + 'a'.repeat(700)), null);
 });

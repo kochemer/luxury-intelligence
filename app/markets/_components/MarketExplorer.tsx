@@ -7,6 +7,7 @@
  */
 
 import { useState } from 'react';
+import { countArticleClick } from '@/lib/analytics/beacon';
 import type { MarketBrandRow, MarketMove, MarketPrice } from '@/lib/markets/types';
 import { CoverageSpark, PriceSpark, MoveChip, formatDay, formatPct } from './format';
 
@@ -26,7 +27,13 @@ function Move({ m }: { m: MarketMove }) {
       <span className="font-semibold text-[14px]">{m.brand}</span>
       <span className="col-start-2 md:col-start-auto"><MoveChip type={m.type} /></span>
       <span className="col-span-2 md:col-span-1 min-w-0">
-        <a href={m.url} target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)]">{m.title}</a>{' '}
+        <a
+          href={m.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => countArticleClick({ url: m.url, title: m.title, source: m.source })}
+          onAuxClick={e => { if (e.button === 1) countArticleClick({ url: m.url, title: m.title, source: m.source }); }}
+          className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)]">{m.title}</a>{' '}
         <span className="text-[12px] text-[var(--color-text-secondary)]">
           · {m.source}{m.outlets > 1 ? ` and ${m.outlets - 1} other${m.outlets > 2 ? 's' : ''}` : ''}
         </span>

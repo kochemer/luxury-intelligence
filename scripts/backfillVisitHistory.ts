@@ -12,22 +12,24 @@
  *
  * Idempotent: replaces the whole range each run. Run in CI (the
  * backfill-visit-history workflow) or locally:
- *   npx tsx scripts/backfillVisitHistory.ts [--from=2026-03-01]
+ *   npx tsx scripts/backfillVisitHistory.ts [--from=2026-01-01]
  */
 
 import { loadEnv } from '../lib/env';
 loadEnv();
 
+import { readFileSync, readdirSync } from 'node:fs';
+import path from 'node:path';
 import { sql } from 'drizzle-orm';
 import { getDb } from '../lib/db';
-import { visitHistory } from '../lib/db/schema';
+import { visitHistory, articleClicks } from '../lib/db/schema';
 import { segmentDaily, HUMAN_FILTERS, classifyReferrer } from '../seo/analytics/visitors';
-import { HISTORY_END, deviceFromAmplitude } from '../lib/analytics/visits';
+import { HISTORY_END, deviceFromAmplitude, cleanArticleUrl } from '../lib/analytics/visits';
 
 type Row = { day: string; dim: string; value: string; n: number };
 
 async function main() {
-  const from = process.argv.find(a => a.startsWith('--from='))?.split('=')[1] ?? '2026-03-01';
+  const from = process.argv.find(a => a.startsWith('--from='))?.split('=')[1] ?? '2026-01-01';
   const window = { start: new Date(`${from}T00:00:00Z`), end: new Date(`${HISTORY_END}T00:00:00Z`) };
   console.log(`[backfill] Amplitude ${from} → ${HISTORY_END}`);
 
@@ -80,6 +82,49 @@ async function main() {
     byDevice.days.forEach((day, i) => add(day, 'device', deviceFromAmplitude(g.label), g.values[i] ?? 0));
   }
 
+  // ── Article clicks ──────────────────────────────────────────────────────
+  // Two sources, which don't overlap in time: Amplitude's automatic click
+  // capture (Jan–Mar 2026, every visitor, outbound hrefs) and the site's own
+  // article_click event (from May, consenting readers only, by article id).
+  // Titles and publishers come from the digests.
+  const articles = loadDigestArticles();
+  const clicks = new Map<string, { day: string; url: string; title: string; source: string; n: number }>();
+  const addClick = (day: string, url: string, n: number) => {
+    const clean = cleanArticleUrl(url);
+    if (!clean || !n) return;
+    const meta = articles.byUrl.get(clean) ?? articles.byUrl.get(url);
+    const key = `${day}|${clean}`;
+    const c = clicks.get(key);
+    if (c) c.n += n;
+    else clicks.set(key, { day, url: clean, title: meta?.title ?? '', source: meta?.source ?? '', n });
+  };
+
+  const autoClicks = (await segmentDaily(window, {
+    eventType: '[Amplitude] Element Clicked', metric: 'totals', filters: HUMAN_FILTERS,
+    groupBy: '[Amplitude] Element Href', groupType: 'event',
+  }))!;
+  for (const g of autoClicks.groups) {
+    if (g.label.includes('*****')) continue; // masked by Amplitude
+    autoClicks.days.forEach((day, i) => addClick(day, g.label, g.values[i] ?? 0));
+  }
+
+  const ownClicks = (await segmentDaily(window, {
+    eventType: 'article_click', metric: 'totals', filters: HUMAN_FILTERS, groupBy: 'article_id', groupType: 'event',
+  }))!;
+  for (const g of ownClicks.groups) {
+    const meta = articles.byId.get(g.label);
+    if (!meta) continue;
+    ownClicks.days.forEach((day, i) => addClick(day, meta.url, g.values[i] ?? 0));
+  }
+
+  const clickRows = [...clicks.values()];
+  await getDb().execute(sql`delete from article_clicks where day between ${from}::date and ${HISTORY_END}::date`);
+  for (let i = 0; i < clickRows.length; i += 500) {
+    await getDb().insert(articleClicks).values(clickRows.slice(i, i + 500));
+  }
+  console.log(`[backfill] article clicks: ${clickRows.reduce((s, c) => s + c.n, 0)} on ${new Set(clickRows.map(c => c.url)).size} articles` +
+    ` (${clickRows.filter(c => !c.title).length} rows without a digest title)`);
+
   const all = [...rows.values()];
   const db = getDb();
   await db.execute(sql`delete from visit_history where day between ${from}::date and ${HISTORY_END}::date`);
@@ -90,6 +135,32 @@ async function main() {
   const totals = new Map<string, number>();
   for (const r of all) totals.set(r.dim, (totals.get(r.dim) ?? 0) + r.n);
   console.log(`[backfill] wrote ${all.length} rows:`, Object.fromEntries(totals));
+}
+
+interface ArticleMeta { url: string; title: string; source: string }
+
+/** Every article in data/digests, by id and by URL. */
+function loadDigestArticles(): { byId: Map<string, ArticleMeta>; byUrl: Map<string, ArticleMeta> } {
+  const byId = new Map<string, ArticleMeta>();
+  const byUrl = new Map<string, ArticleMeta>();
+  const dir = path.join(process.cwd(), 'data', 'digests');
+  const walk = (o: unknown): void => {
+    if (Array.isArray(o)) { o.forEach(walk); return; }
+    if (!o || typeof o !== 'object') return;
+    const r = o as Record<string, unknown>;
+    if (typeof r.url === 'string' && typeof r.title === 'string') {
+      const meta = { url: r.url, title: r.title, source: typeof r.source === 'string' ? r.source : '' };
+      if (typeof r.id === 'string') byId.set(r.id, meta);
+      byUrl.set(r.url, meta);
+      const clean = cleanArticleUrl(r.url);
+      if (clean) byUrl.set(clean, meta);
+    }
+    Object.values(r).forEach(walk);
+  };
+  for (const f of readdirSync(dir).filter(f => f.endsWith('.json'))) {
+    walk(JSON.parse(readFileSync(path.join(dir, f), 'utf8')));
+  }
+  return { byId, byUrl };
 }
 
 main().catch(err => {

@@ -121,9 +121,9 @@ Module-level detail, artifacts and caches: `docs/pipeline.md`.
 
 ### Database
 
-Neon Postgres via Drizzle ORM. Schema at `lib/db/schema.ts`, four tables:
+Neon Postgres via Drizzle ORM. Schema at `lib/db/schema.ts`, five tables:
 `subscribers` (`plan_type` enum `none | free | supporter_monthly | patron_monthly`, plus Stripe fields),
-`page_hits` (cookieless visit counter), `analytics_salts` (daily salt for the visitor hash, deleted after a day) and `visit_history` (daily visit totals imported once from Amplitude for the days before the counter, via `scripts/backfillVisitHistory.ts` / the `backfill-visit-history` workflow). Run `loadEnv()` from `lib/env.ts` before accessing `DATABASE_URL` in scripts (handles Windows UTF-16 `.env.local` encoding).
+`page_hits` (cookieless visit counter), `analytics_salts` (daily salt for the visitor hash, deleted after a day) and `visit_history` (daily visit totals imported once from Amplitude for the days before the counter, via `scripts/backfillVisitHistory.ts` / the `backfill-visit-history` workflow) and `article_clicks` (anonymous per-day, per-article click counts from `/api/click`, plus imported Amplitude history). Run `loadEnv()` from `lib/env.ts` before accessing `DATABASE_URL` in scripts (handles Windows UTF-16 `.env.local` encoding).
 
 ### Routing & i18n
 
@@ -253,6 +253,8 @@ See `docs/README.md` §4 for how they relate.
   (`app/components/AmplitudeInit.tsx`, `lib/analytics/consent.ts`). Don't add
   anything that loads a third-party tracker or writes browser storage before
   `getAnalyticsConsent()` is true. Privacy notice: `/about#privacy`.
+- Outbound article clicks are counted the same way: `countArticleClick` (`lib/analytics/beacon.ts`) →
+  `/api/click` → `article_clicks` (day + article only, nothing about the reader).
 - Every visit is counted without cookies by `VisitCounter` → `/api/hit` →
   `page_hits` (`lib/analytics/visits.ts`). No IPs stored; the visitor hash
   uses a daily salt that is deleted after a day.

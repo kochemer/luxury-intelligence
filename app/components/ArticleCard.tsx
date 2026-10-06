@@ -2,6 +2,7 @@
 
 import { formatDisplayDate } from '@/lib/utils/formatDisplayDate';
 import { track } from '@/lib/analytics';
+import { countArticleClick } from '@/lib/analytics/beacon';
 import type { Locale } from '@/lib/i18n/types';
 
 type ArticleCardProps = {
@@ -47,7 +48,10 @@ export default function ArticleCard({
     hostname = undefined;
   }
 
-  const handleOutboundClick = () => {
+  const handleOutboundClick = (e: React.MouseEvent) => {
+    // Left click and middle click (new tab) both open the article.
+    if (e.type === 'auxclick' && e.button !== 1) return;
+    countArticleClick({ url, title, source });
     if (article_id != null || article_rank != null || category != null) {
       let source_domain: string | undefined;
       source_domain = hostname;
@@ -78,6 +82,7 @@ export default function ArticleCard({
     target: '_blank',
     rel: 'noopener noreferrer' as const,
     onClick: handleOutboundClick,
+    onAuxClick: handleOutboundClick,
   };
 
   if (variant === 'featured') {
