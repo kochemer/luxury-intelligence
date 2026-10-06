@@ -96,8 +96,8 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
         const byDay = new Map(cur.value.daily.map(d => [d.day, d]));
         return eachDay(visitRange.current).map(day => {
           const d = byDay.get(day);
-          // Page views were only recorded from the counter's start (Amplitude
-          // didn't capture them for visitors who hadn't consented).
+          // Page views exist for 3 Mar–15 Apr (Amplitude auto-capture) and from
+          // the counter's start; nothing recorded them in between.
           const pvKnown = d?.pageviews != null || (!!counterStart && day >= counterStart);
           return { day, visitors: d?.visitors ?? 0, pageviews: pvKnown ? d?.pageviews ?? 0 : null };
         });
@@ -152,7 +152,7 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
             />
             {pageviewsPartial && counterStart && (
               <p className="text-[12px] text-[var(--color-text-secondary)] mt-2">
-                Page views start {fmtDate(counterStart)}: before that they were only recorded for visitors who accepted cookies.
+                No page-view data for the blank days: Amplitude stopped recording page views for every visitor on 15 Apr, and the counter took over on {fmtDate(counterStart)}.
               </p>
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
