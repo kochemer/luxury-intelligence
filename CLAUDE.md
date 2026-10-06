@@ -121,9 +121,9 @@ Module-level detail, artifacts and caches: `docs/pipeline.md`.
 
 ### Database
 
-Neon Postgres via Drizzle ORM. Schema at `lib/db/schema.ts`, three tables:
+Neon Postgres via Drizzle ORM. Schema at `lib/db/schema.ts`, four tables:
 `subscribers` (`plan_type` enum `none | free | supporter_monthly | patron_monthly`, plus Stripe fields),
-`page_hits` (cookieless visit counter) and `analytics_salts` (daily salt for the visitor hash, deleted after a day). Run `loadEnv()` from `lib/env.ts` before accessing `DATABASE_URL` in scripts (handles Windows UTF-16 `.env.local` encoding).
+`page_hits` (cookieless visit counter), `analytics_salts` (daily salt for the visitor hash, deleted after a day) and `visit_history` (daily visit totals imported once from Amplitude for the days before the counter, via `scripts/backfillVisitHistory.ts` / the `backfill-visit-history` workflow). Run `loadEnv()` from `lib/env.ts` before accessing `DATABASE_URL` in scripts (handles Windows UTF-16 `.env.local` encoding).
 
 ### Routing & i18n
 

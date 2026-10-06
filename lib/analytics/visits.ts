@@ -135,13 +135,38 @@ export async function recordHit(input: HitInput): Promise<boolean> {
 
 export interface Range { start: string; end: string } // inclusive YYYY-MM-DD
 
+/**
+ * Last day of Amplitude history in visit_history (see
+ * scripts/backfillVisitHistory.ts). Readers add it to the counter's numbers.
+ */
+export const HISTORY_END = '2026-10-05';
+
+/** Amplitude's device_type ("Apple iPhone", "Windows", "Apple iPad"...) as the counter's classes. */
+export function deviceFromAmplitude(deviceType: string): 'mobile' | 'tablet' | 'desktop' {
+  if (/ipad|tablet|tab/i.test(deviceType)) return 'tablet';
+  if (/iphone|android|mobile|phone|pixel|galaxy|samsung|xiaomi|huawei|oneplus|motorola|oppo|vivo/i.test(deviceType)) return 'mobile';
+  return 'desktop';
+}
+
+const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+/** The counter stores ISO codes, Amplitude stored names; show names for both. */
+export function countryName(code: string): string {
+  if (!/^[A-Z]{2}$/.test(code)) return code === '??' ? 'Unknown' : code;
+  try {
+    return regionNames.of(code) ?? code;
+  } catch {
+    return code;
+  }
+}
+
 export interface VisitStats {
   range: Range;
   /** Sum of daily unique visitors. */
   visitors: number;
   pageviews: number;
   botsExcluded: number;
-  daily: Array<{ day: string; visitors: number; pageviews: number }>;
+  /** pageviews is null on days nothing recorded them (before the counter, unless Amplitude had them). */
+  daily: Array<{ day: string; visitors: number; pageviews: number | null }>;
   channels: Array<{ name: string; visitors: number }>;
   referrers: Array<{ name: string; visitors: number }>;
   pages: Array<{ name: string; pageviews: number }>;
@@ -152,43 +177,89 @@ export interface VisitStats {
 type Row = Record<string, unknown>;
 const num = (v: unknown) => Number(v ?? 0);
 
+function topList(m: Map<string, number>, limit = 15): Array<{ name: string; visitors: number }> {
+  return [...m.entries()]
+    .filter(([, n]) => n > 0)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([name, visitors]) => ({ name, visitors }));
+}
+
+/**
+ * Everything for a period: the cookieless counter plus, for days up to
+ * HISTORY_END, the history imported from Amplitude. Both count a person once
+ * per day, so they add up.
+ */
 export async function getVisitStats(range: Range): Promise<VisitStats> {
   const db = getDb();
   const within = sql`day between ${range.start}::date and ${range.end}::date`;
   const human = sql`${within} and not bot`;
 
-  const [daily, bots, channels, referrers, pages, countries, devices] = await Promise.all([
+  const [daily, bots, channels, referrers, pages, countries, devices, history] = await Promise.all([
     db.execute(sql`select day::text as day, count(distinct visitor) as visitors, count(*) as pageviews
       from page_hits where ${human} group by day order by day`),
     db.execute(sql`select count(*) as n from page_hits where ${within} and bot`),
     db.execute(sql`select channel as name, count(distinct (day, visitor)) as visitors
-      from page_hits where ${human} and entry and channel is not null group by channel order by 2 desc`),
+      from page_hits where ${human} and entry and channel is not null group by channel`),
     db.execute(sql`select referrer as name, count(distinct (day, visitor)) as visitors
-      from page_hits where ${human} and entry and referrer is not null group by referrer order by 2 desc limit 15`),
+      from page_hits where ${human} and entry and referrer is not null group by referrer`),
     db.execute(sql`select path as name, count(*) as pageviews
       from page_hits where ${human} group by path order by 2 desc limit 15`),
     db.execute(sql`select coalesce(country, '??') as name, count(distinct (day, visitor)) as visitors
-      from page_hits where ${human} group by 1 order by 2 desc limit 15`),
+      from page_hits where ${human} group by 1`),
     db.execute(sql`select coalesce(device, 'unknown') as name, count(distinct (day, visitor)) as visitors
-      from page_hits where ${human} group by 1 order by 2 desc`),
+      from page_hits where ${human} group by 1`),
+    db.execute(sql`select day::text as day, dim, value, n from visit_history where ${within}`),
   ]);
 
-  const dailyRows = (daily.rows as Row[]).map(r => ({
-    day: String(r.day), visitors: num(r.visitors), pageviews: num(r.pageviews),
-  }));
-  const named = (rows: Row[]) => rows.map(r => ({ name: String(r.name), visitors: num(r.visitors) }));
+  const dayMap = new Map<string, { visitors: number; pageviews: number | null }>();
+  const dayEntry = (day: string) => {
+    let d = dayMap.get(day);
+    if (!d) dayMap.set(day, d = { visitors: 0, pageviews: null });
+    return d;
+  };
+  for (const r of daily.rows as Row[]) {
+    const d = dayEntry(String(r.day));
+    d.visitors += num(r.visitors);
+    d.pageviews = (d.pageviews ?? 0) + num(r.pageviews);
+  }
+
+  const merged = {
+    channel: new Map<string, number>(),
+    referrer: new Map<string, number>(),
+    country: new Map<string, number>(),
+    device: new Map<string, number>(),
+  };
+  const bump = (m: Map<string, number>, k: string, n: number) => m.set(k, (m.get(k) ?? 0) + n);
+  for (const r of channels.rows as Row[]) bump(merged.channel, String(r.name), num(r.visitors));
+  for (const r of referrers.rows as Row[]) bump(merged.referrer, String(r.name), num(r.visitors));
+  for (const r of countries.rows as Row[]) bump(merged.country, countryName(String(r.name)), num(r.visitors));
+  for (const r of devices.rows as Row[]) bump(merged.device, String(r.name), num(r.visitors));
+
+  let historyBots = 0;
+  for (const r of history.rows as Row[]) {
+    const day = String(r.day), dim = String(r.dim), value = String(r.value), n = num(r.n);
+    if (dim === 'visitors') dayEntry(day).visitors += n;
+    else if (dim === 'pageviews') { const d = dayEntry(day); d.pageviews = (d.pageviews ?? 0) + n; }
+    else if (dim === 'bots') historyBots += n;
+    else if (dim in merged) bump(merged[dim as keyof typeof merged], value, n);
+  }
+
+  const dailyRows = [...dayMap.entries()]
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([day, d]) => ({ day, ...d }));
 
   return {
     range,
     visitors: dailyRows.reduce((s, d) => s + d.visitors, 0),
-    pageviews: dailyRows.reduce((s, d) => s + d.pageviews, 0),
-    botsExcluded: num((bots.rows[0] as Row | undefined)?.n),
+    pageviews: dailyRows.reduce((s, d) => s + (d.pageviews ?? 0), 0),
+    botsExcluded: num((bots.rows[0] as Row | undefined)?.n) + historyBots,
     daily: dailyRows,
-    channels: named(channels.rows as Row[]),
-    referrers: named(referrers.rows as Row[]),
+    channels: topList(merged.channel),
+    referrers: topList(merged.referrer),
     pages: (pages.rows as Row[]).map(r => ({ name: String(r.name), pageviews: num(r.pageviews) })),
-    countries: named(countries.rows as Row[]),
-    devices: named(devices.rows as Row[]),
+    countries: topList(merged.country),
+    devices: topList(merged.device),
   };
 }
 

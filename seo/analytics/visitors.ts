@@ -122,6 +122,7 @@ async function segmentation(
     end: ymd(window.end),
     i: '1',
   });
+  if (options.groupBy) params.set('limit', '1000');
   const res = await fetch(`${cfg.base}/events/segmentation?${params}`, {
     headers: { Authorization: cfg.auth },
     signal: AbortSignal.timeout(30_000),
@@ -187,42 +188,22 @@ export async function getVisitorSummary(now = new Date()): Promise<VisitorSummar
 }
 
 /**
- * Totals of the site's own events over a window, plus how many (consenting,
- * bot-filtered) people were active. For the private /analytics page. Null
- * without a secret key; throws on API errors.
+ * One Amplitude series per group, per day. Used once, by
+ * scripts/backfillVisitHistory.ts, to copy the history from before the
+ * cookieless counter into the database. Null without a secret key.
  */
-export async function getEventTotals(
-  events: readonly string[],
+export async function segmentDaily(
   window: { start: Date; end: Date },
-): Promise<{ people: number; events: Array<{ event: string; total: number }> } | null> {
+  options: { filters?: unknown[]; groupBy?: string; eventType?: string; metric?: 'uniques' | 'totals' } = {},
+): Promise<{ days: string[]; groups: Array<{ label: string; values: number[] }> } | null> {
   const cfg = getConfig();
   if (!cfg) return null;
-  // Sequential for the same rate-limit reason as above.
-  const people = collapsedTotal(await segmentation(cfg, window, { filters: HUMAN_FILTERS }));
-  const totals: Array<{ event: string; total: number }> = [];
-  for (const event of events) {
-    try {
-      const data = await segmentation(cfg, window, { eventType: event, metric: 'totals' });
-      totals.push({ event, total: collapsedTotal(data) });
-    } catch (err) {
-      // Amplitude rejects an event type it has never received; that's a zero.
-      if (err instanceof Error && /Invalid chart definition/.test(err.message)) totals.push({ event, total: 0 });
-      else throw err;
-    }
-  }
-  return { people, events: totals };
-}
-
-/**
- * Bot-filtered people per day, for the /analytics chart's history before the
- * cookieless counter existed (until 2026-10-05 Amplitude saw every visitor).
- * Null without a secret key; throws on API errors.
- */
-export async function getDailyPeople(
-  window: { start: Date; end: Date },
-): Promise<Array<{ day: string; people: number }> | null> {
-  const cfg = getConfig();
-  if (!cfg) return null;
-  const data = await segmentation(cfg, window, { filters: HUMAN_FILTERS });
-  return (data.xValues ?? []).map((day, i) => ({ day: day.slice(0, 10), people: data.series[0]?.[i] ?? 0 }));
+  const data = await segmentation(cfg, window, options);
+  return {
+    days: (data.xValues ?? []).map(d => d.slice(0, 10)),
+    groups: data.series.map((values, i) => {
+      const label = data.seriesLabels[i];
+      return { label: Array.isArray(label) ? String(label[1]) : String(label ?? ''), values };
+    }),
+  };
 }

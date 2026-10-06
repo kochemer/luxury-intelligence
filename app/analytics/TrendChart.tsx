@@ -12,7 +12,6 @@ export interface TrendSeries {
   right?: boolean;
   /** Smaller is better (e.g. search position): flips the axis. */
   reversed?: boolean;
-  dashed?: boolean;
 }
 
 const fmtDay = (d: string) => {
@@ -66,8 +65,6 @@ export default function TrendChart({
               name={s.label}
               stroke={s.color}
               strokeWidth={2}
-              strokeDasharray={s.dashed ? '5 4' : undefined}
-              strokeOpacity={s.dashed ? 0.6 : 1}
               // Dots on short ranges, and always when a series has few points
               // (a single point would otherwise be invisible).
               dot={data.length <= 31 || points(s.key) <= 3 ? { r: data.length <= 31 ? 2.5 : 3 } : false}

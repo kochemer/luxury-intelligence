@@ -1,0 +1,30 @@
+name: Backfill visit history
+
+# One-off (re-runnable): copies Amplitude's daily visit history up to the
+# consent change into visit_history, for the /analytics page. Manual only.
+on:
+  workflow_dispatch:
+    inputs:
+      from:
+        description: 'First day to import (YYYY-MM-DD)'
+        default: '2026-03-01'
+
+permissions:
+  contents: read
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - name: Import history
+        env:
+          AMPLITUDE_SECRET_KEY: ${{ secrets.AMPLITUDE_SECRET_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: npx tsx scripts/backfillVisitHistory.ts --from=${{ inputs.from }}

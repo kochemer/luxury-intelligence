@@ -5,7 +5,7 @@
 
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
-import { isBotUserAgent, deviceFromUserAgent, referrerDomain, cleanPath, lastDays } from '../lib/analytics/visits';
+import { isBotUserAgent, deviceFromUserAgent, referrerDomain, cleanPath, lastDays, daysEndingToday, eachDay, deviceFromAmplitude, countryName } from '../lib/analytics/visits';
 import { visitorsNote, visitorsSourceNote } from '../seo/report/weeklyEmail';
 import type { VisitorSummary } from '../seo/types';
 
@@ -76,4 +76,23 @@ test('email: counter numbers explain themselves, including a partial first week'
   assert.match(visitorsSourceNote({ ...BASE, countingSince: '2026-10-05' }), /cookieless counter.*Counting began 2026-10-05/);
   assert.match(visitorsSourceNote({ ...BASE, source: undefined }), /only sees visitors who accepted cookies/);
   assert.equal(visitorsNote({ ...BASE, previousPeople: 10 }), '+2 vs prior week · 3 bots filtered out');
+});
+
+test('history from Amplitude maps onto the counter device classes and country names', () => {
+  assert.equal(deviceFromAmplitude('Apple iPhone'), 'mobile');
+  assert.equal(deviceFromAmplitude('Samsung Galaxy S23'), 'mobile');
+  assert.equal(deviceFromAmplitude('Apple iPad'), 'tablet');
+  assert.equal(deviceFromAmplitude('Windows'), 'desktop');
+  assert.equal(deviceFromAmplitude('Mac'), 'desktop');
+  assert.equal(countryName('DK'), 'Denmark');
+  assert.equal(countryName('??'), 'Unknown');
+  assert.equal(countryName('Denmark'), 'Denmark', 'Amplitude names pass through');
+});
+
+test('live ranges end today; every day in a range is listed', () => {
+  const { current, previous } = daysEndingToday(7, new Date('2026-10-06T09:00:00Z'));
+  assert.deepEqual(current, { start: '2026-09-30', end: '2026-10-06' });
+  assert.deepEqual(previous, { start: '2026-09-23', end: '2026-09-29' });
+  assert.equal(eachDay(current).length, 7);
+  assert.equal(eachDay(current)[6], '2026-10-06');
 });

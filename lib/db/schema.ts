@@ -8,6 +8,8 @@ import {
   bigserial,
   date,
   index,
+  integer,
+  primaryKey,
 } from 'drizzle-orm/pg-core';
 
 // ── Enums ─────────────────────────────────────────────────────────────────────
@@ -81,6 +83,18 @@ export const analyticsSalts = pgTable('analytics_salts', {
   day:  date('day').primaryKey(),
   salt: text('salt').notNull(),
 });
+
+// Daily visit history from before the counter existed, imported once from
+// Amplitude (which saw every visitor until the consent change on 2026-10-05).
+// One row per day x dimension x value, e.g. (2026-09-20, 'country', 'Denmark', 2).
+// Dimensions: visitors, bots, pageviews, channel, referrer, country, device.
+// Written by scripts/backfillVisitHistory.ts; read by lib/analytics/visits.ts.
+export const visitHistory = pgTable('visit_history', {
+  day:   date('day').notNull(),
+  dim:   text('dim').notNull(),
+  value: text('value').notNull().default(''),
+  n:     integer('n').notNull(),
+}, t => [primaryKey({ columns: [t.day, t.dim, t.value] })]);
 
 // ── Inferred TypeScript types ─────────────────────────────────────────────────
 

@@ -22,6 +22,7 @@ Facts are as of 2026-10-05 unless dated otherwise.
 | `seo-monitor.yml` | Daily 07:00 | Detects outages; emails only on change; can roll back and open repair PRs |
 | `subscriber-sweep.yml` | Daily 03:17 | Subscriber cleanup (uses `DATABASE_URL` secret) |
 | `docs-check.yml` | Every push / PR | `scripts/checkDocs.mjs`: docs still match the code (see `docs/README.md` §6) |
+| `backfill-visit-history.yml` | Manual only | One-off, re-runnable: imports Amplitude's daily visit history (up to the 2026-10-05 consent change) into `visit_history` for the `/analytics` page. Uses `AMPLITUDE_SECRET_KEY` + `DATABASE_URL` |
 
 ## Build
 
