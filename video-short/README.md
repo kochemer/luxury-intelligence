@@ -66,5 +66,25 @@ Output (gitignored): `data/weeks/<week>/video-short/` (mp4s, `script.json`,
   900 px to the right showed a sliver at the edge for seconds. Use a fade plus
   a short slide.
 
+## Explainer: "How Luxury Intel works" (2026-10-07)
+
+A one-off ~2-minute landscape video explaining the whole project (ingestion,
+classification, ranking, digest, web + Android app, Markets, GitHub Actions →
+Vercel, SEO/GEO, analytics). Not tied to a week, not published.
+
+```bash
+npx tsx video-short/explainer/run.ts --preview   # free: one frame per scene
+npx tsx video-short/explainer/run.ts             # voice + render (~$0.06 for new lines)
+```
+
+- Narration and on-screen text are hand-written in `explainer/scenes.json`.
+  **Check every claim against the code before re-rendering**: the first cut
+  (2026-10-07) followed stale docs on classification.
+- `explainer/template.html` is its own diagram template; voice and budget reuse
+  `src/voice.ts` and `src/budget.ts`.
+- Output, voice cache and spend ledger: `explainer/out/` (gitignored). The
+  current render is `explainer/out/luxury-intel-how-it-works.mp4`. Unchanged
+  lines are cached, so re-voicing only pays for edited ones.
+
 Reference cost: W39 = $0.28 for the first full run; about $0.18 per script
 rewrite + voice after that. W39 total after three rounds of changes: $0.62.

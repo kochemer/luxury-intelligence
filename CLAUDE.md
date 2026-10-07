@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Luxury Intelligence** (`luxury-intel.com`) — a Next.js 16 / React 19 weekly digest site for luxury, e-commerce, and retail-tech news. It ingests RSS feeds and web pages, classifies and ranks articles with OpenAI, builds JSON digest files, renders them as a PWA with Tailwind CSS v4, and distributes content via email (Resend) and a podcast (ElevenLabs if its key works, otherwise OpenAI `tts-1`; the owner is moving off ElevenLabs). Subscribers and payments are managed through a Neon Postgres DB (Drizzle ORM) and Stripe.
+**Luxury Intelligence** (`luxury-intel.com`) — a Next.js 16 / React 19 weekly digest site for luxury, e-commerce, and retail-tech news. It ingests RSS feeds and web pages, classifies articles with source + keyword rules, ranks them with OpenAI, builds JSON digest files, renders them as a PWA with Tailwind CSS v4, and distributes content via email (Resend) and a podcast (ElevenLabs if its key works, otherwise OpenAI `tts-1`; the owner is moving off ElevenLabs). Subscribers and payments are managed through a Neon Postgres DB (Drizzle ORM) and Stripe.
 
 ## Documentation rules
 
@@ -61,6 +61,7 @@ npx drizzle-kit migrate    # Apply migrations
 
 # Weekly 60s short (separate package, see video-short/README.md; $2/week cap)
 npx tsx video-short/src/run.ts --week=YYYY-Www
+npx tsx video-short/explainer/run.ts   # one-off ~2 min "how it works" explainer (same README)
 
 # Older video pipeline (scripts/ + video/)
 npm run video:plan && npm run video:render && npm run video:wait && npm run video:captions && npm run video:final && npm run video:compose
@@ -97,7 +98,7 @@ Module-level detail, artifacts and caches: `docs/pipeline.md`.
 | `pipeline/` | `runWeeklyPipeline.ts` orchestrates all weekly steps; `checks/` = content-quality gates. `competitorAnalyze.ts` is unused since 2026-10-04 (delete after a few weeks) |
 | `ingestion/` | RSS (`fetchRss.ts`) and page (`fetchPages.ts`) scrapers |
 | `discovery/` | Article candidate scoring/discovery logic |
-| `classification/` | OpenAI-powered topic classification |
+| `classification/` | Rule-based topic classification, no LLM: source overrides, then keywords; no match = dropped (since 2026-09-16) |
 | `digest/` | Digest builder — ranks, selects, and writes JSON |
 | `email/` | Resend email rendering + delivery |
 | `podcast/` | Podcast script + TTS (ElevenLabs, falls back to OpenAI `tts-1`); feed at `/podcast/feed.xml` |

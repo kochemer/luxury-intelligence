@@ -1,0 +1,386 @@
+[
+  {
+    "vo": "This is Luxury Intel, a weekly briefing on luxury, retail tech, jewellery and AI. Here's how it works, in two minutes.",
+    "visual": {
+      "kind": "intro",
+      "kicker": "How it works",
+      "title": "Luxury Intel",
+      "sub": "From a hundred sources to seven stories per topic, every week."
+    }
+  },
+  {
+    "vo": "Every Sunday one pipeline runs. Ingest, discover, classify, rank, build, publish. No hand-picking.",
+    "visual": {
+      "kind": "flow",
+      "kicker": "The pipeline",
+      "heading": "One automated run, every Sunday",
+      "steps": [
+        {
+          "h": "Ingest",
+          "p": "RSS + pages"
+        },
+        {
+          "h": "Discover",
+          "p": "web search"
+        },
+        {
+          "h": "Classify",
+          "p": "4 topics"
+        },
+        {
+          "h": "Rank",
+          "p": "score + LLM"
+        },
+        {
+          "h": "Build",
+          "p": "digest JSON"
+        },
+        {
+          "h": "Publish",
+          "p": "web, app, email, podcast"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "Ingestion pulls about a hundred RSS feeds and scraped pages, from WWD to JCK. A GitHub Action polls them every morning, and sites that block bots come in through Bing News.",
+    "visual": {
+      "kind": "cards",
+      "kicker": "01 · Ingest",
+      "heading": "Where articles come from",
+      "items": [
+        {
+          "h": "~100 sources",
+          "p": "RSS feeds and scraped pages: WWD, Vogue Business, JCK, Rapaport, Hodinkee…"
+        },
+        {
+          "h": "Polled daily",
+          "p": "GitHub Action, Mon–Sat, buffered and merged on Sunday"
+        },
+        {
+          "h": "Bing News proxies",
+          "p": "For outlets that block bots or have no feed"
+        },
+        {
+          "h": "One article pool",
+          "p": "data/articles.json, deduplicated by URL"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "Discovery fills the gaps. OpenAI writes search queries, Tavily searches the web, and the best finds join the pool.",
+    "visual": {
+      "kind": "flow",
+      "kicker": "02 · Discover",
+      "heading": "Finding what the feeds missed",
+      "steps": [
+        {
+          "h": "Queries",
+          "p": "OpenAI, per topic"
+        },
+        {
+          "h": "Search",
+          "p": "Tavily web search"
+        },
+        {
+          "h": "Extract",
+          "p": "fetch + parse"
+        },
+        {
+          "h": "Select",
+          "p": "LLM picks the best"
+        },
+        {
+          "h": "Merge",
+          "p": "into the pool"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "Each article then gets one of four topics, by rules, not AI. A specialist outlet decides first, so a jewellery trade paper means jewellery. Otherwise keywords decide. No match, and the article is dropped.",
+    "visual": {
+      "kind": "cards",
+      "kicker": "03 · Classify",
+      "heading": "Four topics, by rules, not AI",
+      "items": [
+        {
+          "h": "1 · Source first",
+          "p": "specialist jewellery, retail and fashion outlets set the topic"
+        },
+        {
+          "h": "2 · Then keywords",
+          "p": "title and summary, whole-word matches for short terms"
+        },
+        {
+          "h": "3 · Priority",
+          "p": "AI › Ecommerce › Luxury › Jewellery"
+        },
+        {
+          "h": "4 · No match, dropped",
+          "p": "off-topic articles leave the pool (since Sep 2026)"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "To rank, a score of source weight plus keyword and data signals minus a sponsored penalty keeps a hundred candidates per topic. The top eighteen go to GPT 4.1, which picks the final seven.",
+    "visual": {
+      "kind": "funnel",
+      "kicker": "04 · Rank",
+      "heading": "How seven stories get picked, per topic",
+      "rows": [
+        {
+          "n": "150–300",
+          "label": "Articles in the topic this week"
+        },
+        {
+          "n": "100",
+          "label": "Kept by score: source + keywords + data signals − sponsored"
+        },
+        {
+          "n": "18",
+          "label": "Sent to GPT-4.1, max 4 per source"
+        },
+        {
+          "n": "7",
+          "label": "Published, max 3 per source"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "Then the digest gets written. Summaries, Spanish and Danish translations, themes and an editor's take, all checked by a quality gate.",
+    "visual": {
+      "kind": "cards",
+      "kicker": "05 · Build",
+      "heading": "Writing the digest",
+      "items": [
+        {
+          "h": "Summaries",
+          "p": "one per selected article"
+        },
+        {
+          "h": "ES + DA",
+          "p": "translated titles and summaries"
+        },
+        {
+          "h": "Themes",
+          "p": "one-sentence summary + key themes"
+        },
+        {
+          "h": "Editor's take",
+          "p": "three short paragraphs"
+        },
+        {
+          "h": "Quality gate",
+          "p": "fails the run if something's missing"
+        },
+        {
+          "h": "Saved as JSON",
+          "p": "data/digests/2026-W40.json"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "The same file feeds a podcast, an AI cover image, and the Sunday email, sent with Resend to subscribers in Neon Postgres. Stripe handles paid tiers.",
+    "visual": {
+      "kind": "hub",
+      "kicker": "06 · Publish",
+      "heading": "One file, every channel",
+      "center": "Weekly digest JSON",
+      "items": [
+        {
+          "h": "Website + app",
+          "p": "Next.js pages, EN / ES / DA"
+        },
+        {
+          "h": "Email",
+          "p": "Resend → subscribers in Neon Postgres"
+        },
+        {
+          "h": "Podcast",
+          "p": "text to speech + RSS feed"
+        },
+        {
+          "h": "Cover image",
+          "p": "generated by OpenAI"
+        },
+        {
+          "h": "Market pages",
+          "p": "luxury + jewellery"
+        },
+        {
+          "h": "Payments",
+          "p": "Stripe paid tiers"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "You can read it on the web or as an app. The site is a progressive web app, so on Android it installs to the home screen in one tap.",
+    "visual": {
+      "kind": "cards",
+      "kicker": "07 · Web + app",
+      "heading": "A website that installs as an app",
+      "items": [
+        {
+          "h": "Web",
+          "p": "Next.js 16, English, Spanish, Danish"
+        },
+        {
+          "h": "Android",
+          "p": "one-tap install, runs full screen like a native app"
+        },
+        {
+          "h": "iPhone",
+          "p": "Add to Home Screen, with a built-in guide"
+        },
+        {
+          "h": "Offline",
+          "p": "service worker + offline page"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "Two market intelligence pages track twelve luxury and twelve jewellery brands. Share of voice in our coverage, three-month share prices, and company moves sorted by GPT 4.1, with a weekly summary checked against the data.",
+    "visual": {
+      "kind": "cards",
+      "kicker": "08 · Markets",
+      "heading": "Market intelligence: luxury + jewellery",
+      "items": [
+        {
+          "h": "Share of voice",
+          "p": "articles naming each brand, last 12 weeks"
+        },
+        {
+          "h": "Share prices",
+          "p": "3-month % change, from Yahoo Finance"
+        },
+        {
+          "h": "Moves",
+          "p": "results, deals, leadership, launches, typed by GPT-4.1"
+        },
+        {
+          "h": "This week",
+          "p": "short summary, every name and number checked"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "It all runs in GitHub Actions at six a.m. UTC on Sunday. The job commits the digest to main, and every push to main deploys to Vercel.",
+    "visual": {
+      "kind": "flow",
+      "kicker": "09 · Ship",
+      "heading": "Git is the database, Vercel is the stage",
+      "steps": [
+        {
+          "h": "Cron",
+          "p": "Sun 06:00 UTC"
+        },
+        {
+          "h": "Pipeline",
+          "p": "GitHub Actions"
+        },
+        {
+          "h": "Commit",
+          "p": "digest → main"
+        },
+        {
+          "h": "Deploy",
+          "p": "Vercel builds"
+        },
+        {
+          "h": "Live",
+          "p": "luxury-intel.com"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "For SEO, a daily monitor emails when something breaks, a Sunday audit tracks Search Console, bad deploys get rolled back, and a Claude agent can propose fixes as pull requests.",
+    "visual": {
+      "kind": "cards",
+      "kicker": "10 · SEO",
+      "heading": "An SEO system that watches itself",
+      "items": [
+        {
+          "h": "Daily monitor",
+          "p": "emails only when something breaks or clears"
+        },
+        {
+          "h": "Sunday audit",
+          "p": "scored report + Search Console data"
+        },
+        {
+          "h": "Auto rollback",
+          "p": "a bad deploy gets reverted"
+        },
+        {
+          "h": "Claude repair",
+          "p": "opens a PR, never merges · 6 gates"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "For AI search there's llms dot txt, a public methodology page and linked structured data, so tools like ChatGPT can cite it.",
+    "visual": {
+      "kind": "cards",
+      "kicker": "11 · GEO",
+      "heading": "Built to be cited by AI search",
+      "items": [
+        {
+          "h": "/llms.txt",
+          "p": "a plain map of the site for language models"
+        },
+        {
+          "h": "/methodology",
+          "p": "how stories are chosen, in public"
+        },
+        {
+          "h": "JSON-LD graph",
+          "p": "one linked graph of organisation, author, articles"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "Analytics are cookieless, with no IPs stored, and Amplitude only loads after consent.",
+    "visual": {
+      "kind": "cards",
+      "kicker": "12 · Analytics",
+      "heading": "Measured without cookies",
+      "items": [
+        {
+          "h": "Visit counter",
+          "p": "cookieless, no IPs, salt deleted daily"
+        },
+        {
+          "h": "Article clicks",
+          "p": "day + article only"
+        },
+        {
+          "h": "Amplitude",
+          "p": "loads only after consent"
+        },
+        {
+          "h": "/analytics",
+          "p": "private, password-protected dashboard"
+        }
+      ]
+    }
+  },
+  {
+    "vo": "Feeds in, seven stories per topic out, every week. Read it at luxury-intel dot com.",
+    "visual": {
+      "kind": "outro",
+      "title": "Luxury Intel",
+      "sub": "luxury-intel.com"
+    }
+  }
+]
