@@ -168,6 +168,25 @@ export default function AboutPage() {
             Five stages transform ~53 live sources into your weekly intelligence brief.
           </p>
 
+          {/* 2-minute explainer, built by video-short/explainer/. preload="none":
+              nothing downloads until the reader presses play. */}
+          <figure className="mb-8">
+            <video
+              className="w-full rounded-lg border border-[var(--color-border)] bg-black"
+              controls
+              playsInline
+              preload="none"
+              poster="/video/how-it-works-poster.jpg"
+              width={1920}
+              height={1080}
+            >
+              <source src="/video/how-it-works.mp4" type="video/mp4" />
+            </video>
+            <figcaption className="text-meta text-[var(--color-text-secondary)] mt-2">
+              The whole system in two minutes: sourcing, ranking, publishing, SEO and analytics.
+            </figcaption>
+          </figure>
+
           {/* Animated pipeline diagram */}
           <PipelineDiagram />
 

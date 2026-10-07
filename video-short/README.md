@@ -70,7 +70,17 @@ Output (gitignored): `data/weeks/<week>/video-short/` (mp4s, `script.json`,
 
 A one-off ~2-minute landscape video explaining the whole project (ingestion,
 classification, ranking, digest, web + Android app, Markets, GitHub Actions →
-Vercel, SEO/GEO, analytics). Not tied to a week, not published.
+Vercel, SEO/GEO, analytics). Not tied to a week.
+
+**Published on /about since 2026-10-07** (owner's call; the weekly shorts are still
+unpublished). The site serves a compressed copy, `public/video/how-it-works.mp4`
++ `how-it-works-poster.jpg`. After re-rendering, refresh it with:
+
+```bash
+ffmpeg -i video-short/explainer/out/luxury-intel-how-it-works.mp4 -c:v libx264 -preset slow -crf 28 -tune stillimage -pix_fmt yuv420p -c:a aac -b:a 96k -movflags +faststart public/video/how-it-works.mp4
+```
+
+The video is public: keep private things (e.g. the private analytics dashboard URL) out of it.
 
 ```bash
 npx tsx video-short/explainer/run.ts --preview   # free: one frame per scene

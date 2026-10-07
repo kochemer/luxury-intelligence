@@ -53,6 +53,7 @@ const nextConfig: NextConfig = {
     '*': [
       './public/podcast/**',
       './public/weekly-images/**',
+      './public/video/**',
       // Weekly short video tool + its renders (see video-short/package.json).
       './video-short/**',
       './data/weeks/**/video-short/**',
@@ -64,6 +65,7 @@ const nextConfig: NextConfig = {
       './data/articles.json',
       './public/podcast/**',
       './public/weekly-images/**',
+      './public/video/**',
       './video-short/**',
     ],
   },
@@ -114,6 +116,7 @@ const pwaConfig = withPWA({
   publicExcludes: [
     "!podcast/**/*",
     "!weekly-images/**/*",
+    "!video/**/*",
     "!push-sw.js",
     "!icons/README.md",
     "!*.svg",

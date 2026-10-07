@@ -369,7 +369,7 @@
           "p": "loads only after consent"
         },
         {
-          "h": "/analytics",
+          "h": "Dashboard",
           "p": "private, password-protected dashboard"
         }
       ]

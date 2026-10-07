@@ -52,7 +52,7 @@ Facts are as of 2026-10-05 unless dated otherwise.
 - A deployment shown as `● Queued` in `vercel ls` may be the git deployment
   itself. Check `vercel inspect <url>` before removing it.
 - Verify a deploy landed: fetch `https://luxury-intel.com/sw.js` and check the
-  precache has 0 `.mp3` entries.
+  precache has 0 `.mp3` / `.mp4` entries.
 - **After an SEO rollback, Vercel stops deploying pushes** until someone undoes
   the rollback. If the weekly digest seems to stop publishing, check this first.
   See `docs/seo-system.md`.
@@ -87,6 +87,7 @@ future deployment.
      on the owner supplying the account/bucket/token/public URL. Only
      `podcast.json`'s `audioPath` needs to change.
   2. `public/weekly-images/*.png` (~100 MB) → WebP.
+- `public/video/how-it-works.mp4` (~6 MB, CRF 28) + poster: the About page explainer, published 2026-10-07. It is in `publicExcludes` (PWA precache) and `outputFileTracingExcludes`; the page uses `preload="none"`. Re-encode any replacement the same way (see `video-short/README.md`), never commit the 12 MB master.
 - Old deployments can be purged with `vercel remove <project> --safe --yes`
   (`--safe` keeps anything holding a live alias).
 
