@@ -55,7 +55,7 @@ export default function TrendChart({
             formatter={(v: number) => (Number.isInteger(v) ? v : v.toFixed(1))}
             contentStyle={{ fontSize: 12, borderRadius: 6, border: '1px solid #E5E7EB' }}
           />
-          <Legend wrapperStyle={{ fontSize: 12 }} />
+          {series.length > 1 && <Legend wrapperStyle={{ fontSize: 12 }} />}
           {series.map(s => (
             <Line
               key={s.key}

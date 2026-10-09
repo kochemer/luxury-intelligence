@@ -6,6 +6,7 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import { isBotUserAgent, deviceFromUserAgent, referrerDomain, cleanPath, lastDays, daysEndingToday, eachDay, deviceFromAmplitude, countryName, cleanArticleUrl } from '../lib/analytics/visits';
+import { bucketTop } from '../lib/analytics/bucketTop';
 import { visitorsNote, visitorsSourceNote } from '../seo/report/weeklyEmail';
 import type { VisitorSummary } from '../seo/types';
 
@@ -106,4 +107,13 @@ test('article clicks: only outbound article links count, without fragments', () 
   assert.equal(cleanArticleUrl('not a url'), null);
   assert.equal(cleanArticleUrl(42), null);
   assert.equal(cleanArticleUrl('https://x.com/' + 'a'.repeat(700)), null);
+});
+
+test('bar lists: top 8 by size, the rest summed into Other', () => {
+  const rows: Array<[string, number]> = Array.from({ length: 11 }, (_, i) => [`p${i}`, i + 1]);
+  const b = bucketTop(rows);
+  assert.equal(b.length, 9);
+  assert.equal(b[0]!.name, 'p10');
+  assert.deepEqual(b[8], { name: 'Other (3)', n: 1 + 2 + 3, other: true });
+  assert.equal(bucketTop([['a', 2], ['b', 0]]).length, 1, 'zero rows dropped, no Other when nothing is left over');
 });

@@ -177,7 +177,7 @@ export interface VisitStats {
 type Row = Record<string, unknown>;
 const num = (v: unknown) => Number(v ?? 0);
 
-function topList(m: Map<string, number>, limit = 15): Array<{ name: string; visitors: number }> {
+function topList(m: Map<string, number>, limit = Infinity): Array<{ name: string; visitors: number }> {
   return [...m.entries()]
     .filter(([, n]) => n > 0)
     .sort((a, b) => b[1] - a[1])
@@ -204,7 +204,7 @@ export async function getVisitStats(range: Range): Promise<VisitStats> {
     db.execute(sql`select referrer as name, count(distinct (day, visitor)) as visitors
       from page_hits where ${human} and entry and referrer is not null group by referrer`),
     db.execute(sql`select path as name, count(*) as pageviews
-      from page_hits where ${human} group by path order by 2 desc limit 15`),
+      from page_hits where ${human} group by path order by 2 desc`),
     db.execute(sql`select coalesce(country, '??') as name, count(distinct (day, visitor)) as visitors
       from page_hits where ${human} group by 1`),
     db.execute(sql`select coalesce(device, 'unknown') as name, count(distinct (day, visitor)) as visitors

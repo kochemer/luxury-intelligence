@@ -254,14 +254,16 @@ See `docs/README.md` §4 for how they relate.
   (`app/components/AmplitudeInit.tsx`, `lib/analytics/consent.ts`). Don't add
   anything that loads a third-party tracker or writes browser storage before
   `getAnalyticsConsent()` is true. Privacy notice: `/about#privacy`.
-- Outbound article clicks are counted the same way: `countArticleClick` (`lib/analytics/beacon.ts`) →
+- Outbound article clicks are counted without cookies too: `countArticleClick` (`lib/analytics/beacon.ts`) →
   `/api/click` → `article_clicks` (day + article only, nothing about the reader).
 - Every visit is counted without cookies by `VisitCounter` → `/api/hit` →
   `page_hits` (`lib/analytics/visits.ts`). No IPs stored; the visitor hash
   uses a daily salt that is deleted after a day.
-- `/analytics` is a private dashboard behind `ANALYTICS_PASSWORD` (Vercel env);
-  it also needs `AMPLITUDE_SECRET_KEY` in Vercel for the reader-behaviour
-  section. Keep it out of the sitemap/menus; it is disallowed in robots.
+- `/analytics` is a private dashboard behind `ANALYTICS_PASSWORD` (Vercel env):
+  visitors (counter + `visit_history`), Google search (live, needs the three
+  `GSC_*` vars in Vercel) and subscribers. It makes no Amplitude calls.
+  Article clicks are still recorded but not shown (removed 2026-10-09, too
+  little data). Keep it out of the sitemap/menus; it is disallowed in robots.
 
 ### Testing
 

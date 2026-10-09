@@ -5,10 +5,11 @@ import { unstable_cache } from 'next/cache';
 import { sql } from 'drizzle-orm';
 import { getDb } from '@/lib/db';
 import { analyticsPassword, isValidSession, SESSION_COOKIE } from '@/lib/analytics/adminAuth';
-import { getVisitStats, getCounterStartDay, getArticleClicks, daysEndingToday, lastDays, eachDay, HISTORY_END } from '@/lib/analytics/visits';
+import { getVisitStats, getCounterStartDay, daysEndingToday, lastDays, eachDay, HISTORY_END } from '@/lib/analytics/visits';
 import { getSearchData } from '@/lib/analytics/searchConsole';
 import LoginForm from './LoginForm';
 import TrendChart from './TrendChart';
+import { bucketTop } from '@/lib/analytics/bucketTop';
 import { logout } from './actions';
 
 /**
@@ -80,15 +81,13 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
   // Google's numbers lag, so its period ends yesterday.
   const searchRange = lastDays(days);
 
-  const [startDay, cur, prev, search, searchPrev, subs, clicks, clicksPrev] = await Promise.all([
+  const [startDay, cur, prev, search, searchPrev, subs] = await Promise.all([
     settle(getCounterStartDay()),
     settle(getVisitStats(visitRange.current)),
     settle(getVisitStats(visitRange.previous)),
     settle(searchData(searchRange.current.start, searchRange.current.end)),
     settle(searchData(searchRange.previous.start, searchRange.previous.end)),
     settle(subscriberCounts()),
-    settle(getArticleClicks(visitRange.current)),
-    settle(getArticleClicks(visitRange.previous)),
   ]);
 
   const counterStart = startDay.ok ? startDay.value : null;
@@ -113,7 +112,6 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
         return eachDay(searchRange.current).map(day => ({
           day,
           impressions: byDay.get(day)?.impressions ?? 0,
-          clicks: byDay.get(day)?.clicks ?? 0,
         }));
       })()
     : [];
@@ -157,72 +155,21 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
                 No page-view data for the blank days: Amplitude stopped recording page views for every visitor on 15 Apr, and the counter took over on {fmtDate(counterStart)}.
               </p>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-              <Table title={`Where they came from · ${days} days`} rows={cur.value.channels.map(r => [r.name, r.visitors])} />
-              <Table title={`Referring sites · ${days} days`} rows={cur.value.referrers.map(r => [r.name, r.visitors])} />
-              <Table
-                title={`Top pages (views) · ${days} days`}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8 mt-8">
+              <BarList title={`Where they came from · ${days} days`} unit="visitors" rows={cur.value.channels.map(r => [r.name, r.visitors])} />
+              <BarList title={`Referring sites · ${days} days`} unit="visitors" rows={cur.value.referrers.map(r => [r.name, r.visitors])} />
+              <BarList
+                title={`Top pages · ${days} days`}
                 note={pageviewsPartial && counterStart ? `since ${fmtDate(counterStart)}` : undefined}
+                unit="views"
                 rows={cur.value.pages.map(r => [r.name, r.pageviews])}
               />
-              <Table title={`Countries · ${days} days`} rows={cur.value.countries.map(r => [r.name, r.visitors])} />
+              <BarList title={`Countries · ${days} days`} unit="visitors" rows={cur.value.countries.map(r => [r.name, r.visitors])} />
               <Table title={`Devices · ${days} days`} rows={cur.value.devices.map(r => [r.name, r.visitors])} />
             </div>
           </>
         ) : (
           <ErrorNote error={[cur, prev].find(r => !r.ok) as { error: string }} />
-        )}
-      </Section>
-
-      {/* ── Articles clicked ─────────────────────────────────── */}
-      <Section
-        title="Articles clicked"
-        note={`${fmtDate(visitRange.current.start)} – today. Every reader's clicks through to an article, counted anonymously (which article, which day — nothing about the reader). Before ${fmtDate(HISTORY_END)} from Amplitude, which only recorded clicks for everyone in Jan–Mar and for readers who accepted cookies after that.`}
-      >
-        {clicks.ok && clicksPrev.ok ? (
-          <>
-            {picker}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-              <Stat label={`Clicks · ${days} days`} value={clicks.value.total} prev={clicksPrev.value.total} />
-              <Stat label="Different articles" value={clicks.value.articles} />
-              <Stat
-                label="Clicks per visitor"
-                value={cur.ok && cur.value.visitors ? Math.round((clicks.value.total / cur.value.visitors) * 100) / 100 : 0}
-              />
-            </div>
-            {clicks.value.total > 0 && (
-              <TrendChart
-                height={200}
-                data={(() => {
-                  const byDay = new Map(clicks.value.daily.map(d => [d.day, d.clicks]));
-                  return eachDay(visitRange.current).map(day => ({ day, clicks: byDay.get(day) ?? 0 }));
-                })()}
-                series={[{ key: 'clicks', label: 'Article clicks', color: ACCENT }]}
-              />
-            )}
-            <div className="mt-8">
-              <p className="text-meta font-semibold text-[var(--color-text-primary)] mb-2">Top articles · {days} days</p>
-              {clicks.value.top.length === 0 ? (
-                <p className="text-meta text-[var(--color-text-secondary)]">No article clicks in this period yet.</p>
-              ) : (
-                <ol className="text-[13px] divide-y divide-[var(--color-border)]">
-                  {clicks.value.top.map(a => (
-                    <li key={a.url} className="flex justify-between gap-4 py-2">
-                      <span className="min-w-0">
-                        <a href={a.url} target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] line-clamp-2">
-                          {a.title || titleFromUrl(a.url)}
-                        </a>
-                        <span className="block text-[12px] text-[var(--color-text-secondary)]">{a.source || hostOf(a.url)}</span>
-                      </span>
-                      <span className="tabular-nums text-[var(--color-text-primary)] shrink-0">{a.clicks}</span>
-                    </li>
-                  ))}
-                </ol>
-              )}
-            </div>
-          </>
-        ) : (
-          <ErrorNote error={[clicks, clicksPrev].find(r => !r.ok) as { error: string }} />
         )}
       </Section>
 
@@ -256,7 +203,6 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
               data={searchChart}
               series={[
                 { key: 'impressions', label: 'Impressions', color: ACCENT },
-                { key: 'clicks', label: 'Clicks', color: SECOND },
               ]}
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
@@ -283,21 +229,6 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
 }
 
 // ── Pieces ───────────────────────────────────────────────────────────────────
-
-function hostOf(url: string): string {
-  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; }
-}
-
-/** For clicks Amplitude recorded on articles that aren't in any digest file. */
-function titleFromUrl(url: string): string {
-  try {
-    const slug = new URL(url).pathname.split('/').filter(Boolean).pop() ?? '';
-    const words = decodeURIComponent(slug).replace(/\.[a-z]+$/i, '').replace(/[-_]+/g, ' ').replace(/\b\d{5,}\b/g, '').trim();
-    return words ? words.charAt(0).toUpperCase() + words.slice(1) : url;
-  } catch {
-    return url;
-  }
-}
 
 function Shell({ children, aside }: { children: React.ReactNode; aside?: React.ReactNode }) {
   return (
@@ -360,6 +291,45 @@ function Stat({ label, value, prev, suffix }: { label: string; value: number; pr
         <p className="text-[12px] text-[var(--color-text-secondary)] mt-1">
           {diff === 0 ? 'same as' : `${diff > 0 ? '+' : ''}${diff.toLocaleString('en-GB')} vs`} previous
         </p>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Horizontal bars: one hue, sorted, value at the bar end, "Other" in grey and
+ * always last. Plain HTML, so it renders on the server and needs no JS; the
+ * title attribute is the hover detail.
+ */
+function BarList({ title, note, unit, rows }: { title: string; note?: string; unit: string; rows: Array<[string, number]> }) {
+  const bars = bucketTop(rows);
+  const max = Math.max(1, ...bars.map(b => b.n));
+  const total = bars.reduce((t, b) => t + b.n, 0);
+  return (
+    <div>
+      <p className="text-meta font-semibold text-[var(--color-text-primary)] mb-3">
+        {title}
+        {note && <span className="font-normal text-[var(--color-text-secondary)]"> · {note}</span>}
+      </p>
+      {bars.length === 0 ? (
+        <p className="text-meta text-[var(--color-text-secondary)]">No visits in this period yet.</p>
+      ) : (
+        <ul className="space-y-2.5">
+          {bars.map(b => (
+            <li key={b.name} title={`${b.name}: ${b.n} ${unit} (${Math.round((b.n / total) * 100)}%)`} className="group">
+              <div className="flex justify-between gap-3 text-[13px] mb-1">
+                <span className={`truncate ${b.other ? 'text-[var(--color-text-secondary)] italic' : 'text-[var(--color-text-primary)]'}`}>{b.name}</span>
+                <span className="tabular-nums text-[var(--color-text-secondary)] shrink-0">{b.n}</span>
+              </div>
+              <div className="h-2.5 rounded-[4px] bg-[var(--color-border)]/40">
+                <div
+                  className="h-full rounded-[4px] transition-opacity group-hover:opacity-80"
+                  style={{ width: `${Math.max(2, (b.n / max) * 100)}%`, background: b.other ? '#9CA3AF' : ACCENT }}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
