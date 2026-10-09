@@ -64,6 +64,10 @@ digest.coverImageUrl    public/podcast/      data/weeks/{week}/
    - Uses keyword matching + source heuristics
    - Pure function, no caching needed
 
+Models per step, and why each was chosen: `docs/pipeline-decisions.md`. Tier
+defaults live in `lib/llm/models.ts`; GPT-5 and later need `maxTokensParam` /
+`temperatureParam` from there (a raw `max_tokens` or `temperature` is a 400).
+
 4. **Selection & Reranking** (`digest/`)
    - Filter articles by week date range (CET timezone)
    - Apply relevance scoring (LLM-based reranking with deterministic fallback)
@@ -77,14 +81,16 @@ digest.coverImageUrl    public/podcast/      data/weeks/{week}/
      retried once, then the digest step fails. Between 2026-02-08 and W37 this
      call was missing and every digest shipped with these null while all steps
      reported ok. Themes are stripped of `.,;:!?`, so "GPT-5.6" becomes "GPT-56".
-   - Editor's Take (`generateEditorialTake.ts`, 3 short paragraphs, ~170–210 words), which reads
+   - Editor's Take (`generateEditorialTake.ts`, 3 short paragraphs, 120–130 words, one retry if
+     under 100), which reads
      `oneSentenceSummary`, so it must run after themes
    - Content-quality gate (`checkDigestContentQuality`) before the JSON is written
    - `weeklyInsight` / `introParagraph` (`generateIntro.ts`) aren't produced by
      this path and the hero no longer renders them (roadmap F1.2). Don't build on them.
 
 6. **Distribution**, after the digest: email digest (`email/`), podcast script +
-   TTS (`podcast/`, ElevenLabs with OpenAI `tts-1` fallback; served as
+   TTS (`podcast/`, OpenAI `gpt-4o-mini-tts` with a `tts-1` fallback; ElevenLabs only
+   if `PODCAST_TTS_PROVIDER=elevenlabs`; served as
    `/podcast/feed.xml`), cover image (`npm run cover` logic). The MP3 is
    re-encoded to 64 kbps and the cover PNG palette-quantized before they are
    saved, to keep deployments small (`docs/operations.md` § Storage).

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Luxury Intelligence** (`luxury-intel.com`) — a Next.js 16 / React 19 weekly digest site for luxury, e-commerce, and retail-tech news. It ingests RSS feeds and web pages, classifies articles with source + keyword rules, ranks them with OpenAI, builds JSON digest files, renders them as a PWA with Tailwind CSS v4, and distributes content via email (Resend) and a podcast (ElevenLabs if its key works, otherwise OpenAI `tts-1`; the owner is moving off ElevenLabs). Subscribers and payments are managed through a Neon Postgres DB (Drizzle ORM) and Stripe.
+**Luxury Intelligence** (`luxury-intel.com`) — a Next.js 16 / React 19 weekly digest site for luxury, e-commerce, and retail-tech news. It ingests RSS feeds and web pages, classifies articles with source + keyword rules, ranks them with OpenAI, builds JSON digest files, renders them as a PWA with Tailwind CSS v4, and distributes content via email (Resend) and a podcast (OpenAI `gpt-4o-mini-tts`; ElevenLabs only if `PODCAST_TTS_PROVIDER=elevenlabs`). Subscribers and payments are managed through a Neon Postgres DB (Drizzle ORM) and Stripe.
 
 ## Documentation rules
 
@@ -102,7 +102,7 @@ Module-level detail, artifacts and caches: `docs/pipeline.md`.
 | `classification/` | Rule-based topic classification, no LLM: source overrides, then keywords; no match = dropped (since 2026-09-16) |
 | `digest/` | Digest builder — ranks, selects, and writes JSON |
 | `email/` | Resend email rendering + delivery |
-| `podcast/` | Podcast script + TTS (ElevenLabs, falls back to OpenAI `tts-1`); feed at `/podcast/feed.xml` |
+| `podcast/` | Podcast script + TTS (OpenAI `gpt-4o-mini-tts`, `tts-1` fallback; ElevenLabs opt-in); feed at `/podcast/feed.xml` |
 | `markets/` | Engine for `/markets/luxury` + `/markets/jewellery` |
 | `seo/` | SEO audit / monitor / repair / recovery system (see below) |
 | `video/` | Older FFmpeg-based video clip composer |
@@ -142,7 +142,7 @@ Scripts must call `loadEnv()` from `lib/env.ts` at startup. Key variables:
 | Variable | Used for |
 |----------|---------|
 | `DATABASE_URL` | Neon Postgres |
-| `OPENAI_API_KEY` | Classification, summaries, themes, cover, TTS fallback. Many `*_MODEL` vars override per-step models |
+| `OPENAI_API_KEY` | Story selection, summaries, themes, Editor's Take, cover, podcast script + voice. Many `*_MODEL` vars override per-step models; defaults and reasons in `docs/pipeline-decisions.md` |
 | `TAVILY_API_KEY` | Web discovery |
 | `ANTHROPIC_API_KEY` | SEO repair agent (CI), video-short |
 | `NEXT_PUBLIC_SITE_URL` | Site URL (`localhost` in dev, so don't use it for anything that acts on production) |
@@ -154,7 +154,7 @@ Scripts must call `loadEnv()` from `lib/env.ts` at startup. Key variables:
 | `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT` | Web push |
 | `PUSH_ADMIN_SECRET` | Push notification admin endpoint |
 | `KV_REST_API_URL`, `KV_REST_API_TOKEN` | Vercel KV (push subscription storage) |
-| `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID` | Podcast TTS (the local `.env.local` value is a key ID, so local runs use OpenAI) |
+| `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID` | Podcast TTS, only when `PODCAST_TTS_PROVIDER=elevenlabs` (the local `.env.local` value is a key ID, not a key) |
 | `UNSUBSCRIBE_SECRET` | Email unsubscribe token signing |
 | `STRIPE_PRICE_SUPPORTER_MONTHLY`, `STRIPE_PRICE_PATRON_MONTHLY` | Stripe price IDs for the paid tiers |
 | `ANALYTICS_PASSWORD` | Gate for the private `/analytics` dashboard |

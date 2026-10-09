@@ -142,10 +142,26 @@ async function generateAudioWithElevenLabs(text: string, outputPath: string): Pr
   }
 }
 
+// OpenAI voice, the default since 2026-10-09 (ElevenLabs is opt-in, see
+// buildWeeklyPodcast). gpt-4o-mini-tts replaced tts-1 (2023) and takes a
+// delivery brief. "alloy" is kept so the show keeps the voice listeners know.
+// tts-1 stays as the fallback: it voiced W29–W40 and is proven.
+const OPENAI_TTS_MODEL = process.env.PODCAST_TTS_MODEL?.trim() || 'gpt-4o-mini-tts';
+const OPENAI_TTS_FALLBACK_MODEL = 'tts-1';
+const OPENAI_TTS_VOICE = process.env.PODCAST_TTS_VOICE?.trim() || 'alloy';
+const OPENAI_TTS_INSTRUCTIONS =
+  'Calm, assured business-news presenter. Measured pace, warm but not chatty. ' +
+  'Brief pauses between ideas; say numbers and company names clearly.';
+
 /**
- * Generate audio using OpenAI TTS (fallback)
+ * Generate audio using OpenAI TTS. Chunks stay under 4,000 characters, inside
+ * both models' input limits.
  */
-async function generateAudioWithOpenAI(text: string, outputPath: string): Promise<{ success: boolean; duration?: number }> {
+async function generateAudioWithOpenAI(
+  text: string,
+  outputPath: string,
+  model: string = OPENAI_TTS_MODEL,
+): Promise<{ success: boolean; duration?: number }> {
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
   try {
@@ -154,9 +170,11 @@ async function generateAudioWithOpenAI(text: string, outputPath: string): Promis
     
     for (let i = 0; i < chunks.length; i++) {
       const response = await openai.audio.speech.create({
-        model: 'tts-1',
-        voice: 'alloy',
+        model,
+        voice: OPENAI_TTS_VOICE,
         input: chunks[i],
+        // tts-1 has no delivery brief; the gpt-4o* speech models do.
+        ...(model.startsWith('gpt-') ? { instructions: OPENAI_TTS_INSTRUCTIONS } : {}),
       });
 
       const chunkBuffer = Buffer.from(await response.arrayBuffer());
@@ -197,30 +215,43 @@ export async function buildWeeklyPodcast(weekLabel: string): Promise<{ success: 
   const audioPath = path.join(process.cwd(), 'public', 'podcast', `${weekLabel}.mp3`);
   await fs.mkdir(path.dirname(audioPath), { recursive: true });
 
-  let audioResult: { success: boolean; duration?: number; model?: string; voice?: string };
+  let audioResult: { success: boolean; duration?: number; model?: string; voice?: string } | undefined;
   
-  // Try ElevenLabs first
-  try {
-    const result = await generateAudioWithElevenLabs(script, audioPath);
-    audioResult = {
-      success: result.success,
-      duration: result.duration,
-      model: 'eleven_multilingual_v2',
-      voice: process.env.ELEVENLABS_VOICE_ID || 'XFsVUrYetuzY4ZR8T3nN',
-    };
-  } catch (error) {
-    // Fallback to OpenAI TTS
+  // OpenAI is the voice unless PODCAST_TTS_PROVIDER=elevenlabs. Before
+  // 2026-10-09 ElevenLabs was tried first and its errors were swallowed: it
+  // failed every week from W29 to W40 (most likely quota) and nobody could
+  // see why, and in June-July the voice switched between providers month to
+  // month. The owner has moved off ElevenLabs.
+  if (process.env.PODCAST_TTS_PROVIDER?.trim().toLowerCase() === 'elevenlabs') {
     try {
-      const result = await generateAudioWithOpenAI(script, audioPath);
+      const result = await generateAudioWithElevenLabs(script, audioPath);
       audioResult = {
         success: result.success,
         duration: result.duration,
-        model: 'tts-1',
-        voice: 'alloy',
+        model: 'eleven_multilingual_v2',
+        voice: process.env.ELEVENLABS_VOICE_ID || 'XFsVUrYetuzY4ZR8T3nN',
       };
-    } catch (fallbackError) {
-      throw new Error(`Both ElevenLabs and OpenAI TTS failed: ${(fallbackError as Error).message}`);
+    } catch (error) {
+      console.warn(`[Podcast] ElevenLabs failed, using OpenAI instead: ${(error as Error).message}`);
     }
+  }
+
+  if (!audioResult) {
+    let model = OPENAI_TTS_MODEL;
+    let result: { success: boolean; duration?: number };
+    try {
+      result = await generateAudioWithOpenAI(script, audioPath, model);
+    } catch (error) {
+      if (model === OPENAI_TTS_FALLBACK_MODEL) throw new Error(`OpenAI TTS failed: ${(error as Error).message}`);
+      console.warn(`[Podcast] ${model} failed (${(error as Error).message}); retrying with ${OPENAI_TTS_FALLBACK_MODEL}`);
+      model = OPENAI_TTS_FALLBACK_MODEL;
+      try {
+        result = await generateAudioWithOpenAI(script, audioPath, model);
+      } catch (fallbackError) {
+        throw new Error(`OpenAI TTS failed with ${OPENAI_TTS_MODEL} and ${OPENAI_TTS_FALLBACK_MODEL}: ${(fallbackError as Error).message}`);
+      }
+    }
+    audioResult = { success: result.success, duration: result.duration, model, voice: OPENAI_TTS_VOICE };
   }
 
   // Halve the MP3 before recording its size. Not fatal: an uncompressed

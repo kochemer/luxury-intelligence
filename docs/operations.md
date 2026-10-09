@@ -119,6 +119,8 @@ overrides; leave them unset unless you mean to change behaviour.
 | Variables | Effect |
 |---|---|
 | `SELECTION_MODEL`, `RERANK_MODEL`, `RERANKER_MODEL_PRIMARY`, `RERANKER_MODEL_FALLBACK`, `QUERY_DELTA_MODEL`, `ARTICLE_SUMMARY_MODEL`, `SUMMARY_GENERATOR_MODEL`, `SUMMARY_JUDGE_MODEL`, `THEME_MODEL`, `INTRO_MODEL`, `EDITORIAL_TAKE_MODEL`, `EMAIL_DIGEST_MODEL`, `SCENE_DIRECTOR_MODEL`, `TRANSLATE_MODEL_FALLBACK` | Per-step OpenAI model overrides. Defaults per workflow live in `lib/llm/`; each workflow can also be overridden with `LLM_MODEL_<WORKFLOW>` (e.g. `LLM_MODEL_SUMMARIZE`) |
+| `COVER_IMAGE_MODEL` | Cover image model (default `gpt-image-2.5-sunburst`; on error it retries once with `gpt-image-2`) |
+| `PODCAST_TTS_PROVIDER`, `PODCAST_TTS_MODEL`, `PODCAST_TTS_VOICE` | Podcast voice. Provider `elevenlabs` opts back into ElevenLabs (needs `ELEVENLABS_*`); otherwise OpenAI, default `gpt-4o-mini-tts` / `alloy`, with `tts-1` as the fallback |
 | `MAX_TOTAL_ARTICLES`, `MAX_ARTICLES_PER_CATEGORY`, `MIN_ARTICLES_PER_CATEGORY` | Digest size limits in the pipeline |
 | `RERANK_MAX_ITEMS`, `RERANK_MAX_CHARS`, `RERANK_COOLDOWN_MS`, `RERANK_DEBUG` | Rerank batch size, prompt size, rate limiting, logging |
 | `RERANK_TRIM_MAX_PER_SOURCE` | Max candidates per source when trimming to `RERANK_MAX_ITEMS` before the LLM (default 4) |

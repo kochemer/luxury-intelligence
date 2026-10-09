@@ -68,41 +68,38 @@ export async function generateCoverImage(
   try {
     const openai = new OpenAI({ apiKey });
 
-    // Cover image model, env-overridable. Defaults to gpt-image-2 — the newest
-    // OpenAI image model: cheaper than gpt-image-1 high quality and more
-    // photorealistic. NOTE: gpt-image-1 is deprecated on 2026-10-23, so this
-    // also future-proofs the pipeline. Same Images API shape as gpt-image-1.
-    const model = process.env.COVER_IMAGE_MODEL?.trim() || 'gpt-image-2';
+    // Cover image model, env-overridable. gpt-image-2.5-sunburst since
+    // 2026-10-09 (the quality-focused 2.5 variant; "flare" is the speed one,
+    // same token prices as gpt-image-2). If it errors, one retry on
+    // gpt-image-2, which every cover from 2026-W17 to W40 was made with: the
+    // 2.5 switch was shipped without a live test because the OpenAI account
+    // had run out of credit that day.
+    let model = process.env.COVER_IMAGE_MODEL?.trim() || 'gpt-image-2.5-sunburst';
+    const PROVEN_MODEL = 'gpt-image-2';
 
-    console.log(`Generating cover image with ${model}...`);
-
-    // Landscape cover; if the model rejects this size the catch below retries
-    // at 1024x1024.
+    // Landscape cover; if the model rejects this size, retry at 1024x1024.
     let size: "1024x1024" | "1536x1024" = '1536x1024';
+    const generate = (m: string) => {
+      console.log(`Generating cover image with ${m} (${size})...`);
+      return openai.images.generate({ model: m, prompt, n: 1, size, quality: 'high' });
+    };
+    const isSizeError = (e: any) =>
+      e?.message?.includes('size') || e?.message?.includes('dimension') || e?.message?.includes('Invalid value');
+
     let response;
-    
     try {
-      response = await openai.images.generate({
-        model: model,
-        prompt: prompt,
-        n: 1,
-        size: size,
-        quality: 'high',
-      });
-    } catch (sizeError: any) {
-      // If size not supported, try fallback
-      if (sizeError.message?.includes('size') || sizeError.message?.includes('dimension') || sizeError.message?.includes('Invalid value')) {
-        console.warn(`Size ${size} not supported, falling back to 1024x1024`);
+      response = await generate(model);
+    } catch (firstError: any) {
+      if (isSizeError(firstError)) {
+        console.warn(`Size ${size} not supported by ${model}, falling back to 1024x1024`);
         size = '1024x1024';
-        response = await openai.images.generate({
-          model: model,
-          prompt: prompt,
-          n: 1,
-          size: size,
-          quality: 'high',
-        });
+        response = await generate(model);
+      } else if (model !== PROVEN_MODEL) {
+        console.warn(`Cover model ${model} failed (${firstError?.message}); retrying with ${PROVEN_MODEL}`);
+        model = PROVEN_MODEL;
+        response = await generate(model);
       } else {
-        throw sizeError;
+        throw firstError;
       }
     }
     

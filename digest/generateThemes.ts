@@ -25,7 +25,11 @@ const CACHE_KIND = 'themes';
 const THEME_VERSION = '3.1'; // Incremented: insight framing (not summary)
 
 // Summary generator/judge models
-const SUMMARY_GENERATOR_MODEL = process.env.SUMMARY_GENERATOR_MODEL || getModelFor('summarize');
+// The pull-quote is the most visible single line on the site, so its generator
+// runs on the same tier as the judge (GPT-6.1 Sol since 2026-10-09). Was
+// 'summarize' (gpt-4.1). Sol ignores the generator's 0.9 temperature and uses
+// its default of 1, which still gives distinct candidates (checked on W39).
+const SUMMARY_GENERATOR_MODEL = process.env.SUMMARY_GENERATOR_MODEL || getModelFor('polish');
 const SUMMARY_JUDGE_MODEL     = process.env.SUMMARY_JUDGE_MODEL     || getModelFor('polish');
 
 // Banned phrases that indicate generic/vague themes

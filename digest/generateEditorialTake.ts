@@ -25,9 +25,14 @@ const TAKE_MODEL = process.env.EDITORIAL_TAKE_MODEL || getModelFor('polish');
 const TEMPERATURE = 0.4; // Slightly higher than summaries — we want voice, not determinism
 const MAX_TOKENS = 600;
 const CACHE_KIND = 'editorial-take';
-const TAKE_VERSION = '2.1'; // 170–210 words (was 250–300; owner: "too chunky", 2026-09-21)
-const MIN_WORDS = 130;
-const MAX_WORDS = 230; // above this, one condensing pass (see condenseTake)
+// Length history (owner decisions): 250–300 words (F3.1, 2026-09-18) →
+// 150–180 ("too chunky", 2026-09-21) → 120–130 (2026-10-09, with the move to
+// GPT-6.1 Sol). Change TARGET_* to retune; the prompt and condense pass follow.
+const TAKE_VERSION = '3.0';
+const TARGET_MIN_WORDS = 120;
+const TARGET_MAX_WORDS = 130;
+const MIN_WORDS = 100; // below this, one fresh attempt, then give up
+const MAX_WORDS = 145; // above this, one condensing pass (see condenseTake)
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type TakeResult = {
@@ -104,13 +109,13 @@ ${articleLines.join('\n')}
 ${weeklyInsight ? `THIS WEEK'S ONE-LINE INSIGHT (already on the page, do not repeat it verbatim): ${weeklyInsight}` : ''}
 ${themes ? `KEY THEMES: ${themes}` : ''}
 
-STRUCTURE (exactly three short paragraphs, 150-180 words total):
+STRUCTURE (exactly three short paragraphs, ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words total):
 1. THESIS. Open with the claim: the one thing this week's evidence actually shows. A specific, arguable statement, stated in the first sentence.
-2. EVIDENCE AND COUNTER. Build the case from at least THREE of the stories above, named explicitly (company, number, decision). Show how they connect; do not list them. Every fact must come from the stories above; invent nothing. End this paragraph with one sentence on the strongest objection and why it does not hold.
+2. EVIDENCE AND COUNTER. Build the case from at least TWO of the stories above, ideally three, named explicitly (company, number, decision). Show how they connect; do not list them. Every fact must come from the stories above; invent nothing. End this paragraph with one sentence on the strongest objection and why it does not hold.
 3. IMPLICATION. Close with what a luxury or jewellery operator should do differently, or watch for, in the next quarter because of this. Concrete, not "stay alert". If the week's evidence is mostly about AI or ecommerce, this paragraph is where you make it matter for luxury and jewellery specifically.
 
 FORMAT:
-- 150-180 words, hard limit: count them before answering. Exactly three paragraphs separated by a blank line (\n\n). Each paragraph 2-3 sentences.
+- ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words, hard limit: count them before answering. Exactly three paragraphs separated by a blank line (\n\n). Each paragraph two sentences, three at most.
 - If a sentence does not advance the argument, cut it. Short beats complete.
 - No headers. No bullet points. No numbered lists. No labels like "Thesis:".
 
@@ -167,7 +172,7 @@ async function condenseTake(openai: OpenAI, text: string): Promise<string | null
       ...maxTokensParam(TAKE_MODEL, MAX_TOKENS),
       messages: [{
         role: 'user',
-        content: `Cut this editorial column to 170-200 words. Keep exactly three paragraphs separated by a blank line, the opening claim, every company name and number that remains load-bearing, and the closing recommendation. Remove repetition and any sentence that restates an earlier point. Do not add anything new. Keep first person. No em dashes.
+        content: `Cut this editorial column to ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words. Keep exactly three paragraphs separated by a blank line, the opening claim, every company name and number that remains load-bearing, and the closing recommendation. Remove repetition and any sentence that restates an earlier point. Do not add anything new. Keep first person. No em dashes.
 
 Respond as JSON: {"editorialTake": "..."}
 
@@ -197,24 +202,27 @@ async function callLLMForEditorialTake(digest: WeeklyDigest): Promise<TakeResult
     const openai = new OpenAI({ apiKey });
     const prompt = buildEditorialTakePrompt(digest);
 
-    const response = await openai.chat.completions.create({
-      model: TAKE_MODEL,
-      ...temperatureParam(TAKE_MODEL, TEMPERATURE),
-      ...maxTokensParam(TAKE_MODEL, MAX_TOKENS),
-      messages: [{ role: 'user', content: prompt }],
-      response_format: { type: 'json_object' },
-    });
+    // A too-short answer gets one fresh attempt. Returning null leaves the
+    // page without a Take (the build carries on), so it is worth one retry.
+    let editorialTake = '';
+    let words = 0;
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      const response = await openai.chat.completions.create({
+        model: TAKE_MODEL,
+        ...temperatureParam(TAKE_MODEL, TEMPERATURE),
+        ...maxTokensParam(TAKE_MODEL, MAX_TOKENS),
+        messages: [{ role: 'user', content: prompt }],
+        response_format: { type: 'json_object' },
+      });
 
-    const content = response.choices[0]?.message?.content?.trim();
-    if (!content) return null;
-
-    const parsed = JSON.parse(content);
-    const editorialTake = normalizeTakeText(typeof parsed.editorialTake === 'string' ? parsed.editorialTake : '');
-    const words = editorialTake.split(/\s+/).filter(Boolean).length;
-    if (!editorialTake || words < MIN_WORDS) {
-      console.warn(`[EditorialTake] Response too short (${words} words, need ≥${MIN_WORDS}), discarding`);
-      return null;
+      const content = response.choices[0]?.message?.content?.trim();
+      const parsed = content ? JSON.parse(content) : {};
+      editorialTake = normalizeTakeText(typeof parsed.editorialTake === 'string' ? parsed.editorialTake : '');
+      words = editorialTake.split(/\s+/).filter(Boolean).length;
+      if (words >= MIN_WORDS) break;
+      console.warn(`[EditorialTake] Response too short (${words} words, need ≥${MIN_WORDS}), attempt ${attempt} of 2`);
     }
+    if (words < MIN_WORDS) return null;
     if (words > MAX_WORDS) {
       console.warn(`[EditorialTake] Response long (${words} words); condensing...`);
       const condensed = await condenseTake(openai, editorialTake);
