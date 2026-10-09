@@ -121,11 +121,15 @@ if (missing.length) {
   // Gitignored paths (build output, local-only data) are allowed to be absent.
   let ignored = new Set();
   try {
-    ignored = new Set(execFileSync('git', ['check-ignore', '--no-index', '--stdin'], { cwd: ROOT, encoding: 'utf8', input: missing.map((x) => x.p).join('\n') }).split('\n'));
+    // Ask about both forms: a doc below the root may cite a path relative to its
+    // own directory (video-short/README.md cites `explainer/out/...`), and only
+    // the repo-rooted form matches .gitignore.
+    const forms = missing.flatMap((x) => [x.p, `${dirname(x.doc)}/${x.p}`]);
+    ignored = new Set(execFileSync('git', ['check-ignore', '--no-index', '--stdin'], { cwd: ROOT, encoding: 'utf8', input: forms.join('\n') }).split('\n'));
   } catch { /* exit 1 = none ignored */ }
   const untrackedOk = new Set(['luxury-intel-roadmap-2026-09.md']); // owner's planning doc, untracked on purpose
   for (const { doc, p } of missing) {
-    if (!ignored.has(p) && !untrackedOk.has(p)) fail(`${doc} cites \`${p}\`, which does not exist.`);
+    if (!ignored.has(p) && !ignored.has(`${dirname(doc)}/${p}`) && !untrackedOk.has(p)) fail(`${doc} cites \`${p}\`, which does not exist.`);
   }
 }
 
