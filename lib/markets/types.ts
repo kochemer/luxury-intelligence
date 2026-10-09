@@ -75,8 +75,81 @@ export interface MarketPrice {
   stale: boolean;
 }
 
+/** An article shown as evidence for a signal. */
+export interface SignalExample {
+  title: string;
+  source: string;
+  url: string;
+  date: string; // YYYY-MM-DD
+}
+
+/**
+ * A theme in the trade press, measured as a share of the panel's articles so a
+ * busier week doesn't read as a trend. Only themes that pass the rules
+ * (markets/signals.ts) are shown as signals; the rest are "watching".
+ */
+export interface ThemeStat {
+  name: string;
+  verdict: 'rising' | 'falling' | 'watching';
+  /** Plain-language sentence for a rising or falling theme; null while watching. */
+  statement: string | null;
+  total: number;
+  /** Articles in the last 4 weeks and the 8 before. */
+  recent: number;
+  prior: number;
+  /** % of the panel's articles in each period. */
+  shareRecent: number;
+  sharePrior: number;
+  /** shareRecent ÷ sharePrior; null with no baseline. */
+  ratio: number | null;
+  outlets: number;
+  /** % of the panel's articles per week, oldest → newest, 12 values. */
+  weeklyShare: number[];
+  examples: SignalExample[];
+}
+
+/** A tech-press theme, counted across all sources, and how much of it reached the luxury press. */
+export interface CrossSignal {
+  name: string;
+  statement: string;
+  /** Articles per week, oldest → newest, 12 values. */
+  weekly: number[];
+  total: number;
+  outlets: number;
+  inLuxuryPress: number;
+  examples: SignalExample[];
+}
+
+/** Coverage against share-price performance, per listed company. */
+export interface AttentionRow {
+  ticker: string;
+  company: string;
+  /** Articles naming the company or any of its brands, 12 weeks, all sources. */
+  articles: number;
+  change3m: number;
+  change1m: number;
+}
+
+export interface AttentionCallout {
+  company: string;
+  /** quiet: big share move, little coverage. loud: most covered, shares falling. */
+  kind: 'quiet' | 'loud';
+  text: string;
+  change3m: number;
+}
+
+export interface SignalRules {
+  minArticles: number;
+  minRecent: number;
+  minOutlets: number;
+  rise: number;
+  fallPriorMin: number;
+  fallMinOutlets: number;
+  fall: number;
+}
+
 export interface MarketData {
-  version: 1;
+  version: 2;
   market: MarketId;
   weekLabel: string;
   generatedAtISO: string;
@@ -89,4 +162,14 @@ export interface MarketData {
   brands: MarketBrandRow[];
   moves: MarketMove[];
   prices: MarketPrice[];
+  /** The trade-press panel the signals are counted from. */
+  panel: { articles: number; outlets: number };
+  rules: SignalRules;
+  /** Rising first, then the biggest falls; at most three. */
+  signals: ThemeStat[];
+  watching: ThemeStat[];
+  /** Luxury page only. */
+  cross: CrossSignal | null;
+  attention: AttentionRow[];
+  callouts: AttentionCallout[];
 }

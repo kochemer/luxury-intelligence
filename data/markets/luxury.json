@@ -1,8 +1,8 @@
 {
- "version": 1,
+ "version": 2,
  "market": "luxury",
  "weekLabel": "2026-W40",
- "generatedAtISO": "2026-10-04T20:30:32.003Z",
+ "generatedAtISO": "2026-10-09T12:40:02.770Z",
  "window": {
   "start": "2026-07-13",
   "end": "2026-10-04"
@@ -11,7 +11,7 @@
  "totalMentions": 221,
  "summary": [
   "Chanel announced Deauville as the location for its Cruise 2027/28 show and revealed plans for its Cruise 2027 show.",
-  "Kering reported a challenging end to summer in its Q2 FY2026 earnings, while Richemont shares dropped 15% despite strong sales growth and dividend approval at its AGM."
+  "Hermès opened a permanent Williamsburg store and presented its Spring/Summer 2027 collection, while Moncler highlighted its Fifth Avenue flagship opening and upcoming Grenoble collection in Switzerland."
  ],
  "brands": [
   {
@@ -136,16 +136,16 @@
    ],
    "trend": 1.3333333333333333,
    "latestMove": {
-    "date": "2026-10-03",
+    "date": "2026-10-04",
     "brand": "Louis Vuitton",
-    "type": "Collection",
+    "type": "Show",
     "importance": "major",
     "outlets": 1,
-    "headline": "Louis Vuitton presents AW26 men’s collection",
-    "originalTitle": "Louis Vuitton AW26 men’s",
-    "title": "Louis Vuitton AW26 men’s",
-    "source": "Dazed",
-    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQLWtTVUhEcFV5YlplQTZ6NXp2eEZia0t6VjFFeUUwNUg4dS1WVzdGXzNOSlJVQWs4bmpwRzVUU3Y0U29SLUVPbHVQMHgxLTJkT0NTXzA2d05yOVAtX1hmTDhITUhiOVUwR3RVZ0pZXzhEWjduemI0cnZhN3B2dndnQUpvTQ?oc=5"
+    "headline": "Louis Vuitton staged a show in Paris",
+    "originalTitle": "Zendaya, Emma Stone and Lisa Attend Louis Vuitton Show in Paris and More Red Carpet Photos: October 2026",
+    "title": "Zendaya, Emma Stone and Lisa Attend Louis Vuitton Show in Paris and More Red Carpet Photos: October 2026",
+    "source": "Variety",
+    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE10TldzbHpHQTFsd3F5dFNHdUtJNGRHcWZ6N3AwejlENTFuZDl1dU5sZW15ZzVNU1ZUMU9NbnRRcnBNY05QM2ttckRrR1hMWGxKaEJmUVNsMVQtSEM4RzBuSlVhWU1RVTA?oc=5"
    },
    "ticker": "MC.PA",
    "priceVia": "LVMH"
@@ -170,16 +170,16 @@
    ],
    "trend": 0.8333333333333334,
    "latestMove": {
-    "date": "2026-10-01",
+    "date": "2026-09-29",
     "brand": "Prada",
     "type": "Show",
     "importance": "major",
     "outlets": 1,
-    "headline": "Prada presents Womenswear Spring-Summer 2027 show in Milan",
-    "originalTitle": "Prada - Fashion Week - atmosphere - Womenswear - Spring-Summer 2027 - Milan - FashionNetwork",
-    "title": "Prada presents Womenswear Spring-Summer 2027 show in Milan",
-    "source": "The World's Fashion Business News",
-    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBTYVFwLUMzdlNzZWhXbE9PTHFaaGhrUUdaSktCOFFwS3RhSkNBS3dhM0Zac0ZqLWhtbDJVSHVoTnYtX2FSQVVud2FXSjdPZVU5ZWtzTERTYkEtZXVpRkVVd09XQVRraFR6aUtKdVhRbw?oc=5"
+    "headline": "Prada presents S/S 2027 show",
+    "originalTitle": "Prada S/S 2027",
+    "title": "Prada S/S 2027",
+    "source": "Metal Magazine",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1rOHlnaVFZRFAwMGI0OGRKeGVudlo4aGdmQ0Z5aUlnLW1XZHdlamd5Vl9ta3gxeV9wVmFUbTJ2QUZBMzBxeHh2bEV4Q3Awb3RSOXZuSkFlWFlKQQ?oc=5"
    },
    "ticker": "1913.HK",
    "priceVia": null
@@ -272,16 +272,16 @@
    ],
    "trend": 1.3333333333333333,
    "latestMove": {
-    "date": "2026-09-20",
+    "date": "2026-10-02",
     "brand": "Gucci",
-    "type": "Pricing",
+    "type": "Show",
     "importance": "major",
     "outlets": 1,
-    "headline": "Gucci cuts prices",
-    "originalTitle": "Gucci cuts prices, but will Chinese shoppers return?",
-    "title": "Gucci cuts prices, but will Chinese shoppers return?",
-    "source": "Jing Daily",
-    "url": "https://jingdaily.com/posts/gucci-cuts-prices-but-will-chinese-shoppers-return"
+    "headline": "Gucci staged its Milan Fashion Week SS27 womenswear show",
+    "originalTitle": "260925 (황인엽) HWANG INYOUP Milan Fashion Week SS27 Womenswear - GUCCI",
+    "title": "Gucci staged its Milan Fashion Week SS27 womenswear show",
+    "source": "YouTube",
+    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5xeV8wWk5QM0pSOVdYWVp6YV90SnUtMURKQmd0eFhXd3JTdUFIU1V0WXdvV3BxazNHR2JWM2VTSVNmNnlEVm53MkU1UW1uODRWUldQY3A4cFo2VnBw?oc=5"
    },
    "ticker": "KER.PA",
    "priceVia": "Kering"
@@ -306,16 +306,16 @@
    ],
    "trend": 0.4,
    "latestMove": {
-    "date": "2026-10-04",
+    "date": "2026-10-02",
     "brand": "Kering",
     "type": "Results",
     "importance": "major",
     "outlets": 1,
-    "headline": "Kering reported Q2 FY2026 earnings",
-    "originalTitle": "Kering SA (0IIH.L) Q2 FY2026 earnings call transcript",
-    "title": "Kering SA (0IIH.L) Q2 FY2026 earnings call transcript",
-    "source": "Yahoo Finance",
-    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQSWtCazFhQXhJVWZGSHFXTnpnTS1MR19kNmp1MVI3SGI0NFlhTTQ0UWVTMTJtNVltRFRTMXpkTnhwTENaWWRORmpyV3JraU1fZ2owbFJXemR5elduV25Ud3pqT25aemc3UW1HUUc3dTk4aHpjMVlmMTZsak53VDhacGdrSUp0ZnBNZXdTcmNERUdrUQ?oc=5"
+    "headline": "Kering confirms challenging end to summer",
+    "originalTitle": "Kering confirms a challenging end to summer for luxury",
+    "title": "Kering confirms a challenging end to summer for luxury",
+    "source": "www.marketscreener.com",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdmhqVWlpYzZJalpZYW4zZ2NDSU1vVTZzd1hfd0dlQ1VhYWlZNVlwTVNoN1dxVmJrbHJrQ1dIZ256UUIyaENydjh4RVd0SWVwZFpCb2pJOE1rN1FHeV9fMGZQMGFQeHBCTVZOaTVSeXpJbVZTeEpPdW1GZ1Q1NUdxa2ljOXpmYVNjbnV3bXhXRVRzbUZrMjFVODk5bm1RUVZMRnp1cTdiMlUycms?oc=5"
    },
    "ticker": "KER.PA",
    "priceVia": null
@@ -340,16 +340,16 @@
    ],
    "trend": 1.6666666666666667,
    "latestMove": {
-    "date": "2026-10-04",
+    "date": "2026-10-03",
     "brand": "Hermès",
-    "type": "Show",
+    "type": "Collection",
     "importance": "major",
-    "outlets": 1,
-    "headline": "Hermès staged Paris runway show with sheer knits and thigh-high slits",
-    "originalTitle": "Too hot for Hermès: Sheer knits, thigh-high slits hit Paris runway as luxury demand cools",
-    "title": "Too hot for Hermès: Sheer knits, thigh-high slits hit Paris runway as luxury demand cools",
-    "source": "Bilyonaryo Business",
-    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdGVPeGVzZmE0RGFyMmZVNkRtTlNJdjVPQ3hUYW1WN05aNHU1Z3AxMmJuRVpGWVNjdUI1amttRUhMVTdRUV8wOGpVOGhhWWhPTmtUTUI3VDM4Tm9uTnRZYVBJMWJMaXpZX2R5THdfZVhBam9LZWl4R0VaYlRSSnFpSGd4REJIeVNiLTJudXo4QXZJLVZYNEZ5c2ZDcE01czJwdkROUElrMlhBLUF5cEVDLQ?oc=5"
+    "outlets": 3,
+    "headline": "Hermès presented its Spring/Summer 2027 collection",
+    "originalTitle": "Hermès Spring/Summer 2027: Lightness becomes luxury with zips, leather, and transparencies.",
+    "title": "Hermès Spring/Summer 2027: Lightness becomes luxury with zips, leather, and transparencies.",
+    "source": "Montenapo Daily",
+    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOWS1wb3VVOFZBaVlTbzVDUnBBTEJTRnhXQmpHRlRaY0F6U19uR2xzR1RpMmVPcGZVR3h5TUVOY0x1VGJzVl9ia01UN09NOVktVWhLaXVrWTFRNko5NFU0VFVkNy15ZEp6cWI3LTh5WnJaRGJiVkpUbDBwQzdVMENUazJLX2ViRHBFRndra2FuTnVuLV8zaVBMWmpHNG5HbnFTZVdWdGdiLVdoTnZjN2IyTnA2c1VGUHVsSjQ3bFZRMHc1Zjds?oc=5"
    },
    "ticker": "RMS.PA",
    "priceVia": null
@@ -438,6 +438,18 @@
   },
   {
    "date": "2026-10-04",
+   "brand": "Dior",
+   "type": "Collection",
+   "importance": "minor",
+   "outlets": 1,
+   "headline": "Dior introduced the Granville",
+   "originalTitle": "Jonathan Anderson Introduces the Dior Granville",
+   "title": "Jonathan Anderson Introduces the Dior Granville",
+   "source": "DAMAN Magazine",
+   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9WcEN0cE1DQWpHTkRHcDN2ZUZSeWpfb3UwVmttVkJUZDduVFNxTk4tNTh2U1ZtYk90VlpNbHFUYjU3WDYyQnE3aEktUE1pNFNOVmZ4Y0lBV0tSWWMzTng1TEpxMkw2eGJYU1ZZ?oc=5"
+  },
+  {
+   "date": "2026-10-04",
    "brand": "Gucci",
    "type": "Collection",
    "importance": "minor",
@@ -450,51 +462,27 @@
   },
   {
    "date": "2026-10-04",
-   "brand": "Hermès",
+   "brand": "Louis Vuitton",
    "type": "Show",
    "importance": "major",
    "outlets": 1,
-   "headline": "Hermès staged Paris runway show with sheer knits and thigh-high slits",
-   "originalTitle": "Too hot for Hermès: Sheer knits, thigh-high slits hit Paris runway as luxury demand cools",
-   "title": "Too hot for Hermès: Sheer knits, thigh-high slits hit Paris runway as luxury demand cools",
-   "source": "Bilyonaryo Business",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdGVPeGVzZmE0RGFyMmZVNkRtTlNJdjVPQ3hUYW1WN05aNHU1Z3AxMmJuRVpGWVNjdUI1amttRUhMVTdRUV8wOGpVOGhhWWhPTmtUTUI3VDM4Tm9uTnRZYVBJMWJMaXpZX2R5THdfZVhBam9LZWl4R0VaYlRSSnFpSGd4REJIeVNiLTJudXo4QXZJLVZYNEZ5c2ZDcE01czJwdkROUElrMlhBLUF5cEVDLQ?oc=5"
-  },
-  {
-   "date": "2026-10-04",
-   "brand": "Kering",
-   "type": "Results",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Kering reported Q2 FY2026 earnings",
-   "originalTitle": "Kering SA (0IIH.L) Q2 FY2026 earnings call transcript",
-   "title": "Kering SA (0IIH.L) Q2 FY2026 earnings call transcript",
-   "source": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQSWtCazFhQXhJVWZGSHFXTnpnTS1MR19kNmp1MVI3SGI0NFlhTTQ0UWVTMTJtNVltRFRTMXpkTnhwTENaWWRORmpyV3JraU1fZ2owbFJXemR5elduV25Ud3pqT25aemc3UW1HUUc3dTk4aHpjMVlmMTZsak53VDhacGdrSUp0ZnBNZXdTcmNERUdrUQ?oc=5"
+   "headline": "Louis Vuitton staged a show in Paris",
+   "originalTitle": "Zendaya, Emma Stone and Lisa Attend Louis Vuitton Show in Paris and More Red Carpet Photos: October 2026",
+   "title": "Zendaya, Emma Stone and Lisa Attend Louis Vuitton Show in Paris and More Red Carpet Photos: October 2026",
+   "source": "Variety",
+   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE10TldzbHpHQTFsd3F5dFNHdUtJNGRHcWZ6N3AwejlENTFuZDl1dU5sZW15ZzVNU1ZUMU9NbnRRcnBNY05QM2ttckRrR1hMWGxKaEJmUVNsMVQtSEM4RzBuSlVhWU1RVTA?oc=5"
   },
   {
    "date": "2026-10-03",
    "brand": "Hermès",
    "type": "Collection",
    "importance": "major",
-   "outlets": 2,
-   "headline": "Hermès unveils Spring 2027 collection",
-   "originalTitle": "For Spring 2027, Hermès invites us to rethink transparency",
-   "title": "For Spring 2027, Hermès invites us to rethink transparency",
-   "source": "Vogue Adria",
-   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5rQl83QjFfRzljYi1EdG1OVEtjNkdzelNlc19mdTdYYnBmT0gwX185dFZjWEdnWHFMQkg3X0d2MHE1LW9QQk83elhJQVRnRHR0RnNxcENiOGlSM3BoMWs3Q2p5c3FkUQ?oc=5"
-  },
-  {
-   "date": "2026-10-03",
-   "brand": "Louis Vuitton",
-   "type": "Collection",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Louis Vuitton presents AW26 men’s collection",
-   "originalTitle": "Louis Vuitton AW26 men’s",
-   "title": "Louis Vuitton AW26 men’s",
-   "source": "Dazed",
-   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQLWtTVUhEcFV5YlplQTZ6NXp2eEZia0t6VjFFeUUwNUg4dS1WVzdGXzNOSlJVQWs4bmpwRzVUU3Y0U29SLUVPbHVQMHgxLTJkT0NTXzA2d05yOVAtX1hmTDhITUhiOVUwR3RVZ0pZXzhEWjduemI0cnZhN3B2dndnQUpvTQ?oc=5"
+   "outlets": 3,
+   "headline": "Hermès presented its Spring/Summer 2027 collection",
+   "originalTitle": "Hermès Spring/Summer 2027: Lightness becomes luxury with zips, leather, and transparencies.",
+   "title": "Hermès Spring/Summer 2027: Lightness becomes luxury with zips, leather, and transparencies.",
+   "source": "Montenapo Daily",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOWS1wb3VVOFZBaVlTbzVDUnBBTEJTRnhXQmpHRlRaY0F6U19uR2xzR1RpMmVPcGZVR3h5TUVOY0x1VGJzVl9ia01UN09NOVktVWhLaXVrWTFRNko5NFU0VFVkNy15ZEp6cWI3LTh5WnJaRGJiVkpUbDBwQzdVMENUazJLX2ViRHBFRndra2FuTnVuLV8zaVBMWmpHNG5HbnFTZVdWdGdiLVdoTnZjN2IyTnA2c1VGUHVsSjQ3bFZRMHc1Zjds?oc=5"
   },
   {
    "date": "2026-10-03",
@@ -517,32 +505,8 @@
    "headline": "Burberry appoints Dafydd Moore as VP of business technology",
    "originalTitle": "Burberry appoints former Superdry tech lead Dafydd Moore as VP of business technology",
    "title": "Burberry appoints former Superdry tech lead Dafydd Moore as VP of business technology",
-   "source": "fashionunited.uk",
+   "source": "Fashion United",
    "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQRHhBcVVaV0RBUklsUnBmTU5SZlNiU19qcXBSNEszeUVsQ05ncVNxeDFsZE10N3JYZktobkFOWVdBaDJiUnVyXzJaM0J1cVhHN2xzSEkwbnNDQ0M4MXU5a0lVZjZndzNYM1Y5X0dhcUlLMF9ndjZKelktdnhKNk1tQlRmUnI2MEVfNTNiRjQ1dDI3UFMyUXAyZkxmREtBcW5Gc184N2pFQk1iSEdQMHp1SExLRW9ScWFIS293dkgyejFOZFd6Zk80dXY1ckEtRF9Lc3c?oc=5"
-  },
-  {
-   "date": "2026-10-02",
-   "brand": "Chanel",
-   "type": "Collaboration",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "Chanel supports next generation of women writers",
-   "originalTitle": "CHANEL Is Betting on the Next Generation of Women Writers",
-   "title": "CHANEL Is Betting on the Next Generation of Women Writers",
-   "source": "vmagazine.com",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPN3dwdXNKaVljMUxDQUl6SDhZeVlxTlhpLUlidU1PdWl4b25jZzVBQlpTdWM5QjRHYzJremplXzg4T05URnpZREZ3LWlDWnhmRWhVR25aM1ZwclVlVHhDbzZQTldnTUctYlBPQ2kzVlA1R1Y2a0g3VXpjVGp5a0VlSFFLZjkxaDlEYXpReWtzV1BRdw?oc=5"
-  },
-  {
-   "date": "2026-10-02",
-   "brand": "Chanel",
-   "type": "Collaboration",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "Chanel J12 Boat Race trophies to be awarded on Thames in 2027",
-   "originalTitle": "Chanel J12 Boat Race Trophies Set for the Thames in 2027",
-   "title": "Chanel J12 Boat Race Trophies Set for the Thames in 2027",
-   "source": "Haute Living",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQNGpFaTlBd20zTzYxQkF1elZMZFgxLVBkT0JteS1lelRjNUQ4WGNjVkJwS1JvVndLWWlZdW5zcHoyM2gtX0tSdmxGckZVV2tvQ0J5ZGNQT04tYnBNMmQ5YUJUR1paUkpzRGxVYktxdUxjbmhlQjF4azNOODJDRkphakR0RWR6ZENtcTFSaUVKb283T2RONzYyWW15M1RlUmJRSTdSRFV4RVdjcGg1?oc=5"
   },
   {
    "date": "2026-10-02",
@@ -563,8 +527,8 @@
    "importance": "minor",
    "outlets": 1,
    "headline": "Dior and Harper’s Bazaar host book party at Paris Fashion Week",
-   "originalTitle": "Dior and Harper’s Bazaar Take Over Paris Fashion Week With a Book Party Celebrating the Legacy of Richard Avedon",
-   "title": "Dior and Harper’s Bazaar Take Over Paris Fashion Week With a Book Party Celebrating the Legacy of Richard Avedon",
+   "originalTitle": "Harper’s Bazaar and Dior Host a Paris Fashion Week Party in Honor of Richard Avedon",
+   "title": "Harper’s Bazaar and Dior Host a Paris Fashion Week Party in Honor of Richard Avedon",
    "source": "Harper's BAZAAR",
    "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPWlRHcHNzd3VVZkhuc0V6TXlRMzhRZjM2dkZwNDBwd0FycUJkdWh6MjlfVjZSQ1MwWlQxX0MtME5qeWhGdnlxZVA1eVJFMVlSTks0blAybkpiTkEtZGQwTzBXMlltWFl2QzROM3JycVUxTjlfdmhxdGFjTkF3NVNITy1nMTNXWktMTjFRbzJSRXl0SXlFdmx6bGdBSWIyX2NvN3JBOEh3M2l5bjJkZUI1ZjVnT3hMTW04aDVyOG15RzJYZ3NpczRGRDBWSnNuOHdEd0xF?oc=5"
   },
@@ -577,7 +541,7 @@
    "headline": "Dior restores 13 fragrance icons with Dioriginals",
    "originalTitle": "Dior Restores 13 Fragrance Icons with Dioriginals",
    "title": "Dior Restores 13 Fragrance Icons with Dioriginals",
-   "source": "thisisyungmea.com",
+   "source": "YUNG",
    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPcEstN1I1azd4SFBIeGJVWjFrY1M2Mi02SWZDMkphQldvNHdBa0w0bUp1bXc3bkN3TG1WUFdQUkRkcE5fS3FSR09mTjFObXZQMi11REtDRERNVTVHU3ZGTmF1SHVOOGNTS29OMkNMeHY1OUFaSmZTdFRPOGxVU2VMZHZB?oc=5"
   },
   {
@@ -601,8 +565,32 @@
    "headline": "Dior unveils high-jewellery collection inspired by garden and skies",
    "originalTitle": "Dior’s Ravishing High-Jewelry Collection Takes Inspiration from the Garden and the Skies",
    "title": "Dior’s Ravishing High-Jewelry Collection Takes Inspiration from the Garden and the Skies",
-   "source": "galeriemagazine.com",
+   "source": "Galerie Magazine",
    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPbU51WkZFSnh4MjY2YmZhTDZiV1RQbHNUd1dXX1ZUV1FJZDNybU9UTFBYT2ltYnJzcW83MzNraWIxaEhReHlna053NXE5N0xZTjRKR25kX2JIb3hQdmc3bkhUR1ItZGRMdDRaaG5IVTR5YmxKMG5DeG1LdG8wTDR1NHY5QXd1T09VRFppYTJPbmNMV3Q4Sm1kZlc0MHRabGs?oc=5"
+  },
+  {
+   "date": "2026-10-02",
+   "brand": "Gucci",
+   "type": "Show",
+   "importance": "major",
+   "outlets": 1,
+   "headline": "Gucci staged its Milan Fashion Week SS27 womenswear show",
+   "originalTitle": "260925 (황인엽) HWANG INYOUP Milan Fashion Week SS27 Womenswear - GUCCI",
+   "title": "Gucci staged its Milan Fashion Week SS27 womenswear show",
+   "source": "YouTube",
+   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5xeV8wWk5QM0pSOVdYWVp6YV90SnUtMURKQmd0eFhXd3JTdUFIU1V0WXdvV3BxazNHR2JWM2VTSVNmNnlEVm53MkU1UW1uODRWUldQY3A4cFo2VnBw?oc=5"
+  },
+  {
+   "date": "2026-10-02",
+   "brand": "Gucci",
+   "type": "Retail",
+   "importance": "major",
+   "outlets": 1,
+   "headline": "Gucci to open store at Highland Park Village",
+   "originalTitle": "Louis Vuitton, Gucci, Bvlgari to open at Highland Park Village",
+   "title": "Louis Vuitton, Gucci, Bvlgari to open at Highland Park Village",
+   "source": "The Business Journals",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQV2NWbFpqV21PWnEtcF83ZVpYNXBCU0p3SzFLaVhFeHZKWTlDUk5XZm1USEVYQ3VEUVVrNk1kRlNjV0dJRFpWT1ZLVDR1N0VaaVZ1T2NjS0V1VmJvbVp2OTlmbXlCOS1ZdnRxcl9fT25RQ3JVeXNUZ3hHRTdaYXlCZUpCazVfd0ZpWHpXT1RBczNQSVoxOE5DT0lhZzlDSlNLYU5qSDVtRDk?oc=5"
   },
   {
    "date": "2026-10-02",
@@ -625,56 +613,20 @@
    "headline": "Kering confirms challenging end to summer",
    "originalTitle": "Kering confirms a challenging end to summer for luxury",
    "title": "Kering confirms a challenging end to summer for luxury",
-   "source": "marketscreener.com",
+   "source": "www.marketscreener.com",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdmhqVWlpYzZJalpZYW4zZ2NDSU1vVTZzd1hfd0dlQ1VhYWlZNVlwTVNoN1dxVmJrbHJrQ1dIZ256UUIyaENydjh4RVd0SWVwZFpCb2pJOE1rN1FHeV9fMGZQMGFQeHBCTVZOaTVSeXpJbVZTeEpPdW1GZ1Q1NUdxa2ljOXpmYVNjbnV3bXhXRVRzbUZrMjFVODk5bm1RUVZMRnp1cTdiMlUycms?oc=5"
   },
   {
    "date": "2026-10-02",
-   "brand": "Kering",
-   "type": "Corporate",
+   "brand": "Richemont",
+   "type": "Retail",
    "importance": "minor",
    "outlets": 1,
-   "headline": "Kering Accademia per le Eccellenze launches first academic year",
-   "originalTitle": "Kering Accademia per le Eccellenze launches its first academic year",
-   "title": "Kering Accademia per le Eccellenze launches its first academic year",
-   "source": "Fibre2Fashion",
-   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNNzE5aXdRUGlaMWNaQ1NXMExfbnBoS1ViYTg2ZHdjRTh0TEI4UkhrNHZMNVBMRmVWYkxuZjEwbVhBQ0JiYkljTkRSTGRLams2RHlWUGQ4eGFaZmo0WjJRbTlqU21nMEgxVUJIb3hSUHZkM3BzZ2RFbWw2UFJPMzBZcV9WNlNVMzlOcTNHY0ZCNHRWOXRYY0YyVHpicDZxTmxNNGo4YTBzWHYtRDl0TlJWZVFpa3YxNmdYejh5Slh0NDBjaXgtSlFFbDRQMDNVcDc0OEpLSQ?oc=5"
-  },
-  {
-   "date": "2026-10-02",
-   "brand": "Louis Vuitton",
-   "type": "Legal",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Louis Vuitton wins €920K in luxury upcycling case",
-   "originalTitle": "Louis Vuitton Wins €920K in Latest Luxury Upcycling Case",
-   "title": "Louis Vuitton Wins €920K in Latest Luxury Upcycling Case",
-   "source": "The Fashion Law",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOcU12eW1wMmRyeFRUYkk3ZGdBa3ZZZzkwWkR2UVA4TTlXWXdUUmVyZU92Yk9DaXRLUEZOdFh3dGEzdzZ2aVhBTHFXT2diRkxnN2pRb052RW1adVVlaWVlZ0tDZ1ZuWGpRZ25NZ2c2OTF2a2FIb1AxdE9MS1JzNFpoMnhlSDdPbXNpRDMzdFE4djE?oc=5"
-  },
-  {
-   "date": "2026-10-02",
-   "brand": "Louis Vuitton",
-   "type": "Leadership",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "Clara Boissonnas moves from Louis Vuitton to Pucci at LVMH",
-   "originalTitle": "LVMH: Clara Boissonnas Moves from Louis Vuitton to Pucci",
-   "title": "LVMH: Clara Boissonnas Moves from Louis Vuitton to Pucci",
-   "source": "Luxus Plus",
-   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNRF9TSW9lVU9oYWtDNnlCTFUyVVRubUZIbVJINzhkSXlXOEV6UmRJd3RZWDlULVFob2pNRnJTUXBJRXBIRXV4blFNQ3NqZWVEZEdLZUh6aGhGRzh6QzVEWXplRUx1WVhyYnZZUjZoT3ZNbG9wc3NVZHd1cUNkVVQ3X0Y1NFA3ejF6NXc?oc=5"
-  },
-  {
-   "date": "2026-10-02",
-   "brand": "LVMH",
-   "type": "Leadership",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "Clément Marchal appointed Head of AI Solutions at LVMH",
-   "originalTitle": "Clément Marchal ends ten year run at Sephora and starts a new chapter as Head of AI Solutions at LVMH",
-   "title": "Clément Marchal ends ten year run at Sephora and starts a new chapter as Head of AI Solutions at LVMH",
-   "source": "Retail Technology Innovation Hub",
-   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPOWVWMGZHT2tyb1FvS2ZuZkxZVW5MaUhDVmVUNy14X3MwVER0dGdLblNRMHk0cXJoUHQ4MzBCYXFfQm8zZGM5QzAwR1psaVlOWXN2RnU1SERJYzBsMk5wNVZfQjlYRWswTWx1S2tzbW5vV250TEhwVEFPYUdWRE51aVlISk0xajViWWcyM01lZ29pbmNEV0NaU04wdEE0ZUszdkIxb0Z0MTZDQXE2dHhLcUxuSVdzV1BYdDluT1U2ZktmdW9IS1NZYVRmYUk3OGNrVnNGVQ?oc=5"
+   "headline": "Richemont staged a three-week pop-up for 'A Bunch of Designers'",
+   "originalTitle": "Richemont: 'A Bunch of Designers' unveil the work of its inaugural cohort through a three-week pop-up",
+   "title": "Richemont: 'A Bunch of Designers' unveil the work of its inaugural cohort through a three-week pop-up",
+   "source": "FashionNetwork India",
+   "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPWU9PdUtneHpud1BlUFFZZm9iZXByc1llT3dwQmdZWkNjNXhYYjRWZEMxWmZTRGdvUmV5ZndDbUEyVEE3cXpwY0JiVVFiYTNyQWxVQkxrMVhmVWNLc093SVFfc05nUlA4RGVwWkpIRkl5OXEtNnB6RUhZU2hxYktSOHRFaDh4ODhhN0V2MlZXREc0R1pkeGYwU0hmVUtpRTNPaW5vSlRqXzBWRi1fX1ROeVVjNHhiVEo0ZzRzQmhBZTBWdjkzUGFYZkRiYzVLeXRpNldLZVBnZEdGMzc4MDR3?oc=5"
   },
   {
    "date": "2026-10-02",
@@ -687,18 +639,6 @@
    "title": "Richemont shares drop 15% despite strong sales growth and improving watch market indicators",
    "source": "Pluang",
    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNVk5UZUNmVGtOam5INWZQMVQ3SnpJRENiN2FtMWxqenkyMWRzN3gxRFNMR0ItSGxVREtRX1R0RTl6cVdVNzFfLTdNQ3pHRjZGdzFiWlo3TEd2YjdUY0pZV1RPRFRrbFNBckpEVnkyczZNVHhJTktSTlJnWlZyQWRLNTlNZXh2YTlOWGMyajFod1VqS0haZGVpRVFR?oc=5"
-  },
-  {
-   "date": "2026-10-02",
-   "brand": "Richemont",
-   "type": "Retail",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "Richemont unveils inaugural cohort work through three-week pop-up",
-   "originalTitle": "Richemont: 'A Bunch of Designers' unveil the work of its inaugural cohort through a three-week pop-up",
-   "title": "Richemont: 'A Bunch of Designers' unveil the work of its inaugural cohort through a three-week pop-up",
-   "source": "FashionNetwork USA",
-   "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPem5EdUdpdGJPQXU0QW93LVJQS1ZzOVE2c2xBczhaVmk3R2NONjlhZWJidVJweUdrVFZ2Nk9fYnpuSmtLaEhfVlFTcFk2X1FQWGFWelp5NTZfSGU5bW81YmRCOTRFMjhITC13Qm5fVUFkOU5IaG9McU41SVhLOGJkeWgyNDhXbERqX1ctUi1MT0pCb3J5VUdVNmxHUHZOYzdEeUdmcHBmLURibE9xYS1SZ1dILXhfOTZOc2hhTzJzdTBNa2NWd1ppaUZPOWYwMnhQX19LTnpEbTc2VTRjSE9Z?oc=5"
   },
   {
    "date": "2026-10-01",
@@ -721,44 +661,8 @@
    "headline": "Kering launches Kering Academy for Excellence",
    "originalTitle": "Kering Academy for Excellence, the first academic year gets underway",
    "title": "Kering Academy for Excellence, the first academic year gets underway",
-   "source": "nssmag.com",
+   "source": "nss magazine",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNdXY3VTBqYU9RQWFiRHJlNTRMUzJWMGMzaUVzX0FEYjVUQ3BFN1dRZWxvRXlJa2taOFI5c0RRalNNaW43V1djcXk0TmQ2RVJxVmFQSjRtaW1rXzNRUWswOFg0SzF6RUZ1MHMwZHNTNHp0VS1kTUNndnh1bkFlaG9uNXA3OHJBd2NMd0dIUHZ2TE52Vl9HdkhmbWdtcFJLZ3FuTDJEaEdnbkxWVmM?oc=5"
-  },
-  {
-   "date": "2026-10-01",
-   "brand": "Louis Vuitton",
-   "type": "Collection",
-   "importance": "major",
-   "outlets": 2,
-   "headline": "Louis Vuitton launches Artycapucines collection inspired by Keith Haring",
-   "originalTitle": "Louis Vuitton Reinterprets Keith Haring’s Visual Language Across the Latest Artycapucines Collection - Prestige Online",
-   "title": "Louis Vuitton Reinterprets Keith Haring’s Visual Language Across the Latest Artycapucines Collection",
-   "source": "Singapore",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNY1lfLWtwSGtDQjFtYUVNUG8wODBOeWhCTjhXQkdMdDNLWnF6SFdHVC1lalpYck55RGEzMUx2OFp2MnRwbi15YVhEdHBzbU5URG01LTJxVEdfdENNSnVjYUlrc0h2OF9lakpYT2NUcEFvN0pXbWo5NFhCMDVDcGltOVF1d3djTWRyNmR0VEtpaEttalNoR3JR0gGcAUFVX3lxTE4tdlE3SGtKVmFmNG95NGV4X2hTQ21oTEQtSHlaMmRQMnFVRG8xdjIza2tCVUlHclYzb0doaTQxXzZZblp5ZDhTZ1VVTFowQkdsSExLUFJOaEl2SklmOEdsVXlaREl3SHd2Q3R3YW5rUlhiN1QwLXM5VVFPSkpiN2wwY2hrck9SaGdDcGVOaWZzUEhzQWw3a045UnNhcA?oc=5"
-  },
-  {
-   "date": "2026-10-01",
-   "brand": "Louis Vuitton",
-   "type": "Results",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Louis Vuitton China sales decline amid Molly Tea backlash",
-   "originalTitle": "Louis Vuitton China sales slide amid Molly Tea backlash",
-   "title": "Louis Vuitton China sales slide amid Molly Tea backlash",
-   "source": "ContentGrip",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1GN2JUWk9sVVJDNUw1eGtDdmVKdFg0MDNtaWtYaGdwMjFXRXRTN0FNekhDTndTcDZlTkpxc3NGVXp4WlhBVmdWYjV5ZDg4Z1FEQ1plMTRjOWhyVVlIVS1Bekg2MWVRZEt3V2paTTBR?oc=5"
-  },
-  {
-   "date": "2026-10-01",
-   "brand": "Louis Vuitton",
-   "type": "Collection",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Louis Vuitton launches new product to rival Swatch Royal Pop",
-   "originalTitle": "Louis Vuitton has an answer to the Swatch Royal Pop—and it’s dope",
-   "title": "Louis Vuitton has an answer to the Swatch Royal Pop—and it’s dope",
-   "source": "GQ Australia",
-   "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPWlkyb0UxZndQVFZBdWJ1OVdieWk0V1ppWVYtR3ZYNUJHb0x3WmxuWld3WUFPMFgxaElNQXRTeF9vLVFmeVlfS0JGbGNObjN2VTBxQ0NxNmpsZ0plMjc1YWZlVXRHdTVBUk1WbjV1M05LeWZTMXdiN0JESGxqZnkwR2FscmtvU1dnQ21qQTRwX0dYTmNzdXpPeXYyQVpWUHJDQ01sNE9Td0lLd0lYdmxVQWFRTXBvVFNLVXZRei1qSFNCRWJNY3BIdjhGS29UWUJUMkp4em1NUi1Oc0tpTTZmatIB4AFBVV95cUxPWlkyb0UxZndQVFZBdWJ1OVdieWk0V1ppWVYtR3ZYNUJHb0x3WmxuWld3WUFPMFgxaElNQXRTeF9vLVFmeVlfS0JGbGNObjN2VTBxQ0NxNmpsZ0plMjc1YWZlVXRHdTVBUk1WbjV1M05LeWZTMXdiN0JESGxqZnkwR2FscmtvU1dnQ21qQTRwX0dYTmNzdXpPeXYyQVpWUHJDQ01sNE9Td0lLd0lYdmxVQWFRTXBvVFNLVXZRei1qSFNCRWJNY3BIdjhGS29UWUJUMkp4em1NUi1Oc0tpTTZmag?oc=5"
   },
   {
    "date": "2026-10-01",
@@ -771,18 +675,6 @@
    "title": "LVMH promotes Clara Boissonnas to CEO of Pucci",
    "source": "FashionNetwork USA",
    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOOVBFMWt2OFVyaGxORDU0V1NpNnRfMUQyU056S0YtTWlCTTZobzhFUF9OVFVCS0d3QndfYU9FN0xQTDQwc2NybzYtN2pPYjk2WkFBMnRZQVlrcFh2QkgzZ0N2cXlpZ2ZEU2syazZfTnFMUkYzNjhwa3I4NnpXbTI1VlIxc2JoRUtGVW1TRW5nTWNrYmlMcXlNQ1d3?oc=5"
-  },
-  {
-   "date": "2026-10-01",
-   "brand": "Moncler",
-   "type": "Results",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Moncler approves September 30, 2026 interim statement",
-   "originalTitle": "Moncler lists September 30, 2026 interim statement approval",
-   "title": "Moncler lists September 30, 2026 interim statement approval",
-   "source": "AD HOC NEWS",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPbC1GMVIxaTh3aThzZWx6UURlMjE3NmVxcjVhVW9CQjdOLXNzOTVxTzJ5WnMxcnJJZ1F3cmdKNVhNdE9QUm12Ty15dlYxTzNtdjRwdTNJTnJzWmdTcHZhb3oyUmVVbnR3ZDRuaEFrR2ZxN3BfZ0xtT0NfTVlEZ19WbmVwcUJTX2RleEFkSmsySnZvUC1takMtbGIzb0hZTG1XMkFXOEs0QkpPdWtjaDRwODZmeHRUNzQ?oc=5"
   },
   {
    "date": "2026-10-01",
@@ -809,28 +701,16 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOYlVJaldwRnFVQWJPR1VlampyODdUeUJtOG5reGpsSl9uV3Exb1I5djMxMTIza1Q2Tmd1QkNVQVU0ZUJjdmlkajcxdXZEbU5RdkNlRlhoR2RpRXBqUEk1Skczdk5OOWNkZ0NwcjFQdGFEZTRsSEtqVFNNVFNnZHQ5SVhnRFM0bUItUjZ3ZFowMk44aWR1djFocThxdG9RS2F6MkpJOXF3ZnZ2UQ?oc=5"
   },
   {
-   "date": "2026-10-01",
-   "brand": "Prada",
-   "type": "Show",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Prada presents Womenswear Spring-Summer 2027 show in Milan",
-   "originalTitle": "Prada - Fashion Week - atmosphere - Womenswear - Spring-Summer 2027 - Milan - FashionNetwork",
-   "title": "Prada presents Womenswear Spring-Summer 2027 show in Milan",
-   "source": "The World's Fashion Business News",
-   "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBTYVFwLUMzdlNzZWhXbE9PTHFaaGhrUUdaSktCOFFwS3RhSkNBS3dhM0Zac0ZqLWhtbDJVSHVoTnYtX2FSQVVud2FXSjdPZVU5ZWtzTERTYkEtZXVpRkVVd09XQVRraFR6aUtKdVhRbw?oc=5"
-  },
-  {
-   "date": "2026-10-01",
-   "brand": "Richemont",
-   "type": "Leadership",
+   "date": "2026-09-30",
+   "brand": "Burberry",
+   "type": "Campaign",
    "importance": "minor",
    "outlets": 1,
-   "headline": "Richemont appoints Novitskaya to lead Delvaux",
-   "originalTitle": "Richemont appoints Novitskaya to lead Delvaux as Richemont stock faces results",
-   "title": "Richemont appoints Novitskaya to lead Delvaux as Richemont stock faces results",
-   "source": "AD HOC NEWS",
-   "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPeTZoSTMzdnVXb3FhdDZndnloWG4wcFpNMGs3Mk9pd1J6SUlSX0prZHZHa1RoREJRNzJ0c0lPNWlnd0V2bGk5R1VvT0dFUTMtTmRsUUtjVTBxVjlLT2tlZU1JUnZmOWs4ZFYyV05lM1J2UEtIZTRlR3kyelZ5N0QwdEJpaGFpeFFtVS03YTV0QVBHR0Q3ZFFOWjNBcUtacXVMcUtRSU1YZnhEWmtJR0VWdktWZWhROC1hU3NQc21iMXlNV3hybFI4QjdybUNoc1pkLXN4WlNWc2M?oc=5"
+   "headline": "Burberry casts employees as models in new campaign",
+   "originalTitle": "Burberry’s New Campaign Casts Its Employees As Models",
+   "title": "Burberry’s New Campaign Casts Its Employees As Models",
+   "source": "The Cut",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPb1Q3dGJUYXZGUDZ5ZzBndWVWVm5BeUJibHIwaGFWVFhmQjVQd183ZVRlNXF1SkRNMU5qa3NKU284RlJDdk5oS2hSbGk0dVJvY0V0UVNzcThNUW5KQ1V1R05pWk5GdDVLSi01R2tIS3FNMG4wSnZDd1JMV002NXVxWTdrUVN0X2t3a3JwTy0wWnc2dw?oc=5"
   },
   {
    "date": "2026-09-30",
@@ -843,6 +723,30 @@
    "title": "Burberry Returns to the Basis of Things for Summer 2027",
    "source": "Singapore",
    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5Ycjk3MlZjWWxldTZzZUhnWGZoWExYLXU3cHNyWXdPU1hrYjdObFJvNWswM0d4dFpfQXl4QUl0c1psQURPak1sOXNhQzU5cmxvYnhHZkJncERxLUsxaWQ0QnRGZ0FmbTdrVkRoQUtPWVYwWDVRbU1ka1VtMWLSAYIBQVVfeXFMTnVKUVN1SnF0MEJaWGR5c2QwY0tSclFiZm04bVVkbm5OWEtIUWJJM1Z6R0ZwemxNMDhteW5lbjlyUl9sSTBFZDdQNmRtclFWMUVzZEExVTlCUmNHRVdzYUJIREtRZkZIQWExcG9RZEhaNmhhcW9Kck5zRlJkdVkxaXV1UQ?oc=5"
+  },
+  {
+   "date": "2026-09-30",
+   "brand": "Chanel",
+   "type": "Collaboration",
+   "importance": "minor",
+   "outlets": 1,
+   "headline": "Chanel presents new trophies for Oxford and Cambridge Boat Race",
+   "originalTitle": "Chanel presents two new trophies for the 2027 Oxford and Cambridge Boat Race",
+   "title": "Chanel presents two new trophies for the 2027 Oxford and Cambridge Boat Race",
+   "source": "Hunger Magazine",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPdGxWS1U5Vi1EOVd1TUdHM1BWYWhESGNCSUF6TTdrY1h0dkJGVHhyT3RiM0lFZmdEVjdqNEpxbkY2dDRXekRQS3JTaGxydkhMY0xlQy1rVUtpVW5wSm9YeXBiNnlWYjktUEswQXhGN2JHdk80ZmlVRzVZTmRjNmN1X0hxRGFnai1WMUNFaGVBckE5M01kdE1JRHNNTDdNMzdocDdKaEs2Q05obUtkV0pPT3pDOUhXa2ZE?oc=5"
+  },
+  {
+   "date": "2026-09-30",
+   "brand": "Kering",
+   "type": "Corporate",
+   "importance": "major",
+   "outlets": 2,
+   "headline": "Kering rules out production shift from Italy",
+   "originalTitle": "Kering's de Meo says Italy remains key, rules out production shift",
+   "title": "Kering's de Meo says Italy remains key, rules out production shift",
+   "source": "TradingView",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQd043eTctWTZJLUQ5ZDNrMGNldnRoandlS2EzTGM2eWdvTEhWdW9CN2ZGZS1PVHdPSWo4TnY4THJnWlRuem9iaWJOdjNMVV81b2pKRmVJQVlLTWNMZ2hTNVNKY2NJVzlCYzAtcVFDWFFFREJmRmVnZmZrNUZnTERVZ2E1N2k2VUE4cXhTVnZMUjBsWk84eVB6UE05RGFqczk5cHZjOVVoTEZnS1hiSjJfc1dfNnAzQTVBeEVmeHNGNGhwYlI3NmF6U0Rfd1ktNEtr?oc=5"
   },
   {
    "date": "2026-09-30",
@@ -870,6 +774,18 @@
   },
   {
    "date": "2026-09-30",
+   "brand": "Prada",
+   "type": "Campaign",
+   "importance": "minor",
+   "outlets": 1,
+   "headline": "Prada releases film featuring Jake Gyllenhaal in Iceland",
+   "originalTitle": "Jake Gyllenhaal Takes on Iceland’s Frozen Landscapes in Karim Huu Do’s Prada Film — LBB - LBB",
+   "title": "Jake Gyllenhaal Takes on Iceland’s Frozen Landscapes in Karim Huu Do’s Prada Film — LBB",
+   "source": "Little Black Book",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNNmR5SHF2RzBudTltZ01mMVhjX2hQZC0xZzAxNWN5RnR0MVZnVGwwWUUtSl9KREJvVWxyY085UGh2VzZVemxsR1JoODhrSk0tTWc5ZjNsUHBDTUV0cG9RZzY4SldLTUZzVXZrN3ZoNHFQenYtRjFyeWRfTHdTMEtQSTltQUYzYzFTaEVRRE1Cemt4WFlsamlfMDh0TEhLZExnclJkQWRGaC11Sks3?oc=5"
+  },
+  {
+   "date": "2026-09-30",
    "brand": "Richemont",
    "type": "Corporate",
    "importance": "major",
@@ -879,6 +795,18 @@
    "title": "Richemont stock ahead of the Xetra open as AGM approves dividends",
    "source": "AD HOC NEWS",
    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNdFdhUHRiMm1PMFhnc2R6ZkVNX0tYZXVvenJURUNRUUJod3o2b3QxWFp0aDlXRXNtcWJLZC1zTC1LTjFmLXowUWlRZEpfRGViN0RGT2YyNWYzaDlVUms5MjJXSE9XdWEyMmw2WXJTYW9nVXZoS2labTNtSDFQakFJczdIdk5jYnpKeEFFM1ZnclhUNDF1cEZRd3RSR0VBRFpMYlJ0bHRWMU9iWDRGb2NFNGhKcmlWcmVoT2dSWjRDMFg?oc=5"
+  },
+  {
+   "date": "2026-09-29",
+   "brand": "Burberry",
+   "type": "Campaign",
+   "importance": "minor",
+   "outlets": 1,
+   "headline": "Burberry commemorates 170 years with 170 portraits",
+   "originalTitle": "Burberry commemorates 170 years with 170 portraits",
+   "title": "Burberry commemorates 170 years with 170 portraits",
+   "source": "Hero Magazine",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeF9pa2VHay1GcDNLWjF5Y0ppNTN3anlTaGJvUDVUblI0ZmZwTnJVVmtCclVGZjlyN19BVFUzUlo0OG5fc2k4NlJ3Ul9adjkxTDJKWVE0YjdhczhZd3FBc3RiWUxSRlQ3bXhKbk5Xd3RrUWJyYWU5bDk4R3dyTDZOdFBVbkhpdkt1elJ5REg2MjZJSWtv?oc=5"
   },
   {
    "date": "2026-09-29",
@@ -894,27 +822,15 @@
   },
   {
    "date": "2026-09-29",
-   "brand": "LVMH",
-   "type": "Corporate",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "LVMH discloses share transactions",
-   "originalTitle": "LVMH: Share transactions disclosure",
-   "title": "LVMH: Share transactions disclosure",
-   "source": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOY1ZKd09MRFdUeVZaRkt6UWg3V3J4RExzc1ZQY1FOaVZFaDR0XzlHMGlIcUVYcnZtamJpMkZBb2VJX2hYekl5TDBpVk03TUVRd25oSDVhUHBvci10VjkzLWwxVVFfUjV6cjlPa3NCcVZaYXNVSzBELXZWSFN4OTdUOGRzYjdlVENIMzlvOUJHZGYzNmVYWkY1NmI1UGZDWkdD?oc=5"
-  },
-  {
-   "date": "2026-09-29",
-   "brand": "LVMH",
-   "type": "Deal",
+   "brand": "Prada",
+   "type": "Show",
    "importance": "major",
    "outlets": 1,
-   "headline": "M&S strikes beauty deal with LVMH's Sephora",
-   "originalTitle": "M&S strikes beauty deal with LVMH’s Sephora",
-   "title": "M&S strikes beauty deal with LVMH’s Sephora",
-   "source": "Financial Times",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQ3pudXFKMW1qUklrbkZBa3dkaXZwNWd1R2k5SDZ3U05Tb1ItbkJxZzZNNjlNVnRwWk5CbkNlNmczTVc1bjV2MnRoUWhWYkE2SnN4ai1oS3I0TlhTU1VJYUwyUDN3V0FGVzJIcGZmcTJhTFhQa3pUMDY0dWV1RzVvd0VSQVM?oc=5"
+   "headline": "Prada presents S/S 2027 show",
+   "originalTitle": "Prada S/S 2027",
+   "title": "Prada S/S 2027",
+   "source": "Metal Magazine",
+   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1rOHlnaVFZRFAwMGI0OGRKeGVudlo4aGdmQ0Z5aUlnLW1XZHdlamd5Vl9ta3gxeV9wVmFUbTJ2QUZBMzBxeHh2bEV4Q3Awb3RSOXZuSkFlWFlKQQ?oc=5"
   },
   {
    "date": "2026-09-28",
@@ -927,6 +843,18 @@
    "title": "Must Read: Derek Lam Returns to Derek Lam 10 Crosby as Creative Director, Chanel Reveals Its Cruise 2027 Show Location",
    "source": "Fashionista",
    "url": "https://fashionista.com/2026/09/derek-lam-10-crosby-creative-director-return"
+  },
+  {
+   "date": "2026-09-28",
+   "brand": "Richemont",
+   "type": "Leadership",
+   "importance": "minor",
+   "outlets": 2,
+   "headline": "Richemont appoints Cartier veteran to lead Delvaux",
+   "originalTitle": "Richemont appoints Cartier veteran to lead Delvaux - FashionNetwork",
+   "title": "Richemont appoints Cartier veteran to lead Delvaux",
+   "source": "The World's Fashion Business News",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOYXBRckg1c0lOUGwwTVZndlBhY0VqT3Z5VkRCd1NwRmxXbTZpQm11eGlsZ2llei0xVG56MG1Zb0tkaHV5VTM2V1FTR0hlN0htbm9HV0I3Sm5BaFpjazEwcXlqcjVrM0U4bmZVUlpRQ1BhXzZwXy00Y0ZIcDhZZEV5RWRqN1ZtOXJFY09wTFpicFFCODJZUWE1SFYzVnFaZDQ?oc=5"
   },
   {
    "date": "2026-09-27",
@@ -989,6 +917,18 @@
    "url": "https://www.luxurydaily.com/chanel-introduces-2026-next-prize-winners-in-new-film/"
   },
   {
+   "date": "2026-09-21",
+   "brand": "Louis Vuitton",
+   "type": "Collection",
+   "importance": "major",
+   "outlets": 1,
+   "headline": "Louis Vuitton unveils Keith Haring Artycapucines handbag collection",
+   "originalTitle": "EXCLUSIVE: Louis Vuitton Unveils Keith Haring Artycapucines Handbag Collection",
+   "title": "EXCLUSIVE: Louis Vuitton Unveils Keith Haring Artycapucines Handbag Collection",
+   "source": "WWD",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNSjM1TEFwWVlBcDc2VTMtYm93NF9POVNlaGtxdU9wbUZ6bUF4M1Iya2tjc09oNF9wRUx3UnIzOXd5M1d4eHoyY2hic1hvc1BndHkwaUNOMV9PT0UyaXlZYUVmZTFsTF9TUnZCTW9SOEJNZmNDNzNaM2IyajV4OEc5SktrRVVxYnZXcmhmV3JWbnB5dkxsSWJ5TnU0c0g4NERPR0VEbl9FMmdQUHZWT1cyN1NXR1pHZw?oc=5"
+  },
+  {
    "date": "2026-09-20",
    "brand": "Gucci",
    "type": "Pricing",
@@ -1005,7 +945,7 @@
    "brand": "Prada",
    "type": "Retail",
    "importance": "major",
-   "outlets": 1,
+   "outlets": 2,
    "headline": "Prada unveils expanded space in Milan’s Galleria",
    "originalTitle": "Prada Unveils an Expanded World in Milan’s Galleria",
    "title": "Prada Unveils an Expanded World in Milan’s Galleria",
@@ -1802,6 +1742,663 @@
    "windowStart": "2026-07-06",
    "windowEnd": "2026-10-02",
    "stale": false
+  }
+ ],
+ "panel": {
+  "articles": 1894,
+  "outlets": 15
+ },
+ "rules": {
+  "minArticles": 20,
+  "minRecent": 10,
+  "minOutlets": 6,
+  "rise": 1.5,
+  "fallPriorMin": 10,
+  "fallMinOutlets": 4,
+  "fall": 0.4
+ },
+ "signals": [
+  {
+   "name": "China",
+   "verdict": "rising",
+   "statement": "Coverage of China is up: 4% of the luxury trade press's articles in the last 4 weeks, against 2.4% in the 8 weeks before, across 11 outlets.",
+   "total": 56,
+   "recent": 26,
+   "prior": 30,
+   "shareRecent": 4,
+   "sharePrior": 2.4,
+   "ratio": 1.64,
+   "outlets": 11,
+   "weeklyShare": [
+    0.66,
+    1.27,
+    1.3,
+    1.95,
+    1.32,
+    4.79,
+    5.11,
+    2.98,
+    4.29,
+    4.07,
+    4.97,
+    2.53
+   ],
+   "examples": [
+    {
+     "title": "Guide to China’s Zzer secondhand stores",
+     "source": "Jing Daily",
+     "url": "https://jingdaily.com/posts/guide-to-china-s-zzer-secondhand-market-store",
+     "date": "2026-10-04"
+    },
+    {
+     "title": "MFW: How Prada, Gucci, BV vie for China’s attention",
+     "source": "Jing Daily",
+     "url": "https://jingdaily.com/posts/mfw-how-prada-gucci-bv-vie-for-china-attention",
+     "date": "2026-10-04"
+    },
+    {
+     "title": "Nike’s Asia-Pacific Plan: Shift Out of China, New Focus on Singapore Raises Doubt",
+     "source": "Footwear News",
+     "url": "https://wwd.com/footwear-news/shoe-industry-news/nike-greater-china-team-singapore-local-relationship-1239305114/",
+     "date": "2026-10-02"
+    }
+   ]
+  },
+  {
+   "name": "Tariffs",
+   "verdict": "falling",
+   "statement": "Talk of tariffs has dropped away: no articles in the last 4 weeks, after 14 in the 8 weeks before, across 7 outlets.",
+   "total": 14,
+   "recent": 0,
+   "prior": 14,
+   "shareRecent": 0,
+   "sharePrior": 1.1,
+   "ratio": 0,
+   "outlets": 7,
+   "weeklyShare": [
+    0.66,
+    3.8,
+    0.65,
+    0,
+    0.66,
+    0.6,
+    2.19,
+    0.6,
+    0,
+    0,
+    0,
+    0
+   ],
+   "examples": [
+    {
+     "title": "Swiss watches win a China tariff cut, not a comeback",
+     "source": "Jing Daily",
+     "url": "https://jingdaily.com/posts/swiss-watch-exports-to-china-duty-free-deal-explained",
+     "date": "2026-08-30"
+    },
+    {
+     "title": "US tariff threat puts China’s globalizing consumer brands in the crosshairs",
+     "source": "Jing Daily",
+     "url": "https://jingdaily.com/posts/us-tariff-threat-puts-china-s-globalizing-consumer-brands-in-the-crosshairs",
+     "date": "2026-08-30"
+    },
+    {
+     "title": "Canada Talks Crumble and 50% Tariffs Take Effect",
+     "source": "WWD - Women's Wear Daily",
+     "url": "https://wwd.com/sourcing-journal/industry-news/50-percent-tariffs-section-338-canada-trade-deal-usmca-ustr-1239146745/",
+     "date": "2026-08-21"
+    }
+   ]
+  },
+  {
+   "name": "India",
+   "verdict": "falling",
+   "statement": "Talk of India has dropped away: 1 article in the last 4 weeks, after 10 in the 8 weeks before, across 6 outlets.",
+   "total": 11,
+   "recent": 1,
+   "prior": 10,
+   "shareRecent": 0.2,
+   "sharePrior": 0.8,
+   "ratio": 0.19,
+   "outlets": 6,
+   "weeklyShare": [
+    0,
+    1.9,
+    0,
+    1.3,
+    1.32,
+    0,
+    1.46,
+    0.6,
+    0.61,
+    0,
+    0,
+    0
+   ],
+   "examples": [
+    {
+     "title": "Kering brings Generation Award to India with Reliance",
+     "source": "Luxury Daily - Main",
+     "url": "https://www.luxurydaily.com/kering-brings-generation-award-to-india-with-reliance/",
+     "date": "2026-09-08"
+    },
+    {
+     "title": "Wild, dream-like photos of India’s monsoon season",
+     "source": "Dazed",
+     "url": "https://www.dazeddigital.com/art-photography/article/70868/1/yash-sheth-monsoon-project-rain-mumbai-india-photographer-photo-series?utm_source=Link&utm_medium=Link&utm_campaign=RSSFeed&utm_term=wild-dream-like-photos-of-india-s-monsoon-season",
+     "date": "2026-08-27"
+    },
+    {
+     "title": "With 100% Tariffs Looming, Indian Suppliers Lay Plans to Pivot Away from the US Market",
+     "source": "WWD - Women's Wear Daily",
+     "url": "https://wwd.com/sourcing-journal/trade/100-percent-russia-tariffs-india-suppliers-trade-sourcing-at-magic-1239125827/",
+     "date": "2026-08-14"
+    }
+   ]
+  }
+ ],
+ "watching": [
+  {
+   "name": "AI",
+   "verdict": "watching",
+   "statement": null,
+   "total": 55,
+   "recent": 23,
+   "prior": 32,
+   "shareRecent": 3.5,
+   "sharePrior": 2.6,
+   "ratio": 1.36,
+   "outlets": 14,
+   "weeklyShare": [
+    3.97,
+    1.9,
+    1.95,
+    2.6,
+    2.65,
+    2.99,
+    3.65,
+    1.19,
+    1.84,
+    5.23,
+    3.11,
+    3.8
+   ],
+   "examples": [
+    {
+     "title": "The AI-powered holiday shopper: How prompt-driven curations and Gen Alpha algorithms will shape consumer behavior",
+     "source": "Glossy",
+     "url": "https://www.glossy.co/fashion/the-ai-powered-holiday-shopper-how-prompt-driven-curation-and-gen-alpha-algorithms-will-shape-consumer-behavior/?utm_campaign=glossydis&utm_medium=rss&utm_source=general-rss",
+     "date": "2026-10-01"
+    },
+    {
+     "title": "The Lipstick Lesbians: ‘AI can recommend a lipstick. It can’t tell you how it feels’",
+     "source": "Glossy",
+     "url": "https://www.glossy.co/beauty/lipstick-lesbians-ai-beauty-discovery-leaked-labs/?utm_campaign=glossydis&utm_medium=rss&utm_source=general-rss",
+     "date": "2026-09-30"
+    },
+    {
+     "title": "How Van Cleef & Arpels and The Wires are using AI for product discovery and personalization",
+     "source": "Glossy",
+     "url": "https://www.glossy.co/fashion/how-van-cleef-arpels-and-the-wires-are-using-ai-for-product-discovery-and-personalization/?utm_campaign=glossydis&utm_medium=rss&utm_source=general-rss",
+     "date": "2026-09-29"
+    }
+   ]
+  },
+  {
+   "name": "Creative director moves",
+   "verdict": "watching",
+   "statement": null,
+   "total": 70,
+   "recent": 29,
+   "prior": 41,
+   "shareRecent": 4.4,
+   "sharePrior": 3.3,
+   "ratio": 1.34,
+   "outlets": 12,
+   "weeklyShare": [
+    7.28,
+    3.8,
+    1.95,
+    3.9,
+    1.99,
+    1.2,
+    3.65,
+    2.98,
+    3.68,
+    6.98,
+    3.11,
+    3.8
+   ],
+   "examples": [
+    {
+     "title": "LeMieux appoints CFO and chairman for next stage of international growth",
+     "source": "Retail Gazette",
+     "url": "https://www.retailgazette.co.uk/blog/2026/10/lemieux-appoints-cfo-and-chairman/",
+     "date": "2026-10-02"
+    },
+    {
+     "title": "Alex Dower appointed MD of Co-op Retail",
+     "source": "Retail Gazette",
+     "url": "https://www.retailgazette.co.uk/blog/2026/10/md-of-co-op-retail/",
+     "date": "2026-10-02"
+    },
+    {
+     "title": "Must Read: Roger Lynch Steps Down as Condé Nast CEO, Oura Delays IPO",
+     "source": "Fashionista",
+     "url": "https://fashionista.com/news/roger-lynch-steps-down-as-conde-nast-ceo",
+     "date": "2026-09-30"
+    }
+   ]
+  },
+  {
+   "name": "Collaborations",
+   "verdict": "watching",
+   "statement": null,
+   "total": 122,
+   "recent": 46,
+   "prior": 76,
+   "shareRecent": 7,
+   "sharePrior": 6.1,
+   "ratio": 1.15,
+   "outlets": 14,
+   "weeklyShare": [
+    6.62,
+    4.43,
+    5.84,
+    10.39,
+    7.95,
+    4.19,
+    5.84,
+    4.17,
+    7.98,
+    6.4,
+    8.7,
+    5.06
+   ],
+   "examples": [
+    {
+     "title": "First Look: Jae Tips Just Revealed His New Nike Sneaker Collab — and There’s Even More on the Way",
+     "source": "Footwear News",
+     "url": "https://wwd.com/footwear-news/sneaker-news/jae-tips-nike-air-bakin-low-savior-iv6795-001-1239308017/",
+     "date": "2026-10-03"
+    },
+    {
+     "title": "Giuseppe Zanotti Teases New Partnership With Rapper Playboi Carti",
+     "source": "Footwear News",
+     "url": "https://wwd.com/footwear-news/shoe-industry-news/playboi-carti-giuseppe-zanotti-sneaker-boot-release-date-1239306918/",
+     "date": "2026-10-03"
+    },
+    {
+     "title": "ICYMI: CFDA Names Hildy Kuryk as Interim CEO, John Galliano's Zara Collab Is Here &amp; Milan Fashion Week's Top Spring 2027 Trends",
+     "source": "Fashionista",
+     "url": "https://fashionista.com/news/fashion-news-you-need-to-know-october-3",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "name": "Middle East",
+   "verdict": "watching",
+   "statement": null,
+   "total": 3,
+   "recent": 1,
+   "prior": 2,
+   "shareRecent": 0.2,
+   "sharePrior": 0.2,
+   "ratio": 0.95,
+   "outlets": 3,
+   "weeklyShare": [
+    0,
+    0,
+    1.3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.63
+   ],
+   "examples": [
+    {
+     "title": "Robots, geeks, and Arabic type: 6 outside-the-box projects at VCUarts Qatar",
+     "source": "Dazed",
+     "url": "https://www.dazeddigital.com/art-photography/article/70710/1/robots-geeks-arabic-type-outside-box-projects-vcuarts-qatar-venice-aghrab-idrak?utm_source=Link&utm_medium=Link&utm_campaign=RSSFeed&utm_term=robots-geeks-and-arabic-type-6-outside-the-box-projects-at-vcuarts-qatar",
+     "date": "2026-07-30"
+    },
+    {
+     "title": "Michael Jordan’s Air Jordan 3 Is Getting a New Colorway That Will Only Come Out in Certain Places",
+     "source": "Footwear News",
+     "url": "https://wwd.com/footwear-news/sneaker-news/air-jordan-3-retro-og-middle-east-release-date-ix6986-047-1239306035/",
+     "date": "2026-10-02"
+    },
+    {
+     "title": "Electronic Arts Set to Finalize $55 Billion USD Go-Private Acquisition",
+     "source": "Hypebeast - Business",
+     "url": "https://hypebeast.com/2026/8/electronic-arts-finalize-55-billion-usd-go-private-acquisition-saudi-arabia-pif-silver-lake-affinity",
+     "date": "2026-07-31"
+    }
+   ]
+  },
+  {
+   "name": "Resale and pre-owned",
+   "verdict": "watching",
+   "statement": null,
+   "total": 16,
+   "recent": 4,
+   "prior": 12,
+   "shareRecent": 0.6,
+   "sharePrior": 1,
+   "ratio": 0.63,
+   "outlets": 7,
+   "weeklyShare": [
+    0,
+    0,
+    1.95,
+    0,
+    2.65,
+    0,
+    2.92,
+    0.6,
+    1.23,
+    0.58,
+    0,
+    0.63
+   ],
+   "examples": [
+    {
+     "title": "Guide to China’s Zzer secondhand stores",
+     "source": "Jing Daily",
+     "url": "https://jingdaily.com/posts/guide-to-china-s-zzer-secondhand-market-store",
+     "date": "2026-10-04"
+    },
+    {
+     "title": "Charity shop influencer to host second-hand shopping masterclass at Teesside Hospice superstore",
+     "source": "Retail Gazette",
+     "url": "https://www.retailgazette.co.uk/blog/2026/09/teesside-hospice-second-hand/",
+     "date": "2026-09-11"
+    },
+    {
+     "title": "ICYMI: Emerging Designers Gain Momentum on Luxury Resale Market, Old Navy Enters Beauty &amp; Erica Choi's Guide to Seoul",
+     "source": "Fashionista",
+     "url": "https://fashionista.com/news/fashion-news-you-need-to-know-august-29",
+     "date": "2026-08-29"
+    }
+   ]
+  },
+  {
+   "name": "Store openings",
+   "verdict": "watching",
+   "statement": null,
+   "total": 26,
+   "recent": 6,
+   "prior": 20,
+   "shareRecent": 0.9,
+   "sharePrior": 1.6,
+   "ratio": 0.57,
+   "outlets": 7,
+   "weeklyShare": [
+    1.99,
+    3.8,
+    0.65,
+    0,
+    1.32,
+    2.4,
+    1.46,
+    1.19,
+    0.61,
+    0.58,
+    2.48,
+    0
+   ],
+   "examples": [
+    {
+     "title": "Frame Unveils Renovated SoHo Flagship",
+     "source": "The Impression",
+     "url": "https://theimpression.com/frame-soho-flagship-new-york-renovation/",
+     "date": "2026-09-27"
+    },
+    {
+     "title": "Must Read: McMullen Opens Flagship in San Francisco's Union Square, Beckham Brands Deliver Strong Growth Across Ventures",
+     "source": "Fashionista",
+     "url": "https://fashionista.com/2026/09/mcmullen-new-flagship-san-francisco-union-square",
+     "date": "2026-09-25"
+    },
+    {
+     "title": "Uniqlo to open store in Bath",
+     "source": "Drapers",
+     "url": "https://www.drapersonline.com/news/uniqlo-to-open-store-in-bath",
+     "date": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "name": "Slowdown and weak demand",
+   "verdict": "watching",
+   "statement": null,
+   "total": 11,
+   "recent": 2,
+   "prior": 9,
+   "shareRecent": 0.3,
+   "sharePrior": 0.7,
+   "ratio": 0.42,
+   "outlets": 6,
+   "weeklyShare": [
+    0.66,
+    0,
+    1.3,
+    0.65,
+    1.32,
+    0,
+    1.46,
+    0.6,
+    0.61,
+    0,
+    0,
+    0.63
+   ],
+   "examples": [
+    {
+     "title": "Swiss watch exports grow for 4th month, overcoming US slump",
+     "source": "Jing Daily",
+     "url": "https://jingdaily.com/posts/swiss-watch-exports-grow-for-4th-month-overcoming-us-slump",
+     "date": "2026-10-04"
+    },
+    {
+     "title": "Luxury Briefing: How Bloomingdale’s is beating the luxury slump",
+     "source": "Glossy",
+     "url": "https://www.glossy.co/fashion/luxury/bloomingdales-sales-luxury-retail-strategy/?utm_campaign=glossydis&utm_medium=rss&utm_source=general-rss",
+     "date": "2026-09-11"
+    },
+    {
+     "title": "Prada prevails amid luxury slowdown",
+     "source": "Drapers",
+     "url": "https://www.drapersonline.com/news/prada-prevails-amid-luxury-slowdown",
+     "date": "2026-07-31"
+    }
+   ]
+  },
+  {
+   "name": "Gen Z",
+   "verdict": "watching",
+   "statement": null,
+   "total": 17,
+   "recent": 3,
+   "prior": 14,
+   "shareRecent": 0.5,
+   "sharePrior": 1.1,
+   "ratio": 0.41,
+   "outlets": 4,
+   "weeklyShare": [
+    1.99,
+    0,
+    1.95,
+    0.65,
+    1.32,
+    0,
+    1.46,
+    1.79,
+    0.61,
+    0,
+    0,
+    1.27
+   ],
+   "examples": [
+    {
+     "title": "In China, golf is becoming Gen Z and female",
+     "source": "Jing Daily",
+     "url": "https://jingdaily.com/posts/in-china-golf-is-becoming-gen-z-and-female",
+     "date": "2026-09-13"
+    },
+    {
+     "title": "Twoi’s milky-cute aesthetic wins over China’s Gen Z",
+     "source": "Jing Daily",
+     "url": "https://jingdaily.com/posts/twoi-milky-cute-aesthetic-wins-china-gen-z",
+     "date": "2026-09-06"
+    },
+    {
+     "title": "Willem Dafoe on Gen Z, memes and staying young: ‘I’m a kid’",
+     "source": "Dazed",
+     "url": "https://www.dazeddigital.com/film-tv/article/70899/1/willem-dafoe-on-gen-z-memes-late-fame-interview-2026?utm_source=Link&utm_medium=Link&utm_campaign=RSSFeed&utm_term=willem-dafoe-on-gen-z-memes-and-staying-young-i-m-a-kid",
+     "date": "2026-09-03"
+    }
+   ]
+  },
+  {
+   "name": "Price increases",
+   "verdict": "watching",
+   "statement": null,
+   "total": 1,
+   "recent": 1,
+   "prior": 0,
+   "shareRecent": 0.2,
+   "sharePrior": 0,
+   "ratio": null,
+   "outlets": 1,
+   "weeklyShare": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.62,
+    0
+   ],
+   "examples": [
+    {
+     "title": "Luxury Unfiltered: 80pc of luxury growth came from price hikes",
+     "source": "Luxury Daily - Main",
+     "url": "https://www.luxurydaily.com/luxury-unfiltered-80pc-of-luxury-growth-came-from-price-hikes/",
+     "date": "2026-09-23"
+    }
+   ]
+  }
+ ],
+ "cross": {
+  "name": "Agentic commerce",
+  "statement": "AI shopping agents are among the biggest tech stories of the quarter: 27 articles a week across all sources in the last 4 weeks, up from 19. The luxury trade press wrote 4 of the 263.",
+  "weekly": [
+   20,
+   24,
+   12,
+   28,
+   15,
+   14,
+   17,
+   25,
+   15,
+   14,
+   38,
+   41
+  ],
+  "total": 263,
+  "outlets": 34,
+  "inLuxuryPress": 4,
+  "examples": [
+   {
+    "title": "Meta's Muse can shop and check out for you. Here's how it works",
+    "source": "CNBC Technology",
+    "url": "https://www.cnbc.com/2026/10/03/meta-muse-shopping-ai-agent.html",
+    "date": "2026-10-03"
+   },
+   {
+    "title": "Meta, Amazon, And The Real Question About Agentic Commerce",
+    "source": "Forrester Blog",
+    "url": "https://www.forrester.com/blogs/meta-amazon-and-the-real-question-about-agentic-commerce/",
+    "date": "2026-10-03"
+   },
+   {
+    "title": "EVENT REVIEW: MACH X and the next chapter of digital commerce",
+    "source": "Internet Retailing",
+    "url": "https://internetretailing.net/event-review-mach-x-and-the-next-chapter-of-digital-commerce/",
+    "date": "2026-10-02"
+   }
+  ]
+ },
+ "attention": [
+  {
+   "ticker": "MC.PA",
+   "company": "LVMH",
+   "articles": 125,
+   "change3m": -23,
+   "change1m": -12.2
+  },
+  {
+   "ticker": "RMS.PA",
+   "company": "Hermès",
+   "articles": 11,
+   "change3m": -20.1,
+   "change1m": -12.3
+  },
+  {
+   "ticker": "KER.PA",
+   "company": "Kering",
+   "articles": 47,
+   "change3m": -15.8,
+   "change1m": -14
+  },
+  {
+   "ticker": "1913.HK",
+   "company": "Prada",
+   "articles": 29,
+   "change3m": -6.3,
+   "change1m": -8.5
+  },
+  {
+   "ticker": "BRBY.L",
+   "company": "Burberry",
+   "articles": 15,
+   "change3m": -7.5,
+   "change1m": -7.9
+  },
+  {
+   "ticker": "CFR.SW",
+   "company": "Richemont",
+   "articles": 56,
+   "change3m": -5.5,
+   "change1m": -5.9
+  },
+  {
+   "ticker": "MONC.MI",
+   "company": "Moncler",
+   "articles": 6,
+   "change3m": -14.5,
+   "change1m": -5.3
+  }
+ ],
+ "callouts": [
+  {
+   "company": "LVMH",
+   "kind": "loud",
+   "change3m": -23,
+   "text": "LVMH is the most-covered group here (125 articles in 12 weeks), and its shares fell 23%."
   }
  ]
 }

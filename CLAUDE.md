@@ -241,6 +241,10 @@ Design and the reasons behind it: `docs/superpowers/specs/2026-10-04-markets-pag
 Brand patterns and their known false positives live in `markets/brands.ts`,
 pinned by `__tests__/markets.brands.test.ts`. Move classifications are cached
 in `data/markets/classified.json`; bump `PROMPT_VERSION` to redo them.
+Since v2 (2026-10-09) the pages lead with signals counted from the whole
+article stream (`markets/signals.ts`: share-of-articles themes, explicit
+thresholds, panels from `categoryHint` in `ingestion/sources.ts`) and
+coverage vs share price (`markets/attention.ts`).
 
 ### Planning docs
 

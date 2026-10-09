@@ -1,8 +1,8 @@
 {
- "version": 1,
+ "version": 2,
  "market": "jewellery",
  "weekLabel": "2026-W40",
- "generatedAtISO": "2026-10-04T20:30:37.912Z",
+ "generatedAtISO": "2026-10-09T12:40:23.581Z",
  "window": {
   "start": "2026-07-13",
   "end": "2026-10-04"
@@ -10,9 +10,9 @@
  "articlesScreened": 8527,
  "totalMentions": 46,
  "summary": [
-  "Bulgari revived its gold and steel pairing for its signature collections, while Cartier launched a LOVE unlimited collection in gold and diamonds on the Seine.",
-  "De Beers introduced the 'Vibrations' collection inspired by water and agreed to take full ownership of the Gahcho Kué diamond mine, also gaining a stake in a Canadian mine through Mountain Province's restructuring.",
-  "Pandora expanded its manufacturing capacity by 50% with a new facility in Vietnam, and Tiffany & Co. launched the Eternity collection combining Italian glass art, diamonds, and fine jewellery."
+  "Cartier launched its LOVE unlimited collection on the Seine, featuring gold and diamonds.",
+  "De Beers introduced the Vibrations collection inspired by water and moved to take full ownership of the Gahcho Kué diamond mine, while also acquiring a stake in another Canadian mine through a restructuring deal.",
+  "Pandora entered the lab-grown diamond market and opened the world’s largest fine jewellery factory in Vietnam to support growth in Asia."
  ],
  "brands": [
   {
@@ -69,16 +69,16 @@
    ],
    "trend": null,
    "latestMove": {
-    "date": "2026-10-03",
+    "date": "2026-09-29",
     "brand": "Bulgari",
-    "type": "Collection",
-    "importance": "major",
+    "type": "Campaign",
+    "importance": "minor",
     "outlets": 1,
-    "headline": "Bulgari revives gold and steel pairing for signature collections",
-    "originalTitle": "Bulgari Revives Its Gold and Steel Pairing for Its Signature Collections",
-    "title": "Bulgari Revives Its Gold and Steel Pairing for Its Signature Collections",
-    "source": "WWD",
-    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNRlVsS0YyaENFWU1sTzYwTmxiS3ZvR1R3eHNmNlBqOWgxWGhrY1JubjVUWmRjU0JEcVV2UlhpY0RtRDkzVXlmQVRNRV8zRXo0Z2tjMkctQXQxVVZ4Yi1vcDVPMDQ2dUYwOVI1dXFyMTRVOWlaVGtHR3lFM29rcnFqSWF5Uk01cU1jYjhyRWFabFNMSUgtVmRGMWNpdG5vT19QQ2RQcTJUMmJpZXI0RkE?oc=5"
+    "headline": "Bulgari launches advertising campaign with Zendaya and Anne Hathaway",
+    "originalTitle": "Give Us the Movie-Length Version of Zendaya and Anne Hathaway’s Wildly Sapphic Bulgari Ad",
+    "title": "Give Us the Movie-Length Version of Zendaya and Anne Hathaway’s Wildly Sapphic Bulgari Ad",
+    "source": "Jezebel",
+    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNcTA5OVQ2RGt3N2dUblpNb3E0T0s3cVhMNGQzUG5wSkxmWUVlVl9YdEgwU3pmM0NIaWlmX1dGWWxDN1puVUVTMHZSRmptcnVQeW1rZlRVV0J6LWZDYXhkanlrakR0X2w1WFAtTi1qWEJwVlB2cnBtaHdqcmR5U0V2SEVoY3JxbkRQaHh5VmsyWFBEZm1E?oc=5"
    },
    "ticker": "MC.PA",
    "priceVia": "LVMH"
@@ -103,16 +103,16 @@
    ],
    "trend": null,
    "latestMove": {
-    "date": "2026-09-25",
+    "date": "2026-09-16",
     "brand": "Van Cleef & Arpels",
     "type": "Collection",
     "importance": "major",
-    "outlets": 1,
-    "headline": "Van Cleef & Arpels launches Extraordinary Dials collection",
-    "originalTitle": "The new Van Cleef & Arpels Extraordinary Dials collection traces a love story from Chinese folklore",
-    "title": "The new Van Cleef & Arpels Extraordinary Dials collection traces a love story from Chinese folklore",
-    "source": "Options, The Edge",
-    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQRTNhT0RzWHBLWW1YbTd3M2xtbHQzQndLa0R3ZDd2eFNvVGhPbmVodzQ4LWpBdU1TTXJVZ0hBYmkwZncxeUJLclJpRk9hUXBiSUZ2YzBPbmRadVFvVUxtWGxhcVNIYXVQS2ZVbkpMVTR5Rnp4LWpNNklaZ1p3cVRoaGtQZHJWQUlmaXhodlNMRmxVOHVZNVFzbUctaVlRcXFWUGlXX2pJblgtUmt6YnhCc0p5bk1jdG41QjU1QkFJWDh0QldDQ0pxVTBJbw?oc=5"
+    "outlets": 3,
+    "headline": "Van Cleef & Arpels unveils new Alhambra collection",
+    "originalTitle": "Van Cleef & Arpels’ New Alhambra Collection Is Pure Joy",
+    "title": "Van Cleef & Arpels’ New Alhambra Collection Is Pure Joy",
+    "source": "ELLE Australia",
+    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPcmhZMEw0a3djT2R0TlljZmtyS1BCZV9QeTA4SVR0aVZmbVZ5WkFiaUR0VlhGWkUwZ1d3bVhHbGFvTUkySkFIM0l1TVdLQS1hbHlIck1VWFY1SkQtaGxTMkxNWm14ZjdLd2ozOVpmS1RFZ2gzVTZPazRpU1dHUllzWUlB?oc=5"
    },
    "ticker": "CFR.SW",
    "priceVia": "Richemont"
@@ -207,14 +207,14 @@
    "latestMove": {
     "date": "2026-10-02",
     "brand": "Pandora",
-    "type": "Retail",
+    "type": "Collection",
     "importance": "major",
-    "outlets": 5,
-    "headline": "Pandora opens manufacturing facility in Vietnam",
-    "originalTitle": "Pandora expands manufacturing capacity by 50% with Vietnam facility",
-    "title": "Pandora expands manufacturing capacity by 50% with Vietnam facility",
-    "source": "Retail Jeweller UK",
-    "url": "https://www.retail-jeweller.com/products/brands/pandora-expands-manufacturing-capacity-by-50-with-vietnam-facility-02-10-2026/"
+    "outlets": 1,
+    "headline": "Pandora launches lab-grown diamonds and plans Vietnam plant",
+    "originalTitle": "Jewelry giant Pandora is getting in on lab-grown diamonds and hoping a new Vietnam plant helps growth in Asia",
+    "title": "Jewelry giant Pandora is getting in on lab-grown diamonds and hoping a new Vietnam plant helps growth in Asia",
+    "source": "CNBC",
+    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOQ05uLVpiNWpWRjRmY1VTci1QU3Vjakl0OFpYdUZDUWVVaXhBNGZ5QTc4V05xc25jWVlPZm0xQzQ4ZU9lTUNNY1ZtWTJoWkZ5bFo1TmRKaWpFSEVzNDJPSFNJRTcxNzM4azVqV2xoSWJxSmg4a3VzNmRuWm54ZVg3TjNGcXlwMXPSAYwBQVVfeXFMTWY1R0R1bHdILWM2U1FhZUlhcEZLbk1RQlN1enBic1RuR3B2S0lYLWxCVDd5QzZjWUE5TU1wbjM2QXJ3LTMxOVZ3eUU3LWV2eF9ZakRLTHlXODdMbVlHbV9Ed3hEQXNoUmxOZlEyOTdYcVNpNTFHV1lUOFdmd2xOdl9sUUc0bW0wODRuYVI?oc=5"
    },
    "ticker": "PNDORA.CO",
    "priceVia": null
@@ -247,7 +247,7 @@
     "headline": "Tiffany & Co. launches Eternity collection",
     "originalTitle": "The new Tiffany & Co. Eternity collection combines Italian glass art, diamonds, and fine jewelry",
     "title": "The new Tiffany & Co. Eternity collection combines Italian glass art, diamonds, and fine jewelry",
-    "source": "lenouveaureveil.com",
+    "source": "Le Nouveau Réveil",
     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE8tUVBUR2RJNmRWdEpEVlJNaldJR0F5MUtxOWJYSGFuUlpobUZ2RWR0OHlod0sxUGxTa2J5Q1ItTzI4TVo5QUVQTDZCOXEzcWxfZUN6VzEtcFI1dGVlVTlzVA?oc=5"
    },
    "ticker": "MC.PA",
@@ -272,18 +272,7 @@
     0
    ],
    "trend": null,
-   "latestMove": {
-    "date": "2026-09-11",
-    "brand": "Chow Tai Fook",
-    "type": "Deal",
-    "importance": "major",
-    "outlets": 1,
-    "headline": "Chow Tai Fook applies to issue RMB 10 billion in Panda bonds",
-    "originalTitle": "Chow Tai Fook Applies to Issue RMB 10 Billion in Panda Bonds, Marking First Foray into Mainland China's Debt Market",
-    "title": "Chow Tai Fook Applies to Issue RMB 10 Billion in Panda Bonds, Marking First Foray into Mainland China's Debt Market",
-    "source": "finance.biggo.com",
-    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE90SzQ1ZkJOQXM5b2NVTk5rYzJ3VmhlUDZMWjZoNmpQMmc5bGREcXFNVVktTEhKczVMd2l6Mm5aTU5VMzhfYjU3OGVZbTNNVUxVYjVMMHRpSXU0M1Btd2xiYUV6MkVxNnhtYkhMMjZxNE1rWTdNbGc?oc=5"
-   },
+   "latestMove": null,
    "ticker": "1929.HK",
    "priceVia": null
   },
@@ -307,16 +296,16 @@
    ],
    "trend": null,
    "latestMove": {
-    "date": "2026-10-02",
+    "date": "2026-09-24",
     "brand": "Monica Vinader",
-    "type": "Collaboration",
+    "type": "Pricing",
     "importance": "minor",
     "outlets": 1,
-    "headline": "Monica Vinader partners with Watches of Switzerland Group",
-    "originalTitle": "Watches of Switzerland Group partners with Monica Vinader",
-    "title": "Watches of Switzerland Group partners with Monica Vinader",
-    "source": "Retail Jeweller UK",
-    "url": "https://www.retail-jeweller.com/news-and-insight/watches-of-switzerland-group-partners-with-monica-vinader-02-10-2026/"
+    "headline": "Monica Vinader offers flash sale on earrings",
+    "originalTitle": "Save £29 on Princess Kate's 'beautiful' Monica Vinader earrings in their flash sale",
+    "title": "Save £29 on Princess Kate's 'beautiful' Monica Vinader earrings in their flash sale",
+    "source": "Daily Express",
+    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNYmFMM2Q5cjJuMDZzSG5uVDMzeUNGTmdJYWRWbzBwaFpRYnZIcTM3cy1tbDdNOUgyMzI3MTB2c1JGMU4wM0xOQlctYUt2MjZsSi02OHMwREdkbjB2MzV4R2xnNDRwQUE5NW4tazhXOHZXMHRPdVZQdENtdDh5NlVfa3ZKcVJKSFlwaGgzMnRCRXFYdmZVVEZnRlBxNm9iOW1EM2VPU1p5T0VZdzQx0gGyAUFVX3lxTE81b0FIaFlGN1dXUDV0aTlYc3U3WkVYYlU3YmdQVVY3MXVoREIzMWhXVUU2N0dZbUFPX3ZzdFNaZzFwazBGeXZSclpzWDJqNmtscU9Ic0tJQ0E5Nl9naUVIbThVWUZmMi1Vb0xtOXllU2JBcUFLWnZSX3FVQ0ZSN3p4Q0hlQnlUTDdBUmxqMUs1T09lTDVobEMta1lucmtLSlBwRGxSd09icUpSVlA5UkwycXc?oc=5"
    },
    "ticker": null,
    "priceVia": null
@@ -341,16 +330,16 @@
    ],
    "trend": null,
    "latestMove": {
-    "date": "2026-09-29",
+    "date": "2026-08-29",
     "brand": "Brilliant Earth",
-    "type": "Campaign",
-    "importance": "minor",
+    "type": "Results",
+    "importance": "major",
     "outlets": 1,
-    "headline": "Brilliant Earth launched Elizabeth Taylor campaign",
-    "originalTitle": "Brilliant Earth bets on Elizabeth Taylor to elevate fine jewellery",
-    "title": "Brilliant Earth bets on Elizabeth Taylor to elevate fine jewellery",
-    "source": "Something About Rocks",
-    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPbFVzTGx1em5sX1pQaHZWaWFKS01Ga3hEbVExMkxvWkRWTzdxQlZJVThrNzVla2NJNWxLRTh4S0wwT2hhNHhKRzdpU2V0QVpWSVJzQXl1T3lud1dyeGUzcjRNMG1TWnBjOEJseW5YMG1oZktyT3g4bnBRQ3ZlbEhlRmxGeFBrdEdiTjBfb1pfdmdFR29rZGFtTHBMNnQzM0pI?oc=5"
+    "headline": "Brilliant Earth reports fine jewellery growth and showroom strategy momentum",
+    "originalTitle": "Brilliant Earth Sees Fine Jewelry Growth as Showroom Strategy Gains Momentum",
+    "title": "Brilliant Earth Sees Fine Jewelry Growth as Showroom Strategy Gains Momentum",
+    "source": "Yahoo Finance",
+    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPSmg4QTAwcnNxazhLbVVGeXZuYm1mQUx2TElDMUs5UkVsdVkzOC1aNlAxLTZnc19FVWlZR3lPelJNNG1PZFl6YWotUXZUa0xFQWxfRFNyVjAxRDlndmJULVh4Sm1OUk5PYlg0UDgtNVBmMWYxS29OOFN6UlZIUXl5N0JvYVQ2bXA0akNtUXdSQVI4X0ZIenE2RmJlNG9IcWs?oc=5"
    },
    "ticker": "BRLT",
    "priceVia": null
@@ -374,18 +363,7 @@
     0
    ],
    "trend": null,
-   "latestMove": {
-    "date": "2026-08-24",
-    "brand": "Mejuri",
-    "type": "Collection",
-    "importance": "major",
-    "outlets": 1,
-    "headline": "Mejuri launches new collection for entry-level and established customers",
-    "originalTitle": "New Mejuri Collection For Entry-Level and Established Customers",
-    "title": "New Mejuri Collection For Entry-Level and Established Customers",
-    "source": "jckonline.com",
-    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBaYXpxUDNmWUotbkZ4V3Y2Q1UxVllTQW1WT3FKaG1JbTdyRHRtUkdHdzF1ckl1cVBuUEdMeURubzUxUENwcWlOYmxHSWdMV2toZzhqZGRZaEpDS0hJVzItbTlxbHEtVG9FVGQxY2JtUUh5clRk?oc=5"
-   },
+   "latestMove": null,
    "ticker": null,
    "priceVia": null
   },
@@ -427,6 +405,18 @@
  "moves": [
   {
    "date": "2026-10-04",
+   "brand": "De Beers",
+   "type": "Collaboration",
+   "importance": "minor",
+   "outlets": 1,
+   "headline": "De Beers collaborates on diamond conservation in Southern Africa",
+   "originalTitle": "How De Beers Is Tying Diamonds to Conservation in Southern Africa",
+   "title": "How De Beers Is Tying Diamonds to Conservation in Southern Africa",
+   "source": "https://the-ethos.co/",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQbGZiQ05QZWZYUE42VlhuQW81TnFtdGE1dmR0VHlDQld2dmZLT25LQ1UyZ3Q2U1ZpdUZLWGt0T3Qwb3NnejQ2czc0XzlZMDh6T1VkLV9YY2s0RFNxaHBtNFNyS0xIYW9jZDd4QlYybHNnWWFxdWRUVDQwU2I1MXRKeEY3MWhaT2ZSV1dxZ0Z5VTI?oc=5"
+  },
+  {
+   "date": "2026-10-04",
    "brand": "Swarovski",
    "type": "Collection",
    "importance": "minor",
@@ -438,16 +428,16 @@
    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9oM2J0dVVSYndGLW84UHNQVWF1VlZxZXRrNEpiYWVLWDNXUnF6UmtwRFk0akpxcE9YZi1fYXhOYWdLUk02NHh3a2tMSjhPeFZZUmEyMDVQbDg2OExkc1lGaUtPS1dZc2JOal9YcnJUd1NpOGsxMU5HdjVTOTA?oc=5"
   },
   {
-   "date": "2026-10-03",
-   "brand": "Bulgari",
-   "type": "Collection",
-   "importance": "major",
+   "date": "2026-10-04",
+   "brand": "Swarovski",
+   "type": "Collaboration",
+   "importance": "minor",
    "outlets": 1,
-   "headline": "Bulgari revives gold and steel pairing for signature collections",
-   "originalTitle": "Bulgari Revives Its Gold and Steel Pairing for Its Signature Collections",
-   "title": "Bulgari Revives Its Gold and Steel Pairing for Its Signature Collections",
-   "source": "WWD",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNRlVsS0YyaENFWU1sTzYwTmxiS3ZvR1R3eHNmNlBqOWgxWGhrY1JubjVUWmRjU0JEcVV2UlhpY0RtRDkzVXlmQVRNRV8zRXo0Z2tjMkctQXQxVVZ4Yi1vcDVPMDQ2dUYwOVI1dXFyMTRVOWlaVGtHR3lFM29rcnFqSWF5Uk01cU1jYjhyRWFabFNMSUgtVmRGMWNpdG5vT19QQ2RQcTJUMmJpZXI0RkE?oc=5"
+   "headline": "Swarovski collaborated with Nespresso on a coffee machine",
+   "originalTitle": "Nespresso x Swarovski: A $299 Coffee Machine Nobody Ignores",
+   "title": "Nespresso x Swarovski: A $299 Coffee Machine Nobody Ignores",
+   "source": "Yanko Design",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQ09peDd1d3FxOURBNjBLYnViT2RtWGo3R1NDLTh3Zmk4TGZSMDBrN0laWUotWGhvclF4UUF6RXpBd29HaFBxWUNOWkFfWENUWWRDTnl5dG9JbmdCREYwVmVENlNFZVU2YXRQTlhpNWg2N2Y4Y3N0djc4eXZXTWZpdUlUc1NFaTBxdlNla2VmaUFxRmFmMEpDMExENERQQdIBowFBVV95cUxPOU9PRDhDV1NzR2ZDTjVwRlhxYV9EUmY5X2J2cno4U1VaRlJvN1RsdzNRem1nLTNHY2piOUJ4YjRYMy1Hb0xOMEZ5OXg5UF9QZHZleUhZZHBVcWNzdDdtTW8zLUxHOXpfQk1OaU5KRUs1SkFab3lxSEFHbWc1YkY0R21SM2ZKYnFBdEltS19sN01adlcxOURWM2hzTTFUcTRwYzNR?oc=5"
   },
   {
    "date": "2026-10-03",
@@ -499,39 +489,15 @@
   },
   {
    "date": "2026-10-02",
-   "brand": "Monica Vinader",
-   "type": "Collaboration",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "Monica Vinader partners with Watches of Switzerland Group",
-   "originalTitle": "Watches of Switzerland Group partners with Monica Vinader",
-   "title": "Watches of Switzerland Group partners with Monica Vinader",
-   "source": "Retail Jeweller UK",
-   "url": "https://www.retail-jeweller.com/news-and-insight/watches-of-switzerland-group-partners-with-monica-vinader-02-10-2026/"
-  },
-  {
-   "date": "2026-10-02",
    "brand": "Pandora",
-   "type": "Retail",
+   "type": "Collection",
    "importance": "major",
-   "outlets": 5,
-   "headline": "Pandora opens manufacturing facility in Vietnam",
-   "originalTitle": "Pandora expands manufacturing capacity by 50% with Vietnam facility",
-   "title": "Pandora expands manufacturing capacity by 50% with Vietnam facility",
-   "source": "Retail Jeweller UK",
-   "url": "https://www.retail-jeweller.com/products/brands/pandora-expands-manufacturing-capacity-by-50-with-vietnam-facility-02-10-2026/"
-  },
-  {
-   "date": "2026-10-02",
-   "brand": "Pandora",
-   "type": "Campaign",
-   "importance": "minor",
    "outlets": 1,
-   "headline": "Pandora launches Pandora Wonders creative platform",
-   "originalTitle": "Pandora Debuts Its Pandora Wonders Creative Platform",
-   "title": "Pandora Debuts Its Pandora Wonders Creative Platform",
-   "source": "WWD",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQLUFaR2RpWVVEUi1maGhBWjZLSEVsNkl0ZzU0bDlYdE9DX3ZleW1STmUtbmpERmlkM3JrM2ZhWnhqMDNLN0pBRXBCUGM5NzRhM0FRN2FtVmt2RTRPeGdQbXZyd3lNSzFfZFB6N0tTNVE3aF9wS2hYVkJBRjZQdWJUMGsxWjR6WnhmSzIzZHRlV2g4azBYdjlVMGR0YU5CSm1xbFBRajg1ZmRhUU5OZmhXcjBwQQ?oc=5"
+   "headline": "Pandora launches lab-grown diamonds and plans Vietnam plant",
+   "originalTitle": "Jewelry giant Pandora is getting in on lab-grown diamonds and hoping a new Vietnam plant helps growth in Asia",
+   "title": "Jewelry giant Pandora is getting in on lab-grown diamonds and hoping a new Vietnam plant helps growth in Asia",
+   "source": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOQ05uLVpiNWpWRjRmY1VTci1QU3Vjakl0OFpYdUZDUWVVaXhBNGZ5QTc4V05xc25jWVlPZm0xQzQ4ZU9lTUNNY1ZtWTJoWkZ5bFo1TmRKaWpFSEVzNDJPSFNJRTcxNzM4azVqV2xoSWJxSmg4a3VzNmRuWm54ZVg3TjNGcXlwMXPSAYwBQVVfeXFMTWY1R0R1bHdILWM2U1FhZUlhcEZLbk1RQlN1enBic1RuR3B2S0lYLWxCVDd5QzZjWUE5TU1wbjM2QXJ3LTMxOVZ3eUU3LWV2eF9ZakRLTHlXODdMbVlHbV9Ed3hEQXNoUmxOZlEyOTdYcVNpNTFHV1lUOFdmd2xOdl9sUUc0bW0wODRuYVI?oc=5"
   },
   {
    "date": "2026-10-02",
@@ -542,20 +508,8 @@
    "headline": "Tiffany & Co. launches Eternity collection",
    "originalTitle": "The new Tiffany & Co. Eternity collection combines Italian glass art, diamonds, and fine jewelry",
    "title": "The new Tiffany & Co. Eternity collection combines Italian glass art, diamonds, and fine jewelry",
-   "source": "lenouveaureveil.com",
+   "source": "Le Nouveau Réveil",
    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE8tUVBUR2RJNmRWdEpEVlJNaldJR0F5MUtxOWJYSGFuUlpobUZ2RWR0OHlod0sxUGxTa2J5Q1ItTzI4TVo5QUVQTDZCOXEzcWxfZUN6VzEtcFI1dGVlVTlzVA?oc=5"
-  },
-  {
-   "date": "2026-10-02",
-   "brand": "Tiffany & Co.",
-   "type": "Retail",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "Tiffany & Co. opens Blue Box Café at South Coast Plaza",
-   "originalTitle": "Breakfast (and tea) at Tiffany’s: Blue Box Café opens at South Coast Plaza",
-   "title": "Breakfast (and tea) at Tiffany’s: Blue Box Café opens at South Coast Plaza",
-   "source": "Los Angeles Times",
-   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPRjJkbE45aThsN25NblhMcUlaNEVYd0ZHWHZYS3pmeV9KZ0F6c2lRV0ZPS2FnREoxZzNsdmtucndRTTdzT3V5M29DcDBLMjc4dFlhTF9kMlpkd3pHZFpNc0YwUHFja1VMUjdScTR3eE5JbklUd05rMEt4OXNBQ2xBSV9tcHdlOV9xYl8xU2t2dGt0THFhcjRtMXhxOFVKQzFZTEgwUzNLR3pBdTJKLVNlcC1QRnZKRVdVcm9SVkJ4Q3ZLbEtTNXh3Mm1xa1NWTVdQT3ptTUxzeHYyQkE?oc=5"
   },
   {
    "date": "2026-10-02",
@@ -566,7 +520,7 @@
    "headline": "Tiffany & Co. preserves legacy of Jean Schlumberger",
    "originalTitle": "Tiffany & Co. Preserves the World of Jean Schlumberger",
    "title": "Tiffany & Co. Preserves the World of Jean Schlumberger",
-   "source": "thisisyungmea.com",
+   "source": "YUNG",
    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPVjhMQWZkYUFDa1B0SGxwUTFQM3g5ZEZlY0RJUEFHYkxyMldQajVackc3LWk5a2VVZWpINUpsQmJ1VGVsRVJXVTVFODl2bUg5UUNIUENMRTM4ZXM5MTItNkgzMmRsb3lCdlZlOS04Y1lyOHJWWTFtbEI3cG9UNkZ6NVJVbk8?oc=5"
   },
   {
@@ -584,18 +538,6 @@
   {
    "date": "2026-10-01",
    "brand": "De Beers",
-   "type": "Campaign",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "De Beers launches cultural campaign with Homo Faber and Frieze Masters",
-   "originalTitle": "De Beers puts natural diamonds at the centre of cultural push with Homo Faber, Frieze Masters",
-   "title": "De Beers puts natural diamonds at the centre of cultural push with Homo Faber, Frieze Masters",
-   "source": "The Retail Jeweller India",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdnhVejFzX1F3UzNUcEpON0wyX0NKVUdydFpXRlJXRDhyb1p5S3dlT3lFS1RsSzB4blBfWWVJLWRPNFNtWVpUNkFLanJnWEdfSDU1WF9iSmhuUU9HRDRwQ2JWRm1ZQklSQVNEOVZZWW4zaUNqVkt1Ti0wZlNvWk5tMjJaS1VIZ01lTFp3SHd3QzlOMDcwMTl5WW9wa1RjYnJaTEZ0S2VHQ3VJWkVybDQzTF9LSC0wb3ZvQ1QxUnBhand4eFk?oc=5"
-  },
-  {
-   "date": "2026-10-01",
-   "brand": "De Beers",
    "type": "Deal",
    "importance": "major",
    "outlets": 1,
@@ -606,16 +548,40 @@
    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQWHlRQzd5SkhCRXliNXA0aGs4cmhnd1FNSERpckJuNVVyODBGTjNXbXNRaUJsSHhmS0lHQmVOWE9pZjJCbE1BUUJsNTNiLVBHdkl2ZW1ILVo3SmZfeEJQSk9pRlFhQUp2UnZDRThnTlhycXh0R0tHbFVWTGlsWEVPYUh5dEZHMWlNcDR6Vzg4cjktYWZ0VXFDeG9pMkc4MWRkSmVMaGVHa1pzdW1GX0ZzSk1wcXBqUk9LNXR0ZG95aGFkdw?oc=5"
   },
   {
+   "date": "2026-10-01",
+   "brand": "Pandora",
+   "type": "Retail",
+   "importance": "major",
+   "outlets": 5,
+   "headline": "Pandora opens world’s largest fine jewellery factory in Vietnam",
+   "originalTitle": "Pandora Opens World’s Largest Factory for Fine Jewelry in Vietnam",
+   "title": "Pandora Opens World’s Largest Factory for Fine Jewelry in Vietnam",
+   "source": "JCK",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOUlE0bXBMOTk1TGZZTXJUcGswZ3VCbFFGMElTUlFBUUc5TVhKVEVXQUJoU2l6cGN6REFoMDFpeDJkLWNEWHZrUjdYaHFLSmQ5aGRoTHBqSGFac2o3Nlc2TmxyemZwWmQ0WERJQTByazREMl80SGlodDJzcUVSbS1vQmR3?oc=5"
+  },
+  {
+   "date": "2026-10-01",
+   "brand": "Tiffany & Co.",
+   "type": "Retail",
+   "importance": "major",
+   "outlets": 2,
+   "headline": "Tiffany & Co. celebrates South Coast Plaza flagship opening",
+   "originalTitle": "Tiffany & Co. Celebrates Its South Coast Plaza Flagship With Southern California-Inspired Jewels",
+   "title": "Tiffany & Co. Celebrates Its South Coast Plaza Flagship With Southern California-Inspired Jewels",
+   "source": "Modern Luxury",
+   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAtbERFWHNfRTB0N0VTUWlEWkttTkVINGdwX1VBVHg4ZXM5UEc5X3JFNThORWVXeXI5RVpqUFZXbEktM3EzU1JSQnl1V0k1cFV6cjlFQnI5LWlLSkwzR1Rj?oc=5"
+  },
+  {
    "date": "2026-09-30",
-   "brand": "Swarovski",
-   "type": "Collaboration",
+   "brand": "Cartier",
+   "type": "Campaign",
    "importance": "minor",
-   "outlets": 3,
-   "headline": "Swarovski collaborated with Nespresso on advent calendars",
-   "originalTitle": "Nespresso x Swarovski – sparkling advent calendars and coffee for Christmas",
-   "title": "Nespresso x Swarovski – sparkling advent calendars and coffee for Christmas",
-   "source": "metromode.se",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxObGFKUWFTaS11UnhGR291Ri1zLVZGcHlSaDJIUVEtZ3hNS0dOYXFxamFqTXFHeEcxWWdibWk1Vk83ekRXb3c3QlJzSUZ3NExIdmZKVVBYRnNIcTdZZjR3WmliR2hXbGVfQ196bDgzbklQV1pNSHNaQzNfcWxaOUNXbHRnMW5jRWYxckk0WDRVUl9CbXVtSEd3em0wemt2YjA?oc=5"
+   "outlets": 1,
+   "headline": "Cartier appoints Tilda Swinton as ambassador",
+   "originalTitle": "Tilda Swinton untamed: A rare conversation with Cartier’s new ambassador",
+   "title": "Tilda Swinton untamed: A rare conversation with Cartier’s new ambassador",
+   "source": "Harper's Bazaar India",
+   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPV1VUOF9CZnNnUzEzSnJrbHFLdmtyVUxpSGhFTTRjTDFuU2ZJem1pU0R3endEN21VRGVISzV0WF9WYno3M1Z4N2c4Z3Z4cXFfbk83REJGR0RyNWxOTmlVd21wQVFFdVB6S1FuWXhwcVhLWTRDanNSMGtDT3lTX2pDenMzLS1wT3hpMjNYblFsRWozLTM1Smt1NzJzc1p2ZXI5aEs4Z3pIMkYwYVF2UFlyZEdOYVphN2twQnRKZEh4emdSeXM5TXVCRTBuV0vSAdIBQVVfeXFMT2ViSDVqTm1GSWNtWGhTeVcxbDRIdTZCSXpqM2hyeEVQWVJ5UGxmUnRBYlRRWml0bm9Cc0VTUWdURFlGbW5idEFmMlE3aXVKdzlBWEc1WkRjc3FJZ3MyVGV1VUl1SFE5WWprS294YnRkZ1N4ZmV3Y1VQSW5HRVdreUpma2c5Z3NLVjZ6b0pHTVJvNC1MR1FyWUlldUtOVG5STFpOWFFKbFdOejZQUlpHb1ppcHR2NXBEYXl3U2J0dU9yLW9MNnh0XzZMTDdxdjVPdjdB?oc=5"
   },
   {
    "date": "2026-09-30",
@@ -631,27 +597,15 @@
   },
   {
    "date": "2026-09-30",
-   "brand": "Tiffany & Co.",
+   "brand": "Swarovski",
    "type": "Collaboration",
    "importance": "minor",
-   "outlets": 1,
-   "headline": "Tiffany & Co. preserved Jean Schlumberger artefacts with Musée des Arts décoratifs",
-   "originalTitle": "‘Like stepping into the mind of a genius’ – Jean Schlumberger sketches and artefacts are being preserved by Tiffany & Co and the Musée des Arts décoratifs",
-   "title": "Tiffany & Co. preserved Jean Schlumberger artefacts with Musée des Arts décoratifs",
-   "source": "wallpaper.com",
-   "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxPNUNrTm1heHhaZDBLVkU3VEFibWtOSWZfRDlBRGJDcHFNTS11NFRFaW1ZclV6aTJ1N3JqV0VQUEIxWi1XMERBV2tZbEFINi1DbDRGWUdRa1NQVC1rSHNmNDZkWEEwb2I4UDlTNXNxLUZqWmR0UnFYYkhOckpBbTBueVBxMFhEdFRfazhGNUNoTlJlVXljTFBTUmJpRkdlSGhrNTZrWm1VVG12VElPZXp4UUNYNlE4bHdnRTZvSHNmUVcteGlhVGJxNTBHWnVhMHRTYnNkWmFzZld0SGJGeFZpWTFLWGxKMzdMWkwxc2VVRHpocENkMUlDYXllSUVCZVFNQXdXdkRzWlJWazRSa2hMRHpYdC13Uzk5Uk9ESG1yYzVOZw?oc=5"
-  },
-  {
-   "date": "2026-09-29",
-   "brand": "Brilliant Earth",
-   "type": "Campaign",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "Brilliant Earth launched Elizabeth Taylor campaign",
-   "originalTitle": "Brilliant Earth bets on Elizabeth Taylor to elevate fine jewellery",
-   "title": "Brilliant Earth bets on Elizabeth Taylor to elevate fine jewellery",
-   "source": "Something About Rocks",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPbFVzTGx1em5sX1pQaHZWaWFKS01Ga3hEbVExMkxvWkRWTzdxQlZJVThrNzVla2NJNWxLRTh4S0wwT2hhNHhKRzdpU2V0QVpWSVJzQXl1T3lud1dyeGUzcjRNMG1TWnBjOEJseW5YMG1oZktyT3g4bnBRQ3ZlbEhlRmxGeFBrdEdiTjBfb1pfdmdFR29rZGFtTHBMNnQzM0pI?oc=5"
+   "outlets": 2,
+   "headline": "Swarovski collaborates with Nespresso on festive collection",
+   "originalTitle": "Nespresso and Swarovski Launch Festive Collection of Limited-Edition Winter Coffees and Gifts on October 23",
+   "title": "Nespresso and Swarovski Launch Festive Collection of Limited-Edition Winter Coffees and Gifts on October 23",
+   "source": "www.haveagood-holiday.com",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNcTB0UDRGd3ZhRmhncGNIME9pMkc3R2lNM3NiM003aUYtdXU1VDE1Q3FBcC1QcTYzcE50ZXlHdzAtUWxNaThReUVyQWlIMHlEMzZXeGZ1bGU5SDFSVXRnZXM3OUZjZ2lEbExJWHJ3XzlJS1oxZUV6VzFCUDI3dEJQYXd1cW1oMXJ4ZXI2M2dxdlVfbjA?oc=5"
   },
   {
    "date": "2026-09-29",
@@ -662,8 +616,20 @@
    "headline": "Bulgari launches advertising campaign with Zendaya and Anne Hathaway",
    "originalTitle": "Give Us the Movie-Length Version of Zendaya and Anne Hathaway’s Wildly Sapphic Bulgari Ad",
    "title": "Give Us the Movie-Length Version of Zendaya and Anne Hathaway’s Wildly Sapphic Bulgari Ad",
-   "source": "jezebel.com",
+   "source": "Jezebel",
    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNcTA5OVQ2RGt3N2dUblpNb3E0T0s3cVhMNGQzUG5wSkxmWUVlVl9YdEgwU3pmM0NIaWlmX1dGWWxDN1puVUVTMHZSRmptcnVQeW1rZlRVV0J6LWZDYXhkanlrakR0X2w1WFAtTi1qWEJwVlB2cnBtaHdqcmR5U0V2SEVoY3JxbkRQaHh5VmsyWFBEZm1E?oc=5"
+  },
+  {
+   "date": "2026-09-29",
+   "brand": "Tiffany & Co.",
+   "type": "Collaboration",
+   "importance": "minor",
+   "outlets": 2,
+   "headline": "Tiffany & Co. partners with Musée des Arts Décoratifs",
+   "originalTitle": "Tiffany & Co. Partners with Musée des Arts Décoratifs to Preserve the Legacy of Jean Schlumberger",
+   "title": "Tiffany & Co. Partners with Musée des Arts Décoratifs to Preserve the Legacy of Jean Schlumberger",
+   "source": "Galerie Magazine",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQSW1rX2ZvNl9PemxSRlhQc1JMV2VmM3JEWVVQU3hXa2JpY1dkaGE4TUJwUFAtN3YteHdoWWZ0VWIxUE1zS3RzU2pNbGVlTG81VG9XUDlYc1QwSkNJNE1fR1ZKcTA4TG4tUXRtalRQLTJ3QkFFOTAzQWp3TExHTm1oLWlPdVN5WlU2SGhnR0JLUTlSRkVEVk9hZUhZbnlla1R1cFl1QzVfWTJlLTdVOU83VkxWQ0c2V0E?oc=5"
   },
   {
    "date": "2026-09-29",
@@ -679,6 +645,18 @@
   },
   {
    "date": "2026-09-25",
+   "brand": "Brilliant Earth",
+   "type": "Collection",
+   "importance": "minor",
+   "outlets": 2,
+   "headline": "Brilliant Earth launches new collection inspired by Elizabeth Taylor",
+   "originalTitle": "Brilliant Earth’s New Collection Brings Elizabeth Taylor’s Jewelry Influence to Next Gen",
+   "title": "Brilliant Earth’s New Collection Brings Elizabeth Taylor’s Jewelry Influence to Next Gen",
+   "source": "nationaljeweler.com",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPZzB1YUtCVlo4S3lZQlgxVHJmQ3M5VUpLZmNNZGREVXZWS0ZOWWRpXzJSWEx4UGJmVXc0QW12WXZhNUZIZ2xZbUplZW1BWl9CYktmVU55aXlsZC1sWEJBR0h4UWZoWk02WWdjV2hhWDV1dlVPVlZEY3Z6S05sSmw5cDVGUmFFS1BhRm9kVWFkc1ZJQlZmRVJEbFlVQ09mN0N0TjhSSjVJVDZwQVVkblVLRlRFRzg2RW5D?oc=5"
+  },
+  {
+   "date": "2026-09-25",
    "brand": "Van Cleef & Arpels",
    "type": "Retail",
    "importance": "minor",
@@ -690,40 +668,16 @@
    "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQRldaRjhTN0NzYjhiNkpYcXVjcFh4ZnBuQjBOek9HNDB6NHh1RnAyWFZlUC1OMEk5aUxLU2t6S1Z6MUtMUlh3Yzd2Y2dCUWE1TzRTZHFEaXE4RDlqSDNTQ2lIZmdVSXI0S1BUUXFUemVVMTR5ZFJxTVllbTIybVJzOFBuWnI0ZXZoRm9qU1RfWUtuWEF3YXRIaDJGSWh4M2R1R1I3NWlyblRTYVhKXzRJRjR1c294TnQ1bUExc1Y5TUwwc2lvZ291cDRXd2J2UQ?oc=5"
   },
   {
-   "date": "2026-09-25",
-   "brand": "Van Cleef & Arpels",
-   "type": "Collection",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Van Cleef & Arpels launches Extraordinary Dials collection",
-   "originalTitle": "The new Van Cleef & Arpels Extraordinary Dials collection traces a love story from Chinese folklore",
-   "title": "The new Van Cleef & Arpels Extraordinary Dials collection traces a love story from Chinese folklore",
-   "source": "Options, The Edge",
-   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQRTNhT0RzWHBLWW1YbTd3M2xtbHQzQndLa0R3ZDd2eFNvVGhPbmVodzQ4LWpBdU1TTXJVZ0hBYmkwZncxeUJLclJpRk9hUXBiSUZ2YzBPbmRadVFvVUxtWGxhcVNIYXVQS2ZVbkpMVTR5Rnp4LWpNNklaZ1p3cVRoaGtQZHJWQUlmaXhodlNMRmxVOHVZNVFzbUctaVlRcXFWUGlXX2pJblgtUmt6YnhCc0p5bk1jdG41QjU1QkFJWDh0QldDQ0pxVTBJbw?oc=5"
-  },
-  {
-   "date": "2026-09-24",
-   "brand": "Brilliant Earth",
-   "type": "Collection",
-   "importance": "minor",
-   "outlets": 1,
-   "headline": "Brilliant Earth launches Elizabeth Taylor collection",
-   "originalTitle": "Elizabeth Taylor’s Jewelry Legacy Lives On With New Brilliant Earth Collection",
-   "title": "Elizabeth Taylor’s Jewelry Legacy Lives On With New Brilliant Earth Collection",
-   "source": "elizabethtaylor.com",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPcVZNbmhsVkNUNDcxZ3djVUloTnVHdU1nNVduaC1KUXV6RktsdUs0V3NUNDdack1KUnlxMGNVbU5naGtZNUZmOGxvUllJQkRNeWQtWGdXT0FjT1hqSUZVTVloYTA5ZktFazg4ZzQyZlpkWU5GVXU4eEFWS3VQV1NmMEhac1BfR1p6ZVVQVkhQNE1iemgyQlNQQjN1T1hSUWRXTGl0OFdzU2VQQQ?oc=5"
-  },
-  {
    "date": "2026-09-24",
    "brand": "Brilliant Earth",
    "type": "Collaboration",
    "importance": "minor",
-   "outlets": 1,
-   "headline": "Brilliant Earth partners with House of Taylor and Elizabeth Taylor Estate",
-   "originalTitle": "Brilliant Earth Named Exclusive Fine Jewelry Partner of the House of Taylor and the Elizabeth Taylor Estate",
-   "title": "Brilliant Earth Named Exclusive Fine Jewelry Partner of the House of Taylor and the Elizabeth Taylor Estate",
-   "source": "GlobeNewswire",
-   "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxNNks2VXltZnVUelhhejRqc1ctT2tJV0lETWNPX3lpWWNzaWp4T0Jad2N3MUFjd2hSY2p3d3l2NFJSbm14eU83WlR6bmNVLTBqNVZSNG13NEQxQ1c4WFJ2SFpDN0hBZ1dUQ05pLTVUb0VHWjU2N2wtZWNoUklHWXZLclp3QlFCS2N0Z0ljcWZFZTlqQmdlelZkbHVNOEplaFRFUGlKX3RYaDBSSFFyY2I1Tkoza3VJbnZsbGVpUzdQbE9vc1BhMTNzZEdpNWpOcENoT241al9PY0xnZGs2WlNlYXh5SHhBNzZQbUwxQXVGMUhuSm5UcHpEQU96X2MxSzVsekhvQWNUdGNpMUU?oc=5"
+   "outlets": 2,
+   "headline": "Brilliant Earth collaborates with Elizabeth Taylor estate for jewellery collection",
+   "originalTitle": "Elizabeth Taylor's Legacy Endures as Estate Taps Brilliant Earth for Official Jewelry Collection",
+   "title": "Elizabeth Taylor's Legacy Endures as Estate Taps Brilliant Earth for Official Jewelry Collection",
+   "source": "The Hollywood Reporter",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNVmtxQVZ0Y3lBb25nQVpBbUtKSzZCVWpzZEdzQjNoR1E1MVNFcVNsOFJjTXVvWDl2RGtIMGFZcVJIRFRKVG9PeTlVNGtoZ29ob2t2M25STkJmUmQ4eTdUdExxMnJ6enJOeS1ZYW91eF9SaGNjSklLdVMwQXI0Z3pHS2c0SS1lMVZfT3hHalF1ZER2NkxXQ2U5V1ptZFdpQnZfdkhCdDAydk56V1hueUloZmpyRXJDYWo5eDZFcGFjU1BuQQ?oc=5"
   },
   {
    "date": "2026-09-24",
@@ -731,35 +685,23 @@
    "type": "Pricing",
    "importance": "minor",
    "outlets": 1,
-   "headline": "Monica Vinader offers discount on necklace in flash sale",
-   "originalTitle": "Princess Kate fans can save £28 on her exact Monica Vinader necklace in their flash sale",
-   "title": "Princess Kate fans can save £28 on her exact Monica Vinader necklace in their flash sale",
+   "headline": "Monica Vinader offers flash sale on earrings",
+   "originalTitle": "Save £29 on Princess Kate's 'beautiful' Monica Vinader earrings in their flash sale",
+   "title": "Save £29 on Princess Kate's 'beautiful' Monica Vinader earrings in their flash sale",
    "source": "Daily Express",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbnBnSUpxOUJkMDV3RU9Dd1V0ZU8yQ1pPNVBra1doSS1XczdicVBvU1UxUHpYSjJwUHMzRGVGcC1BRFVLczhrWUJXTGdqS3VEeXRKczlqVUtZSmtnTkc1aGN6R0VzZlNHNkxkdjNjX1JpTW54SG1DejRTMWN5QllHdEVOM2ZON3JlRXVjYmVSXzJjbXZxNGk3ZjN5Q09KOTl0SlF3Q3h4QXhVT2Fz0gGyAUFVX3lxTE14T1JJbk1rM0J4b3lQTG51ZDlYdUVOeDhvMElQbl9CTWgtSHRZRFByZ1paa2hMQVpVVjdlX3Z1RkVkUWtjM0YtUFNyZ2o1TUs3TS1Xa2dDa2NWYlcySUV6dU5PWF9RUmRKc1Q1S2YybVM1MWhjcHpzbUtkTWZMd2d3cGoycGxRTlRXZEczM2c2S25ydEhKclFxd1hibkF5RXNPUDZ3LXF2V2I1TGpMN3dNTnc?oc=5"
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNYmFMM2Q5cjJuMDZzSG5uVDMzeUNGTmdJYWRWbzBwaFpRYnZIcTM3cy1tbDdNOUgyMzI3MTB2c1JGMU4wM0xOQlctYUt2MjZsSi02OHMwREdkbjB2MzV4R2xnNDRwQUE5NW4tazhXOHZXMHRPdVZQdENtdDh5NlVfa3ZKcVJKSFlwaGgzMnRCRXFYdmZVVEZnRlBxNm9iOW1EM2VPU1p5T0VZdzQx0gGyAUFVX3lxTE81b0FIaFlGN1dXUDV0aTlYc3U3WkVYYlU3YmdQVVY3MXVoREIzMWhXVUU2N0dZbUFPX3ZzdFNaZzFwazBGeXZSclpzWDJqNmtscU9Ic0tJQ0E5Nl9naUVIbThVWUZmMi1Vb0xtOXllU2JBcUFLWnZSX3FVQ0ZSN3p4Q0hlQnlUTDdBUmxqMUs1T09lTDVobEMta1lucmtLSlBwRGxSd09icUpSVlA5UkwycXc?oc=5"
   },
   {
-   "date": "2026-09-24",
-   "brand": "Van Cleef & Arpels",
-   "type": "Collection",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Van Cleef & Arpels launches Jour Nuit collection",
-   "originalTitle": "Beyond Day and Night: Van Cleef & Arpels’ New Jour Nuit",
-   "title": "Beyond Day and Night: Van Cleef & Arpels’ New Jour Nuit",
-   "source": "LUXUO",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOQXpPWk9CODdKcjRSSkpoUVIwZkJ6TFZ3RW9mWnZQY09PT1JpNkNra3R3UWFVcGllVWstdkNOSUg0bUlTeTZzRndfZmlmXzZmcXhReTBQbWlGd254a3dzWlFaSldqYWpfS29kbElERWtnek9UZUlnbDdvRDZrTTN2UFhSaVdxTDh5YnJNbzZOUGhJdzdCdU1B?oc=5"
-  },
-  {
-   "date": "2026-09-23",
+   "date": "2026-09-22",
    "brand": "Bulgari",
-   "type": "Collection",
+   "type": "Campaign",
    "importance": "minor",
    "outlets": 1,
-   "headline": "Bulgari launches new fragrance",
-   "originalTitle": "Bulgari’s New Fragrance Banks On The Nostalgia Of Scent Memory",
-   "title": "Bulgari’s New Fragrance Banks On The Nostalgia Of Scent Memory",
-   "source": "ELLE Australia",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPYmRFRGNvdHpmZ1FQalhaNUpkUkdDT3E5RzlNSzhRY1djdXhTZHN3UGRVa2JxelBUeUc2X0pHQUVBamFzdjI0TWdIUGRWN3NrZTFwSFVlWThjdnhIenI2UlpzU3pGWXNBczBINXRtYWtMSzBMdFI0UjRheGZMNXN6VGFqeXhLZkJSRE1ncUJyT1pUcVprN3c?oc=5"
+   "headline": "Bulgari appoints Ningning as global ambassador",
+   "originalTitle": "Bulgari taps K-pop icon Ningning as global ambassador",
+   "title": "Bulgari taps K-pop icon Ningning as global ambassador",
+   "source": "Marketing-Interactive",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOM0JvLUFmUVAwYWs1ZFZtSmtRRC1NN0pGcE9lc1doR2FURDBIWDNDME5xNFQzWEFOeXhOTFBEekpCMXVuUFRQelZUcERVWEs5a1hteW1rUDhWSFZzQnFsNUpGcXE2VEJiNmpjWTVkN05ZRUFEcnZJRXhkUnNrdGFEazhyb2hoMTRMZHd3eUVTRUtrcmg5MWc?oc=5"
   },
   {
    "date": "2026-09-22",
@@ -770,20 +712,32 @@
    "headline": "Monica Vinader launches Black Friday sale",
    "originalTitle": "Up to 25% off flash deals in the Monica Vinader Black Friday 2026 sale LIVE now",
    "title": "Up to 25% off flash deals in the Monica Vinader Black Friday 2026 sale LIVE now",
-   "source": "thesun.co.uk",
+   "source": "The Sun",
    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNc1JGUFpNeTZ6ZHJ5bTZXcy0weHh5WVFDeDZmckVlQWtpanhXTXdCRHlyT0dHWG05OFZDVFlhSEplbHBjb3VRMFk3alRrSVhsNE1pTFAtOHZBQWpzbkRwNjAyeTZCVWwtV2t1UW82S3o3UGlFR0lrTmxyMWd2SGdUVkJB?oc=5"
   },
   {
-   "date": "2026-09-22",
+   "date": "2026-09-16",
+   "brand": "Van Cleef & Arpels",
+   "type": "Collection",
+   "importance": "major",
+   "outlets": 3,
+   "headline": "Van Cleef & Arpels unveils new Alhambra collection",
+   "originalTitle": "Van Cleef & Arpels’ New Alhambra Collection Is Pure Joy",
+   "title": "Van Cleef & Arpels’ New Alhambra Collection Is Pure Joy",
+   "source": "ELLE Australia",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPcmhZMEw0a3djT2R0TlljZmtyS1BCZV9QeTA4SVR0aVZmbVZ5WkFiaUR0VlhGWkUwZ1d3bVhHbGFvTUkySkFIM0l1TVdLQS1hbHlIck1VWFY1SkQtaGxTMkxNWm14ZjdLd2ozOVpmS1RFZ2gzVTZPazRpU1dHUllzWUlB?oc=5"
+  },
+  {
+   "date": "2026-09-15",
    "brand": "Van Cleef & Arpels",
    "type": "Collection",
    "importance": "minor",
-   "outlets": 2,
-   "headline": "Van Cleef & Arpels adds enamelling to Alhambra collection",
-   "originalTitle": "The art of enamelling debuts in Van Cleef & Arpels’ Alhambra collection",
-   "title": "The art of enamelling debuts in Van Cleef & Arpels’ Alhambra collection",
-   "source": "PEAK Singapore",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPT3Y1dHcyVDBsLUhOcTk0TkhKUnJ6N1BGMEdGUWJrUi1nYVpJajd1bmRlRGRqU3d5ZUNQVTBlUnNkdVAtdVJ3bkFhTlEwZXRkRUhfZmlaYTctNGFtbW9OZHFUcGQ0YzhPSXJsRUNCTkxnaHhNdF9jYmtlR18yTmx3Y1lac2lKZzZhQkxvVUMyOThFR2pNenFEa3V2ZUpqXzBr?oc=5"
+   "outlets": 1,
+   "headline": "Van Cleef & Arpels launches new Perlé watch",
+   "originalTitle": "Van Cleef & Arpels’ new Perlé watch combines the house’s core characteristics in a 23mm casing - Prestige Online",
+   "title": "Van Cleef & Arpels’ new Perlé watch combines the house’s core characteristics in a 23mm casing",
+   "source": "Singapore",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQUW01QklheHowc19NMTNnSHd1OEhFZ29wUTNnZ0NlbkNIWUtSOHdmNVA5YjIwQ1EtaTFoVWYxVEpKQVlJbW5ZVzZYblA0Y2w0bzhaZWx6NG1aaGU5SXNUREV3eEtZQ3RtSFFJelVuc1h5YWcyeV9jOVQwLU0yOFZxSFlGMEd5cjk3cEJB0gGQAUFVX3lxTFA3Z18yMHFWVVhsTHJpV2pZSnhmLWlmaTQyT3d5dzFCLWRGTi1IcjFBRVBsdFhxZXFxOUp0RDUxdFkwUUJsSWdKVWVaMjlZUlB1VTJaVVhJcEtHTUdnYjlKcUVxYkp2dWd0Tl9CUXA2WFZtZm1TcDBYdHBycE81SGktTjZMMzJWMHVSVEEwYjNBOA?oc=5"
   },
   {
    "date": "2026-09-14",
@@ -835,18 +789,6 @@
   },
   {
    "date": "2026-09-11",
-   "brand": "Chow Tai Fook",
-   "type": "Deal",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Chow Tai Fook applies to issue RMB 10 billion in Panda bonds",
-   "originalTitle": "Chow Tai Fook Applies to Issue RMB 10 Billion in Panda Bonds, Marking First Foray into Mainland China's Debt Market",
-   "title": "Chow Tai Fook Applies to Issue RMB 10 Billion in Panda Bonds, Marking First Foray into Mainland China's Debt Market",
-   "source": "finance.biggo.com",
-   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE90SzQ1ZkJOQXM5b2NVTk5rYzJ3VmhlUDZMWjZoNmpQMmc5bGREcXFNVVktTEhKczVMd2l6Mm5aTU5VMzhfYjU3OGVZbTNNVUxVYjVMMHRpSXU0M1Btd2xiYUV6MkVxNnhtYkhMMjZxNE1rWTdNbGc?oc=5"
-  },
-  {
-   "date": "2026-09-11",
    "brand": "Signet",
    "type": "Campaign",
    "importance": "major",
@@ -868,18 +810,6 @@
    "title": "Bvlgari's Serpenti takes a bite at the Big Apple",
    "source": "The Jewellery Editor",
    "url": "https://www.thejewelleryeditor.com/jewellery/article/bvlgari-takes-bite-big-apple-ouroboros-high-line-installation-new-york-serpenti/?utm_source=applenews&utm_medium=referral&utm_campaign=applenews"
-  },
-  {
-   "date": "2026-09-04",
-   "brand": "Chow Tai Fook",
-   "type": "Retail",
-   "importance": "major",
-   "outlets": 1,
-   "headline": "Chow Tai Fook opens first Australian boutique in Sydney",
-   "originalTitle": "Inside Chow Tai Fook’s First Australian Boutique in Sydney",
-   "title": "Inside Chow Tai Fook’s First Australian Boutique in Sydney",
-   "source": "Harper's Bazaar Australia",
-   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5tblNoWDlOMVVrTU9NQWExTlNfd0RIdVJfMXdTVm1QVlp0YkVLTHlYZU5oVHZObWNfWEQ4OXhWOHNObC1nakhHb1FLZEpEaE1PU3Ftd0k5Nm9xTjFYY0sxa0Y1aTdyVDI0QUs0dVJYOWk?oc=5"
   },
   {
    "date": "2026-09-03",
@@ -906,16 +836,16 @@
    "url": "https://www.luxurydaily.com/bulgari-hotel-milano-opens-da-niko-restaurant/"
   },
   {
-   "date": "2026-08-24",
-   "brand": "Mejuri",
-   "type": "Collection",
+   "date": "2026-08-29",
+   "brand": "Brilliant Earth",
+   "type": "Results",
    "importance": "major",
    "outlets": 1,
-   "headline": "Mejuri launches new collection for entry-level and established customers",
-   "originalTitle": "New Mejuri Collection For Entry-Level and Established Customers",
-   "title": "New Mejuri Collection For Entry-Level and Established Customers",
-   "source": "jckonline.com",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBaYXpxUDNmWUotbkZ4V3Y2Q1UxVllTQW1WT3FKaG1JbTdyRHRtUkdHdzF1ckl1cVBuUEdMeURubzUxUENwcWlOYmxHSWdMV2toZzhqZGRZaEpDS0hJVzItbTlxbHEtVG9FVGQxY2JtUUh5clRk?oc=5"
+   "headline": "Brilliant Earth reports fine jewellery growth and showroom strategy momentum",
+   "originalTitle": "Brilliant Earth Sees Fine Jewelry Growth as Showroom Strategy Gains Momentum",
+   "title": "Brilliant Earth Sees Fine Jewelry Growth as Showroom Strategy Gains Momentum",
+   "source": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPSmg4QTAwcnNxazhLbVVGeXZuYm1mQUx2TElDMUs5UkVsdVkzOC1aNlAxLTZnc19FVWlZR3lPelJNNG1PZFl6YWotUXZUa0xFQWxfRFNyVjAxRDlndmJULVh4Sm1OUk5PYlg0UDgtNVBmMWYxS29OOFN6UlZIUXl5N0JvYVQ2bXA0akNtUXdSQVI4X0ZIenE2RmJlNG9IcWs?oc=5"
   }
  ],
  "prices": [
@@ -1377,6 +1307,406 @@
    "windowStart": "2026-07-06",
    "windowEnd": "2026-10-02",
    "stale": false
+  }
+ ],
+ "panel": {
+  "articles": 374,
+  "outlets": 6
+ },
+ "rules": {
+  "minArticles": 20,
+  "minRecent": 10,
+  "minOutlets": 6,
+  "rise": 1.5,
+  "fallPriorMin": 10,
+  "fallMinOutlets": 4,
+  "fall": 0.4
+ },
+ "signals": [],
+ "watching": [
+  {
+   "name": "Natural diamonds",
+   "verdict": "watching",
+   "statement": null,
+   "total": 6,
+   "recent": 4,
+   "prior": 2,
+   "shareRecent": 3.4,
+   "sharePrior": 0.8,
+   "ratio": 4.39,
+   "outlets": 3,
+   "weeklyShare": [
+    0,
+    0,
+    0,
+    0,
+    3.13,
+    0,
+    4.55,
+    0,
+    0,
+    0,
+    9.68,
+    3.45
+   ],
+   "examples": [
+    {
+     "title": "Natural Diamond Council rebrands as The Diamond Collective",
+     "source": "Retail Jeweller UK",
+     "url": "https://www.retail-jeweller.com/news-and-insight/natural-diamond-council-rebrands-as-the-diamond-collective-02-10-2026/",
+     "date": "2026-10-02"
+    },
+    {
+     "title": "Will a new name for the Natural Diamond Council drive jewellery sales?",
+     "source": "Jeweller - Business News",
+     "url": "https://www.jewellermagazine.com/Article/15536/Will-a-new-name-for-the-Natural-Diamond-Council-drive-jewellery-sales",
+     "date": "2026-09-22"
+    },
+    {
+     "title": "The diamond split: the way ahead for lab-grown and mined diamonds",
+     "source": "The Jewellery Editor",
+     "url": "https://www.thejewelleryeditor.com/jewellery/article/the-diamond-split-the-way-ahead-for-lab-grown-and-mined-diamonds/?utm_source=applenews&utm_medium=referral&utm_campaign=applenews",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Lab-grown diamonds",
+   "verdict": "watching",
+   "statement": null,
+   "total": 12,
+   "recent": 6,
+   "prior": 6,
+   "shareRecent": 5.1,
+   "sharePrior": 2.3,
+   "ratio": 2.2,
+   "outlets": 4,
+   "weeklyShare": [
+    0,
+    0,
+    3.75,
+    0,
+    0,
+    0,
+    9.09,
+    2.04,
+    6.9,
+    0,
+    12.9,
+    0
+   ],
+   "examples": [
+    {
+     "title": "When did we start calling those stones ‘lab-grown’, anyway?",
+     "source": "Jeweller - Business News",
+     "url": "https://www.jewellermagazine.com/Article/15537/When-did-we-start-calling-those-stones-lab-grown-anyway",
+     "date": "2026-09-27"
+    },
+    {
+     "title": "Now Showing: Mineralogist Answers Gemstone Questions From Twitter; Synthetics 101: All About Lab-Created Gemstones; Negotiation: How To Get What You Want Every Time",
+     "source": "Jeweller - Business News",
+     "url": "https://www.jewellermagazine.com/Article/15539/Now-Showing-Mineralogist-Answers-Gemstone-Questions-From-Twitter-Synthetics-101-All-About-Lab-Created-Gemstones-Negotiation-How-To-Get-What-You-Want-Every-Time",
+     "date": "2026-09-24"
+    },
+    {
+     "title": "The diamond split: the way ahead for lab-grown and mined diamonds",
+     "source": "The Jewellery Editor",
+     "url": "https://www.thejewelleryeditor.com/jewellery/article/the-diamond-split-the-way-ahead-for-lab-grown-and-mined-diamonds/?utm_source=applenews&utm_medium=referral&utm_campaign=applenews",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "name": "Silver",
+   "verdict": "watching",
+   "statement": null,
+   "total": 11,
+   "recent": 4,
+   "prior": 7,
+   "shareRecent": 3.4,
+   "sharePrior": 2.7,
+   "ratio": 1.26,
+   "outlets": 3,
+   "weeklyShare": [
+    0,
+    0,
+    6.25,
+    0,
+    0,
+    0,
+    0,
+    4.08,
+    0,
+    3.57,
+    3.23,
+    6.9
+   ],
+   "examples": [
+    {
+     "title": "Shaun Leane creates Alexander McQueen harness using Betts Group AgAIN Silver",
+     "source": "Retail Jeweller UK",
+     "url": "https://www.retail-jeweller.com/news-and-insight/shaun-leane-creates-alexander-mcqueen-harness-using-betts-group-again-silver-01-10-2026/",
+     "date": "2026-10-01"
+    },
+    {
+     "title": "Sterling Silver Replica of Ground Zero Cross Presented to 9/11 Families at 25th Anniversary Banquet",
+     "source": "Instore Magazine",
+     "url": "https://instoremag.com/sterling-silver-replica-of-ground-zero-cross-presented-to-9-11-families-at-25th-anniversary-banquet/",
+     "date": "2026-09-18"
+    },
+    {
+     "title": "Aztec Gold & Silver",
+     "source": "Jeweller - Jewellery Trends",
+     "url": "https://www.jewellermagazine.com/Article/15252/Aztec-Gold-Silver",
+     "date": "2026-07-31"
+    }
+   ]
+  },
+  {
+   "name": "Bridal and engagement",
+   "verdict": "watching",
+   "statement": null,
+   "total": 9,
+   "recent": 3,
+   "prior": 6,
+   "shareRecent": 2.6,
+   "sharePrior": 2.3,
+   "ratio": 1.1,
+   "outlets": 5,
+   "weeklyShare": [
+    0,
+    3.7,
+    1.25,
+    0,
+    0,
+    0,
+    4.55,
+    6.12,
+    3.45,
+    0,
+    3.23,
+    3.45
+   ],
+   "examples": [
+    {
+     "title": "What are today's engagement ring trends?",
+     "source": "The Jewellery Editor",
+     "url": "https://www.thejewelleryeditor.com/jewellery/article/engagement-ring-trends-regal-hatton-garden/?utm_source=applenews&utm_medium=referral&utm_campaign=applenews",
+     "date": "2026-09-05"
+    },
+    {
+     "title": "Report: Lab-Grown Stones Now in Majority of Newly Appraised Engagement Rings",
+     "source": "Instore Magazine",
+     "url": "https://instoremag.com/report-lab-grown-stones-now-in-majority-of-newly-appraised-engagement-rings/",
+     "date": "2026-09-04"
+    },
+    {
+     "title": "Judge the Jewels: Post Malone Proposes With 20+ Carat Engagement Ring Possibly Worth $2.5 Million",
+     "source": "Instore Magazine",
+     "url": "https://instoremag.com/judge-the-jewels-post-malone-proposes-with-20-carat-engagement-ring-possibly-worth-2-5-million/",
+     "date": "2026-08-28"
+    }
+   ]
+  },
+  {
+   "name": "Coloured gems and pearls",
+   "verdict": "watching",
+   "statement": null,
+   "total": 20,
+   "recent": 0,
+   "prior": 20,
+   "shareRecent": 0,
+   "sharePrior": 7.8,
+   "ratio": 0,
+   "outlets": 3,
+   "weeklyShare": [
+    0,
+    0,
+    13.75,
+    5.26,
+    0,
+    5.88,
+    0,
+    14.29,
+    0,
+    0,
+    0,
+    0
+   ],
+   "examples": [
+    {
+     "title": "Now Showing: AI advertising is out of control; A basic guide to ruby grading and wholesale valuation; Opal Cutting: 20 carats of blue fire",
+     "source": "Jeweller - Business News",
+     "url": "https://www.jewellermagazine.com/Article/15464/Now-Showing-AI-advertising-is-out-of-control-A-basic-guide-to-ruby-grading-and-wholesale-valuation-Opal-Cutting-20-carats-of-blue-fire",
+     "date": "2026-09-03"
+    },
+    {
+     "title": "Now Showing: Builders unearth €9m gold stash sealed in walls; Hunting for large sapphires in Tasmania; The geography of one of the richest goldfields on earth",
+     "source": "Jeweller - Business News",
+     "url": "https://www.jewellermagazine.com/Article/15439/Now-Showing-Builders-unearth-9m-gold-stash-sealed-in-walls-Hunting-for-large-sapphires-in-Tasmania-The-geography-of-one-of-the-richest-goldfields-on-earth",
+     "date": "2026-08-20"
+    },
+    {
+     "title": "Now Showing: Gold’s historic rise: What’s behind the ups and downs?; Seller’s POV at the Hong Kong Watch Show; Up close and personal with a gigantic ruby",
+     "source": "Jeweller - Business News",
+     "url": "https://www.jewellermagazine.com/Article/15315/Now-Showing-Golds-historic-rise-Whats-behind-the-ups-and-downs-Sellers-POV-at-the-Hong-Kong-Watch-Show-Up-close-and-personal-with-a-gigantic-ruby",
+     "date": "2026-08-06"
+    }
+   ]
+  },
+  {
+   "name": "Gold price",
+   "verdict": "watching",
+   "statement": null,
+   "total": 0,
+   "recent": 0,
+   "prior": 0,
+   "shareRecent": 0,
+   "sharePrior": 0,
+   "ratio": null,
+   "outlets": 0,
+   "weeklyShare": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "examples": []
+  },
+  {
+   "name": "Tariffs",
+   "verdict": "watching",
+   "statement": null,
+   "total": 1,
+   "recent": 0,
+   "prior": 1,
+   "shareRecent": 0,
+   "sharePrior": 0.4,
+   "ratio": 0,
+   "outlets": 1,
+   "weeklyShare": [
+    0,
+    0,
+    1.25,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "examples": [
+    {
+     "title": "Australia slugged as tariff saga continues in the US",
+     "source": "Jeweller - Business News",
+     "url": "https://www.jewellermagazine.com/Article/15300/Australia-slugged-as-tariff-saga-continues-in-the-US",
+     "date": "2026-07-27"
+    }
+   ]
+  },
+  {
+   "name": "Christmas and gifting",
+   "verdict": "watching",
+   "statement": null,
+   "total": 1,
+   "recent": 0,
+   "prior": 1,
+   "shareRecent": 0,
+   "sharePrior": 0.4,
+   "ratio": 0,
+   "outlets": 1,
+   "weeklyShare": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    5.88,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "examples": [
+    {
+     "title": "After Dark: What Really Happens When the Store Is Closed",
+     "source": "Instore Magazine",
+     "url": "https://instoremag.com/after-dark-what-really-happens-when-the-store-is-closed/",
+     "date": "2026-08-20"
+    }
+   ]
+  }
+ ],
+ "cross": null,
+ "attention": [
+  {
+   "ticker": "CFR.SW",
+   "company": "Richemont",
+   "articles": 56,
+   "change3m": -5.5,
+   "change1m": -5.9
+  },
+  {
+   "ticker": "MC.PA",
+   "company": "LVMH",
+   "articles": 125,
+   "change3m": -23,
+   "change1m": -12.2
+  },
+  {
+   "ticker": "PNDORA.CO",
+   "company": "Pandora",
+   "articles": 4,
+   "change3m": 3.8,
+   "change1m": -5.7
+  },
+  {
+   "ticker": "SIG",
+   "company": "Signet",
+   "articles": 5,
+   "change3m": 22.9,
+   "change1m": 23.1
+  },
+  {
+   "ticker": "1929.HK",
+   "company": "Chow Tai Fook",
+   "articles": 1,
+   "change3m": -7.6,
+   "change1m": -13.6
+  },
+  {
+   "ticker": "BRLT",
+   "company": "Brilliant Earth",
+   "articles": 0,
+   "change3m": 23,
+   "change1m": 6.1
+  }
+ ],
+ "callouts": [
+  {
+   "company": "Signet",
+   "kind": "quiet",
+   "change3m": 22.9,
+   "text": "Signet shares rose 23% in three months, with just 5 articles about it in 12 weeks."
+  },
+  {
+   "company": "Brilliant Earth",
+   "kind": "quiet",
+   "change3m": 23,
+   "text": "Brilliant Earth shares rose 23% in three months, with no articles about it in 12 weeks."
   }
  ]
 }

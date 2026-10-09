@@ -7,7 +7,8 @@ export async function loadMarket(market: MarketId): Promise<MarketData | null> {
   try {
     const raw = await fs.readFile(path.join(process.cwd(), 'data', 'markets', `${market}.json`), 'utf-8');
     const data = JSON.parse(raw) as MarketData;
-    return data.version === 1 ? data : null;
+    // Version 1 files predate signals and attention; the page needs both.
+    return data.version === 2 ? data : null;
   } catch {
     return null;
   }

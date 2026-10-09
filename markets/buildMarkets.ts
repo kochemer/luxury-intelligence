@@ -21,6 +21,8 @@ import { classifyCandidates } from './classifyMoves';
 import { writeSummary } from './summary';
 import { fetchPrices } from './prices';
 import { mergeEvents, latestMoveFor, displayTitle } from './moves';
+import { computeThemes, selectSignals, crossSignal, RULES } from './signals';
+import { attentionRows, attentionCallouts } from './attention';
 
 const DATA_DIR = path.join(process.cwd(), 'data', 'markets');
 const DAY = 864e5;
@@ -105,8 +107,14 @@ export async function buildMarkets(options: BuildOptions = {}): Promise<BuildSum
     const tickers = [...new Set(brands.map(b => b.ticker).filter((t): t is string => Boolean(t)))];
     const prices = await fetchPrices(tickers, new Date(endMs), previous?.prices ?? []);
 
+    // Signals and attention: counted from the whole stream, not just what the
+    // digest published. Pure computation, no API calls.
+    const { panel, themes } = computeThemes(windowed, market, endMs);
+    const { signals, watching } = selectSignals(themes);
+    const attention = attentionRows(windowed, prices);
+
     const data: MarketData = {
-      version: 1,
+      version: 2,
       market,
       weekLabel,
       generatedAtISO: new Date().toISOString(),
@@ -126,6 +134,13 @@ export async function buildMarkets(options: BuildOptions = {}): Promise<BuildSum
       }).sort((a, b) => b.mentions - a.mentions || a.name.localeCompare(b.name)),
       moves,
       prices,
+      panel,
+      rules: RULES,
+      signals,
+      watching,
+      cross: market === 'luxury' ? crossSignal(windowed, endMs) : null,
+      attention,
+      callouts: attentionCallouts(attention, market),
     };
 
     await fs.mkdir(DATA_DIR, { recursive: true });

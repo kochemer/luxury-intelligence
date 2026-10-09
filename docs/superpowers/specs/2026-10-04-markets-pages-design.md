@@ -73,7 +73,31 @@ above), coverage counts and trend thresholds, summary validation, move
 de-duplication. Contract test: every market URL is in the sitemap inventory.
 Then a real build against live data, deployed, and checked on production.
 
-## Later (not in v1)
+## v2 (2026-10-09): signals and attention lead the page
 
-Signal Index themes on these pages, a brand-list editor, per-market JSON-LD
+Owner feedback on v1: it showed brand counts and news, which other sites can
+compile. The differentiator is the volume of articles read every week. Approved
+from a local preview built on real week-40 data.
+
+New page order: **Signals** → **Where the market disagrees** (coverage vs
+share price) → **Trackers** (moves by kind, with an "All moves" tab) → This
+week → Share of voice (demoted).
+
+| Decision | Why |
+|---|---|
+| Themes are a share of the panel's articles, last 4 weeks vs the 8 before | A busier week, or a new feed, must not read as a trend. |
+| A theme is a signal only past explicit rules, shown on the page | 20+ articles, 10+ recent, 6+ outlets, 1.5× to rise; 10+ before and 4+ outlets to fall. "Natural diamonds 4.4×" was 6 articles. |
+| Panels come from `categoryHint` in `ingestion/sources.ts`, minus watch blogs and Dezeen | New feeds join automatically. Watch blogs are ~750 product reviews per 12 weeks and diluted every theme (China 1.8× → 1.4×); Dezeen is a design magazine. |
+| Falls need breadth | "Pearls dropped away" was two bursts from one outlet. |
+| Examples prefer headline matches | Snippet-only matches gave weak evidence (a fashion roundup under "India"). |
+| Jewellery shows no signal until coverage supports one | 374 articles in 12 weeks from 6 outlets. New feeds (JCK, Rapaport) from W41 should change that. |
+| Cross-sector signal on the luxury page | AI shopping agents: ~27 articles a week across all sources, of which the luxury press wrote 4 of 263. Only a site reading both sees it. |
+| Coverage vs share price per listed company (with its brands) | The aha cases: Signet and Brilliant Earth +23% on 5 and 0 articles; LVMH most covered and down 23%. "Loud" callouts on the luxury page only: LVMH and Richemont are covered for fashion, not jewellery. |
+
+Code: `markets/signals.ts`, `markets/attention.ts`; `MarketData` version 2.
+Tests: `__tests__/markets.signals.test.ts`.
+
+## Later
+
+Signal Index themes on these pages (done in v2), a brand-list editor, per-market JSON-LD
 beyond the basics, and Spanish/Danish versions (locale pages are `noindex` today).
