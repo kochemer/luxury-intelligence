@@ -81,6 +81,8 @@ defaults live in `lib/llm/models.ts`; GPT-5 and later need `maxTokensParam` /
      retried once, then the digest step fails. Between 2026-02-08 and W37 this
      call was missing and every digest shipped with these null while all steps
      reported ok. Themes are stripped of `.,;:!?`, so "GPT-5.6" becomes "GPT-56".
+     The pull-quote (`oneSentenceSummary`) is generator → `quoteProblem()` filter →
+     judge: max 18 words, plain words, never Pandora (`docs/pipeline-decisions.md`).
    - Editor's Take (`generateEditorialTake.ts`, 3 short paragraphs, 120–130 words, one retry if
      under 100), which reads
      `oneSentenceSummary`, so it must run after themes

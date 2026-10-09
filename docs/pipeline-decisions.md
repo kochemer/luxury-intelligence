@@ -67,6 +67,29 @@ readability; the owner chose readability. The evidence rule was relaxed from
 objection and a recommendation do not fit in ~125 words. `TARGET_*` constants
 in `generateEditorialTake.ts` drive the prompt and the condense pass.
 
+## Pull-quote style (owner brief, 2026-10-09)
+
+"Punchy, provocative, to the point, using simple words." The first Sol quotes
+were accurate but read as consultant-speak ("enterprise agents ... could make
+workplace software a commerce gatekeeper, forcing merchants to court algorithms").
+Cause: both prompts rewarded "non-obvious depth" and named lenses like
+"paradox" and "structural shift"; nothing asked for plain words.
+
+- Generator (`digest/generateThemes.ts`): max 18 words, one or two short
+  sentences, plain words, stated as fact (no could/may), a named company,
+  good and bad examples in the prompt.
+- Judge: punch and plain language first, then provocation, then specificity;
+  shorter wins a tie.
+- `quoteProblem()` drops candidates over 18 words, with jargon from
+  `QUOTE_JARGON`, hedges, or a Pandora mention, before the judge sees them
+  (unless that leaves none). Pinned by `__tests__/digest.quote.test.ts`.
+- **Never mention Pandora** (the editor's employer), same rule as the Take.
+  The quote prompts lacked it, and a W40 test run picked a Pandora quote.
+  Theme tags may still name Pandora as news; that is a label, not opinion.
+
+On W37-W40 the new prompts produced, e.g., "Luxury calls price hikes growth.
+Customers call them a reason to walk away." (W39).
+
 ## Podcast voice
 
 ElevenLabs was tried first and its errors were swallowed. It failed every week

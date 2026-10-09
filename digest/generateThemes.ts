@@ -22,7 +22,7 @@ const THEME_MODEL = process.env.THEME_MODEL || getModelFor('classify');
 const TEMPERATURE = 0; // Deterministic
 const MAX_TOKENS = 500;
 const CACHE_KIND = 'themes';
-const THEME_VERSION = '3.1'; // Incremented: insight framing (not summary)
+const THEME_VERSION = '3.2'; // 3.2: plain-language, punchy pull-quote (owner, 2026-10-09)
 
 // Summary generator/judge models
 // The pull-quote is the most visible single line on the site, so its generator
@@ -346,6 +346,27 @@ function validateThemes(themes: string[]): { isValid: boolean; issues: string[] 
   };
 }
 
+/** Pull-quote limits, enforced in code because prompts alone drift (owner brief 2026-10-09). */
+const QUOTE_MAX_WORDS = 18;
+const QUOTE_JARGON = [
+  'paradox', 'irony', 'ironic', 'structural', 'signal', 'landscape', 'ecosystem', 'gatekeeper',
+  'legible', 'leverage', 'convergence', 'narrative', 'paradigm', 'democratis', 'democratiz',
+  'telegraph', 'underscore', 'interplay', 'reframe', 'juxtapos', 'catalys',
+];
+
+/** Why a candidate breaks the brief, or null if it is fine. Exported for tests. */
+export function quoteProblem(q: string): string | null {
+  const words = q.split(/\s+/).filter(Boolean).length;
+  if (words > QUOTE_MAX_WORDS) return `${words} words (max ${QUOTE_MAX_WORDS})`;
+  const lower = q.toLowerCase();
+  const jargon = QUOTE_JARGON.find(j => lower.includes(j));
+  if (jargon) return `jargon "${jargon}"`;
+  if (/\b(could|may|might)\b/i.test(q)) return 'hedges';
+  // The editor's employer: opinion about it is off limits, as in the Take.
+  if (/pandora/i.test(q)) return 'mentions Pandora';
+  return null;
+}
+
 /**
  * Stage 1 — Generator: produce 4 structurally distinct insight candidates.
  * An insight is an interpretation or implication of the week's events — not
@@ -364,36 +385,40 @@ async function generateSummaryCandidates(
     .map((a, i) => `${i + 1}. ${a.title} (${a.source})`)
     .join('\n');
 
-  const prompt = `You are the editorial voice of a premium intelligence digest covering AI, ecommerce, luxury, and jewellery.
+  const prompt = `You write the one-line pull-quote that opens a weekly digest for people who run luxury and jewellery businesses.
 
-Selected article headlines for week ${digest.weekLabel}:
+This week's headlines (${digest.weekLabel}):
 ${headlines}
 
-Write exactly 4 one-sentence INSIGHTS — not summaries of what happened, but interpretations of what it means. An insight is a non-obvious reading: an implication, a tension, a pattern, or a reframing that a smart reader would not have arrived at on their own.
+Write exactly 4 candidate pull-quotes. The owner's brief: PUNCHY, PROVOCATIVE, TO THE POINT, IN SIMPLE WORDS.
 
-Each candidate must use a DIFFERENT analytical lens:
+What that means:
+- A bold claim someone could disagree with, said the way you would say it out loud to a colleague.
+- Maximum ${QUOTE_MAX_WORDS} words. One or two short sentences.
+- Plain, everyday words. If a 14-year-old would not use the word, pick a simpler one.
+- State it as fact. No "could", "may", "might", "risks", "over the next year".
+- Name a real company or a concrete thing from the headlines.
+- No jargon or consultant-speak: no "paradox", "irony", "structural", "signals", "landscape", "ecosystem", "gatekeeper", "legible", "leverage", "convergence", "narrative", "paradigm", "democratise".
+- Not a summary of what happened: say what it MEANS, or what people are getting wrong.
+- NEVER mention Pandora (the editor's employer), even if it is in the headlines. Same rule as the Editor's Take.
 
-Candidate 1 — Implication: What does the week's dominant story quietly signal for the next 6–12 months?
-Candidate 2 — Paradox: What contradiction or irony do the week's events expose that nobody is saying plainly?
-Candidate 3 — Reframe: What conventional wisdom or received narrative do these events undermine or complicate?
-Candidate 4 — Pattern: What small but telling signal, visible across multiple articles, points to a larger structural shift?
+Each candidate takes a different angle:
+1. Prediction: what happens next because of this week.
+2. Contradiction: two things that do not add up.
+3. Myth-buster: what most people believe that this week proves wrong.
+4. Hidden trend: the thing several headlines quietly have in common.
 
-Rules for all four:
-- Maximum 25 words each
-- Must be interpretive, not descriptive — avoid "X announced", "Y reported", "Z is growing"
-- No two sentences may share the same opening word or grammatical structure
-- No filler phrases ("this week", "in a world where", "it is clear", "as we see")
-- Grounded in the specific articles above — no insight that could apply to any random week
-- No bullet points, labels, or numbering in the output sentences themselves
+Good (the tone, not the topic):
+- "Luxury isn't growing. It's just getting more expensive."
+- "Amazon just shut the door on AI shoppers. Every big retailer will follow."
+- "Nobody wants a jewellery chatbot. They want the ring to fit."
+
+Bad, too clever and too long:
+- "Over the next year, enterprise agents that also order meals could make workplace software a commerce gatekeeper, forcing merchants to court algorithms alongside customers."
 
 Respond as JSON:
 {
-  "candidates": [
-    "Candidate 1 insight here",
-    "Candidate 2 insight here",
-    "Candidate 3 insight here",
-    "Candidate 4 insight here"
-  ]
+  "candidates": ["...", "...", "...", "..."]
 }`;
 
   const response = await openai.chat.completions.create({
@@ -445,24 +470,20 @@ async function judgeAndSelectSummary(
     .map((c, i) => `${i + 1}. "${c}"`)
     .join('\n');
 
-  const prompt = `You are the editorial director of a premium intelligence digest. Select the single best insight from the four candidates below.
+  const prompt = `You pick the pull-quote that opens a weekly digest for people who run luxury and jewellery businesses. The owner's brief: punchy, provocative, to the point, in simple words.
 
-An insight is NOT a summary of events. It is a non-obvious interpretation — an implication, paradox, reframe, or pattern that reveals something a smart reader would not have thought of alone.
-
-This week's key article headlines (for context):
+This week's headlines (for context):
 ${headlines}
 
 Candidates:
 ${numberedCandidates}
 
-Evaluate each on three criteria:
-1. Depth — does it reveal something non-obvious, or just restate what happened?
-2. Provocation — would it make an informed reader stop, reconsider, or want to argue with it?
-3. Specificity — is it anchored in this week's actual events, or could it apply to any week?
+Judge in this order:
+1. Punch: short, easy to say out loud in one breath, and it lands. Plain words beat clever ones every time.
+2. Provocation: a reader would want to argue with it or forward it.
+3. Specific: it is clearly about this week's news, not any week.
 
-Reject any candidate that is primarily descriptive ("X announced Y"). Prefer the candidate that feels like the sharpest analytical observation a senior editor would pull out of the week's material.
-
-Ties should be broken in favour of depth.
+Reject anything that sounds like a consultant wrote it, hedges ("could", "may"), repeats a headline, or mentions Pandora. If two are close, take the shorter one.
 
 Respond as JSON:
 {
@@ -553,10 +574,25 @@ async function callLLMForThemes(digest: WeeklyDigest, isRetry: boolean = false):
     console.log(`[Themes] Generating insight candidates (generator model: ${SUMMARY_GENERATOR_MODEL})...`);
     const summaryCandidates = await generateSummaryCandidates(digest, openai);
 
+    // Drop candidates that break the brief before the judge sees them, unless
+    // that would leave nothing: a slightly long quote beats no quote.
+    const cleanCandidates = summaryCandidates.filter(c => {
+      const problem = quoteProblem(c);
+      if (problem) console.log(`[Themes] Dropping candidate (${problem}): "${c}"`);
+      return !problem;
+    });
+    const judgedCandidates = cleanCandidates.length > 0 ? cleanCandidates : summaryCandidates;
+
     let oneSentenceSummary = '';
-    if (summaryCandidates.length > 0) {
+    if (judgedCandidates.length > 0) {
       console.log(`[Themes] Running editorial judge (judge model: ${SUMMARY_JUDGE_MODEL})...`);
-      oneSentenceSummary = await judgeAndSelectSummary(summaryCandidates, digest, openai);
+      oneSentenceSummary = await judgeAndSelectSummary(judgedCandidates, digest, openai);
+      // The judge may reword its pick, so check the final sentence too.
+      if (/pandora/i.test(oneSentenceSummary)) {
+        const safe = summaryCandidates.find(c => !/pandora/i.test(c)) ?? '';
+        console.warn(`[Themes] Judge's pick mentions Pandora; using "${safe}" instead`);
+        oneSentenceSummary = safe;
+      }
     }
 
     // Fallback: if two-stage failed, use summary from themes call
