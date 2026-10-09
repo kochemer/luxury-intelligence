@@ -52,6 +52,7 @@ npm run selection:snapshot / selection:diff   # Compare article selection before
 npm run print-yield / validate:feeds / pool:health / debug:discovery-dates   # Source and discovery diagnostics
 npm run competitor:analyze   # Legacy Competitor Watch, unused since 2026-10-04
 npm run podcast       # Build weekly podcast audio
+npm run media:compress # Shrink public/ MP3s + cover PNGs (re-runnable; see docs/operations.md § Storage)
 npm run email:weekly  # Send weekly email digest (NOT idempotent: re-running double-sends)
 npm run markets:build # /markets pages data (also pipeline step 9)
 

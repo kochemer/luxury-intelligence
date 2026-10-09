@@ -8,9 +8,10 @@ Facts are as of 2026-10-05 unless dated otherwise.
 - Vercel project `luxury-intelligence`, GitHub `kochemer/luxury-intelligence`,
   branch `main`. Every push to `main` deploys to production.
 - The Vercel CLI on the owner's machine is authenticated as `kochemer`.
-- Hobby-style limits apply (owner hasn't confirmed Hobby vs Pro as of 2026-10-04).
-  Deployment storage and function storage quotas are **account-wide**, shared
-  with the owner's other projects.
+- The account is on **Hobby** (checked via the API 2026-10-06). Deployment
+  storage is **10 GB for the whole account**, shared with the owner's other
+  projects (daglig-dansk, family_messenger, travel-blog-generator-codex). See
+  § Storage.
 
 ## Scheduled workflows (`.github/workflows/`)
 
@@ -48,7 +49,17 @@ Facts are as of 2026-10-05 unless dated otherwise.
 - **The git → Vercel trigger is flaky.** Several pushes with real changes have
   produced no deployment (GitHub commit status stuck `pending`). Retrigger with
   `git commit --allow-empty -m "Retrigger Vercel deploy" && git push` before
-  trying anything else. It usually lands within 20 s to 3 min.
+  trying anything else. It usually lands within 20 s to 3 min. An empty commit
+  only builds if site files changed since the last *successful* deployment
+  (see "Skipped deploys" below); to rebuild identical code, use Redeploy in
+  the Vercel dashboard.
+- **Skipped deploys** (since 2026-10-09): `vercel.json` `ignoreCommand` runs
+  `scripts/vercel-ignore-build.sh`, which skips the deployment when nothing
+  changed since `VERCEL_GIT_PREVIOUS_SHA` outside `docs/`, `*.md`,
+  `__tests__/`, `.github/`, `.githooks/`, `.gitignore`, `video-short/` and
+  `data/seo/`. The daily `seo: update monitor state [skip ci]` commit used to
+  deploy every day (Vercel ignores `[skip ci]`). If the app ever starts reading
+  one of those paths at runtime, remove it from the script.
 - A deployment shown as `● Queued` in `vercel ls` may be the git deployment
   itself. Check `vercel inspect <url>` before removing it.
 - Verify a deploy landed: fetch `https://luxury-intel.com/sw.js` and check the
@@ -82,11 +93,20 @@ future deployment.
   temp, video and voice-only files are gitignored (fixed 2026-09-18, `57799ff`).
 - At request time only `podcast.json` and `email-digest.json` are read from
   `data/weeks/`.
-- Still pending as of 2026-10-05:
-  1. `public/podcast/*.mp3` (~500 MB) → Cloudflare R2 (owner's choice). Blocked
-     on the owner supplying the account/bucket/token/public URL. Only
-     `podcast.json`'s `audioPath` needs to change.
-  2. `public/weekly-images/*.png` (~100 MB) → WebP.
+- Every deployment stores its own copy of `public/` media, so deployment
+  storage ≈ deployments kept × media size. Hobby keeps the 3 latest production
+  deployments plus aliased ones and deletes the rest once over 10 GB. The
+  limit was exceeded on 2026-10-09 (~720 MB per deployment, ~1 deploy a day).
+- Media is compressed (2026-10-09, `npm run media:compress`, safe to re-run):
+  - `public/podcast/*.mp3`: 64 kbps mono (`podcast/compressAudio.ts`, applied by
+    `buildWeeklyPodcast` before it records `fileSize`). 563 → 256 MB.
+  - `public/weekly-images/*.png`: 256-colour palette PNG
+    (`digest/compressCoverImage.ts`, applied by `generateCoverImage`).
+    110 → 32 MB. **Keep them PNG under the same names**: sent newsletters link
+    to `/weekly-images/{week}.png` and Outlook desktop can't show WebP.
+- Still pending: `public/podcast/*.mp3` → Cloudflare R2 (owner's choice).
+  Blocked on the owner supplying the account/bucket/token/public URL. Only
+  `podcast.json`'s `audioPath` needs to change.
 - `public/video/how-it-works.mp4` (~6 MB, CRF 28) + poster: the About page explainer, published 2026-10-07. It is in `publicExcludes` (PWA precache) and `outputFileTracingExcludes`; the page uses `preload="none"`. Re-encode any replacement the same way (see `video-short/README.md`), never commit the 12 MB master.
 - Old deployments can be purged with `vercel remove <project> --safe --yes`
   (`--safe` keeps anything holding a live alias).

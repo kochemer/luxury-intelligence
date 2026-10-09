@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import OpenAI from 'openai';
 import fetch from 'node-fetch';
 import { generateCoverScenePrompt, type ArticleInput, type Variant } from './sceneDirector';
+import { compressCoverPng } from './compressCoverImage';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -137,10 +138,17 @@ export async function generateCoverImage(
     const outputDir = path.dirname(outputPath);
     await fs.mkdir(outputDir, { recursive: true });
     
+    // Quantize before writing (~70% smaller, still a PNG). Not fatal.
+    try {
+      buffer = await compressCoverPng(buffer);
+    } catch (error) {
+      console.warn(`Cover image compression skipped, keeping original: ${(error as Error).message}`);
+    }
+
     // Write PNG file
     await fs.writeFile(outputPath, buffer);
-    
-    console.log(`✓ Cover image saved to: ${outputPath} (${fileSizeKB.toFixed(1)}KB, size: ${size})`);
+
+    console.log(`✓ Cover image saved to: ${outputPath} (${(buffer.length / 1024).toFixed(1)}KB, size: ${size})`);
     return { success: true, size, model };
   } catch (error) {
     console.error('Error generating cover image:', error);

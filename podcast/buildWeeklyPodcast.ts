@@ -9,6 +9,7 @@ import OpenAI from 'openai';
 import fetch from 'node-fetch';
 import type { WeeklyDigest } from '../lib/types';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
+import { compressPodcastMp3 } from './compressAudio';
 
 /**
  * Generate podcast script from digest
@@ -220,6 +221,14 @@ export async function buildWeeklyPodcast(weekLabel: string): Promise<{ success: 
     } catch (fallbackError) {
       throw new Error(`Both ElevenLabs and OpenAI TTS failed: ${(fallbackError as Error).message}`);
     }
+  }
+
+  // Halve the MP3 before recording its size. Not fatal: an uncompressed
+  // episode only costs deployment storage.
+  try {
+    await compressPodcastMp3(audioPath);
+  } catch (error) {
+    console.warn(`[Podcast] MP3 compression skipped, keeping original: ${(error as Error).message}`);
   }
 
   // Save metadata. fileSize feeds the RSS <enclosure length> in

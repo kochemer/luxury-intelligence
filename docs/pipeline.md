@@ -85,7 +85,9 @@ digest.coverImageUrl    public/podcast/      data/weeks/{week}/
 
 6. **Distribution**, after the digest: email digest (`email/`), podcast script +
    TTS (`podcast/`, ElevenLabs with OpenAI `tts-1` fallback; served as
-   `/podcast/feed.xml`), cover image (`npm run cover` logic).
+   `/podcast/feed.xml`), cover image (`npm run cover` logic). The MP3 is
+   re-encoded to 64 kbps and the cover PNG palette-quantized before they are
+   saved, to keep deployments small (`docs/operations.md` § Storage).
 
 7. **Markets** (step 9 in the orchestrator, `markets/`): builds
    `data/markets/{luxury,jewellery}.json` for `/markets/*`. Non-critical: a
