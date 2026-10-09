@@ -4,6 +4,7 @@
  */
 
 import OpenAI from 'openai';
+import { HOUSE_STYLE_RULES, findStyleProblems, stripDashes } from '../lib/llm/houseStyle';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
 
 const AI_MODEL = process.env.ARTICLE_SUMMARY_MODEL || getModelFor('summarize');
@@ -28,8 +29,8 @@ export function cleanSummaryText(raw: string): string {
   s = s.replace(/^(?:this is an )?AI[- ]generated summary[.:]?\s*/i, '');
   // Wrapping quotes.
   s = s.replace(/^["“'‘]([\s\S]*)["”'’]$/, '$1');
-  // Whitespace.
-  s = s.replace(/\s+/g, ' ').trim();
+  // Whitespace and dashes (house style, lib/llm/houseStyle.ts).
+  s = stripDashes(s.replace(/\s+/g, ' ').trim());
   return s;
 }
 
@@ -83,11 +84,13 @@ async function generateAISummaryForArticle(
 Write ONE sentence, maximum ${TARGET_MAX_WORDS} words, summarising the article below.
 
 Rules:
-- Lead with the fact. The first words are the news itself (who did what, what changed, what the number is) — never the source, the date, or "the article".
+- Lead with the fact. The first words are the news itself (who did what, what changed, what the number is), never the source, the date, or "the article".
 - Include at least one concrete anchor: a number, a named company/person/product, or a decision taken.
 - Use only the information given below. Do not invent, extrapolate, or add context that is not there.
 - No preamble, label, disclaimer or hedging: never "AI-generated", "this article", "the piece discusses", "according to", "highlights", "explores".
 - No wrapping quotes, no bullet, no trailing commentary. Output the sentence and nothing else.
+
+${HOUSE_STYLE_RULES}
 
 Article (${topicDisplayName} section):
 Title: ${article.title}
@@ -108,7 +111,28 @@ Example of the required style (unrelated story): "Richemont's jewellery maisons 
     });
     
     const rawSummary = res.choices[0]?.message?.content?.trim() || '';
-    const summary = rawSummary ? cleanSummaryText(rawSummary) || null : null;
+    let summary = rawSummary ? cleanSummaryText(rawSummary) || null : null;
+
+    // House style: one retry naming the problems; keep whichever is cleaner.
+    const problems = summary ? findStyleProblems(summary) : [];
+    if (summary && problems.length) {
+      try {
+        const retry = await openai.chat.completions.create({
+          model: AI_MODEL,
+          ...temperatureParam(AI_MODEL, TEMPERATURE),
+          ...maxTokensParam(AI_MODEL, MAX_OUTPUT_TOKENS),
+          messages: [
+            { role: 'user', content: prompt },
+            { role: 'assistant', content: summary },
+            { role: 'user', content: `That breaks the house style (${problems.join('; ')}). Rewrite the sentence without it. Same facts, nothing else.` },
+          ],
+        });
+        const second = cleanSummaryText(retry.choices[0]?.message?.content?.trim() || '');
+        if (second && findStyleProblems(second).length < problems.length) summary = second;
+      } catch {
+        // Keep the first summary: a style slip is better than no summary.
+      }
+    }
     if (summary) {
       const words = summary.split(/\s+/).length;
       if (words > TARGET_MAX_WORDS + 10) {

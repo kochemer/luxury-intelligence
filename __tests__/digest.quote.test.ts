@@ -8,7 +8,7 @@ import { quoteProblem } from '../digest/generateThemes';
 
 test('short, plain, direct quotes pass', () => {
   for (const q of [
-    "Luxury isn't growing. It's just getting more expensive.",
+    'Amazon just shut the door on AI shoppers. Every big retailer will follow.',
     'A new name won\'t sell natural diamonds. A reason to want them will.',
   ]) assert.equal(quoteProblem(q), null, q);
 });
@@ -17,6 +17,10 @@ test('the W40 quote the owner rejected fails on length, jargon and hedging', () 
   assert.ok(quoteProblem('Over the next year, enterprise agents that also order meals could make workplace software a commerce gatekeeper, forcing merchants to court algorithms alongside customers.'));
   assert.match(quoteProblem('Shopping agents are the new gatekeeper.') ?? '', /jargon/);
   assert.match(quoteProblem('Shopping agents could end the store.') ?? '', /hedges/);
+});
+
+test('a false contrast is rejected (house style, lib/llm/houseStyle.ts)', () => {
+  assert.match(quoteProblem("Luxury isn't growing. It's just getting more expensive.") ?? '', /false contrast/);
 });
 
 test('any mention of Pandora is rejected', () => {

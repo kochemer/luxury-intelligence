@@ -9,6 +9,7 @@ import OpenAI from 'openai';
 import fetch from 'node-fetch';
 import type { WeeklyDigest } from '../lib/types';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
+import { HOUSE_STYLE_RULES, stripDashes } from '../lib/llm/houseStyle';
 import { compressPodcastMp3 } from './compressAudio';
 
 /**
@@ -36,14 +37,16 @@ Generate a conversational podcast script covering these ${articles.length} artic
 
 ${articlesText}
 
-Word count requirements — you MUST hit these, do not stop early:
+Word count requirements, you MUST hit these, do not stop early:
 - Intro: 60 words — welcome listeners, mention this is week ${digest.weekLabel}
 - Each of the ${articles.length} article segments: 250 words MINIMUM — cover the full story, explain why it matters, discuss implications and context for the industry. Do not cut a segment short.
 - A one-sentence transition between each segment (~15 words each)
 - Closing: 60 words — thank listeners, tease next week
 The total must reach AT LEAST 2200 words. If you finish a segment early, expand on analysis and context until you reach 250 words for that segment.
 
-Tone: Professional but conversational, like a business news podcast. Be clear and engaging. Write full, complete paragraphs — do not use bullet points or lists.
+Tone: Professional but conversational, like a business news podcast. Be clear and engaging. Write full, complete paragraphs, no bullet points or lists. When a segment needs more words, add facts and context from the article, never filler.
+
+${HOUSE_STYLE_RULES}
 
 IMPORTANT: Output plain spoken narration only. Do NOT include any labels, headers, or prefixes such as "Host:", "Intro:", "Segment:", "Closing:", or any other structural markers. The output will be read aloud directly by a text-to-speech engine — it must contain nothing but the words to be spoken.`;
 
@@ -58,7 +61,8 @@ IMPORTANT: Output plain spoken narration only. Do NOT include any labels, header
     ...temperatureParam(scriptModel, 0.7),
   });
 
-  return response.choices[0]?.message?.content || '';
+  // Dashes read badly in TTS and are off house style.
+  return stripDashes(response.choices[0]?.message?.content || '');
 }
 
 /**

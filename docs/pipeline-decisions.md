@@ -90,6 +90,37 @@ Cause: both prompts rewarded "non-obvious depth" and named lenses like
 On W37-W40 the new prompts produced, e.g., "Luxury calls price hikes growth.
 Customers call them a reason to walk away." (W39).
 
+## House style: no AI-isms (owner rule, 2026-10-09)
+
+Applies to every model-written text readers see: Editor's Take, pull-quote,
+article summaries, email digest, podcast script. The owner's list covers false
+contrasts ("it's not X, it's Y"), rule of three, em dashes, colon reveals, tidy
+closing lines, stock words (delve, landscape, leverage, navigate...), inflated
+significance, trailing "-ing" clauses, hedge stacking, vague attribution,
+signposting, flattering openers, and bold/headers/emoji.
+
+`lib/llm/houseStyle.ts` holds the rules as one prompt block
+(`HOUSE_STYLE_RULES`), a code check (`findStyleProblems`) and `stripDashes`.
+Rule of three and the tidy closing line are prompt-only: no pattern catches
+them without flagging good sentences. What each step does on a violation:
+
+| Step | On a violation |
+|---|---|
+| Pull-quote | candidate dropped before judging |
+| Editor's Take | one rewrite pass naming the problems; kept only if cleaner and long enough |
+| Article summaries | one retry naming the problems; the cleaner of the two is kept |
+| Email digest, podcast script | prompt + dash stripping only (long text; not worth rejecting over one phrase) |
+
+The false-contrast patterns were calibrated on real W37-W40 output: they catch
+"X isn't A. It's B", "isn't X; it's Y", "aren't dead. Shoppers are just..." and
+", not simply X", and pass ordinary negations ("Growth isn't the same as
+strength", "The brand isn't commenting"). Pinned by
+`__tests__/llm.houseStyle.test.ts`. The first pull-quote rules (same day)
+used false contrasts as their "good" examples; corrected in this change.
+
+Result on W39/W40 regeneration: quote, Take and all 28 W40 summaries passed
+the check with no rewrite needed.
+
 ## Podcast voice
 
 ElevenLabs was tried first and its errors were swallowed. It failed every week

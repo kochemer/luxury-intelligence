@@ -13,6 +13,7 @@ import { getTopicDisplayName } from '../lib/utils/topicNames';
 
 import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
+import { HOUSE_STYLE_RULES, findStyleProblems, stripDashes } from '../lib/llm/houseStyle';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -364,6 +365,8 @@ export function quoteProblem(q: string): string | null {
   if (/\b(could|may|might)\b/i.test(q)) return 'hedges';
   // The editor's employer: opinion about it is off limits, as in the Take.
   if (/pandora/i.test(q)) return 'mentions Pandora';
+  const style = findStyleProblems(stripDashes(q));
+  if (style.length) return style.join(', ');
   return null;
 }
 
@@ -398,23 +401,28 @@ What that means:
 - Plain, everyday words. If a 14-year-old would not use the word, pick a simpler one.
 - State it as fact. No "could", "may", "might", "risks", "over the next year".
 - Name a real company or a concrete thing from the headlines.
-- No jargon or consultant-speak: no "paradox", "irony", "structural", "signals", "landscape", "ecosystem", "gatekeeper", "legible", "leverage", "convergence", "narrative", "paradigm", "democratise".
+- No jargon or consultant-speak: no "paradox", "irony", "structural", "signals", "ecosystem", "gatekeeper", "legible", "convergence", "narrative", "paradigm", "democratise".
+- Say the claim straight. A pull-quote built as "X isn't A. It's B" or "not X, but Y" is the cheapest trick in the book: do not use it.
 - Not a summary of what happened: say what it MEANS, or what people are getting wrong.
 - NEVER mention Pandora (the editor's employer), even if it is in the headlines. Same rule as the Editor's Take.
 
 Each candidate takes a different angle:
 1. Prediction: what happens next because of this week.
-2. Contradiction: two things that do not add up.
-3. Myth-buster: what most people believe that this week proves wrong.
+2. Contradiction: two facts from this week that do not add up, stated side by side.
+3. Myth-buster: what this week proves, stated as a plain fact (not as "it isn't X, it's Y").
 4. Hidden trend: the thing several headlines quietly have in common.
 
 Good (the tone, not the topic):
-- "Luxury isn't growing. It's just getting more expensive."
 - "Amazon just shut the door on AI shoppers. Every big retailer will follow."
-- "Nobody wants a jewellery chatbot. They want the ring to fit."
+- "Luxury's growth this year is price rises. Shoppers will stop paying them first."
+- "Jewellery buyers want the ring to fit. A chatbot can't tell them that."
 
 Bad, too clever and too long:
 - "Over the next year, enterprise agents that also order meals could make workplace software a commerce gatekeeper, forcing merchants to court algorithms alongside customers."
+Bad, false contrast:
+- "Luxury isn't growing. It's just getting more expensive."
+
+${HOUSE_STYLE_RULES}
 
 Respond as JSON:
 {
@@ -483,7 +491,7 @@ Judge in this order:
 2. Provocation: a reader would want to argue with it or forward it.
 3. Specific: it is clearly about this week's news, not any week.
 
-Reject anything that sounds like a consultant wrote it, hedges ("could", "may"), repeats a headline, or mentions Pandora. If two are close, take the shorter one.
+Reject anything that sounds like a consultant wrote it, hedges ("could", "may"), repeats a headline, mentions Pandora, or uses a false contrast ("X isn't A. It's B"). If two are close, take the shorter one.
 
 Respond as JSON:
 {
@@ -587,6 +595,7 @@ async function callLLMForThemes(digest: WeeklyDigest, isRetry: boolean = false):
     if (judgedCandidates.length > 0) {
       console.log(`[Themes] Running editorial judge (judge model: ${SUMMARY_JUDGE_MODEL})...`);
       oneSentenceSummary = await judgeAndSelectSummary(judgedCandidates, digest, openai);
+      oneSentenceSummary = stripDashes(oneSentenceSummary);
       // The judge may reword its pick, so check the final sentence too.
       if (/pandora/i.test(oneSentenceSummary)) {
         const safe = summaryCandidates.find(c => !/pandora/i.test(c)) ?? '';

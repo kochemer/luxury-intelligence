@@ -11,6 +11,7 @@ import { computeCommerceMateriality } from '../scoring/commerceMateriality';
 import type { Article, WeeklyDigest, EmailDigest, EmailDigestItem } from '../lib/types';
 import { enrichFullText } from '../podcast/enrichFullText';
 
+import { HOUSE_STYLE_RULES, stripDashes } from '../lib/llm/houseStyle';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
 const EMAIL_DIGEST_MODEL = process.env.EMAIL_DIGEST_MODEL || getModelFor('summarize');
 const TEMPERATURE = 0.3;
@@ -190,6 +191,8 @@ CRITICAL RULES:
 - Do NOT use the article title as one of the sentences
 - Focus on WHAT HAPPENED, not what should happen
 
+${HOUSE_STYLE_RULES}
+
 Output as JSON object with a "bullets" array containing your 3 summary sentences:
 {"bullets": ["sentence 1", "sentence 2", "sentence 3"]}`;
 
@@ -234,7 +237,7 @@ Output as JSON object with a "bullets" array containing your 3 summary sentences
     
     bullets = bullets
       .filter(b => typeof b === 'string' && b.trim().length > 0)
-      .map(b => b.trim())
+      .map(b => stripDashes(b.trim()))
       .slice(0, 3);
     
     // Normalize title for comparison (remove punctuation, lowercase)

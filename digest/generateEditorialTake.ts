@@ -17,6 +17,7 @@ import type { WeeklyDigest } from './buildWeeklyDigest';
 import { getTopicDisplayName } from '../lib/utils/topicNames';
 import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
+import { HOUSE_STYLE_RULES, findStyleProblems, stripDashes } from '../lib/llm/houseStyle';
 
 // ── Configuration ─────────────────────────────────────────────────────────────
 // The strongest model we route to: this is the page's original content and
@@ -133,6 +134,8 @@ STRICT BANS (any violation makes this unusable):
 - NO filler openers like "What I find...", "There's something...", "It's worth noting..."
 - DO write in first person: "I", "my", "what I think..."
 
+${HOUSE_STYLE_RULES}
+
 Format your response as JSON:
 {
   "editorialTake": "Paragraph one here.\\n\\nParagraph two here."
@@ -146,13 +149,8 @@ Format your response as JSON:
  * becomes a colon. Also collapses whitespace inside paragraphs.
  */
 export function normalizeTakeText(text: string): string {
-  return text
-    // Every dash becomes a comma. A colon would read better before an
-    // enumeration, but telling the two cases apart reliably is not worth the
-    // complexity; consistent beats clever here.
-    .replace(/\s*[—–]\s*/g, ', ')
-    .replace(/,\s*,/g, ',')
-    .replace(/\s+([,.;:])/g, '$1')
+  // Dashes become commas (ranges become hyphens): see stripDashes.
+  return stripDashes(text)
     .split(/\n\s*\n/)
     .map(p => p.replace(/[ \t]+/g, ' ').trim())
     .filter(Boolean)
@@ -173,6 +171,36 @@ async function condenseTake(openai: OpenAI, text: string): Promise<string | null
       messages: [{
         role: 'user',
         content: `Cut this editorial column to ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words. Keep exactly three paragraphs separated by a blank line, the opening claim, every company name and number that remains load-bearing, and the closing recommendation. Remove repetition and any sentence that restates an earlier point. Do not add anything new. Keep first person. No em dashes.
+
+Respond as JSON: {"editorialTake": "..."}
+
+COLUMN:
+${text}`,
+      }],
+      response_format: { type: 'json_object' },
+    });
+    const content = response.choices[0]?.message?.content?.trim();
+    if (!content) return null;
+    const parsed = JSON.parse(content);
+    return typeof parsed.editorialTake === 'string' ? normalizeTakeText(parsed.editorialTake) : null;
+  } catch {
+    return null;
+  }
+}
+
+/** One pass that fixes only the listed house-style problems. Null on failure. */
+async function fixTakeStyle(openai: OpenAI, text: string, problems: string[]): Promise<string | null> {
+  try {
+    const response = await openai.chat.completions.create({
+      model: TAKE_MODEL,
+      ...temperatureParam(TAKE_MODEL, 0),
+      ...maxTokensParam(TAKE_MODEL, MAX_TOKENS),
+      messages: [{
+        role: 'user',
+        content: `Edit this editorial column to fix these problems, and change nothing else: ${problems.join('; ')}.
+Keep the three paragraphs, the argument, every fact and the first person. Keep it ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words.
+
+${HOUSE_STYLE_RULES}
 
 Respond as JSON: {"editorialTake": "..."}
 
@@ -223,6 +251,21 @@ async function callLLMForEditorialTake(digest: WeeklyDigest): Promise<TakeResult
       console.warn(`[EditorialTake] Response too short (${words} words, need ≥${MIN_WORDS}), attempt ${attempt} of 2`);
     }
     if (words < MIN_WORDS) return null;
+
+    // House style (no AI-isms). One targeted rewrite if the check finds any;
+    // keep it only if it is cleaner and still long enough.
+    const problems = findStyleProblems(editorialTake);
+    if (problems.length) {
+      console.warn(`[EditorialTake] Style problems: ${problems.join('; ')}. Rewriting once...`);
+      const fixed = await fixTakeStyle(openai, editorialTake, problems);
+      const fixedWords = fixed ? fixed.split(/\s+/).filter(Boolean).length : 0;
+      if (fixed && fixedWords >= MIN_WORDS && findStyleProblems(fixed).length < problems.length) {
+        editorialTake = fixed;
+        words = fixedWords;
+      } else {
+        console.warn('[EditorialTake] Rewrite did not help; keeping the original');
+      }
+    }
     if (words > MAX_WORDS) {
       console.warn(`[EditorialTake] Response long (${words} words); condensing...`);
       const condensed = await condenseTake(openai, editorialTake);
