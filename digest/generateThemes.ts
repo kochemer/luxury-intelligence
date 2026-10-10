@@ -348,7 +348,7 @@ function validateThemes(themes: string[]): { isValid: boolean; issues: string[] 
 }
 
 /** Pull-quote limits, enforced in code because prompts alone drift (owner brief 2026-10-09). */
-const QUOTE_MAX_WORDS = 18;
+const QUOTE_MAX_WORDS = 23; // owner: 18 was too tight (2026-10-10)
 const QUOTE_JARGON = [
   'paradox', 'irony', 'ironic', 'structural', 'signal', 'landscape', 'ecosystem', 'gatekeeper',
   'legible', 'leverage', 'convergence', 'narrative', 'paradigm', 'democratis', 'democratiz',

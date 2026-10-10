@@ -75,12 +75,13 @@ workplace software a commerce gatekeeper, forcing merchants to court algorithms"
 Cause: both prompts rewarded "non-obvious depth" and named lenses like
 "paradox" and "structural shift"; nothing asked for plain words.
 
-- Generator (`digest/generateThemes.ts`): max 18 words, one or two short
+- Generator (`digest/generateThemes.ts`): max 23 words (18 until the owner
+  loosened it on 2026-10-10), one or two short
   sentences, plain words, stated as fact (no could/may), a named company,
   good and bad examples in the prompt.
 - Judge: punch and plain language first, then provocation, then specificity;
   shorter wins a tie.
-- `quoteProblem()` drops candidates over 18 words, with jargon from
+- `quoteProblem()` drops candidates over `QUOTE_MAX_WORDS` (23), with jargon from
   `QUOTE_JARGON`, hedges, or a Pandora mention, before the judge sees them
   (unless that leaves none). Pinned by `__tests__/digest.quote.test.ts`.
 - **Never mention Pandora** (the editor's employer), same rule as the Take.
