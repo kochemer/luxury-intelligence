@@ -4,6 +4,7 @@
   "startISO": "2026-09-27T22:00:00.000Z",
   "endISO": "2026-10-04T21:59:59.999Z",
   "builtAtISO": "2026-10-04T14:25:44.032+02:00",
+  "contentUpdatedAtISO": "2026-10-10T06:19:21.000Z",
   "builtAtLocal": "2026-10-04 14:25:44",
   "totals": {
     "total": 717,
@@ -958,7 +959,7 @@
       ]
     }
   },
-  "oneSentenceSummary": "Assumptions that generative AI merely streamlines backend workflows are scrambled as platforms like Shopify Canvas and OpenAI’s Dot redefine the storefront as a conversational interface.",
+  "oneSentenceSummary": "A till that only takes payments is holding your shop back.",
   "keyThemes": [
     "Pandora manufacturing expansion",
     "Shopify Canvas site builder",
