@@ -4,7 +4,7 @@
   "startISO": "2026-09-27T22:00:00.000Z",
   "endISO": "2026-10-04T21:59:59.999Z",
   "builtAtISO": "2026-10-04T14:25:44.032+02:00",
-  "contentUpdatedAtISO": "2026-10-10T06:19:21.000Z",
+  "contentUpdatedAtISO": "2026-10-10T07:17:19.000Z",
   "builtAtLocal": "2026-10-04 14:25:44",
   "totals": {
     "total": 717,
@@ -967,7 +967,7 @@
     "Synopsys OpenAI partnership",
     "Argyle Pink Diamonds sale"
   ],
-  "editorialTake": "AI agents are no longer just backend tools, they are becoming the storefront itself. Shopify’s Canvas lets merchants build entire shops by chatting with an AI, while OpenAI’s Dot can handle both enterprise workflows and personal errands in the same breath. Amazon’s move to block Meta’s Muse agent from its checkout shows the stakes: whoever controls the agent controls the customer relationship, not just the transaction.\n\nThe shift is not theoretical. Shopify is betting merchants will want to design stores through conversation, not code. OpenAI’s Dot is already taking orders and handling office tasks, blurring the line between B2B and B2C. Amazon’s defensive play against Meta signals that agentic commerce will be a battleground for direct access to shoppers. Some argue AI cannot replace human expertise, especially in jewellery, but as agentic interfaces become the front door, the real risk is ceding the customer relationship entirely to platforms.\n\nLuxury and jewellery operators should test conversational interfaces now, before platforms insert themselves between brand and buyer. Use the next quarter to pilot AI-powered storefronts or appointment booking, and measure where human expertise adds value. The goal: keep the relationship personal, even as the interface becomes conversational.",
+  "editorialTake": "I think control of checkout will determine who profits from agentic commerce. As storefronts become easier to build, permission to complete a purchase becomes a stronger bargaining chip.\n\nShopify’s Canvas lets merchants build stores by chatting with Sidekick, while Amazon has blocked Meta’s Muse agent from buying on its marketplace. Together, those decisions make store creation more accessible while keeping agent access subject to platform approval. Luxury’s reliance on human advice is the strongest objection, but advice still needs a route to purchase.\n\nNext quarter, I would ask a jewellery ecommerce team to test whether an external agent can complete a purchase with the right size and engraving. Keep human approval for personalisation, and fix any checkout barriers before paying for agent traffic.",
   "coverImageUrl": "/weekly-images/2026-W40.png",
   "coverImageAlt": "Weekly cover illustration for 2026-W40"
 }

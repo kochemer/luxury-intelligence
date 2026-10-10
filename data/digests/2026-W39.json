@@ -4,7 +4,7 @@
   "startISO": "2026-09-20T22:00:00.000Z",
   "endISO": "2026-09-27T21:59:59.999Z",
   "builtAtISO": "2026-09-27T14:06:26.391+02:00",
-  "contentUpdatedAtISO": "2026-10-10T06:19:21.000Z",
+  "contentUpdatedAtISO": "2026-10-10T07:17:19.000Z",
   "builtAtLocal": "2026-09-27 14:06:26",
   "totals": {
     "total": 721,
@@ -978,7 +978,7 @@
     "Luxury price hikes",
     "Natural Diamond Council rebrand"
   ],
-  "editorialTake": "The battle for control over agentic commerce is not just about who builds the best AI, but about who owns the rails luxury and jewellery brands must ride. Amazon’s decision to block Meta’s Muse AI from shopping on its platform, while Shopify welcomes it, shows how gatekeepers are drawing hard lines around their turf. At the same time, Anthropic’s $11.6 billion deal with Akamai and Goldman Sachs’s $1.2 trillion AI infrastructure forecast reveal that only giants can afford to play at scale, while IPO-hungry AI firms chase sky-high valuations with minimal revenue to show.\n\nSome argue that luxury and jewellery are immune, protected by brand, heritage, and physical experience. But when 80 percent of luxury growth comes from price hikes, as Daniel Langer notes, and when customer discovery is shifting to AI agents, the real risk is losing control of the digital storefront to whoever owns the interface. The counterpoint is that luxury sells emotion, not efficiency, but even emotion is now mediated by data and algorithms.\n\nFor luxury and jewellery operators, the next quarter is not about launching another chatbot. It is about negotiating access, data, and visibility with the platforms building these agentic rails. If you are not at the table with Amazon, Meta, or Shopify, you risk being invisible to the next generation of AI-driven shoppers.",
+  "editorialTake": "I think luxury’s next customer acquisition problem is platform access, even as price increases sustain revenue. Agentic shopping makes the choice of distribution partners a decision about who gets to recommend your products.\n\nAmazon blocked Meta’s Muse from browsing and buying, while Shopify will integrate with it. That split matters when Daniel Langer attributes 80% of luxury growth to price increases: revenue growth tells us little about success in winning customers. Brand desirability is the strongest defence, but an agent barred from a platform cannot buy there.\n\nNext quarter, I would test a jewellery assortment through Muse on Shopify and track new customers separately from revenue. Give those products accurate specifications and compare acquisition costs with existing channels before expanding the assortment.",
   "coverImageUrl": "/weekly-images/2026-W39.png",
   "coverImageAlt": "Weekly cover illustration for 2026-W39"
 }
