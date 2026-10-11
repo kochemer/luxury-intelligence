@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "week": "2026-W40",
-  "generatedAtISO": "2026-10-04T13:58:14.586Z",
+  "week": "2026-W41",
+  "generatedAtISO": "2026-10-11T14:55:13.804Z",
   "siteUrl": "https://luxury-intel.com",
   "inputs": {
     "gscAvailable": true,
     "liveChecked": true,
-    "urlsAudited": 48,
-    "urlsMetaChecked": 41,
-    "urlsFetched": 48,
+    "urlsAudited": 51,
+    "urlsMetaChecked": 42,
+    "urlsFetched": 51,
     "llmUsed": false,
     "coveredCategories": [
       "technical",
@@ -19,82 +19,100 @@
       "performance"
     ],
     "indexing": {
-      "indexed": 25,
-      "inspected": 48
+      "indexed": 23,
+      "inspected": 51
     },
     "traffic": {
       "window": {
-        "start": "2026-09-04",
-        "end": "2026-10-01"
+        "start": "2026-09-11",
+        "end": "2026-10-08"
       },
       "current": {
-        "impressions": 306,
-        "clicks": 4,
-        "position": 6.627450980392157
+        "impressions": 360,
+        "clicks": 2,
+        "position": 6.436111111111111
       },
       "previous": {
-        "impressions": 161,
-        "clicks": 2,
-        "position": 12.571428571428571
+        "impressions": 208,
+        "clicks": 3,
+        "position": 11.399038461538462
       },
-      "pagesWithImpressions": 27,
+      "pagesWithImpressions": 30,
       "topPages": [
         {
           "path": "/digest/september-2026-week-36",
-          "impressions": 119,
+          "impressions": 120,
           "clicks": 0,
-          "position": 7.084033613445378
+          "position": 6.875
+        },
+        {
+          "path": "/digest/march-2026-week-11",
+          "impressions": 62,
+          "clicks": 0,
+          "position": 5.290322580645161
         },
         {
           "path": "/",
-          "impressions": 67,
-          "clicks": 4,
-          "position": 7.1940298507462686
-        },
-        {
-          "path": "/digest/september-2026-week-37",
-          "impressions": 30,
-          "clicks": 0,
-          "position": 5.033333333333333
+          "impressions": 45,
+          "clicks": 2,
+          "position": 7.444444444444445
         }
       ],
       "topQueries": [
         {
-          "query": "luxury intelligence",
-          "impressions": 13,
-          "clicks": 2,
-          "position": 3.6153846153846154
+          "query": "luxury ia",
+          "impressions": 20,
+          "clicks": 0,
+          "position": 9.65
         },
         {
-          "query": "luxury ia",
-          "impressions": 4,
-          "clicks": 0,
-          "position": 11
+          "query": "luxury intelligence",
+          "impressions": 7,
+          "clicks": 1,
+          "position": 2.7142857142857144
         },
         {
           "query": "aurora ai for luxury brands",
           "impressions": 1,
           "clicks": 0,
           "position": 98
+        },
+        {
+          "query": "evaluate the ai marketplace company ai bazaar on lightweight carry-on design",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 9
+        },
+        {
+          "query": "evaluate the ai marketplace company ai bazaar on minimalist modern luggage aesthetics",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 3
         }
       ]
     },
     "visitors": {
+      "source": "counter",
+      "countingSince": "2026-10-05",
       "window": {
-        "start": "2026-09-27",
-        "end": "2026-10-03"
+        "start": "2026-10-04",
+        "end": "2026-10-10"
       },
-      "people": 8,
-      "previousPeople": 7,
-      "botsExcluded": 25,
+      "people": 30,
+      "previousPeople": null,
+      "botsExcluded": 50,
       "channels": [
         {
           "channel": "Direct / email",
-          "visitors": 4
+          "visitors": 26
         },
         {
           "channel": "Teams / Outlook",
-          "visitors": 4
+          "visitors": 2
+        },
+        {
+          "channel": "LinkedIn",
+          "visitors": 1
         },
         {
           "channel": "Search",
@@ -103,15 +121,15 @@
       ],
       "referrers": [
         {
-          "domain": "engage.cloud.microsoft",
-          "visitors": 2
-        },
-        {
           "domain": "teams.public.onecdn.static.microsoft",
           "visitors": 2
         },
         {
-          "domain": "www.google.com",
+          "domain": "google.com",
+          "visitors": 1
+        },
+        {
+          "domain": "linkedin.com",
           "visitors": 1
         }
       ]
@@ -121,7 +139,7 @@
     "overall": 25,
     "byCategory": {
       "technical": 100,
-      "onpage": 100,
+      "onpage": 94,
       "structured-data": 100,
       "indexing": 25,
       "performance": 100,
@@ -140,7 +158,7 @@
       "id": "GSC_NEVER_CRAWLED:0daed15a",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -153,7 +171,7 @@
       "id": "GSC_NEVER_CRAWLED:33c6d3f2",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -166,7 +184,7 @@
       "id": "GSC_NEVER_CRAWLED:956558fe",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -179,7 +197,7 @@
       "id": "GSC_NEVER_CRAWLED:88cfe467",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -192,7 +210,7 @@
       "id": "GSC_NEVER_CRAWLED:e28edf08",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -205,7 +223,7 @@
       "id": "GSC_NEVER_CRAWLED:3eac93ff",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -218,7 +236,7 @@
       "id": "GSC_NEVER_CRAWLED:d6eac0c3",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -231,14 +249,14 @@
       "id": "GSC_NEVER_CRAWLED:c20ba732",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NOT_INDEXED",
       "severity": "high",
       "category": "indexing",
       "title": "Google is not indexing this page: \"Crawled - currently not indexed\"",
-      "detail": "https://luxury-intel.com/digest/february-2026-week-6 was last crawled 150 days ago, and Google's state for it is \"Crawled - currently not indexed\" (verdict NEUTRAL).",
+      "detail": "https://luxury-intel.com/digest/february-2026-week-6 was last crawled 158 days ago, and Google's state for it is \"Crawled - currently not indexed\" (verdict NEUTRAL).",
       "url": "https://luxury-intel.com/digest/february-2026-week-6",
       "evidence": {
         "coverageState": "Crawled - currently not indexed",
@@ -249,7 +267,7 @@
       "id": "GSC_NOT_INDEXED:d76d2fce",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -262,7 +280,7 @@
       "id": "GSC_NEVER_CRAWLED:03469bab",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -275,7 +293,7 @@
       "id": "GSC_NEVER_CRAWLED:30f48e21",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -288,7 +306,7 @@
       "id": "GSC_NEVER_CRAWLED:1c260712",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -301,7 +319,7 @@
       "id": "GSC_NEVER_CRAWLED:b66de486",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -314,7 +332,7 @@
       "id": "GSC_NEVER_CRAWLED:52147c9c",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -327,7 +345,7 @@
       "id": "GSC_NEVER_CRAWLED:70b05cca",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -340,7 +358,7 @@
       "id": "GSC_NEVER_CRAWLED:b265a173",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -353,7 +371,7 @@
       "id": "GSC_NEVER_CRAWLED:cffff0d7",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -366,14 +384,14 @@
       "id": "GSC_NEVER_CRAWLED:4e024a31",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NOT_INDEXED",
       "severity": "high",
       "category": "indexing",
       "title": "Google is not indexing this page: \"Crawled - currently not indexed\"",
-      "detail": "https://luxury-intel.com/digest/june-2026-week-24 was last crawled 109 days ago, and Google's state for it is \"Crawled - currently not indexed\" (verdict NEUTRAL).",
+      "detail": "https://luxury-intel.com/digest/june-2026-week-24 was last crawled 116 days ago, and Google's state for it is \"Crawled - currently not indexed\" (verdict NEUTRAL).",
       "url": "https://luxury-intel.com/digest/june-2026-week-24",
       "evidence": {
         "coverageState": "Crawled - currently not indexed",
@@ -384,7 +402,7 @@
       "id": "GSC_NOT_INDEXED:8a29b99f",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -397,14 +415,14 @@
       "id": "GSC_NEVER_CRAWLED:01247607",
       "score": 90,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     },
     {
       "code": "GSC_NOT_INDEXED",
       "severity": "high",
       "category": "indexing",
       "title": "Google is not indexing this page: \"Crawled - currently not indexed\"",
-      "detail": "https://luxury-intel.com/digest/february-2026-week-9 was last crawled 10 days ago, and Google's state for it is \"Crawled - currently not indexed\" (verdict NEUTRAL).",
+      "detail": "https://luxury-intel.com/digest/february-2026-week-9 was last crawled 17 days ago, and Google's state for it is \"Crawled - currently not indexed\" (verdict NEUTRAL).",
       "url": "https://luxury-intel.com/digest/february-2026-week-9",
       "evidence": {
         "coverageState": "Crawled - currently not indexed",
@@ -413,9 +431,9 @@
       },
       "recommendation": "\"Crawled – currently not indexed\" usually means Google judged the page thin or duplicative. \"Discovered – not indexed\" usually means crawl budget.",
       "id": "GSC_NOT_INDEXED:82af227f",
-      "score": 72,
+      "score": 78,
       "firstSeenWeek": "2026-W39",
-      "weeksOpen": 2
+      "weeksOpen": 3
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -426,9 +444,9 @@
       "url": "https://luxury-intel.com/digest/september-2026-week-39",
       "recommendation": "Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change.",
       "id": "GSC_NEVER_CRAWLED:94705df4",
-      "score": 72,
+      "score": 78,
       "firstSeenWeek": "2026-W39",
-      "weeksOpen": 2
+      "weeksOpen": 3
     },
     {
       "code": "GSC_NEVER_CRAWLED",
@@ -439,8 +457,83 @@
       "url": "https://luxury-intel.com/digest/october-2026-week-40",
       "recommendation": "Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change.",
       "id": "GSC_NEVER_CRAWLED:93e5b34f",
-      "score": 66,
+      "score": 72,
       "firstSeenWeek": "2026-W40",
+      "weeksOpen": 2
+    },
+    {
+      "code": "GSC_NEVER_CRAWLED",
+      "severity": "high",
+      "category": "indexing",
+      "title": "Google has never crawled this page",
+      "detail": "https://luxury-intel.com/markets/luxury is in your sitemap but Google reports no crawl at all, so it cannot be indexed.",
+      "url": "https://luxury-intel.com/markets/luxury",
+      "recommendation": "Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change.",
+      "id": "GSC_NEVER_CRAWLED:d79ce28e",
+      "score": 66,
+      "firstSeenWeek": "2026-W41",
+      "weeksOpen": 1
+    },
+    {
+      "code": "GSC_NEVER_CRAWLED",
+      "severity": "high",
+      "category": "indexing",
+      "title": "Google has never crawled this page",
+      "detail": "https://luxury-intel.com/markets/jewellery is in your sitemap but Google reports no crawl at all, so it cannot be indexed.",
+      "url": "https://luxury-intel.com/markets/jewellery",
+      "recommendation": "Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change.",
+      "id": "GSC_NEVER_CRAWLED:daf106f5",
+      "score": 66,
+      "firstSeenWeek": "2026-W41",
+      "weeksOpen": 1
+    },
+    {
+      "code": "GSC_NOT_INDEXED",
+      "severity": "high",
+      "category": "indexing",
+      "title": "Google is not indexing this page: \"Crawled - currently not indexed\"",
+      "detail": "https://luxury-intel.com/digest/may-2026-week-20 was last crawled 102 days ago, and Google's state for it is \"Crawled - currently not indexed\" (verdict NEUTRAL).",
+      "url": "https://luxury-intel.com/digest/may-2026-week-20",
+      "evidence": {
+        "coverageState": "Crawled - currently not indexed",
+        "verdict": "NEUTRAL",
+        "lastCrawl": "2026-07-01T02:56:12Z"
+      },
+      "recommendation": "\"Crawled – currently not indexed\" usually means Google judged the page thin or duplicative. \"Discovered – not indexed\" usually means crawl budget.",
+      "id": "GSC_NOT_INDEXED:3789462c",
+      "score": 66,
+      "firstSeenWeek": "2026-W41",
+      "weeksOpen": 1
+    },
+    {
+      "code": "GSC_NOT_INDEXED",
+      "severity": "high",
+      "category": "indexing",
+      "title": "Google is not indexing this page: \"Crawled - currently not indexed\"",
+      "detail": "https://luxury-intel.com/digest/june-2026-week-25 was last crawled 99 days ago, and Google's state for it is \"Crawled - currently not indexed\" (verdict NEUTRAL).",
+      "url": "https://luxury-intel.com/digest/june-2026-week-25",
+      "evidence": {
+        "coverageState": "Crawled - currently not indexed",
+        "verdict": "NEUTRAL",
+        "lastCrawl": "2026-07-03T16:26:59Z"
+      },
+      "recommendation": "\"Crawled – currently not indexed\" usually means Google judged the page thin or duplicative. \"Discovered – not indexed\" usually means crawl budget.",
+      "id": "GSC_NOT_INDEXED:dda9baee",
+      "score": 66,
+      "firstSeenWeek": "2026-W41",
+      "weeksOpen": 1
+    },
+    {
+      "code": "GSC_NEVER_CRAWLED",
+      "severity": "high",
+      "category": "indexing",
+      "title": "Google has never crawled this page",
+      "detail": "https://luxury-intel.com/digest/october-2026-week-41 is in your sitemap but Google reports no crawl at all, so it cannot be indexed.",
+      "url": "https://luxury-intel.com/digest/october-2026-week-41",
+      "recommendation": "Check the sitemap is being re-read (npm run seo:indexing) and that the page has inbound links (npm run seo:optimize). If both are fine, this is crawl budget — Google deprioritises crawling on low-traffic sites, and it resolves as authority grows rather than through a code change.",
+      "id": "GSC_NEVER_CRAWLED:fb91e4ec",
+      "score": 66,
+      "firstSeenWeek": "2026-W41",
       "weeksOpen": 1
     },
     {
@@ -459,19 +552,34 @@
       },
       "recommendation": "Add links from related pages so its importance is clearer.",
       "id": "OPT_WEAKLY_LINKED:956558fe",
-      "score": 16,
+      "score": 17,
       "firstSeenWeek": "2026-W38",
-      "weeksOpen": 3
+      "weeksOpen": 4
+    },
+    {
+      "code": "LIVE_DESC_LENGTH",
+      "severity": "low",
+      "category": "onpage",
+      "title": "Rendered description length out of range",
+      "detail": "https://luxury-intel.com/markets/jewellery renders a 156-char description (want 70-155).",
+      "url": "https://luxury-intel.com/markets/jewellery",
+      "recommendation": "Adjust the description so it reads well in search results without truncation.",
+      "evidence": {
+        "length": 156
+      },
+      "id": "LIVE_DESC_LENGTH:daf106f5",
+      "score": 13,
+      "firstSeenWeek": "2026-W41",
+      "weeksOpen": 1
     },
     {
       "code": "OPT_LINKS_TO_NON_INDEXABLE",
       "severity": "info",
       "category": "opportunity",
-      "title": "3 internal link target(s) are not indexable pages",
-      "detail": "These are linked internally but are not in the sitemap: https://luxury-intel.com/competitor-watch, https://luxury-intel.com/podcast/feed.xml, https://luxury-intel.com/feedback. Expected for utility pages like /search; worth checking none is a dead link.",
+      "title": "2 internal link target(s) are not indexable pages",
+      "detail": "These are linked internally but are not in the sitemap: https://luxury-intel.com/podcast/feed.xml, https://luxury-intel.com/feedback. Expected for utility pages like /search; worth checking none is a dead link.",
       "evidence": {
         "targets": [
-          "https://luxury-intel.com/competitor-watch",
           "https://luxury-intel.com/podcast/feed.xml",
           "https://luxury-intel.com/feedback"
         ]
@@ -480,21 +588,20 @@
       "id": "OPT_LINKS_TO_NON_INDEXABLE:d50c50a4",
       "score": 5,
       "firstSeenWeek": "2026-W36",
-      "weeksOpen": 5
+      "weeksOpen": 6
     }
   ],
   "delta": {
-    "previousWeek": "2026-W39",
+    "previousWeek": "2026-W40",
     "newFindings": [
-      "GSC_NEVER_CRAWLED:93e5b34f"
+      "LIVE_DESC_LENGTH:daf106f5",
+      "GSC_NEVER_CRAWLED:d79ce28e",
+      "GSC_NEVER_CRAWLED:daf106f5",
+      "GSC_NOT_INDEXED:3789462c",
+      "GSC_NOT_INDEXED:dda9baee",
+      "GSC_NEVER_CRAWLED:fb91e4ec"
     ],
-    "resolvedFindings": [
-      "GSC_NEVER_CRAWLED:d7c02dd0",
-      "GSC_NEVER_CRAWLED:87452056",
-      "GSC_NEVER_CRAWLED:4f3d7265",
-      "OPT_ASSET_SIZE_UNKNOWN:c788a7ef",
-      "OPT_IMAGE_NOT_RESPONSIVE:c2906e22"
-    ],
+    "resolvedFindings": [],
     "persistingFindings": [
       "GSC_NEVER_CRAWLED:0daed15a",
       "GSC_NEVER_CRAWLED:33c6d3f2",
@@ -518,13 +625,14 @@
       "GSC_NOT_INDEXED:8a29b99f",
       "GSC_NEVER_CRAWLED:01247607",
       "GSC_NEVER_CRAWLED:94705df4",
+      "GSC_NEVER_CRAWLED:93e5b34f",
       "OPT_WEAKLY_LINKED:956558fe",
       "OPT_LINKS_TO_NON_INDEXABLE:d50c50a4"
     ],
     "scoreChange": 0,
     "previousIndexing": {
-      "indexed": 22,
-      "inspected": 47
+      "indexed": 25,
+      "inspected": 48
     }
   }
 }
