@@ -5,8 +5,8 @@ name: SEO Monitor
 # build, and it runs on a different cadence.
 on:
   schedule:
-    # Every day at 07:00 UTC — an hour after the Sunday digest build, so on
-    # Sundays it sees the freshly deployed site rather than the old one.
+    # Every day at 07:00 UTC — an hour after the Monday digest build, so on
+    # Mondays it usually sees the freshly deployed site rather than the old one.
     - cron: '0 7 * * *'
   workflow_dispatch:
     inputs:

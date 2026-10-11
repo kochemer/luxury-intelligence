@@ -2,12 +2,10 @@
  * Shared utility to get the current week labels for digests & ingestion.
  *
  * Week computation rule (CET / Europe/Copenhagen):
- *   - getCurrentDigestWeek()  → the current ISO week in CET.
- *     This is the week whose digest is displayed on the site.
- *     The digest is built and published during the same week
- *     (typically on Saturday), so it returns the current week.
- *   - getCurrentIngestionWeek() → same as getCurrentDigestWeek().
- *     Ingestion/discovery also targets the current week.
+ *   - getCurrentDigestWeek()  → the previous ISO week (current week on
+ *     Sunday). The digest is built Monday morning for the week that just ended.
+ *   - getCurrentIngestionWeek() → the week in progress, except on Monday,
+ *     when it is the week that just ended (Monday's fetches close it out).
  *
  * Both return format "YYYY-Www" (zero-padded week number).
  *
@@ -42,44 +40,36 @@ function formatWeekLabel(dt: DateTime): string {
 }
 
 /**
- * Get the current DIGEST week label — shows previous week by default, switches to new week only on Sunday.
+ * Get the current DIGEST week label — the week whose digest the site shows.
  *
- * Semantics: 
- *   - Shows the previous week by default (e.g., Week 6)
- *   - Only switches to the new week (e.g., Week 7) on Sunday of that week
- *   - Before Sunday of the new week, the previous week's digest is displayed
- * 
+ * The weekly build runs Monday morning for the Monday–Sunday week that just
+ * ended, so Monday–Saturday this is the previous week. On Sunday it is the
+ * current week, which has no file until Monday's build: the homepage falls back
+ * to the newest digest on disk. Keeping the Sunday switch matters because pages
+ * are rendered at deploy time. A deploy on a Sunday must not pin the site to
+ * the week before the latest issue.
+ *
  * Example:
- *   - Monday-Saturday of Week 7 → returns Week 6
- *   - Sunday of Week 7 → returns Week 7
  *   - Monday-Saturday of Week 8 → returns Week 7
- *   - Sunday of Week 8 → returns Week 8
+ *   - Sunday of Week 8 → returns Week 8 (shown once built, i.e. never before Monday)
  */
 export function getCurrentDigestWeek(): string {
   const now = DateTime.now().setZone(TZ);
-  const currentWeek = formatWeekLabel(now);
-  
-  // If today is Sunday (day 7), show the current week
-  // Otherwise (Monday-Saturday), show the previous week
-  if (now.weekday === 7) {
-    // Sunday: show current week (e.g., Week 7 on Sunday of Week 7)
-    return currentWeek;
-  } else {
-    // Monday-Saturday: show previous week
-    // Go back 7 days to get the previous week
-    const previousWeekDate = now.minus({ days: 7 });
-    return formatWeekLabel(previousWeekDate);
-  }
+  return formatWeekLabel(now.weekday === 7 ? now : now.minus({ days: 7 }));
 }
 
 /**
- * Get the current INGESTION week label — the ISO week that contains "now" in CET.
+ * Get the current INGESTION week label — the week the articles fetched "now"
+ * are collected for (CET).
  *
- * Semantics: ingestion/discovery collects articles for the week in progress.
+ * Tuesday–Sunday: the week in progress. Monday: the previous week, because
+ * Monday's fetches (the daily job and the weekly build's own RSS step) close
+ * out the week that just ended, so discovery and source_yield.json line up with
+ * the digest being built that morning.
  */
 export function getCurrentIngestionWeek(): string {
   const now = DateTime.now().setZone(TZ);
-  return formatWeekLabel(now);
+  return formatWeekLabel(now.weekday === 1 ? now.minus({ days: 7 }) : now);
 }
 
 /**

@@ -1,12 +1,12 @@
 /**
  * Folds the daily-ingestion buffer back into the working tree.
  *
- * `.github/workflows/daily-ingest.yml` runs RSS + page ingestion Mon–Sat and
+ * `.github/workflows/daily-ingest.yml` runs RSS + page ingestion daily and
  * keeps the result in a GitHub Actions cache (`.ingest-buffer/`) instead of
  * committing it — a commit would trigger a Vercel deploy every day. Both the
- * daily job (before ingesting) and the Sunday digest build (before the
+ * daily job (before ingesting) and the Monday digest build (before the
  * pipeline) restore that cache and run this script, so the week's articles
- * reach the Sunday digest even when a feed only lists its latest 10 items.
+ * reach the Monday digest even when a feed only lists its latest 10 items.
  *
  * - `data/articles.json`: adds buffered articles whose URL is not present yet,
  *   and fills a missing snippet. Never removes or overwrites anything.

@@ -1,9 +1,9 @@
 name: Daily RSS Ingestion
 
-# Many feeds list only their latest 10-30 items, so a once-a-week fetch on
-# Sunday misses most of a busy outlet's week (WWD: ~280/week, we saw 10).
-# This job polls RSS + pages Mon–Sat and keeps the result in an Actions cache
-# (.ingest-buffer/) that the Sunday digest build restores and merges.
+# Many feeds list only their latest 10-30 items, so a once-a-week fetch
+# misses most of a busy outlet's week (WWD: ~280/week, we saw 10).
+# This job polls RSS + pages daily and keeps the result in an Actions cache
+# (.ingest-buffer/) that the Monday digest build restores and merges.
 #
 # Deliberately does NOT commit: every push to main is a Vercel deploy.
 # Deliberately RSS/pages only (--mode=rss): discovery uses Tavily, which is
@@ -11,8 +11,10 @@ name: Daily RSS Ingestion
 
 on:
   schedule:
-    # 05:30 UTC Mon–Sat. Sunday's ingestion is the first step of weekly-digest.yml.
-    - cron: '30 5 * * 1-6'
+    # 05:30 UTC every day. Monday's run lands just before the 06:00 weekly
+    # build (which also runs its own RSS step; merging is a union, so overlap
+    # is harmless) and counts toward the week that just ended.
+    - cron: '30 5 * * *'
   workflow_dispatch:
 
 # Own group, not weekly-digest's: GitHub keeps one pending run per group, so a

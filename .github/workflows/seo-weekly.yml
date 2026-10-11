@@ -12,8 +12,9 @@ name: SEO Weekly
 # because "all clear" is worth knowing too.
 on:
   schedule:
-    # Sundays at 08:00 UTC — after the 06:00 digest build and the 07:00
-    # monitor, so it audits the week's freshly deployed state.
+    # Sundays at 08:00 UTC, after the 07:00 monitor. Kept on Sunday when the
+    # digest build moved to Monday (2026-10-11); it audits the live site, which
+    # by then has carried that week's Monday digest for six days.
     - cron: '0 8 * * 0'
   workflow_dispatch:
 

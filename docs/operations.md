@@ -17,8 +17,8 @@ Facts are as of 2026-10-05 unless dated otherwise.
 
 | Workflow | Schedule (UTC) | What it does |
 |---|---|---|
-| `weekly-digest.yml` | Sun 06:00 | Restores + merges the daily ingestion buffer, then `digest:weekly`, emails subscribers, commits `data/weeks/*/*.{json,txt}` + digest JSON |
-| `daily-ingest.yml` | Mon–Sat 05:30 | RSS + pages only (`--mode=rss`, no Tavily, no secrets). Keeps `data/articles.json` + `data/source_yield.json` in the Actions cache (`.ingest-buffer/`, key `ingest-buffer-*`), **never commits** (a commit = a Vercel deploy). Step summary lists failing sources |
+| `weekly-digest.yml` | Mon 06:00 | Gate job skips a scheduled run if last week's digest is already committed (no double email). Restores + merges the daily ingestion buffer, then `digest:weekly`, emails subscribers, commits `data/weeks/*/*.{json,txt}` + digest JSON |
+| `daily-ingest.yml` | Daily 05:30 | RSS + pages only (`--mode=rss`, no Tavily, no secrets). Keeps `data/articles.json` + `data/source_yield.json` in the Actions cache (`.ingest-buffer/`, key `ingest-buffer-*`), **never commits** (a commit = a Vercel deploy). Step summary lists failing sources |
 | `seo-weekly.yml` | Sun 08:00 | Full SEO pass, GSC snapshot, weekly email |
 | `seo-monitor.yml` | Daily 07:00 | Detects outages; emails only on change; can roll back and open repair PRs |
 | `subscriber-sweep.yml` | Daily 03:17 | Subscriber cleanup (uses `DATABASE_URL` secret) |
@@ -75,14 +75,14 @@ Facts are as of 2026-10-05 unless dated otherwise.
   again to every subscriber. Use the workflow's `send_email=false` dispatch
   input for re-runs.
 - The daily ingestion buffer lives only in the Actions cache. If it is evicted
-  (unused 7 days) or a daily run fails, the Sunday build still runs its own RSS
+  (unused 7 days) or a daily run fails, the Monday build still runs its own RSS
   step; WordPress feeds with `paginate` backfill the week, others lose the gap.
   `scripts/mergeIngestBuffer.ts` only ever adds articles, never removes.
 - The workflow's "Check for changes" guard needs `git status --porcelain -uall`.
   Without `-uall`, a new untracked week directory collapses to one line and
   fails the file-level allow-list (W38 incident, fixed in `bbd57d4`).
-- The homepage falls back to the newest digest on disk, so a failed Sunday run
-  shows last week's digest, not an empty page.
+- The homepage falls back to the newest digest on disk, so a failed Monday run
+  shows the previous digest, not an empty page.
 
 ## Storage
 

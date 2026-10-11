@@ -2,8 +2,9 @@ name: Weekly Digest Build
 
 on:
   schedule:
-    # Run every Sunday at 06:00 UTC
-    - cron: '0 6 * * 0'
+    # Every Monday at 06:00 UTC, covering Monday–Sunday of the week that just
+    # ended (moved from Sunday on 2026-10-11; first Monday issue: W42, 19 Oct).
+    - cron: '0 6 * * 1'
   workflow_dispatch:
     # Allow manual trigger
     inputs:
@@ -17,7 +18,33 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Scheduled runs build last week's digest. If that digest is already
+  # committed, the week has been built and emailed, so stand down: the email
+  # step has no idempotency check and would double-send. (This is what skips
+  # Monday 2026-10-12: W41 went out on Sunday 2026-10-11, the last Sunday run.)
+  # Manual runs always proceed; use send_email=false to rebuild a sent week.
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.check.outputs.run }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: data/digests
+      - id: check
+        run: |
+          WEEK=$(date -u -d '7 days ago' +%G-W%V)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ -f "data/digests/$WEEK.json" ]; then
+            echo "Digest $WEEK already exists; skipping this scheduled run."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Building $WEEK."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
   build-digest:
+    needs: gate
+    if: needs.gate.outputs.run == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -64,7 +91,7 @@ jobs:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: npm run digest:preflight
 
-      # Articles collected by daily-ingest.yml Mon–Sat (Actions cache, not git).
+      # Articles collected by daily-ingest.yml through the week (Actions cache, not git).
       # Missing cache = no-op; the pipeline's own RSS step still runs.
       - name: Restore daily ingestion buffer
         uses: actions/cache/restore@v4

@@ -6,7 +6,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
-import { getCurrentDigestWeek, getCurrentIngestionWeek, validateWeekLabel } from '../lib/utils/getCurrentDigestWeek';
+import { getCurrentDigestWeek, validateWeekLabel } from '../lib/utils/getCurrentDigestWeek';
 import { discoverWeekly } from '../discovery/discoverWeekly';
 import { classifyCurrentWeekArticles } from '../classification/classifyTopics';
 import { buildAndSaveWeeklyDigest } from '../digest/buildWeeklyDigest';
@@ -223,7 +223,10 @@ export async function runWeeklyPipeline(options: RunWeeklyPipelineOptions = {}):
 
   // Determine weeks
   const digestWeek = options.week || getCurrentDigestWeek();
-  const ingestionWeek = options.ingestionWeek || getCurrentIngestionWeek();
+  // Discovery must search the digest's own week. On the Monday build the two
+  // defaults agree; a manual re-run later in the week would otherwise discover
+  // for the new week and the digest would never see those articles.
+  const ingestionWeek = options.ingestionWeek || digestWeek;
   
   validateWeekLabel(digestWeek);
   validateWeekLabel(ingestionWeek);

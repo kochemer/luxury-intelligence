@@ -123,9 +123,9 @@ The orchestrator's own numbering (`pipeline/runWeeklyPipeline.ts`): rss → page
 - `fetchRss.ts`: Parse RSS feeds, extract articles, merge into `data/articles.json`
 - `fetchPages.ts`: Fetch static pages, extract articles using CSS selectors
 - `sources.ts`: RSS feed and page source definitions. `paginate: N` reads WordPress `?paged=2..N` back to 8 days; `bingNews(site)` builds a Bing News RSS proxy for outlets that block CI or have no feed (links are unwrapped to the publisher URL in `fetchRss.ts`)
-- `sourceYield.ts`: `data/source_yield.json`, accumulated per ingestion week across the daily runs and the Sunday run; failing sources are recorded (`failedRuns`, `lastError`)
+- `sourceYield.ts`: `data/source_yield.json`, accumulated per ingestion week across the daily runs and the Monday build (Monday's fetches count toward the week that just ended); failing sources are recorded (`failedRuns`, `lastError`)
 
-**Runs daily.** `.github/workflows/daily-ingest.yml` runs `--mode=rss` Mon–Sat into an Actions-cache buffer; the Sunday build merges it with `scripts/mergeIngestBuffer.ts` before the pipeline. Many feeds list only their latest 10–30 items, so a Sunday-only fetch missed most of a busy outlet's week. Source state and the measured effect: `docs/sources-status.md`.
+**Runs daily.** `.github/workflows/daily-ingest.yml` runs `--mode=rss` daily into an Actions-cache buffer; the Monday build merges it with `scripts/mergeIngestBuffer.ts` before the pipeline. Many feeds list only their latest 10–30 items, so a once-a-week fetch missed most of a busy outlet's week. Source state and the measured effect: `docs/sources-status.md`.
 
 **Key Functions**:
 - `runRssIngestion()`: Fetch all RSS feeds, parse, deduplicate, save

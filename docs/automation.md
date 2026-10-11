@@ -127,7 +127,7 @@ Secrets, authority settings and current state:
 
 ## GitHub Actions: Weekly Digest Build
 
-The repository includes a GitHub Actions workflow that automatically builds the weekly digest every Sunday and commits the results.
+The repository includes a GitHub Actions workflow that automatically builds the weekly digest every Monday morning, for the Monday–Sunday week that just ended, and commits the results.
 
 ### Workflow File
 
@@ -135,7 +135,8 @@ The repository includes a GitHub Actions workflow that automatically builds the 
 
 ### Schedule
 
-- **Runs**: Every Sunday at 06:00 UTC
+- **Runs**: Every Monday at 06:00 UTC (Sunday until 2026-10-11; W41 was the last Sunday issue, W42 on 2026-10-19 the first Monday one)
+- **Gate**: a scheduled run skips itself when last week's digest is already committed, since the email step would double-send. That is what skipped Monday 2026-10-12. Manual runs always build.
 - **Concurrency**: Only one run at a time (no cancellation of in-progress runs)
 
 ### Required GitHub Secrets
@@ -184,7 +185,7 @@ gh workflow run weekly-digest.yml
    ```yaml
    on:
      # schedule:
-     #   - cron: '0 6 * * 0'
+     #   - cron: '0 6 * * 1'
      workflow_dispatch:
    ```
 
@@ -194,15 +195,16 @@ gh workflow run weekly-digest.yml
    ```yaml
    on:
      schedule:
-       - cron: '0 6 * * 0'
+       - cron: '0 6 * * 1'
      workflow_dispatch:
    ```
 
 **To change the schedule:**
 
 Edit the cron expression in `.github/workflows/weekly-digest.yml`:
+- `'0 6 * * 1'` = Monday at 06:00 UTC (current)
 - `'0 6 * * 0'` = Sunday at 06:00 UTC
-- `'0 8 * * 1'` = Monday at 08:00 UTC
+- Moving the day also moves the week rules in `lib/utils/getCurrentDigestWeek.ts` (which week the site shows, which week Monday's ingestion counts toward). Change both together.
 - See [cron syntax](https://crontab.guru/) for more options
 
 ### What the Workflow Does
