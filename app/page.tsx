@@ -8,7 +8,8 @@ import type { Metadata } from 'next';
 import DigestClientView from './components/DigestClientView';
 import IssueRating from './components/IssueRating';
 import CategoryCardGrid from './components/CategoryCardGrid';
-import PodcastPlayer from './components/PodcastPlayer';
+import WatchOrListen from './components/WatchOrListen';
+import { loadWeeklyShort } from '@/lib/video/weeklyShort';
 import StatsBar from './components/StatsBar';
 import TopNSelector from './components/TopNSelector';
 import BrandPattern from './components/BrandPattern';
@@ -220,6 +221,7 @@ export default async function Home() {
   // Use shared utility to get current digest week (synchronized with email digest page)
   const { digest, weekLabel } = await resolveDigest();
   const podcast = await loadPodcastForWeek(weekLabel);
+  const short = await loadWeeklyShort(weekLabel);
 
   // HERO section (always present)
   return (
@@ -354,21 +356,8 @@ export default async function Home() {
             </div>
           ) : (
             <>
-              {/* Podcast Player - At top of panel (cream band) */}
-              {podcast && (
-                <div className="mb-5 sm:mb-6 md:mb-8 pb-5 sm:pb-6 md:pb-8 border-b border-gray-200 dark:border-gray-700">
-                  <PodcastPlayer
-                    src={podcast.audioPath}
-                    title="Weekly Luxury Intelligence · ~12 minutes"
-                    description="Listen to this week's key ecommerce, jewellery & luxury stories"
-                    durationSeconds={podcast.duration}
-                  />
-                  <p className="mt-3 text-[11px] tracking-[0.12em] uppercase text-[var(--color-text-secondary)]">
-                    Subscribe in your podcast app:{' '}
-                    <a href="/podcast/feed.xml" className="underline underline-offset-2 hover:text-[var(--color-accent)]">RSS feed</a>
-                  </p>
-                </div>
-              )}
+              {/* Watch or listen: the week's Short (once public) + podcast, at the top of the panel */}
+              <WatchOrListen short={short} podcast={podcast} />
 
               {/* THIS WEEK - Category cards + Top N */}
               <div id="categories" className="mb-4 sm:mb-5 md:mb-6 pb-4 sm:pb-5 md:pb-6 border-b border-gray-200 dark:border-gray-700">

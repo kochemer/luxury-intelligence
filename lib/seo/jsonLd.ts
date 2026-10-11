@@ -202,6 +202,41 @@ export function buildAudioObjectLd(args: {
 }
 
 /**
+ * The week's 60-second Short (hosted on YouTube) as a VideoObject attached to
+ * the digest page. Google needs name, thumbnailUrl and uploadDate for video
+ * results; embedUrl tells it the player on this page is that YouTube video.
+ * Only emitted once the video is public (see lib/video/weeklyShort.ts).
+ */
+export function buildVideoObjectLd(args: {
+  siteUrl: string;
+  pageUrl: string;
+  youtubeId: string;
+  name: string;
+  description: string;
+  posterPath: string;
+  durationSeconds: number;
+  uploadedAtISO: string;
+}) {
+  const { siteUrl, pageUrl, youtubeId, name, description, posterPath, durationSeconds, uploadedAtISO } = args;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name,
+    description,
+    thumbnailUrl: `${siteUrl}${posterPath}`,
+    uploadDate: uploadedAtISO,
+    duration: `PT${Math.floor(durationSeconds / 60)}M${Math.round(durationSeconds % 60)}S`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeId}`,
+    url: `https://www.youtube.com/shorts/${youtubeId}`,
+    inLanguage: 'en',
+    isAccessibleForFree: true,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': entityId.webPage(pageUrl) },
+    publisher: { '@id': entityId.organization(siteUrl) },
+    isPartOf: { '@id': entityId.website(siteUrl) },
+  };
+}
+
+/**
  * The week's curated stories as an ordered list.
  *
  * This is the page's actual substance expressed as data. Without it, a machine

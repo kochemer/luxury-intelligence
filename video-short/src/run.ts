@@ -1,7 +1,7 @@
 /**
  * Luxury Intel in 60 Seconds: build this week's short.
  *
- *   npx tsx video-short/src/run.ts [--week=2026-W39] [--previews]
+ *   npx tsx video-short/src/run.ts [--week=2026-W39] [--formats=vertical] [--previews]
  *
  * Steps: pick one story (Opus 5.5) -> scene script (Opus 5.5, grounded in the
  * article text) -> narration (gpt-4o-mini-tts) -> frame render (headless
@@ -9,7 +9,7 @@
  *
  * Output goes to data/weeks/<week>/video-short/, which is gitignored: the MP4
  * must never be committed or land in public/ (Vercel storage limits). This
- * script checks that before it finishes. Nothing is published or embedded.
+ * script checks that before it finishes. Publishing is upload.ts (YouTube).
  */
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -74,7 +74,11 @@ async function main() {
   // Same timeline and audio, two layouts: vertical (mobile) and horizontal (desktop).
   // Each render runs the spill check first and refuses to render if text doesn't fit.
   const outputs: Record<string, { file: string; sizeMB: number }> = {};
-  for (const format of ['portrait', 'landscape'] as Format[]) {
+  // --formats=vertical renders only the Short that gets uploaded (CI default).
+  const wanted = (arg('formats') ?? 'vertical,horizontal').split(',');
+  const formats = (['portrait', 'landscape'] as Format[]).filter(f => wanted.includes(FORMATS[f].label));
+  if (!formats.length) throw new Error(`--formats must list vertical and/or horizontal`);
+  for (const format of formats) {
     const out = path.join(outDir, `luxury-intel-60s-${week}-${FORMATS[format].label}.mp4`);
     await renderVideo({ scenes: withMarks, total, issue, format, audio, out, previewEvery: process.argv.includes('--previews') ? 90 : undefined });
 

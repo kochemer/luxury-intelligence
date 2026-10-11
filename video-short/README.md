@@ -19,7 +19,7 @@ Output (gitignored): `data/weeks/<week>/video-short/` (mp4s, `script.json`,
 - A cut about every 10 s (5–6 scenes). Voice keeps natural pauses, played at
   **1.2×** (`VIDEO_SHORT_TEMPO`; was 1.25× until 2026-10-05).
 - Cheap OpenAI TTS is fine. The owner is moving off ElevenLabs.
-- **Do not publish or embed yet.** Videos exist locally only.
+- ~~Do not publish or embed yet.~~ Superseded 2026-10-10: publish to YouTube + embed (see "YouTube and the site").
 - Vercel limits come first: nothing here may end up in a deployment.
 
 ## Owner decisions (2026-10-05)
@@ -44,7 +44,7 @@ Output (gitignored): `data/weeks/<week>/video-short/` (mp4s, `script.json`,
 - Story length target: 140–160 words (at 180 wpm, about 50 s), so the whole
   video lands near a minute with the bookends.
 
-## YouTube (set up 2026-10-11; upload step not built yet)
+## YouTube and the site (live 2026-10-11)
 
 Owner decisions (2026-10-10): the weekly Short goes to YouTube
 [@luxury-intel](https://www.youtube.com/@luxury-intel) as a **vertical Short only**,
@@ -60,8 +60,23 @@ and the same video is embedded on the digest page. Brand logos are fine to use
 - `npx tsx scripts/youtubeAuth.ts` does the one-time sign-in: saves
   `YOUTUBE_REFRESH_TOKEN` to `.env.local` and sets the three `YOUTUBE_*` GitHub
   secrets via stdin. Re-run it if uploads start failing with `invalid_grant`.
+- Pipeline: `.github/workflows/weekly-short.yml` runs after each successful
+  digest build: `run.ts --formats=vertical`, then `src/upload.ts` (see its
+  header). upload.ts writes `data/weeks/<week>/video.json` and a ~30 KB poster
+  `public/video/shorts/<week>.jpg`; the MP4 is never committed.
+- Site: `lib/video/weeklyShort.ts` + `app/components/WatchOrListen.tsx` show the
+  Short next to the podcast on the homepage and digest pages, plus a
+  `VideoObject` (`buildVideoObjectLd` in `lib/seo/jsonLd.ts`). Our poster shows
+  until the reader presses play; only then does the youtube-nocookie player
+  load (consent rule). ES/DA pages stay podcast-only (noindex, English video).
 - **Uploads are forced to private** until the project passes YouTube's API
-  audit (projects created after 2020-07-28). Audit not yet requested as of 2026-10-11.
+  audit (projects created after 2020-07-28). Owner chose (2026-10-11) to wait
+  for the audit rather than flip videos by hand. The site shows a video only
+  when `video.json` says `"public": true`; `upload.ts --sync` (first step of
+  every run, or the workflow's `sync_only` input) flips it once YouTube serves
+  it. Audit not yet requested as of 2026-10-11.
+- W39 was uploaded privately as the end-to-end test (2026-10-11,
+  `I2DlQjpvjso`); its record stays `"public": false`.
 
 ## Things that will bite you
 

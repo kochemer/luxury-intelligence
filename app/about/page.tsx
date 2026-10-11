@@ -313,7 +313,7 @@ export default function AboutPage() {
           <h2 className="text-section font-semibold text-[var(--color-text-primary)] mb-2">
             Privacy Policy
           </h2>
-          <p className="text-meta text-[var(--color-text-secondary)] mb-6">Last updated 5 October 2026</p>
+          <p className="text-meta text-[var(--color-text-secondary)] mb-6">Last updated 11 October 2026</p>
           <div className="space-y-4 text-body text-[var(--color-text-secondary)]">
             <p>
               <strong className="text-[var(--color-text-primary)]">Data controller.</strong> Luxury Intelligence
@@ -344,6 +344,16 @@ export default function AboutPage() {
               Vercel and subscriber data is held in a Neon database; some of these providers process data in the
               United States under the EU–US Data Privacy Framework or Standard Contractual Clauses. We never sell
               data and run no advertising.
+            </p>
+            <p>
+              <strong className="text-[var(--color-text-primary)]">Videos (YouTube).</strong> Our weekly videos are
+              hosted on YouTube. Digest pages show our own preview image, and the YouTube player (from
+              youtube-nocookie.com) loads only when you press play. From then on YouTube processes data under the{' '}
+              <a href="https://www.youtube.com/t/terms" className="text-[var(--color-accent)] underline underline-offset-2" target="_blank" rel="noopener">YouTube Terms of Service</a>{' '}
+              and the{' '}
+              <a href="https://policies.google.com/privacy" className="text-[var(--color-accent)] underline underline-offset-2" target="_blank" rel="noopener">Google Privacy Policy</a>.
+              We use YouTube API Services only to upload videos to our own channel; we never access visitors&apos;
+              YouTube or Google accounts.
             </p>
             <p>
               <strong className="text-[var(--color-text-primary)]">Your rights.</strong> You can ask to see, correct,

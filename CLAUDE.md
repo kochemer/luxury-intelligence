@@ -61,7 +61,8 @@ npx drizzle-kit generate   # Generate migration from schema changes
 npx drizzle-kit migrate    # Apply migrations
 
 # Weekly 60s short (separate package, see video-short/README.md; $2/week cap)
-npx tsx video-short/src/run.ts --week=YYYY-Www
+npx tsx video-short/src/run.ts --week=YYYY-Www [--formats=vertical]
+npx tsx video-short/src/upload.ts --week=YYYY-Www   # YouTube upload + data/weeks/<week>/video.json (--sync, --private, --force)
 npx tsx video-short/explainer/run.ts   # one-off ~2 min "how it works" explainer (same README)
 
 # Older video pipeline (scripts/ + video/)
@@ -119,7 +120,7 @@ Module-level detail, artifacts and caches: `docs/pipeline.md`.
 | `scripts/` | Entry points and maintenance scripts (run with `tsx`) |
 | `hooks/` | React hooks (`useCountUp`, `useReveal`), not git hooks |
 | `.githooks/` | Git hooks (`commit-msg` runs the docs check). Enabled by `npm install` |
-| `.github/workflows/` | Weekly digest, daily RSS ingestion (cache buffer, never commits), SEO weekly + daily monitor, subscriber sweep (see `docs/operations.md`) |
+| `.github/workflows/` | Weekly digest, weekly Short (render + YouTube upload after the digest), daily RSS ingestion (cache buffer, never commits), SEO weekly + daily monitor, subscriber sweep (see `docs/operations.md`) |
 
 ### Database
 

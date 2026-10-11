@@ -9,7 +9,8 @@ import type { Metadata } from 'next';
 import DigestClientView from '../../components/DigestClientView';
 import IssueRating from '../../components/IssueRating';
 import CategoryCardGrid from '../../components/CategoryCardGrid';
-import PodcastPlayer from '../../components/PodcastPlayer';
+import WatchOrListen from '../../components/WatchOrListen';
+import { loadWeeklyShort } from '@/lib/video/weeklyShort';
 import StatsBar from '../../components/StatsBar';
 import BrandPattern from '../../components/BrandPattern';
 import GrainOverlay from '../../components/GrainOverlay';
@@ -28,7 +29,7 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { weekLabelToSlug, slugToWeekLabel } from '@/lib/utils/weekSlug';
 import { CATEGORY_COLORS } from '@/lib/constants/categoryColors';
 import { buildWeekTitle, buildWeekMetaDescription } from '@/lib/seo/metaText';
-import { buildNewsArticleLd, buildDigestItemListLd, buildBreadcrumbLd, buildAudioObjectLd } from '@/lib/seo/jsonLd';
+import { buildNewsArticleLd, buildDigestItemListLd, buildBreadcrumbLd, buildAudioObjectLd, buildVideoObjectLd } from '@/lib/seo/jsonLd';
 import type { WeeklyDigest } from '@/lib/types';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -188,6 +189,7 @@ export default async function DigestPage({
   } catch {
     // Podcast doesn't exist for this week
   }
+  const short = await loadWeeklyShort(weekLabel);
 
   if (!digest) {
     return (
@@ -240,6 +242,19 @@ export default async function DigestPage({
         description: digest.oneSentenceSummary,
         publishedAtISO: podcast.generatedAt,
         imageUrl: digest.coverImageUrl ? `${siteUrl}${digest.coverImageUrl}` : undefined,
+      })
+    : null;
+
+  const videoSchema = short?.youtubeId && short.uploadedAt
+    ? buildVideoObjectLd({
+        siteUrl,
+        pageUrl,
+        youtubeId: short.youtubeId,
+        name: short.title,
+        description: `A 60-second take on "${short.story.title}" (${short.story.source}), from the Luxury Intelligence digest for ${dateRange}.`,
+        posterPath: short.poster,
+        durationSeconds: short.durationS,
+        uploadedAtISO: short.uploadedAt,
       })
     : null;
 
@@ -310,6 +325,7 @@ export default async function DigestPage({
       <JsonLd data={itemListSchema} />
       <JsonLd data={breadcrumbSchema} />
       {audioSchema && <JsonLd data={audioSchema} />}
+      {videoSchema && <JsonLd data={videoSchema} />}
       <main className="w-full" style={{ minHeight: '100vh', background: 'var(--color-bg)' }}>
 
         {/* MAGAZINE COVER HERO — matches homepage style */}
@@ -414,20 +430,7 @@ export default async function DigestPage({
             )}
 
             <div className="bg-[var(--color-bg)] rounded-t-xl md:rounded-t-2xl border border-b-0 border-t border-t-[var(--color-accent)] border-black/5 p-4 sm:p-6 md:p-8 lg:p-10">
-              {podcast && (
-                <div className="mb-5 sm:mb-6 md:mb-8 pb-5 sm:pb-6 md:pb-8 border-b border-gray-200 dark:border-gray-700">
-                  <PodcastPlayer
-                    src={podcast.audioPath}
-                    title="Weekly Luxury Intelligence · ~12 minutes"
-                    description="Listen to this week's key ecommerce, jewellery & luxury stories"
-                    durationSeconds={podcast.duration}
-                  />
-                  <p className="mt-3 text-[11px] tracking-[0.12em] uppercase text-[var(--color-text-secondary)]">
-                    Subscribe in your podcast app:{' '}
-                    <a href="/podcast/feed.xml" className="underline underline-offset-2 hover:text-[var(--color-accent)]">RSS feed</a>
-                  </p>
-                </div>
-              )}
+              <WatchOrListen short={short} podcast={podcast} />
 
               <div className="mb-4 sm:mb-5 md:mb-6 pb-4 sm:pb-5 md:pb-6 border-b border-gray-200 dark:border-gray-700">
                 <span className="text-meta font-medium uppercase tracking-widest text-[var(--color-accent)] block mb-4">

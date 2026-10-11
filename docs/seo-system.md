@@ -368,7 +368,10 @@ to the organisation running the site — three anonymous entities sharing a
 name. Entity resolution is the foundation of GEO/AEO: an answer engine cannot
 attribute a claim to a publisher it cannot identify.
 
-Digest pages emit `NewsArticle` + `ItemList` + `BreadcrumbList`. `/archive`
+Digest pages emit `NewsArticle` + `ItemList` + `BreadcrumbList`, plus
+`AudioObject` when the week has a podcast and `VideoObject` (YouTube embed,
+our own poster as `thumbnailUrl`) only when the week's Short is public
+(since 2026-10-11; `__tests__/weeklyShort.test.ts`). `/archive`
 emits `CollectionPage` + `ItemList`. `/about` has a `FAQPage`.
 `/llms.txt` describes the publication for AI crawlers and is generated, so its
 edition count cannot go stale.

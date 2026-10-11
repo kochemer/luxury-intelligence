@@ -18,6 +18,7 @@ Facts are as of 2026-10-05 unless dated otherwise.
 | Workflow | Schedule (UTC) | What it does |
 |---|---|---|
 | `weekly-digest.yml` | Mon 06:00 | Gate job skips a scheduled run if last week's digest is already committed (no double email). Restores + merges the daily ingestion buffer, then `digest:weekly`, emails subscribers, commits `data/weeks/*/*.{json,txt}` + digest JSON |
+| `weekly-short.yml` | After a successful `weekly-digest.yml` run; manual (`week`, `sync_only`) | Renders the week's vertical 60s Short (`video-short/`, ~$0.30, $2/week cap; work dir kept in the Actions cache so retries reuse paid work), uploads it to YouTube @luxury-intel, emails the owner (`SEO_ALERT_EMAIL`). Commits only `data/weeks/<week>/video.json` + `public/video/shorts/<week>.jpg` (one extra deploy a week). Every run first re-checks earlier private uploads (`upload.ts --sync`). Skips a week that already has a YouTube id |
 | `daily-ingest.yml` | Daily 05:30 | RSS + pages only (`--mode=rss`, no Tavily, no secrets). Keeps `data/articles.json` + `data/source_yield.json` in the Actions cache (`.ingest-buffer/`, key `ingest-buffer-*`), **never commits** (a commit = a Vercel deploy). Step summary lists failing sources |
 | `seo-weekly.yml` | Sun 08:00 | Full SEO pass, GSC snapshot, weekly email |
 | `seo-monitor.yml` | Daily 07:00 | Detects outages; emails only on change; can roll back and open repair PRs |
@@ -108,6 +109,7 @@ future deployment.
   Blocked on the owner supplying the account/bucket/token/public URL. Only
   `podcast.json`'s `audioPath` needs to change.
 - `public/video/how-it-works.mp4` (~6 MB, CRF 28) + poster: the About page explainer, published 2026-10-07. It is in `publicExcludes` (PWA precache) and `outputFileTracingExcludes`; the page uses `preload="none"`. Re-encode any replacement the same way (see `video-short/README.md`), never commit the 12 MB master.
+- `public/video/shorts/<week>.jpg` (~30 KB/week): poster frame for the weekly Short. The MP4 itself is only on YouTube; never commit it.
 - Old deployments can be purged with `vercel remove <project> --safe --yes`
   (`--safe` keeps anything holding a live alias).
 
