@@ -1103,5 +1103,24 @@
     "cached_at": "2026-10-04T12:25:56.151Z",
     "model": "gpt-4.1-mini",
     "version": "3.1"
+  },
+  "2026-W41:a6115552cc86": {
+    "keyThemes": [
+      "Anthropic Claude Haiku 55",
+      "Meta Platforms AI investment",
+      "Amazon job cuts",
+      "Blue Nile Royal Asscher",
+      "Titan diamond sales surge"
+    ],
+    "oneSentenceSummary": "Americans abandon European fashion over taxes and returns. A famous name buys you nothing when checkout feels like a trap.",
+    "summaryCandidates": [
+      "IKEA is making second-hand shopping normal. Luxury brands will have to help customers sell old purchases to earn their next one.",
+      "Claude prices keep falling while chip stocks keep winning. Cheap AI is making its suppliers rich.",
+      "Americans abandon European fashion over taxes and returns. A famous name buys you nothing when checkout feels like a trap.",
+      "Lidl Plus and Blue Nile's exclusive diamonds do the same job. They give shoppers fewer reasons to check a rival's prices."
+    ],
+    "cached_at": "2026-10-11T12:50:24.559Z",
+    "model": "gpt-4.1-mini",
+    "version": "3.2"
   }
 }

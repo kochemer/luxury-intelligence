@@ -1,0 +1,981 @@
+{
+  "weekLabel": "2026-W41",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2026-10-04T22:00:00.000Z",
+  "endISO": "2026-10-11T21:59:59.999Z",
+  "builtAtISO": "2026-10-11T14:49:37.824+02:00",
+  "builtAtLocal": "2026-10-11 14:49:37",
+  "totals": {
+    "total": 2216,
+    "byTopic": {
+      "AIStrategy": 368,
+      "EcommerceRetail": 221,
+      "LuxuryConsumer": 554,
+      "Jewellery": 291
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 368,
+      "top": [
+        {
+          "id": "r4tzp0",
+          "title": "OpenAI annualised revenues $20bn less than previously signalled",
+          "url": "https://www.ft.com/content/b66a9858-f8fb-46cb-b506-44bfe26fca2a?syn-25a6b1a6=1",
+          "source": "Financial Times - Technology",
+          "published_at": "2026-10-08T20:15:57.000Z",
+          "ingested_at": "2026-10-09T12:02:46.081Z",
+          "snippet": "AI group recently told investors the critical figure was nearing $50bn in September, far less than the $70bn widely reported",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "openai",
+              "ai"
+            ]
+          },
+          "aiSummary": "OpenAI told investors its annualised revenues neared $50bn in September, $20bn less than the $70bn figure widely reported.",
+          "translations": {
+            "da": {
+              "title": "OpenAI årlige indtægter 20 mia. $ mindre end tidligere oplyst",
+              "summary": "OpenAI fortalte investorer, at deres årlige indtægter nærmede sig 50 mia. $ i september, 20 mia. $ mindre end de 70 mia. $ der blev bredt rapporteret."
+            },
+            "es": {
+              "title": "Ingresos anualizados de OpenAI 20 mil millones de dólares menos de lo señalado previamente",
+              "summary": "OpenAI informó a los inversores que sus ingresos anualizados se acercaron a 50 mil millones de dólares en septiembre, 20 mil millones menos que la cifra de 70 mil millones ampliamente reportada."
+            }
+          }
+        },
+        {
+          "id": "z66rz8",
+          "title": "Claude Haiku 5.5 arrives with massive price cuts proving the AI pricing arms race is far from over",
+          "url": "https://the-decoder.com/claude-haiku-5-5-arrives-with-massive-price-cuts-proving-the-ai-pricing-arms-race-is-far-from-over/",
+          "source": "The Decoder",
+          "published_at": "2026-10-08T10:30:23.000Z",
+          "ingested_at": "2026-10-08T12:12:21.799Z",
+          "snippet": "Anthropic's new Claude Haiku 5.5 crushes its predecessor in benchmarks, jumping from 15.7 to 72.4 percent on the OSWorld computer use test. Token prices drop by up to 90 percent, though a new tokenizer eats into some of those savings by consuming more tokens per task.\nThe article Claude Haiku 5.5 arrives with massive price cuts proving the AI pricing arms race is far from over appeared first on The Decoder.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.30000000000000004,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "claude",
+              "benchmark",
+              "anthropic",
+              "compute"
+            ]
+          },
+          "aiSummary": "Anthropic's Claude Haiku 5.5 slashed token prices by up to 90 percent and boosted OSWorld computer use test scores from 15.7 to 72.4 percent.",
+          "translations": {
+            "da": {
+              "title": "Claude Haiku 5.5 ankommer med massive prisnedsættelser, der beviser, at AI-priskapløbet langt fra er overstået",
+              "summary": "Anthropics Claude Haiku 5.5 sænkede tokenpriserne med op til 90 procent og øgede OSWorld computerbrugstestscore fra 15,7 til 72,4 procent."
+            },
+            "es": {
+              "title": "Claude Haiku 5.5 llega con grandes recortes de precios que demuestran que la carrera de precios de la IA está lejos de terminar",
+              "summary": "Claude Haiku 5.5 de Anthropic redujo los precios por token hasta en un 90 por ciento y aumentó las puntuaciones de la prueba de uso de computadoras OSWorld del 15,7 al 72,4 por ciento."
+            }
+          }
+        },
+        {
+          "id": "oxgwnj",
+          "title": "AI Hot Potato Is Meta’s for Now, But Chip Stocks Are the Winners",
+          "url": "https://www.bloomberg.com/news/articles/2026-10-08/ai-hot-potato-is-meta-s-for-now-but-chip-stocks-are-the-winners",
+          "source": "Bloomberg - Technology",
+          "published_at": "2026-10-08T11:35:01.000Z",
+          "ingested_at": "2026-10-08T12:12:21.799Z",
+          "snippet": "Wall Street pros say chipmakers remain the best way for equity investors to play the race for the top artificial intelligence agent even as Meta Platforms Inc.’s Muse seems to have seized the baton.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "artificial intelligence",
+              "agent"
+            ]
+          },
+          "aiSummary": "Chipmakers are still seen as the top AI investment as Meta’s Muse takes the lead in the artificial intelligence agent race.",
+          "translations": {
+            "da": {
+              "title": "AI Hot Potato Er Metas For Nu, Men Chipaktier Er Vinderne",
+              "summary": "Chipproducenter ses stadig som den bedste AI-investering, mens Metas Muse fører i kapløbet om den kunstige intelligens-agent."
+            },
+            "es": {
+              "title": "La Patata Caliente de la IA Es de Meta Por Ahora, Pero Las Acciones de Chips Son Las Ganadoras",
+              "summary": "Los fabricantes de chips siguen siendo la mejor inversión en IA mientras Muse de Meta lidera la carrera de agentes de inteligencia artificial."
+            }
+          }
+        },
+        {
+          "id": "mibjx7",
+          "title": "US government, Google join Zuckerberg-backed Biohub in $1.8 billion push for AI biology data ",
+          "url": "https://economictimes.indiatimes.com/tech/technology/us-government-google-join-zuckerberg-backed-biohub-in-1-8-billion-push-for-ai-biology-data/articleshow/134770321.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-10-07T16:21:19.000Z",
+          "ingested_at": "2026-10-08T12:12:21.799Z",
+          "snippet": "The US government and tech heavyweights Meta Platforms and Google parent Alphabet are joining nonprofit Biohub to build open datasets to train AI models for biological reasearch, bringing total investment in the effort to $1.8 billion, Biohub said on Wednesday.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "weights",
+              "investment"
+            ]
+          },
+          "aiSummary": "The US government, Meta and Alphabet joined Biohub to build open AI biology datasets, raising total investment in the project to $1.8 billion.",
+          "translations": {
+            "da": {
+              "title": "US-regeringen og Google slutter sig til Zuckerberg-støttede Biohub i 1,8 milliarder dollars satsning på AI-biologidata",
+              "summary": "US-regeringen, Meta og Alphabet gik sammen med Biohub for at opbygge åbne AI-biologidatasæt og hævede den samlede investering i projektet til 1,8 milliarder dollars."
+            },
+            "es": {
+              "title": "Gobierno de EE. UU. y Google se unen a Biohub respaldado por Zuckerberg en impulso de 1.800 millones de dólares para datos biológicos de IA",
+              "summary": "El gobierno de EE. UU., Meta y Alphabet se unieron a Biohub para construir conjuntos de datos biológicos de IA abiertos, elevando la inversión total en el proyecto a 1.800 millones de dólares."
+            }
+          }
+        },
+        {
+          "id": "chta5g",
+          "title": "Anthropic launches third Claude 5.5 model, expanding AI lineup before planned IPO ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/anthropic-launches-third-claude-5-5-model-expanding-ai-lineup-before-planned-ipo/articleshow/134773835.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-10-07T19:03:07.000Z",
+          "ingested_at": "2026-10-08T12:12:21.799Z",
+          "snippet": "Haiku 5.5 is built for tasks such as classification, summarization and extraction, including live support, voice agents and in-app assistants. It costs 75% less than its predecessor, Haiku 4.5.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "anthropic",
+              "claude",
+              "agent"
+            ]
+          },
+          "aiSummary": "Anthropic launched Haiku 5.5 for classification, summarization and extraction tasks, pricing it 75% lower than the previous Haiku 4.5 model.",
+          "translations": {
+            "da": {
+              "title": "Anthropic lancerer tredje Claude 5.5-model og udvider AI-udvalget før planlagt børsintroduktion",
+              "summary": "Anthropic lancerede Haiku 5.5 til klassificering, opsummering og udtrækningsopgaver og prissatte den 75 % lavere end den tidligere Haiku 4.5-model."
+            },
+            "es": {
+              "title": "Anthropic lanza el tercer modelo Claude 5.5, ampliando la línea de IA antes de la IPO planificada",
+              "summary": "Anthropic lanzó Haiku 5.5 para tareas de clasificación, resumen y extracción, con un precio un 75 % menor que el modelo anterior Haiku 4.5."
+            }
+          }
+        },
+        {
+          "id": "6mrpg7",
+          "title": "Connecting AI agents to enterprise knowledge",
+          "url": "https://www.technologyreview.com/2026/10/05/1145580/connecting-ai-agents-to-enterprise-knowledge/",
+          "source": "MIT Technology Review",
+          "published_at": "2026-10-05T15:47:52.000Z",
+          "ingested_at": "2026-10-05T19:00:20.123Z",
+          "snippet": "For all the data that AI systems continually amass and analyze, enterprise AI agents often suffer from a curious shortcoming: a lack of knowledge. More than data, knowledge is the understanding of what the data means in the context of individual organizations. AI agents need this understanding to reason about situations, make decisions, and ultimately…",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.3,
+            "recencyScore": 0,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "agent"
+            ]
+          },
+          "aiSummary": "Enterprise AI agents often lack organizational knowledge, limiting their ability to interpret data and make context-aware decisions despite access to vast information.",
+          "translations": {
+            "da": {
+              "title": "Forbindelse af AI-agenter til virksomhedens viden",
+              "summary": "Virksomheds-AI-agenter mangler ofte organisatorisk viden, hvilket begrænser deres evne til at fortolke data og træffe kontekstbevidste beslutninger trods adgang til omfattende information."
+            },
+            "es": {
+              "title": "Conectando agentes de IA con el conocimiento empresarial",
+              "summary": "Los agentes de IA empresariales a menudo carecen de conocimiento organizacional, lo que limita su capacidad para interpretar datos y tomar decisiones conscientes del contexto a pesar del acceso a gran cantidad de información."
+            }
+          }
+        },
+        {
+          "id": "ahvzck",
+          "title": "HiPHI: A Large-Scale Benchmark for High-Precision Human Motion and Object Interaction",
+          "url": "https://content.knowledgehub.wiley.com/hiphi-a-large-scale-benchmark-for-high-precision-human-motion-and-object-interaction/",
+          "source": "IEEE Spectrum",
+          "published_at": "2026-10-07T13:49:48.000Z",
+          "ingested_at": "2026-10-08T12:12:21.799Z",
+          "snippet": "This White Paper gives robotics researchers and engineers an overview of a new large-scale motion capture dataset built to close the data gap limiting humanoid robot learning. It also shows how policies trained on the dataset transfer to a real humanoid robot.\nWhat you will learn about: \n\nWhy humanoid robot learning, a central problem in embodied AI and Physical AI, needs data that internet video and existing motion capture datasets cannot provide. \nHow FrameNet, a linguistic framework for human...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.4,
+            "recencyScore": 0,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "benchmark",
+              "ai",
+              "research"
+            ]
+          },
+          "aiSummary": "Researchers released HiPHI, a large-scale motion capture dataset designed to improve humanoid robot learning and successful policy transfer to real robots.",
+          "translations": {
+            "da": {
+              "title": "HiPHI: En storstilet benchmark for højpræcisions menneskelig bevægelse og objektinteraktion",
+              "summary": "Forskere har udgivet HiPHI, et stort bevægelsesoptagelsesdatasæt designet til at forbedre humanoide robotters læring og succesfuld overførsel af politik til rigtige robotter."
+            },
+            "es": {
+              "title": "HiPHI: Un benchmark a gran escala para el movimiento humano de alta precisión y la interacción con objetos",
+              "summary": "Investigadores lanzaron HiPHI, un conjunto de datos de captura de movimiento a gran escala diseñado para mejorar el aprendizaje de robots humanoides y la transferencia exitosa de políticas a robots reales."
+            }
+          }
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 221,
+      "top": [
+        {
+          "id": "stb4jg",
+          "title": "Ecommerce firms sell goods worth Rs 24,000 crore in first two days of festive sales: Redseer ",
+          "url": "https://economictimes.indiatimes.com/tech/technology/ecommerce-firms-sell-goods-worth-rs-24000-crore-in-first-two-days-of-festive-sales-redseer/articleshow/134868694.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-10-11T10:21:09.000Z",
+          "ingested_at": "2026-10-11T12:31:09.295Z",
+          "snippet": "Players like Amazon and Flipkart are using their quick commerce arms for sales and increasing their salience on the platform, which saw 4 to 5 times higher GMV than the BAU daily average.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ecommerce",
+              "platform"
+            ]
+          },
+          "aiSummary": "Ecommerce firms including Amazon and Flipkart sold Rs 24,000 crore of goods in the first two days of festive sales, 4 to 5 times daily average.",
+          "translations": {
+            "da": {
+              "title": "E-handelsfirmaer sælger varer for Rs 24.000 crore i de første to dage af festlige udsalg: Redseer",
+              "summary": "E-handelsfirmaer inklusive Amazon og Flipkart solgte varer for Rs 24.000 crore i de første to dage af festlige udsalg, 4 til 5 gange dagligt gennemsnit."
+            },
+            "es": {
+              "title": "Empresas de comercio electrónico venden bienes por Rs 24,000 crore en los primeros dos días de ventas festivas: Redseer",
+              "summary": "Empresas de comercio electrónico, incluyendo Amazon y Flipkart, vendieron bienes por Rs 24,000 crore en los primeros dos días de ventas festivas, 4 a 5 veces el promedio diario."
+            }
+          }
+        },
+        {
+          "id": "llk7zn",
+          "title": "IKEA launches UK and Ireland marketplace to buy and sell second-hand furniture",
+          "url": "https://www.dezeen.com/2026/10/07/ikea-uk-ireland-marketplace-buy-sell-second-hand-furniture/",
+          "source": "Dezeen",
+          "published_at": "2026-10-07T09:55:59.000Z",
+          "ingested_at": "2026-10-07T11:56:34.854Z",
+          "snippet": "Swedish brand IKEA has created an online marketplace for pre-owned furniture and products, which retail at around 60 per cent less than comparable items bought new. Launched today, the UK and Ireland marketplace allows people to list and sell their IKEA products online, with the exception of mattresses, appliances and food. Eligible items can be\nThe post IKEA launches UK and Ireland marketplace to buy and sell second-hand furniture appeared first on Dezeen.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "marketplace"
+            ]
+          },
+          "aiSummary": "IKEA has launched an online marketplace in the UK and Ireland for second-hand furniture, with prices about 60 percent lower than new items.",
+          "translations": {
+            "da": {
+              "title": "IKEA lancerer markedsplads i Storbritannien og Irland for køb og salg af brugte møbler",
+              "summary": "IKEA har lanceret en online markedsplads i Storbritannien og Irland for brugte møbler, med priser omkring 60 procent lavere end nye varer."
+            },
+            "es": {
+              "title": "IKEA lanza mercado en Reino Unido e Irlanda para comprar y vender muebles de segunda mano",
+              "summary": "IKEA ha lanzado un mercado en línea en Reino Unido e Irlanda para muebles de segunda mano, con precios aproximadamente un 60 % más bajos que los artículos nuevos."
+            }
+          }
+        },
+        {
+          "id": "vet3bz",
+          "title": "Pricing tactics come under scrutiny in the age of AI",
+          "url": "https://www.modernretail.co/operations/pricing-tactics-come-under-scrutiny-in-the-age-of-ai/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-10-05T14:00:00.000Z",
+          "ingested_at": "2026-10-05T19:00:20.123Z",
+          "snippet": "Everything from the rise of digital shelf labels to screenshots of pricing algorithms is fueling concerns among consumers that retailers are increasingly using customer data to engage in dynamic pricing, and it is putting more retailers like Walmart and McDonald's on the defensive.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Walmart and McDonald's face growing consumer backlash as digital shelf labels and pricing algorithms drive concerns over dynamic pricing and use of customer data.",
+          "translations": {
+            "da": {
+              "title": "Prisstrategier under lup i AI-æraen",
+              "summary": "Walmart og McDonald's møder stigende forbrugerreaktioner, da digitale hyldemærker og prisalgoritmer skaber bekymring om dynamisk prissætning og brug af kundedata."
+            },
+            "es": {
+              "title": "Las tácticas de precios bajo escrutinio en la era de la IA",
+              "summary": "Walmart y McDonald's enfrentan una creciente reacción de los consumidores mientras las etiquetas digitales y los algoritmos de precios generan preocupaciones sobre la fijación dinámica de precios y el uso de datos de clientes."
+            }
+          }
+        },
+        {
+          "id": "9iyxli",
+          "title": "Lidl attracts 43m extra visits as Lidl Plus investment fuels growth",
+          "url": "https://internetretailing.net/lidl-attracts-43m-extra-visits-as-lidl-plus-investment-fuels-growth/",
+          "source": "Internet Retailing",
+          "published_at": "2026-10-05T10:31:56.000Z",
+          "ingested_at": "2026-10-05T19:00:20.123Z",
+          "snippet": "Lidl GB has reported a sharp rise in sales and customer numbers, with digital innovation playing a growing role in driving shoppers into stores.\nThe post Lidl attracts 43m extra visits as Lidl Plus investment fuels growth appeared first on InternetRetailing.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Lidl GB attracted 43 million extra store visits after investing in its Lidl Plus digital platform.",
+          "translations": {
+            "da": {
+              "title": "Lidl tiltrækker 43 mio. ekstra besøg, da investering i Lidl Plus driver vækst",
+              "summary": "Lidl GB tiltrak 43 millioner ekstra butikbesøg efter investering i sin Lidl Plus digitale platform."
+            },
+            "es": {
+              "title": "Lidl atrae 43 millones de visitas adicionales gracias a la inversión en Lidl Plus que impulsa el crecimiento",
+              "summary": "Lidl GB atrajo 43 millones de visitas adicionales a sus tiendas tras invertir en su plataforma digital Lidl Plus."
+            }
+          }
+        },
+        {
+          "id": "4m5wt",
+          "title": "Retail Media’s Opportunity Cost",
+          "url": "https://www.practicalecommerce.com/retail-medias-opportunity-cost",
+          "source": "Practical Ecommerce",
+          "published_at": "2026-10-11T09:00:07.000Z",
+          "ingested_at": "2026-10-11T12:31:09.295Z",
+          "snippet": "Where does merchandising end and media begin when shoppers search a retail site?\nThe post Retail Media’s Opportunity Cost appeared first on Practical Ecommerce.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ecommerce"
+            ]
+          },
+          "aiSummary": "Retailers risk missing sales if retail media ads distract shoppers from on-site product discovery and merchandising.",
+          "translations": {
+            "da": {
+              "title": "Retail Medias omkostning ved tabt mulighed",
+              "summary": "Detailhandlere risikerer at miste salg, hvis retail media-annoncer distraherer kunder fra produktopdagelse og merchandising på siden."
+            },
+            "es": {
+              "title": "El costo de oportunidad de Retail Media",
+              "summary": "Los minoristas corren el riesgo de perder ventas si los anuncios de retail media distraen a los compradores de la descubrimiento y comercialización de productos en el sitio."
+            }
+          }
+        },
+        {
+          "id": "umyg3p",
+          "title": "Gap expands AI shopping with Alta Daily and new discovery tools",
+          "url": "https://www.digitalcommerce360.com/2026/10/07/gap-expands-ai-shopping-with-alta-daily-and-new-discovery-tools/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-10-07T19:12:43.000Z",
+          "ingested_at": "2026-10-08T12:12:21.799Z",
+          "snippet": "Gap Inc. is pushing artificial intelligence (AI) deeper into how its shoppers discover and style its products. The retailer on Monday unveiled new natural-language product discovery features for its Old Navy and Banana Republic brands. Separately, Gap said it’s launching an online styling experience with Alta Daily. The feature brings Gap’s namesake-brand merchandise into AI-generated […]\nThe post Gap expands AI shopping with Alta Daily and new discovery tools appeared first on Digital Commerce ...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "shopping"
+            ]
+          },
+          "aiSummary": "Gap Inc. launched AI-powered product discovery for Old Navy and Banana Republic and introduced an online styling experience with Alta Daily for its main brand.",
+          "translations": {
+            "da": {
+              "title": "Gap udvider AI-shopping med Alta Daily og nye opdagelsesværktøjer",
+              "summary": "Gap Inc. lancerede AI-drevet produktopdagelse for Old Navy og Banana Republic og introducerede en online stylingoplevelse med Alta Daily for sit hovedmærke."
+            },
+            "es": {
+              "title": "Gap amplía las compras con IA con Alta Daily y nuevas herramientas de descubrimiento",
+              "summary": "Gap Inc. lanzó el descubrimiento de productos impulsado por IA para Old Navy y Banana Republic e introdujo una experiencia de estilo en línea con Alta Daily para su marca principal."
+            }
+          }
+        },
+        {
+          "id": "62bgtj",
+          "title": "Amazon retail division hit by job cuts",
+          "url": "https://www.retaildive.com/news/amazon-retail-stores-division-layoffs/832501/",
+          "source": "Retail Dive",
+          "published_at": "2026-10-08T16:08:00.000Z",
+          "ingested_at": "2026-10-09T12:02:46.081Z",
+          "snippet": "The e-commerce giant is changing the structure of its stores business, impacting hundreds of employees.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "e-commerce"
+            ]
+          },
+          "aiSummary": "Amazon is restructuring its stores division, cutting hundreds of jobs in its retail business.",
+          "translations": {
+            "da": {
+              "title": "Amazon detailafdeling ramt af fyringer",
+              "summary": "Amazon omstrukturerer sin butiksafdeling og skærer hundreder af job i sin detailvirksomhed."
+            },
+            "es": {
+              "title": "División minorista de Amazon afectada por recortes de empleo",
+              "summary": "Amazon está reestructurando su división de tiendas, recortando cientos de empleos en su negocio minorista."
+            }
+          }
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 554,
+      "top": [
+        {
+          "id": "q27ism",
+          "title": "The E-Commerce Basics Brands Need to Get Right",
+          "url": "https://www.businessoffashion.com/articles/retail/bof-insights-amazon-fashion-sports-europe-e-commerce-online-data/",
+          "source": "Business of Fashion (via Bing News)",
+          "published_at": "2026-10-08T17:00:00.000Z",
+          "ingested_at": "2026-10-09T12:02:46.081Z",
+          "snippet": "Brands may be racing to invest in new technology, but the biggest barrier to online sales is far more basic, finds BoF Insights and Amazon Fashion & Sports’ latest report ‘Inside Fashion & Sports ...",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "aiSummary": "BoF Insights and Amazon Fashion & Sports report that basic e-commerce issues, not new technology, remain the main barrier to online sales for brands.",
+          "translations": {
+            "da": {
+              "title": "De grundlæggende e-handelsprincipper, brands skal mestre",
+              "summary": "BoF Insights og Amazon Fashion & Sports rapporterer, at grundlæggende e-handelsproblemer, ikke ny teknologi, fortsat er den største barriere for online salg for brands."
+            },
+            "es": {
+              "title": "Los fundamentos del comercio electrónico que las marcas deben dominar",
+              "summary": "BoF Insights y Amazon Fashion & Sports informan que los problemas básicos del comercio electrónico, no la nueva tecnología, siguen siendo la principal barrera para las ventas en línea de las marcas."
+            }
+          }
+        },
+        {
+          "id": "2jw0sw",
+          "title": "Americans Like European Fashion Brands, but Will Abandon Baskets Due to Taxes, Sizing, Returns",
+          "url": "https://wwd.com/business-news/retail/americans-europe-fashion-challenges-purchasing-taxes-sizing-1239332851/",
+          "source": "WWD - Business News",
+          "published_at": "2026-10-08T15:32:10.000Z",
+          "ingested_at": "2026-10-09T12:02:46.081Z",
+          "snippet": "According to new research into U.S. customers’ appetite for European fashion brands “the challenge is not demand, it is converting that demand into revenue.”",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand",
+              "demand"
+            ]
+          },
+          "aiSummary": "US shoppers show strong interest in European fashion brands but often abandon online purchases due to taxes, sizing issues and complicated returns.",
+          "translations": {
+            "da": {
+              "title": "Amerikanere Kan Godt Lide Europæiske Modebrands, men Vil Opgive Kurve på Grund af Skatter, Størrelser og Returneringer",
+              "summary": "Amerikanske kunder viser stor interesse for europæiske modebrands, men opgiver ofte onlinekøb på grund af skatter, størrelsesproblemer og komplicerede returneringer."
+            },
+            "es": {
+              "title": "A los Americanos les Gustan las Marcas de Moda Europeas, pero Abandonarán las Cestas por Impuestos, Tallas y Devoluciones",
+              "summary": "Los compradores estadounidenses muestran gran interés en las marcas de moda europeas, pero a menudo abandonan las compras en línea debido a impuestos, problemas de tallas y devoluciones complicadas."
+            }
+          }
+        },
+        {
+          "id": "dvzgqr",
+          "title": "Weird Fish delivers record results as it expands store estate",
+          "url": "https://www.theindustry.fashion/weird-fish-delivers-record-results-as-it-expands-store-estate/?utm_source=rss&utm_medium=rss&utm_campaign=weird-fish-delivers-record-results-as-it-expands-store-estate",
+          "source": "The Industry.fashion",
+          "published_at": "2026-10-05T07:00:25.000Z",
+          "ingested_at": "2026-10-05T19:00:20.123Z",
+          "snippet": "British clothing brand Weird Fish has reported a 24% rise in revenue to £52.7 million for the year ended 28 December 2025, with growth across its retail, concessions and online channels. The company said EBITDA […]",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "aiSummary": "Weird Fish grew revenue 24% to a record £52.7 million in 2025, with gains across retail, concessions and online.",
+          "translations": {
+            "da": {
+              "title": "Weird Fish leverer rekordresultater, mens det udvider butiksejendomme",
+              "summary": "Weird Fish øgede omsætningen med 24 % til en rekord på £52,7 millioner i 2025 med fremgang i detailhandel, koncessioner og online."
+            },
+            "es": {
+              "title": "Weird Fish logra resultados récord mientras expande su red de tiendas",
+              "summary": "Weird Fish aumentó los ingresos un 24 % hasta un récord de £52,7 millones en 2025, con ganancias en retail, concesiones y online."
+            }
+          }
+        },
+        {
+          "id": "dh5fmb",
+          "title": "Frasers Group unveils new strategy for global 'luxury ecosystem'",
+          "url": "https://www.theindustry.fashion/frasers-group-unveils-new-strategy-for-global-luxury-ecosystem/?utm_source=rss&utm_medium=rss&utm_campaign=frasers-group-unveils-new-strategy-for-global-luxury-ecosystem",
+          "source": "The Industry.fashion",
+          "published_at": "2026-10-05T12:49:08.000Z",
+          "ingested_at": "2026-10-05T19:00:20.123Z",
+          "snippet": "Flannels, Harvey Nichols and The Webster sit at the centre of a new platform combining retail, digital capabilities and brand investments. The announcement puts brand partnerships at the heart of Frasers’ next phase of expansion.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury",
+              "brand"
+            ]
+          },
+          "aiSummary": "Frasers Group launched a global luxury platform centred on Flannels, Harvey Nichols and The Webster, combining retail, digital and brand investment strategies.",
+          "translations": {
+            "da": {
+              "title": "Frasers Group præsenterer ny strategi for globalt 'luxury ecosystem'",
+              "summary": "Frasers Group lancerede en global luksusplatform med fokus på Flannels, Harvey Nichols og The Webster, der kombinerer detailhandel, digital og brandinvestering."
+            },
+            "es": {
+              "title": "Frasers Group presenta nueva estrategia para el 'ecosistema de lujo' global",
+              "summary": "Frasers Group lanzó una plataforma global de lujo centrada en Flannels, Harvey Nichols y The Webster, combinando estrategias de retail, digital e inversión en marcas."
+            }
+          }
+        },
+        {
+          "id": "crnpsc",
+          "title": "AAFA Recommends Meta-owned Platforms for USTR’s 2026 Notorious Markets Review",
+          "url": "https://wwd.com/sourcing-journal/industry-news/aafa-meta-facebook-instagram-ustr-2026-notorious-markets-review-counterfeits-1239334279/",
+          "source": "WWD - Women's Wear Daily",
+          "published_at": "2026-10-09T12:00:00.000Z",
+          "ingested_at": "2026-10-09T12:02:46.081Z",
+          "snippet": "The proliferation of dupes and fakes across online platforms like Facebook and Instagram is undercutting U.S. fashion brands and endangering consumers, the group said.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "consumer",
+              "brand"
+            ]
+          },
+          "aiSummary": "The American Apparel & Footwear Association urged USTR to include Facebook and Instagram in its 2026 Notorious Markets review due to counterfeit goods.",
+          "translations": {
+            "da": {
+              "title": "AAFA Anbefaler Meta-ejede Platforme til USTR’s 2026 Notorious Markets Gennemgang",
+              "summary": "American Apparel & Footwear Association opfordrede USTR til at inkludere Facebook og Instagram i sin 2026 Notorious Markets gennemgang på grund af forfalskede varer."
+            },
+            "es": {
+              "title": "AAFA Recomienda las Plataformas de Meta para la Revisión de Mercados Notorios 2026 de USTR",
+              "summary": "La American Apparel & Footwear Association instó a USTR a incluir Facebook e Instagram en su revisión de Mercados Notorios 2026 debido a productos falsificados."
+            }
+          }
+        },
+        {
+          "id": "bzbwik",
+          "title": "Levi Strauss reports Q3 net revenue growth of 4 percent, raises outlook",
+          "url": "https://fashionunited.com/news/business/levi-strauss-reports-q3-net-revenue-growth-of-4-percent-raises-outlook/2026100875090",
+          "source": "FashionUnited",
+          "published_at": "2026-10-08T06:44:27.000Z",
+          "ingested_at": "2026-10-09T12:02:46.081Z",
+          "snippet": "Levi's store New York Credits: Levi Strauss&Co.\n\nUS fashion group Levi Strauss & Co. (Levi Strauss) has reported net revenues of 1.6 billion dollars for the third quarter ended August 30, 2026, representing an increase of 4 percent on a reported basis and 5 percent on an organic basis compared to the same period in 2025.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.15,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0.15,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Levi Strauss reported third quarter net revenues of 1.6 billion dollars, up 4 percent year-on-year on a reported basis.",
+          "translations": {
+            "da": {
+              "title": "Levi Strauss rapporterer nettoomsætningsvækst på 4 procent i tredje kvartal og hæver forventningerne",
+              "summary": "Levi Strauss rapporterede nettoomsætning på 1,6 milliarder dollars i tredje kvartal, en stigning på 4 procent år-til-år på rapporteret basis."
+            },
+            "es": {
+              "title": "Levi Strauss reporta un crecimiento del 4 por ciento en ingresos netos del tercer trimestre y eleva sus perspectivas",
+              "summary": "Levi Strauss reportó ingresos netos de 1.6 mil millones de dólares en el tercer trimestre, un aumento del 4 por ciento interanual en términos reportados."
+            }
+          }
+        },
+        {
+          "id": "tv4zkz",
+          "title": "Falic Group outlines Middle East retail and F&B ambitions and plans luxury expansion at US airports",
+          "url": "https://moodiedavittreport.com/falic-group-outlines-middle-east-retail-and-fb-ambitions-and-plans-luxury-expansion-at-us-airports/?utm_source=rss&utm_medium=rss&utm_campaign=falic-group-outlines-middle-east-retail-and-fb-ambitions-and-plans-luxury-expansion-at-us-airports",
+          "source": "Moodie Davitt Report",
+          "published_at": "2026-10-06T07:30:35.000Z",
+          "ingested_at": "2026-10-06T12:11:38.608Z",
+          "snippet": "Falic Group President Leon Falic says the company plans to expand its luxury store portfolio at Zayed International Airport in Abu Dhabi and reveals plans to begin food & beverage operations at the location.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury"
+            ]
+          },
+          "aiSummary": "Falic Group will expand its luxury stores and launch food and beverage operations at Zayed International Airport in Abu Dhabi.",
+          "translations": {
+            "da": {
+              "title": "Falic Group skitserer ambitioner for detailhandel og F&B i Mellemøsten og planlægger luksusudvidelse i amerikanske lufthavne",
+              "summary": "Falic Group vil udvide sine luksusbutikker og lancere mad- og drikkevareaktiviteter i Zayed International Airport i Abu Dhabi."
+            },
+            "es": {
+              "title": "Falic Group detalla ambiciones en retail y F&B en Oriente Medio y planea expansión de lujo en aeropuertos de EE.UU.",
+              "summary": "Falic Group ampliará sus tiendas de lujo y lanzará operaciones de alimentos y bebidas en el Aeropuerto Internacional Zayed en Abu Dhabi."
+            }
+          }
+        }
+      ]
+    },
+    "Jewellery_Industry": {
+      "total": 291,
+      "top": [
+        {
+          "id": "qwc4y",
+          "title": "Plumb Club Podcast Offers Jewelers Strategies for Managing Tariffs",
+          "url": "https://www.jckonline.com/editorial-article/plumb-club-podcast-tariffs/",
+          "source": "JCK - Editorial",
+          "published_at": "2026-10-08T16:30:19.000Z",
+          "ingested_at": "2026-10-09T12:02:46.081Z",
+          "snippet": "A new podcast from the Plumb Club examines how rapidly changing tariffs are affecting jewelry supply chains and offers practical steps retailers can take to protect their margins. Hosted by Cheryl Kremkow, the episode features Sara Yood, president, CEO, and general counsel of the Jewelers Vigilance Committee, and Steven Lerche, president of the Plumb Club…",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewelry",
+              "retailer"
+            ]
+          },
+          "aiSummary": "The Plumb Club launched a podcast episode with Sara Yood and Steven Lerche outlining strategies for jewelers to manage supply chain tariffs and protect margins.",
+          "translations": {
+            "da": {
+              "title": "Plumb Club Podcast Tilbyder Smykkeforhandlere Strategier til Håndtering af Told",
+              "summary": "Plumb Club lancerede en podcast-episode med Sara Yood og Steven Lerche, der skitserer strategier for smykkeforhandlere til at håndtere forsyningskædetold og beskytte marginer."
+            },
+            "es": {
+              "title": "Plumb Club Podcast Ofrece Estrategias para Joyeros para Gestionar Aranceles",
+              "summary": "Plumb Club lanzó un episodio de podcast con Sara Yood y Steven Lerche que describe estrategias para que los joyeros gestionen los aranceles de la cadena de suministro y protejan los márgenes."
+            }
+          }
+        },
+        {
+          "id": "s7sqq5",
+          "title": "Blue Nile Becomes Exclusive North American Retailer of Royal Asscher Diamonds",
+          "url": "https://instoremag.com/blue-nile-becomes-exclusive-north-american-retailer-of-royal-asscher-diamonds/",
+          "source": "Instore Magazine",
+          "published_at": "2026-10-09T04:45:09.000Z",
+          "ingested_at": "2026-10-09T12:02:46.081Z",
+          "snippet": "The deal is part of Signet’s push to make Blue Nile its top luxury brand, with a focus on natural diamonds.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "diamond",
+              "retailer"
+            ]
+          },
+          "aiSummary": "Blue Nile has become the exclusive North American retailer of Royal Asscher diamonds as Signet aims to position it as its top luxury brand.",
+          "translations": {
+            "da": {
+              "title": "Blue Nile bliver eksklusiv detailhandler af Royal Asscher-diamanter i Nordamerika",
+              "summary": "Blue Nile er blevet den eksklusive detailhandler af Royal Asscher-diamanter i Nordamerika, da Signet ønsker at positionere det som sit førende luksusbrand."
+            },
+            "es": {
+              "title": "Blue Nile se convierte en el minorista exclusivo de diamantes Royal Asscher en Norteamérica",
+              "summary": "Blue Nile se ha convertido en el minorista exclusivo de diamantes Royal Asscher en Norteamérica, mientras Signet busca posicionarlo como su principal marca de lujo."
+            }
+          }
+        },
+        {
+          "id": "289zfl",
+          "title": "Titan Sees Surge in Diamond-Jewelry Sales in Second Quarter ",
+          "url": "https://rapaport.com/news/titan-sees-surge-in-diamond-jewelry-sales-in-second-quarter/",
+          "source": "Rapaport News",
+          "published_at": "2026-10-07T14:50:34.000Z",
+          "ingested_at": "2026-10-08T12:12:21.799Z",
+          "snippet": "Overall revenue up 25% year on year.\nThe post Titan Sees Surge in Diamond-Jewelry Sales in Second Quarter  appeared first on Rapaport.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewelry",
+              "diamond"
+            ]
+          },
+          "aiSummary": "Titan’s overall revenue rose 25% year on year in the second quarter, driven by strong diamond-jewelry sales.",
+          "translations": {
+            "da": {
+              "title": "Titan oplever stigning i salg af diamant-smykker i andet kvartal",
+              "summary": "Titans samlede omsætning steg med 25 % år for år i andet kvartal, drevet af stærkt salg af diamant-smykker."
+            },
+            "es": {
+              "title": "Titan ve un aumento en las ventas de joyería con diamantes en el segundo trimestre",
+              "summary": "Los ingresos totales de Titan aumentaron un 25 % interanual en el segundo trimestre, impulsados por fuertes ventas de joyería con diamantes."
+            }
+          }
+        },
+        {
+          "id": "wxz2n4",
+          "title": "New York Ranks No. 1 State for Engagement Ring Shopping",
+          "url": "https://instoremag.com/new-york-ranks-no-1-state-for-engagement-ring-shopping/",
+          "source": "Instore Magazine",
+          "published_at": "2026-10-11T09:47:53.000Z",
+          "ingested_at": "2026-10-11T12:31:09.295Z",
+          "snippet": "Study cites nation’s highest search rate for engagement rings and nearly 2,000 jewelry stores.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewelry"
+            ]
+          },
+          "aiSummary": "New York leads US engagement ring shopping with the highest search rate and nearly 2,000 jewelry stores.",
+          "translations": {
+            "da": {
+              "title": "New York er nr. 1 stat for køb af forlovelsesringe",
+              "summary": "New York fører i USA inden for køb af forlovelsesringe med den højeste søgeaktivitet og næsten 2.000 smykkebutikker."
+            },
+            "es": {
+              "title": "New York es el estado número 1 para comprar anillos de compromiso",
+              "summary": "New York lidera la compra de anillos de compromiso en EE. UU. con la tasa de búsqueda más alta y casi 2,000 joyerías."
+            }
+          }
+        },
+        {
+          "id": "erkgww",
+          "title": "OPINION: The new luxury salesperson",
+          "url": "https://www.professionaljeweller.com/opinion-the-new-luxury-salesperson/",
+          "source": "Professional Jeweller (via Bing News)",
+          "published_at": "2026-10-08T02:24:00.000Z",
+          "ingested_at": "2026-10-08T12:12:21.799Z",
+          "snippet": "The greatest threat facing luxury jewellery is not AI, e-commerce or even changing consumer habits. It is abundance. Ellie Taylor-Roberts writes ...",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Ellie Taylor-Roberts argues that abundance, not AI or e-commerce, is now the biggest threat to luxury jewellery sales.",
+          "translations": {
+            "da": {
+              "title": "MENING: Den nye luksussælger",
+              "summary": "Ellie Taylor-Roberts hævder, at overflod, ikke AI eller e-handel, nu er den største trussel mod salg af luksussmykker."
+            },
+            "es": {
+              "title": "OPINIÓN: El nuevo vendedor de lujo",
+              "summary": "Ellie Taylor-Roberts sostiene que la abundancia, no la IA ni el comercio electrónico, es ahora la mayor amenaza para las ventas de joyería de lujo."
+            }
+          }
+        },
+        {
+          "id": "6pf38d",
+          "title": "20 Chinese gold and jewelry brands to know in 2026",
+          "url": "https://jingdaily.com/posts/20-chinese-gold-and-jewelry-brands-to-know-in-2026",
+          "source": "Jing Daily (via Bing News)",
+          "published_at": "2026-10-05T05:28:00.000Z",
+          "ingested_at": "2026-10-05T19:00:20.123Z",
+          "snippet": "From heritage goldsmithing to contemporary design, these jewelers are shaping how a new generation wears its wealth.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewelry",
+              "gold"
+            ]
+          },
+          "aiSummary": "Twenty Chinese gold and jewelry brands are highlighted as shaping consumer tastes and design trends for 2026.",
+          "translations": {
+            "da": {
+              "title": "20 kinesiske guld- og smykkemærker, du skal kende i 2026",
+              "summary": "Tyve kinesiske guld- og smykkemærker fremhæves som formende for forbrugersmag og designtrends i 2026."
+            },
+            "es": {
+              "title": "20 marcas chinas de oro y joyería para conocer en 2026",
+              "summary": "Veinte marcas chinas de oro y joyería se destacan por influir en los gustos del consumidor y las tendencias de diseño para 2026."
+            }
+          }
+        },
+        {
+          "id": "7uk4kc",
+          "title": "TH March to launch new TV campaign to educate consumers",
+          "url": "https://www.professionaljeweller.com/th-march-to-launch-new-tv-campaign/",
+          "source": "Professional Jeweller (via Bing News)",
+          "published_at": "2026-10-09T00:54:00.000Z",
+          "ingested_at": "2026-10-09T12:02:46.081Z",
+          "snippet": "TH March is set to inform the national consumer audience about specialist jewellery and watch insurance in a new TV campaign ...",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller",
+              "watch"
+            ]
+          },
+          "aiSummary": "TH March will launch a national TV campaign to educate consumers about specialist jewellery and watch insurance.",
+          "translations": {
+            "da": {
+              "title": "TH March lancerer ny TV-kampagne for at oplyse forbrugere",
+              "summary": "TH March lancerer en national TV-kampagne for at oplyse forbrugere om specialistforsikring for smykker og ure."
+            },
+            "es": {
+              "title": "TH March lanzará nueva campaña de TV para educar a los consumidores",
+              "summary": "TH March lanzará una campaña nacional de TV para educar a los consumidores sobre seguros especializados para joyería y relojes."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "oneSentenceSummary": "Americans abandon European fashion over taxes and returns. A famous name buys you nothing when checkout feels like a trap.",
+  "keyThemes": [
+    "Anthropic Claude Haiku 55",
+    "Meta Platforms AI investment",
+    "Amazon job cuts",
+    "Blue Nile Royal Asscher",
+    "Titan diamond sales surge"
+  ],
+  "editorialTake": "I think cheaper AI makes dependable ecommerce execution a stronger competitive advantage for luxury brands. Discovery investment earns little when shoppers cannot confidently complete the purchase.\n\nAnthropic priced Haiku 5.5 75% below Haiku 4.5, while BoF Insights and Amazon Fashion & Sports identify basic ecommerce failures as the main barrier to online sales. WWD reports Americans abandon European fashion purchases over taxes and complicated returns, exposing the friction cheaper discovery leaves untouched. Gap's AI styling offers a case for better discovery, but cannot resolve those purchase barriers.\n\nNext quarter, I would make jewellery teams disclose landed costs before checkout and explain returns clearly on product pages. Fund further AI discovery only after measuring whether those changes reduce basket abandonment for overseas shoppers.",
+  "coverImageUrl": "/weekly-images/2026-W41.png",
+  "coverImageAlt": "Weekly cover illustration for 2026-W41"
+}

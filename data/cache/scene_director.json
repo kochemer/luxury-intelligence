@@ -965,5 +965,30 @@
     "version": "v8",
     "cached_at": "2026-10-04T12:27:16.644Z",
     "variant": "safe"
+  },
+  "98146d19a14602d542903219dc83dabb301c20f93f00eeaaa4c9f1b997456273": {
+    "output": {
+      "concept": "delivery-van-packing-tape-spare-wheel",
+      "setting": "delivery-van maintenance bay",
+      "primaryHumorDriver": "scale absurdity",
+      "secondaryEnhancer": "unexpected texture/material combo",
+      "sceneDescription": "After festive ecommerce sales hit four to five times their daily average, a delivery van has apparently started using packing tape for tires. In an otherwise ordinary maintenance bay, the rear wheel of a plain white delivery van has been replaced by one absurdly oversized roll of brown packing tape. Its cardboard core surrounds the axle, and a short sticky tail adheres to the concrete floor, making the delivery vehicle look ready to wrap the road rather than drive on it. No people are present.",
+      "finalImagePrompt": "An unoccupied delivery-van maintenance bay with pale walls and daylight through an open doorway. A plain white van is seen side-on, its rear wheel replaced by one enormous roll of translucent brown packing tape, its cardboard core fitted around the axle. A short peeled tape tail sticks to the worn concrete floor. The ordinary front tire remains visible. Scuffed paint, dusty rubber, genuine reflections. Wide landscape photograph; no visible writing, logos, license plates or screens.",
+      "negativePrompt": [
+        "people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette",
+        "text, letters, numbers, signage, labels, price tags",
+        "screens, UI, dashboards, holograms, floating icons",
+        "watermarks, unrelated brand logos",
+        "cartoon, illustration, CGI, 3D render, anime, video game render",
+        "AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed",
+        "diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone",
+        "dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh",
+        "piles of packages, mountains of boxes, overflowing room, multiple oversized tape rolls"
+      ],
+      "confidence": 0.69
+    },
+    "version": "v8",
+    "cached_at": "2026-10-11T12:55:00.870Z",
+    "variant": "safe"
   }
 }

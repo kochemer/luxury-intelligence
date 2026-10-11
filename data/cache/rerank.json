@@ -5614,5 +5614,197 @@
     ],
     "cached_at": "2026-10-04T12:25:44.030Z",
     "model": "gpt-4.1"
+  },
+  "2026-W41:AI_and_Strategy:gpt-4.1:i18:e0e82df7341f": {
+    "selected": [
+      {
+        "id": "11",
+        "rank": 1,
+        "why": "OpenAI revenue reset impacts AI industry economics and market expectations",
+        "confidence": 0.95
+      },
+      {
+        "id": "3",
+        "rank": 2,
+        "why": "Anthropic's Claude Haiku 5.5 price cuts signal AI inference cost war",
+        "confidence": 0.92
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "Chipmaker performance tied to AI platform growth and compute demand",
+        "confidence": 0.9
+      },
+      {
+        "id": "6",
+        "rank": 4,
+        "why": "Major $1.8B public-private push for AI-driven biology data infrastructure",
+        "confidence": 0.88
+      },
+      {
+        "id": "15",
+        "rank": 5,
+        "why": "Anthropic expands Claude 5.5 lineup, signaling model competition pre-IPO",
+        "confidence": 0.87
+      },
+      {
+        "id": "14",
+        "rank": 6,
+        "why": "Enterprise AI agent integration with knowledge bases advances agentic workflows",
+        "confidence": 0.85
+      },
+      {
+        "id": "13",
+        "rank": 7,
+        "why": "New benchmark for high-precision human motion aids robotics and AI evaluation",
+        "confidence": 0.83
+      }
+    ],
+    "cached_at": "2026-10-11T12:49:12.005Z",
+    "model": "gpt-4.1"
+  },
+  "2026-W41:Ecommerce_Retail_Tech:gpt-4.1:i18:c31edd462467": {
+    "selected": [
+      {
+        "id": "3",
+        "rank": 1,
+        "why": "Major ecommerce sales surge with quantified data and platform trends",
+        "confidence": 0.95
+      },
+      {
+        "id": "13",
+        "rank": 2,
+        "why": "IKEA launches marketplace for second-hand goods, shifting platform dynamics",
+        "confidence": 0.92
+      },
+      {
+        "id": "2",
+        "rank": 3,
+        "why": "AI-driven pricing scrutiny impacts retail operations and compliance",
+        "confidence": 0.9
+      },
+      {
+        "id": "12",
+        "rank": 4,
+        "why": "Lidl's digital loyalty drives significant customer growth and visits",
+        "confidence": 0.88
+      },
+      {
+        "id": "8",
+        "rank": 5,
+        "why": "Retail media's impact on merchandising and monetization analyzed",
+        "confidence": 0.87
+      },
+      {
+        "id": "5",
+        "rank": 6,
+        "why": "Gap expands AI shopping tools, showing real-world personalization adoption",
+        "confidence": 0.85
+      },
+      {
+        "id": "0",
+        "rank": 7,
+        "why": "Amazon restructures retail division, signaling major operational shift",
+        "confidence": 0.84
+      }
+    ],
+    "cached_at": "2026-10-11T12:49:20.345Z",
+    "model": "gpt-4.1"
+  },
+  "2026-W41:Luxury_and_Consumer:gpt-4.1:i18:620e5c90beb5": {
+    "selected": [
+      {
+        "id": "1",
+        "rank": 1,
+        "why": "Actionable ecommerce basics for brands; practical CX and conversion focus",
+        "confidence": 0.95
+      },
+      {
+        "id": "7",
+        "rank": 2,
+        "why": "New research on US consumer barriers: taxes, sizing, returns",
+        "confidence": 0.92
+      },
+      {
+        "id": "6",
+        "rank": 3,
+        "why": "Case study: store expansion driving record revenue growth",
+        "confidence": 0.9
+      },
+      {
+        "id": "9",
+        "rank": 4,
+        "why": "Frasers Group's new global luxury retail strategy; digital integration",
+        "confidence": 0.88
+      },
+      {
+        "id": "13",
+        "rank": 5,
+        "why": "Counterfeit risk on Meta platforms; direct ecommerce compliance implications",
+        "confidence": 0.87
+      },
+      {
+        "id": "11",
+        "rank": 6,
+        "why": "Levi's Q3 results with revenue growth and outlook; retail benchmarks",
+        "confidence": 0.85
+      },
+      {
+        "id": "16",
+        "rank": 7,
+        "why": "Falic Group's luxury retail expansion plans; store and channel strategy",
+        "confidence": 0.83
+      }
+    ],
+    "cached_at": "2026-10-11T12:49:29.376Z",
+    "model": "gpt-4.1"
+  },
+  "2026-W41:Jewellery_Industry:gpt-4.1:i18:98ada9443d42": {
+    "selected": [
+      {
+        "id": "6",
+        "rank": 1,
+        "why": "Actionable tariff strategies for jewelry supply chain management",
+        "confidence": 0.95
+      },
+      {
+        "id": "4",
+        "rank": 2,
+        "why": "Blue Nile's exclusive deal signals luxury ecommerce strategy shift",
+        "confidence": 0.9
+      },
+      {
+        "id": "13",
+        "rank": 3,
+        "why": "Titan's 25% sales surge offers retail growth benchmarks",
+        "confidence": 0.88
+      },
+      {
+        "id": "8",
+        "rank": 4,
+        "why": "Engagement ring shopping data highlights US retail opportunity",
+        "confidence": 0.85
+      },
+      {
+        "id": "1",
+        "rank": 5,
+        "why": "Analysis of evolving luxury sales roles in retail context",
+        "confidence": 0.83
+      },
+      {
+        "id": "17",
+        "rank": 6,
+        "why": "Overview of top Chinese brands informs global merchandising",
+        "confidence": 0.8
+      },
+      {
+        "id": "16",
+        "rank": 7,
+        "why": "Jewelry insurance campaign impacts consumer trust and conversion",
+        "confidence": 0.78
+      }
+    ],
+    "cached_at": "2026-10-11T12:49:37.822Z",
+    "model": "gpt-4.1"
   }
 }
