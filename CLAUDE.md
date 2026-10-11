@@ -160,6 +160,7 @@ Scripts must call `loadEnv()` from `lib/env.ts` at startup. Key variables:
 | `ANALYTICS_PASSWORD` | Gate for the private `/analytics` dashboard |
 | `INDEXNOW_KEY` | IndexNow pings after publishing |
 | `NEXT_PUBLIC_FEEDBACK_FORM_ACTION` | Form endpoint for `/feedback` |
+| `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, `YOUTUBE_REFRESH_TOKEN` | Upload of the weekly Short to @luxury-intel (OAuth "uploader" Desktop client in GCP project `wired-height-456014-u8`). Token from `npx tsx scripts/youtubeAuth.ts`, which also sets the GitHub secrets. See `video-short/README.md` |
 
 Optional tuning knobs (model overrides, selection limits, debug flags) are listed in `docs/operations.md`.
 

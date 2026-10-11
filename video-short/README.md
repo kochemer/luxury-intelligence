@@ -44,6 +44,25 @@ Output (gitignored): `data/weeks/<week>/video-short/` (mp4s, `script.json`,
 - Story length target: 140–160 words (at 180 wpm, about 50 s), so the whole
   video lands near a minute with the bookends.
 
+## YouTube (set up 2026-10-11; upload step not built yet)
+
+Owner decisions (2026-10-10): the weekly Short goes to YouTube
+[@luxury-intel](https://www.youtube.com/@luxury-intel) as a **vertical Short only**,
+and the same video is embedded on the digest page. Brand logos are fine to use
+(editorial use); the manual logo review is dropped.
+
+- Auth: OAuth "uploader" Desktop client in Google Cloud project
+  `wired-height-456014-u8` ("My First Project", also home of the Search Console
+  service account; don't touch IAM/service accounts there). Google Auth Platform
+  app "Luxury Intel Uploader" is **In production**, unverified on purpose
+  (one user, warning screen accepted). In Testing, refresh tokens expire after
+  7 days. Scopes: `youtube.upload` + `youtube`.
+- `npx tsx scripts/youtubeAuth.ts` does the one-time sign-in: saves
+  `YOUTUBE_REFRESH_TOKEN` to `.env.local` and sets the three `YOUTUBE_*` GitHub
+  secrets via stdin. Re-run it if uploads start failing with `invalid_grant`.
+- **Uploads are forced to private** until the project passes YouTube's API
+  audit (projects created after 2020-07-28). Audit not yet requested as of 2026-10-11.
+
 ## Things that will bite you
 
 - **Text must never spill.** The template's `__checkLayout` runs before every
