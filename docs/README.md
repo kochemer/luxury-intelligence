@@ -115,6 +115,7 @@ Docs-Skip: prompt wording tweak, no documented behaviour changed
 | `seo/`, `lib/seo/` | any `docs/seo-*.md` |
 | `markets/`, `lib/markets/` | `CLAUDE.md` or the markets spec |
 | `video-short/src/`, `video-short/template/` | `video-short/README.md` |
+| `docs/youtube-audit/README.md` | Evidence submitted for the YouTube API audit (screenshots, overview PDF) | current | 2026-10-12 |
 | `lib/db/schema.ts`, `middleware.ts`, `lib/env.ts` | `CLAUDE.md` |
 
 The trailer is the escape hatch, and it's meant to make "no doc needed" a

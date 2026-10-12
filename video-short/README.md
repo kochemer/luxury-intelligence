@@ -75,7 +75,7 @@ and the same video is embedded on the digest page. Brand logos are fine to use
   when `video.json` says `"public": true`; `upload.ts --sync` (first step of
   every run, or the workflow's `sync_only` input) flips it once YouTube serves
   it. Audit requested 2026-10-12 (YouTube API Services audit form, individual
-  applicant, default 10,000 quota, evidence in the owner's Documents/youtube-audit-evidence).
+  applicant, default 10,000 quota, evidence in docs/youtube-audit/).
   Waiting for Google's reply as of 2026-10-12.
 - W39 was uploaded privately as the end-to-end test (2026-10-11,
   `I2DlQjpvjso`); its record stays `"public": false`.
