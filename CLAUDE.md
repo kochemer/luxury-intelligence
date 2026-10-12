@@ -260,7 +260,9 @@ See `docs/README.md` §4 for how they relate.
 - Amplitude (analytics + session replay) starts **only after consent**
   (`app/components/AmplitudeInit.tsx`, `lib/analytics/consent.ts`). Don't add
   anything that loads a third-party tracker or writes browser storage before
-  `getAnalyticsConsent()` is true. Privacy notice: `/about#privacy`.
+  `getAnalyticsConsent()` is true. Privacy notice: `/about#privacy`. Terms: `/terms`
+  (2026-10-12; both carry the YouTube sections the YouTube API audit requires, so
+  keep them if you edit either).
 - Outbound article clicks are counted without cookies too: `countArticleClick` (`lib/analytics/beacon.ts`) →
   `/api/click` → `article_clicks` (day + article only, nothing about the reader).
 - Every visit is counted without cookies by `VisitCounter` → `/api/hit` →

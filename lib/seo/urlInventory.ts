@@ -18,7 +18,7 @@ import { weekLabelToSlug } from '@/lib/utils/weekSlug';
  * Exported because seo/audit/staticAudit.ts checks its age — keep it a single
  * constant so the sitemap and the auditor can never disagree about the date.
  */
-export const STATIC_PAGE_LAST_MODIFIED = new Date('2026-06-02');
+export const STATIC_PAGE_LAST_MODIFIED = new Date('2026-10-12');
 
 export interface IndexableUrlEntry {
   url: string;
@@ -104,6 +104,7 @@ export async function getIndexableUrls(baseUrl: string): Promise<IndexableUrlEnt
     { url: `${baseUrl}/email-digest`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.7, kind: 'static' },
     { url: `${baseUrl}/subscribe`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.8, kind: 'static' },
     { url: `${baseUrl}/support`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.5, kind: 'static' },
+    { url: `${baseUrl}/terms`, lastModified: STATIC_PAGE_LAST_MODIFIED, changeFrequency: 'yearly', priority: 0.2, kind: 'static' },
     // Markets pages are rebuilt with every weekly digest.
     { url: `${baseUrl}/markets/luxury`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.7, kind: 'static' },
     { url: `${baseUrl}/markets/jewellery`, lastModified: latestContentChange, changeFrequency: 'weekly', priority: 0.7, kind: 'static' },

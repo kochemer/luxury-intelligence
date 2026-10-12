@@ -335,7 +335,7 @@ run against production, which yours does not.
 
 | Path | What |
 |---|---|
-| `lib/seo/urlInventory.ts` | every indexable URL — the source `app/sitemap.ts` wraps |
+| `lib/seo/urlInventory.ts` | every indexable URL — the source `app/sitemap.ts` wraps. Static pages: `/about`, `/methodology`, `/email-digest`, `/subscribe`, `/support`, `/terms` (added 2026-10-12), Markets |
 | `lib/seo/metaText.ts` | digest titles and descriptions |
 | `lib/seo/jsonLd.ts` | structured data, `@id`-anchored entity graph |
 | `seo/audit/` | static, live and indexing checks |

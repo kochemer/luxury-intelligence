@@ -313,7 +313,7 @@ export default function AboutPage() {
           <h2 className="text-section font-semibold text-[var(--color-text-primary)] mb-2">
             Privacy Policy
           </h2>
-          <p className="text-meta text-[var(--color-text-secondary)] mb-6">Last updated 11 October 2026</p>
+          <p className="text-meta text-[var(--color-text-secondary)] mb-6">Last updated 12 October 2026</p>
           <div className="space-y-4 text-body text-[var(--color-text-secondary)]">
             <p>
               <strong className="text-[var(--color-text-primary)]">Data controller.</strong> Luxury Intelligence
@@ -353,7 +353,19 @@ export default function AboutPage() {
               and the{' '}
               <a href="https://policies.google.com/privacy" className="text-[var(--color-accent)] underline underline-offset-2" target="_blank" rel="noopener">Google Privacy Policy</a>.
               We use YouTube API Services only to upload videos to our own channel; we never access visitors&apos;
-              YouTube or Google accounts.
+              YouTube or Google accounts, and no visitor is ever asked to sign in with Google.
+            </p>
+            <p>
+              <strong className="text-[var(--color-text-primary)]">YouTube API data: storage and deletion.</strong> The
+              only data we keep from YouTube API Services is about our own videos: each video&apos;s ID, title and
+              upload time, used to show it on the matching digest page. It is kept as long as the video is published
+              and deleted within 30 days of the video being removed from YouTube or from the site. Access is through
+              our own channel&apos;s authorisation, which we can revoke at any time in{' '}
+              <a href="https://security.google.com/settings/security/permissions" className="text-[var(--color-accent)] underline underline-offset-2" target="_blank" rel="noopener">Google Account security settings</a>;
+              anyone who has granted an app access to their Google account can revoke it on that page. Questions or
+              deletion requests: the email address above. Our{' '}
+              <Link href="/terms" className="text-[var(--color-accent)] underline underline-offset-2">Terms of Use</Link>{' '}
+              cover the videos too.
             </p>
             <p>
               <strong className="text-[var(--color-text-primary)]">Your rights.</strong> You can ask to see, correct,
