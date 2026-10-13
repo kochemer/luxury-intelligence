@@ -65,7 +65,11 @@ and the same video is embedded on the digest page. Brand logos are fine to use
   header). upload.ts writes `data/weeks/<week>/video.json` and a ~30 KB poster
   `public/video/shorts/<week>.jpg`; the MP4 is never committed.
 - Site: `lib/video/weeklyShort.ts` + `app/components/WatchOrListen.tsx` show the
-  Short next to the podcast on the homepage and digest pages, plus a
+  Short in a navy card (video + its title/story, 280 px wide on desktop) above
+  the podcast player on the homepage and digest pages. The Shorts embed has no
+  reliable fullscreen control, so the card has its own "Watch full screen"
+  button (`requestFullscreen` on the frame; hidden where unsupported, e.g.
+  iPhone, where the video goes full width on play instead). Plus a
   `VideoObject` (`buildVideoObjectLd` in `lib/seo/jsonLd.ts`). Our poster shows
   until the reader presses play; only then does the youtube-nocookie player
   load (consent rule). ES/DA pages stay podcast-only (noindex, English video).
