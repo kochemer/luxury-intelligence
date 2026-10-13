@@ -24,7 +24,7 @@ export const revalidate = 3600;
 
 const SHOW_TITLE = 'Luxury Intelligence Weekly';
 const SHOW_AUTHOR = 'Luxury Intelligence';
-const SHOW_EMAIL = 'hello@luxury-intel.com';
+const SHOW_EMAIL = 'luxuryintelligence@zohomail.eu';
 const SHOW_DESCRIPTION =
   'A weekly, AI-narrated briefing on what moved in luxury, jewellery, ecommerce and AI: ' +
   'the stories that mattered, why they matter, and what to watch next. ' +
