@@ -410,7 +410,7 @@ technical audit **11/20**, Lighthouse mobile home: performance 74, accessibility
 mockups before choosing a visual direction; work in stages, most critical first.
 The local snapshot is in `.impeccable/critique/` (untracked).
 
-**Stage 1 — Trust and accuracy [DONE 2026-10-13, STAGE1_HASH]**
+**Stage 1 — Trust and accuracy [DONE 2026-10-13, 6577fbd]**
 - Dates printed in the server's zone (UTC), so the Mon 5 – Sun 11 Oct W41
   window showed as "Oct 4–11" and "Published 04 October". All digest dates now
   go through `lib/utils/formatDate.ts` (Copenhagen); the dateline uses `builtAtISO`.
