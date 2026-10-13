@@ -233,7 +233,7 @@ poster image linking to `youtube.com/shorts/<id>`. Since 2026-10-13 the digest
 workflow sends the email only after the Short job (`weekly-short.yml`, called as a
 reusable workflow) has finished, so the Short is normally there. If the Short
 failed or is still private, the band links to the channel's Shorts tab instead.
-The podcast link is the MP3 itself (no Spotify/Apple listing yet).
+The podcast link is the MP3 itself; the show is on Spotify since 2026-10-13 (links in `docs/distribution.md`), not yet linked from the email.
 
 **Artifacts**:
 - `data/weeks/{week}/email-digest.json`: Email digest JSON

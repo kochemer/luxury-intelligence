@@ -262,7 +262,7 @@ coverage vs share price (`markets/attention.ts`).
 What to work on next comes from the owner's roadmap `luxury-intel-roadmap-2026-09.md`
 (repo root, **untracked on purpose**, so it may not exist in your clone). Other
 backlogs: `IMPROVEMENTS.md` (product ideas + engineering plan, including the staged design-review plan in Area 5) and `docs/seo-backlog.md`. Product truth for design work (users, success metric, "fully automated, no human review") is in `PRODUCT.md`.
-See `docs/README.md` §4 for how they relate.
+See `docs/README.md` §4 for how they relate. Outside channels (Spotify, Apple Podcasts, LinkedIn, X) and their account links: `docs/distribution.md`.
 
 ### Privacy, visit counter and /analytics
 

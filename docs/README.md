@@ -153,6 +153,7 @@ when you verify or rewrite a doc.
 | `docs/pipeline-decisions.md` | Which model each pipeline step uses and why; measured costs | current | 2026-10-09 |
 | `docs/sources-status.md` | Ingestion sources: dated measurements, open cleanup review (~2027-01-05) | current | 2026-10-05 |
 | `docs/automation.md` | GitHub Actions setup and secrets | reference | 2026-09-13 |
+| `docs/distribution.md` | Outside channels (Spotify, Apple, LinkedIn, X, YouTube): accounts, how each is fed, owner decisions | current | 2026-10-13 |
 | `docs/seo-system.md` | SEO system architecture, read first for SEO | current | 2026-10-04 |
 | `docs/seo-status.md` | SEO dated state, resume checklist | current | 2026-10-04 |
 | `docs/seo-decisions.md` | SEO design reasoning | current | 2026-09-21 |
