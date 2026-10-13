@@ -151,7 +151,7 @@ const en: Messages = {
   footer: {
     stayInformed: 'Stay Informed',
     stayInformedDesc: 'Get the weekly digest in your inbox.',
-    disclaimer: 'AI-assisted summaries — Not investment or business advice. Curated by The Editor.',
+    disclaimer: 'AI-generated summaries, published automatically without human review — Not investment or business advice.',
     privacy: 'Privacy',
     terms: 'Terms',
     youtube: 'YouTube',
@@ -233,7 +233,7 @@ const da: Messages = {
   footer: {
     stayInformed: 'Bliv informeret',
     stayInformedDesc: 'Få den ugentlige oversigt i din indbakke.',
-    disclaimer: 'AI-assisterede sammenfatninger — Ikke investerings- eller forretningsrådgivning. Kurateret af redaktøren.',
+    disclaimer: 'AI-genererede sammenfatninger, udgivet automatisk uden menneskelig gennemgang — Ikke investerings- eller forretningsrådgivning.',
     privacy: 'Privatliv',
     terms: 'Vilkår',
     youtube: 'YouTube',
@@ -315,7 +315,7 @@ const es: Messages = {
   footer: {
     stayInformed: 'Mantente informado',
     stayInformedDesc: 'Recibe el resumen semanal en tu bandeja de entrada.',
-    disclaimer: 'Resúmenes con IA — No son asesoramiento de inversión ni empresarial. Curado por el editor.',
+    disclaimer: 'Resúmenes generados con IA, publicados automáticamente sin revisión humana — No son asesoramiento de inversión ni empresarial.',
     privacy: 'Privacidad',
     terms: 'Términos',
     youtube: 'YouTube',

@@ -425,11 +425,12 @@ The local snapshot is in `.impeccable/critique/` (untracked).
 - StatsBar server HTML showed "0" (count-up started at 0).
 - Public empty state printed a build command; now reader copy and an archive link.
 - Copy: "eight ranked articles" → seven per category (28); ElevenLabs → OpenAI TTS.
-- **Open, needs the owner:** About says "AI-Assisted, Editor-Reviewed" and the
-  footer "Curated by The Editor", while Methodology lists "human curation or
-  manual editorial override" as something that does not happen, and the signed
-  "The Editor" column is AI-drafted (`app/components/EditorSpotlight.tsx`).
-  Which is true decides the copy.
+- Provenance (owner, 2026-10-13: issues are fully automated, no human review):
+  About no longer says "Editor-Reviewed", the footer no longer says "Curated by
+  The Editor", and the Spotlight column is signed "Written by AI" (commit below).
+  **Still open (SEO, needs a `docs/seo-decisions.md` entry):** `lib/seo/jsonLd.ts`
+  names the Person "The Editor" as author of each issue; decide whether issues
+  should credit the Organization instead.
 
 **Stage 2 — Critical accessibility and consent (independent of visual direction)**
 - Home h1 sits inside `aria-hidden` (`app/components/MastheadLockup.tsx`).

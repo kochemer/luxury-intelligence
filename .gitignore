@@ -92,3 +92,7 @@ public/workbox-*.js.map
 
 # Daily-ingestion buffer restored from the Actions cache (see daily-ingest.yml)
 .ingest-buffer/
+
+# Impeccable design skill: local run output (critique snapshots, mockups,
+# live-mode state). PRODUCT.md and DESIGN.md are the committed outputs.
+.impeccable/

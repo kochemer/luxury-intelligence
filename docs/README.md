@@ -21,6 +21,7 @@ One fact, one home. Everywhere else links to it.
 | Current state of a subsystem: dated numbers, what is live and what is only built | `docs/<area>-status.md` | Every claim carries a date. Replace stale numbers, don't append. |
 | Why a choice was made, what was rejected | `docs/<area>-decisions.md` | Check here before undoing something that looks odd. Owner decisions about the product go here too. |
 | Deploy, CI, re-runs, incidents, platform limits | `docs/operations.md` | |
+| Product truth for design work: users, purpose, constraints, brand commitments | `PRODUCT.md` | Owner-confirmed facts only; visual decisions go in a DESIGN.md file once one exists. |
 | Design of a feature before it is built | `docs/superpowers/specs/YYYY-MM-DD-<name>.md` | A frozen record. After shipping, add one `Status:` line at the top noting where the build differs from the spec. Don't rewrite it. |
 | Work not done yet | One backlog per scope (see §4) | Mark `[DONE]` / `[DROPPED]` with the commit hash. Don't delete. |
 | Finished one-off reports, investigations, superseded docs | `docs/archive/` | Never create new diagnostic `.md` files at the repo root. |
@@ -163,7 +164,8 @@ when you verify or rewrite a doc.
 | `RANKING_METHODOLOGY.md` | Selection and rerank method | reference (top-N + models verified; prompt/weights from Jan) | 2026-10-05 |
 | `DISCOVERY_USAGE.md` | Web discovery (Tavily) usage | reference | 2026-01-12 |
 | `SEO_METADATA.md`, `SEO_ROUTES.md` | Per-file SEO metadata and routes | current | 2026-09-09 |
-| `IMPROVEMENTS.md` | Product / GEO / infra backlog + engineering plan | current | 2026-10-05 |
+| `IMPROVEMENTS.md` | Product / GEO / infra backlog + engineering plan (Area 5: design review stages) | current | 2026-10-13 |
+| `PRODUCT.md` | Product truth for design work (users, purpose, constraints, brand commitments), read by the Impeccable design skill | current | 2026-10-13 |
 | `video-short/README.md` | Weekly 60s short video tool | current | 2026-10-05 |
 | `assets/audio/README.md` | Podcast source audio | reference | — |
 | `tools/ffmpeg/README.md` | Bundled FFmpeg | reference | — |

@@ -81,7 +81,8 @@ export function EditorSpotlight({ text, weekLabel, isOverride = false }: EditorS
 
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-[var(--color-text-secondary)] opacity-60">
-            The Editor
+            {/* Owner, 2026-10-13: issues are fully automated, so the column is not signed as a person. */}
+            Written by AI
           </span>
           {weekLabel && (
             <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-[var(--color-text-secondary)] opacity-35 select-none">

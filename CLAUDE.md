@@ -137,7 +137,7 @@ Neon Postgres via Drizzle ORM. Schema at `lib/db/schema.ts`, five tables:
 ### Routing & i18n
 
 - Default locale: English at `/`
-- Spanish at `/es/`, Danish at `/da/`: locale pages are thin wrappers that pass locale to shared components. Since 2026-09-18 they are `noindex`, out of the sitemap, with no hreflang (roadmap F2.3). robots.txt is untouched on purpose.
+- Spanish at `/es/`, Danish at `/da/`: the locale pages are copies of the English pages (`app/es/*`, `app/da/*`), not thin wrappers, and have drifted (no Short, Spotlight or rating; an older feedback page). A fix to an English page does not reach them; merging them is Stage 6 of `IMPROVEMENTS.md` Area 5. Since 2026-09-18 they are `noindex`, out of the sitemap, with no hreflang (roadmap F2.3). robots.txt is untouched on purpose.
 - `lib/i18n/messages.ts` holds all UI string dictionaries
 - `middleware.ts` handles www→non-www, trailing slash removal, and gclid/fbclid stripping (308); utm_* params are intentionally preserved for client-side attribution
 - `/week/YYYY-Www` → `/digest/slug` permanent redirects built at compile time in `next.config.ts`
@@ -261,7 +261,7 @@ coverage vs share price (`markets/attention.ts`).
 
 What to work on next comes from the owner's roadmap `luxury-intel-roadmap-2026-09.md`
 (repo root, **untracked on purpose**, so it may not exist in your clone). Other
-backlogs: `IMPROVEMENTS.md` (product ideas + engineering plan) and `docs/seo-backlog.md`.
+backlogs: `IMPROVEMENTS.md` (product ideas + engineering plan, including the staged design-review plan in Area 5) and `docs/seo-backlog.md`. Product truth for design work (users, success metric, "fully automated, no human review") is in `PRODUCT.md`.
 See `docs/README.md` §4 for how they relate.
 
 ### Privacy, visit counter and /analytics
