@@ -119,6 +119,64 @@ const C = {
 const SERIF  = "Georgia, 'Times New Roman', serif";
 const SANS   = "'Helvetica Neue', Arial, Helvetica, sans-serif";
 
+const YOUTUBE_CHANNEL = 'https://www.youtube.com/@luxury-intel';
+
+function formatMinutes(seconds: number | undefined): string {
+  return seconds ? `${Math.max(1, Math.round(seconds / 60))} min` : '';
+}
+
+/**
+ * "Watch & listen" band: the week's Short (poster linking to YouTube, since
+ * email can't embed video) above the podcast link. The Short is uploaded after
+ * the Monday send, so without one the band links to the YouTube channel's
+ * Shorts tab, where it appears within the hour.
+ */
+function renderMediaBlock(digest: EmailDigest, week: string): string {
+  const { short, podcast } = digest;
+  const shortUrl = short ? `https://www.youtube.com/shorts/${short.youtubeId}` : `${YOUTUBE_CHANNEL}/shorts`;
+  const podcastUrl = podcast ? withEmailUtms(`${CANONICAL_URL}${podcast.audioPath}`, week, 'podcast') : '';
+
+  const label = (text: string) =>
+    `<p style="margin: 0 0 6px 0; font-family: ${SANS}; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: ${C.accent};">${text}</p>`;
+  const link = (href: string, text: string) =>
+    `<a href="${escapeHtml(href)}" style="font-family: ${SANS}; font-size: 14px; color: ${C.accent}; text-decoration: none;">${text}</a>`;
+
+  const watchText = `${label('Watch &middot; 60 seconds')}
+                    ${short
+                      ? `<p style="margin: 0 0 8px 0; font-family: ${SERIF}; font-size: 18px; line-height: 1.4;"><a href="${escapeHtml(shortUrl)}" style="color: ${C.textPrimary}; text-decoration: none;">${escapeHtml(short.title)}</a></p>`
+                      : `<p style="margin: 0 0 8px 0; font-family: ${SANS}; font-size: 15px; line-height: 1.6; color: ${C.textSecond};">The week&rsquo;s top story as a one-minute Short.</p>`}
+                    <p style="margin: 0 0 22px 0;">${link(shortUrl, '&#9654;&nbsp;Watch on YouTube &rarr;')}</p>`;
+
+  const listenText = podcast
+    ? `${label(`Listen${podcast.durationS ? ` &middot; ${formatMinutes(podcast.durationS)}` : ''}`)}
+                    <p style="margin: 0 0 8px 0; font-family: ${SANS}; font-size: 15px; line-height: 1.6; color: ${C.textSecond};">This week&rsquo;s stories as a podcast episode.</p>
+                    <p style="margin: 0;">${link(podcastUrl, '&#9654;&nbsp;Play the episode &rarr;')}</p>`
+    : '';
+
+  // 132x235 keeps the poster's 9:16 shape and leaves room for the text beside it on a phone.
+  const poster = short
+    ? `<td width="132" valign="top" style="padding: 22px;">
+                    <a href="${escapeHtml(shortUrl)}"><img src="${CANONICAL_URL}${escapeHtml(short.poster)}" width="132" height="235" alt="Watch: ${escapeHtml(short.title)}" style="display: block; width: 132px; height: 235px; border: 0; background-color: ${C.navy};"></a>
+                  </td>`
+    : '';
+
+  return `
+          <!-- Watch & listen -->
+          <tr>
+            <td class="outer-pad" style="background-color: ${C.bg}; padding: 0 32px 32px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: ${C.accentLight};">
+                <tr>
+                  ${poster}
+                  <td valign="top" style="padding: 22px 22px 22px ${short ? '0' : '22px'};">
+                    ${watchText}
+                    ${listenText}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>`;
+}
+
 /**
  * Render EmailDigest as HTML. For mode 'email', uses inline styles for email clients.
  * Layout: table-based for maximum email client compatibility.
@@ -248,14 +306,20 @@ export function renderEmailDigestHtml(digest: EmailDigest, opts: RenderEmailDige
             </td>
           </tr>` : '';
 
-  const introBlock = digest.intro ? `
-          <!-- Intro -->
+  // Pull-quote: the same line the web digest shows (WeeklyInsight), centred serif italic.
+  const quoteBlock = digest.weeklyQuote ? `
+          <!-- Weekly quote -->
           <tr>
-            <td class="outer-pad" style="background-color: ${C.bg}; padding: 32px 32px 0;">
-              <p style="margin: 0 0 28px 0; font-family: ${SERIF}; font-size: 18px; line-height: 1.75; color: ${C.textSecond}; font-style: italic;">${escapeHtml(digest.intro)}</p>
+            <td class="outer-pad" style="background-color: ${C.bg}; padding: 36px 48px 32px; text-align: center;">
+              <p style="margin: 0 0 4px 0; font-family: ${SERIF}; font-size: 44px; line-height: 1; color: ${C.accentMuted};">&ldquo;</p>
+              <p style="margin: 0; font-family: ${SERIF}; font-size: 21px; line-height: 1.6; color: ${C.textPrimary}; font-style: italic;">${escapeHtml(digest.weeklyQuote)}</p>
+              <table role="presentation" width="120" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-top: 28px;">
+                <tr><td style="height: 1px; background-color: ${C.border};"></td></tr>
+              </table>
             </td>
           </tr>` : '';
 
+  const mediaBlock = renderMediaBlock(digest, week);
 
   return `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -293,7 +357,8 @@ export function renderEmailDigestHtml(digest: EmailDigest, opts: RenderEmailDige
           <!-- Gold masthead rule -->
           <tr><td style="height: 3px; background-color: ${C.accent};"></td></tr>
 
-          ${introBlock}
+          ${quoteBlock}
+          ${mediaBlock}
           ${takeBlock}
 
           ${articleRows}
@@ -344,10 +409,18 @@ export function renderEmailDigestPlaintext(digest: EmailDigest, unsubscribeUrl?:
   text += `${issueLine}\n`;
   text += `${'─'.repeat(50)}\n\n`;
 
-  if (digest.intro) {
-    text += `${digest.intro}\n\n`;
+  if (digest.weeklyQuote) {
+    text += `"${digest.weeklyQuote}"\n\n`;
     text += `${'─'.repeat(50)}\n\n`;
   }
+
+  text += digest.short
+    ? `WATCH (60 sec): ${digest.short.title}\nhttps://www.youtube.com/shorts/${digest.short.youtubeId}\n\n`
+    : `WATCH the week's top story in 60 seconds: ${YOUTUBE_CHANNEL}/shorts\n\n`;
+  if (digest.podcast) {
+    text += `LISTEN to this week's podcast: ${withEmailUtms(`${CANONICAL_URL}${digest.podcast.audioPath}`, digest.week, 'podcast')}\n\n`;
+  }
+  text += `${'─'.repeat(50)}\n\n`;
 
   if (digest.editorialTake) {
     text += `EDITOR'S TAKE\n\n${digest.editorialTake.trim()}\n\n— The Editor\n\n`;

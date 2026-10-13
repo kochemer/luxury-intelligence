@@ -138,7 +138,16 @@ export interface EmailDigestItem {
 export interface EmailDigest {
   week: string;
   generatedAt: string;
+  /** Legacy LLM intro paragraph. Weeks up to 2026-W41 have it; no longer built or rendered. */
   intro?: string;
+  /** The week's pull-quote, copied from the digest's `oneSentenceSummary` (same one the web digest shows). */
+  weeklyQuote?: string;
+  /**
+   * The week's media, attached by the send script (scripts/sendWeeklyEmailDigest.ts),
+   * not stored in email-digest.json: the Short only exists once its upload step has run.
+   */
+  short?: { youtubeId: string; title: string; durationS: number; poster: string };
+  podcast?: { audioPath: string; durationS?: number };
   /** The week's Editor's Take, copied from the digest JSON (roadmap F3.1). Paragraphs separated by \n\n. */
   editorialTake?: string;
   readOneThing?: { title: string; url: string };

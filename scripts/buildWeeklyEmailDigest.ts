@@ -352,50 +352,6 @@ Output as JSON object with a "bullets" array containing your 3 summary sentences
 }
 
 /**
- * Generate intro paragraph (optional)
- */
-async function generateIntro(
-  articles: Article[],
-  weekLabel: string,
-  apiKey: string
-): Promise<string | undefined> {
-  const openai = new OpenAI({ apiKey });
-  
-  const titles = articles.map(a => a.title).join(', ');
-  
-  const prompt = `Write a 2-3 sentence intro framing the week's intelligence digest.
-
-Week: ${weekLabel}
-Top articles: ${titles}
-
-Keep it brief, professional, and set context for a retail/luxury/AI intelligence reader.`;
-
-  try {
-    const response = await openai.chat.completions.create({
-      model: EMAIL_DIGEST_MODEL,
-      messages: [
-        {
-          role: 'system',
-          content: 'You write concise, professional introductions for intelligence digests.'
-        },
-        {
-          role: 'user',
-          content: prompt
-        }
-      ],
-      ...temperatureParam(EMAIL_DIGEST_MODEL, TEMPERATURE),
-      ...maxTokensParam(EMAIL_DIGEST_MODEL, 150),
-    });
-    
-    const content = response.choices[0]?.message?.content?.trim();
-    return content || undefined;
-  } catch (error) {
-    console.warn(`[EmailDigest] Failed to generate intro: ${(error as Error).message}`);
-    return undefined;
-  }
-}
-
-/**
  * Main function
  */
 async function main() {
@@ -503,14 +459,6 @@ async function main() {
     process.exit(1);
   }
   
-  // Generate intro
-  console.log('Generating intro...');
-  const intro = await generateIntro(selectedArticles, weekLabel, apiKey);
-  if (intro) {
-    console.log(`✓ Intro: ${intro.substring(0, 80)}...`);
-  }
-  console.log('');
-  
   // Generate bullets for each article
   console.log('Generating bullets...');
   const items: EmailDigestItem[] = [];
@@ -544,7 +492,7 @@ async function main() {
   const emailDigest: EmailDigest = {
     week: weekLabel,
     generatedAt: new Date().toISOString(),
-    intro,
+    weeklyQuote: digest.oneSentenceSummary?.trim() || undefined,
     readOneThing,
     items
   };
@@ -556,7 +504,7 @@ async function main() {
   
   console.log(`✓ Email digest saved to: ${outputPath}`);
   console.log(`  Items: ${items.length}`);
-  console.log(`  Intro: ${intro ? 'Yes' : 'No'}`);
+  console.log(`  Quote: ${emailDigest.weeklyQuote ? 'Yes' : 'No'}`);
   console.log(`  Read One Thing: ${readOneThing ? 'Yes' : 'No'}`);
 }
 

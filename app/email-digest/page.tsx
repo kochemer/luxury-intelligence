@@ -226,11 +226,11 @@ export default async function EmailDigestPage() {
               </p>
             )}
 
-            {/* Intro */}
-            {digest.intro && (
-              <div className="mb-8 text-body text-[var(--color-text-secondary)] leading-relaxed italic">
-                {digest.intro}
-              </div>
+            {/* Weekly quote (same pull-quote as the web digest) */}
+            {digest.weeklyQuote && (
+              <p className="mb-8 font-serif text-[1.125rem] text-center text-[var(--color-text-primary)] leading-relaxed italic">
+                &ldquo;{digest.weeklyQuote}&rdquo;
+              </p>
             )}
 
             {/* Ranked List — tiered prominence */}

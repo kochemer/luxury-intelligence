@@ -398,46 +398,6 @@ Output as JSON object with a "bullets" array containing your 3 summary sentences
 }
 
 /**
- * Generate intro paragraph (optional)
- */
-async function generateIntro(articles: Article[], weekLabel: string, apiKey: string): Promise<string | undefined> {
-  const openai = new OpenAI({ apiKey });
-  
-  const titles = articles.map(a => a.title).join(', ');
-  
-  const prompt = `Write a 2-3 sentence intro framing the week's intelligence digest.
-
-Week: ${weekLabel}
-Top articles: ${titles}
-
-Keep it brief, professional, and set context for a retail/luxury/AI intelligence reader.`;
-
-  try {
-    const response = await openai.chat.completions.create({
-      model: EMAIL_DIGEST_MODEL,
-      messages: [
-        {
-          role: 'system',
-          content: 'You write concise, professional introductions for intelligence digests.',
-        },
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
-      ...temperatureParam(EMAIL_DIGEST_MODEL, TEMPERATURE),
-      ...maxTokensParam(EMAIL_DIGEST_MODEL, 150),
-    });
-    
-    const content = response.choices[0]?.message?.content?.trim();
-    return content || undefined;
-  } catch (error) {
-    console.warn(`[EmailDigest] Failed to generate intro: ${(error as Error).message}`);
-    return undefined;
-  }
-}
-
-/**
  * Build weekly email digest
  */
 export async function buildWeeklyEmailDigest(weekLabel: string, topN: number = 8): Promise<EmailDigest> {
@@ -453,9 +413,6 @@ export async function buildWeeklyEmailDigest(weekLabel: string, topN: number = 8
 
   // Select and rank articles (only those with full text available)
   const selectedArticles = await selectAndRankArticles(digest, topN, weekLabel);
-
-  // Generate intro
-  const intro = await generateIntro(selectedArticles, weekLabel, apiKey);
 
   // Generate bullets for each article
   const items: EmailDigestItem[] = [];
@@ -487,7 +444,8 @@ export async function buildWeeklyEmailDigest(weekLabel: string, topN: number = 8
   const emailDigest: EmailDigest = {
     week: weekLabel,
     generatedAt: new Date().toISOString(),
-    intro,
+    // The pull-quote opens the email as it does the web digest (replaced the LLM intro, 2026-10-13).
+    weeklyQuote: digest.oneSentenceSummary?.trim() || undefined,
     // The Editor's Take opens the email as it opens the page (roadmap F3.1).
     editorialTake: digest.editorialTake?.trim() || undefined,
     readOneThing,

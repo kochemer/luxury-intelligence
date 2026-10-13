@@ -20,7 +20,8 @@ import { renderEmailDigestHtml, renderEmailDigestPlaintext } from '../lib/digest
 import { buildUnsubscribeUrl } from '../lib/utils/unsubscribeToken';
 import { getEligibleWeeklyDigestRecipients } from '../lib/db/subscribers';
 import { getSiteUrl } from '../lib/utils/siteUrl';
-import type { EmailDigest } from '../lib/types';
+import { isShowable, type WeeklyShort } from '../lib/video/weeklyShort';
+import type { EmailDigest, WeeklyDigest } from '../lib/types';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -89,11 +90,48 @@ async function loadRecipients(): Promise<{ recipients: Recipient[]; source: stri
 
 // ── Digest loading ─────────────────────────────────────────────────────────────
 
+async function readJson<T>(...parts: string[]): Promise<T | null> {
+  try {
+    return JSON.parse(await fs.readFile(path.join(process.cwd(), ...parts), 'utf-8')) as T;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Attach what isn't in email-digest.json: the week's Short and podcast, read
+ * at send time. The Short is rendered by weekly-short.yml *after* this send, so
+ * on the scheduled Monday run it is normally absent and the email links to the
+ * YouTube channel instead (see renderEmailDigestHtml).
+ */
+async function attachWeekMedia(digest: EmailDigest): Promise<EmailDigest> {
+  const week = digest.week;
+
+  // Emails built before 2026-10-13 have no quote; take it from the web digest.
+  if (!digest.weeklyQuote) {
+    const web = await readJson<WeeklyDigest>('data', 'digests', `${week}.json`);
+    digest.weeklyQuote = web?.oneSentenceSummary?.trim() || undefined;
+  }
+
+  // 'production' on purpose: a private upload won't play, so never link one.
+  const short = await readJson<WeeklyShort>('data', 'weeks', week, 'video.json');
+  if (short?.youtubeId && isShowable(short, 'production')) {
+    digest.short = { youtubeId: short.youtubeId, title: short.title, durationS: short.durationS, poster: short.poster };
+  }
+
+  const podcast = await readJson<{ audioPath?: string; duration?: number }>('data', 'weeks', week, 'podcast.json');
+  if (podcast?.audioPath) {
+    digest.podcast = { audioPath: podcast.audioPath, durationS: podcast.duration };
+  }
+
+  return digest;
+}
+
 async function loadDigest(weekLabel: string): Promise<EmailDigest> {
   const digestPath = path.join(process.cwd(), 'data', 'weeks', weekLabel, 'email-digest.json');
   try {
     const raw = await fs.readFile(digestPath, 'utf-8');
-    return JSON.parse(raw) as EmailDigest;
+    return await attachWeekMedia(JSON.parse(raw) as EmailDigest);
   } catch (error: any) {
     if (error.code === 'ENOENT') {
       throw new Error(
