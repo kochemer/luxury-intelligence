@@ -5,7 +5,7 @@
 
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
-import { judge, statementFor, pickExamples, panelSources, computeThemes, selectSignals, RULES } from '../markets/signals';
+import { judge, statementFor, pickExamples, panelSources, computeThemes, selectSignals, isSteady, RULES } from '../markets/signals';
 import { attentionCallouts } from '../markets/attention';
 import type { AttentionRow, ThemeStat } from '../lib/markets/types';
 
@@ -83,6 +83,45 @@ test('shares, not counts: a busier week does not create a trend', () => {
   const china = themes.find(t => t.name === 'China')!;
   assert.equal(china.ratio, 1);
   assert.equal(china.verdict, 'watching');
+});
+
+// ── Steady sources ──────────────────────────────────────────────────────────
+
+const END = Date.UTC(2026, 9, 5), WK = 7 * 864e5;
+/** Articles for one source in the given window weeks (0 = oldest), `n` each. */
+function feed(source: string, weeks: number[], title: string, n = 2) {
+  return weeks.flatMap(w => Array.from({ length: n }, (_, i) => ({
+    title, url: `${source}-${w}-${i}`, source, published_at: new Date(END - (12 - w) * WK + 864e5).toISOString(),
+  })));
+}
+const ALL = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+test('a new feed that only writes about store openings does not make them a trend', () => {
+  const articles = [
+    ...feed('Jing Daily', ALL, 'Other news', 3),
+    ...feed('Glossy', [8, 9, 10, 11], 'Brand opens a new flagship store', 5),
+  ];
+  const { panel, themes } = computeThemes(articles, 'luxury', END);
+  const stores = themes.find(t => t.name === 'Store openings')!;
+  assert.equal(stores.total, 0, 'the new feed is not counted');
+  assert.equal(stores.verdict, 'watching');
+  assert.equal(panel.articles, 36, 'only the steady source is counted');
+  assert.equal(panel.excluded, panelSources('luxury').size - 1, 'every other panel source, and Glossy, is left out');
+});
+
+test('a source with articles in every week is counted in full', () => {
+  const { panel } = computeThemes(feed('Jing Daily', ALL, 'Other news', 2), 'luxury', END);
+  assert.equal(panel.articles, 24);
+  assert.equal(panel.excluded, panelSources('luxury').size - 1);
+});
+
+test('a source missing from 3 of the 8 prior weeks is excluded', () => {
+  // Prior weeks 0–7 with weeks 1, 4 and 6 empty: 5 of 8, below the 6 required.
+  const gappy = feed('Fashionista', [0, 2, 3, 5, 7, 8, 9, 10, 11], 'Other news', 2);
+  const articles = [...feed('Jing Daily', ALL, 'Other news', 2), ...gappy];
+  const { panel } = computeThemes(articles, 'luxury', END);
+  assert.equal(isSteady(new Set([0, 2, 3, 5, 7, 8, 9, 10, 11])), false);
+  assert.equal(panel.articles, 24, 'the gappy source is left out');
 });
 
 // ── Attention ───────────────────────────────────────────────────────────────

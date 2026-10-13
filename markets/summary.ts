@@ -29,8 +29,21 @@ export function validateSummary(sentences: unknown, moves: MarketMove[]): { ok: 
   return { ok: true, sentences: out };
 }
 
+/**
+ * The moves the model is given, and checked against. A week can have 20–40
+ * moves; sentences built from all of them ran past the length limit. Majors
+ * first, then the most widely reported, then the newest.
+ */
+export function pickSummaryMoves(moves: MarketMove[], n = 8): MarketMove[] {
+  const rank = (m: MarketMove) => (m.importance === 'major' ? 0 : 1);
+  return [...moves]
+    .sort((a, b) => rank(a) - rank(b) || b.outlets - a.outlets || b.date.localeCompare(a.date))
+    .slice(0, n);
+}
+
 export async function writeSummary(market: MarketId, moves: MarketMove[]): Promise<string[] | null> {
   if (moves.length < 1 || !process.env.OPENAI_API_KEY) return null;
+  const picked = pickSummaryMoves(moves);
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   const model = getModelFor('markets');
   let feedback = '';
@@ -38,10 +51,10 @@ export async function writeSummary(market: MarketId, moves: MarketMove[]): Promi
   for (let attempt = 0; attempt < 3; attempt++) {
     const prompt = `Write at most 3 sentences (2 is ideal) summarising the most important things ${market === 'luxury' ? 'luxury houses' : 'jewellery brands'} did this week, for an industry briefing.
 
-Rules: use only the facts below. Name the brand in every sentence. British English. Plain and factual: no hype, no exclamation marks, no speculation, no numbers that aren't below. Group related moves when it reads naturally, but keep each sentence under 30 words: a reader should take it in at a glance. Leave out minor details rather than run long.
+Rules: use only the facts below. Name the brand in every sentence. British English. Plain and factual: no hype, no exclamation marks, no speculation, no numbers that aren't below. Group related moves when it reads naturally, but keep each sentence under 25 words, and mention at most two brands per sentence: a reader should take it in at a glance. Leave out minor details rather than run long.
 ${feedback}
 Moves:
-${moves.map(m => `- ${m.date} · ${m.brand} · ${m.type} · ${m.originalTitle}`).join('\n')}
+${picked.map(m => `- ${m.date} · ${m.brand} · ${m.type} · ${m.originalTitle}`).join('\n')}
 
 Return JSON: {"sentences": ["...", "..."]}`;
 
@@ -55,7 +68,7 @@ Return JSON: {"sentences": ["...", "..."]}`;
       });
       const parsed = JSON.parse(resp.choices[0]?.message?.content ?? '{}') as { sentences?: unknown };
       // More than three is a length problem, not a facts problem: keep the first three.
-      const v = validateSummary(Array.isArray(parsed.sentences) ? parsed.sentences.slice(0, 3) : parsed.sentences, moves);
+      const v = validateSummary(Array.isArray(parsed.sentences) ? parsed.sentences.slice(0, 3) : parsed.sentences, picked);
       if (v.ok) return v.sentences;
       feedback = `\nYour previous answer was rejected: ${v.reason}. Fix that.\n`;
       console.warn(`[Markets] ⚠ ${market} summary rejected: ${v.reason}`);

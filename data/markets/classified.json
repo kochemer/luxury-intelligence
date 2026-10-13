@@ -4122,6 +4122,264 @@
    "type": "Deal",
    "importance": "major",
    "headline": "De Beers receives diamond mine stake in restructuring deal"
+  },
+  "0696cab9a42ef5f2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "08fe21f264ed6a5a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ce6e026fcd874a50": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Richemont appoints Jarrett Lee Anderson as Head of Talent Acquisition, APAC"
+  },
+  "a360815dafc12602": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "98c93f67cff67591": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Moncler launches new campaign"
+  },
+  "30779e75d2012967": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "33c88f33e34666f6": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "41cd23569b42c02a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "fff407750d54733b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "aee327c5da8a0f07": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Kering to open Yves Saint Laurent store at 717 Fifth Avenue"
+  },
+  "d13da6947cbb8bce": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "major",
+   "headline": "Kering and LVMH strengthen model protection charter for 2027"
+  },
+  "07778daf53e8158d": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Prada Group and UNESCO-IOC launch Sea Beyond exhibit at Luna Rossa Base"
+  },
+  "df40492f07ac03c3": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3dfe5a0852be598f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "88879be292c0052f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8e090a0455f0aa41": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "603dcdefe8cf541f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ee99cc68de8f5a58": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "fe309b57d5c98141": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "62751902c95e8f87": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "97a33284f871b254": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "03e8e5c757eb3e32": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Rolex launches new Oyster Perpetual watch"
+  },
+  "dbbd7780c93bf5be": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "06f2484f810aea79": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "653f97f4aa92fa06": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "11caa83b2967ccc4": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ccb6bfe4f4c0f7da": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3c78f0513141bc80": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "483f93f76ebc7b55": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ab333e74600b85b7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "691d0ba4d575e162": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Monica Vinader launches new Ochre collection"
+  },
+  "c7a8efd73ff437ba": {
+   "isMove": true,
+   "type": "Pricing",
+   "importance": "minor",
+   "headline": "Monica Vinader holds flash sale on necklace worn by Princess Kate"
+  },
+  "4425941e544d5dd8": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "bfe7cb7b9e388947": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Swarovski opens new store in Barcelona"
+  },
+  "52db2e35f565745e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "f2b10c85ce7cd970": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Tiffany & Co. updates HardWear collection with turquoise and pearls"
+  },
+  "feceff6422db98cc": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6b94f2d1f35e44b7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "59f32c73d04307de": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "4a16dde27ee70a7d": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Cartier unveils new variations of LOVE Unlimited jewellery collection"
+  },
+  "ab8b509de30cbc14": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Bulgari names Hudson Williams as new ambassador"
+  },
+  "5a5c4c588d38146e": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Pandora launches new Disney & MARVEL charms and rings"
+  },
+  "0d9b6f05320430b8": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Tiffany & Co. opens new exhibit with Crystal Bridges"
   }
  }
 }

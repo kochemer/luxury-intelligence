@@ -46,6 +46,19 @@ const NEWS_QUERY: Record<string, string> = {
   'Van Cleef & Arpels': '"Van Cleef & Arpels"',
 };
 
+const ANALYSIS_LEAD = /^(why|how|what|is|are|should|could|would|does|do|can)\b/i;
+
+/**
+ * Question and explainer headlines are analysis, not moves. "Why Chanel Fired
+ * Virginie Viard Despite Record Sales" is a retrospective on a 2024 exit, yet
+ * the classifier reported it as a Leadership move this week. The classifier
+ * prompt already says retrospectives aren't moves and still let this through,
+ * so this deterministic rule runs before it and drops such headlines outright.
+ */
+export function isAnalysisHeadline(title: string): boolean {
+  return ANALYSIS_LEAD.test(title.trim());
+}
+
 export function ownCandidates(
   articles: (CoverageArticle & { url: string; source: string })[],
   brands: TrackedBrand[],
@@ -56,6 +69,7 @@ export function ownCandidates(
   for (const a of articles) {
     const t = articleTime(a);
     if (t < start || t >= endMs) continue;
+    if (isAnalysisHeadline(a.title)) continue;
     for (const b of brands) {
       if (!mentionsBrand(b, articleText(a))) continue;
       out.push({
@@ -85,7 +99,7 @@ export async function newsCandidates(brands: TrackedBrand[], endMs: number): Pro
       const feed = await parser.parseURL(url);
       const items = (feed.items ?? [])
         .map(i => ({ ...splitNewsTitle(i.title ?? ''), link: i.link ?? '', t: new Date(i.isoDate ?? i.pubDate ?? 0).getTime() }))
-        .filter(i => i.link && i.t >= start && i.t < endMs && mentionsBrand(b, i.title))
+        .filter(i => i.link && i.t >= start && i.t < endMs && mentionsBrand(b, i.title) && !isAnalysisHeadline(i.title))
         .sort((x, y) => y.t - x.t)
         .slice(0, NEWS_PER_BRAND);
       for (const i of items) {

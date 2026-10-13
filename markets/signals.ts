@@ -11,7 +11,9 @@
  * thresholds come from running this on real data on 2026-10-09:
  *  - watch blogs diluted every luxury theme (China 1.8× → 1.4×), so they're out;
  *  - "pearls dropped away" was two bursts from one outlet, so falls need breadth;
- *  - snippet-only matches gave weak examples, so headline matches come first.
+ *  - snippet-only matches gave weak examples, so headline matches come first;
+ *  - new feeds (added 2026-10-05) had only recent weeks, so their topic mix
+ *    read as "rising" themes. Themes now count only steady sources (STEADY_*).
  */
 
 import { SOURCE_FEEDS, SOURCE_PAGES } from '../ingestion/sources';
@@ -22,6 +24,15 @@ export type SignalArticle = CoverageArticle & { url: string; source: string };
 
 const WEEK = 7 * 864e5;
 const WEEKS = 12;
+
+/**
+ * A panel source counts toward themes only once it is steady: at least one
+ * article in this many of the 8 prior weeks, and in this many of the last 4.
+ * A feed added on 2026-10-05 had only recent weeks, so its topic mix looked
+ * like a surge across the whole panel. Requiring history stops that.
+ */
+export const STEADY_MIN_PRIOR_WEEKS = 6;
+export const STEADY_MIN_RECENT_WEEKS = 3;
 
 export const RULES: SignalRules = {
   minArticles: 20, minRecent: 10, minOutlets: 6, rise: 1.5,
@@ -107,12 +118,30 @@ export function statementFor(s: ThemeStat, market: MarketId): string | null {
   return null;
 }
 
+/** Whether a source has enough weeks of history to count. `weeks` are indices into the 12-week window. */
+export function isSteady(weeks: Set<number>): boolean {
+  const prior = Array.from({ length: WEEKS - 4 }, (_, i) => i).filter(i => weeks.has(i)).length;
+  const recent = Array.from({ length: 4 }, (_, i) => WEEKS - 4 + i).filter(i => weeks.has(i)).length;
+  return prior >= STEADY_MIN_PRIOR_WEEKS && recent >= STEADY_MIN_RECENT_WEEKS;
+}
+
 /** `articles` must already be the 12-week window ending at `endMs`. */
-export function computeThemes(articles: SignalArticle[], market: MarketId, endMs: number): { panel: { articles: number; outlets: number }; themes: ThemeStat[] } {
+export function computeThemes(articles: SignalArticle[], market: MarketId, endMs: number): { panel: { articles: number; outlets: number; excluded: number }; themes: ThemeStat[] } {
   const sources = panelSources(market);
   const start = endMs - WEEKS * WEEK;
-  const panel = articles.filter(a => sources.has(a.source));
   const weekOf = (a: SignalArticle) => Math.floor((articleTime(a) - start) / WEEK);
+
+  const weeksBySource = new Map<string, Set<number>>();
+  for (const a of articles) {
+    if (!sources.has(a.source)) continue;
+    const weeks = weeksBySource.get(a.source) ?? new Set<number>();
+    weeks.add(weekOf(a));
+    weeksBySource.set(a.source, weeks);
+  }
+  const steady = new Set([...weeksBySource].filter(([, weeks]) => isSteady(weeks)).map(([name]) => name));
+  const excluded = sources.size - steady.size;
+
+  const panel = articles.filter(a => steady.has(a.source));
   const perWeek = Array.from({ length: WEEKS }, (_, i) => panel.filter(a => weekOf(a) === i).length);
   const recentTotal = sum(perWeek.slice(-4)), priorTotal = sum(perWeek.slice(0, -4));
 
@@ -136,7 +165,7 @@ export function computeThemes(articles: SignalArticle[], market: MarketId, endMs
     return stat;
   });
 
-  return { panel: { articles: panel.length, outlets: new Set(panel.map(a => a.source)).size }, themes };
+  return { panel: { articles: panel.length, outlets: new Set(panel.map(a => a.source)).size, excluded }, themes };
 }
 
 /** Rising first, then the biggest falls; capped so the page leads with what matters. */

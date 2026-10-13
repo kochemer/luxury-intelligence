@@ -163,7 +163,12 @@ export interface MarketData {
   moves: MarketMove[];
   prices: MarketPrice[];
   /** The trade-press panel the signals are counted from. */
-  panel: { articles: number; outlets: number };
+  panel: {
+    articles: number;
+    outlets: number;
+    /** panel sources not counted yet because they lack 12 weeks of steady history; a new feed joins once it has */
+    excluded: number;
+  };
   rules: SignalRules;
   /** Rising first, then the biggest falls; at most three. */
   signals: ThemeStat[];

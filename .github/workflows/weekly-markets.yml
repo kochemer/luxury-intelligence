@@ -1,0 +1,93 @@
+name: Weekly Markets
+
+# Rebuilds the /markets/luxury and /markets/jewellery data (data/markets/*.json)
+# and commits it. Called by weekly-digest.yml as its last job, after the digest,
+# the Short and the email, so a failure here never holds anything back. Also
+# runs on its own (workflow_dispatch) to test or rebuild the pages.
+#
+# Commits only data/markets/. The commit is a normal one (no [skip ci]) on
+# purpose: the push must trigger the Vercel deploy that publishes the pages.
+# Local equivalent: npm run markets:build (see markets/ in CLAUDE.md).
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+concurrency:
+  group: weekly-markets
+  cancel-in-progress: false
+
+jobs:
+  markets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Latest main: the digest and Short jobs of the weekly run have
+          # pushed commits by the time this job starts.
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Node 22, not 20: yahoo-finance2 (share prices) warns that it needs
+      # Node >= 22. The other weekly jobs stay on 20.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # A failure here fails this job (red) and nothing else: the digest and
+      # the email have already gone out.
+      - name: Build markets pages
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: npm run markets:build
+
+      - name: Read week
+        id: week
+        run: |
+          WEEK=$(node -p "require('./data/markets/luxury.json').weekLabel")
+          echo "week=$WEEK" >> "$GITHUB_OUTPUT"
+          echo "Week: $WEEK"
+
+      # Only data/markets/ is staged, so no other file can ride along.
+      - name: Commit and push markets data
+        id: commit
+        run: |
+          git add -- data/markets/
+          if git diff --cached --quiet; then
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes in data/markets/; nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "Markets pages: ${{ steps.week.outputs.week }}" -m "Docs-Skip: generated data, no code change"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 10; done
+          git fetch origin main
+          if ! git merge-base --is-ancestor HEAD origin/main; then echo "Push failed after 3 attempts"; exit 1; fi
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Run summary
+        if: always()
+        env:
+          WEEK: ${{ steps.week.outputs.week }}
+          COMMITTED: ${{ steps.commit.outputs.committed }}
+        run: |
+          {
+            echo "### Weekly Markets"
+            echo ""
+            echo "- Week: ${WEEK:-unknown}"
+            if [ "$COMMITTED" = "true" ]; then
+              echo "- Committed and pushed (Vercel deploys the pages)"
+            elif [ "$COMMITTED" = "false" ]; then
+              echo "- No changes to commit"
+            else
+              echo "- Not committed (build or push failed; see the logs)"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -237,8 +237,11 @@ stops deploying pushes until someone undoes it — see `docs/seo-system.md`.
 ### Markets pages
 
 `/markets/luxury` and `/markets/jewellery` replaced Competitor Watch on
-2026-10-04 (old URLs redirect). Data is built by `markets/` (`npm run
-markets:build`, also pipeline step 9) into `data/markets/{market}.json`.
+2026-10-04 (old URLs redirect). Data is built by `markets/` into
+`data/markets/{market}.json`, weekly by `.github/workflows/weekly-markets.yml`
+as the last job of the weekly run (after the digest, the Short and the email).
+`npm run markets:build` runs it locally. Pipeline step 9 still exists for local
+`digest:weekly` runs; CI skips it with `--skipMarkets`.
 Design and the reasons behind it: `docs/superpowers/specs/2026-10-04-markets-pages-design.md`.
 Brand patterns and their known false positives live in `markets/brands.ts`,
 pinned by `__tests__/markets.brands.test.ts`. Move classifications are cached

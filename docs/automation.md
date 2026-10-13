@@ -139,12 +139,32 @@ The repository includes a GitHub Actions workflow that automatically builds the 
 - **Gate**: a scheduled run skips itself when last week's digest is already committed, since the email step would double-send. That is what skipped Monday 2026-10-12. Manual runs always build.
 - **Concurrency**: Only one run at a time (no cancellation of in-progress runs)
 
+### Job Order
+
+The weekly run is four jobs in `weekly-digest.yml`, plus the reusable workflows they call:
+
+1. `gate`: skips a scheduled run if last week's digest is already committed.
+2. `build-digest`: builds the digest (`digest:weekly -- --skipMarkets`) and commits it.
+3. `short`: calls `weekly-short.yml` (renders and uploads the 60s Short).
+4. `send-email`: sends the subscriber email from `main` once the Short job has finished, whether or not it succeeded.
+5. `markets`: calls `weekly-markets.yml` (rebuilds `data/markets/*.json` and commits it). It runs last, after the email, and also runs when the Short or the email failed or was skipped. It is skipped only if `build-digest` did not succeed.
+
+The Markets pages therefore never hold up the digest, the Short or the email. If `markets` fails, its job is red and the other jobs are unaffected.
+
+**Markets job** (`.github/workflows/weekly-markets.yml`, "Weekly Markets"):
+
+- Triggers: `workflow_call` (from the weekly run) and `workflow_dispatch` (run it on its own to test or rebuild the pages).
+- Checks out the latest `main`, sets up **Node 22** (yahoo-finance2 warns it needs Node >= 22; the other weekly jobs stay on 20), runs `npm ci`, then `npm run markets:build` with `OPENAI_API_KEY`.
+- Stages only `data/markets/`. If nothing changed it exits cleanly. Otherwise it commits `Markets pages: <week>` as github-actions[bot], pulls with rebase and pushes (up to 3 attempts). The commit has no `[skip ci]`, so the push triggers the Vercel deploy that publishes the pages.
+- Concurrency group `weekly-markets`, so two runs cannot overlap.
+- Locally, `npm run markets:build` does the same build. Pipeline step 9 in `digest:weekly` still builds them for local runs.
+
 ### Required GitHub Secrets
 
 Configure these in your repository settings: **Settings → Secrets and variables → Actions → New repository secret**
 
 **Required:**
-- `OPENAI_API_KEY` - OpenAI API key for LLM calls (summaries, translations, reranking)
+- `OPENAI_API_KEY` - OpenAI API key for LLM calls (summaries, translations, reranking, Markets pages)
 - `TAVILY_API_KEY` - Tavily API key for web discovery search
 
 **Optional:**
@@ -213,7 +233,7 @@ Edit the cron expression in `.github/workflows/weekly-digest.yml`:
 2. **Sets up Node.js** (checks `.nvmrc`, `package.json` engines, or defaults to Node 20)
 3. **Installs dependencies** (`npm ci`)
 4. **Runs preflight check** (validates required environment variables)
-5. **Builds weekly digest** (`npm run digest:weekly`)
+5. **Builds weekly digest** (`npm run digest:weekly -- --skipMarkets`; Markets pages are built by the last job, see Job Order)
 6. **Prepares email recipients file** (from `EMAIL_RECIPIENTS_JSON` secret)
 7. **Sends weekly email digest** (dry-run unless `EMAIL_SEND_ENABLED=true`)
 8. **Checks for changes**:

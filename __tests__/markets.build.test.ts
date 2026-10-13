@@ -6,8 +6,8 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import { acceptHeadline, parseClassification } from '../markets/classifyMoves';
-import { validateSummary } from '../markets/summary';
-import { dedupe, splitNewsTitle, candidateKey, type Candidate } from '../markets/candidates';
+import { validateSummary, pickSummaryMoves } from '../markets/summary';
+import { dedupe, splitNewsTitle, candidateKey, isAnalysisHeadline, type Candidate } from '../markets/candidates';
 import { toMarketPrice } from '../markets/prices';
 import type { MarketMove } from '../lib/markets/types';
 
@@ -82,6 +82,22 @@ test('near-identical headlines for the same brand collapse to the earliest', () 
 test('Google News titles are split into headline and publisher', () => {
   assert.deepEqual(splitNewsTitle('Mejuri opens London store - Retail Gazette'), { title: 'Mejuri opens London store', source: 'Retail Gazette' });
   assert.deepEqual(splitNewsTitle('No publisher here'), { title: 'No publisher here', source: 'Google News' });
+});
+
+test('question and explainer headlines are analysis, not moves', () => {
+  for (const t of [
+    'Why Chanel Fired Virginie Viard Despite Record Sales',
+    'How Prada, Gucci, BV vie for China\'s attention',
+    'What Kering\'s results mean',
+    'Is quiet luxury over?',
+  ]) assert.equal(isAnalysisHeadline(t), true, t);
+  for (const t of [
+    'Gucci cuts prices, but will Chinese shoppers return?',
+    'Inside Chow Tai Fook\'s First Australian Boutique in Sydney',
+    'Isabel Marant opens London flagship',
+    'Pandora expands manufacturing capacity by 50% with Vietnam facility',
+    'Here\'s how Meta\'s Muse works',
+  ]) assert.equal(isAnalysisHeadline(t), false, t);
 });
 
 test('candidate keys are stable and brand-specific', () => {
@@ -174,4 +190,17 @@ test('the page shows the publisher’s headline unless it can’t stand on its o
     'Rolex unveils annual calendar watch', 'a headline that doesn’t name the brand falls back');
   assert.equal(displayTitle('Prada - Fashion Week - atmosphere - Womenswear - Spring-Summer 2027 - Milan', 'Prada shows Spring-Summer 2027 in Milan', b('Prada')),
     'Prada shows Spring-Summer 2027 in Milan', 'a fragment list falls back');
+});
+
+test('the summary is given the most important moves: majors, then most reported, then newest, capped', () => {
+  const pick = (brand: string, importance: 'major' | 'minor', outlets: number, date: string) => mv({ brand, importance, outlets, date });
+  const A = pick('A', 'major', 1, '2026-10-01');
+  const B = pick('B', 'minor', 5, '2026-10-09');
+  const C = pick('C', 'major', 2, '2026-10-02');
+  const D = pick('D', 'major', 2, '2026-10-05');
+  const E = pick('E', 'minor', 1, '2026-10-10');
+  assert.deepEqual(pickSummaryMoves([A, B, C, D, E]).map(m => m.brand), ['D', 'C', 'A', 'B', 'E'],
+    'majors first; then more outlets; then newer first');
+  assert.deepEqual(pickSummaryMoves([A, B, C, D, E], 3).map(m => m.brand), ['D', 'C', 'A'], 'capped at n');
+  assert.equal(pickSummaryMoves(Array.from({ length: 30 }, () => A)).length, 8, 'eight by default');
 });
