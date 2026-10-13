@@ -60,9 +60,10 @@ and the same video is embedded on the digest page. Brand logos are fine to use
 - `npx tsx scripts/youtubeAuth.ts` does the one-time sign-in: saves
   `YOUTUBE_REFRESH_TOKEN` to `.env.local` and sets the three `YOUTUBE_*` GitHub
   secrets via stdin. Re-run it if uploads start failing with `invalid_grant`.
-- Pipeline: `.github/workflows/weekly-short.yml` runs after each successful
-  digest build: `run.ts --formats=vertical`, then `src/upload.ts` (see its
-  header). upload.ts writes `data/weeks/<week>/video.json` and a ~30 KB poster
+- Pipeline: `.github/workflows/weekly-short.yml` is called by
+  `weekly-digest.yml` after the build and before the subscriber email (which
+  links the Short): `run.ts --formats=vertical`, then `src/upload.ts` (see its
+  header). A failed Short never blocks the email; its 45-min timeout caps the wait. upload.ts writes `data/weeks/<week>/video.json` and a ~30 KB poster
   `public/video/shorts/<week>.jpg`; the MP4 is never committed.
 - Site: `lib/video/weeklyShort.ts` + `app/components/WatchOrListen.tsx` show the
   Short in a navy card (video + its title/story, 280 px wide on desktop) above

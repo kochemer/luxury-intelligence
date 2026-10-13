@@ -229,10 +229,11 @@ the web digest shows) → "Watch & listen" band → Editor's Take → stories. T
 intro paragraph was dropped on 2026-10-13. The band is filled at send time by
 `scripts/sendWeeklyEmailDigest.ts` from `data/weeks/{week}/video.json` (only when
 `"public": true`) and `podcast.json`. Email can't embed video, so the Short is a
-poster image linking to `youtube.com/shorts/<id>`. The Short is uploaded by
-`weekly-short.yml` *after* the digest workflow sends the email, so on a normal
-Monday there is no record yet and the band links to the channel's Shorts tab
-instead. The podcast link is the MP3 itself (no Spotify/Apple listing yet).
+poster image linking to `youtube.com/shorts/<id>`. Since 2026-10-13 the digest
+workflow sends the email only after the Short job (`weekly-short.yml`, called as a
+reusable workflow) has finished, so the Short is normally there. If the Short
+failed or is still private, the band links to the channel's Shorts tab instead.
+The podcast link is the MP3 itself (no Spotify/Apple listing yet).
 
 **Artifacts**:
 - `data/weeks/{week}/email-digest.json`: Email digest JSON

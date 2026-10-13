@@ -116,35 +116,12 @@ jobs:
           NODE_ENV: production
         run: npm run digest:weekly
 
-      # Legacy fallback: write recipients.json from secret for runs where DATABASE_URL is absent.
-      # When DATABASE_URL is set, the send script uses the DB instead and ignores this file.
-      - name: Prepare email recipients file (legacy fallback)
-        run: |
-          mkdir -p data/email
-          echo '${{ secrets.EMAIL_RECIPIENTS_JSON }}' > data/email/recipients.json
-
-      - name: Send weekly email digest (dry-run unless enabled)
-        # Scheduled runs always send. Manual runs send unless send_email=false.
-        # Written as an event-name check because on a schedule the `inputs`
-        # context is null, and GitHub casts null and false both to 0, so
-        # `inputs.send_email != false` would wrongly skip the weekly send.
-        if: github.event_name != 'workflow_dispatch' || inputs.send_email
-        env:
-          EMAIL_SEND_ENABLED: ${{ vars.EMAIL_SEND_ENABLED }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
-          # DB-driven recipients (preferred over recipients.json when set)
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          UNSUBSCRIBE_SECRET: ${{ secrets.UNSUBSCRIBE_SECRET }}
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-        run: npm run email:weekly
-
       # Commit only when the "Build weekly digest" step SUCCEEDED. That step is
       # the gate: it now exits 1 not just on a missing digest but also when the
       # content-quality gate fails (no AI summaries or no cover image), so a
       # hollow digest is never committed or deployed. A later partial failure
-      # (such as the email send) still lets the good digest commit,
-      # because those are separate steps and the build outcome stays 'success'.
+      # still lets the good digest commit, because those are separate steps
+      # and the build outcome stays 'success'. (The email is its own job below.)
       - name: Check for changes
         if: steps.build.outcome == 'success'
         id: check-changes
@@ -266,3 +243,63 @@ jobs:
             data/digests/*.json
             /tmp/run-summary.txt
           retention-days: 30
+
+  # The week's 60s Short (render + YouTube upload), before the email so the
+  # email can link it. Its job has a 45-minute timeout, which caps how long
+  # the email waits.
+  short:
+    needs: build-digest
+    uses: ./.github/workflows/weekly-short.yml
+    secrets: inherit
+    permissions:
+      contents: write
+
+  # Runs after the Short whether it succeeded or not: a failed or still-private
+  # upload must never hold back the email (it then links the YouTube channel).
+  # Checks out main, so it sends only what the build job committed.
+  send-email:
+    needs: [build-digest, short]
+    # Scheduled runs always send. Manual runs send unless send_email=false.
+    # Written as an event-name check because on a schedule the `inputs`
+    # context is null, and GitHub casts null and false both to 0, so
+    # `inputs.send_email != false` would wrongly skip the weekly send.
+    if: ${{ !cancelled() && needs.build-digest.result == 'success' && (github.event_name != 'workflow_dispatch' || inputs.send_email) }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Same week the Short picked: the newest digest on main.
+      - name: Pick week
+        id: week
+        run: |
+          WEEK=$(ls data/digests | grep -E '^[0-9]{4}-W[0-9]{2}\.json$' | sort | tail -1 | sed 's/\.json$//')
+          echo "week=$WEEK" >> "$GITHUB_OUTPUT"
+          echo "Week: $WEEK"
+
+      # Legacy fallback: write recipients.json from secret for runs where DATABASE_URL is absent.
+      # When DATABASE_URL is set, the send script uses the DB instead and ignores this file.
+      - name: Prepare email recipients file (legacy fallback)
+        run: |
+          mkdir -p data/email
+          echo '${{ secrets.EMAIL_RECIPIENTS_JSON }}' > data/email/recipients.json
+
+      - name: Send weekly email digest (dry-run unless enabled)
+        env:
+          EMAIL_SEND_ENABLED: ${{ vars.EMAIL_SEND_ENABLED }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          # DB-driven recipients (preferred over recipients.json when set)
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          UNSUBSCRIBE_SECRET: ${{ secrets.UNSUBSCRIBE_SECRET }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+        run: npm run email:weekly -- --week=${{ steps.week.outputs.week }}

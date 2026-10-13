@@ -1,7 +1,8 @@
 name: Weekly Short
 
 # Renders the week's 60-second vertical Short and uploads it to YouTube
-# (@luxury-intel) after the Monday digest build. See video-short/README.md.
+# (@luxury-intel). Called by weekly-digest.yml between the build and the
+# subscriber email, so the email can link the Short. See video-short/README.md.
 #
 # Commits only data/weeks/<week>/video.json and public/video/shorts/<week>.jpg
 # (~30 KB). The MP4 is never committed: it lives on YouTube (Vercel storage).
@@ -9,9 +10,14 @@ name: Weekly Short
 # them hidden; `sync` (run first every time) flips a record once its video is public.
 
 on:
-  workflow_run:
-    workflows: ['Weekly Digest Build']
-    types: [completed]
+  workflow_call:
+    inputs:
+      week:
+        type: string
+        required: false
+      sync_only:
+        type: boolean
+        default: false
   workflow_dispatch:
     inputs:
       week:
@@ -28,9 +34,6 @@ concurrency:
 
 jobs:
   short:
-    # A skipped digest run (already built) also "succeeds"; upload.ts then
-    # skips the week because its video.json already has an id.
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     permissions:
