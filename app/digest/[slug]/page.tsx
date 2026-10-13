@@ -3,7 +3,6 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import Image from 'next/image';
-import { DateTime } from 'luxon';
 import { notFound, permanentRedirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import DigestClientView from '../../components/DigestClientView';
@@ -23,8 +22,8 @@ import ScrollProgressBar from '../../components/ScrollProgressBar';
 import JsonLd from '../../components/JsonLd';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import { getTopicTotalsDisplayName, TopicKey } from '@/lib/utils/topicNames';
-import { formatDateRange, formatDateTime, formatIssueLine } from '@/lib/utils/formatDate';
-import { getSelectedArticleCount, formatStatsSecondaryLine } from '@/lib/utils/digestStats';
+import { formatDateRange, formatIssueLine, formatPublishedDate } from '@/lib/utils/formatDate';
+import { formatStatsSecondaryLine } from '@/lib/utils/digestStats';
 import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { weekLabelToSlug, slugToWeekLabel } from '@/lib/utils/weekSlug';
 import { CATEGORY_COLORS } from '@/lib/constants/categoryColors';
@@ -360,10 +359,7 @@ export default async function DigestPage({
 
           {/* Dateline stamp — top-left */}
           <div className="hero-dateline absolute top-6 left-6 md:left-12 z-10 font-mono text-[10px] tracking-[0.2em] uppercase text-white/70">
-            Published&nbsp;·&nbsp;{digest.startISO
-              ? DateTime.fromISO(digest.startISO).toFormat('dd MMMM yyyy').toUpperCase()
-              : dateRange.toUpperCase()
-            }&nbsp;·&nbsp;Copenhagen
+            Published&nbsp;·&nbsp;{formatPublishedDate(digest) ?? dateRange.toUpperCase()}&nbsp;·&nbsp;Copenhagen
           </div>
 
           {/* Masthead */}
@@ -409,8 +405,7 @@ export default async function DigestPage({
             <StatsBar
               totalArticles={digest.totals.total}
               secondaryLine={formatStatsSecondaryLine(
-                digest.totals.total,
-                getSelectedArticleCount(digest),
+                digest,
                 podcast?.duration != null ? podcast.duration / 60 : undefined,
               )}
             />

@@ -6,6 +6,7 @@ import { useRef, useState, type KeyboardEvent } from 'react';
 import type { MarketMove, MoveType } from '@/lib/markets/types';
 import ArticleLink from './ArticleLink';
 import { MoveChip, formatDay } from './format';
+import { displaySourceName } from '@/lib/utils/sourceName';
 
 const TABS: { id: string; label: string; type?: MoveType }[] = [
   { id: 'pricing', label: 'Price changes', type: 'Pricing' },
@@ -84,7 +85,7 @@ export default function Trackers({ moves }: { moves: MarketMove[] }) {
                   {active.id === 'all' && <>{' '}<MoveChip type={m.type} /></>}
                   {' '}
                   <span className="text-[13.5px] text-[var(--color-text-secondary)]">
-                    · {m.source}{m.outlets > 1 ? ` · ${m.outlets} outlets` : ''}
+                    · {displaySourceName(m.source)}{m.outlets > 1 ? ` · ${m.outlets} outlets` : ''}
                   </span>
                 </span>
               </li>

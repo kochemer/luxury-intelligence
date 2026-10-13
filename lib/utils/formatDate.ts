@@ -1,19 +1,31 @@
 import { DateTime } from 'luxon';
 
 /**
+ * Digest windows are Copenhagen weeks (Mon 00:00 – Sun 23:59 local), stored
+ * as UTC ISO strings. Parse in this zone, never the server's: on Vercel (UTC)
+ * a W41 start of 2026-10-04T22:00Z otherwise prints as "Oct 4", a Sunday.
+ */
+export const DIGEST_TZ = 'Europe/Copenhagen';
+
+/** Parse an ISO timestamp in the digest's timezone. */
+export function digestDate(isoString: string): DateTime {
+  return DateTime.fromISO(isoString, { zone: DIGEST_TZ });
+}
+
+/**
  * Format ISO date string to YYYY-MM-DD format
  * Used for consistent date display across pages
  */
 export function formatDate(isoString: string): string {
-  return DateTime.fromISO(isoString).toFormat('yyyy-MM-dd');
+  return digestDate(isoString).toFormat('yyyy-MM-dd');
 }
 
 /**
  * Format date range to "Jan 5-11th 2026" format
  */
 export function formatDateRange(startISO: string, endISO: string): string {
-  const start = DateTime.fromISO(startISO);
-  const end = DateTime.fromISO(endISO);
+  const start = digestDate(startISO);
+  const end = digestDate(endISO);
   
   // If same month and year
   if (start.month === end.month && start.year === end.year) {
@@ -40,14 +52,14 @@ export function formatDateRange(startISO: string, endISO: string): string {
  * Format time to HH:mm (hours and minutes only, no seconds)
  */
 export function formatTime(isoString: string): string {
-  return DateTime.fromISO(isoString).toFormat('HH:mm');
+  return digestDate(isoString).toFormat('HH:mm');
 }
 
 /**
  * Format date and time to "Jan 9, 2026 17:26" format
  */
 export function formatDateTime(isoString: string): string {
-  return DateTime.fromISO(isoString).toFormat('MMM d, yyyy HH:mm');
+  return digestDate(isoString).toFormat('MMM d, yyyy HH:mm');
 }
 
 /**
@@ -57,7 +69,7 @@ export function formatDateTime(isoString: string): string {
 export function formatIssueLine(weekLabel: string, startISO?: string): string {
   const issuePart = weekLabel.includes('-') ? weekLabel.split('-')[1] : weekLabel; // e.g. "W10"
   const monthYear = startISO
-    ? DateTime.fromISO(startISO).toFormat('MMMM yyyy')
+    ? digestDate(startISO).toFormat('MMMM yyyy')
     : (() => {
         const [y, w] = weekLabel.split('-');
         const weekNum = parseInt(w?.replace(/^W/i, '') || '1', 10);
@@ -65,4 +77,13 @@ export function formatIssueLine(weekLabel: string, startISO?: string): string {
         return DateTime.fromObject({ weekYear: year, weekNumber: weekNum }).toFormat('MMMM yyyy');
       })();
   return `Issue ${issuePart} · ${monthYear}`;
+}
+
+/**
+ * Hero dateline: "11 OCTOBER 2026". Uses the build time (when the issue went
+ * out), not startISO, which is the Monday the coverage window opens.
+ */
+export function formatPublishedDate(digest: { builtAtISO?: string; endISO?: string; startISO?: string }): string | null {
+  const iso = digest.builtAtISO ?? digest.endISO ?? digest.startISO;
+  return iso ? digestDate(iso).toFormat('dd MMMM yyyy').toUpperCase() : null;
 }

@@ -355,7 +355,21 @@ const QUOTE_JARGON = [
   'telegraph', 'underscore', 'interplay', 'reframe', 'juxtapos', 'catalys',
 ];
 
+/**
+ * Drop punctuation from a theme chip but keep decimal points and thousands
+ * separators: "Claude Haiku 5.5." -> "Claude Haiku 5.5" (stripping every "."
+ * shipped "Haiku 55" in 2026-W41).
+ */
+export function stripThemePunctuation(theme: string): string {
+  return theme
+    .trim()
+    .replace(/[;:!?]/g, '')
+    .replace(/[.,](?!\d)|(?<!\d)[.,]/g, '')
+    .trim();
+}
+
 /** Why a candidate breaks the brief, or null if it is fine. Exported for tests. */
+
 export function quoteProblem(q: string): string | null {
   const words = q.split(/\s+/).filter(Boolean).length;
   if (words > QUOTE_MAX_WORDS) return `${words} words (max ${QUOTE_MAX_WORDS})`;
@@ -550,7 +564,7 @@ async function callLLMForThemes(digest: WeeklyDigest, isRetry: boolean = false):
     let keyThemes = Array.isArray(parsed.keyThemes)
       ? parsed.keyThemes
           .filter((t: any) => typeof t === 'string')
-          .map((t: string) => t.trim().replace(/[.,;:!?]/g, ''))
+          .map((t: string) => stripThemePunctuation(t))
           .filter((t: string) => t.length > 0)
           .slice(0, 5)
       : [];

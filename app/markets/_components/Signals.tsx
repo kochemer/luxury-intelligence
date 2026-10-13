@@ -3,6 +3,7 @@
 import type { CrossSignal, SignalExample, ThemeStat } from '@/lib/markets/types';
 import ArticleLink from './ArticleLink';
 import { formatDay } from './format';
+import { displaySourceName } from '@/lib/utils/sourceName';
 
 export const LINK_FOCUS = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]';
 
@@ -46,7 +47,7 @@ function Examples({ list }: { list: SignalExample[] }) {
           >
             {e.title}
           </ArticleLink>
-          {' · '}{e.source}{' · '}{formatDay(e.date)}
+          {' · '}{displaySourceName(e.source)}{' · '}{formatDay(e.date)}
         </li>
       ))}
     </ul>

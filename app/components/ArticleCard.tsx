@@ -4,6 +4,7 @@ import { formatDisplayDate } from '@/lib/utils/formatDisplayDate';
 import { track } from '@/lib/analytics';
 import { countArticleClick } from '@/lib/analytics/beacon';
 import type { Locale } from '@/lib/i18n/types';
+import { displaySourceName } from '@/lib/utils/sourceName';
 
 type ArticleCardProps = {
   title: string;
@@ -119,7 +120,7 @@ export default function ArticleCard({
               }}
             />
           )}
-          {source && <span className="uppercase tracking-widest">{source}</span>}
+          {source && <span className="uppercase tracking-widest">{displaySourceName(source)}</span>}
           {source && displayDate && <span aria-hidden>·</span>}
           {displayDate && <span>{displayDate}</span>}
         </div>
@@ -140,7 +141,7 @@ export default function ArticleCard({
         <div className="shrink-0 hidden sm:flex items-center gap-1.5 w-36">
           {source && (
             <span className="font-ibm-mono text-[10px] tracking-[0.06em] uppercase text-[var(--color-text-secondary)] opacity-60 truncate">
-              {source}
+              {displaySourceName(source)}
             </span>
           )}
           {displayDate && (
@@ -204,7 +205,7 @@ export default function ArticleCard({
               }}
             />
           )}
-          {source && <span className="uppercase tracking-widest">{source}</span>}
+          {source && <span className="uppercase tracking-widest">{displaySourceName(source)}</span>}
           {source && displayDate && <span aria-hidden>·</span>}
           {displayDate && <span>{displayDate}</span>}
         </div>

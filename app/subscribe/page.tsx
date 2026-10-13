@@ -178,7 +178,7 @@ export default function SubscribePage() {
               ['Hosting & infrastructure', 'Vercel deployment, domain, and CDN serving the digest to every reader each week.'],
               ['AI summarisation', 'The LLM API calls that classify articles, generate summaries, and rank candidates for each issue.'],
               ['Web discovery', 'Tavily search queries that surface relevant articles outside the curated RSS feed list.'],
-              ['Podcast synthesis', 'ElevenLabs TTS that converts the weekly script into the podcast briefing.'],
+              ['Podcast synthesis', 'OpenAI text-to-speech that voices the weekly script as the podcast briefing.'],
             ].map(([label, desc]) => (
               <div key={label} className="flex gap-4">
                 <span className="font-mono text-[var(--color-accent)] mt-0.5 shrink-0 select-none text-sm">—</span>

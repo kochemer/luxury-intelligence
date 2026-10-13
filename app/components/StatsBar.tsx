@@ -5,7 +5,7 @@ import BrandPattern from './BrandPattern';
 import { useCountUp } from '@/hooks/useCountUp';
 
 type StatsBarProps = {
-  /** Total articles analysed (counts up from 0) */
+  /** Total articles analysed (rendered server-side; counts up from 0 when scrolled into view) */
   totalArticles: number;
   /** Label below the number, e.g. "articles analysed this week" */
   primaryLabel?: string;
@@ -47,7 +47,7 @@ export default function StatsBar({ totalArticles, primaryLabel = 'articles analy
         <div
           className={`font-serif text-stat-number font-bold text-[var(--color-accent)] tabular-nums ${triggered ? 'stat-landed' : ''}`}
         >
-          {displayValue.toLocaleString()}
+          {displayValue.toLocaleString('en-US')}
         </div>
         <p className="text-stat-label uppercase tracking-widest text-[var(--color-text-secondary)] mt-2">
           {primaryLabel}

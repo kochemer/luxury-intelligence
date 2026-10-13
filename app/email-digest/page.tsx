@@ -6,6 +6,7 @@ import { formatDate, formatIssueLine } from '@/lib/utils/formatDate';
 import { getCurrentDigestWeek } from '@/lib/utils/getCurrentDigestWeek';
 import { getSiteUrl } from '@/lib/utils/siteUrl';
 import type { EmailDigest, EmailDigestItem } from '@/lib/types';
+import { displaySourceName } from '@/lib/utils/sourceName';
 
 // Lazy evaluation for dev mode compatibility
 const getSiteUrlLazy = () => getSiteUrl();
@@ -249,7 +250,7 @@ export default async function EmailDigestPage() {
                           Lead Story
                         </span>
                         <span className="text-[10px] text-[var(--color-text-secondary)] font-sans">
-                          {lead.source}
+                          {displaySourceName(lead.source)}
                         </span>
                       </div>
                       <h2 className="font-serif text-[1.875rem] leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] mb-4">
@@ -288,7 +289,7 @@ export default async function EmailDigestPage() {
                                 {String(item.rank).padStart(2, '0')}
                               </span>
                               <span className="text-[10px] text-[var(--color-text-secondary)] font-sans uppercase tracking-wider">
-                                {item.source}
+                                {displaySourceName(item.source)}
                               </span>
                             </div>
                             <h3 className="font-serif text-xl leading-snug tracking-[-0.01em] text-[var(--color-text-primary)] mb-3">
@@ -333,7 +334,7 @@ export default async function EmailDigestPage() {
                               {item.title}
                             </span>
                             <span className="font-mono text-[10px] text-[var(--color-text-secondary)] shrink-0 uppercase tracking-wider">
-                              {item.source}
+                              {displaySourceName(item.source)}
                             </span>
                           </a>
                         ))}

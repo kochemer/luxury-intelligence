@@ -48,7 +48,7 @@ const FAQ_ITEMS = [
   {
     question: 'Is a podcast version available?',
     answer:
-      'Yes. Each week a ~12–15 minute podcast edition is generated via ElevenLabs TTS and embedded directly on the digest page. It covers the top stories across all four categories.',
+      'Yes. Each week a podcast edition of roughly 13–18 minutes is voiced with OpenAI text-to-speech and embedded directly on the digest page. It covers the top stories across all four categories.',
   },
   {
     question: 'Which industries does the digest cover?',
@@ -128,7 +128,7 @@ export default function AboutPage() {
             <strong className="text-gray-900"> Jewellery Industry</strong>.
           </p>
           <p className="text-body text-gray-600">
-            Every week, eight ranked articles are published to the web, delivered by email, and scripted into a
+            Every week, 28 ranked articles (seven in each of four categories) are published to the web, delivered by email, and scripted into a
             podcast briefing — so you can read, skim, or listen depending on how your week is going.
           </p>
         </div>
@@ -243,7 +243,7 @@ export default function AboutPage() {
               </span>
               <p className="text-body text-[var(--color-text-secondary)]">
                 The brief is published simultaneously to the web, delivered to subscribers by email, and scripted into
-                a ~12–15 minute podcast briefing synthesised via ElevenLabs. A cover image is generated for each issue
+                a podcast briefing of roughly 13–18 minutes, voiced with OpenAI text-to-speech. A cover image is generated for each issue
                 using a SceneDirector prompt pipeline designed to produce distinctive, non-generic editorial visuals.
               </p>
             </div>

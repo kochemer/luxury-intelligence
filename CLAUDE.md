@@ -88,6 +88,12 @@ RSS/web sources → ingestion/ → data/articles.json
 Orchestrated by `pipeline/runWeeklyPipeline.ts` (entry: `scripts/runWeeklyPipeline.ts`).
 Module-level detail, artifacts and caches: `docs/pipeline.md`.
 
+Digest timestamps (`startISO`, `endISO`, `builtAtISO`) are stored in UTC for a
+Copenhagen Mon–Sun week. Format them only through `lib/utils/formatDate.ts`
+(`digestDate()` parses in `Europe/Copenhagen`). A bare `DateTime.fromISO()`
+runs in the server's zone (UTC on Vercel) and prints the Sunday before the week.
+Covered by `__tests__/digest.displayFacts.test.ts`.
+
 ### Key Directories
 
 | Path | Purpose |

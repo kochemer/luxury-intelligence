@@ -77,7 +77,7 @@ export default function MethodologyPage() {
           A weekly curated intelligence digest covering{' '}
           <strong>AI & Strategy</strong>, <strong>Ecommerce & Retail Tech</strong>,{' '}
           <strong>Luxury & Consumer</strong>, and <strong>Jewellery Industry</strong>.
-          Each issue presents eight ranked articles across four categories, delivered
+          Each issue presents seven ranked articles in each of four categories (28 in total), delivered
           simultaneously to the web, by email, and as a podcast briefing.
         </p>
       ),
@@ -163,7 +163,7 @@ export default function MethodologyPage() {
             'Generates concise web summaries from title, source, date, and snippet only — no full article required',
             'Generates email digest bullets (3 per article) from up to 8,000 characters of the full fetched article text',
             'Produces the weekly one-sentence insight via a two-stage process: one model generates four candidates each through a distinct analytical lens (Implication, Paradox, Reframe, Pattern); a second model (gpt-4.1) judges and selects the most original',
-            'Scripts the podcast briefing (~12–15 min) from the top 8 articles',
+            'Scripts the podcast briefing (roughly 13–18 min) from the top 8 articles',
             'Generates the weekly cover image via a SceneDirector prompt pipeline',
           ].map((item) => (
             <li key={item} className="flex items-start gap-3 text-[var(--color-text-secondary)]">

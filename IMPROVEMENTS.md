@@ -401,6 +401,76 @@ Decisions taken with the owner (16 Sep 2026):
 - Surface feed-health (403/429 sources) from the existing `sourceYield` report.
 - Add tests for selection scoring, dedup, and cover-prompt assembly.
 
+### Area 5 — Design review remediation (from the 2026-10-13 Impeccable review)
+
+An [Impeccable](https://impeccable.style/) critique and audit of the live site
+on 2026-10-13 set the baselines: design health **22/40** (Nielsen heuristics),
+technical audit **11/20**, Lighthouse mobile home: performance 74, accessibility
+89, LCP 5.8 s. Owner priority (2026-10-13): trust and accuracy first; see
+mockups before choosing a visual direction; work in stages, most critical first.
+The local snapshot is in `.impeccable/critique/` (untracked).
+
+**Stage 1 — Trust and accuracy [DONE 2026-10-13, STAGE1_HASH]**
+- Dates printed in the server's zone (UTC), so the Mon 5 – Sun 11 Oct W41
+  window showed as "Oct 4–11" and "Published 04 October". All digest dates now
+  go through `lib/utils/formatDate.ts` (Copenhagen); the dateline uses `builtAtISO`.
+- "Haiku 55" theme chip: punctuation stripping ate decimals (`stripThemePunctuation`
+  in `digest/generateThemes.ts`); W41 data corrected.
+- "&amp;" on /markets: feed titles kept HTML entities (`lib/utils/decodeEntities.ts`,
+  applied in `markets/candidates.ts`); `data/markets/luxury.json` corrected.
+- "(via Bing News)" hidden from readers (`lib/utils/sourceName.ts`) on the site
+  and in the email; the data keeps the ingestion key.
+- Podcast length is read from metadata, never hard-coded "~12 min".
+- Stats line reconciles: "2,216 articles analysed · 1,434 on-topic · 28 selected".
+- StatsBar server HTML showed "0" (count-up started at 0).
+- Public empty state printed a build command; now reader copy and an archive link.
+- Copy: "eight ranked articles" → seven per category (28); ElevenLabs → OpenAI TTS.
+- **Open, needs the owner:** About says "AI-Assisted, Editor-Reviewed" and the
+  footer "Curated by The Editor", while Methodology lists "human curation or
+  manual editorial override" as something that does not happen, and the signed
+  "The Editor" column is AI-drafted (`app/components/EditorSpotlight.tsx`).
+  Which is true decides the copy.
+
+**Stage 2 — Critical accessibility and consent (independent of visual direction)**
+- Home h1 sits inside `aria-hidden` (`app/components/MastheadLockup.tsx`).
+- Subscribe email labels not tied to inputs; errors not announced (`SubscribePricing.tsx`).
+- Consent banner: Decline is `#666` on navy (2.5:1) next to a gold Accept; make
+  them equal weight (GDPR); localise the banner for /es and /da.
+- Contrast: `#666` and gold on navy (footer, banner), white on the dark-mode
+  accent (2.23:1), hard-coded `text-gray-900`/`text-black/*` in dark mode (1.02:1).
+  Add `--color-on-deep`, `--color-on-deep-muted`, `--color-on-accent` tokens.
+- Skip link; one `<main>` (layout and pages both render one); Escape closes menus.
+
+**Stage 3 — Visual direction (owner decision gate)**
+- Impeccable `init` (PRODUCT.md), then a direction round with mockups of the
+  homepage. Owner picks: polish the current editorial look, an analyst look
+  like /markets, or a new direction.
+- Cover art: scene director v9 is in progress (see `docs/pipeline-decisions.md`);
+  also weigh a typographic cover built from the weekly insight, and a shorter hero.
+
+**Stage 4 — Homepage vs issue page, and the subscribe flow (in the chosen direction)**
+- `/` and `/digest/[slug]` render the same page. Homepage: insight, spotlight,
+  one top story per category, an inline subscribe block with a sample email,
+  then a link to the full issue.
+- Subscribe: one required email, the free tier as the primary action, support
+  as an add-on; replace the guilt headline; tiers that unlock nothing should
+  not be called "editions".
+
+**Stage 5 — Performance** (target: mobile LCP under 2.5 s)
+- Six font families (9 files) preload on every page: scope Cormorant and IBM
+  Plex to /markets, drop Geist Mono. 67 KB favicon listed three times. Server-render
+  Footer and GrainOverlay; keep one grain technique.
+
+**Stage 6 — Consolidation and mobile polish**
+- Merge the `app/es` and `app/da` page forks into shared locale-aware pages
+  (they render a second ScrollProgressBar and an old feedback design).
+- Remove dead components (BuildDigestButton, EditorialTake,
+  EnableNotificationsButton, FinancialPulse, Sparkline), starter SVGs in `public/`,
+  and the unused `lightweight-charts` dependency.
+- 44 px tap targets (Top-N is 18×24), the /markets table and the About pipeline
+  diagram at 390 px, reduced-motion gaps (smooth scroll, podcast pulse).
+- Finish with Impeccable `polish`, then re-run the critique and audit against the baselines above.
+
 ### Backlog — ingestion overhaul (owner-flagged 16 Sep 2026, do after Area 2)
 
 Dissect the ingestion layer and make it more robust, enriched, and relevant. The

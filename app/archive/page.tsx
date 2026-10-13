@@ -12,7 +12,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { DateTime } from 'luxon';
 import type { Metadata } from 'next';
-import { formatDateRange } from '@/lib/utils/formatDate';
+import { digestDate, formatDateRange } from '@/lib/utils/formatDate';
 import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { buildArchiveCollectionLd } from '@/lib/seo/jsonLd';
@@ -110,7 +110,7 @@ function extractIssueLabel(weekLabel: string): string {
 
 function getMonthGroup(weekLabel: string, startISO?: string): string {
   if (startISO) {
-    return DateTime.fromISO(startISO).toFormat('MMMM yyyy');
+    return digestDate(startISO).toFormat('MMMM yyyy');
   }
   const [y, w] = weekLabel.split('-');
   const year = parseInt(y ?? String(DateTime.now().year), 10);

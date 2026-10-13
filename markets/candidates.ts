@@ -14,6 +14,7 @@ import Parser from 'rss-parser';
 import type { TrackedBrand } from './brands';
 import { mentionsBrand } from './brands';
 import { articleText, articleTime, type CoverageArticle } from './coverage';
+import { decodeEntities } from '@/lib/utils/decodeEntities';
 
 export const MOVES_WEEKS = 6;
 /** Newest items taken per brand from Google News; older ones are rarely news. */
@@ -73,7 +74,7 @@ export function ownCandidates(
     for (const b of brands) {
       if (!mentionsBrand(b, articleText(a))) continue;
       out.push({
-        key: candidateKey(b.name, a.url), brand: b.name, title: a.title.trim(), snippet: (a.snippet ?? '').slice(0, 300),
+        key: candidateKey(b.name, a.url), brand: b.name, title: decodeEntities(a.title.trim()), snippet: decodeEntities(a.snippet ?? '').slice(0, 300),
         source: a.source, url: a.url, date: new Date(t).toISOString().slice(0, 10), origin: 'own',
       });
     }
@@ -82,7 +83,8 @@ export function ownCandidates(
 }
 
 /** Google News titles end in " - Publisher". Split it off. */
-export function splitNewsTitle(raw: string): { title: string; source: string } {
+export function splitNewsTitle(rawTitle: string): { title: string; source: string } {
+  const raw = decodeEntities(rawTitle);
   const i = raw.lastIndexOf(' - ');
   return i > 0 ? { title: raw.slice(0, i).trim(), source: raw.slice(i + 3).trim() } : { title: raw.trim(), source: 'Google News' };
 }

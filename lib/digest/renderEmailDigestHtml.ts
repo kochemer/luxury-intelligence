@@ -6,6 +6,7 @@
 import type { EmailDigest, EmailDigestItem } from '../types';
 import { formatIssueLine } from '../utils/formatDate';
 import { weekLabelToSlug } from '../utils/weekSlug';
+import { displaySourceName } from '../utils/sourceName';
 
 const CANONICAL_URL = 'https://luxury-intel.com';
 
@@ -204,7 +205,7 @@ export function renderEmailDigestHtml(digest: EmailDigest, opts: RenderEmailDige
                   <td style="border-left: 3px solid ${C.accent}; padding: 28px 0 32px 20px;">
                     <p style="margin: 0 0 12px 0;">
                       <span style="font-family: ${SANS}; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: ${C.accent}; font-weight: 600;">Lead Story</span>
-                      <span style="font-family: ${SANS}; font-size: 11px; color: ${C.textSecond}; margin-left: 10px;">${escapeHtml(leadItem.source)}</span>
+                      <span style="font-family: ${SANS}; font-size: 11px; color: ${C.textSecond}; margin-left: 10px;">${escapeHtml(displaySourceName(leadItem.source))}</span>
                     </p>
                     <h2 style="margin: 0 0 14px 0; font-family: ${SERIF}; font-size: 31px; font-weight: normal; line-height: 1.3; letter-spacing: -0.01em;">
                       <a href="${escapeHtml(leadItem.url)}" style="color: ${C.textPrimary}; text-decoration: underline;">${escapeHtml(leadItem.title)}</a>
@@ -240,7 +241,7 @@ export function renderEmailDigestHtml(digest: EmailDigest, opts: RenderEmailDige
                   <td style="padding-top: 22px; padding-bottom: 24px;">
                     <p style="margin: 0 0 8px 0;">
                       <span style="font-family: ${SERIF}; font-size: 16px; color: ${C.accentMuted};">${rankStr}</span>
-                      <span style="font-family: ${SANS}; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: ${C.textSecond}; margin-left: 8px;">${escapeHtml(item.source)}</span>
+                      <span style="font-family: ${SANS}; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: ${C.textSecond}; margin-left: 8px;">${escapeHtml(displaySourceName(item.source))}</span>
                     </p>
                     <h3 style="margin: 0 0 10px 0; font-family: ${SERIF}; font-size: 22px; font-weight: normal; line-height: 1.4;">
                       <a href="${escapeHtml(item.url)}" style="color: ${C.textPrimary}; text-decoration: underline;">${escapeHtml(item.title)}</a>
@@ -277,7 +278,7 @@ export function renderEmailDigestHtml(digest: EmailDigest, opts: RenderEmailDige
                           <a href="${escapeHtml(item.url)}" style="font-family: ${SANS}; font-size: 16px; color: ${C.textPrimary}; text-decoration: none; line-height: 1.4;">${escapeHtml(item.title)}</a>
                         </td>
                         <td width="90" style="text-align: right; vertical-align: middle; padding-left: 12px;">
-                          <span style="font-family: ${SANS}; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: ${C.textSecond}; white-space: nowrap;">${escapeHtml(item.source)}</span>
+                          <span style="font-family: ${SANS}; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: ${C.textSecond}; white-space: nowrap;">${escapeHtml(displaySourceName(item.source))}</span>
                         </td>
                       </tr>
                     </table>
@@ -430,7 +431,7 @@ export function renderEmailDigestPlaintext(digest: EmailDigest, unsubscribeUrl?:
   for (const item of digest.items) {
     const bullets = extractSummaryBullets(item);
     text += `${String(item.rank).padStart(2, '0')}  ${item.title}\n`;
-    text += `    ${item.source.toUpperCase()}\n`;
+    text += `    ${displaySourceName(item.source).toUpperCase()}\n`;
     text += `    ${item.url}\n\n`;
     for (const b of bullets) {
       text += `    — ${b}\n`;

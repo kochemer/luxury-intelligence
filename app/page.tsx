@@ -18,9 +18,9 @@ import MastheadLockup from './components/MastheadLockup';
 import { WeeklyInsight } from './components/WeeklyInsight';
 import { EditorSpotlight } from './components/EditorSpotlight';
 import { TopicKey } from '@/lib/utils/topicNames';
-import { formatDate, formatDateRange, formatDateTime, formatIssueLine } from '@/lib/utils/formatDate';
+import { formatDateRange, formatIssueLine, formatPublishedDate } from '@/lib/utils/formatDate';
 import { getCurrentDigestWeek } from '@/lib/utils/getCurrentDigestWeek';
-import { getSelectedArticleCount, formatStatsSecondaryLine } from '@/lib/utils/digestStats';
+import { formatStatsSecondaryLine } from '@/lib/utils/digestStats';
 import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 import { CATEGORY_COLORS } from '@/lib/constants/categoryColors';
@@ -261,9 +261,8 @@ export default async function Home() {
         <GrainOverlay id="grain-hero" className="z-[2] opacity-[0.08] md:opacity-[0.08] max-md:opacity-[0.03]" />
         {/* Dateline stamp — top-left newspaper-style */}
         <div className="hero-dateline absolute top-6 left-6 md:left-12 z-10 font-mono text-[10px] tracking-[0.2em] uppercase text-white/70">
-          Published&nbsp;·&nbsp;{digest?.startISO
-            ? DateTime.fromISO(digest.startISO).toFormat('dd MMMM yyyy').toUpperCase()
-            : DateTime.fromObject({
+          Published&nbsp;·&nbsp;{(digest && formatPublishedDate(digest))
+            ?? DateTime.fromObject({
                 weekYear: parseInt(weekLabel.split('-')[0] ?? String(DateTime.now().year), 10),
                 weekNumber: parseInt((weekLabel.split('-')[1] ?? 'W1').replace(/^W/i, ''), 10),
               }).toFormat('dd MMMM yyyy').toUpperCase()
@@ -303,8 +302,7 @@ export default async function Home() {
             <StatsBar
               totalArticles={digest.totals.total}
               secondaryLine={formatStatsSecondaryLine(
-                digest.totals.total,
-                getSelectedArticleCount(digest),
+                digest,
                 podcast?.duration != null ? podcast.duration / 60 : undefined
               )}
             />
@@ -328,31 +326,19 @@ export default async function Home() {
           {/* Podcast + stats on cream */}
           <div className="bg-[var(--color-bg)] rounded-t-xl md:rounded-t-2xl border border-b-0 border-t border-t-[var(--color-accent)] border-black/5 p-4 sm:p-6 md:p-8 lg:p-10">
           {!digest ? (
-            <div style={{
-              maxWidth: 520,
-              margin: '3.5rem auto 0 auto',
-              padding: '2.5rem 1.5rem',
-              background: '#fff1e2',
-              borderRadius: 10,
-              border: '1.5px dashed #ffdfa9',
-              fontSize: '1.1rem',
-              color: '#913d00',
-              textAlign: 'center',
-              boxShadow: '0 2px 12px 0 rgba(200,170,100,0.04)'
-            }}>
-              <h2 style={{margin: '0 0 1rem 0', fontSize: '1.6rem', fontWeight: 600}}>Digest not built yet</h2>
-              <p style={{marginBottom:'1.1rem'}}>No latest digest found for this week.</p>
-              <div style={{marginBottom:'1.5rem'}}>
-                <span style={{
-                  background: '#fff4ca',
-                  color: '#905e19',
-                  fontFamily: 'monospace',
-                  padding: '0.28rem 0.46rem',
-                  borderRadius: '4px',
-                  fontSize: '1.04rem',
-                  display:'inline-block'
-                }}>npx tsx scripts/buildWeeklyDigest.ts</span>
-              </div>
+            // Reader-facing: never show build commands here (the old block printed
+            // `npx tsx scripts/buildWeeklyDigest.ts` to the public).
+            <div className="max-w-xl mx-auto my-10 text-center">
+              <h2 className="font-serif text-section text-[var(--color-text-primary)] mb-3">This week&rsquo;s issue is on its way</h2>
+              <p className="text-body text-[var(--color-text-secondary)] mb-6">
+                A new issue goes out every Monday. Until then, past issues are in the archive.
+              </p>
+              <Link
+                href="/archive"
+                className="inline-flex items-center min-h-11 px-5 rounded-sm bg-[var(--color-accent)] text-white text-sm font-medium hover:opacity-90"
+              >
+                Browse past issues
+              </Link>
             </div>
           ) : (
             <>

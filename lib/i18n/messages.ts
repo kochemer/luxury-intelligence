@@ -127,7 +127,7 @@ const en: Messages = {
     articlesCount: '# of articles processed',
   },
   podcast: {
-    title: 'Weekly Luxury Intelligence · ~12 minutes',
+    title: 'Weekly Luxury Intelligence',
     description: "Listen to this week's key ecommerce, jewellery & luxury stories",
   },
   categories: {
@@ -209,7 +209,7 @@ const da: Messages = {
     articlesCount: 'antal artikler behandlet',
   },
   podcast: {
-    title: 'Ugentlig Luxury Intelligence · ca. 12 min',
+    title: 'Ugentlig Luxury Intelligence',
     description: 'Lyt til denne uges vigtigste e-handel-, smykke- og luksusnyheder',
   },
   categories: {
@@ -291,7 +291,7 @@ const es: Messages = {
     articlesCount: 'nº de artículos procesados',
   },
   podcast: {
-    title: 'Luxury Intelligence semanal · ~12 min',
+    title: 'Luxury Intelligence semanal',
     description: 'Escucha las principales noticias de ecommerce, joyería y lujo de esta semana',
   },
   categories: {

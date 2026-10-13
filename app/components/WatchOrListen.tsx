@@ -4,6 +4,8 @@ import { useRef, useState, useSyncExternalStore } from 'react';
 import PodcastPlayer from './PodcastPlayer';
 import WeeklyShortPlayer from './WeeklyShortPlayer';
 import type { WeeklyShort } from '@/lib/video/weeklyShort';
+import { displaySourceName } from '@/lib/utils/sourceName';
+import { podcastTitle } from '@/lib/utils/digestStats';
 
 const noSubscribe = () => () => {};
 
@@ -26,7 +28,7 @@ export default function WatchOrListen({ short, podcast }: { short: WeeklyShort |
     <div>
       <PodcastPlayer
         src={podcast.audioPath}
-        title="Weekly Luxury Intelligence · ~12 minutes"
+        title={podcastTitle('Weekly Luxury Intelligence', podcast.duration)}
         description="Listen to this week's key ecommerce, jewellery & luxury stories"
         durationSeconds={podcast.duration}
       />
@@ -88,7 +90,7 @@ export default function WatchOrListen({ short, podcast }: { short: WeeklyShort |
               <a href={short.story.url} target="_blank" rel="noopener" className="underline underline-offset-2 text-white/80 hover:text-[var(--color-accent)]">
                 {short.story.title}
               </a>
-              {' '}· {short.story.source}
+              {' '}· {displaySourceName(short.story.source)}
             </p>
             <div className="hidden sm:flex flex-wrap items-center gap-x-6 gap-y-3 mt-4 md:mt-0">
               {canFullscreen && (

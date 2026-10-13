@@ -14,7 +14,7 @@ import ScrollProgressBar from '../components/ScrollProgressBar';
 import { TopicKey } from '@/lib/utils/topicNames';
 import { formatDateRange, formatDateTime, formatIssueLine } from '@/lib/utils/formatDate';
 import { getCurrentDigestWeek } from '@/lib/utils/getCurrentDigestWeek';
-import { getSelectedArticleCount, formatStatsSecondaryLine } from '@/lib/utils/digestStats';
+import { formatStatsSecondaryLine, podcastTitle } from '@/lib/utils/digestStats';
 import { getMessages } from '@/lib/i18n/messages';
 import { CATEGORY_COLORS } from '@/lib/constants/categoryColors';
 import type { WeeklyDigest } from '@/lib/types';
@@ -203,8 +203,7 @@ export default async function HomeDA() {
               totalArticles={digest.totals.total}
               primaryLabel={t.digest.articlesAnalysedThisWeek}
               secondaryLine={formatStatsSecondaryLine(
-                digest.totals.total,
-                getSelectedArticleCount(digest),
+                digest,
                 podcast?.duration != null ? podcast.duration / 60 : undefined
               )}
             />
@@ -249,7 +248,7 @@ export default async function HomeDA() {
                   <div className="mb-5 sm:mb-6 md:mb-8 pb-5 sm:pb-6 md:pb-8 border-b border-gray-200 dark:border-gray-700">
                     <PodcastPlayer
                       src={podcast.audioPath}
-                      title={t.podcast.title}
+                      title={podcastTitle(t.podcast.title, podcast.duration)}
                       description={t.podcast.description}
                       durationSeconds={podcast.duration}
                     />
