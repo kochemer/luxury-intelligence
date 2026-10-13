@@ -36,7 +36,7 @@ export default function TermsPage() {
             These terms apply to luxury-intel.com and everything published under the Luxury Intelligence name:
             the weekly digest, its emails, the podcast and the videos. Luxury Intelligence is an independent
             publication run from Copenhagen, Denmark. By using the site or its services you accept these terms.
-            Questions: <a href="mailto:feedback@luxury-intel.com?subject=Terms" className={link}>feedback@luxury-intel.com</a>.
+            Questions: <a href="mailto:luxuryintelligence@zohomail.eu?subject=Terms" className={link}>luxuryintelligence@zohomail.eu</a>.
           </p>
 
           <div>

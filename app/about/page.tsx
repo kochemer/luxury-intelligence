@@ -318,7 +318,7 @@ export default function AboutPage() {
             <p>
               <strong className="text-[var(--color-text-primary)]">Data controller.</strong> Luxury Intelligence
               (luxury-intel.com), Copenhagen, Denmark. Questions or requests:{' '}
-              <a href="mailto:feedback@luxury-intel.com?subject=Privacy" className="text-[var(--color-accent)] underline underline-offset-2">feedback@luxury-intel.com</a>.
+              <a href="mailto:luxuryintelligence@zohomail.eu?subject=Privacy" className="text-[var(--color-accent)] underline underline-offset-2">luxuryintelligence@zohomail.eu</a>.
             </p>
             <p>
               <strong className="text-[var(--color-text-primary)]">If you just read the site.</strong> Every visit

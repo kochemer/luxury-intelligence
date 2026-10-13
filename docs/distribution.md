@@ -56,10 +56,11 @@ JSON-LD, email digest). Only YouTube is.
 ## Things that will bite you
 
 - **Contact addresses on `luxury-intel.com` don't receive mail.** The real inbox is
-  `luxuryintelligence@zohomail.eu`. As of 2026-10-13, `feedback@luxury-intel.com`
-  is still shown on `app/about/page.tsx`, `app/terms/page.tsx` and
-  `app/feedback/page.tsx`. Never put a `@luxury-intel.com` address anywhere a
-  platform will send a verification code.
+  `luxuryintelligence@zohomail.eu`, which the About (privacy), Terms and Feedback
+  pages show since 2026-10-13 (they used to show `feedback@luxury-intel.com`). The
+  email sender `noreply@luxury-intel.com` only sends. Never put a
+  `@luxury-intel.com` address anywhere a person or platform will reply to or
+  send a verification code.
 - **Don't automate LinkedIn or X through browser bots or unofficial tools.** Both
   can restrict the account. Use the official APIs or a scheduler that does.
 - **LinkedIn API tokens expire after 60 days** unless the app is an approved

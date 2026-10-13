@@ -78,7 +78,7 @@ export default function FeedbackPage() {
                 Please reach out directly by email.
               </p>
               <a
-                href="mailto:feedback@luxury-intel.com?subject=Note%20to%20the%20Editor"
+                href="mailto:luxuryintelligence@zohomail.eu?subject=Note%20to%20the%20Editor"
                 className="font-sans text-sm tracking-wider text-[var(--color-accent)] border border-[var(--color-accent)] px-6 py-2.5 rounded-[2px] hover:bg-[var(--color-accent)] hover:text-white transition-colors duration-200 inline-block"
               >
                 Send Email →
