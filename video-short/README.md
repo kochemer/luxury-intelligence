@@ -69,14 +69,21 @@ and the same video is embedded on the digest page. Brand logos are fine to use
   `VideoObject` (`buildVideoObjectLd` in `lib/seo/jsonLd.ts`). Our poster shows
   until the reader presses play; only then does the youtube-nocookie player
   load (consent rule). ES/DA pages stay podcast-only (noindex, English video).
-- **Uploads are forced to private** until the project passes YouTube's API
+- **Uploads may be forced to private** until the project passes YouTube's API
   audit (projects created after 2020-07-28). Owner chose (2026-10-11) to wait
   for the audit rather than flip videos by hand. The site shows a video only
   when `video.json` says `"public": true`; `upload.ts --sync` (first step of
   every run, or the workflow's `sync_only` input) flips it once YouTube serves
   it. Audit requested 2026-10-12 (YouTube API Services audit form, individual
-  applicant, default 10,000 quota, evidence in docs/youtube-audit/).
-  Waiting for Google's reply as of 2026-10-12.
+  applicant, default 10,000 quota, evidence in docs/youtube-audit/), no reply
+  as of 2026-10-13. Even so, W41 (the first automated run, 2026-10-12,
+  `mrFXYwTJw9Q`) landed **public** straight away and is live on the homepage
+  and its digest page.
+- The bot's record commit is a site change, so it must deploy. W41's commit
+  (398aac0) got no Vercel deployment (the flaky git trigger,
+  `docs/operations.md`); an empty retrigger commit fixed it on 2026-10-13.
+  If a week's Short is public on YouTube but missing on the site, check
+  that commit's Vercel status first.
 - W39 was uploaded privately as the end-to-end test (2026-10-11,
   `I2DlQjpvjso`); its record stays `"public": false`.
 
