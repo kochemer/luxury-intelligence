@@ -107,6 +107,11 @@ and the same video is embedded on the digest page. Brand logos are fine to use
   owner heard it as 1× (2026-10-06). `voice.ts` measures the raw pace on every
   run and picks the atempo to hit `TEMPO × NORMAL_WPM` (capped at 1.6×).
   `meta.json` → `voicePace` records raw wpm, atempo and final wpm.
+- **The voice model goes on 2027-01-06.** OpenAI removes gpt-4o-mini-tts then.
+  A clip that fails on it is re-voiced with `gpt-realtime-2.1-mini` over the
+  Realtime API (`lib/llm/speech.ts`, same voice and instruction), cached
+  under the same key. On W39's six lines in "ash" it read every line word
+  for word (2026-10-14). Budget is priced for it: `TTS_USD_PER_MINUTE` = $0.03.
 - Simple Icons titles can belong to a different company than the one you mean
   ("Hermes" is the parcel carrier, not Hermès). Add such names to
   `COLLISIONS` in `src/marks.ts`; they then render as wordmarks.

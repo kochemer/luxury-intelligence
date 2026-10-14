@@ -13,7 +13,7 @@ in `lib/llm/models.ts`; per-step env overrides are in `docs/operations.md`.
 | Pull-quote generator + judge | `digest/generateThemes.ts`, tier `polish` | `gpt-6.1-sol` | 2026-10-09 (was `gpt-4.1`) |
 | Cover scene director | `digest/sceneDirector.ts`, tier `polish` | `gpt-6.1-sol` | 2026-10-09 (was `gpt-4.1`) |
 | Podcast script | `podcast/buildWeeklyPodcast.ts`, tier `script` | `gpt-6.1-sol` | 2026-10-09 (was `gpt-4.1`) |
-| Podcast voice | `podcast/buildWeeklyPodcast.ts` | `gpt-4o-mini-tts`, voice `alloy`; `tts-1` fallback | 2026-10-09 (was ElevenLabs, in practice `tts-1`) |
+| Podcast voice | `podcast/buildWeeklyPodcast.ts` | `gpt-4o-mini-tts`, voice `alloy`; `gpt-realtime-2.1-mini` fallback (was `tts-1` until 2026-10-14) | 2026-10-09 (was ElevenLabs, in practice `tts-1`) |
 | Cover image | `digest/generateCoverImage.ts` | `gpt-image-2.5-sunburst`; `gpt-image-2` fallback | 2026-10-09 (was `gpt-image-2`) |
 | Article summaries, email digest | tier `summarize` | `gpt-4.1` | 2026-09-18 (F1.4) |
 | Reranker | `digest/rerankArticles.ts` | `gpt-4.1` | 2026-09-16 |
@@ -53,11 +53,23 @@ the buffer. The voice is the critical path because its fallback dies too.
    markets move labels on cached headlines (a model change re-labels, check
    `PROMPT_VERSION`); themes/translations/query-delta for empty answers and
    retries. Needs OpenAI credit (it ran out on 2026-10-09).
-4. Voice: first check whether `gpt-realtime-2.1-mini` works on
-   `audio.speech` with `instructions`; if it only works over the Realtime API,
-   the podcast and the Short need a new audio path. Then whether `alloy` exists,
-   a listening test, new prices in `video-short/src/budget.ts` (the $2/week
-   cap). The voice cache key includes the model, so expect one full re-synthesis.
+4. Voice. [DONE as fallback, 2026-10-14] `gpt-realtime-2.1-mini` is not
+   served on `/v1/audio/speech` (404), so it runs over the Realtime API
+   (`lib/llm/speech.ts`): a read-verbatim instruction plus the delivery brief,
+   and the model's own transcript is checked against the text (a chunk that
+   drifts is retried once, then the run fails). It is now the fallback for the
+   podcast (replacing `tts-1`) and the Short, so both keep a voice after
+   2027-01-06 with no further change. Measured on W41's full podcast script
+   (16,399 chars) and W39's six Short lines: the model's transcript matched
+   word for word; an independent `gpt-transcribe` pass differed from the
+   script by 2.3% on the full episode vs 3.05% for `gpt-4o-mini-tts` on the
+   same text, all spelling (UK/US, "e-commerce") or misheard names. Episode
+   15:17 vs 15:54 live, same 64 kbps MP3. `alloy` and `ash` both exist. About
+   $0.37 an episode vs $0.22 ($20/1M audio tokens, ~1,200 tokens a minute).
+   Rejected: `gpt-audio-mini` on Chat Completions (works, simpler, but
+   it is itself removed 2027-01-20). **Open:** owner listening test, then make
+   it the primary (`PODCAST_TTS_MODEL`, `TTS_MODEL` in
+   `video-short/src/voice.ts`).
 5. Switch one tier per weekly run: classify/triage, markets, rerank, summarize.
    No fallback may point at a retiring model.
 6. Cleanup: a test that fails if a default or fallback model is on a

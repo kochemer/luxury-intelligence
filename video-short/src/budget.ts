@@ -29,9 +29,12 @@ export function claudePrice(model: string) {
 
 /**
  * OpenAI audio. gpt-4o-mini-tts bills text-in at $0.60/1M tokens plus
- * audio-out at about $0.015 per minute; whisper-1 is $0.006 per minute. Rounded up.
+ * audio-out at about $0.015 per minute. Its 2027-01-06 replacement,
+ * gpt-realtime-2.1-mini, bills audio-out at $20/1M tokens, ~1,200 tokens a
+ * minute (measured 2026-10-14), so ~$0.025 per minute; priced for that one.
+ * whisper-1 is $0.006 per minute. Rounded up.
  */
-export const TTS_USD_PER_MINUTE = 0.02;
+export const TTS_USD_PER_MINUTE = 0.03;
 export const WHISPER_USD_PER_MINUTE = 0.006;
 
 interface Entry { at: string; step: string; model: string; reservedUsd: number; actualUsd: number; detail?: unknown }

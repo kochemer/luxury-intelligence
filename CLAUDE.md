@@ -109,7 +109,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `classification/` | Rule-based topic classification, no LLM: source overrides, then keywords; no match = dropped (since 2026-09-16) |
 | `digest/` | Digest builder — ranks, selects, and writes JSON |
 | `email/` | Resend email rendering + delivery |
-| `podcast/` | Podcast script + TTS (OpenAI `gpt-4o-mini-tts`, `tts-1` fallback; ElevenLabs opt-in); feed at `/podcast/feed.xml` |
+| `podcast/` | Podcast script + TTS (OpenAI `gpt-4o-mini-tts`, Realtime `gpt-realtime-2.1-mini` fallback via `lib/llm/speech.ts`; ElevenLabs opt-in); feed at `/podcast/feed.xml` |
 | `markets/` | Engine for `/markets/luxury` + `/markets/jewellery` |
 | `seo/` | SEO audit / monitor / repair / recovery system (see below) |
 | `video/` | Older FFmpeg-based video clip composer |

@@ -4,7 +4,9 @@
  * and a short breath inserted between scenes. Pauses inside a clip are kept.
  *
  * OpenAI gpt-4o-mini-tts: cheap, and it takes a delivery instruction.
- * (The project is moving away from ElevenLabs.)
+ * (The project is moving away from ElevenLabs.) OpenAI removes it on
+ * 2027-01-06; a clip that fails falls back to gpt-realtime-2.1-mini over the
+ * Realtime API (lib/llm/speech.ts), same voice and instruction.
  */
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -13,8 +15,10 @@ import crypto from 'crypto';
 import OpenAI from 'openai';
 import { Budget, TTS_USD_PER_MINUTE } from './budget';
 import type { Scene } from './script';
+import { REALTIME_SPEECH_MODEL, synthesizeSpeech } from '../../lib/llm/speech';
 
 export const TTS_MODEL = 'gpt-4o-mini-tts';
+export const TTS_FALLBACK_MODEL = REALTIME_SPEECH_MODEL;
 export const TTS_VOICE = process.env.VIDEO_SHORT_VOICE ?? 'ash';
 const INSTRUCTIONS =
   'Dry, deadpan news delivery at a normal conversational pace. Keep short natural pauses between sentences. ' +
@@ -73,6 +77,22 @@ function spreadWords(text: string, start: number, dur: number) {
   });
 }
 
+/** One clip as WAV: the speech endpoint first, the Realtime fallback if it fails. */
+async function speakClip(openai: OpenAI, text: string): Promise<Buffer> {
+  if (!TTS_MODEL.startsWith('gpt-realtime')) {
+    try {
+      const res = await openai.audio.speech.create({
+        model: TTS_MODEL, voice: TTS_VOICE, input: text, instructions: INSTRUCTIONS, response_format: 'wav',
+      });
+      return Buffer.from(await res.arrayBuffer());
+    } catch (error) {
+      console.warn(`[voice] ${TTS_MODEL} failed (${(error as Error).message}); retrying with ${TTS_FALLBACK_MODEL}`);
+    }
+  }
+  const model = TTS_MODEL.startsWith('gpt-realtime') ? TTS_MODEL : TTS_FALLBACK_MODEL;
+  return (await synthesizeSpeech({ text, voice: TTS_VOICE, instructions: INSTRUCTIONS, model }, openai)).wav;
+}
+
 export async function buildVoice(scenes: Scene[], budget: Budget, outDir: string): Promise<{ timed: TimedScene[]; audio: string; total: number; pace: { rawWpm: number; atempo: number; finalWpm: number } }> {
   const clipDir = path.join(outDir, 'voice');
   await fs.mkdir(clipDir, { recursive: true });
@@ -89,13 +109,11 @@ export async function buildVoice(scenes: Scene[], budget: Budget, outDir: string
       await Promise.all(scenes.slice(i, i + 4).map(async (sc, j) => {
         const idx = i + j;
         // Keyed by content, so an edited line is re-voiced and an unchanged one is free.
+        // A clip voiced by the fallback is cached under the same key.
         const key = crypto.createHash('sha256').update(`${TTS_MODEL}|${TTS_VOICE}|${INSTRUCTIONS}|${sc.vo}`).digest('hex').slice(0, 12);
         const raw = path.join(clipDir, `raw-${key}.wav`);
         try { await fs.access(raw); } catch {
-          const res = await openai.audio.speech.create({
-            model: TTS_MODEL, voice: TTS_VOICE, input: sc.vo, instructions: INSTRUCTIONS, response_format: 'wav',
-          });
-          await fs.writeFile(raw, Buffer.from(await res.arrayBuffer()));
+          await fs.writeFile(raw, await speakClip(openai, sc.vo));
           fresh.add(raw);
         }
         files[idx] = raw;

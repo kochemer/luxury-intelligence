@@ -11,6 +11,11 @@ import type { WeeklyDigest } from '../lib/types';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
 import { HOUSE_STYLE_RULES, stripDashes } from '../lib/llm/houseStyle';
 import { compressPodcastMp3 } from './compressAudio';
+import { execFile } from 'child_process';
+import { promisify } from 'util';
+import { REALTIME_SPEECH_MODEL, synthesizeSpeech, pcmToWav } from '../lib/llm/speech';
+
+const runFile = promisify(execFile);
 
 /**
  * Generate podcast script from digest
@@ -149,9 +154,13 @@ async function generateAudioWithElevenLabs(text: string, outputPath: string): Pr
 // OpenAI voice, the default since 2026-10-09 (ElevenLabs is opt-in, see
 // buildWeeklyPodcast). gpt-4o-mini-tts replaced tts-1 (2023) and takes a
 // delivery brief. "alloy" is kept so the show keeps the voice listeners know.
-// tts-1 stays as the fallback: it voiced W29–W40 and is proven.
+// OpenAI removes gpt-4o-mini-tts and tts-1 on 2027-01-06. The fallback is
+// their replacement, gpt-realtime-2.1-mini over the Realtime API
+// (lib/llm/speech.ts), so the show keeps a voice past that date even if the
+// primary isn't switched; PODCAST_TTS_MODEL=gpt-realtime-2.1-mini makes it
+// the primary. See docs/pipeline-decisions.md.
 const OPENAI_TTS_MODEL = process.env.PODCAST_TTS_MODEL?.trim() || 'gpt-4o-mini-tts';
-const OPENAI_TTS_FALLBACK_MODEL = 'tts-1';
+const OPENAI_TTS_FALLBACK_MODEL = REALTIME_SPEECH_MODEL;
 const OPENAI_TTS_VOICE = process.env.PODCAST_TTS_VOICE?.trim() || 'alloy';
 const OPENAI_TTS_INSTRUCTIONS =
   'Calm, assured business-news presenter. Measured pace, warm but not chatty. ' +
@@ -161,12 +170,34 @@ const OPENAI_TTS_INSTRUCTIONS =
  * Generate audio using OpenAI TTS. Chunks stay under 4,000 characters, inside
  * both models' input limits.
  */
-async function generateAudioWithOpenAI(
+export async function generateAudioWithOpenAI(
   text: string,
   outputPath: string,
   model: string = OPENAI_TTS_MODEL,
 ): Promise<{ success: boolean; duration?: number }> {
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+  if (model.startsWith('gpt-realtime')) {
+    // Realtime returns raw PCM: join the chunks, then encode once to the
+    // podcast's MP3 format (compressAudio.ts settings).
+    const pcm: Buffer[] = [];
+    for (const chunk of splitTextIntoChunks(text)) {
+      const r = await synthesizeSpeech({ text: chunk, voice: OPENAI_TTS_VOICE, instructions: OPENAI_TTS_INSTRUCTIONS, model }, openai);
+      pcm.push(r.pcm);
+    }
+    const wavPath = `${outputPath}.tmp.wav`;
+    try {
+      await fs.writeFile(wavPath, pcmToWav(Buffer.concat(pcm)));
+      await runFile('ffmpeg', [
+        '-v', 'error', '-y', '-i', wavPath,
+        '-c:a', 'libmp3lame', '-b:a', '64k', '-ac', '1', '-ar', '24000', outputPath,
+      ], { maxBuffer: 10 * 1024 * 1024 });
+    } finally {
+      await fs.rm(wavPath, { force: true });
+    }
+    const wordCount = text.split(/\s+/).length;
+    return { success: true, duration: Math.round((wordCount / 150) * 60) };
+  }
 
   try {
     const chunks = splitTextIntoChunks(text);

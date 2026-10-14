@@ -93,7 +93,9 @@ defaults live in `lib/llm/models.ts`; GPT-5 and later need `maxTokensParam` /
      this path and the hero no longer renders them (roadmap F1.2). Don't build on them.
 
 6. **Distribution**, after the digest: email digest (`email/`), podcast script +
-   TTS (`podcast/`, OpenAI `gpt-4o-mini-tts` with a `tts-1` fallback; ElevenLabs only
+   TTS (`podcast/`, OpenAI `gpt-4o-mini-tts` with a `gpt-realtime-2.1-mini` fallback over
+   the Realtime API, `lib/llm/speech.ts`, since both speech-endpoint models go on
+   2027-01-06; ElevenLabs only
    if `PODCAST_TTS_PROVIDER=elevenlabs`; served as
    `/podcast/feed.xml`), cover image (`npm run cover` logic). The MP3 is
    re-encoded to 64 kbps and the cover PNG palette-quantized before they are
