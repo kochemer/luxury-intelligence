@@ -2,7 +2,7 @@
  * Mock digest generator (LOCAL ONLY — never writes to data/digests).
  *
  * Rebuilds a week's digest with the CURRENT selection code (classification
- * precision + gpt-4.1 reranker + diversity repair) and generates AI summaries
+ * precision + LLM reranker + diversity repair) and generates AI summaries
  * for the picks, then renders a side-by-side HTML comparing the NEW selection
  * against the LIVE (production) digest for the same week. No podcast, no cover,
  * no translation, no editorial — just the articles + summaries per category.
@@ -90,7 +90,7 @@ async function main() {
         <h2>${esc(label)} <span class="delta">${changed}/${newItems.length} changed vs live</span></h2>
         <div class="cols">
           <div class="col">
-            <h3>NEW — mock (gpt-4.1 + precision)</h3>
+            <h3>NEW — mock (current reranker + precision)</h3>
             ${renderColumn(newItems, liveUrls)}
           </div>
           <div class="col">

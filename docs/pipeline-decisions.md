@@ -73,12 +73,14 @@ the buffer. The voice is the critical path because its fallback dies too.
    run is the live check. The reranker followed the same day, after its
    criteria were rewritten for hard news first and re-tested (below). No text
    step or fallback uses GPT-4.1 / 4.1-mini any more.
-6. Cleanup: a test that fails if a default or fallback model is on a
-   `RETIRED_MODELS` list; methodology page copy (it still says the judge is
-   `gpt-4.1`); comments and this table. Also: `digest/generateIntro.ts` is
-   never called (no digest has an `introParagraph`), so delete it rather than
-   migrate it; its sentence trimming splits on "." and cuts "$11.6 billion"
-   into "$11. 6".
+6. Cleanup. [DONE 2026-10-14, two items left] `__tests__/llm.retiredModels.test.ts`
+   fails if code names a retiring model (`gpt-4o-mini-tts` is allowed as the
+   voice fallback until 2027-01-06; after that the test fails until the
+   fallbacks in `podcast/buildWeeklyPodcast.ts` and `video-short/src/voice.ts`
+   are removed). `digest/generateIntro.ts` deleted: never called, and its
+   sentence trimming cut "$11.6 billion" into "$11. 6". Left: those voice
+   fallbacks after 2027-01-06, and the methodology page, which still names
+   `o4-mini` and `gpt-4.1` (owner decision: whether it names models at all).
 
 Owner decisions 2026-10-14: tiers as recommended below; the reranker should
 favour hard news (deals, results, launches, leadership, strategy) over

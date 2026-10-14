@@ -89,8 +89,9 @@ defaults live in `lib/llm/models.ts`; GPT-5 and later need `maxTokensParam` /
      under 100), which reads
      `oneSentenceSummary`, so it must run after themes
    - Content-quality gate (`checkDigestContentQuality`) before the JSON is written
-   - `weeklyInsight` / `introParagraph` (`generateIntro.ts`) aren't produced by
-     this path and the hero no longer renders them (roadmap F1.2). Don't build on them.
+   - `weeklyInsight` / `introParagraph` aren't produced (the unused
+     `generateIntro.ts` was deleted on 2026-10-14) and the hero no longer renders
+     them (roadmap F1.2). Don't build on them.
 
 6. **Distribution**, after the digest: email digest (`email/`), podcast script +
    TTS (`podcast/`, OpenAI `gpt-realtime-2.1-mini` over the Realtime API,
@@ -185,7 +186,6 @@ The orchestrator's own numbering (`pipeline/runWeeklyPipeline.ts`): rss → page
 - `buildWeeklyDigest.ts`: Main digest builder, orchestrates selection, reranking, summaries, translations
 - `rerankArticles.ts`: LLM-based reranking with deterministic fallback (cached)
 - `generateSummaries.ts`: Generate AI summaries for articles (cached)
-- `generateIntro.ts`: Generate weekly intro text (cached)
 - `sceneDirector.ts`: Generate cover image scene descriptions (cached)
 - `themes.ts`: Generate weekly themes (cached)
 
