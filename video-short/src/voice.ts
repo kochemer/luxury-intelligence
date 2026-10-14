@@ -3,10 +3,10 @@
  * durations (no forced alignment needed). Leading/trailing silence is trimmed
  * and a short breath inserted between scenes. Pauses inside a clip are kept.
  *
- * OpenAI gpt-4o-mini-tts: cheap, and it takes a delivery instruction.
- * (The project is moving away from ElevenLabs.) OpenAI removes it on
- * 2027-01-06; a clip that fails falls back to gpt-realtime-2.1-mini over the
- * Realtime API (lib/llm/speech.ts), same voice and instruction.
+ * OpenAI gpt-realtime-2.1-mini over the Realtime API (lib/llm/speech.ts),
+ * since 2026-10-14: cheap, and it takes a delivery instruction. It replaces
+ * gpt-4o-mini-tts, which OpenAI removes on 2027-01-06; until then a clip that
+ * fails falls back to it, same voice and instruction.
  */
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -17,8 +17,9 @@ import { Budget, TTS_USD_PER_MINUTE } from './budget';
 import type { Scene } from './script';
 import { REALTIME_SPEECH_MODEL, synthesizeSpeech } from '../../lib/llm/speech';
 
-export const TTS_MODEL = 'gpt-4o-mini-tts';
-export const TTS_FALLBACK_MODEL = REALTIME_SPEECH_MODEL;
+export const TTS_MODEL = REALTIME_SPEECH_MODEL;
+/** Speech-endpoint fallback; removed by OpenAI on 2027-01-06, drop it then. */
+export const TTS_FALLBACK_MODEL = 'gpt-4o-mini-tts';
 export const TTS_VOICE = process.env.VIDEO_SHORT_VOICE ?? 'ash';
 const INSTRUCTIONS =
   'Dry, deadpan news delivery at a normal conversational pace. Keep short natural pauses between sentences. ' +
@@ -77,20 +78,25 @@ function spreadWords(text: string, start: number, dur: number) {
   });
 }
 
-/** One clip as WAV: the speech endpoint first, the Realtime fallback if it fails. */
-async function speakClip(openai: OpenAI, text: string): Promise<Buffer> {
-  if (!TTS_MODEL.startsWith('gpt-realtime')) {
-    try {
-      const res = await openai.audio.speech.create({
-        model: TTS_MODEL, voice: TTS_VOICE, input: text, instructions: INSTRUCTIONS, response_format: 'wav',
-      });
-      return Buffer.from(await res.arrayBuffer());
-    } catch (error) {
-      console.warn(`[voice] ${TTS_MODEL} failed (${(error as Error).message}); retrying with ${TTS_FALLBACK_MODEL}`);
-    }
+/** One clip as WAV with `model`: Realtime models via lib/llm/speech.ts, others on the speech endpoint. */
+async function speakWith(openai: OpenAI, model: string, text: string): Promise<Buffer> {
+  if (model.startsWith('gpt-realtime')) {
+    return (await synthesizeSpeech({ text, voice: TTS_VOICE, instructions: INSTRUCTIONS, model }, openai)).wav;
   }
-  const model = TTS_MODEL.startsWith('gpt-realtime') ? TTS_MODEL : TTS_FALLBACK_MODEL;
-  return (await synthesizeSpeech({ text, voice: TTS_VOICE, instructions: INSTRUCTIONS, model }, openai)).wav;
+  const res = await openai.audio.speech.create({
+    model, voice: TTS_VOICE, input: text, instructions: INSTRUCTIONS, response_format: 'wav',
+  });
+  return Buffer.from(await res.arrayBuffer());
+}
+
+/** One clip as WAV: TTS_MODEL, then TTS_FALLBACK_MODEL if it fails. */
+async function speakClip(openai: OpenAI, text: string): Promise<Buffer> {
+  try {
+    return await speakWith(openai, TTS_MODEL, text);
+  } catch (error) {
+    console.warn(`[voice] ${TTS_MODEL} failed (${(error as Error).message}); retrying with ${TTS_FALLBACK_MODEL}`);
+    return speakWith(openai, TTS_FALLBACK_MODEL, text);
+  }
 }
 
 export async function buildVoice(scenes: Scene[], budget: Budget, outDir: string): Promise<{ timed: TimedScene[]; audio: string; total: number; pace: { rawWpm: number; atempo: number; finalWpm: number } }> {

@@ -148,15 +148,13 @@ async function generateAudioWithElevenLabs(text: string, outputPath: string): Pr
 }
 
 // OpenAI voice, the default since 2026-10-09 (ElevenLabs is opt-in, see
-// buildWeeklyPodcast). gpt-4o-mini-tts replaced tts-1 (2023) and takes a
-// delivery brief. "alloy" is kept so the show keeps the voice listeners know.
-// OpenAI removes gpt-4o-mini-tts and tts-1 on 2027-01-06. The fallback is
-// their replacement, gpt-realtime-2.1-mini over the Realtime API
-// (lib/llm/speech.ts), so the show keeps a voice past that date even if the
-// primary isn't switched; PODCAST_TTS_MODEL=gpt-realtime-2.1-mini makes it
-// the primary. See docs/pipeline-decisions.md.
-const OPENAI_TTS_MODEL = process.env.PODCAST_TTS_MODEL?.trim() || 'gpt-4o-mini-tts';
-const OPENAI_TTS_FALLBACK_MODEL = REALTIME_SPEECH_MODEL;
+// buildWeeklyPodcast). "alloy" is kept so the show keeps the voice listeners
+// know. Since 2026-10-14 (owner listened) the voice is gpt-realtime-2.1-mini
+// over the Realtime API (lib/llm/speech.ts): OpenAI removes the speech-endpoint
+// models gpt-4o-mini-tts and tts-1 on 2027-01-06. gpt-4o-mini-tts is the
+// fallback until then; drop it after. See docs/pipeline-decisions.md.
+const OPENAI_TTS_MODEL = process.env.PODCAST_TTS_MODEL?.trim() || REALTIME_SPEECH_MODEL;
+const OPENAI_TTS_FALLBACK_MODEL = 'gpt-4o-mini-tts';
 const OPENAI_TTS_VOICE = process.env.PODCAST_TTS_VOICE?.trim() || 'alloy';
 const OPENAI_TTS_INSTRUCTIONS =
   'Calm, assured business-news presenter. Measured pace, warm but not chatty. ' +

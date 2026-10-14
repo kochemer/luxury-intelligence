@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Luxury Intelligence** (`luxury-intel.com`) — a Next.js 16 / React 19 weekly digest site for luxury, e-commerce, and retail-tech news. It ingests RSS feeds and web pages, classifies articles with source + keyword rules, ranks them with OpenAI, builds JSON digest files, renders them as a PWA with Tailwind CSS v4, and distributes content via email (Resend) and a podcast (OpenAI `gpt-4o-mini-tts`; ElevenLabs only if `PODCAST_TTS_PROVIDER=elevenlabs`). Subscribers and payments are managed through a Neon Postgres DB (Drizzle ORM) and Stripe.
+**Luxury Intelligence** (`luxury-intel.com`) — a Next.js 16 / React 19 weekly digest site for luxury, e-commerce, and retail-tech news. It ingests RSS feeds and web pages, classifies articles with source + keyword rules, ranks them with OpenAI, builds JSON digest files, renders them as a PWA with Tailwind CSS v4, and distributes content via email (Resend) and a podcast (OpenAI `gpt-realtime-2.1-mini`; ElevenLabs only if `PODCAST_TTS_PROVIDER=elevenlabs`). Subscribers and payments are managed through a Neon Postgres DB (Drizzle ORM) and Stripe.
 
 ## Documentation rules
 
@@ -111,7 +111,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `classification/` | Rule-based topic classification, no LLM: source overrides, then keywords; no match = dropped (since 2026-09-16) |
 | `digest/` | Digest builder — ranks, selects, and writes JSON |
 | `email/` | Resend email rendering + delivery |
-| `podcast/` | Podcast script + TTS (OpenAI `gpt-4o-mini-tts`, Realtime `gpt-realtime-2.1-mini` fallback via `lib/llm/speech.ts`; ElevenLabs opt-in); feed at `/podcast/feed.xml` |
+| `podcast/` | Podcast script + TTS (OpenAI `gpt-realtime-2.1-mini` over the Realtime API via `lib/llm/speech.ts`, `gpt-4o-mini-tts` fallback until 2027-01-06; ElevenLabs opt-in); feed at `/podcast/feed.xml` |
 | `markets/` | Engine for `/markets/luxury` + `/markets/jewellery` |
 | `social/` | Weekly LinkedIn page + X posts: written from the digest (`build.ts`), checked with no human review (`checks.ts`), sent through Buffer (`buffer.ts`, the only file that knows Buffer). See `docs/distribution.md` |
 | `seo/` | SEO audit / monitor / repair / recovery system (see below) |

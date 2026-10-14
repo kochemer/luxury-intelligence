@@ -4,7 +4,7 @@
  *   npx tsx video-short/src/run.ts [--week=2026-W39] [--formats=vertical] [--previews]
  *
  * Steps: pick one story (Opus 5.5) -> scene script (Opus 5.5, grounded in the
- * article text) -> narration (gpt-4o-mini-tts) -> frame render (headless
+ * article text) -> narration (gpt-realtime-2.1-mini) -> frame render (headless
  * Chromium) -> MP4 (ffmpeg). Every paid call is capped by Budget ($2/week).
  *
  * Output goes to data/weeks/<week>/video-short/, which is gitignored: the MP4

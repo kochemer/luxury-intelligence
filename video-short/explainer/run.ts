@@ -2,7 +2,7 @@
  * 2-minute "how Luxury Intel works" explainer. Run from the repo root:
  *   npx tsx video-short/explainer/run.ts [--preview] [--out=path.mp4]
  * --preview: fake timings, one screenshot per scene, no API calls.
- * Reuses the repo's video-short voice + budget modules (gpt-4o-mini-tts).
+ * Reuses the repo's video-short voice + budget modules (gpt-realtime-2.1-mini).
  */
 import { promises as fs } from 'fs';
 import path from 'path';
