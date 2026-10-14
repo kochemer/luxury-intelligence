@@ -46,13 +46,8 @@ the buffer. The voice is the critical path because its fallback dies too.
    `RERANKER_REASONING`; `reasoningParam` in `lib/llm/models.ts`). Needed because
    OpenAI's suggested start for Luna is effort `none`; the 2026-10-03 Luna
    rejection below ran at its default effort.
-3. Side-by-side on W39–W41 (scratch `data/`, caches cleared), Sol vs Luna@`none`
-   vs today: summaries/intro/email for faithfulness (the open A/B under
-   Rejected) and the house-style check; reranker via `selection:snapshot` /
-   `selection:diff` against the 2026-09-16 harness (overlap, failed categories);
-   markets move labels on cached headlines (a model change re-labels, check
-   `PROMPT_VERSION`); themes/translations/query-delta for empty answers and
-   retries. Needs OpenAI credit (it ran out on 2026-10-09).
+3. Side-by-side. [DONE, 2026-10-14] Results and recommendation under
+   "Side-by-side results (2026-10-14)" below.
 4. Voice. [DONE, 2026-10-14] `gpt-realtime-2.1-mini` is not
    served on `/v1/audio/speech` (404), so it runs over the Realtime API
    (`lib/llm/speech.ts`): a read-verbatim instruction plus the delivery brief,
@@ -75,10 +70,65 @@ the buffer. The voice is the critical path because its fallback dies too.
    No fallback may point at a retiring model.
 6. Cleanup: a test that fails if a default or fallback model is on a
    `RETIRED_MODELS` list; methodology page copy (it still says the judge is
-   `gpt-4.1`); comments and this table.
+   `gpt-4.1`); comments and this table. Also: `digest/generateIntro.ts` is
+   never called (no digest has an `introParagraph`), so delete it rather than
+   migrate it; its sentence trimming splits on "." and cuts "$11.6 billion"
+   into "$11. 6".
 
-Open owner decisions: Sol or Luna per tier (after step 3); a new voice if
-`alloy` is gone; whether the methodology page names models at all.
+Open owner decisions: Sol or Luna per tier (recommendation below); what the
+reranker should favour (below); whether the methodology page names models.
+
+### Side-by-side results (2026-10-14)
+
+Every step still on GPT-4.1 / 4.1-mini, run on W39, W40 and W41 in a clean
+worktree with caches cleared: today's models ("4.1"), `gpt-6.1-sol` at its
+default effort, and `gpt-6-luna` at effort `none` (it then spends no hidden
+reasoning tokens). Claude Opus 5.5 graded the outputs blind and shuffled, so
+no OpenAI model graded its own family; summaries and email items against the
+source the writer saw (full text for email), markets labels against Claude
+applying the prompt's own rules on the 69 of 253 headlines where the models
+disagreed. Harness (local only, `mock/` is gitignored): `mock/model-ab/`
+`gen.ts`, `judge.ts`, `report.ts`.
+
+| Step (tier) | 4.1 | Sol | Luna@none | Cost per week (4.1 / Sol / Luna) |
+|---|---|---|---|---|
+| Article summaries (`summarize`): items with an unsupported claim; quality 1-5 | 50%; 3.74 | **4%; 4.44** | 12%; 4.36 | 4.3¢ / 7.6¢ / 0.2¢ |
+| Email digest items (`summarize`): same | 43%; 3.38 | **24%**; 4.05 | 38%; **4.24** | 2.9¢ / 4.6¢ / 0.2¢ |
+| Key themes (`classify`): 1-5 | 3.00 | 3.33 | **3.67** | ~0.1¢ each |
+| Translations da/es (`classify`): accuracy 1-5 | 4.05 / 4.29 | 4.71 / 4.76 | **4.81 / 4.76** | 0.9¢ / 7.7¢ / 0.3¢ |
+| Discovery queries (`triage`): 1-5 | 1.00 | **4.00** | 2.00 | 0.2¢ / 1.7¢ / 0.1¢ |
+| Markets labels (`markets`): right on contested | 28/69 | **44/69** | 28/69 | pennies (only new headlines) |
+| Reranker: picks shared with 4.1 (4.1 vs itself: 83/84) | n/a | 62/84 | 68/84 | cents |
+| Reranker lists judged on the prompt's own criteria, 1-5 | 3.50 | **3.83** | 3.58 | |
+| Reranker lists judged on "hard news first", 1-5 | **3.58** | 3.25 | 3.25 | |
+
+What the numbers mean:
+
+- The "unsupported claims" are mostly subtle, not invented facts: 4.1 states
+  forecasts as settled ("are set to spend" for a Goldman Sachs projection),
+  drops "up to" and attributions. Sol is the most careful; Luna close behind.
+- Discovery queries: 4.1 and Luna repeat the same few stories across all four
+  topics and force off-topic pairings ("Anthropic cloud deal for jewelry
+  ecommerce"); Sol writes topic-specific queries.
+- Markets: on contested headlines 4.1 made 9 false moves and missed 19; Sol 4
+  and 11; Luna 7 and 20. 4.1 re-run agreed with its own cached labels on only
+  89%, so a model change was always going to re-label some.
+- Reranker: the prompt asks for "strong analysis and non-obvious takeaways" and
+  to avoid "pure announcements without analysis". Sol and Luna follow that
+  literally and pick more analysis and opinion pieces; 4.1 picked more hard news
+  (e.g. Rio Tinto selling Argyle Pink, Capri up for sale). Which is better
+  depends on what the sections should favour: an owner decision. If hard news,
+  change the criteria first and re-run the reranker comparison.
+- Reliability: no failed calls or batches on any variant; theme validation
+  retried once (4.1, Sol) or twice (Luna) and recovered.
+- Speed: Sol's hidden reasoning (37-78% of its output tokens) makes calls 3-5x
+  slower (5 s per summary, 26 s per markets batch); fine for a weekly batch.
+
+Recommendation: `summarize` → Sol (faithfulness is the stated bar, F1.4;
+about +5¢/week); `classify` → Luna@none (best themes and translations at a
+tenth of the cost); `triage` → Sol; `markets` → Sol; reranker → after the
+owner decides what it should favour. Fallbacks that still point at
+`gpt-4.1-mini` (reranker, translations) move to Luna@none.
 
 
 ## Measurements behind the 2026-10-09 switch
