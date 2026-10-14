@@ -7,6 +7,7 @@ import type { EmailDigest, EmailDigestItem } from '../types';
 import { formatIssueLine } from '../utils/formatDate';
 import { weekLabelToSlug } from '../utils/weekSlug';
 import { displaySourceName } from '../utils/sourceName';
+import { PROFILES } from '../socialProfiles';
 
 const CANONICAL_URL = 'https://luxury-intel.com';
 
@@ -120,7 +121,7 @@ const C = {
 const SERIF  = "Georgia, 'Times New Roman', serif";
 const SANS   = "'Helvetica Neue', Arial, Helvetica, sans-serif";
 
-const YOUTUBE_CHANNEL = 'https://www.youtube.com/@luxury-intel';
+const YOUTUBE_CHANNEL = PROFILES.youtube;
 
 function formatMinutes(seconds: number | undefined): string {
   return seconds ? `${Math.max(1, Math.round(seconds / 60))} min` : '';
@@ -151,7 +152,8 @@ function renderMediaBlock(digest: EmailDigest, week: string): string {
   const listenText = podcast
     ? `${label(`Listen${podcast.durationS ? ` &middot; ${formatMinutes(podcast.durationS)}` : ''}`)}
                     <p style="margin: 0 0 8px 0; font-family: ${SANS}; font-size: 15px; line-height: 1.6; color: ${C.textSecond};">This week&rsquo;s stories as a podcast episode.</p>
-                    <p style="margin: 0;">${link(podcastUrl, '&#9654;&nbsp;Play the episode &rarr;')}</p>`
+                    <p style="margin: 0 0 6px 0;">${link(podcastUrl, '&#9654;&nbsp;Play the episode &rarr;')}</p>
+                    <p style="margin: 0;">${link(PROFILES.spotify, 'Follow on Spotify &rarr;')}</p>`
     : '';
 
   // 132x235 keeps the poster's 9:16 shape and leaves room for the text beside it on a phone.
@@ -419,7 +421,8 @@ export function renderEmailDigestPlaintext(digest: EmailDigest, unsubscribeUrl?:
     ? `WATCH (60 sec): ${digest.short.title}\nhttps://www.youtube.com/shorts/${digest.short.youtubeId}\n\n`
     : `WATCH the week's top story in 60 seconds: ${YOUTUBE_CHANNEL}/shorts\n\n`;
   if (digest.podcast) {
-    text += `LISTEN to this week's podcast: ${withEmailUtms(`${CANONICAL_URL}${digest.podcast.audioPath}`, digest.week, 'podcast')}\n\n`;
+    text += `LISTEN to this week's podcast: ${withEmailUtms(`${CANONICAL_URL}${digest.podcast.audioPath}`, digest.week, 'podcast')}\n`;
+    text += `Follow on Spotify: ${PROFILES.spotify}\n\n`;
   }
   text += `${'─'.repeat(50)}\n\n`;
 

@@ -1,0 +1,93 @@
+name: Weekly Social
+
+# Writes the week's social plan (data/weeks/{week}/social.json: the LinkedIn
+# issue post, the X thread and the Tue–Fri X stories), commits it, then sends
+# Monday's posts to Buffer. Called by weekly-digest.yml after the Short; also
+# runs on its own (workflow_dispatch) to rebuild or test a week.
+#
+# The plan is written once: a re-run keeps an existing plan unless force=true,
+# so posts already sent are never rewritten. Sending is idempotent (publish
+# skips posts Buffer already has). The commit doesn't deploy the site
+# (scripts/vercel-ignore-build.sh skips social.json-only commits).
+# Plan and design: docs/superpowers/specs/2026-10-14-social-content-plan.md.
+
+on:
+  workflow_call:
+  workflow_dispatch:
+    inputs:
+      week:
+        description: 'Week label (e.g. 2026-W42). Empty = newest digest.'
+        type: string
+        default: ''
+      force:
+        description: 'Rewrite an existing plan (only for a week whose posts have not gone out).'
+        type: boolean
+        default: false
+      publish:
+        description: "Send today's posts to Buffer after building."
+        type: boolean
+        default: true
+
+concurrency:
+  group: weekly-social
+  cancel-in-progress: false
+
+jobs:
+  social:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build social plan
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          SEO_ALERT_EMAIL: ${{ secrets.SEO_ALERT_EMAIL }}
+          WEEK: ${{ inputs.week }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          ARGS=""
+          if [ -n "$WEEK" ]; then ARGS="$ARGS --week=$WEEK"; fi
+          if [ "$FORCE" = "true" ]; then ARGS="$ARGS --force"; fi
+          npm run social:build -- $ARGS
+
+      # Only social.json is staged, so no other file can ride along.
+      - name: Commit and push the plan
+        run: |
+          git add -- 'data/weeks/*/social.json'
+          if git diff --cached --quiet; then
+            echo "No new plan; nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "Social plan: ${{ inputs.week || 'newest week' }}" -m "Docs-Skip: generated data, no code change"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 10; done
+          git fetch origin main
+          if ! git merge-base --is-ancestor HEAD origin/main; then echo "Push failed after 3 attempts"; exit 1; fi
+
+      # On a schedule-called run `inputs.publish` is null; treat that as true.
+      - name: Send today's posts to Buffer
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.publish }}
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_KEY_EXPIRES: ${{ vars.BUFFER_KEY_EXPIRES }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          SEO_ALERT_EMAIL: ${{ secrets.SEO_ALERT_EMAIL }}
+        run: npm run social:publish

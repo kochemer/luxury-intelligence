@@ -37,7 +37,7 @@ promising otherwise is selling something.
 
 What social presence *can* do is narrower and more interesting.
 
-### 1. Entity disambiguation (`sameAs`) — small, cheap, real
+### 1. Entity disambiguation (`sameAs`) — small, cheap, real `[DONE 2026-10-14]`
 
 **What:** add real profile URLs to `buildOrganizationLd()` in
 `lib/seo/jsonLd.ts`. There is a test asserting `sameAs` stays absent, so

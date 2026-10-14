@@ -16,6 +16,7 @@
  */
 
 import type { WeeklyDigest, Article } from '@/lib/types';
+import { SAME_AS } from '@/lib/socialProfiles';
 
 /** Stable entity identifiers. Fragments, so they never collide with real URLs. */
 export const entityId = {
@@ -32,10 +33,10 @@ export const PUBLICATION_DESCRIPTION =
 /**
  * The publisher entity.
  *
- * `sameAs` is deliberately absent rather than guessed: it should list the
- * publication's real profiles (LinkedIn, X, Wikidata) and inventing URLs would
- * be worse than omitting the property. Add them here when they exist — it is
- * the strongest single signal for disambiguating an organisation entity.
+ * `sameAs` lists the publication's real profiles (lib/socialProfiles.ts, all
+ * owned by the owner, docs/distribution.md). Never add a guessed URL: a wrong
+ * profile is worse than none. It is the strongest single signal for
+ * disambiguating an organisation entity.
  */
 export function buildOrganizationLd(siteUrl: string) {
   return {
@@ -49,6 +50,7 @@ export function buildOrganizationLd(siteUrl: string) {
       url: `${siteUrl}/favicon.png`,
       caption: PUBLICATION_NAME,
     },
+    sameAs: SAME_AS,
   };
 }
 

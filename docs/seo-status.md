@@ -205,7 +205,7 @@ live.
 | Enable repair + recovery in CI? | Checklist above. Means an unattended agent opening PRs, and rollback acting on production. |
 | **Rotate the Anthropic API key** | It was pasted in plain text into a chat session during setup. Also set a monthly spend limit in the Anthropic Console, since the in-repo 30-day cap does not yet persist in CI. |
 | Named author instead of "The Editor"? | E-E-A-T and AEO citability versus deliberate anonymity. Either is legitimate. Backlog #3. |
-| Do social profiles exist? | Only real ones go in `sameAs`. A test enforces its absence until then. Backlog #1. |
+| Do social profiles exist? | Yes, since 2026-10-13: YouTube, Spotify, LinkedIn page, X. All four are in `sameAs` since 2026-10-14 (backlog #1 done). |
 | The 4 crawled-not-indexed pages | Probably thin locale translations. The right answer may be `noindex`, not more content. Backlog #8. |
 
 ---

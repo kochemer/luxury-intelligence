@@ -6,6 +6,7 @@ import WeeklyShortPlayer from './WeeklyShortPlayer';
 import type { WeeklyShort } from '@/lib/video/weeklyShort';
 import { displaySourceName } from '@/lib/utils/sourceName';
 import { podcastTitle } from '@/lib/utils/digestStats';
+import { PROFILES } from '@/lib/socialProfiles';
 
 const noSubscribe = () => () => {};
 
@@ -33,7 +34,9 @@ export default function WatchOrListen({ short, podcast }: { short: WeeklyShort |
         durationSeconds={podcast.duration}
       />
       <p className="mt-3 text-[11px] tracking-[0.12em] uppercase text-[var(--color-text-secondary)]">
-        Subscribe in your podcast app:{' '}
+        Follow the podcast:{' '}
+        <a href={PROFILES.spotify} target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-[var(--color-accent)]">Spotify</a>
+        {' · '}
         <a href="/podcast/feed.xml" className="underline underline-offset-2 hover:text-[var(--color-accent)]">RSS feed</a>
       </p>
     </div>
@@ -106,7 +109,7 @@ export default function WatchOrListen({ short, podcast }: { short: WeeklyShort |
                 </button>
               )}
               <a
-                href="https://www.youtube.com/@luxury-intel"
+                href={PROFILES.youtube}
                 target="_blank"
                 rel="noopener"
                 className="text-[11px] tracking-[0.12em] uppercase text-white/60 underline underline-offset-2 hover:text-[var(--color-accent)]"

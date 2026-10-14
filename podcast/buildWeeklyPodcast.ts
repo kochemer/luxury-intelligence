@@ -11,6 +11,7 @@ import type { WeeklyDigest } from '../lib/types';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
 import { HOUSE_STYLE_RULES, stripDashes } from '../lib/llm/houseStyle';
 import { compressPodcastMp3 } from './compressAudio';
+import { selectPodcastArticles } from './selectArticles';
 import { execFile } from 'child_process';
 import { promisify } from 'util';
 import { REALTIME_SPEECH_MODEL, synthesizeSpeech, pcmToWav } from '../lib/llm/speech';
@@ -23,12 +24,7 @@ const runFile = promisify(execFile);
 async function generatePodcastScript(digest: WeeklyDigest): Promise<string> {
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   
-  const articles = [
-    ...digest.topics.Ecommerce_Retail_Tech.top.slice(0, 3),
-    ...digest.topics.Jewellery_Industry.top.slice(0, 2),
-    ...digest.topics.Luxury_and_Consumer.top.slice(0, 2),
-    ...digest.topics.AI_and_Strategy.top.slice(0, 1),
-  ];
+  const articles = selectPodcastArticles(digest);
 
   const articlesText = articles.map((article, idx) => {
     return `${idx + 1}. ${article.title}

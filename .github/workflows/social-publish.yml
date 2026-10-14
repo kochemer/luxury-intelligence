@@ -1,0 +1,60 @@
+name: Social Publish
+
+# Every weekday morning: sends that day's posts from the week's social plan
+# (data/weeks/{week}/social.json) to Buffer, which posts them to the LinkedIn
+# page and X at their planned times. Only one day at a time, because Buffer's
+# free plan holds 1 scheduled X thread and 10 posts per channel.
+#
+# Monday's posts are normally sent by weekly-social.yml right after the plan
+# is written; this Monday run finds no plan yet (or, on a retry, posts that
+# Buffer already has) and does nothing. Safe to re-run: posts Buffer already
+# has are skipped. Emails the owner about dropped or failed posts and 7, 3 and
+# 1 days before the Buffer key expires (repo variable BUFFER_KEY_EXPIRES).
+
+on:
+  schedule:
+    # 05:30 UTC = 06:30/07:30 Copenhagen, before the earliest slot (10:00).
+    - cron: '30 5 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'live = schedule posts; dry-run = check only; draft = save as Buffer drafts'
+        type: choice
+        options: [live, dry-run, draft]
+        default: live
+
+concurrency:
+  group: weekly-social
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Send today's posts to Buffer
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_KEY_EXPIRES: ${{ vars.BUFFER_KEY_EXPIRES }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          SEO_ALERT_EMAIL: ${{ secrets.SEO_ALERT_EMAIL }}
+          MODE: ${{ inputs.mode || 'live' }}
+        run: |
+          case "$MODE" in
+            dry-run) npm run social:publish -- --dry-run ;;
+            draft) npm run social:publish -- --draft ;;
+            *) npm run social:publish ;;
+          esac

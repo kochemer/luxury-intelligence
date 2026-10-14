@@ -7,6 +7,7 @@ import BrandPattern from './BrandPattern';
 import GrainOverlay from './GrainOverlay';
 import MastheadLockup from './MastheadLockup';
 import { openConsentSettings } from '@/lib/analytics';
+import { PROFILES } from '@/lib/socialProfiles';
 
 export default function Footer() {
   const pathname = usePathname() || '/';
@@ -109,7 +110,7 @@ export default function Footer() {
         <span className="mx-2">·</span>
         {/* Official YouTube icon, unaltered (brand guidelines): red play button, white triangle. */}
         <a
-          href="https://www.youtube.com/@luxury-intel"
+          href={PROFILES.youtube}
           target="_blank"
           rel="noopener"
           className="inline-flex items-center gap-1.5 align-middle hover:text-[#999] transition-colors"
@@ -120,6 +121,14 @@ export default function Footer() {
           </svg>
           {t.footer.youtube}
         </a>
+        {([['Spotify', PROFILES.spotify], ['LinkedIn', PROFILES.linkedin], ['X', PROFILES.x]] as const).map(([label, href]) => (
+          <span key={label}>
+            <span className="mx-2">·</span>
+            <a href={href} target="_blank" rel="noopener" className="align-middle hover:text-[#999] transition-colors">
+              {label}
+            </a>
+          </span>
+        ))}
         <span className="mx-2">·</span>
         <button
           type="button"

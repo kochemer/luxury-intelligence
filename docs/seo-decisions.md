@@ -232,7 +232,7 @@ alarming and doesn't describe anything fixable.
 | Digest titles use `title.absolute`: `{date range} · AI, Ecommerce & Luxury Intelligence` | Layout suffix was pushing titles past 60 chars. The auditor calls the same function (`renderedWeekTitle`). |
 | `NewsArticle` + `ItemList` + `BreadcrumbList` on digests; `CollectionPage` on archives | Richer, more accurate types than `Article` |
 | One `@id`-anchored entity graph (`#website`, `#organization`, `#editor`) | Answer engines must resolve who published a claim before citing it (GEO/AEO) |
-| No `sameAs`, enforced by a test | No social profiles exist; fabricated structured data is worse than none |
+| `sameAs` = exactly the owned profiles in `lib/socialProfiles.ts` (2026-10-14; absent before, enforced by a test) | The profiles now exist (`docs/distribution.md`). Fabricated or guessed structured data is still worse than none, so the test pins the exact list |
 | `/llms.txt` generated from data | Describes the publication for AI crawlers; edition count can't go stale |
 | Covers via `next/image` (WebP/AVIF, `sizes`, `priority` on heroes) | 38 PNGs averaged 2.52 MB; `/archive` was ~94 MB. Card now ~20 KB. |
 | Source favicons lazy-loaded | Third-party requests off the critical path |

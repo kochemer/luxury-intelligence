@@ -142,6 +142,7 @@ const CO_CHANGE = [
   { code: /^(\.github\/workflows\/|next\.config\.ts$|vercel\.json$)/, docs: ['docs/operations.md'] },
   { code: /^(seo|lib\/seo)\//, docs: ['docs/seo-system.md', 'docs/seo-status.md', 'docs/seo-decisions.md', 'docs/seo-backlog.md'] },
   { code: /^(markets|lib\/markets)\//, docs: ['CLAUDE.md', 'docs/superpowers/specs/2026-10-04-markets-pages-design.md'] },
+  { code: /^social\//, docs: ['docs/distribution.md', 'docs/superpowers/specs/2026-10-14-social-content-plan.md'] },
   { code: /^video-short\/(src|template)\//, docs: ['video-short/README.md'] },
   { code: /^(lib\/db\/schema\.ts$|middleware\.ts$|lib\/env\.ts$)/, docs: ['CLAUDE.md'] },
 ];

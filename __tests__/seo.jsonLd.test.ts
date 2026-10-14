@@ -77,12 +77,17 @@ test('the Organization carries a logo — required for rich results', () => {
   assert(String(logo.url).startsWith('https://'), 'logo URL must be absolute');
 });
 
-test('the Organization declares no fabricated sameAs profiles', () => {
-  // No social profiles exist in this codebase. Inventing sameAs URLs would be
-  // worse than omitting the property, so its absence is deliberate and tested.
+test('the Organization lists exactly the real profiles in sameAs', () => {
+  // The profiles exist since 2026-10-13 (docs/distribution.md). sameAs must be
+  // that list and nothing else: a guessed or stale URL is worse than none.
   const graph = buildRootGraphLd(SITE) as { '@graph': Record<string, unknown>[] };
   const org = graph['@graph'].find(n => n['@type'] === 'Organization')!;
-  assert.equal(org.sameAs, undefined, 'sameAs must stay absent until real profiles exist');
+  assert.deepEqual(org.sameAs, [
+    'https://www.youtube.com/@luxury-intel',
+    'https://open.spotify.com/show/1aKp7bTOtYtYJGLMjyvxQf',
+    'https://www.linkedin.com/company/luxury-intel',
+    'https://x.com/luxintel_hq',
+  ]);
 });
 
 test('every digest produces a valid NewsArticle bound to the root entities', async () => {

@@ -1,6 +1,6 @@
 # Social content plan: what we post where, fully automated
 
-Status: plan, nothing built yet (2026-10-14). Accounts and links: `docs/distribution.md`.
+Status: Phase 1 built 2026-10-14 (first live week W42, Mon 2026-10-19), except podcast timestamps/chapters: the script has no markers between stories, so they need per-story audio and are left for later. How it runs: `docs/distribution.md`. P2/P3 not started.
 
 ## Goal and constraints (owner, 2026-10-14)
 

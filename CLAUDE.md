@@ -55,6 +55,8 @@ npm run podcast       # Build weekly podcast audio
 npm run media:compress # Shrink public/ MP3s + cover PNGs (re-runnable; see docs/operations.md § Storage)
 npm run email:weekly  # Send weekly email digest (NOT idempotent: re-running double-sends)
 npm run markets:build # /markets pages data (also pipeline step 9)
+npm run social:build  # Week's LinkedIn + X posts -> data/weeks/<week>/social.json (writes, never posts)
+npm run social:publish # Send today's posts to Buffer (--dry-run, --draft, --date=YYYY-MM-DD, --week=)
 
 # DB migrations (Drizzle)
 npx drizzle-kit generate   # Generate migration from schema changes
@@ -82,7 +84,7 @@ RSS/web sources → ingestion/ → data/articles.json
                                     ↓
                   digest/ → data/digests/YYYY-Www.json
                                     ↓
-              email/  podcast/  cover  markets/  app/ (Next.js pages)
+              email/  podcast/  cover  markets/  social/  app/ (Next.js pages)
 ```
 
 Orchestrated by `pipeline/runWeeklyPipeline.ts` (entry: `scripts/runWeeklyPipeline.ts`).
@@ -111,6 +113,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `email/` | Resend email rendering + delivery |
 | `podcast/` | Podcast script + TTS (OpenAI `gpt-4o-mini-tts`, Realtime `gpt-realtime-2.1-mini` fallback via `lib/llm/speech.ts`; ElevenLabs opt-in); feed at `/podcast/feed.xml` |
 | `markets/` | Engine for `/markets/luxury` + `/markets/jewellery` |
+| `social/` | Weekly LinkedIn page + X posts: written from the digest (`build.ts`), checked with no human review (`checks.ts`), sent through Buffer (`buffer.ts`, the only file that knows Buffer). See `docs/distribution.md` |
 | `seo/` | SEO audit / monitor / repair / recovery system (see below) |
 | `video/` | Older FFmpeg-based video clip composer |
 | `video-short/` | Weekly 60s short; its own package, isolated from the root build |
@@ -126,7 +129,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `scripts/` | Entry points and maintenance scripts (run with `tsx`) |
 | `hooks/` | React hooks (`useCountUp`, `useReveal`), not git hooks |
 | `.githooks/` | Git hooks (`commit-msg` runs the docs check). Enabled by `npm install` |
-| `.github/workflows/` | Weekly digest (build → Short render + YouTube upload → subscriber email), daily RSS ingestion (cache buffer, never commits), SEO weekly + daily monitor, subscriber sweep (see `docs/operations.md`) |
+| `.github/workflows/` | Weekly digest (build → Short render + YouTube upload → subscriber email + social plan), weekday social publish, daily RSS ingestion (cache buffer, never commits), SEO weekly + daily monitor, subscriber sweep (see `docs/operations.md`) |
 
 ### Database
 
@@ -167,6 +170,8 @@ Scripts must call `loadEnv()` from `lib/env.ts` at startup. Key variables:
 | `ANALYTICS_PASSWORD` | Gate for the private `/analytics` dashboard |
 | `INDEXNOW_KEY` | IndexNow pings after publishing |
 | `NEXT_PUBLIC_FEEDBACK_FORM_ACTION` | Form endpoint for `/feedback` |
+| `BUFFER_API_KEY` | Buffer API: posts to the LinkedIn page and X (`social/buffer.ts`). GitHub secret + `.env.local`. Keys expire after 30 days |
+| `BUFFER_KEY_EXPIRES` | GitHub repo variable, `YYYY-MM-DD`: when the Buffer key expires. `social:publish` emails the owner 7, 3 and 1 days before. Update it with every new key |
 | `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, `YOUTUBE_REFRESH_TOKEN` | Upload of the weekly Short to @luxury-intel (OAuth "uploader" Desktop client in GCP project `wired-height-456014-u8`). Token from `npx tsx scripts/youtubeAuth.ts`, which also sets the GitHub secrets. See `video-short/README.md` |
 
 Optional tuning knobs (model overrides, selection limits, debug flags) are listed in `docs/operations.md`.

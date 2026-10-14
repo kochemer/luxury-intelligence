@@ -18,6 +18,8 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 import { getAvailableWeekLabels } from '@/lib/seo/urlInventory';
 import { formatDateRange } from '@/lib/utils/formatDate';
+import { selectPodcastArticles } from '@/podcast/selectArticles';
+import type { WeeklyDigest } from '@/lib/types/digest';
 
 // Re-read at most hourly; a new episode appears once a week.
 export const revalidate = 3600;
@@ -33,7 +35,10 @@ const SHOW_DESCRIPTION =
 interface Episode {
   weekLabel: string;
   title: string;
+  /** Plain text, for <itunes:summary>. */
   description: string;
+  /** Show notes as HTML, for <description> and <content:encoded>. */
+  notesHtml: string;
   pageUrl: string;
   audioUrl: string;
   audioBytes: number;
@@ -50,6 +55,30 @@ function escapeXml(text: string): string {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;');
 }
+
+/** Links from the show notes carry these so the site can count podcast listeners who click through. */
+function withPodcastUtms(url: string, week: string, content: string): string {
+  const u = new URL(url);
+  u.searchParams.set('utm_source', 'podcast');
+  u.searchParams.set('utm_medium', 'audio');
+  u.searchParams.set('utm_campaign', week);
+  u.searchParams.set('utm_content', content);
+  return u.toString();
+}
+
+/**
+ * Episode title that says what the week was about, so it can be found in
+ * Spotify/Apple search and is worth clicking: the headline's first sentence,
+ * then the dates. Falls back to the dates alone for weeks without a headline.
+ */
+function episodeTitle(oneSentenceSummary: string | undefined, dateRange: string): string {
+  const first = oneSentenceSummary?.match(/^[^.!?]+[.!?]?/)?.[0].trim().replace(/[.]$/, '');
+  if (!first) return `${dateRange} · Luxury Intelligence Weekly`;
+  const short = first.length <= 90 ? first : `${first.slice(0, 90).replace(/\s+\S*$/, '')}…`;
+  return `${short} · ${dateRange}`;
+}
+
+const escapeHtml = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 function toItunesDuration(seconds: number): string {
   const h = Math.floor(seconds / 3600);
@@ -73,10 +102,7 @@ async function loadEpisode(siteUrl: string, weekLabel: string): Promise<Episode 
 
     const digest = JSON.parse(
       await fs.readFile(path.join(root, 'data', 'digests', `${weekLabel}.json`), 'utf-8')
-    ) as {
-      startISO?: string; endISO?: string; oneSentenceSummary?: string;
-      editorialTake?: string; coverImageUrl?: string; keyThemes?: string[];
-    };
+    ) as WeeklyDigest;
 
     const dateRange = digest.startISO && digest.endISO
       ? formatDateRange(digest.startISO, digest.endISO)
@@ -87,11 +113,28 @@ async function loadEpisode(siteUrl: string, weekLabel: string): Promise<Episode 
       digest.editorialTake?.split(/\n\s*\n/)[0],
     ].filter(Boolean).join(' ') + themes || `The Luxury Intelligence briefing for ${dateRange}.`;
 
+    // Show notes: the stories the episode covers, in order, with links. Older
+    // digests without topics just get the summary paragraph.
+    const pageUrl = `${siteUrl}/digest/${weekLabelToSlug(weekLabel)}`;
+    let stories: ReturnType<typeof selectPodcastArticles> = [];
+    try { stories = selectPodcastArticles(digest); } catch { stories = []; }
+    const notesHtml = [
+      `<p>${escapeHtml(description)}</p>`,
+      stories.length
+        ? `<p>In this episode:</p><ul>${stories.map(a =>
+            `<li><a href="${escapeHtml(a.url)}">${escapeHtml(a.title)}</a> (${escapeHtml(a.source.replace(/\s*\(via [^)]*\)\s*$/i, ''))})</li>`).join('')}</ul>`
+        : '',
+      `<p>Read the full issue: <a href="${escapeHtml(withPodcastUtms(pageUrl, weekLabel, 'show-notes'))}">${escapeHtml(pageUrl.replace(/^https?:\/\//, ''))}</a></p>`,
+      `<p>Get it free every Monday: <a href="${escapeHtml(withPodcastUtms(`${siteUrl}/subscribe`, weekLabel, 'show-notes-subscribe'))}">luxury-intel.com/subscribe</a></p>`,
+      '<p>Stories are selected and summarised by AI and read by an AI voice.</p>',
+    ].join('');
+
     return {
       weekLabel,
-      title: `${dateRange} · Luxury Intelligence Weekly`,
+      title: episodeTitle(digest.oneSentenceSummary, dateRange),
       description,
-      pageUrl: `${siteUrl}/digest/${weekLabelToSlug(weekLabel)}`,
+      notesHtml,
+      pageUrl,
       audioUrl: `${siteUrl}${podcast.audioPath}`,
       audioBytes: podcast.fileSize,
       durationSeconds: Math.round(podcast.duration ?? 0),
@@ -119,7 +162,8 @@ export async function GET() {
       <link>${escapeXml(e.pageUrl)}</link>
       <guid isPermaLink="false">${escapeXml(`luxury-intel-podcast-${e.weekLabel}`)}</guid>
       <pubDate>${e.publishedAt.toUTCString()}</pubDate>
-      <description>${escapeXml(e.description)}</description>
+      <description>${escapeXml(e.notesHtml)}</description>
+      <content:encoded><![CDATA[${e.notesHtml.replace(/]]>/g, ']]&gt;')}]]></content:encoded>
       <enclosure url="${escapeXml(e.audioUrl)}" length="${e.audioBytes}" type="audio/mpeg" />
       <itunes:title>${escapeXml(e.title)}</itunes:title>
       <itunes:summary>${escapeXml(e.description)}</itunes:summary>

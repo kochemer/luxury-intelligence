@@ -376,6 +376,7 @@ emits `CollectionPage` + `ItemList`. `/about` has a `FAQPage`.
 `/llms.txt` describes the publication for AI crawlers and is generated, so its
 edition count cannot go stale.
 
-`sameAs` is deliberately absent from the Organization — no social profiles
-exist, and inventing URLs would be worse than omitting the property. A test
-enforces that.
+Since 2026-10-14 the Organization's `sameAs` lists the publication's real
+profiles (YouTube, Spotify, LinkedIn, X) from `lib/socialProfiles.ts`, the one
+list the footer and email also use. Only accounts the owner controls go there;
+a guessed URL is worse than none. `__tests__/seo.jsonLd.test.ts` pins the list.

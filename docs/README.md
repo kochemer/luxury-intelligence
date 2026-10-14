@@ -115,6 +115,7 @@ Docs-Skip: prompt wording tweak, no documented behaviour changed
 | `.github/workflows/`, `next.config.ts` | `docs/operations.md` |
 | `seo/`, `lib/seo/` | any `docs/seo-*.md` |
 | `markets/`, `lib/markets/` | `CLAUDE.md` or the markets spec |
+| `social/` | `docs/distribution.md` or the social content plan spec |
 | `video-short/src/`, `video-short/template/` | `video-short/README.md` |
 | `docs/youtube-audit/README.md` | Evidence submitted for the YouTube API audit (screenshots, overview PDF) | current | 2026-10-12 |
 | `lib/db/schema.ts`, `middleware.ts`, `lib/env.ts` | `CLAUDE.md` |
@@ -153,13 +154,13 @@ when you verify or rewrite a doc.
 | `docs/pipeline-decisions.md` | Which model each pipeline step uses and why; measured costs | current | 2026-10-09 |
 | `docs/sources-status.md` | Ingestion sources: dated measurements, open cleanup review (~2027-01-05) | current | 2026-10-05 |
 | `docs/automation.md` | GitHub Actions setup and secrets | reference | 2026-09-13 |
-| `docs/distribution.md` | Outside channels (Spotify, Apple, LinkedIn, X, YouTube): accounts, how each is fed, owner decisions | current | 2026-10-13 |
+| `docs/distribution.md` | Outside channels (Spotify, Apple, LinkedIn, X, YouTube): accounts, how posting runs, owner decisions | current | 2026-10-14 |
 | `docs/seo-system.md` | SEO system architecture, read first for SEO | current | 2026-10-04 |
 | `docs/seo-status.md` | SEO dated state, resume checklist | current | 2026-10-04 |
 | `docs/seo-decisions.md` | SEO design reasoning | current | 2026-09-21 |
 | `docs/seo-backlog.md` | SEO remaining work | current | 2026-10-04 |
 | `docs/superpowers/specs/2026-10-04-markets-pages-design.md` | Markets pages design | current | 2026-10-04 |
-| `docs/superpowers/specs/2026-10-14-social-content-plan.md` | What we post where on LinkedIn, X, YouTube, Spotify; automation design and phases | current (plan, not built) | 2026-10-14 |
+| `docs/superpowers/specs/2026-10-14-social-content-plan.md` | What we post where on LinkedIn, X, YouTube, Spotify; automation design and phases | current (Phase 1 built) | 2026-10-14 |
 | `docs/analytics/measurement-plan.md` | Analytics events and attribution | reference | — |
 | `docs/PAYWALL_AWARE_SELECTION.md` | Paywall detection in selection | reference | 2026-01-18 |
 | `docs/PODCAST_SCRIPT_LENGTH_IMPROVEMENTS.md` | Jan 2026 problem analysis for podcast length | historical | 2026-01-18 |

@@ -13,11 +13,13 @@ lines rather than appending.
 | YouTube | https://www.youtube.com/@luxury-intel | Live; uploads land **private** until Google approves the API audit (submitted 2026-10-12) | `weekly-short.yml`, see `video-short/README.md` |
 | Spotify | https://open.spotify.com/show/1aKp7bTOtYtYJGLMjyvxQf (dashboard: https://creators.spotify.com/home/show/1aKp7bTOtYtYJGLMjyvxQf) | Live since 2026-10-13, all 41 episodes | Pulls `/podcast/feed.xml` automatically; nothing to upload |
 | Apple Podcasts | not submitted | Not started as of 2026-10-13: the owner must sign in at podcastsconnect.apple.com and accept Apple's terms first | Will pull the same RSS feed |
-| LinkedIn | https://www.linkedin.com/company/luxury-intel | Page created 2026-10-13, 0 followers, no posts yet | Manual for now; automated posting is roadmap item N2 |
-| X | https://x.com/luxintel_hq | Created 2026-10-13, 0 posts, 0 follows | Manual for now; automated posting planned with N2 |
+| LinkedIn | https://www.linkedin.com/company/luxury-intel | Page created 2026-10-13, 0 followers, no posts yet | Automated from W42 (first post Mon 2026-10-19): Monday issue post via Buffer, see "How posting runs" |
+| X | https://x.com/luxintel_hq | Created 2026-10-13, 0 posts, 0 follows | Automated from W42: Monday thread + Tue–Fri story of the day via Buffer |
 
-None of these profile links are on the site yet (footer, `sameAs` in the
-JSON-LD, email digest). Only YouTube is.
+Since 2026-10-14 the profile links are on the site: footer (all four),
+"Follow the podcast: Spotify" under the player, "Follow on Spotify" in the
+email, and all four in the Organization's `sameAs`. One list feeds them all:
+`lib/socialProfiles.ts`.
 
 Content plan and automation design: `docs/superpowers/specs/2026-10-14-social-content-plan.md`.
 
@@ -91,6 +93,33 @@ Content plan and automation design: `docs/superpowers/specs/2026-10-14-social-co
 - **2026-10-14:** no LinkedIn Community Management API application. It requires a
   registered legal entity and Luxury Intelligence isn't one (owner has no plans
   to register yet). Revisit only if the business is registered. Plan: `docs/superpowers/specs/2026-10-14-social-content-plan.md`.
+
+## How posting runs (built 2026-10-14, Phase 1)
+
+1. Monday: `weekly-digest.yml` → after the Short, `weekly-social.yml` runs
+   `npm run social:build`. It writes `data/weeks/<week>/social.json`: six posts
+   (LinkedIn issue post Mon 10:00, X thread Mon 10:30, X story of the day
+   Tue–Fri 12:00, Copenhagen time), each written by the `polish` model from the
+   digest only. Links, hashtags and fixed lines are added in code.
+2. Every post passes `social/checks.ts` or is dropped: length, hashtags, house
+   style, no claim that a person picked or read the stories, every number and
+   name must appear in the digest, no repeat of the last 8 weeks. One retry
+   with the problems listed, then dropped. Dropped posts are never sent; the
+   owner is emailed.
+3. `social:publish` sends **only today's** posts to Buffer at their planned time
+   (Monday right after the build, Tue–Fri from `social-publish.yml` at 05:30
+   UTC). It first checks every link answers, and skips posts Buffer already has
+   (safe re-runs). A post whose slot has passed goes out 5 minutes later, but
+   not after 20:00.
+4. Posts are marked AI-assisted in Buffer, and on X with Buffer's
+   `isAiGenerated` flag (PRODUCT.md: honest about automation).
+
+Test without posting: `npm run social:publish -- --dry-run` (checks only) or
+`--draft` (saves Buffer drafts). Rebuild a week's posts before they go out:
+`npm run social:build -- --week=YYYY-Www --force`.
+
+Live test 2026-10-14: the W41 LinkedIn post (image + link) and X thread (5
+posts + image) were accepted by Buffer as drafts, found by date, and deleted.
 
 ## Things that will bite you
 

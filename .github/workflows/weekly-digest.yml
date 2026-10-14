@@ -307,6 +307,17 @@ jobs:
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
         run: npm run email:weekly -- --week=${{ steps.week.outputs.week }}
 
+  # The week's social posts (LinkedIn page + X via Buffer): writes the plan and
+  # schedules Monday's posts. After the Short, so the issue page is deployed;
+  # independent of the email. A failure here holds nothing else back.
+  social:
+    needs: [build-digest, short]
+    if: ${{ !cancelled() && needs.build-digest.result == 'success' }}
+    uses: ./.github/workflows/weekly-social.yml
+    secrets: inherit
+    permissions:
+      contents: write
+
   # Last job of the weekly run: rebuilds the Markets pages after the digest,
   # the Short and the email. Runs whenever the digest built, even if the Short
   # or the email failed or was skipped (send_email=false). Its own workflow

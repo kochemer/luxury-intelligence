@@ -205,6 +205,7 @@ The orchestrator's own numbering (`pipeline/runWeeklyPipeline.ts`): rss → page
 **Purpose**: Generate podcast script and audio
 
 - `buildWeeklyPodcast.ts`: Main podcast builder (script + audio generation)
+- `selectArticles.ts`: the 8 stories the episode covers, in order. Shared with the RSS feed (`app/podcast/feed.xml/route.ts`), whose show notes list them with links; the feed's episode titles lead with the week's headline (since 2026-10-14)
 
 **Key Functions**:
 - `generatePodcastScript(digest, weekLabel)`: Generate script text
@@ -235,7 +236,7 @@ poster image linking to `youtube.com/shorts/<id>`. Since 2026-10-13 the digest
 workflow sends the email only after the Short job (`weekly-short.yml`, called as a
 reusable workflow) has finished, so the Short is normally there. If the Short
 failed or is still private, the band links to the channel's Shorts tab instead.
-The podcast link is the MP3 itself; the show is on Spotify since 2026-10-13 (links in `docs/distribution.md`), not yet linked from the email.
+The podcast link is the MP3 itself, with a "Follow on Spotify" link under it (since 2026-10-14; profile links live in `lib/socialProfiles.ts`).
 
 **Artifacts**:
 - `data/weeks/{week}/email-digest.json`: Email digest JSON
@@ -316,6 +317,7 @@ The podcast link is the MP3 itself; the show is on Spotify since 2026-10-13 (lin
 - **`email-digest.json`**: Email digest format
 - **`podcast-script.txt`**: Podcast script text
 - **`podcast.json`**: Podcast metadata
+- **`social.json`**: The week's LinkedIn + X posts and their send times (`social/`, written by `weekly-social.yml`, read by `social-publish.yml`; see `docs/distribution.md`)
 - **`cover-input.json`**: Cover image input metadata
 - **`cover-scene.json`**: Cover image scene description
 - **`ingestion-report.json`**: Ingestion statistics
