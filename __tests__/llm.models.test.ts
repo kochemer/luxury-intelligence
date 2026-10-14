@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { isReasoningOrV5, maxTokensParam, temperatureParam, reasoningParam, getReasoningFor, parseReasoningEffort, REASONING_HEADROOM_TOKENS } from '../lib/llm/models';
+import { isReasoningOrV5, maxTokensParam, temperatureParam, reasoningParam, getReasoningFor, parseReasoningEffort, REASONING_HEADROOM_TOKENS, DEFAULT_MODEL_BY_WORKFLOW } from '../lib/llm/models';
 
 // GPT-5/6 models reject `max_tokens` and any temperature other than 1 with a
 // 400. Until 2026-10-09 only the o-series was recognised, so routing a step to
@@ -43,9 +43,9 @@ test('reasoning effort comes from LLM_REASONING_<WORKFLOW> and rejects typos', (
   const saved = process.env.LLM_REASONING_CLASSIFY;
   try {
     delete process.env.LLM_REASONING_CLASSIFY;
-    assert.equal(getReasoningFor('classify'), undefined);
-    process.env.LLM_REASONING_CLASSIFY = ' None ';
-    assert.equal(getReasoningFor('classify'), 'none');
+    assert.equal(getReasoningFor('classify'), 'none'); // code default (Luna, 2026-10-14)
+    process.env.LLM_REASONING_CLASSIFY = ' Low ';
+    assert.equal(getReasoningFor('classify'), 'low');
     process.env.LLM_REASONING_CLASSIFY = 'nope';
     assert.throws(() => getReasoningFor('classify'), /LLM_REASONING_CLASSIFY/);
   } finally {
@@ -53,4 +53,12 @@ test('reasoning effort comes from LLM_REASONING_<WORKFLOW> and rejects typos', (
     else process.env.LLM_REASONING_CLASSIFY = saved;
   }
   assert.equal(parseReasoningEffort('', 'X'), undefined);
+});
+
+// GPT-4.1 / 4.1-mini are removed on 2027-01-14 (docs/pipeline-decisions.md).
+test('no workflow defaults to a model OpenAI is retiring', () => {
+  const retiring = /^(gpt-4o|gpt-4\.1)/;
+  for (const [workflow, model] of Object.entries(DEFAULT_MODEL_BY_WORKFLOW)) {
+    assert.doesNotMatch(model, retiring, workflow);
+  }
 });

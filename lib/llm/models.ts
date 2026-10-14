@@ -22,14 +22,21 @@ export type WorkflowName =
   | 'markets';
 
 // ── Default model per workflow ──────────────────────────────────
+// GPT-4.1 / 4.1-mini are removed by OpenAI on 2027-01-14. The 2026-10-14
+// side-by-side (docs/pipeline-decisions.md) picked the replacements below.
 export const DEFAULT_MODEL_BY_WORKFLOW: Record<WorkflowName, string> = {
-  triage:    'gpt-4.1-mini',
-  classify:  'gpt-4.1-mini',
+  // 'triage': discovery queries (discovery/queryDelta.ts). Sol writes
+  // topic-specific queries; 4.1-mini and Luna repeated the same few stories
+  // across all four topics (judged 4/5 vs 1/5 and 2/5).
+  triage:    'gpt-6.1-sol',
+  // 'classify': key themes and translations. Luna at effort "none" scored
+  // best on both at a tenth of Sol's cost (see DEFAULT_REASONING_BY_WORKFLOW).
+  classify:  'gpt-6-luna',
   // 'summarize' produces the most visible text on the site: the 28 article
-  // summaries, the weekly-insight candidates, the Editor's Take and the email
-  // intro. Upgraded from gpt-4.1-mini on 2026-09-18 (roadmap F1.4) — it runs
-  // ~60 short calls a week, so the full model's cost is cents.
-  summarize: 'gpt-4.1',
+  // summaries and the email digest. It must stay faithful to the source
+  // (roadmap F1.4): Sol had an unsupported claim in 4% of summaries, Luna 12%,
+  // gpt-4.1 50% (2026-10-14). About 12 cents a week.
+  summarize: 'gpt-6.1-sol',
   // Note: the reranker no longer reads this — see digest/rerankArticles.ts
   // (RERANK_MODEL_PRIMARY defaults to gpt-4.1 since 2026-09-16).
   // 'rank' decides which discovered articles enter the digest
@@ -42,8 +49,9 @@ export const DEFAULT_MODEL_BY_WORKFLOW: Record<WorkflowName, string> = {
   polish:    'gpt-6.1-sol',
   // Markets pages: deciding whether a headline is a company move, and the
   // weekly sentences. Visible on public pages, and wrong labels are worse
-  // than none, so the full model. A few cached calls a week.
-  markets:   'gpt-4.1',
+  // than none. Sol was right on 44 of 69 contested headlines, gpt-4.1 and
+  // Luna on 28 (2026-10-14). A few cached calls a week.
+  markets:   'gpt-6.1-sol',
 };
 
 // ── Env-var names (uppercase) ───────────────────────────────────
@@ -122,11 +130,9 @@ export function temperatureParam(
 }
 
 // ── Reasoning effort per workflow ───────────────────────────────
-// Unset by default: no `reasoning_effort` is sent and the model uses its own
-// default. Set LLM_REASONING_<WORKFLOW> (e.g. LLM_REASONING_CLASSIFY=none) to
-// try a GPT-5/6 model at a given effort; OpenAI's suggested starting point for
-// replacing GPT-4.1/4o with gpt-6-luna is `none` (2027-01 retirement, see
-// docs/pipeline-decisions.md).
+// DEFAULT_REASONING_BY_WORKFLOW below, overridable with
+// LLM_REASONING_<WORKFLOW> (e.g. LLM_REASONING_SUMMARIZE=low). Workflows
+// without a default send no `reasoning_effort` (the model's own default).
 export type ReasoningEffort = 'none' | 'minimal' | 'low' | 'medium' | 'high' | 'xhigh';
 
 const REASONING_EFFORTS: readonly ReasoningEffort[] = ['none', 'minimal', 'low', 'medium', 'high', 'xhigh'];
@@ -151,10 +157,19 @@ export function parseReasoningEffort(value: string | undefined, source: string):
   return v as ReasoningEffort;
 }
 
-/** The configured reasoning effort for a workflow, or undefined for the model's default. */
+/**
+ * Default effort per workflow; unset = the model's own default. Luna at
+ * "none" spends no hidden reasoning tokens and matched or beat the others on
+ * themes and translations (2026-10-14). Only sent to models that take it.
+ */
+export const DEFAULT_REASONING_BY_WORKFLOW: Partial<Record<WorkflowName, ReasoningEffort>> = {
+  classify: 'none',
+};
+
+/** The reasoning effort for a workflow: env override, then the default, else undefined (model default). */
 export function getReasoningFor(workflow: WorkflowName): ReasoningEffort | undefined {
   const key = REASONING_ENV_KEY[workflow];
-  return parseReasoningEffort(process.env[key], key);
+  return parseReasoningEffort(process.env[key], key) ?? DEFAULT_REASONING_BY_WORKFLOW[workflow];
 }
 
 /**

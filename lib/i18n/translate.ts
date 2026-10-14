@@ -15,7 +15,9 @@ import type { ArticleTranslations } from './types';
 import { getModelFor, maxTokensParam, temperatureParam, getReasoningFor, reasoningParam } from '../llm/models';
 
 const TRANSLATE_MODEL_PRIMARY = getModelFor('classify');
-const TRANSLATE_MODEL_FALLBACK = process.env.TRANSLATE_MODEL_FALLBACK || 'gpt-4.1-mini';
+// A different model from the primary (Luna since 2026-10-14), so a fallback
+// is a real second opinion. gpt-4.1-mini until then; removed 2027-01-14.
+const TRANSLATE_MODEL_FALLBACK = process.env.TRANSLATE_MODEL_FALLBACK || 'gpt-6.1-sol';
 const MAX_OUTPUT_TOKENS = 400;
 const TEMPERATURE = 0.3;
 
@@ -104,7 +106,8 @@ Rules:
       const res = await openai.chat.completions.create({
         model: currentModel,
         ...temperatureParam(currentModel, TEMPERATURE),
-        ...reasoningParam(currentModel, getReasoningFor('classify')),
+        // The classify effort is tuned for the primary; the fallback runs at its own default.
+        ...reasoningParam(currentModel, currentModel === TRANSLATE_MODEL_PRIMARY ? getReasoningFor('classify') : undefined),
         ...maxTokensParam(currentModel, MAX_OUTPUT_TOKENS),
         messages: [{ role: 'user', content: prompt }],
         response_format: { type: 'json_object' },

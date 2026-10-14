@@ -4,7 +4,7 @@ Why each weekly-pipeline step uses the model it does, what was measured, and
 what was rejected. Check here before changing a model back. Tier defaults are
 in `lib/llm/models.ts`; per-step env overrides are in `docs/operations.md`.
 
-## Current models (2026-10-09)
+## Current models (2026-10-14)
 
 | Step | Code | Model | Since |
 |---|---|---|---|
@@ -15,10 +15,11 @@ in `lib/llm/models.ts`; per-step env overrides are in `docs/operations.md`.
 | Podcast script | `podcast/buildWeeklyPodcast.ts`, tier `script` | `gpt-6.1-sol` | 2026-10-09 (was `gpt-4.1`) |
 | Podcast voice | `podcast/buildWeeklyPodcast.ts` | `gpt-realtime-2.1-mini` (Realtime API), voice `alloy`; `gpt-4o-mini-tts` fallback until 2027-01-06 | 2026-10-14 (was `gpt-4o-mini-tts` with `tts-1` fallback) |
 | Cover image | `digest/generateCoverImage.ts` | `gpt-image-2.5-sunburst`; `gpt-image-2` fallback | 2026-10-09 (was `gpt-image-2`) |
-| Article summaries, email digest | tier `summarize` | `gpt-4.1` | 2026-09-18 (F1.4) |
+| Article summaries, email digest | tier `summarize` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1`) |
 | Reranker | `digest/rerankArticles.ts` | `gpt-4.1` | 2026-09-16 |
-| Markets pages | tier `markets` | `gpt-4.1` | 2026-10-04 |
-| Themes, translations, query-delta | tiers `classify`, `triage` | `gpt-4.1-mini` | — |
+| Markets pages | tier `markets` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1`) |
+| Themes, translations | tier `classify` | `gpt-6-luna`, effort `none`; translation fallback `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1-mini`) |
+| Discovery queries (query-delta) | tier `triage` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1-mini`) |
 
 Owner approved the 2026-10-09 switches after the measurements below.
 
@@ -66,8 +67,12 @@ the buffer. The voice is the critical path because its fallback dies too.
    it is itself removed 2027-01-20). Owner listened to both on W41 (podcast)
    and W39 (Short) and approved ("they sound alright"). After 2027-01-06,
    drop the `gpt-4o-mini-tts` fallbacks (step 6).
-5. Switch one tier per weekly run: classify/triage, markets, rerank, summarize.
-   No fallback may point at a retiring model.
+5. [DONE 2026-10-14, except the reranker] Switched `summarize`, `classify`,
+   `triage` and `markets` together instead of one tier a week: the side-by-side
+   had already run each step on three weeks, and each step logs its model, so
+   the 2026-W42 run is the live check. Reranker: owner chose "hard news first";
+   criteria rewrite and re-test pending. Translation fallback moved to Sol; the
+   reranker fallback is still `gpt-4.1-mini`.
 6. Cleanup: a test that fails if a default or fallback model is on a
    `RETIRED_MODELS` list; methodology page copy (it still says the judge is
    `gpt-4.1`); comments and this table. Also: `digest/generateIntro.ts` is
@@ -75,8 +80,9 @@ the buffer. The voice is the critical path because its fallback dies too.
    migrate it; its sentence trimming splits on "." and cuts "$11.6 billion"
    into "$11. 6".
 
-Open owner decisions: Sol or Luna per tier (recommendation below); what the
-reranker should favour (below); whether the methodology page names models.
+Owner decisions 2026-10-14: tiers as recommended below; the reranker should
+favour hard news (deals, results, launches, leadership, strategy) over
+analysis and opinion. Open: whether the methodology page names models.
 
 ### Side-by-side results (2026-10-14)
 
