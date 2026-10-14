@@ -127,9 +127,13 @@ weekly-digest.yml (Mon 06:00 UTC)
        • every brand, number and quote in the post appears in the digest or markets data
        • no claim that a human picked, read or reviewed the issue
        • no post repeated from the last 8 weeks (similarity check)
-  └─ NEW publish → Buffer API: each post scheduled with its exact time
-       (≤ 5 posts per channel per week, under the free plan's 10-in-queue cap)
      YouTube uploads go through the existing uploader.
+
+NEW social-publish.yml (daily, ~07:00 UTC)
+  └─ reads this week's social.json, sends ONLY today's posts to the Buffer API,
+     each with its exact time. Buffer's free plan allows 1 scheduled X thread and
+     10 posts per channel in the queue, so the week can't be loaded on Monday.
+  └─ checks the Buffer key's expiry and emails the owner 7 days before.
 ```
 
 Re-running the week must not double-post: the publish step records each sent post's
@@ -159,9 +163,13 @@ Buffer ID in `social.json` and skips posts that already have one.
 
 - Is Luxury Intelligence a registered legal entity? Without one, LinkedIn will
   likely refuse the Community Management API and Buffer stays the route.
-- Does Buffer's free plan post to X without restrictions, and does its API support
-  LinkedIn PDF (document) posts, video, and X threads? Check during P0. If PDF
-  isn't supported, the slide post becomes a multi-image post.
+- Answered 2026-10-14 (Buffer setup, see `docs/distribution.md`): the free plan
+  posts to X; LinkedIn PDF (with a required title), video and X threads are
+  supported. "First comment" is paid-only, so links stay in the post body. Still
+  to test with one real post each: PDF upload and video, before P2/P3 rely on them.
+- Buffer API keys expire after 30 days (the current one on 2026-11-13). Find out in
+  P1 whether a longer-lived key exists; if not, the owner rotates it monthly when
+  the expiry email arrives (a 2-minute task, the only recurring manual step).
 
 ## What we deliberately don't do
 

@@ -61,6 +61,23 @@ Content plan and automation design: `docs/superpowers/specs/2026-10-14-social-co
 - API: X moved to pay-per-use credits in 2026 (per third-party reports). Check
   current pricing at https://docs.x.com before building automated posting.
 
+## Buffer (publishing for LinkedIn and X, set up 2026-10-14)
+
+- Free plan (3 channels, 2 used), login `luxuryintelligence@zohomail.eu`, no
+  payment method. Org timezone Europe/Berlin (Buffer wouldn't save
+  Europe/Copenhagen; same rules). Org ID `6acfc203469d5c57ecd96058`.
+- Channels: LinkedIn Page "Luxury Intelligence" `6acfc785778b240e2f0baa9d`;
+  X "luxintel_hq" `6acfcebb778b240e2f0c3998`.
+- API: GraphQL at `https://api.buffer.com`, header `Authorization: Bearer <key>`.
+  Docs https://developers.buffer.com/. Key "luxury-intel pipeline" lives in the
+  GitHub secret and `.env.local` as `BUFFER_API_KEY`; verified working
+  2026-10-14. Keys are managed at https://publish.buffer.com/settings/api.
+- Free-plan rate limits (all keys combined): 100 / 15 min, 500 / 24 h,
+  10,000 / 30 days.
+- LinkedIn Page posts: text ≤ 3,000 chars; ≤ 20 images; 1 video; 1 PDF per post
+  (a document title is required, or the post won't schedule).
+- X posts: 280 chars; ≤ 4 images or 1 video (0.5–140 s); threads up to 25 posts.
+
 ## Owner decisions
 
 - **2026-10-13:** separate brand accounts on LinkedIn and X. On LinkedIn that means
@@ -68,11 +85,22 @@ Content plan and automation design: `docs/superpowers/specs/2026-10-14-social-co
   personal profile for the brand would break LinkedIn's terms.
 - **2026-10-13:** the podcast stays hosted on our own RSS feed. No Spotify hosting,
   monetisation, ads or video podcast.
-- **Open:** N2 posting: page only, personal profile only, or both; fully
-  automatic vs one-tap approval; scheduler (Typefully/Buffer) vs LinkedIn's own
-  API (Community Management API needs an application and review).
+- **2026-10-14:** posting is fully automatic with no approval step and zero
+  owner time; brand accounts only (LinkedIn page + X), no personal-profile
+  posting. Publishing goes through Buffer's free plan. The owner also applies
+  for LinkedIn's Community Management API; if approved, LinkedIn may move to a
+  direct connection. Plan: `docs/superpowers/specs/2026-10-14-social-content-plan.md`.
 
 ## Things that will bite you
+
+- **The Buffer API key expires on 2026-11-13** (30 days after creation). When it
+  does, every post fails. Create a new key at
+  https://publish.buffer.com/settings/api, then `gh secret set BUFFER_API_KEY`
+  and update `.env.local`. The publish step must warn by email ahead of expiry.
+- **Buffer free plan: only 1 scheduled X thread in the queue at a time**, and 10
+  queued posts per channel. That's why the publish step runs daily and schedules
+  only that day's posts, not the whole week on Monday.
+- **LinkedIn "first comment" is paid-only on Buffer.** Links go in the post body.
 
 - **Contact addresses on `luxury-intel.com` don't receive mail.** The real inbox is
   `luxuryintelligence@zohomail.eu`, which the About (privacy), Terms and Feedback
