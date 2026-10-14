@@ -28,7 +28,7 @@ import { fileURLToPath } from 'url';
 import OpenAI from 'openai';
 import type { Topic } from '../classification/classifyTopics';
 import { getTopicDisplayName } from '../lib/utils/topicNames';
-import { getModelFor, temperatureParam } from '../lib/llm/models';
+import { getModelFor, temperatureParam, getReasoningFor, reasoningParam } from '../lib/llm/models';
 import crypto from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -214,6 +214,7 @@ Return a JSON object:
         { role: 'user', content: prompt }
       ],
       ...temperatureParam(QUERY_DELTA_MODEL, TEMPERATURE),
+      ...reasoningParam(QUERY_DELTA_MODEL, getReasoningFor('triage')),
       response_format: { type: 'json_object' }
     });
 

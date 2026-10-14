@@ -5,7 +5,7 @@
 
 import OpenAI from 'openai';
 import { HOUSE_STYLE_RULES, findStyleProblems, stripDashes } from '../lib/llm/houseStyle';
-import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
+import { getModelFor, maxTokensParam, temperatureParam, getReasoningFor, reasoningParam } from '../lib/llm/models';
 
 const AI_MODEL = process.env.ARTICLE_SUMMARY_MODEL || getModelFor('summarize');
 const MAX_SNIPPET_LENGTH = 800;
@@ -106,6 +106,7 @@ Example of the required style (unrelated story): "Richemont's jewellery maisons 
     const res = await openai.chat.completions.create({
       model: AI_MODEL,
       ...temperatureParam(AI_MODEL, TEMPERATURE),
+      ...reasoningParam(AI_MODEL, getReasoningFor('summarize')),
       ...maxTokensParam(AI_MODEL, MAX_OUTPUT_TOKENS),
       messages: [{ role: "user", content: prompt }],
     });
@@ -120,6 +121,7 @@ Example of the required style (unrelated story): "Richemont's jewellery maisons 
         const retry = await openai.chat.completions.create({
           model: AI_MODEL,
           ...temperatureParam(AI_MODEL, TEMPERATURE),
+          ...reasoningParam(AI_MODEL, getReasoningFor('summarize')),
           ...maxTokensParam(AI_MODEL, MAX_OUTPUT_TOKENS),
           messages: [
             { role: 'user', content: prompt },

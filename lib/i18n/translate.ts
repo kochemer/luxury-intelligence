@@ -12,7 +12,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import OpenAI from 'openai';
 import type { ArticleTranslations } from './types';
-import { getModelFor, maxTokensParam, temperatureParam } from '../llm/models';
+import { getModelFor, maxTokensParam, temperatureParam, getReasoningFor, reasoningParam } from '../llm/models';
 
 const TRANSLATE_MODEL_PRIMARY = getModelFor('classify');
 const TRANSLATE_MODEL_FALLBACK = process.env.TRANSLATE_MODEL_FALLBACK || 'gpt-4.1-mini';
@@ -104,6 +104,7 @@ Rules:
       const res = await openai.chat.completions.create({
         model: currentModel,
         ...temperatureParam(currentModel, TEMPERATURE),
+        ...reasoningParam(currentModel, getReasoningFor('classify')),
         ...maxTokensParam(currentModel, MAX_OUTPUT_TOKENS),
         messages: [{ role: 'user', content: prompt }],
         response_format: { type: 'json_object' },

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { isReasoningOrV5, maxTokensParam, temperatureParam, REASONING_HEADROOM_TOKENS } from '../lib/llm/models';
+import { isReasoningOrV5, maxTokensParam, temperatureParam, reasoningParam, getReasoningFor, parseReasoningEffort, REASONING_HEADROOM_TOKENS } from '../lib/llm/models';
 
 // GPT-5/6 models reject `max_tokens` and any temperature other than 1 with a
 // 400. Until 2026-10-09 only the o-series was recognised, so routing a step to
@@ -26,4 +26,31 @@ test('reasoning models get max_completion_tokens with headroom and no temperatur
 test('classic models get max_tokens and the requested temperature, unchanged', () => {
   assert.deepEqual(maxTokensParam('gpt-4.1', 100), { max_tokens: 100 });
   assert.deepEqual(temperatureParam('gpt-4.1', 0.4), { temperature: 0.4 });
+});
+
+// reasoning_effort (added 2026-10-14 for the 2027-01 GPT-4.1/4o retirement):
+// opt-in per workflow, sent only to models that accept it, typos fail loudly.
+
+test('reasoning effort is sent only when configured and only to GPT-5/6 and o-series models', () => {
+  assert.deepEqual(reasoningParam('gpt-6-luna', 'none'), { reasoning_effort: 'none' });
+  assert.deepEqual(reasoningParam('gpt-6.1-sol', 'low'), { reasoning_effort: 'low' });
+  assert.deepEqual(reasoningParam('gpt-6-luna', undefined), {});
+  // a fallback to a classic model must not carry the param (it would 400)
+  assert.deepEqual(reasoningParam('gpt-4.1-mini', 'none'), {});
+});
+
+test('reasoning effort comes from LLM_REASONING_<WORKFLOW> and rejects typos', () => {
+  const saved = process.env.LLM_REASONING_CLASSIFY;
+  try {
+    delete process.env.LLM_REASONING_CLASSIFY;
+    assert.equal(getReasoningFor('classify'), undefined);
+    process.env.LLM_REASONING_CLASSIFY = ' None ';
+    assert.equal(getReasoningFor('classify'), 'none');
+    process.env.LLM_REASONING_CLASSIFY = 'nope';
+    assert.throws(() => getReasoningFor('classify'), /LLM_REASONING_CLASSIFY/);
+  } finally {
+    if (saved === undefined) delete process.env.LLM_REASONING_CLASSIFY;
+    else process.env.LLM_REASONING_CLASSIFY = saved;
+  }
+  assert.equal(parseReasoningEffort('', 'X'), undefined);
 });

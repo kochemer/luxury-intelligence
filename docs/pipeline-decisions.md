@@ -22,6 +22,52 @@ in `lib/llm/models.ts`; per-step env overrides are in `docs/operations.md`.
 
 Owner approved the 2026-10-09 switches after the measurements below.
 
+## Retirement 2027-01 (OpenAI notices of 2026-10-01 and 2026-10-14)
+
+OpenAI removes these from the API. Source:
+[deprecations page](https://developers.openai.com/api/docs/deprecations).
+
+| Shutdown | Models | OpenAI's replacement | Used here by |
+|---|---|---|---|
+| **2027-01-06** | `tts-1`, `tts-1-hd`, `gpt-4o-mini-tts` (both snapshots, so the alias too) | `gpt-realtime-2.1-mini` | Podcast voice **and** its `tts-1` fallback (`podcast/buildWeeklyPodcast.ts`); weekly Short + explainer voice (`video-short/src/voice.ts`) |
+| 2027-01-14 | `gpt-4o`, `gpt-4o-mini`, `gpt-4.1`, `gpt-4.1-mini` (and fine-tunes) | `gpt-6-luna` | Tiers `summarize`, `markets` (`gpt-4.1`); `classify`, `triage` (`gpt-4.1-mini`); reranker primary/fallback (`digest/rerankArticles.ts`); translation fallback (`lib/i18n/translate.ts`) |
+
+Steps already on `gpt-6.1-sol` (rank, polish, script) and the cover image
+models are not affected. No CI secret overrides a model, so code defaults are
+what production runs.
+
+Plan (owner approved 2026-10-14). Finish by early December; the holidays are
+the buffer. The voice is the critical path because its fallback dies too.
+
+1. [DONE] Housekeeping: removed `RERANK_MODEL=gpt-4o-mini` (local reranks had
+   silently differed from CI's `gpt-4.1`) and the unused `CLASSIFIER_MODEL`
+   from the owner's `.env.local`.
+2. [DONE] `reasoning_effort` per workflow (`LLM_REASONING_<WORKFLOW>`,
+   `RERANKER_REASONING`; `reasoningParam` in `lib/llm/models.ts`). Needed because
+   OpenAI's suggested start for Luna is effort `none`; the 2026-10-03 Luna
+   rejection below ran at its default effort.
+3. Side-by-side on W39–W41 (scratch `data/`, caches cleared), Sol vs Luna@`none`
+   vs today: summaries/intro/email for faithfulness (the open A/B under
+   Rejected) and the house-style check; reranker via `selection:snapshot` /
+   `selection:diff` against the 2026-09-16 harness (overlap, failed categories);
+   markets move labels on cached headlines (a model change re-labels, check
+   `PROMPT_VERSION`); themes/translations/query-delta for empty answers and
+   retries. Needs OpenAI credit (it ran out on 2026-10-09).
+4. Voice: first check whether `gpt-realtime-2.1-mini` works on
+   `audio.speech` with `instructions`; if it only works over the Realtime API,
+   the podcast and the Short need a new audio path. Then whether `alloy` exists,
+   a listening test, new prices in `video-short/src/budget.ts` (the $2/week
+   cap). The voice cache key includes the model, so expect one full re-synthesis.
+5. Switch one tier per weekly run: classify/triage, markets, rerank, summarize.
+   No fallback may point at a retiring model.
+6. Cleanup: a test that fails if a default or fallback model is on a
+   `RETIRED_MODELS` list; methodology page copy (it still says the judge is
+   `gpt-4.1`); comments and this table.
+
+Open owner decisions: Sol or Luna per tier (after step 3); a new voice if
+`alloy` is gone; whether the methodology page names models at all.
+
+
 ## Measurements behind the 2026-10-09 switch
 
 All on real pipeline code against W39 (and W37/W40 where noted), in a scratch

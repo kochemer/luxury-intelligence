@@ -12,7 +12,7 @@ import type { WeeklyDigest } from './buildWeeklyDigest';
 import { getTopicDisplayName } from '../lib/utils/topicNames';
 
 import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
-import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
+import { getModelFor, maxTokensParam, temperatureParam, getReasoningFor, reasoningParam } from '../lib/llm/models';
 import { HOUSE_STYLE_RULES, findStyleProblems, stripDashes } from '../lib/llm/houseStyle';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -446,6 +446,7 @@ Respond as JSON:
   const response = await openai.chat.completions.create({
     model: SUMMARY_GENERATOR_MODEL,
     ...temperatureParam(SUMMARY_GENERATOR_MODEL, 0.9),
+    ...reasoningParam(SUMMARY_GENERATOR_MODEL, getReasoningFor('polish')),
     ...maxTokensParam(SUMMARY_GENERATOR_MODEL, 400),
     messages: [{ role: 'user', content: prompt }],
     response_format: { type: 'json_object' },
@@ -516,6 +517,7 @@ Respond as JSON:
   const response = await openai.chat.completions.create({
     model: SUMMARY_JUDGE_MODEL,
     ...temperatureParam(SUMMARY_JUDGE_MODEL, 0),
+    ...reasoningParam(SUMMARY_JUDGE_MODEL, getReasoningFor('polish')),
     ...maxTokensParam(SUMMARY_JUDGE_MODEL, 150),
     messages: [{ role: 'user', content: prompt }],
     response_format: { type: 'json_object' },
@@ -551,6 +553,7 @@ async function callLLMForThemes(digest: WeeklyDigest, isRetry: boolean = false):
     const response = await openai.chat.completions.create({
       model: THEME_MODEL,
       ...temperatureParam(THEME_MODEL, TEMPERATURE),
+      ...reasoningParam(THEME_MODEL, getReasoningFor('classify')),
       ...maxTokensParam(THEME_MODEL, MAX_TOKENS),
       messages: [{ role: 'user', content: prompt }],
       response_format: { type: 'json_object' },

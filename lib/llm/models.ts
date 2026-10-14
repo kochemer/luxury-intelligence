@@ -7,7 +7,8 @@
  *
  * Env overrides (optional):
  *   LLM_MODEL_TRIAGE, LLM_MODEL_CLASSIFY, LLM_MODEL_SUMMARIZE,
- *   LLM_MODEL_RANK, LLM_MODEL_SCRIPT, LLM_MODEL_POLISH
+ *   LLM_MODEL_RANK, LLM_MODEL_SCRIPT, LLM_MODEL_POLISH, LLM_MODEL_MARKETS
+ *   LLM_REASONING_<WORKFLOW> (reasoning effort, see reasoningParam)
  */
 
 // ── Workflow names ──────────────────────────────────────────────
@@ -120,6 +121,57 @@ export function temperatureParam(
   return { temperature: temp };
 }
 
+// ── Reasoning effort per workflow ───────────────────────────────
+// Unset by default: no `reasoning_effort` is sent and the model uses its own
+// default. Set LLM_REASONING_<WORKFLOW> (e.g. LLM_REASONING_CLASSIFY=none) to
+// try a GPT-5/6 model at a given effort; OpenAI's suggested starting point for
+// replacing GPT-4.1/4o with gpt-6-luna is `none` (2027-01 retirement, see
+// docs/pipeline-decisions.md).
+export type ReasoningEffort = 'none' | 'minimal' | 'low' | 'medium' | 'high' | 'xhigh';
+
+const REASONING_EFFORTS: readonly ReasoningEffort[] = ['none', 'minimal', 'low', 'medium', 'high', 'xhigh'];
+
+const REASONING_ENV_KEY: Record<WorkflowName, string> = {
+  triage:    'LLM_REASONING_TRIAGE',
+  classify:  'LLM_REASONING_CLASSIFY',
+  summarize: 'LLM_REASONING_SUMMARIZE',
+  rank:      'LLM_REASONING_RANK',
+  script:    'LLM_REASONING_SCRIPT',
+  polish:    'LLM_REASONING_POLISH',
+  markets:   'LLM_REASONING_MARKETS',
+};
+
+/** Validate an effort string (from env); throws on a typo rather than silently ignoring it. */
+export function parseReasoningEffort(value: string | undefined, source: string): ReasoningEffort | undefined {
+  const v = value?.trim().toLowerCase();
+  if (!v) return undefined;
+  if (!(REASONING_EFFORTS as readonly string[]).includes(v)) {
+    throw new Error(`${source}="${value}" is not a reasoning effort (${REASONING_EFFORTS.join(', ')})`);
+  }
+  return v as ReasoningEffort;
+}
+
+/** The configured reasoning effort for a workflow, or undefined for the model's default. */
+export function getReasoningFor(workflow: WorkflowName): ReasoningEffort | undefined {
+  const key = REASONING_ENV_KEY[workflow];
+  return parseReasoningEffort(process.env[key], key);
+}
+
+/**
+ * Return a `reasoning_effort` param only when one is configured and the model
+ * takes it. Classic models (GPT-4.x) reject the param, so it is dropped for
+ * them; that keeps it safe on fallback paths that switch to an older model.
+ *
+ * Usage:  `...reasoningParam(model, getReasoningFor('summarize'))`
+ */
+export function reasoningParam(
+  model: string,
+  effort: ReasoningEffort | undefined
+): { reasoning_effort: ReasoningEffort } | Record<string, never> {
+  if (!effort || !isReasoningOrV5(model)) return {};
+  return { reasoning_effort: effort };
+}
+
 /**
  * Models that use the new parameter conventions (max_completion_tokens, no
  * custom temperature): o-series reasoning models and GPT-5 onwards. Both
@@ -137,7 +189,10 @@ export function isReasoningOrV5(model: string): boolean {
  */
 export function printModelRouting(): void {
   const parts = (Object.keys(DEFAULT_MODEL_BY_WORKFLOW) as WorkflowName[])
-    .map(w => `${w}=${getModelFor(w)}`)
+    .map(w => {
+      const effort = getReasoningFor(w);
+      return `${w}=${getModelFor(w)}${effort ? `@${effort}` : ''}`;
+    })
     .join(', ');
   console.log(`[LLM routing] ${parts}`);
 }

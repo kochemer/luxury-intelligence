@@ -13,7 +13,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import OpenAI from 'openai';
-import { getModelFor, maxTokensParam, temperatureParam } from '@/lib/llm/models';
+import { getModelFor, maxTokensParam, temperatureParam, getReasoningFor, reasoningParam } from '@/lib/llm/models';
 import { MOVE_TYPES, type MoveType } from '@/lib/markets/types';
 import type { Candidate } from './candidates';
 
@@ -115,6 +115,7 @@ export async function classifyCandidates(candidates: Candidate[]): Promise<{ res
       const resp = await openai.chat.completions.create({
         model,
         ...temperatureParam(model, 0),
+        ...reasoningParam(model, getReasoningFor('markets')),
         ...maxTokensParam(model, 2500),
         messages: [{ role: 'user', content: prompt(batch) }],
         response_format: { type: 'json_object' },

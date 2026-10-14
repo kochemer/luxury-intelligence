@@ -67,7 +67,7 @@ type CandidateArticle = {
 };
 
 import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
-import { maxTokensParam, temperatureParam } from '../lib/llm/models';
+import { maxTokensParam, temperatureParam, reasoningParam, parseReasoningEffort } from '../lib/llm/models';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -85,6 +85,8 @@ const __dirname = path.dirname(__filename);
 const RERANK_MODEL_PRIMARY = process.env.RERANKER_MODEL_PRIMARY || process.env.RERANK_MODEL || 'gpt-4.1';
 /** Fallback model used if the primary fails. Should be cheaper/faster. */
 const RERANK_MODEL_FALLBACK = process.env.RERANKER_MODEL_FALLBACK || 'gpt-4.1-mini';
+/** Reasoning effort for GPT-5/6 rerank models (e.g. "none"); unset = model default. Ignored for GPT-4.x. */
+const RERANK_REASONING = parseReasoningEffort(process.env.RERANKER_REASONING, 'RERANKER_REASONING');
 /** Temperature 0 ensures deterministic selection across identical inputs. */
 const TEMPERATURE = 0;
 const MAX_TOKENS = 2000;
@@ -813,6 +815,7 @@ async function callRerankLLM(
       const request: Parameters<typeof openai.chat.completions.create>[0] = {
         model: currentModel,
         ...temperatureParam(currentModel, TEMPERATURE),
+        ...reasoningParam(currentModel, RERANK_REASONING),
         ...maxTokensParam(currentModel, MAX_TOKENS),
         messages: [
           {

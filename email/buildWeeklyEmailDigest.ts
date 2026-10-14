@@ -12,7 +12,7 @@ import type { Article, WeeklyDigest, EmailDigest, EmailDigestItem } from '../lib
 import { enrichFullText } from '../podcast/enrichFullText';
 
 import { HOUSE_STYLE_RULES, stripDashes } from '../lib/llm/houseStyle';
-import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
+import { getModelFor, maxTokensParam, temperatureParam, getReasoningFor, reasoningParam } from '../lib/llm/models';
 const EMAIL_DIGEST_MODEL = process.env.EMAIL_DIGEST_MODEL || getModelFor('summarize');
 const TEMPERATURE = 0.3;
 const MAX_TOKENS = 500;
@@ -210,6 +210,7 @@ Output as JSON object with a "bullets" array containing your 3 summary sentences
         },
       ],
       ...temperatureParam(EMAIL_DIGEST_MODEL, TEMPERATURE),
+      ...reasoningParam(EMAIL_DIGEST_MODEL, getReasoningFor('summarize')),
       ...maxTokensParam(EMAIL_DIGEST_MODEL, MAX_TOKENS),
       response_format: { type: 'json_object' },
     });

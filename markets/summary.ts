@@ -9,7 +9,7 @@
  */
 
 import OpenAI from 'openai';
-import { getModelFor, maxTokensParam, temperatureParam } from '@/lib/llm/models';
+import { getModelFor, maxTokensParam, temperatureParam, getReasoningFor, reasoningParam } from '@/lib/llm/models';
 import type { MarketId, MarketMove } from '@/lib/markets/types';
 
 export function validateSummary(sentences: unknown, moves: MarketMove[]): { ok: true; sentences: string[] } | { ok: false; reason: string } {
@@ -62,6 +62,7 @@ Return JSON: {"sentences": ["...", "..."]}`;
       const resp = await openai.chat.completions.create({
         model,
         ...temperatureParam(model, 0),
+        ...reasoningParam(model, getReasoningFor('markets')),
         ...maxTokensParam(model, 500),
         messages: [{ role: 'user', content: prompt }],
         response_format: { type: 'json_object' },

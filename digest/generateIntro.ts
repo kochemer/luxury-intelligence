@@ -12,7 +12,7 @@ import type { WeeklyDigest } from './buildWeeklyDigest';
 import { getTopicDisplayName } from '../lib/utils/topicNames';
 
 import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
-import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
+import { getModelFor, maxTokensParam, temperatureParam, getReasoningFor, reasoningParam } from '../lib/llm/models';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -155,6 +155,7 @@ async function callLLMForIntro(digest: WeeklyDigest): Promise<IntroResult | null
     const response = await openai.chat.completions.create({
       model: INTRO_MODEL,
       ...temperatureParam(INTRO_MODEL, TEMPERATURE),
+      ...reasoningParam(INTRO_MODEL, getReasoningFor('summarize')),
       ...maxTokensParam(INTRO_MODEL, MAX_TOKENS),
       messages: [{ role: 'user', content: prompt }],
       response_format: { type: 'json_object' },
