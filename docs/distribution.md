@@ -87,9 +87,10 @@ Content plan and automation design: `docs/superpowers/specs/2026-10-14-social-co
   monetisation, ads or video podcast.
 - **2026-10-14:** posting is fully automatic with no approval step and zero
   owner time; brand accounts only (LinkedIn page + X), no personal-profile
-  posting. Publishing goes through Buffer's free plan. The owner also applies
-  for LinkedIn's Community Management API; if approved, LinkedIn may move to a
-  direct connection. Plan: `docs/superpowers/specs/2026-10-14-social-content-plan.md`.
+  posting. Publishing goes through Buffer's free plan.
+- **2026-10-14:** no LinkedIn Community Management API application. It requires a
+  registered legal entity and Luxury Intelligence isn't one (owner has no plans
+  to register yet). Revisit only if the business is registered. Plan: `docs/superpowers/specs/2026-10-14-social-content-plan.md`.
 
 ## Things that will bite you
 

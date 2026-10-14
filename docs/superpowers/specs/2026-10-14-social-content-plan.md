@@ -157,12 +157,12 @@ Buffer ID in `social.json` and skips posts that already have one.
 | X posting | $0 through Buffer. Direct API would be $0.015/post, $0.20 with a link |
 | LLM for posts | Cents per week |
 | Rendering (slides, charts, video) | $0, runs in GitHub Actions |
-| LinkedIn Community Management API (applied in parallel) | $0; needs a registered legal entity and a review |
+| LinkedIn Community Management API | Not applying: needs a registered legal entity, which Luxury Intelligence isn't (2026-10-14) |
 
 ## Open questions
 
-- Is Luxury Intelligence a registered legal entity? Without one, LinkedIn will
-  likely refuse the Community Management API and Buffer stays the route.
+- Settled 2026-10-14: Luxury Intelligence is not a registered legal entity, so no
+  LinkedIn API application. Buffer is the only route to the LinkedIn page.
 - Answered 2026-10-14 (Buffer setup, see `docs/distribution.md`): the free plan
   posts to X; LinkedIn PDF (with a required title), video and X threads are
   supported. "First comment" is paid-only, so links stay in the post body. Still
