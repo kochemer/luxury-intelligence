@@ -14,7 +14,7 @@ lines rather than appending.
 | Spotify | https://open.spotify.com/show/1aKp7bTOtYtYJGLMjyvxQf (dashboard: https://creators.spotify.com/home/show/1aKp7bTOtYtYJGLMjyvxQf) | Live since 2026-10-13, all 41 episodes | Pulls `/podcast/feed.xml` automatically; nothing to upload |
 | Apple Podcasts | not submitted | Not started as of 2026-10-13: the owner must sign in at podcastsconnect.apple.com and accept Apple's terms first | Will pull the same RSS feed |
 | LinkedIn | https://www.linkedin.com/company/luxury-intel | Page created 2026-10-13, 0 followers, no posts yet | Manual for now; automated posting is roadmap item N2 |
-| X | not created | Not created as of 2026-10-13 | Planned alongside N2 |
+| X | https://x.com/luxintel_hq | Created 2026-10-13, 0 posts, 0 follows | Manual for now; automated posting planned with N2 |
 
 None of these profile links are on the site yet (footer, `sameAs` in the
 JSON-LD, email digest). Only YouTube is.
@@ -39,8 +39,25 @@ JSON-LD, email digest). Only YouTube is.
 - Location: Copenhagen, Denmark (primary, no street address)
 - Custom button: "Visit website" → https://luxury-intel.com
 - Logo: `public/icons/icon-512.png`. No cover banner yet (needs 1128×191).
+- Overview still says "every Sunday" as of 2026-10-14; the digest has published
+  on Mondays since W42 (see `.github/workflows/weekly-digest.yml`). Fix on the page.
 - Admin: the owner's personal profile, which lists *Founder & Editor, Luxury
   Intelligence* (from December 2025) linked to the page.
+
+## X account details (set 2026-10-13)
+
+- Handle `@luxintel_hq` (`luxury_intel` and `luxuryintel` were taken). Signed up
+  with `luxuryintelligence@zohomail.eu`, which is also the recovery route.
+- Bio: "Weekly intelligence on luxury, ecommerce & retail tech. The signals that
+  matter, every Monday. Free newsletter ↓" · Website https://luxury-intel.com ·
+  Location Copenhagen, Denmark
+- Logo `public/icons/icon-512.png`. The 1500×500 banner was made in a Claude in
+  Chrome chat and is not in the repo.
+- Public posts; not findable by email or phone. No Premium, no connected apps.
+- Not done as of 2026-10-14: two-factor authentication (owner), a pinned intro
+  post (the bio's "↓" points at it).
+- API: X moved to pay-per-use credits in 2026 (per third-party reports). Check
+  current pricing at https://docs.x.com before building automated posting.
 
 ## Owner decisions
 
