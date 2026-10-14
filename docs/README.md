@@ -159,6 +159,7 @@ when you verify or rewrite a doc.
 | `docs/seo-decisions.md` | SEO design reasoning | current | 2026-09-21 |
 | `docs/seo-backlog.md` | SEO remaining work | current | 2026-10-04 |
 | `docs/superpowers/specs/2026-10-04-markets-pages-design.md` | Markets pages design | current | 2026-10-04 |
+| `docs/superpowers/specs/2026-10-14-social-content-plan.md` | What we post where on LinkedIn, X, YouTube, Spotify; automation design and phases | current (plan, not built) | 2026-10-14 |
 | `docs/analytics/measurement-plan.md` | Analytics events and attribution | reference | — |
 | `docs/PAYWALL_AWARE_SELECTION.md` | Paywall detection in selection | reference | 2026-01-18 |
 | `docs/PODCAST_SCRIPT_LENGTH_IMPROVEMENTS.md` | Jan 2026 problem analysis for podcast length | historical | 2026-01-18 |

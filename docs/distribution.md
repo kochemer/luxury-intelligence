@@ -19,6 +19,8 @@ lines rather than appending.
 None of these profile links are on the site yet (footer, `sameAs` in the
 JSON-LD, email digest). Only YouTube is.
 
+Content plan and automation design: `docs/superpowers/specs/2026-10-14-social-content-plan.md`.
+
 ## Podcast feed
 
 - Feed: `https://luxury-intel.com/podcast/feed.xml`, built by
