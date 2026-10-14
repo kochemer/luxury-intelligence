@@ -16,7 +16,7 @@ in `lib/llm/models.ts`; per-step env overrides are in `docs/operations.md`.
 | Podcast voice | `podcast/buildWeeklyPodcast.ts` | `gpt-realtime-2.1-mini` (Realtime API), voice `alloy`; `gpt-4o-mini-tts` fallback until 2027-01-06 | 2026-10-14 (was `gpt-4o-mini-tts` with `tts-1` fallback) |
 | Cover image | `digest/generateCoverImage.ts` | `gpt-image-2.5-sunburst`; `gpt-image-2` fallback | 2026-10-09 (was `gpt-image-2`) |
 | Article summaries, email digest | tier `summarize` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1`) |
-| Reranker | `digest/rerankArticles.ts` | `gpt-4.1` | 2026-09-16 |
+| Reranker | `digest/rerankArticles.ts` | `gpt-6.1-sol`, criteria "hard news first"; fallback `gpt-6-luna`, effort `none` | 2026-10-14 (was `gpt-4.1`) |
 | Markets pages | tier `markets` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1`) |
 | Themes, translations | tier `classify` | `gpt-6-luna`, effort `none`; translation fallback `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1-mini`) |
 | Discovery queries (query-delta) | tier `triage` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1-mini`) |
@@ -67,12 +67,12 @@ the buffer. The voice is the critical path because its fallback dies too.
    it is itself removed 2027-01-20). Owner listened to both on W41 (podcast)
    and W39 (Short) and approved ("they sound alright"). After 2027-01-06,
    drop the `gpt-4o-mini-tts` fallbacks (step 6).
-5. [DONE 2026-10-14, except the reranker] Switched `summarize`, `classify`,
-   `triage` and `markets` together instead of one tier a week: the side-by-side
-   had already run each step on three weeks, and each step logs its model, so
-   the 2026-W42 run is the live check. Reranker: owner chose "hard news first";
-   criteria rewrite and re-test pending. Translation fallback moved to Sol; the
-   reranker fallback is still `gpt-4.1-mini`.
+5. [DONE 2026-10-14] Switched `summarize`, `classify`, `triage` and
+   `markets` together instead of one tier a week: the side-by-side had already
+   run each step on three weeks, and each step logs its model, so the 2026-W42
+   run is the live check. The reranker followed the same day, after its
+   criteria were rewritten for hard news first and re-tested (below). No text
+   step or fallback uses GPT-4.1 / 4.1-mini any more.
 6. Cleanup: a test that fails if a default or fallback model is on a
    `RETIRED_MODELS` list; methodology page copy (it still says the judge is
    `gpt-4.1`); comments and this table. Also: `digest/generateIntro.ts` is
@@ -135,6 +135,18 @@ about +5¢/week); `classify` → Luna@none (best themes and translations at a
 tenth of the cost); `triage` → Sol; `markets` → Sol; reranker → after the
 owner decides what it should favour. Fallbacks that still point at
 `gpt-4.1-mini` (reranker, translations) move to Luna@none.
+
+Reranker re-test with the hard-news criteria (2026-10-14). The owner chose
+"hard news first", so the criteria in `digest/rerankArticles.ts` now rank
+deals, results, leadership changes, strategy and launches above analysis and
+opinion, and name the formats to push down (opinion and advice columns,
+listicles, podcasts, video tours). Same three weeks, judged blind against the
+new criteria: Sol 4.67/5 (best or tied in all 12 category-weeks, 4 or 5
+everywhere), Luna@none 3.83, the previous gpt-4.1 lists 2.25 (made under the
+old criteria, so this compares setups, not just models). Sol now leads with
+the stories the first pass found missing (Rio Tinto selling Argyle Pink, De
+Beers taking Gahcho Kue, the Armani stake sale, Capri up for sale). Switched:
+Sol primary, Luna@none fallback.
 
 
 ## Measurements behind the 2026-10-09 switch

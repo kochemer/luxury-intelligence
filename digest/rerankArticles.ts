@@ -75,18 +75,22 @@ const __dirname = path.dirname(__filename);
 // --- Configuration ---
 
 /**
- * Primary reranking model. Defaults to gpt-4.1 (full): a measured A/B on the
- * harness (16 Sep 2026) showed the previous `getModelFor('rank')` = o4-mini
- * FAILED on 3 of 4 categories and fell back to gpt-4.1-mini, whereas gpt-4.1
- * succeeded on all four and made better picks (e.g. dropping filler for
- * substantive stories). The reranker runs only ~4×/week, so the full model's
- * cost is negligible. Override with RERANKER_MODEL_PRIMARY for A/B testing.
+ * Primary reranking model: gpt-6.1-sol since 2026-10-14, with the criteria
+ * rewritten for hard news first (owner decision). On W39-W41, judged blind
+ * against those criteria, Sol's lists scored 4.67/5 vs 3.83 for Luna and 2.25
+ * for the previous gpt-4.1 setup (docs/pipeline-decisions.md). gpt-4.1 had
+ * replaced o4-mini on 2026-09-16 (o4-mini failed 3 of 4 categories) and is
+ * removed by OpenAI on 2027-01-14. ~4 calls a week, so cost is cents.
+ * Override with RERANKER_MODEL_PRIMARY for A/B testing.
  */
-const RERANK_MODEL_PRIMARY = process.env.RERANKER_MODEL_PRIMARY || process.env.RERANK_MODEL || 'gpt-4.1';
-/** Fallback model used if the primary fails. Should be cheaper/faster. */
-const RERANK_MODEL_FALLBACK = process.env.RERANKER_MODEL_FALLBACK || 'gpt-4.1-mini';
-/** Reasoning effort for GPT-5/6 rerank models (e.g. "none"); unset = model default. Ignored for GPT-4.x. */
+const RERANK_MODEL_PRIMARY = process.env.RERANKER_MODEL_PRIMARY || process.env.RERANK_MODEL || 'gpt-6.1-sol';
+/** Fallback if the primary fails: a different, cheaper model (Luna at effort "none", 3.83/5 in the same test). */
+const RERANK_MODEL_FALLBACK = process.env.RERANKER_MODEL_FALLBACK || 'gpt-6-luna';
+/** Reasoning effort for the primary (e.g. "none"); unset = model default. Ignored for GPT-4.x. */
 const RERANK_REASONING = parseReasoningEffort(process.env.RERANKER_REASONING, 'RERANKER_REASONING');
+/** The fallback runs at "none" when it is Luna (as tested), else at its own default. */
+const rerankReasoningFor = (model: string) =>
+  model === RERANK_MODEL_PRIMARY ? RERANK_REASONING : model.startsWith('gpt-6-luna') ? 'none' as const : undefined;
 /** Temperature 0 ensures deterministic selection across identical inputs. */
 const TEMPERATURE = 0;
 const MAX_TOKENS = 2000;
@@ -442,6 +446,7 @@ Explicitly deprioritize (but do not automatically exclude):
 - Culture-war, outrage, "alarm/concern" stories unless there is a meaningful AI capability/policy angle
 - Low-signal press releases without technical or economic substance
 - Duplicates of the same announcement
+- Opinion columns, podcasts, interviews, listicles and explainers that break no news
 - Articles marked [CONTROVERSY FLAGGED - REVIEW] should be carefully evaluated
 
 Note: If the candidate pool is limited, you may include some of these if they are the best available options, but prioritize AI-substantive content.
@@ -475,19 +480,21 @@ PRIMARY PRIORITIES (in order):
    - Meaningful adoption: significant rollouts or industry-wide trends
    - Focus on developments that affect the broader industry, not just single companies
 
-2) INSIGHTFULNESS / EVIDENCE (primary)
-   Prefer articles with:
-   - Data, benchmarks, quantified outcomes
-   - Case studies with measurable results
-   - Credible analysis and non-obvious insights
-   - Concrete examples and real-world applications
-   - Strong evidence-based reporting
+2) NEWS VALUE / EVIDENCE (primary)
+   Hard news first: a concrete development this week by a named company or
+   regulator (launch, deal, result, rollout, policy, leadership change) beats
+   commentary about it. Prefer articles with:
+   - Data, quantified outcomes, financial results
+   - Concrete rollouts and decisions with measurable scope
+   - Analysis only when it brings new data or reporting, not opinion
    Avoid:
+   - Opinion columns, editorials, "INDUSTRY OPINION" pieces and advice/Q&A columns
+   - Trend round-ups and listicles ("brands to know", "holiday trends", "X things")
+   - Podcasts, webinars, video tours, interviews and profiles that break no news
+   - Reviews, how-to guides and explainers
    - Thin rewrites or summaries
-   - Pure announcements without analysis
-   - Vendor marketing without substance
+   - Vendor marketing and press releases with no business consequence
    - Generic thought leadership
-   - PR releases without data or context
 
 3) COMMERCE MATERIALITY (primary)
    Must connect to real commerce execution impact:
@@ -532,7 +539,8 @@ CONTROVERSY FILTER (hard constraint - EXCLUDE these):
    Articles marked [CONTROVERSY FLAGGED - REVIEW] should be carefully evaluated against this filter.
 
 IMPORTANT: Do not favor luxury/jewelry unless the story is objectively top-tier for ecommerce/retail tech.
-Prioritize industry significance and insightfulness over narrow organizational relevance.
+Prioritize industry significance and news value over narrow organizational relevance.
+When an announcement of a concrete business development competes with an analysis or opinion piece, pick the announcement.
 `;
 }
 
@@ -542,7 +550,18 @@ Prioritize industry significance and insightfulness over narrow organizational r
 function buildDefaultCategoryCriteria(category: Topic): string {
   return `SELECTION CRITERIA (priority order):
 
-A) RELEVANCE TO PANDORA COLLEAGUES (highest priority)
+A) NEWS VALUE (highest priority)
+   Hard news first: what a named company, group or regulator did or reported
+   this week. In priority order:
+   - Deals: acquisitions, sales, stakes, investments, mergers, bankruptcies
+   - Financial results, trading updates and guidance
+   - Leadership changes (CEO, creative director, board)
+   - Strategy: restructurings, market entries and exits, flagship openings, price changes
+   - Major launches and collections from leading brands
+   - Regulation and trade policy with direct retail impact
+   An analysis or opinion piece only beats such news when it brings new data.
+
+B) RELEVANCE TO PANDORA COLLEAGUES
    Prioritize articles with practical implications for retail/ecommerce:
    - Customer experience (CX), conversion optimization
    - CRM/loyalty programs, customer retention
@@ -553,23 +572,21 @@ A) RELEVANCE TO PANDORA COLLEAGUES (highest priority)
    - Analytics, experimentation, measurement
    - AI productivity tools and governance
 
-B) RELEVANCE TO RETAIL/FASHION ECOMMERCE LANDSCAPE
+C) RELEVANCE TO RETAIL/FASHION ECOMMERCE LANDSCAPE
    - Must connect to commerce; deprioritize generic tech unless clearly applied to retail
-   - Focus on actionable insights for retail professionals
 
-C) INSIGHTFULNESS
-   Prefer articles with:
-   - New data, benchmarks, metrics
-   - Case studies with measurable outcomes
-   - Strong analysis and non-obvious takeaways
-   - Concrete examples and real-world applications
+D) EVIDENCE AND FORMAT
+   Prefer articles with new data, metrics or measurable outcomes.
    Avoid:
+   - Opinion columns, editorials, "INDUSTRY OPINION" pieces and advice/Q&A columns
+   - Trend round-ups and listicles ("brands to know", "holiday trends", "X things")
+   - Podcasts, webinars, video tours, interviews and profiles that break no news
+   - Reviews, how-to guides and explainers
    - Thin rewrites or summaries
-   - Pure announcements without analysis
    - Vendor marketing without substance
    - Generic thought leadership
 
-D) CONTROVERSY FILTER (hard constraint - EXCLUDE these)
+E) CONTROVERSY FILTER (hard constraint - EXCLUDE these)
    Do NOT select articles primarily about:
    - War/armed conflict/violence (unless directly about retail supply chain impact)
    - Culture-war/polarizing identity politics
@@ -581,7 +598,7 @@ D) CONTROVERSY FILTER (hard constraint - EXCLUDE these)
    - Consumer protection laws affecting retail
    Articles marked [CONTROVERSY FLAGGED - REVIEW] should be carefully evaluated against this filter.
 
-E) RECENCY
+F) RECENCY
    - All articles are from the same week; treat Monday and Friday equally
    - No intra-week recency bias - all in-week articles are equally recent`;
 }
@@ -815,7 +832,7 @@ async function callRerankLLM(
       const request: Parameters<typeof openai.chat.completions.create>[0] = {
         model: currentModel,
         ...temperatureParam(currentModel, TEMPERATURE),
-        ...reasoningParam(currentModel, RERANK_REASONING),
+        ...reasoningParam(currentModel, rerankReasoningFor(currentModel)),
         ...maxTokensParam(currentModel, MAX_TOKENS),
         messages: [
           {

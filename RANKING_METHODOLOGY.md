@@ -1,8 +1,8 @@
 # Ranking & Re-Ranking Methodology
 
-> Checked 2026-10-05: top 7 per topic and the rerank models below match the
-> code. Other details (prompt wording, weights) date from Jan 2026; verify in
-> `digest/rerankArticles.ts` before relying on them. Owner-deferred changes to
+> Checked 2026-10-14: top 7 per topic, the rerank models and the selection
+> criteria below match the code. Other details (weights) date from Jan 2026;
+> verify in `digest/rerankArticles.ts` before relying on them. Owner-deferred changes to
 > selection (roadmap F1.5, F2.1, F2.2) aren't built.
 
 ## Overview
@@ -135,9 +135,9 @@ scoreTotal = recencyScore + sourceWeight + keywordBoost - penalty
 Use LLM to intelligently select and rank the top 7 articles from the candidate pool.
 
 ### Configuration
-- **Primary Model:** `gpt-4.1` since 2026-09-16 (env: `RERANKER_MODEL_PRIMARY`, then `RERANK_MODEL`)
-- **Fallback Model:** `gpt-4.1-mini` (env: `RERANKER_MODEL_FALLBACK`)
-- **Temperature:** `0` (deterministic)
+- **Primary Model:** `gpt-6.1-sol` since 2026-10-14, was `gpt-4.1` (env: `RERANKER_MODEL_PRIMARY`, then `RERANK_MODEL`; effort `RERANKER_REASONING`). Why: `docs/pipeline-decisions.md`
+- **Fallback Model:** `gpt-6-luna` at effort `none` (env: `RERANKER_MODEL_FALLBACK`)
+- **Temperature:** `0` for GPT-4.x; GPT-5/6 models only take the default
 - **Max Tokens:** `2000`
 - **Max Items Sent:** `18` (env: `RERANK_MAX_ITEMS`)
 - **Max Chars Sent:** `80,000` (env: `RERANK_MAX_CHARS`)
@@ -153,7 +153,7 @@ If candidates exceed budget (items or chars), trim using:
 - **Cache Key:** `weekLabel + category + candidate fingerprint`
 - **Fingerprint:** Hash of candidate URLs + titles
 - **Cache File:** `data/rerank_cache.json`
-- **Cache Hit:** Returns cached results if candidate list matches (by fingerprint)
+- **Cache Hit:** Returns cached results if candidate list matches (by fingerprint) and the cached model is the primary or fallback. The prompt is not in the key: after changing the criteria without changing the model, delete that week's entries
 
 ### LLM Prompt Structure
 
@@ -183,27 +183,37 @@ If candidates exceed budget (items or chars), trim using:
 - Education/university pilot stories (unless notable technique)
 - Culture-war/outrage stories (unless meaningful AI capability/policy angle)
 - Low-signal press releases
+- Opinion columns, podcasts, interviews, listicles and explainers that break no news
+
+#### Hard news first (owner decision, 2026-10-14)
+All categories: a concrete development this week by a named company or
+regulator (deal, result, launch, leadership change, strategy, policy) beats
+analysis or opinion about it; analysis wins only when it brings new data.
+Opinion and advice columns, trend round-ups and listicles, podcasts, video
+tours, reviews and how-tos are deprioritized. Until 2026-10-14 the criteria
+asked for "strong analysis" over "pure announcements", which the GPT-5/6
+models followed literally (more opinion pieces, fewer deals and results).
 
 #### For Other Categories:
 **Objective:** Select articles for Pandora colleagues interested in retail/ecommerce intelligence.
 
-**Priority Order:**
-1. **Relevance to Pandora Colleagues** (highest)
+**Priority Order** (Luxury & Consumer, Jewellery Industry; Ecommerce has its own list, same spirit):
+1. **News Value** (highest): deals, financial results, leadership changes, strategy and market entries, major launches, regulation
+2. **Relevance to Pandora Colleagues**
    - CX, conversion optimization, CRM/loyalty, merchandising
    - Pricing/promotions, margin management, supply chain
    - Store operations, digital commerce integration
    - Analytics, experimentation, AI productivity tools
-2. **Relevance to Retail/Fashion Ecommerce Landscape**
+3. **Relevance to Retail/Fashion Ecommerce Landscape**
    - Must connect to commerce
    - Deprioritize generic tech unless clearly applied to retail
-3. **Commerce Materiality** (especially for Ecommerce category)
+4. **Commerce Materiality** (especially for Ecommerce category)
    - Prefer articles with high commerce materiality (real execution impact)
    - Platform capabilities, checkout/cart changes, retailer adoption
-4. **Insightfulness**
-   - New data, benchmarks, metrics
-   - Case studies with measurable outcomes
-   - Strong analysis and non-obvious takeaways
-5. **Controversy Filter**
+5. **Evidence and Format**
+   - Prefer new data, metrics, measurable outcomes
+   - Avoid the non-news formats listed above
+6. **Controversy Filter**
    - Exclude: War/armed conflict, culture-war/polarizing politics, election horse-race
    - Allow: Policy/regulation with direct retail/ecommerce/AI impact
 
