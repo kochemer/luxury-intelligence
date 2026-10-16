@@ -9,6 +9,11 @@
   --color-accent: #8B6914;
   --color-accent-light: #F5F0E6;
   --color-deep: #1B2A4A;
+  /* Text on accent fills and on navy (deep) surfaces. White on the dark-mode
+     accent is 2.2:1, so dark mode flips it to ink. */
+  --color-on-accent: #FFFFFF;
+  --color-on-deep: #FFFFFF;
+  --color-on-deep-muted: rgba(255,255,255,0.78);
   --color-border: #e5e7eb;
   /* Market pages: share-price direction and neutral bars */
   --color-up: #2F6B4F;
@@ -62,6 +67,7 @@
   --color-text-secondary: #9e9688;
   --color-accent: #c9a96e;
   --color-accent-light: #1e1c18;
+  --color-on-accent: #14120e;
   --color-border: rgba(255,255,255,0.08);
   --color-deep: #070604;
   --color-up: #6FBF95;

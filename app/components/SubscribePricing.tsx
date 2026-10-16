@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { track } from '@/lib/analytics';
 import { identifySubscriber } from '@/lib/analytics/identity';
 
@@ -36,12 +36,14 @@ function EmailField({
   required?: boolean;
   disabled?: boolean;
 }) {
+  const id = useId();
   return (
     <div className="mb-5">
-      <label className="block font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--color-text-secondary)] mb-2">
-        Email{required ? '' : ' — optional'}
+      <label htmlFor={id} className="block text-sm font-medium text-[var(--color-text-primary)] mb-2">
+        Email{required ? '' : ' (optional)'}
       </label>
       <input
+        id={id}
         type="email"
         value={value}
         onChange={e => onChange(e.target.value)}
@@ -49,7 +51,7 @@ function EmailField({
         disabled={disabled}
         placeholder="your@email.com"
         autoComplete="email"
-        className="w-full bg-transparent border-b border-[var(--color-border)] focus:border-[var(--color-accent)] outline-none py-2 font-sans text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)]/50 transition-colors duration-200 disabled:opacity-40"
+        className="w-full min-h-11 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-sm focus:border-[var(--color-accent)] px-3 font-sans text-base text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] transition-colors duration-200 disabled:opacity-40"
       />
     </div>
   );
@@ -61,7 +63,12 @@ const btnBase =
 
 // ── Main component ────────────────────────────────────────────────────────────
 
-export default function SubscribePricing() {
+/**
+ * Paid support tiers. `includeFree` keeps the old three-card layout for any
+ * caller that still wants it; /subscribe now leads with FreeSubscribeForm and
+ * renders only the paid cards, as optional support below it.
+ */
+export default function SubscribePricing({ includeFree = true }: { includeFree?: boolean } = {}) {
   const [free,    setFree]    = useState<TierState>(initState());
   const [monthly, setMonthly] = useState<TierState>(initState());
   const [yearly,  setYearly]  = useState<TierState>(initState());
@@ -155,9 +162,10 @@ export default function SubscribePricing() {
 
   return (
     <>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
+    <div className={`grid grid-cols-1 gap-4 mt-8 ${includeFree ? 'md:grid-cols-3' : 'md:grid-cols-2 max-w-3xl'}`}>
 
       {/* ── Free / Subscriber ─────────────────────────────────────────── */}
+      {includeFree && (
       <div className="border border-stone-200 dark:border-stone-700 rounded-[2px] p-6 flex flex-col bg-[var(--color-surface)]">
         <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[var(--color-text-secondary)] mb-5">
           Digest — Subscriber
@@ -212,7 +220,7 @@ export default function SubscribePricing() {
               disabled={free.status === 'loading'}
             />
             {free.status === 'error' && (
-              <p className="font-sans text-xs text-red-600 -mt-3 mb-3">{free.errorMsg}</p>
+              <p role="alert" className="font-sans text-sm text-red-700 -mt-3 mb-3">{free.errorMsg}</p>
             )}
             <button
               type="submit"
@@ -224,12 +232,13 @@ export default function SubscribePricing() {
           </form>
         )}
       </div>
+      )}
 
-      {/* ── Edition 01 — Monthly ──────────────────────────────────────── */}
+      {/* ── Supporter — monthly ───────────────────────────────────────── */}
       <div className="border border-stone-200 dark:border-stone-700 rounded-[2px] p-6 flex flex-col bg-[var(--color-surface)] hover:border-[var(--color-accent)] transition-colors duration-200">
-        <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[var(--color-text-secondary)] mb-5">
-          Edition 01 — Reader
-        </p>
+        <h3 className="font-serif text-xl text-[var(--color-text-primary)] mb-4">
+          Supporter
+        </h3>
         <div className="mb-1">
           <span className="font-serif text-5xl font-light text-[var(--color-text-primary)]">€1</span>
           <span className="text-base text-[var(--color-text-secondary)] ml-1">/mo</span>
@@ -262,7 +271,7 @@ export default function SubscribePricing() {
               disabled={monthly.status === 'loading'}
             />
             {monthly.status === 'error' && (
-              <p className="font-sans text-xs text-red-600 -mt-3 mb-3">{monthly.errorMsg}</p>
+              <p role="alert" className="font-sans text-sm text-red-700 -mt-3 mb-3">{monthly.errorMsg}</p>
             )}
             <button
               type="submit"
@@ -275,11 +284,11 @@ export default function SubscribePricing() {
         )}
       </div>
 
-      {/* ── Edition 02 — Patron ──────────────────────────────────────── */}
-      <div className="border-2 border-[var(--color-accent)] rounded-[2px] p-6 flex flex-col bg-[var(--color-accent-light)] relative">
-        <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[var(--color-accent)] mb-5">
-          Edition 02 — Patron
-        </p>
+      {/* ── Patron — monthly ──────────────────────────────────────────── */}
+      <div className="border border-stone-200 dark:border-stone-700 rounded-[2px] p-6 flex flex-col bg-[var(--color-surface)] hover:border-[var(--color-accent)] transition-colors duration-200">
+        <h3 className="font-serif text-xl text-[var(--color-text-primary)] mb-4">
+          Patron
+        </h3>
         <div className="mb-1">
           <span className="font-serif text-5xl font-light text-[var(--color-text-primary)]">€3</span>
           <span className="text-base text-[var(--color-text-secondary)] ml-1">/mo</span>
@@ -312,12 +321,12 @@ export default function SubscribePricing() {
               disabled={yearly.status === 'loading'}
             />
             {yearly.status === 'error' && (
-              <p className="font-sans text-xs text-red-600 -mt-3 mb-3">{yearly.errorMsg}</p>
+              <p role="alert" className="font-sans text-sm text-red-700 -mt-3 mb-3">{yearly.errorMsg}</p>
             )}
             <button
               type="submit"
               disabled={yearly.status === 'loading'}
-              className={`${btnBase} bg-[var(--color-accent)] text-white hover:opacity-90 font-medium`}
+              className={`${btnBase} border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--color-on-accent)]`}
             >
               {yearly.status === 'loading' ? 'Working…' : 'Support at €3'}
             </button>

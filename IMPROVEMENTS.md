@@ -442,20 +442,27 @@ The local snapshot is in `.impeccable/critique/` (untracked).
   Add `--color-on-deep`, `--color-on-deep-muted`, `--color-on-accent` tokens.
 - Skip link; one `<main>` (layout and pages both render one); Escape closes menus.
 
-**Stage 3 — Visual direction (owner decision gate)**
-- Impeccable `init` (PRODUCT.md), then a direction round with mockups of the
-  homepage. Owner picks: polish the current editorial look, an analyst look
-  like /markets, or a new direction.
-- Cover art: scene director v9 is in progress (see `docs/pipeline-decisions.md`);
-  also weigh a typographic cover built from the weekly insight, and a shorter hero.
+**Stage 3 — Visual direction [DECIDED 2026-10-13]**
+- Owner saw four new directions (e-paper shelf labels, till receipt, warm
+  consumer app, the standard newsletter page) and rejected all of them:
+  "parts of the current version look better". **Keep the incumbent world and
+  refine it.** Keep: the navy / cream / gold palette, the Editor's Spotlight and
+  weekly insight, and the article-card sections. The masthead hero and the
+  cover image are open to change.
+- Owner's fix-first list: cover images off-brand, the subscribe page, and the
+  homepage being too long and busy (Stage 4, done next, ahead of Stage 2).
+- Cover art: scene director v9 is in progress (see `docs/pipeline-decisions.md`).
 
-**Stage 4 — Homepage vs issue page, and the subscribe flow (in the chosen direction)**
-- `/` and `/digest/[slug]` render the same page. Homepage: insight, spotlight,
-  one top story per category, an inline subscribe block with a sample email,
-  then a link to the full issue.
-- Subscribe: one required email, the free tier as the primary action, support
-  as an add-on; replace the guilt headline; tiers that unlock nothing should
-  not be called "editions".
+**Stage 4 — Homepage and the subscribe flow (in the incumbent look)**
+- Subscribe [DONE 2026-10-16, SUBSCRIBE_HASH]: leads with one required free
+  email (`app/components/FreeSubscribeForm.tsx`) and a real sample from the
+  latest issue; paid support (Supporter EUR 1, Patron EUR 3) sits below as
+  optional; guilt headline and "Edition" names gone; FAQ says when issues
+  arrive and that no human reviews them. Owner approved 2026-10-16.
+- Homepage (in progress, owner feedback 2026-10-16): keep the two-column
+  article view (3 per category + "All 7" link), the weekly cover image, one
+  signup field (top band only), the Short and podcast beside the Spotlight so
+  they show before the articles. The issue page keeps all 28 stories.
 
 **Stage 5 — Performance** (target: mobile LCP under 2.5 s)
 - Six font families (9 files) preload on every page: scope Cormorant and IBM
