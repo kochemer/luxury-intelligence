@@ -114,6 +114,15 @@ Content plan and automation design: `docs/superpowers/specs/2026-10-14-social-co
 4. Posts are marked AI-assisted in Buffer, and on X with Buffer's
    `isAiGenerated` flag (PRODUCT.md: honest about automation).
 
+Every automated post ends with the same fixed line, "Read, listen or watch
+the full issue, free every Monday: <link>" (X stories: "More in this week's
+issue: <link>"), so the choice of format (PRODUCT.md, value proposition) is in
+every post.
+
+Profile banners (LinkedIn 2256×382, X 1500×500, YouTube 2560×1440) are in
+`assets/social/`, made by `node assets/social/renderBanners.mjs` (headless
+Chrome, site fonts and colours).
+
 Test without posting: `npm run social:publish -- --dry-run` (checks only) or
 `--draft` (saves Buffer drafts). Rebuild a week's posts before they go out:
 `npm run social:build -- --week=YYYY-Www --force`.

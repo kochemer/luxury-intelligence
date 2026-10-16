@@ -127,7 +127,7 @@ test('the plan has the six Phase 1 posts, with links added in code', async () =>
 
   const thread = byslot['x-thread'];
   assert.equal(thread.parts.length, 5);
-  assert.match(thread.parts[4], /^Full issue, free every Monday: https:\/\/luxury-intel\.com\/digest\/october-2026-week-41\?utm_source=x/);
+  assert.match(thread.parts[4], /^Read, listen or watch the full issue, free every Monday: https:\/\/luxury-intel\.com\/digest\/october-2026-week-41\?utm_source=x/);
   // Story of the day uses each category's #2 story, never Monday's.
   assert.deepEqual(byslot['x-story-tue'].storyIds, ['l2']);
   assert.deepEqual(byslot['x-story-fri'].storyIds, ['a2']);

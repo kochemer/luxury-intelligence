@@ -147,7 +147,7 @@ export const REPEAT_THRESHOLD = 0.5;
 export function stripBoilerplate(text: string): string {
   return text
     .split('\n')
-    .filter((line) => !/^(?:The full issue|Full issue|More in this week's issue)\b.*https?:\/\//i.test(line.trim()))
+    .filter((line) => !/^(?:Read, listen or watch the full issue|The full issue|Full issue|More in this week's issue)\b.*https?:\/\//i.test(line.trim()))
     .filter((line) => !/^(?:#\w+\s*)+$/.test(line.trim()))
     .join('\n');
 }

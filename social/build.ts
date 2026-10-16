@@ -95,7 +95,7 @@ Return JSON: {"opening": string, "signals": [{"id": string, "line": string}, ...
   const text = [
     opening,
     lines.join('\n\n'),
-    `The full issue, free every Monday: ${issueUrl(d.weekLabel, 'linkedin', 'issue-post')}`,
+    `Read, listen or watch the full issue, free every Monday: ${issueUrl(d.weekLabel, 'linkedin', 'issue-post')}`,
     tags.join(' '),
   ].join('\n\n');
   return { parts: [text], modelText: [opening, ...signals.map((s) => clean(s.line))].join('\n'), storyIds: signals.map((s) => s.id) };
@@ -120,7 +120,7 @@ Return JSON: {"hook": string, "posts": [{"id": string, "text": string}, ...3 ite
   const posts = (out.posts || []).filter((p) => leads.some((l) => l.article.id === p.id)).slice(0, 3);
   if (posts.length !== 3) throw new Error(`expected 3 posts with known ids, got ${posts.length}`);
   const modelParts = [clean(out.hook), ...posts.map((p) => clean(p.text))];
-  const parts = [...modelParts, `Full issue, free every Monday: ${issueUrl(d.weekLabel, 'x', 'thread')}`];
+  const parts = [...modelParts, `Read, listen or watch the full issue, free every Monday: ${issueUrl(d.weekLabel, 'x', 'thread')}`];
   return { parts, modelText: modelParts.join('\n'), storyIds: posts.map((p) => p.id) };
 }
 

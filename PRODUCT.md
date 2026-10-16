@@ -30,6 +30,23 @@ meaning reach and a loyal Monday readership. Paid support is secondary.
 
 ## Positioning
 
+Value proposition (owner, 2026-10-16). Lead with the fourth point; it is the
+one nobody else offers:
+
+1. **Your format.** Insights, trends and news in a form that is easy to take
+   in: read (web issue, 28 short summaries), listen (podcast), watch (60-second
+   Short).
+2. **Delivered when it suits you.** Email, the web (installable on a phone),
+   and LinkedIn, X and YouTube.
+3. **More than a synthesis.** An editorial column with a point of view each
+   week, and a little humour.
+4. **Trends only a large archive shows.** The pipeline has collected tens of
+   thousands of articles (31,368 on 2026-10-14); read together they show what
+   is rising, what is fading, and where coverage and share prices disagree
+   (`/markets`). Use real numbers from `data/markets/*.json` when citing it.
+
+There is no store app; say "on your phone", not "in the app".
+
 *(inferred)* One briefing that joins AI, ecommerce/retail tech, luxury and
 jewellery, a mix the trade press covers separately. Each issue is ranked from
 roughly 2,000 articles a week out of ~53 monitored sources, with a published,
