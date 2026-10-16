@@ -35,31 +35,49 @@ Content plan and automation design: `docs/superpowers/specs/2026-10-14-social-co
   Title, description, artwork and episodes all come from the feed; edit them in
   the route, never in the Spotify dashboard.
 
-## LinkedIn page details (set 2026-10-13)
+## LinkedIn page details (set 2026-10-13, updated 2026-10-16)
 
 - Name: Luxury Intelligence · URL slug `luxury-intel`
-- Tagline: "Weekly intelligence on luxury, ecommerce and retail technology"
+- Tagline: "Tens of thousands of luxury industry articles, turned into a weekly briefing you can read, hear or watch"
 - Industry: Online Audio and Video Media · Size 0-1 · Self-owned
 - Location: Copenhagen, Denmark (primary, no street address)
 - Custom button: "Visit website" → https://luxury-intel.com
-- Logo: `public/icons/icon-512.png`. No cover banner yet (needs 1128×191).
-- Overview still says "every Sunday" as of 2026-10-14; the digest has published
-  on Mondays since W42 (see `.github/workflows/weekly-digest.yml`). Fix on the page.
+- Logo: `public/icons/icon-512.png`. Banner: `assets/social/linkedin-banner.png`.
+- Overview (2026-10-16): the value proposition from PRODUCT.md, Monday, and "AI
+  collects, ranks and summarises the stories. No one reviews an issue before it
+  goes out." The first version (2026-10-13) said "We read hundreds of articles
+  ... every Sunday", which broke the honesty rule; it is gone.
+- Company ID `146731301`: admin URLs are `linkedin.com/company/146731301/admin/...`
+  (the slug form redirects to "page isn't available").
 - Admin: the owner's personal profile, which lists *Founder & Editor, Luxury
   Intelligence* (from December 2025) linked to the page.
 
-## X account details (set 2026-10-13)
+## X account details (set 2026-10-13, updated 2026-10-16)
 
 - Handle `@luxintel_hq` (`luxury_intel` and `luxuryintel` were taken). Signed up
   with `luxuryintelligence@zohomail.eu`, which is also the recovery route.
-- Bio: "Weekly intelligence on luxury, ecommerce & retail tech. The signals that
-  matter, every Monday. Free newsletter ↓" · Website https://luxury-intel.com ·
+- Bio: "Tens of thousands of luxury and retail-tech articles, turned into one free
+  weekly briefing. Read, listen or watch. Every Monday ↓" · Website https://luxury-intel.com ·
   Location Copenhagen, Denmark
-- Logo `public/icons/icon-512.png`. The 1500×500 banner was made in a Claude in
-  Chrome chat and is not in the repo.
+- Logo `public/icons/icon-512.png`. Header: `assets/social/x-banner.png` (2026-10-16).
 - Public posts; not findable by email or phone. No Premium, no connected apps.
 - Not done as of 2026-10-14: two-factor authentication (owner), a pinned intro
   post (the bio's "↓" points at it).
+## YouTube channel details (updated 2026-10-16)
+
+- Channel `UCRe3d86MDYBdmxmBsnYg_oA`, handle `@luxury-intel`. It sits under the
+  same Google account as the owner's personal channel "Alex Koch": in Studio,
+  switch channel first (youtube.com/channel_switcher), or edits land on the
+  wrong channel and the brand channel's Studio pages say "no permission".
+- Banner `assets/social/youtube-banner.png`, picture `public/icons/icon-512.png`.
+- Description: value proposition, the Short, Markets, "AI selects the stories,
+  writes the summaries and voices the videos", links to the site and Spotify.
+- Links: site, Spotify, LinkedIn, X. Keywords: luxury industry news, luxury
+  retail, luxury brands, ecommerce, retail technology, jewellery industry, AI in
+  retail, fashion business. No contact email, no country set.
+- Two old private videos from before the channel was the brand's ("qs rankings
+  3", "WIN 20151213 221639") are still on it, private; the owner decides.
+
 - API: X moved to pay-per-use credits in 2026 (per third-party reports). Check
   current pricing at https://docs.x.com before building automated posting.
 
