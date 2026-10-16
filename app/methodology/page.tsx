@@ -145,7 +145,7 @@ export default function MethodologyPage() {
           </p>
           <p>
             The top 18 candidates per category (at most 4 from any one source)
-            are then passed to OpenAI's{' '}
+            are then passed to OpenAI’s{' '}
             <code className="text-[12px] bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded font-mono">gpt-6.1-sol</code>{' '}
             (reasoning model), which applies editorial criteria with hard news
             first — deals, results, leadership changes, strategy and launches
