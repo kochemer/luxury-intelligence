@@ -454,7 +454,7 @@ The local snapshot is in `.impeccable/critique/` (untracked).
 - Cover art: scene director v9 is in progress (see `docs/pipeline-decisions.md`).
 
 **Stage 4 — Homepage and the subscribe flow (in the incumbent look)**
-- Subscribe [DONE 2026-10-16, SUBSCRIBE_HASH]: leads with one required free
+- Subscribe [DONE 2026-10-16, 2996605]: leads with one required free
   email (`app/components/FreeSubscribeForm.tsx`) and a real sample from the
   latest issue; paid support (Supporter EUR 1, Patron EUR 3) sits below as
   optional; guilt headline and "Edition" names gone; FAQ says when issues
