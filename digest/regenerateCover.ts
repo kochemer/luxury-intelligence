@@ -6,56 +6,8 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { generateWeeklyCoverImage } from './generateCoverImage';
+import { selectCoverArticles } from './coverArticles';
 import type { WeeklyDigest } from '../lib/types';
-
-/**
- * Extract homepage top articles from digest
- *
- * Smart selection strategy to reduce repetitive jewelry imagery:
- * - Always take top 1-2 from Ecommerce_Retail_Tech (primary focus)
- * - For Jewellery_Industry: take only top 1 (not 2) to reduce dominance
- * - If Jewellery quality is weak, prefer other topics instead
- */
-function extractHomepageTopArticles(digest: WeeklyDigest): Array<{
-  title: string;
-  source?: string;
-  snippet?: string;
-  aiSummary?: string;
-  rerankWhy?: string;
-}> {
-  const homepageArticles: Array<{
-    title: string;
-    source?: string;
-    snippet?: string;
-    aiSummary?: string;
-    rerankWhy?: string;
-  }> = [];
-
-  // Top 1-2 from Ecommerce_Retail_Tech (primary topic)
-  const ecommerceTop = digest.topics?.Ecommerce_Retail_Tech?.top || [];
-  homepageArticles.push(...ecommerceTop.slice(0, 2).map((article: any) => ({
-    title: article.title,
-    source: article.source,
-    snippet: article.snippet,
-    aiSummary: article.aiSummary,
-    rerankWhy: article.rerankWhy,
-  })));
-
-  // Top 1 from Jewellery_Industry (NOT 2 - reduce repetition)
-  const jewelleryTop = digest.topics?.Jewellery_Industry?.top || [];
-  if (jewelleryTop.length > 0) {
-    const topJewel = jewelleryTop[0] as any;
-    homepageArticles.push({
-      title: topJewel.title,
-      source: topJewel.source,
-      snippet: topJewel.snippet,
-      aiSummary: topJewel.aiSummary,
-      rerankWhy: topJewel.rerankWhy,
-    });
-  }
-
-  return homepageArticles;
-}
 
 /**
  * Update digest JSON with new cover image path
@@ -85,8 +37,7 @@ export async function regenerateCover(weekLabel: string, variant: 'safe' | 'fun'
   const digestContent = await fs.readFile(digestPath, 'utf-8');
   const digest: WeeklyDigest = JSON.parse(digestContent);
 
-  // Extract homepage top articles
-  const homepageTopArticles = extractHomepageTopArticles(digest);
+  const homepageTopArticles = selectCoverArticles(digest);
   
   if (homepageTopArticles.length === 0) {
     throw new Error(`No homepage articles found in digest for week ${weekLabel}`);

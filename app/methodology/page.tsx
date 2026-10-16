@@ -144,12 +144,14 @@ export default function MethodologyPage() {
             markers carry a −0.20 penalty.
           </p>
           <p>
-            The top 100 candidates per category are then passed to{' '}
-            <code className="text-[12px] bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded font-mono">o4-mini</code>{' '}
-            (reasoning model), which applies editorial criteria —
-            business materiality, originality, timeliness — to select the final
-            7 articles per category. A hard diversity guard caps any single source
-            at 3 articles per category.
+            The top 18 candidates per category (at most 4 from any one source)
+            are then passed to OpenAI's{' '}
+            <code className="text-[12px] bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded font-mono">gpt-6.1-sol</code>{' '}
+            (reasoning model), which applies editorial criteria with hard news
+            first — deals, results, leadership changes, strategy and launches
+            ahead of analysis and opinion — to select the final 7 articles per
+            category. A hard diversity guard caps any single source at 3 articles
+            per category.
           </p>
         </div>
       ),
@@ -159,12 +161,14 @@ export default function MethodologyPage() {
       content: (
         <ul className="space-y-2">
           {[
-            'Reranks pre-scored article candidates using editorial criteria (o4-mini)',
-            'Generates concise web summaries from title, source, date, and snippet only — no full article required',
-            'Generates email digest bullets (3 per article) from up to 8,000 characters of the full fetched article text',
-            'Produces the weekly one-sentence insight via a two-stage process: one model generates four candidates each through a distinct analytical lens (Implication, Paradox, Reframe, Pattern); a second model (gpt-4.1) judges and selects the most original',
-            'Scripts the podcast briefing (roughly 13–18 min) from the top 8 articles',
-            'Generates the weekly cover image via a SceneDirector prompt pipeline',
+            'Reranks pre-scored article candidates using editorial criteria, hard news first (gpt-6.1-sol)',
+            'Generates concise web summaries from title, source, date, and snippet only — no full article required (gpt-6.1-sol)',
+            'Generates email digest bullets (3 per article) from up to 8,000 characters of the full fetched article text (gpt-6.1-sol)',
+            'Produces the weekly pull-quote in two stages: one pass writes four candidates from different angles (prediction, contradiction, myth-buster, hidden trend); a second pass judges them and picks the strongest (both gpt-6.1-sol)',
+            'Tags the week’s key themes and translates the summaries into Danish and Spanish (gpt-6-luna)',
+            'Labels brand news on the Markets pages as company moves or not, and writes their weekly summary (gpt-6.1-sol)',
+            'Scripts the podcast briefing (roughly 13–18 min) from the top 8 articles (gpt-6.1-sol) and voices it (gpt-realtime-2.1-mini)',
+            'Generates the weekly cover image: a SceneDirector step writes the scene (gpt-6.1-sol) and an image model draws it (gpt-image-2.5-sunburst)',
           ].map((item) => (
             <li key={item} className="flex items-start gap-3 text-[var(--color-text-secondary)]">
               <span className="font-mono text-[var(--color-accent)] mt-0.5 shrink-0 select-none">+</span>

@@ -26,7 +26,7 @@ const __dirname = path.dirname(__filename);
 
 // --- Configuration ---
 
-const SCENE_DIRECTOR_VERSION = 'v8'; // v8: BAN the "giant pile of one object" cliche; force varied comic mechanisms (substitution, one-thing-out-of-place, visual pun, single-object scale)
+const SCENE_DIRECTOR_VERSION = 'v9'; // v9: model picks the story (luxury now in the input), luxury-brand fit rule, on-brand settings, small centred focal gag. v8: banned the "giant pile of one object" cliche
 const SCENE_DIRECTOR_MODEL = process.env.SCENE_DIRECTOR_MODEL || getModelFor('polish');
 const TEMPERATURE = 0.7; // Some creativity for scene generation
 const MAX_TOKENS = 2000;
@@ -37,6 +37,7 @@ const CONFIDENCE_THRESHOLD = 0.55; // Fallback if confidence below this
 
 export type ArticleInput = {
   title: string;
+  topic?: string; // Digest section label, e.g. "Luxury & Consumer"
   source?: string;
   snippet?: string;
   aiSummary?: string;
@@ -46,6 +47,8 @@ export type ArticleInput = {
 
 export type SceneDirectorOutput = {
   concept: string; // Short concept title
+  chosenStory?: string; // Title of the article the joke is about (v9+)
+  whyThisStory?: string; // One line on why that story makes the best on-brand cover (v9+)
   setting?: string; // The chosen everyday setting (tracked to avoid repeating it week to week)
   primaryHumorDriver: string; // One of: "role reversal", "scale absurdity", "literal metaphor", "fish-out-of-water", "visual punchline"
   secondaryEnhancer?: string; // Optional flavor enhancer
@@ -157,9 +160,8 @@ Photography style:
 
 Composition:
 - Wide landscape format (3:2, the format the image is rendered at)
-- Keep the focal subject in the central horizontal band so it survives a crop to a shallow hero banner
-- Safe margins at top and bottom - no critical content near the top or bottom edges
-- One clear focal subject; secondary elements add context but do not compete
+- One small, clear focal subject in the middle of the frame and the lower half (see the framing note below)
+- Secondary elements add context but do not compete
 - Clean background, no clutter
 - Looks like a real photo taken in a real location
 - Avoid tall vertical stacking or content that extends to the top/bottom edges
@@ -192,9 +194,9 @@ function buildSceneDirectorPrompt(
   previousConcepts: PreviousConcept[] = []
 ): string {
   const articleList = articles.map((article, idx) => {
-    const lead = idx === 0 ? ' ⟵ LEAD STORY (build the joke about THIS one)' : '';
-    let articleText = `Article ${idx + 1}:${lead}
+    let articleText = `Article ${idx + 1}:
 - Title: ${article.title}
+- Section: ${article.topic || 'Unknown'}
 - Source: ${article.source || 'Unknown'}
 - Summary: ${article.aiSummary || article.snippet || 'No summary available'}
 - Why it matters: ${article.rerankWhy || 'Not specified'}`;
@@ -231,7 +233,16 @@ ${noDiamonds}`;
 
   return `You are a Scene Director for a weekly intelligence digest — think New Yorker cover or a great editorial cartoon, but as a photorealistic photograph.
 
-Your job is to invent ONE photorealistic scene that is a genuine VISUAL JOKE about the single LEAD STORY below. Not a metaphor, not a mood — an actual joke that makes someone who just read that headline snort. A metaphor says "this represents value"; a joke shows a funny SITUATION with a setup and a punchline. Aim for that.
+Your job is to invent ONE photorealistic scene that is a genuine VISUAL JOKE about ONE of the stories below. Not a metaphor, not a mood — an actual joke that makes someone who just read that headline snort. A metaphor says "this represents value"; a joke shows a funny SITUATION with a setup and a punchline. Aim for that.
+
+THE PUBLICATION (this decides everything below)
+This is the cover of Luxury Intelligence, a weekly briefing for people who work in luxury, fashion, jewellery and premium retail. The cover must look like it belongs on a luxury-industry magazine: the setting, the props and the materials come from the world of luxury (maisons, boutiques, ateliers, watches, leather goods, fine jewellery, couture, fragrance, grand hotels, auctions, collectors). The wit is dry and knowing, aimed at insiders.
+- A scene about mass-market logistics, delivery vans, parcels, cardboard boxes, discount retail, supermarkets, vehicles or warehouses FAILS, however funny. If a story can only be joked about in that world, pick another story.
+
+CHOOSE THE STORY FIRST
+- Read all the articles. Pick the ONE that gives the best on-brand joke: a story with a concrete, visual hook that a luxury reader recognises at once. Luxury and jewellery stories usually win; an ecommerce story only wins if its joke can be staged in the luxury world.
+- Name it in "chosenStory" (its exact title) and say in "whyThisStory" why it beats the others.
+- The other articles play no part in the image. One clear joke beats a soup of references.
 
 WHAT MAKES IT FUNNY (do this)
 - Pick the ONE clearest comic idea in the lead story and stage it as a concrete visual JOKE told through objects in a real setting. No people.
@@ -244,24 +255,23 @@ WHAT MAKES IT FUNNY (do this)
   • AFTERMATH — one telling detail implying a funny event just happened (a single toppled chair; one muddy footprint trail leading to a locked safe).
 - Simple and specific beats busy: ONE clear focal gag, a nearly-normal scene around it. Two objects in a witty relationship usually beats a crowd of props.
 - It must read in one second, WITHOUT WORDS and WITHOUT PEOPLE.
-- The other articles are optional background flavour at most — one clear joke beats a soup of references.
 
 STYLE & TONE
 - Hyper-realistic: must look like an actual photograph, not an AI image (Getty/Shutterstock — something a human photographer could have shot)
 - Natural, believable lighting. Avoid dark surfaces, black backdrops, velvet — they read as CGI.
 - The wit comes from the IDEA and the object/scene combination — never from visual effects.
 
-SETTING — PICK ONE, MAKE IT UNEXPECTED (do NOT default to a supermarket or kitchen)
-Choose a single, specific everyday setting that suits this week's stories, and vary it week to week. Draw from a WIDE range, e.g.:
-office desk · boardroom · server room · trading floor · subway/train car · car dashboard or back seat · airport lounge or baggage carousel · hotel lobby or room-service tray · gym or locker room · art gallery or museum · workshop or garage · warehouse loading dock · rooftop · garden or park bench · laundromat · bathroom vanity · vending machine · newsstand · elevator · construction site · diner booth.
-Only use a supermarket/kitchen if it is genuinely the single best fit for the stories — otherwise pick something else.
+SETTING — PICK ONE FROM THE LUXURY WORLD, VARY IT WEEK TO WEEK
+Choose a single, specific setting that suits the chosen story. Draw from a WIDE range, e.g.:
+boutique window or shop floor · fitting room · jeweller's counter or workbench · watchmaker's bench · couture atelier or cutting table · leather workshop · auction-house saleroom or viewing room · private vault or safe-deposit room · art gallery or museum · grand hotel lobby, suite or room-service tray · first-class or private-jet cabin · yacht deck · members' club library · boardroom of a maison · perfume lab · fashion-show runway before the doors open · collector's display cabinet · concierge desk.
+Never a supermarket, warehouse, garage, delivery van, loading dock, laundromat or construction site.
 
 MANDATORY RULES
 - NO people, NO humans, NO hands, faces, or body parts anywhere — not even in the background. The scene is unpeopled; objects and aftermath tell the joke.
 - ABSOLUTELY NO readable text, words, brand names, logos, signage, labels, price tags, screens, or UI anywhere in the scene. This is critical — the image model tends to invent text/logos, so choose props that would not carry writing (or have any writing turned away, out of frame, or blurred beyond reading). Prefer generic, unbranded objects.
 - LOOK LIKE A REAL PHOTOGRAPH, not an AI render: shot on a real camera by a person, natural available light with real shadows and true reflections, genuine surface texture — dust, wear, fingerprints, slight clutter, small imperfections and asymmetry. AVOID the tell-tale AI look: over-clean, over-smooth, waxy/plastic surfaces, everything perfectly centered and lit, glossy studio gloss, HDR glow. Aim for candid editorial/documentary realism (think a real photo in a magazine).
 - NO illustration, CGI, 3D render, or cartoon style
-- Wide landscape (3:2) composition — key elements in the central horizontal band
+- FRAMING (the site crops this image hard): the joke must be ONE object or a small group of objects that sits in the MIDDLE of the frame left-to-right and in the LOWER HALF top-to-bottom, taking up no more than about a third of the frame width. The top third of the photo is plain background (wall, ceiling, window, sky) with nothing that matters. Phones show only the middle half of the width, and desktops cut off the top third. So choose a joke that works at that size: a single watch, a handbag, a ring box, a chair, not a whole car, room or building.
 - ONE coherent scene (no collage, no multi-scene)
 
 CREATIVE GUIDANCE
@@ -288,12 +298,14 @@ ${articleList}
 
 OUTPUT FORMAT (JSON only, no markdown, no code blocks):
 {
-  "concept": "short concept title (e.g., 'server-room-ice-bath-ai-cooling')",
-  "setting": "the single everyday setting you chose (e.g., 'server room', 'airport carousel', 'hotel room-service tray')",
+  "chosenStory": "exact title of the ONE article the joke is about",
+  "whyThisStory": "one sentence: why this story makes the best on-brand cover joke this week",
+  "concept": "short concept title (e.g., 'auction-gavel-on-a-handbag-scale')",
+  "setting": "the single setting you chose (e.g., 'auction saleroom', 'watchmaker's bench', 'hotel room-service tray')",
   "primaryHumorDriver": "one of: role reversal, scale absurdity, literal metaphor, fish-out-of-water, visual punchline",
   "secondaryEnhancer": "optional flavor enhancer or null",
-  "sceneDescription": "state the JOKE in one plain sentence first (what's the setup, what's the punchline, and which fact from the LEAD story it's riffing on), then describe the concrete scene — setting, the one exaggerated focal thing, any person and their reaction. It must be a joke a viewer gets in one second without any words.",
-  "finalImagePrompt": "Describe ONLY: the setting/environment, what objects are in it, and where they are placed. Write it as a plain scene description — as if describing a real photograph to someone. Do NOT mention camera settings, f-stops, bokeh, depth of field, lighting rigs, cinematic, or composition rules — those cause CGI output. Keep it under 80 words.",
+  "sceneDescription": "state the JOKE in one plain sentence first (what's the setup, what's the punchline, and which fact from the chosen story it's riffing on), then describe the concrete scene — setting, the one exaggerated focal thing, any person and their reaction. It must be a joke a viewer gets in one second without any words.",
+  "finalImagePrompt": "Describe ONLY: the setting/environment, what objects are in it, and where they are placed. Write it as a plain scene description — as if describing a real photograph to someone — and say where the focal object sits (middle of the frame, lower half). Do NOT mention camera settings, f-stops, bokeh, depth of field, lighting rigs, cinematic, or composition rules — those cause CGI output. Keep it under 80 words.",
   "negativePrompt": [
     "people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette",
     "text, letters, numbers, signage, labels, price tags",
@@ -309,7 +321,7 @@ OUTPUT FORMAT (JSON only, no markdown, no code blocks):
 
 The finalImagePrompt must be complete and ready to send to DALL-E. The scene should be playful and absurd but look like a real photograph.
 
-Set confidence between 0.0 and 1.0 based on how well the articles can be combined into a single coherent, humorous scene.`;
+Set confidence between 0.0 and 1.0: how funny the joke is AND how clearly it belongs on a luxury-industry cover. An off-brand scene scores below 0.5.`;
 }
 
 async function callSceneDirectorLLM(
@@ -416,7 +428,7 @@ ${prompt}`;
     // If missing primaryHumorDriver and not already a retry, retry once
     if ((errorMessage.includes('primaryHumorDriver') || errorMessage.includes('humor')) && !isRetry) {
       console.warn(`[SceneDirector] Missing Primary Humor Driver, retrying once...`);
-      return callSceneDirectorLLM(articles, variant, apiKey, [], true);
+      return callSceneDirectorLLM(articles, variant, apiKey, previousConcepts, true);
     }
     
     console.error(`[SceneDirector] LLM call failed: ${errorMessage}`);
@@ -429,7 +441,7 @@ ${prompt}`;
 /**
  * Generate cover scene concept from prioritized articles
  * @param weekLabel - Week label (e.g., "2026-W01")
- * @param articles - Top 1-2 from Ecommerce & Retail Tech and Jewellery Industry
+ * @param articles - Candidate stories from selectCoverArticles (digest/coverArticles.ts)
  * @param variant - 'safe' for conservative, 'fun' for more creative
  * @returns Scene director output with finalImagePrompt ready for DALL-E
  */
@@ -443,7 +455,7 @@ export async function generateCoverScenePrompt(
     throw new Error('No articles provided for scene generation');
   }
   
-  // Limit to top 4 articles (as per spec: top 1-2 from each category + optional 1 supporting)
+  // selectCoverArticles sends 4; cap in case a caller sends more
   const selectedArticles = articles.slice(0, 4);
   
   // Check cache

@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { type Variant } from '../digest/sceneDirector';
 import { generateWeeklyCoverImage } from '../digest/generateCoverImage';
+import { selectCoverArticles } from '../digest/coverArticles';
 import { loadEnv } from '../lib/env';
 import { getCurrentDigestWeek, validateWeekLabel } from '../lib/utils/getCurrentDigestWeek';
 
@@ -82,47 +83,6 @@ function parseArgs(): { weekLabel: string; variant: Variant } {
   return { weekLabel, variant };
 }
 
-/**
- * Extract homepage top articles from current digest
- * Homepage shows: top 1-2 from Ecommerce_Retail_Tech and top 1-2 from Jewellery_Industry
- */
-function extractHomepageTopArticles(digest: any): Array<{
-  title: string;
-  source?: string;
-  snippet?: string;
-  aiSummary?: string;
-  rerankWhy?: string;
-}> {
-  const homepageArticles: Array<{
-    title: string;
-    source?: string;
-    snippet?: string;
-    aiSummary?: string;
-    rerankWhy?: string;
-  }> = [];
-  
-  // Top 1-2 from Ecommerce_Retail_Tech
-  const ecommerceTop = digest.topics?.Ecommerce_Retail_Tech?.top || [];
-  homepageArticles.push(...ecommerceTop.slice(0, 2).map((article: any) => ({
-    title: article.title,
-    source: article.source,
-    snippet: article.snippet,
-    aiSummary: article.aiSummary,
-    rerankWhy: article.rerankWhy,
-  })));
-  
-  // Top 1-2 from Jewellery_Industry
-  const jewelleryTop = digest.topics?.Jewellery_Industry?.top || [];
-  homepageArticles.push(...jewelleryTop.slice(0, 2).map((article: any) => ({
-    title: article.title,
-    source: article.source,
-    snippet: article.snippet,
-    aiSummary: article.aiSummary,
-    rerankWhy: article.rerankWhy,
-  })));
-  
-  return homepageArticles;
-}
 
 /**
  * Main function
@@ -147,11 +107,11 @@ async function main() {
   }
   
   // Extract homepage top articles from CURRENT digest
-  const homepageTopArticles = extractHomepageTopArticles(digest);
+  const homepageTopArticles = selectCoverArticles(digest);
   
   if (homepageTopArticles.length === 0) {
     console.error(`Error: No homepage articles found in digest for week ${weekLabel}`);
-    console.error(`Make sure the digest has top articles in Ecommerce_Retail_Tech and Jewellery_Industry.`);
+    console.error(`Make sure the digest has top articles in Luxury_and_Consumer, Jewellery_Industry or Ecommerce_Retail_Tech.`);
     process.exit(1);
   }
   

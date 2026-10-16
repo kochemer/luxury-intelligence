@@ -186,7 +186,8 @@ The orchestrator's own numbering (`pipeline/runWeeklyPipeline.ts`): rss → page
 - `buildWeeklyDigest.ts`: Main digest builder, orchestrates selection, reranking, summaries, translations
 - `rerankArticles.ts`: LLM-based reranking with deterministic fallback (cached)
 - `generateSummaries.ts`: Generate AI summaries for articles (cached)
-- `sceneDirector.ts`: Generate cover image scene descriptions (cached)
+- `coverArticles.ts`: Which digest stories the cover may use (`selectCoverArticles`; shared by the pipeline, `npm run cover` and `cover:mock`)
+- `sceneDirector.ts`: Generate cover image scene descriptions (cached; bump `SCENE_DIRECTOR_VERSION` to invalidate)
 - `themes.ts`: Generate weekly themes (cached)
 
 **Key Functions**:

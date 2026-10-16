@@ -73,18 +73,19 @@ the buffer. The voice is the critical path because its fallback dies too.
    run is the live check. The reranker followed the same day, after its
    criteria were rewritten for hard news first and re-tested (below). No text
    step or fallback uses GPT-4.1 / 4.1-mini any more.
-6. Cleanup. [DONE 2026-10-14, two items left] `__tests__/llm.retiredModels.test.ts`
+6. Cleanup. [DONE 2026-10-16, one item left] `__tests__/llm.retiredModels.test.ts`
    fails if code names a retiring model (`gpt-4o-mini-tts` is allowed as the
    voice fallback until 2027-01-06; after that the test fails until the
    fallbacks in `podcast/buildWeeklyPodcast.ts` and `video-short/src/voice.ts`
    are removed). `digest/generateIntro.ts` deleted: never called, and its
-   sentence trimming cut "$11.6 billion" into "$11. 6". Left: those voice
-   fallbacks after 2027-01-06, and the methodology page, which still names
-   `o4-mini` and `gpt-4.1` (owner decision: whether it names models at all).
+   sentence trimming cut "$11.6 billion" into "$11. 6". `/methodology` names
+   the current models (owner: naming models is fine, 2026-10-16), kept in sync
+   by `__tests__/methodology.models.test.ts`. Left: those voice fallbacks after
+   2027-01-06.
 
 Owner decisions 2026-10-14: tiers as recommended below; the reranker should
 favour hard news (deals, results, launches, leadership, strategy) over
-analysis and opinion. Open: whether the methodology page names models.
+analysis and opinion. 2026-10-16: `/methodology` names the models.
 
 ### Side-by-side results (2026-10-14)
 
@@ -149,7 +150,6 @@ old criteria, so this compares setups, not just models). Sol now leads with
 the stories the first pass found missing (Rio Tinto selling Argyle Pink, De
 Beers taking Gahcho Kue, the Armani stake sale, Capri up for sale). Switched:
 Sol primary, Luna@none fallback.
-
 
 ## Measurements behind the 2026-10-09 switch
 
@@ -250,6 +250,38 @@ used false contrasts as their "good" examples; corrected in this change.
 
 Result on W39/W40 regeneration: quote, Take and all 28 W40 summaries passed
 the check with no rewrite needed.
+
+## Cover scene director v9 (2026-10-12)
+
+The 2026-W41 cover was a white delivery van with a packing-tape wheel. Three
+causes: the cover only saw Ecommerce top 2 + Jewellery top 1 (never Luxury);
+Ecommerce #1 was hard-wired as the "lead story", which that week was an Indian
+festive-sales total; and nothing in the prompt said the cover belongs to a
+luxury publication, while the setting list suggested garages and car
+dashboards. It also cropped badly: the hero uses `object-cover object-bottom`,
+which drops the top third on desktop and keeps only the middle half of the
+width on phones, and the gag sat at the left edge.
+
+v9 changes:
+
+- Input is Luxury top 2, Jewellery top 1, Ecommerce top 1 (`digest/coverArticles.ts`).
+- No forced lead. The model picks the story and records `chosenStory` and
+  `whyThisStory` in `cover-scene.json`.
+- A brand rule (the scene must belong on a luxury-industry cover; logistics,
+  vans, parcels, supermarkets fail) and a luxury-only setting list.
+- Framing: one small focal object, centred left-to-right, in the lower half,
+  calm top third. Said both in the scene prompt and in the fixed text that
+  `generateCoverImage.ts` appends to every image prompt.
+- `cover-input.json` is rewritten on each generation. Before, a regenerated
+  cover kept the old file's article list.
+
+Shipped 2026-10-16; the first live v9 cover is the next weekly run. W41's
+live cover was kept. Local W41 re-run (mock/ only): it chose the European-fashion sizing
+story and rendered couture trousers in a boutique fitting room, fully inside
+the crop. On-brand and well framed, but the joke (a tiny waistband) is hard to
+read. Not added yet, use if v9 covers stay weak: generate three concepts and
+have a second call score brand fit and how fast the joke reads; a vision call
+that stores a focal point for `objectPosition`.
 
 ## Podcast voice
 

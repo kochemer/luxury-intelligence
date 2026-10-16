@@ -11,6 +11,7 @@ const __dirname = path.dirname(__filename);
 
 type Article = {
   title: string;
+  topic?: string;
   source?: string;
   snippet?: string;
   aiSummary?: string;
@@ -19,8 +20,7 @@ type Article = {
 };
 
 /**
- * Homepage top articles - the authoritative source for cover image generation.
- * These are the exact articles displayed on the homepage (top 1-2 from Ecommerce & Retail Tech and Jewellery Industry).
+ * Candidate stories for the cover, from selectCoverArticles (digest/coverArticles.ts).
  * The cover image MUST be generated exclusively from these articles to maintain user trust and relevance.
  */
 type HomepageTopArticles = Article[];
@@ -161,6 +161,8 @@ function hardenPromptForPhotorealism(prompt: string): string {
 
 This must look like a genuine photograph taken by a person for a magazine — NOT AI-generated, not CGI, not a 3D render. Natural available light with real shadows and true reflections. Real materials with real texture: dust, wear, fingerprints, slight clutter, small imperfections and natural asymmetry. Slightly imperfect, candid framing. Avoid the AI look — no waxy/plastic surfaces, no over-smoothing, no over-saturation or HDR glow, no glossy studio perfection. Fill the entire frame edge to edge — no black bars, no empty edges.
 
+Framing: the subject of the photo is small and sits in the middle of the frame from left to right and in the lower half from top to bottom, with calm, empty background in the top third and generous space on both sides. Nothing important near the left or right edges or the top of the frame.
+
 Do not include: any people or human body parts; any text, labels, signage, screens, UI, or logos; diamonds or gemstones; CGI lighting, dramatic spotlights, or blurred vignette backgrounds.`;
 }
 
@@ -246,6 +248,7 @@ export async function generateWeeklyCoverImage(
   
   const articleInputs: ArticleInput[] = homepageTopArticles.map(article => ({
     title: article.title,
+    topic: article.topic,
     source: article.source,
     snippet: article.snippet,
     aiSummary: article.aiSummary,
@@ -292,25 +295,21 @@ export async function generateWeeklyCoverImage(
     await fs.mkdir(coverInputDir, { recursive: true });
     const coverInputPath = path.join(coverInputDir, 'cover-input.json');
     
-    // Load existing cover-input.json if it exists, or create new
-    let coverInputData: any = {};
-    try {
-      const existing = await fs.readFile(coverInputPath, 'utf-8');
-      coverInputData = JSON.parse(existing);
-    } catch {
-      // File doesn't exist, start fresh
-      coverInputData = {
-        weekLabel,
-        homepageTopArticles: homepageTopArticles.map(a => ({
-          title: a.title,
-          source: a.source,
-          snippet: a.snippet,
-          aiSummary: a.aiSummary,
-          rerankWhy: a.rerankWhy,
-        })),
-      };
-    }
-    
+    // Rewritten on every generation: keeping an old file's article list made a
+    // regenerated cover look like it came from articles it never saw.
+    const coverInputData: any = {
+      weekLabel,
+      homepageTopArticles: homepageTopArticles.map(a => ({
+        title: a.title,
+        topic: a.topic,
+        source: a.source,
+        snippet: a.snippet,
+        aiSummary: a.aiSummary,
+        rerankWhy: a.rerankWhy,
+      })),
+      chosenStory: sceneOutput.chosenStory,
+    };
+
     // Add debugging artifacts
     coverInputData.model = imageResult.model || 'gpt-image-1';
     coverInputData.finalPrompt = finalPrompt;

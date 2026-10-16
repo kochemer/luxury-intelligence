@@ -1,9 +1,8 @@
 /**
  * Mock cover generator (LOCAL ONLY — never writes to public/weekly-images).
  *
- * Regenerates weekly cover images with the CURRENT cover code (fixed Scene
- * Director prompt v4 + gpt-image-1 quality:high) using each week's LIVE homepage
- * top articles, and writes them to mock/ alongside an HTML gallery comparing
+ * Regenerates weekly cover images with the CURRENT cover code (Scene Director +
+ * cover image model) using each week's LIVE digest via selectCoverArticles, and writes them to mock/ alongside an HTML gallery comparing
  * NEW vs the LIVE production cover. Reuses the production helpers
  * (generateCoverScenePrompt, integrateNegativePrompt, generateCoverImage) so the
  * output faithfully mirrors what production would render.
@@ -16,21 +15,13 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { loadEnv } from '../lib/env';
-import { generateCoverScenePrompt, type ArticleInput } from '../digest/sceneDirector';
+import { generateCoverScenePrompt } from '../digest/sceneDirector';
+import { selectCoverArticles } from '../digest/coverArticles';
 import { integrateNegativePrompt, generateCoverImage } from '../digest/generateCoverImage';
 import type { WeeklyDigest } from '../lib/types';
 
 loadEnv();
 
-// Matches regenerateCover.extractHomepageTopArticles: Ecommerce top 2 + Jewellery top 1.
-function homepageTopArticles(digest: WeeklyDigest): ArticleInput[] {
-  const out: ArticleInput[] = [];
-  const ecom = digest.topics?.Ecommerce_Retail_Tech?.top ?? [];
-  for (const a of ecom.slice(0, 2)) out.push({ title: a.title, source: a.source, snippet: a.snippet, aiSummary: a.aiSummary, rerankWhy: (a as { rerankWhy?: string }).rerankWhy });
-  const jewel = digest.topics?.Jewellery_Industry?.top ?? [];
-  if (jewel[0]) { const a = jewel[0]; out.push({ title: a.title, source: a.source, snippet: a.snippet, aiSummary: a.aiSummary, rerankWhy: (a as { rerankWhy?: string }).rerankWhy }); }
-  return out;
-}
 
 async function main() {
   let weeks = ['2026-W35', '2026-W36', '2026-W37'];
@@ -54,7 +45,7 @@ async function main() {
       results.push({ week, ok: false });
       continue;
     }
-    const articles = homepageTopArticles(digest);
+    const articles = selectCoverArticles(digest);
     if (!articles.length) { console.warn(`[cover:mock] ${week}: no homepage articles`); results.push({ week, ok: false }); continue; }
 
     const scene = await generateCoverScenePrompt(week, articles, 'safe');
