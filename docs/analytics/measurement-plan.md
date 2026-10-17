@@ -27,7 +27,7 @@
 
 | `event_name` | When fired | Key properties |
 |--------------|------------|----------------|
-| `page_view` | Every full page load (SPA route or SSR load) | `page_title`, `page_type`, `route_path` |
+| `page_view` | Every full page load (SPA route or SSR load) | `page_title`, `page_type`, `route_path`; Amplitude adds `[Amplitude] Page Location` (full URL, query kept) |
 | `digest_view` | Digest page or digest section in view (e.g. weekly digest / email digest) | `digest_week`, `digest_type` (e.g. `web`, `email`) |
 | `article_click` | User clicks through to external article URL | `article_url`, `article_title`, `article_rank`, `digest_week`, `link_context` |
 | `filter_changed` | User changes any filter (topic, date, etc.) | `filter_name`, `filter_value_previous`, `filter_value_new` |
@@ -36,6 +36,12 @@
 | `checkout_start` | User starts checkout (e.g. clicks pay / enters checkout flow) | `checkout_provider`, `plan_id` or `product_id` |
 | `checkout_complete` | Payment or subscription confirmed | `checkout_provider`, `plan_id`, `value` (if allowed by provider) |
 | `share_clicked` | User clicks a share button | `share_destination` (e.g. `twitter`, `linkedin`, `copy_link`), `content_type`, `content_id` |
+
+As of 2026-10-17, Amplitude autocapture also records `[Amplitude] Web Vitals`
+(LCP, INP, CLS, FCP, TTFB; `autocapture.webVitals` in
+`app/components/AmplitudeInit.tsx`, consent-gated like everything else). It was
+off from 2026-04-15 until this build. These are autocaptured, not part of the
+`schema_version` contract, and don't carry the global properties.
 
 ---
 
@@ -73,6 +79,15 @@ All events must include:
 2. **No UTMs:** Infer channel from `referrer_domain`: AI assistants → `ai_assistant`, search engines → `search`, known social domains → `organic_social`, known email domains / links → `email`, other external → `referral`, no referrer → `direct`.
 3. **Persistence:** Store last-click attribution (channel, source, medium, campaign) in session storage; optionally persist in a first-party cookie (e.g. 30 days) for cross-session consistency. Attach the same last-click set to every event in the session/page.
 
+> As of 2026-10-17 the implementation (`lib/analytics/attribution.ts`) does not
+> follow rule 3: it persists the last UTM a visitor ever clicked in
+> `localStorage` with no expiry and stamps it on every later event, so a
+> returning visitor who came direct still carries an old campaign. The `utm_*`
+> and `acq_*` event properties therefore overstate campaign traffic. Reports
+> must attribute visits from the landing URL (`[Amplitude] Page Location`)
+> instead. The bug is known and unfixed; the owner decides whether to expire
+> the stored value. Detail: `docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md` §1.
+
 **Channel mapping (last-click):**
 
 | Resolved channel | Typical source / medium / conditions |
@@ -106,4 +121,4 @@ All events must include:
 
 ---
 
-*Last updated: 2026-03. Use this doc to drive tagging, SDK usage, and validation in the app.*
+*Last updated: 2026-10-17 (§3 and §5 notes on Web Vitals and the sticky UTM). Use this doc to drive tagging, SDK usage, and validation in the app.*

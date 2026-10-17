@@ -56,6 +56,8 @@ function initAmplitude(): boolean {
           sessions: true,
           // Element interactions disabled: noisy, risks capturing form field values (PII).
           elementInteractions: false,
+          // Page-speed timings: feeds the Web vitals section on /analytics (consent-gated like the rest).
+          webVitals: true,
         },
       },
       sessionReplay: {

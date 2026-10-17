@@ -1,0 +1,56 @@
+/* Restyles Amplitude's rrweb player (blue #4950f6) to the site's accent. Scoped to the panel. */
+.replay-panel .rr-player {
+  margin: 0 auto;
+  box-shadow: none !important;
+  background: var(--color-surface) !important;
+}
+.replay-panel .rr-controller {
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary);
+}
+.replay-panel .rr-controller__btns button,
+.replay-panel .rr-timeline__time {
+  color: var(--color-text-primary) !important;
+}
+.replay-panel .rr-controller__btns button svg,
+.replay-panel .rr-controller__btns button svg path {
+  fill: currentColor;
+}
+/* Track and played part */
+.replay-panel .rr-progress {
+  background: var(--color-bar) !important;
+  border-top-color: var(--color-surface) !important;
+  border-bottom-color: var(--color-surface) !important;
+}
+.replay-panel .rr-progress__step {
+  background: var(--color-accent-light) !important;
+}
+.replay-panel .rr-progress__handler {
+  background: var(--color-accent) !important;
+}
+/* Active speed button, pressed button */
+.replay-panel .rr-controller__btns button.active {
+  background: var(--color-accent) !important;
+  color: var(--color-on-accent) !important;
+}
+.replay-panel .rr-controller__btns button:active {
+  background: var(--color-accent-light) !important;
+}
+/* "Skip inactive" switch */
+.replay-panel .switch label:before {
+  background: var(--color-bar) !important;
+}
+.replay-panel .switch input[type='checkbox']:checked + label:before {
+  background: var(--color-accent) !important;
+}
+/* The pointer: click ripple and the touch circle */
+.replay-panel .replayer-mouse::after {
+  background: var(--color-accent) !important;
+}
+.replay-panel .replayer-mouse.touch-device.touch-active {
+  border-color: var(--color-accent) !important;
+}
+/* Timeline markers for custom events (the player defaults them to its blue). Inactive stretches keep the inactiveColor passed in. */
+.replay-panel .rr-progress > div[title]:not([title='inactive period']) {
+  background: var(--color-accent) !important;
+}

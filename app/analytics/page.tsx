@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { cookies } from 'next/headers';
 import { unstable_cache } from 'next/cache';
 import { sql } from 'drizzle-orm';
@@ -9,33 +8,72 @@ import { getVisitStats, getCounterStartDay, daysEndingToday, lastDays, eachDay, 
 import { getSearchData } from '@/lib/analytics/searchConsole';
 import LoginForm from './LoginForm';
 import TrendChart from './TrendChart';
-import { bucketTop } from '@/lib/analytics/bucketTop';
 import { logout } from './actions';
+import {
+  amplitudeConfigured, getConsentedVisits, getCoverage, getTaggedLandings, getWebVitals,
+} from '@/lib/analytics/amplitude';
+import { listActiveInsights } from '@/lib/analytics/insights/store';
+import {
+  ACCENT, BarList, ErrorNote, RANGES, RangePicker, SECOND, Section, Shell, Stat, Table, fmtDate, settle,
+} from './ui';
+import { InsightsSection } from './sections/Insights';
+import { AmplitudeHeader } from './sections/AmplitudeHeader';
+import { ReturningSection } from './sections/Returning';
+import { EngagementSection } from './sections/Engagement';
+import { ReplaysSection } from './sections/Replays';
+import { SocialSection } from './sections/Social';
+import { VitalsSection } from './sections/Vitals';
 
 /**
- * Private analytics for the owner: visitors (cookieless counter, plus history
- * imported from Amplitude up to HISTORY_END), Google search (live from Search
- * Console) and subscribers. `?days=` picks the period for both charts.
+ * Private analytics for the owner: historical insight tiles, visitors
+ * (cookieless counter, plus history imported from Amplitude up to
+ * HISTORY_END), the Amplitude group for visitors who accepted cookies
+ * (returning readers, engagement, session replays, social posts, web vitals),
+ * Google search (live from Search Console) and subscribers. `?days=` picks the
+ * period for the charts and the Amplitude group. Spec:
+ * docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md.
  * Password-gated (lib/analytics/adminAuth.ts), noindex, disallowed in robots,
  * not in the sitemap or any menu.
  */
 
 export const dynamic = 'force-dynamic';
+// A full Amplitude refresh is ~22 calls (rate-limited to 3 at a time).
+export const maxDuration = 60;
 
 export const metadata: Metadata = {
   title: 'Analytics',
   robots: { index: false, follow: false, nocache: true },
 };
 
-const RANGES = [7, 14, 28, 90] as const;
-const ACCENT = '#8B6914';
-const SECOND = '#2563EB';
-
 // Search Console data only changes a few times a day.
 const searchData = unstable_cache(
   async (start: string, end: string) => getSearchData(start, end),
   ['analytics-search-console'],
   { revalidate: 3 * 3600 },
+);
+
+// Amplitude reads: the loaders clamp to consent and the 30 days replays are
+// kept; the cache is keyed by the range they are given.
+const amplitudeCache = { revalidate: 3 * 3600 };
+const consentedVisits = unstable_cache(
+  async (start: string, end: string) => getConsentedVisits({ start, end }),
+  ['analytics-amplitude-visits'],
+  amplitudeCache,
+);
+const coverageData = unstable_cache(
+  async (start: string, end: string) => getCoverage({ start, end }),
+  ['analytics-amplitude-coverage'],
+  amplitudeCache,
+);
+const taggedLandings = unstable_cache(
+  async (start: string, end: string) => getTaggedLandings({ start, end }),
+  ['analytics-amplitude-tagged'],
+  amplitudeCache,
+);
+const webVitals = unstable_cache(
+  async (start: string, end: string) => getWebVitals({ start, end }),
+  ['analytics-amplitude-vitals'],
+  amplitudeCache,
 );
 
 async function subscriberCounts(): Promise<Array<{ plan: string; n: number }>> {
@@ -46,17 +84,6 @@ async function subscriberCounts(): Promise<Array<{ plan: string; n: number }>> {
     group by plan_type order by 2 desc`);
   return (rows.rows as Array<{ plan: string; n: unknown }>).map(r => ({ plan: r.plan, n: Number(r.n) }));
 }
-
-async function settle<T>(p: Promise<T>): Promise<{ ok: true; value: T } | { ok: false; error: string }> {
-  try {
-    return { ok: true, value: await p };
-  } catch (err) {
-    return { ok: false, error: err instanceof Error ? err.message : String(err) };
-  }
-}
-
-const fmtDate = (d: string) =>
-  new Date(`${d}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
 
 export default async function AnalyticsPage({ searchParams }: { searchParams: Promise<{ days?: string }> }) {
   const password = analyticsPassword();
@@ -91,6 +118,20 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
   ]);
 
   const counterStart = startDay.ok ? startDay.value : null;
+
+  // Amplitude group: same range as Visitors. Nothing is requested without a secret key.
+  const ampOn = amplitudeConfigured();
+  const ampRange = visitRange.current;
+  const [insights, visits, coverage, tagged, vitals] = await Promise.all([
+    settle(listActiveInsights()),
+    ampOn ? settle(consentedVisits(ampRange.start, ampRange.end)) : null,
+    ampOn
+      ? settle(coverageData(ampRange.start, ampRange.end).then(async c =>
+          c ? { ...c, visitorDays: (await getVisitStats(c.window)).visitors } : null))
+      : null,
+    ampOn ? settle(taggedLandings(ampRange.start, ampRange.end)) : null,
+    ampOn ? settle(webVitals(ampRange.start, ampRange.end)) : null,
+  ]);
 
   const visitChart = cur.ok
     ? (() => {
@@ -129,6 +170,9 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
         </form>
       }
     >
+      {/* ── Historical insights ──────────────────────────────── */}
+      <InsightsSection insights={insights} />
+
       {/* ── Visitors ─────────────────────────────────────────── */}
       <Section
         title="Visitors"
@@ -172,6 +216,18 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
           <ErrorNote error={[cur, prev].find(r => !r.ok) as { error: string }} />
         )}
       </Section>
+
+      {/* ── Amplitude: visitors who accepted cookies ───────────── */}
+      <AmplitudeHeader days={days} configured={ampOn} coverage={coverage ?? { ok: true, value: null }} />
+      {ampOn && visits && tagged && vitals && (
+        <>
+          <ReturningSection visits={visits} />
+          <EngagementSection visits={visits} />
+          <ReplaysSection visits={visits} />
+          <SocialSection tagged={tagged} />
+          <VitalsSection vitals={vitals} />
+        </>
+      )}
 
       {/* ── Google ───────────────────────────────────────────── */}
       <Section
@@ -226,138 +282,4 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
       </Section>
     </Shell>
   );
-}
-
-// ── Pieces ───────────────────────────────────────────────────────────────────
-
-function Shell({ children, aside }: { children: React.ReactNode; aside?: React.ReactNode }) {
-  return (
-    <main className="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16 min-h-screen">
-      <div className="flex items-end justify-between gap-4 mb-2">
-        <div>
-          <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--color-accent)] mb-2">Private</p>
-          <h1 className="text-page-h1 font-semibold text-[var(--color-text-primary)]">Analytics</h1>
-        </div>
-        {aside}
-      </div>
-      {children}
-    </main>
-  );
-}
-
-/** The period switch, placed right above each chart it controls. Keeps the scroll position. */
-function RangePicker({ days }: { days: number }) {
-  return (
-    <nav className="flex gap-1 mb-4" aria-label="Period">
-      {RANGES.map(r => (
-        <Link
-          key={r}
-          href={`/analytics?days=${r}`}
-          scroll={false}
-          aria-current={r === days ? 'true' : undefined}
-          className={`px-3 py-1.5 rounded-[2px] text-[13px] border transition-colors ${
-            r === days
-              ? 'bg-[var(--color-accent)] border-[var(--color-accent)] text-white'
-              : 'border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-accent)]'
-          }`}
-        >
-          {r} days
-        </Link>
-      ))}
-    </nav>
-  );
-}
-
-function Section({ title, note, children }: { title: string; note: string; children: React.ReactNode }) {
-  return (
-    <section className="mt-8 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-5 md:p-7">
-      <h2 className="text-section font-semibold text-[var(--color-text-primary)] mb-1">{title}</h2>
-      <p className="text-meta text-[var(--color-text-secondary)] mb-5">{note}</p>
-      {children}
-    </section>
-  );
-}
-
-function Stat({ label, value, prev, suffix }: { label: string; value: number; prev?: number; suffix?: string }) {
-  const diff = prev === undefined ? null : value - prev;
-  return (
-    <div className="border border-[var(--color-border)] rounded-lg p-4">
-      <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--color-text-secondary)] mb-2">{label}</p>
-      <p className="text-2xl font-semibold text-[var(--color-text-primary)] tabular-nums">
-        {value.toLocaleString('en-GB')}
-        {suffix && <span className="text-base font-normal text-[var(--color-text-secondary)]">{suffix}</span>}
-      </p>
-      {diff !== null && (
-        <p className="text-[12px] text-[var(--color-text-secondary)] mt-1">
-          {diff === 0 ? 'same as' : `${diff > 0 ? '+' : ''}${diff.toLocaleString('en-GB')} vs`} previous
-        </p>
-      )}
-    </div>
-  );
-}
-
-/**
- * Horizontal bars: one hue, sorted, value at the bar end, "Other" in grey and
- * always last. Plain HTML, so it renders on the server and needs no JS; the
- * title attribute is the hover detail.
- */
-function BarList({ title, note, unit, rows }: { title: string; note?: string; unit: string; rows: Array<[string, number]> }) {
-  const bars = bucketTop(rows);
-  const max = Math.max(1, ...bars.map(b => b.n));
-  const total = bars.reduce((t, b) => t + b.n, 0);
-  return (
-    <div>
-      <p className="text-meta font-semibold text-[var(--color-text-primary)] mb-3">
-        {title}
-        {note && <span className="font-normal text-[var(--color-text-secondary)]"> · {note}</span>}
-      </p>
-      {bars.length === 0 ? (
-        <p className="text-meta text-[var(--color-text-secondary)]">No visits in this period yet.</p>
-      ) : (
-        <ul className="space-y-2.5">
-          {bars.map(b => (
-            <li key={b.name} title={`${b.name}: ${b.n} ${unit} (${Math.round((b.n / total) * 100)}%)`} className="group">
-              <div className="flex justify-between gap-3 text-[13px] mb-1">
-                <span className={`truncate ${b.other ? 'text-[var(--color-text-secondary)] italic' : 'text-[var(--color-text-primary)]'}`}>{b.name}</span>
-                <span className="tabular-nums text-[var(--color-text-secondary)] shrink-0">{b.n}</span>
-              </div>
-              <div className="h-2.5 rounded-[4px] bg-[var(--color-border)]/40">
-                <div
-                  className="h-full rounded-[4px] transition-opacity group-hover:opacity-80"
-                  style={{ width: `${Math.max(2, (b.n / max) * 100)}%`, background: b.other ? '#9CA3AF' : ACCENT }}
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
-
-function Table({ title, note, rows }: { title: string; note?: string; rows: Array<[string, number]> }) {
-  return (
-    <div>
-      <p className="text-meta font-semibold text-[var(--color-text-primary)] mb-2">
-        {title}
-        {note && <span className="font-normal text-[var(--color-text-secondary)]"> · {note}</span>}
-      </p>
-      {rows.length === 0 ? (
-        <p className="text-meta text-[var(--color-text-secondary)]">No visits in this period yet.</p>
-      ) : (
-        <ul className="text-[13px] divide-y divide-[var(--color-border)]">
-          {rows.map(([name, n]) => (
-            <li key={name} className="flex justify-between gap-4 py-1.5">
-              <span className="truncate text-[var(--color-text-secondary)]" title={name}>{name}</span>
-              <span className="tabular-nums text-[var(--color-text-primary)]">{n}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
-
-function ErrorNote({ error }: { error: { error: string } }) {
-  return <p className="text-meta text-red-600">Couldn&apos;t load: {error.error}</p>;
 }

@@ -1,0 +1,3 @@
+/* Amber for "needs work" in the web vitals section; --color-up / --color-down come from the site tokens. */
+.vitals-scope { --vital-warn: #A8711A; }
+[data-theme="dark"] .vitals-scope { --vital-warn: #D9A54A; }

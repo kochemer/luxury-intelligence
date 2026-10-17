@@ -1,0 +1,69 @@
+name: Weekly Analytics Insights
+
+# Keeps the "Historical insights" tiles on the private /analytics page current.
+#
+# Once a week it builds a pack of aggregate facts (Amplitude history, the visit
+# counter, Search Console, subscribers), asks Claude whether one durable new
+# tile is worth adding, runs the proposal through the automated checks
+# (lib/analytics/insights/checks.ts) and, only if all pass, writes it to the
+# analytics_insights table. Most weeks the right answer is "no change", and that
+# is a green run. See docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md.
+#
+# Separate from the digest workflows on purpose: it reads production data and
+# writes one table, so a failure here can't hold up the issue, the email or the
+# social posts, and none of them can hold this up. It never commits: the tiles
+# live in the database, not the repo (the repo is public, the tiles carry
+# traffic numbers).
+on:
+  schedule:
+    # Sundays at 09:00 UTC, after seo-weekly (08:00).
+    - cron: '0 9 * * 0'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Decide and check, but write nothing'
+        type: boolean
+        default: false
+
+concurrency:
+  group: weekly-analytics
+  cancel-in-progress: false
+
+jobs:
+  insights:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run the insights agent
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          AMPLITUDE_SECRET_KEY: ${{ secrets.AMPLITUDE_SECRET_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
+          GSC_PRIVATE_KEY_B64: ${{ secrets.GSC_PRIVATE_KEY_B64 }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+          # Optional repo variable; the script defaults to claude-opus-5-5.
+          INSIGHTS_MODEL: ${{ vars.INSIGHTS_MODEL }}
+        run: |
+          # Exit 0 = a tile was added, nothing changed, or a check failed (the
+          # reason is in the log). Exit 1 = an API or database error.
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            npm run analytics:insights -- --dry-run
+          else
+            npm run analytics:insights
+          fi

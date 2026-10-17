@@ -57,6 +57,7 @@ npm run email:weekly  # Send weekly email digest (NOT idempotent: re-running dou
 npm run markets:build # /markets pages data (also pipeline step 9)
 npm run social:build  # Week's LinkedIn + X posts -> data/weeks/<week>/social.json (writes, never posts)
 npm run social:publish # Send today's posts to Buffer (--dry-run, --draft, --date=YYYY-MM-DD, --week=)
+npm run analytics:insights # Weekly agent for the /analytics 'Historical insights' tiles (--dry-run, --print-pack, --seed <file>; writes analytics_insights, never commits)
 
 # DB migrations (Drizzle)
 npx drizzle-kit generate   # Generate migration from schema changes
@@ -101,6 +102,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | Path | Purpose |
 |------|---------|
 | `app/` | Next.js App Router pages and API routes |
+| `app/analytics/` | Private `/analytics` dashboard (`sections/`, shared `ui.tsx`) and `/analytics/replay`, the password-gated proxy that feeds the session-replay player (see Privacy, visit counter and /analytics) |
 | `app/api/` | API routes: `api/subscribe`, `api/stripe` (webhook), `api/push`, `api/build-digest`, `api/unsubscribe`, `api/og`, `api/hit` (visit counter), `api/ratings` (digest star ratings), `api/search` (article search over `data/articles.json`), `api/resend` (bounce/complaint webhook) |
 | `app/health/` | `/health`: latest digest's per-topic counts, a quick manual sanity page |
 | `app/[es|da]/` | i18n locale sub-routes (Spanish, Danish) |
@@ -129,11 +131,11 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `scripts/` | Entry points and maintenance scripts (run with `tsx`) |
 | `hooks/` | React hooks (`useCountUp`, `useReveal`), not git hooks |
 | `.githooks/` | Git hooks (`commit-msg` runs the docs check). Enabled by `npm install` |
-| `.github/workflows/` | Weekly digest (build → Short render + YouTube upload → subscriber email + social plan), weekday social publish, daily RSS ingestion (cache buffer, never commits), SEO weekly + daily monitor, subscriber sweep (see `docs/operations.md`) |
+| `.github/workflows/` | Weekly digest (build → Short render + YouTube upload → subscriber email + social plan), weekday social publish, daily RSS ingestion (cache buffer, never commits), SEO weekly + daily monitor, subscriber sweep, weekly analytics insights (Sundays 09:00 UTC; see `docs/operations.md`) |
 
 ### Database
 
-Neon Postgres via Drizzle ORM. Schema at `lib/db/schema.ts`, five tables:
+Neon Postgres via Drizzle ORM. Schema at `lib/db/schema.ts`, six tables (`analytics_insights`: tiles of the /analytics Historical insights section, written only by `analytics:insights`, see `lib/analytics/insights/`):
 `subscribers` (`plan_type` enum `none | free | supporter_monthly | patron_monthly`, plus Stripe fields),
 `page_hits` (cookieless visit counter), `analytics_salts` (daily salt for the visitor hash, deleted after a day) and `visit_history` (daily visit totals imported once from Amplitude for the days before the counter, via `scripts/backfillVisitHistory.ts` / the `backfill-visit-history` workflow) and `article_clicks` (anonymous per-day, per-article click counts from `/api/click`, plus imported Amplitude history). Run `loadEnv()` from `lib/env.ts` before accessing `DATABASE_URL` in scripts (handles Windows UTF-16 `.env.local` encoding).
 
@@ -154,9 +156,11 @@ Scripts must call `loadEnv()` from `lib/env.ts` at startup. Key variables:
 | `DATABASE_URL` | Neon Postgres |
 | `OPENAI_API_KEY` | Story selection, summaries, themes, Editor's Take, cover, podcast script + voice. Many `*_MODEL` vars override per-step models; defaults and reasons in `docs/pipeline-decisions.md` |
 | `TAVILY_API_KEY` | Web discovery |
-| `ANTHROPIC_API_KEY` | SEO repair agent (CI), video-short |
+| `ANTHROPIC_API_KEY` | SEO repair agent (CI), video-short, `analytics:insights` |
+| `INSIGHTS_MODEL` | Optional: model for `analytics:insights` (default `claude-opus-5-5`); GitHub repo variable |
 | `NEXT_PUBLIC_SITE_URL` | Site URL (`localhost` in dev, so don't use it for anything that acts on production) |
-| `NEXT_PUBLIC_AMPLITUDE_API_KEY`, `AMPLITUDE_SECRET_KEY` | Analytics; secret key feeds the SEO weekly Visitors section |
+| `NEXT_PUBLIC_AMPLITUDE_API_KEY`, `AMPLITUDE_SECRET_KEY` | Analytics. The public key starts the browser SDK; the secret key is server-side REST access (SEO weekly Visitors section, the `/analytics` Amplitude sections and `analytics:insights`) and is set in Vercel and GitHub |
+| `AMPLITUDE_ORG` | Optional, Vercel: the org's URL name in Amplitude (the word after `/analytics/` in its URL). Enables the "Open in Amplitude" replay links on `/analytics`; unset = no link is shown |
 | `RESEND_WEBHOOK_SECRET` | Resend bounce/complaint webhook |
 | `SEO_AGENT_AUTHORITY` | SEO agent level (see below) |
 | `RESEND_API_KEY` | Transactional + digest emails |
@@ -284,9 +288,28 @@ See `docs/README.md` §4 for how they relate. Outside channels (Spotify, Apple P
   uses a daily salt that is deleted after a day.
 - `/analytics` is a private dashboard behind `ANALYTICS_PASSWORD` (Vercel env):
   visitors (counter + `visit_history`), Google search (live, needs the three
-  `GSC_*` vars in Vercel) and subscribers. It makes no Amplitude calls.
-  Article clicks are still recorded but not shown (removed 2026-10-09, too
-  little data). Keep it out of the sitemap/menus; it is disallowed in robots.
+  `GSC_*` vars in Vercel) and subscribers. Article clicks are still recorded but
+  not shown (removed 2026-10-09, too little data). Keep it out of the
+  sitemap/menus; it is disallowed in robots. Since 2026-10-17 it also reads
+  Amplitude (`lib/analytics/amplitude.ts`), for visitors who accepted cookies
+  only, from `CONSENT_START` (2026-10-06):
+  - returning readers, engagement and session replays come from the Session
+    Replay list plus per-person user activity, so they reach back 30 days at most;
+  - social posts and tagged links come from the landing URL (`[Amplitude] Page
+    Location` on `page_view`);
+  - web vitals come from `autocapture.webVitals` in `AmplitudeInit.tsx`;
+  - "Historical insights" tiles live in `analytics_insights` and are kept by the
+    weekly agent (`analytics:insights`). They carry traffic facts, so they must
+    never be committed.
+  - `/analytics/replay` (`app/analytics/replay/route.ts`) is a password-gated
+    proxy: it fetches a replay's files from Amplitude for the in-page player and
+    stores nothing.
+  Design and data findings: `docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md`.
+- **Never attribute visits with the `utm_*` / `acq_*` event properties.**
+  `lib/analytics/attribution.ts` keeps the last UTM a visitor ever clicked in
+  `localStorage`, with no expiry, and stamps it on every later event, so old
+  campaigns follow people who came direct. Use the landing URL. Known bug,
+  unfixed; the owner decides (spec §1).
 
 ### Testing
 

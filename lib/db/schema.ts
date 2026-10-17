@@ -10,6 +10,8 @@ import {
   index,
   integer,
   primaryKey,
+  serial,
+  jsonb,
 } from 'drizzle-orm/pg-core';
 
 // ── Enums ─────────────────────────────────────────────────────────────────────
@@ -108,6 +110,27 @@ export const articleClicks = pgTable('article_clicks', {
   source: text('source').notNull().default(''),
   n:      integer('n').notNull(),
 }, t => [primaryKey({ columns: [t.day, t.url] })]);
+
+// ── Historical insights (/analytics) ─────────────────────────────────────────
+// Tiles written by the weekly agent (lib/analytics/insights/). The text carries
+// traffic facts, so it lives here and never in the repo. `evidence` is the fact
+// ids and values the tile was checked against at write time. The page shows the
+// active rows (retired_on is null), newest first, max 6.
+export const analyticsInsights = pgTable('analytics_insights', {
+  id:        serial('id').primaryKey(),
+  /** InsightTile with the chart resolved to numbers. */
+  tile:      jsonb('tile').notNull(),
+  evidence:  jsonb('evidence').notNull(),
+  sources:   text('sources').array().notNull(),
+  addedOn:   date('added_on').notNull().defaultNow(),
+  /** 'seed' | 'agent' */
+  addedBy:   text('added_by').notNull(),
+  retiredOn: date('retired_on'),
+  /** 'agent' | 'owner' */
+  retiredBy: text('retired_by'),
+  model:     text('model'),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+});
 
 // ── Inferred TypeScript types ─────────────────────────────────────────────────
 

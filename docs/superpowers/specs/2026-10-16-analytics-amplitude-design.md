@@ -1,6 +1,6 @@
 # /analytics: Amplitude sections and historical insights (design)
 
-Status: approved design, not built yet (2026-10-16).
+Status: built 2026-10-17; differences from this spec: each insight tile's footer also shows its source labels and "added <date>" next to the × (the spec only lists the ×), and the × asks for confirmation before retiring; replay ids may end in `R` after the device UUID (`isValidReplayId` accepts it); the 12-row replay list, the 60-person cap and the 3-hour cache are as specified, and weekly tiles span two columns from 640 px (three tile columns from 900 px).
 
 Owner request (2026-10-16): add returning readers, session replays, pages per
 visit and time on site, social-post attribution, web vitals and a "Historical
@@ -30,7 +30,8 @@ written. These findings shaped the design; don't "simplify" them away.
 | Group-by on a numeric property returns one row per distinct value (Jan–Mar LCP: 292 rows). | p75 = walk the sorted value counts. Limit 1000 rows; if hit, say "sampled". |
 | Replays are kept 30 days. | Returning readers, engagement and the replay list cover at most the last 30 days. |
 | Queries are rate-limited by concurrency (HTTP 429 seen at 4+ parallel). A full refresh is ~22 calls, ~18 s sequential, one segmentation call took 9.9 s. | Concurrency 3 with 429 back-off, 3-hour cache, `maxDuration = 60` on the page. |
-| The replay deep link is `https://app.eu.amplitude.com/analytics/<org>/session-replay/project/<projectId>/search/replay?sessionReplayId=<deviceId>%2F<sessionId>`. Project id is 100038173. | New env var `AMPLITUDE_ORG` (Vercel). Without it, links go to `https://app.eu.amplitude.com/`. |
+| The replay deep link is `https://app.eu.amplitude.com/analytics/<org>/session-replay/project/<projectId>/search/replay?sessionReplayId=<deviceId>%2F<sessionId>`. Project id is 100038173. No API returns the org's URL name. | New env var `AMPLITUDE_ORG` (Vercel). Without it there is no Amplitude link at all: a link to Amplitude's home page (the first mock) is useless. |
+| `GET /api/1/session-replays/files?replay_id=` returns presigned S3 URLs (15 min) to gzipped JSON arrays of standard rrweb events (types 2/3/4/5/6). The bucket sends no CORS headers (browser fetch from our origin fails, preflight 403). Sizes: a 41 s visit 187 KB gzipped (1.5 MB JSON, one file); a 45 min visit 157 KB in four files. | Replays play inline: a password-gated route on our server fetches the files and hands them to Amplitude's open-source player (`@amplitude/rrweb-player` 2.1.4, MIT), tested on a real replay on 2026-10-16. |
 
 ## 2. Data per section
 
@@ -64,7 +65,14 @@ median visit (replay length), visits over 3 min, and an ordered distribution
 **Session replays.** The 12 most recent: Copenhagen time, visitor letter and
 "since <first seen>" or "first visit", pages (consecutive repeats merged,
 digest slugs shown as "Digest W41"), came from, place, device, action badges
-(subscribed, read the digest, opened an article), length, page count, Watch link.
+(subscribed, read the digest, opened an article), length, page count, a Play
+button and, when `AMPLITUDE_ORG` is set, an "Open in Amplitude" link.
+Play expands the row into the player: `GET /analytics/replay?id=<deviceId/sessionId>`
+(route handler, checks the `/analytics` session cookie and the id's format, lists the
+replay's files, fetches them, merges the events in time order, returns them gzipped,
+`Cache-Control: private`, 413 above 4 MB with a pointer to Amplitude). The client
+component loads the player library only when Play is pressed, sizes it to the row,
+and restyles its controls to the site's accent colour.
 "Came from" = landing URL tags if any, else the external previous page's domain
 through `classifyReferrer`, else "Direct / email / app".
 
@@ -157,7 +165,9 @@ labelled, the rest are on hover.
 
 Code layout: the page is ~400 lines, so shared pieces (Shell, Section, Stat,
 BarList, Table, RangePicker, ErrorNote) move to `app/analytics/ui.tsx`; new
-sections go in `app/analytics/sections/`. Each section loads through the existing
+sections go in `app/analytics/sections/`; the replay route is
+`app/analytics/replay/route.ts` (inside `/analytics`, so robots and the password
+gate already cover it) and the player is one client component. Each section loads through the existing
 `settle()` pattern, so one failing source shows an error note and the rest of the
 page still renders.
 
@@ -166,13 +176,16 @@ page still renders.
 No change to the privacy notice: everything new from visitors comes from
 Amplitude, which runs only after consent and is already described (including
 session recordings). Web vitals are page-speed timings, collected under the same
-consent. The agent sends only aggregates to the Claude API.
+consent. Replays pass through our server to the owner's browser and are not
+stored (private, browser-only cache). The agent sends only aggregates to the
+Claude API.
 
 ## 6. Tests
 
 `node:test` suites for: p75 and rating shares; returning, D7 and engagement maths
 (including the "none old enough" case); session building from replays plus user
-activity; came-from and tagged-URL parsing; page names; and the insight checks
+activity; came-from and tagged-URL parsing; page names; replay id validation and event
+merging in the replay route; and the insight checks
 (grounded and ungrounded numbers, percentages, dates, duplicates, retire rules).
 The checks are the only review the agent's output gets, so they get the most tests.
 
@@ -184,4 +197,5 @@ checks.
 
 ## 8. Owner actions after shipping
 
-Set `AMPLITUDE_ORG` in Vercel (the word after `/analytics/` in the Amplitude URL).
+Optional: set `AMPLITUDE_ORG` in Vercel (the word after `/analytics/` in the
+Amplitude URL) to get "Open in Amplitude" links next to Play.

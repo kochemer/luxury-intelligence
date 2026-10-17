@@ -161,8 +161,8 @@ when you verify or rewrite a doc.
 | `docs/seo-backlog.md` | SEO remaining work | current | 2026-10-04 |
 | `docs/superpowers/specs/2026-10-04-markets-pages-design.md` | Markets pages design | current | 2026-10-04 |
 | `docs/superpowers/specs/2026-10-14-social-content-plan.md` | What we post where on LinkedIn, X, YouTube, Spotify; automation design and phases | current (Phase 1 built) | 2026-10-14 |
-| `docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md` | /analytics Amplitude sections (returning, engagement, replays, social, vitals) and the weekly insights agent; what the Amplitude data can and can't do | approved, not built | 2026-10-16 |
-| `docs/analytics/measurement-plan.md` | Analytics events and attribution | reference | — |
+| `docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md` | /analytics Amplitude sections (returning, engagement, replays, social, vitals) and the weekly insights agent; what the Amplitude data can and can't do | built 2026-10-17 (differences in its `Status:` line) | 2026-10-17 |
+| `docs/analytics/measurement-plan.md` | Analytics events and attribution (§5 notes where the implementation differs) | reference | 2026-10-17 |
 | `docs/PAYWALL_AWARE_SELECTION.md` | Paywall detection in selection | reference | 2026-01-18 |
 | `docs/PODCAST_SCRIPT_LENGTH_IMPROVEMENTS.md` | Jan 2026 problem analysis for podcast length | historical | 2026-01-18 |
 | `RANKING_METHODOLOGY.md` | Selection and rerank method | reference (top-N + models verified; prompt/weights from Jan) | 2026-10-05 |

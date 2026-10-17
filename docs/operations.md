@@ -28,6 +28,26 @@ Facts are as of 2026-10-05 unless dated otherwise.
 | `subscriber-sweep.yml` | Daily 03:17 | Subscriber cleanup (uses `DATABASE_URL` secret) |
 | `docs-check.yml` | Every push / PR | `scripts/checkDocs.mjs`: docs still match the code (see `docs/README.md` §6) |
 | `backfill-visit-history.yml` | Manual only | One-off, re-runnable: imports Amplitude's daily visit history (up to the 2026-10-05 consent change) into `visit_history` for the `/analytics` page. Uses `AMPLITUDE_SECRET_KEY` + `DATABASE_URL` |
+| `weekly-analytics.yml` | Sun 09:00 (after `seo-weekly`); manual (`dry_run`: decide and check, write nothing) | Runs `npm run analytics:insights`: builds a pack of aggregate facts, asks Claude for at most one new /analytics 'Historical insights' tile, checks it (`lib/analytics/insights/checks.ts`) and writes `analytics_insights`. No change is a green run; never commits. Secrets: `DATABASE_URL`, `AMPLITUDE_SECRET_KEY`, `ANTHROPIC_API_KEY`, `GSC_*`; optional repo variable `INSIGHTS_MODEL` (default `claude-opus-5-5`). Read-only for the repo (never commits). Migration `0004` must be applied first. Concurrency group `weekly-analytics` |
+
+## Analytics page limits (`/analytics`, Amplitude)
+
+As of 2026-10-17. Design and data findings:
+`docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md`.
+
+- **The replay route (`app/analytics/replay/route.ts`) returns 413 above 4 MB gzipped.** Vercel caps a function
+  response at 4.5 MB, so the route refuses bigger recordings and the player
+  points the owner at Amplitude. Most visits are far below that.
+- **The page needs `maxDuration = 60`.** A cold Amplitude refresh is ~20 calls
+  (the results are cached for 3 hours per period). Don't lower it or add calls
+  without checking the time.
+- **Amplitude rate-limits by concurrency per project (HTTP 429).**
+  `lib/analytics/amplitude.ts` keeps at most 3 requests in flight per process
+  and backs off on 429, but two processes at once (a local dev server and
+  `analytics:insights`, or the page and the weekly workflow) can starve each
+  other. Run one at a time.
+- The replay list only reaches back 30 days, and every Amplitude panel starts
+  at `CONSENT_START` (2026-10-06); older periods are clamped.
 
 ## Build
 
@@ -134,6 +154,7 @@ overrides; leave them unset unless you mean to change behaviour.
 | `DISCOVERY_TIME_BOUND`, `DISCOVERY_EXTRA_EXCLUDES` | Discovery search window; extra URL exclude regexes |
 | `SEO_BASE_URL`, `SEO_ALERT_EMAIL`, `CLAUDE_BIN` | SEO monitor target (production by default), alert recipient, path to the Claude binary for repair |
 | `AMPLITUDE_API_KEY`, `AMPLITUDE_SERVER_ZONE` | Server-side Amplitude export for the weekly email (EU zone) |
+| `AMPLITUDE_ORG` | Amplitude org URL name (the word after `/analytics/` in its URL). Set in Vercel to get "Open in Amplitude" links next to the replay Play buttons on `/analytics`; without it no link is shown |
 | `NEXT_PUBLIC_VERCEL_ENV` | Set by Vercel; tags analytics events with the environment |
 | `VIDEO_RENDER_ENABLED` | Must be `true` for the old `video/` pipeline to render (costs money) |
 | `VIDEO_SHORT_CAP_USD`, `VIDEO_SHORT_TEMPO`, `VIDEO_SHORT_VOICE` | `video-short/` spend cap, voice speed, TTS voice |
