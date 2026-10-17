@@ -17,7 +17,7 @@ belongs and maps every doc with its status. The short version:
 - Dated state and numbers go in `docs/<area>-status.md`, never here. Reasons go
   in `docs/<area>-decisions.md`. Deploy/CI facts go in `docs/operations.md`.
 - Use absolute dates. Replace stale text, don't append to it. Mark backlog items
-  `[DONE]`/`[DROPPED]` with the commit hash.
+  `[DONE]`/`[DROPPED]` with the PR number or merge commit hash (branch hashes change on rebase).
 - A fact about the code or infra must never live only in an agent's private
   memory. If you find one there, move it into the repo.
 - No new diagnostic `.md` files at the repo root. Finished reports go to `docs/archive/`.
@@ -48,22 +48,27 @@ belongs and maps every doc with its status. The short version:
    - Shared hot files. Do not edit these unless the task explicitly says so;
      if you need a change there, list it in the PR description instead:
      - Dependencies: `package.json`, `package-lock.json`, `video-short/package.json`, `video-short/package-lock.json`
-     - Build/deploy config: `vercel.json`, `scripts/vercel-ignore-build.sh`, `next.config.ts`, `middleware.ts`, `tsconfig.json`, `tsconfig.seo.json`, `eslint.config.mjs`, `postcss.config.mjs`, `.gitignore`
-     - Env: `.env*`, `lib/env.ts`
+     - Build/deploy config: `vercel.json`, `scripts/vercel-ignore-build.sh`, `next.config.ts`, `middleware.ts`, `tsconfig.json`, `tsconfig.seo.json`, `eslint.config.mjs`, `postcss.config.mjs`, `.gitignore`, `.gitattributes`
+     - Env and site URL: `.env*`, `lib/env.ts`, `lib/utils/siteUrl.ts`
      - DB: `lib/db/schema.ts`, `drizzle/`, `drizzle.config.ts`
      - Global UI: `app/globals.css`, `app/layout.tsx`, `lib/i18n/messages.ts`, `public/manifest.webmanifest`
      - CI and cron: `.github/workflows/`, `.githooks/`, `scripts/checkDocs.mjs`
-     - Pipeline orchestration and sources: `pipeline/runWeeklyPipeline.ts`, `scripts/runWeeklyPipeline.ts`, `ingestion/sources.ts`
+     - Pipeline orchestration and sources: `pipeline/runWeeklyPipeline.ts`, `scripts/runWeeklyPipeline.ts`, `ingestion/sources.ts`, `ingestion/runIngestion.ts`, `scripts/mergeIngestBuffer.ts`
      - Feeds and crawl surface: `app/podcast/feed.xml/route.ts`, `lib/seo/urlInventory.ts`, `app/sitemap.ts`, `app/robots.ts`
      - SEO agent guardrails: `seo/authority.ts`, `seo/repair/policy.ts`
-     - Pipeline output that CI commits to `main`: `data/articles.json`, `data/digests/`, `data/weeks/`, `data/markets/`, `data/seo/`
+     - Pipeline output that CI commits to `main`: everything under `data/` that CI writes (`data/articles.json`, `data/digests/`, `data/weeks/`, `data/markets/`, `data/seo/`, `data/cache/`, the other `data/*.json` stats files), plus `public/podcast/`, `public/weekly-images/`, `public/video/shorts/`. Source of truth: the `git add` lines in `.github/workflows/`.
 
 3. Deployment
    - Never run `vercel --prod`, never push to `main`, never merge your own PR.
    - Push your branch and use the Vercel preview URL to verify.
+     Every branch push builds a preview, and each deployment stores a full copy of
+     `public/` media against a 10 GB account limit (`docs/operations.md` § Storage),
+     so push when the work is ready for review, not after every commit.
 
 4. Before opening a PR
-   - `git fetch && git rebase origin/main` again, then run build + tests/lint.
+   - `git fetch && git rebase origin/main` again, then run build + tests/lint
+     (the exact commands are in `.claude/agents/reviewer.md`; `npm run lint` already
+     fails on `main`, so lint only the files you changed).
    - If the rebase conflicts: keep the intent of both sides, rebuild, re-test.
      If you can't tell what the other change intended, stop and report. Don't guess.
    - Run the `reviewer` subagent on the diff and fix what it flags.
