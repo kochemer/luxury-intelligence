@@ -459,7 +459,7 @@ The local snapshot is in `.impeccable/critique/` (untracked).
   latest issue; paid support (Supporter EUR 1, Patron EUR 3) sits below as
   optional; guilt headline and "Edition" names gone; FAQ says when issues
   arrive and that no human reviews them. Owner approved 2026-10-16.
-- Homepage [DONE 2026-10-17, HOMEPAGE_HASH]: navy masthead band (full-bleed below 1536px, a panel aligned with the 100rem content column from 1536px; cover fills the right side, ~3:2), one signup field, full-width weekly quote, Spotlight beside the Short + podcast (pop-up player), two-column articles (3 per category + "All 7" link). Checked at 390-2544px + dark mode by independent reviewer agents. The issue page keeps all 28 stories.
+- Homepage [DONE 2026-10-17, 572612d]: navy masthead band (full-bleed below 1536px, a panel aligned with the 100rem content column from 1536px; cover fills the right side, ~3:2), one signup field, full-width weekly quote, Spotlight beside the Short + podcast (pop-up player), two-column articles (3 per category + "All 7" link). Checked at 390-2544px + dark mode by independent reviewer agents. The issue page keeps all 28 stories.
 - Site-wide CSS traps fixed 2026-10-17: unlayered `* { max-width: 100% }` disabled every Tailwind max-w-* (now in `@layer base`); `overflow-x: hidden` on html/body broke `position: sticky` (now `clip`). Pinned by `__tests__/css.globalRules.test.ts`.
 
 **Stage 5 — Performance** (target: mobile LCP under 2.5 s)
