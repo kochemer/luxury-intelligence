@@ -163,7 +163,7 @@ export default function PodcastPlayer({
       <button
         type="button"
         onClick={cycleSpeed}
-        className="flex-shrink-0 text-[11px] font-medium border border-white/20 rounded-full px-2 py-1 text-white/60 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-deep)] transition-colors"
+        className="flex-shrink-0 min-w-11 min-h-11 text-[11px] font-medium border border-white/20 rounded-full px-2 py-1 text-white/60 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-deep)] transition-colors"
         aria-label={`Playback speed ${speed}x`}
       >
         {speed}x

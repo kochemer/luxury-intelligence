@@ -88,7 +88,7 @@ export default function Header() {
           From 1180px, not md: with two market links the row needs ~1150px
           and wrapped into a broken second line at 1024. Checked at 1180
           and 1280; narrower screens get the menu button. */}
-      <div className="hidden min-[1180px]:flex min-[1180px]:items-center min-[1180px]:justify-between min-[1180px]:px-6 min-[1180px]:py-0.5 min-[1180px]:h-14 gap-4">
+      <div className="hidden min-[1180px]:flex min-[1180px]:items-center min-[1180px]:justify-between min-[1180px]:px-6 min-[1180px]:py-0.5 min-[1180px]:h-14 min-[1180px]:max-w-7xl 2xl:max-w-[100rem] min-[1180px]:mx-auto gap-4">
         <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity shrink-0">
           <Image src="/favicon.png" alt="Luxury Intelligence" width={36} height={36} className="flex-shrink-0" />
           <span className="font-sans font-semibold text-base lg:text-lg tracking-tight">Luxury Intelligence</span>
@@ -96,7 +96,7 @@ export default function Header() {
         <div className="flex-1 min-w-0 max-w-[192px]">
           <SearchBar compact />
         </div>
-        <nav className="flex items-center min-w-0 mx-2 lg:mx-4">
+        <nav className="flex items-center min-w-0 ml-auto mr-2 lg:mr-4">
           <ul className="flex items-center gap-1 lg:gap-2 text-sm font-medium font-sans flex-wrap">
             <NavLinks />
           </ul>
@@ -181,7 +181,7 @@ export default function Header() {
                   <Link
                     href={`${prefix}/subscribe`}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="inline-flex items-center justify-center bg-[var(--color-accent)] text-white px-5 py-3 min-h-[44px] rounded-[3px] font-medium w-full text-center transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                    className="inline-flex items-center justify-center bg-[var(--color-accent)] text-[var(--color-on-accent)] px-5 py-3 min-h-[44px] rounded-[3px] font-medium w-full text-center transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     {t.nav.subscribeCta}
                   </Link>

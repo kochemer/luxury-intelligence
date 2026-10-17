@@ -2,7 +2,8 @@
 
 import { useRef, useState, useEffect } from 'react';
 
-export function WeeklyInsight({ quote }: { quote: string }) {
+/** wide: the homepage's full-width pull-quote row (wider measure, larger type). */
+export function WeeklyInsight({ quote, wide = false }: { quote: string; wide?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
 
@@ -29,8 +30,8 @@ export function WeeklyInsight({ quote }: { quote: string }) {
   return (
     <div
       ref={ref}
-      className={`relative max-w-2xl mx-auto px-6 sm:px-10 md:px-16 py-8 sm:py-10 md:py-16 text-center transition-all duration-[600ms] ease-out ${
-        revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      className={`relative ${wide ? 'w-full px-6 sm:px-10 md:px-16 lg:px-24' : 'max-w-2xl mx-auto px-6 sm:px-10 md:px-16'} py-8 sm:py-10 md:py-16 text-center transition-all duration-[600ms] ease-out ${
+        revealed ? 'translate-y-0' : 'translate-y-2'
       }`}
     >
       {/* Opening mark — decorative, top-left, does not affect text flow */}
@@ -42,7 +43,7 @@ export function WeeklyInsight({ quote }: { quote: string }) {
       </span>
 
       {/* .speakable-insight is referenced by the NewsArticle `speakable` cssSelector in lib/seo/jsonLd.ts */}
-      <p className="speakable-insight font-serif italic text-[1.125rem] md:text-[1.375rem] leading-relaxed text-[var(--color-text-primary)] tracking-[-0.01em] relative">
+      <p className={`speakable-insight font-serif italic text-[var(--color-text-primary)] tracking-[-0.01em] relative text-balance ${wide ? 'text-[1.25rem] md:text-[1.625rem] lg:text-[2rem] xl:text-[2.25rem] leading-snug' : 'text-[1.125rem] md:text-[1.375rem] leading-relaxed'}`}>
         {quote}
       </p>
 
@@ -54,7 +55,7 @@ export function WeeklyInsight({ quote }: { quote: string }) {
         &rdquo;
       </span>
 
-      <hr className="mt-10 border-[var(--color-border)] max-w-xs mx-auto" />
+      <hr className={`mt-10 border-[var(--color-border)] ${wide ? 'max-w-none -ml-6 w-[calc(100%+3rem)] sm:-ml-10 sm:w-[calc(100%+5rem)] md:-ml-16 md:w-[calc(100%+8rem)] lg:-ml-24 lg:w-[calc(100%+12rem)]' : 'max-w-xs mx-auto'}`} />
     </div>
   );
 }

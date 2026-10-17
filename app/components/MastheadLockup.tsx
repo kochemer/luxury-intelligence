@@ -17,14 +17,11 @@ export default function MastheadLockup({
   const textSize = isHero ? 'text-hero-masthead' : 'text-lg';
   const tracking = isHero ? 'tracking-[0.2em]' : 'tracking-wider';
   const bottomRuleWidth = isHero ? 'w-32' : 'w-20';
-  const glow = isHero
-    ? { textShadow: '0 0 40px rgba(139,105,20,0.3), 0 2px 16px rgba(0,0,0,0.4)' }
-    : {};
 
   return (
-    <div className="flex flex-col items-start" aria-hidden="true">
+    <div className="flex flex-col items-start">
       {/* Top rule: line ◇ line */}
-      <div className="flex items-center w-full max-w-xs mb-3">
+      <div className="flex items-center w-full max-w-xs mb-3" aria-hidden="true">
         <span className={`flex-1 h-px ${lineColor}`} />
         <span className={`${diamondColor} text-xs mx-3 select-none`}>◇</span>
         <span className={`flex-1 h-px ${lineColor}`} />
@@ -33,13 +30,12 @@ export default function MastheadLockup({
       {/* Masthead text */}
       <Tag
         className={`font-serif ${textSize} ${tracking} ${textColor} uppercase font-bold`}
-        style={glow}
       >
         Luxury Intelligence
       </Tag>
 
       {/* Bottom rule: shorter, centred */}
-      <div className={`flex items-center ${bottomRuleWidth} mt-3`}>
+      <div className={`flex items-center ${bottomRuleWidth} mt-3`} aria-hidden="true">
         <span className={`flex-1 h-px ${lineColor}`} />
         <span className={`${diamondColor} text-[10px] mx-2 select-none`}>◇</span>
         <span className={`flex-1 h-px ${lineColor}`} />

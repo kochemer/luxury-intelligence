@@ -99,7 +99,7 @@ export default function ArticleCard({
           </h3>
         </a>
         {cleanSummary && <p className="text-body text-[var(--color-text-secondary)] mt-3 max-w-3xl">{cleanSummary}</p>}
-        <div className="text-[13px] text-[var(--color-text-secondary)] font-sans flex items-center gap-1.5 mt-4">
+        <div className="text-[13px] text-[var(--color-text-secondary)] font-sans flex flex-nowrap items-center gap-1.5 min-w-0 mt-4">
           {source && hostname && (
             <img
               // Third-party source favicons: a page can carry ~90 of these, so
@@ -114,15 +114,15 @@ export default function ArticleCard({
               height={16}
               src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
               alt=""
-              className="w-4 h-4 rounded-sm inline-block opacity-60"
+              className="w-4 h-4 shrink-0 rounded-sm inline-block opacity-60"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
               }}
             />
           )}
-          {source && <span className="uppercase tracking-widest">{displaySourceName(source)}</span>}
-          {source && displayDate && <span aria-hidden>·</span>}
-          {displayDate && <span>{displayDate}</span>}
+          {source && <span className="uppercase tracking-widest min-w-0 truncate" title={displaySourceName(source)}>{displaySourceName(source)}</span>}
+          {source && displayDate && <span aria-hidden className="shrink-0">·</span>}
+          {displayDate && <span className="shrink-0 whitespace-nowrap">{displayDate}</span>}
         </div>
         <a
           {...linkProps}
@@ -180,11 +180,11 @@ export default function ArticleCard({
 
   return (
     <article
-      className="group transition-all duration-200 py-6 border-b border-[var(--color-border)] pl-0 hover:pl-3 hover:border-l-2 hover:border-l-[var(--color-accent)] hover:bg-[var(--color-accent-light)] last:border-b-0"
+      className="group transition-colors duration-200 py-6 -mx-3 px-3 rounded-sm border-b border-[var(--color-border)] md:border-b-0 last:border-b-0 hover:bg-[var(--color-accent-light)] hover:shadow-[inset_2px_0_0_var(--color-accent)]"
     >
       {/* Source + date — single metadata line with favicon */}
       {(source || displayDate) && (
-        <div className="text-[13px] text-[var(--color-text-secondary)] font-sans flex items-center gap-1.5 mb-1.5">
+        <div className="text-[13px] text-[var(--color-text-secondary)] font-sans flex flex-nowrap items-center gap-1.5 min-w-0 mb-1.5">
           {source && hostname && (
             <img
               // Third-party source favicons: a page can carry ~90 of these, so
@@ -199,15 +199,15 @@ export default function ArticleCard({
               height={16}
               src={`https://www.google.com/s2/favicons?domain=${hostname}&sz=32`}
               alt=""
-              className="w-4 h-4 rounded-sm inline-block opacity-60"
+              className="w-4 h-4 shrink-0 rounded-sm inline-block opacity-60"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
               }}
             />
           )}
-          {source && <span className="uppercase tracking-widest">{displaySourceName(source)}</span>}
-          {source && displayDate && <span aria-hidden>·</span>}
-          {displayDate && <span>{displayDate}</span>}
+          {source && <span className="uppercase tracking-widest min-w-0 truncate" title={displaySourceName(source)}>{displaySourceName(source)}</span>}
+          {source && displayDate && <span aria-hidden className="shrink-0">·</span>}
+          {displayDate && <span className="shrink-0 whitespace-nowrap">{displayDate}</span>}
         </div>
       )}
 
@@ -246,7 +246,7 @@ export default function ArticleCard({
       )}
 
       {/* Read article → link — always visible on touch devices, hover-only on desktop */}
-      <div className="max-md:max-h-[2.5rem] md:max-h-0 md:group-hover:max-h-[2.5rem] group-focus-within:max-h-[2.5rem] overflow-hidden transition-[max-height] duration-200 flex justify-end">
+      <div className="max-h-[2.5rem] overflow-hidden flex justify-end">
         <a
           {...linkProps}
           className="text-body text-[var(--color-accent)] font-medium max-md:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 hover:underline focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 rounded px-1 -mr-1 py-1"

@@ -89,7 +89,7 @@ export default function Footer() {
           </p>
           <Link
             href={`${prefix}/subscribe`}
-            className="inline-block bg-[var(--color-accent)] text-white px-6 py-2.5 rounded-sm text-[14px] font-medium hover:opacity-90 transition-opacity"
+            className="inline-block bg-[var(--color-accent)] text-[var(--color-on-accent)] px-6 py-2.5 rounded-sm text-[14px] font-medium hover:opacity-90 transition-opacity"
           >
             {t.nav.subscribeCta}
           </Link>

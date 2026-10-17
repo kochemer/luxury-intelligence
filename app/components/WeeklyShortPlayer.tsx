@@ -54,13 +54,12 @@ const WeeklyShortPlayer = forwardRef<HTMLDivElement, Props>(function WeeklyShort
             className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
           <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" aria-hidden />
-          <span className="absolute inset-0 flex items-center justify-center" aria-hidden>
-            <span className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[var(--color-deep)]/85 border-2 border-[var(--color-accent)] flex items-center justify-center text-white transition-transform group-hover:scale-110">
-              <svg className="w-5 h-5 md:w-7 md:h-7 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5z" /></svg>
-            </span>
-          </span>
           <span className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] md:text-[11px] font-medium text-white tracking-wide" aria-hidden>
-            <span className="bg-black/50 rounded px-1.5 py-0.5 tabular-nums">{fmt(durationS)}</span>
+            {/* Play cue lives in the chip: a centred play circle covered the poster's headline or caption */}
+            <span className="inline-flex items-center gap-1.5 bg-[var(--color-deep)]/90 border border-[var(--color-accent)] rounded-full pl-2 pr-2.5 py-1 tabular-nums text-[11px] md:text-xs transition-colors group-hover:bg-[var(--color-accent)]">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5z" /></svg>
+              {fmt(durationS)}
+            </span>
             <span className="bg-black/50 rounded px-1.5 py-0.5">Shorts</span>
           </span>
         </button>

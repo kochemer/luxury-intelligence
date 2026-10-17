@@ -49,6 +49,12 @@ type DigestClientViewProps = {
   categoryCards?: CategoryCard[];
   variant?: 'home' | 'week';
   locale?: Locale;
+  /** Homepage: show this many per category (ignores Top-N) */
+  perCategory?: number;
+  /** Issue page URL; with perCategory, each category links to its section there */
+  moreHref?: string;
+  /** Tighter vertical rhythm between categories (homepage) */
+  compact?: boolean;
 };
 
 export default function DigestClientView({ 
@@ -56,6 +62,9 @@ export default function DigestClientView({
   categoryCards,
   variant = 'home',
   locale = 'en',
+  perCategory,
+  moreHref,
+  compact,
 }: DigestClientViewProps) {
   const searchParams = useSearchParams();
   const t = getMessages(locale);
@@ -104,8 +113,8 @@ export default function DigestClientView({
       return null;
     }
     return (
-      <section className="w-full max-w-5xl mx-auto mb-6 md:mb-16">
-        <div className="w-full grid grid-cols-12 gap-x-0 gap-y-8 lg:gap-10">
+      <section className="w-full mb-6 md:mb-16">
+        <div className={`w-full grid grid-cols-12 gap-x-0 ${compact ? 'gap-y-0 lg:gap-x-10' : 'gap-y-8 lg:gap-10'}`}>
           {categoryCards.map(cat => {
             // @ts-ignore
             const topic = digest.topics[cat.key];
@@ -113,7 +122,8 @@ export default function DigestClientView({
             const totalCat = digest.totals.byTopic[cat.countBy] ?? 0;
             
             // Slice articles client-side based on effectiveTopN
-            const formattedArticles = (topic?.top || []).slice(0, effectiveTopN).map((article: any) => ({
+            const allArticles = topic?.top || [];
+            const formattedArticles = allArticles.slice(0, perCategory ?? effectiveTopN).map((article: any) => ({
               ...article,
               date: formatDate(article.published_at),
             }));
@@ -134,6 +144,10 @@ export default function DigestClientView({
                   countLabel={t.digest.articlesCount}
                   aiSummaryLabel={t.digest.aiSummary}
                   categoryKey={cat.key}
+                  moreHref={perCategory && moreHref && allArticles.length > formattedArticles.length ? `${moreHref}#${cat.anchorId}` : undefined}
+                  moreLabel={`All ${allArticles.length} in ${cat.title}`}
+                  selectedTotal={allArticles.length}
+                  compact={compact}
                 />
               </div>
             );

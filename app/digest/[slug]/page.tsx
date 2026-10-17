@@ -358,12 +358,19 @@ export default async function DigestPage({
           <GrainOverlay id="grain-hero" className="z-[2] opacity-[0.08] md:opacity-[0.08] max-md:opacity-[0.03]" />
 
           {/* Dateline stamp — top-left */}
-          <div className="hero-dateline absolute top-6 left-6 md:left-12 z-10 font-mono text-[10px] tracking-[0.2em] uppercase text-white/70">
-            Published&nbsp;·&nbsp;{formatPublishedDate(digest) ?? dateRange.toUpperCase()}&nbsp;·&nbsp;Copenhagen
+          {/* Left shade so the hero text stays legible over any cover */}
+          <div className="absolute inset-0 z-[3] bg-gradient-to-r from-black/45 via-black/10 to-transparent" aria-hidden="true" />
+
+          {/* Dateline and masthead sit in the same max-w-7xl column as the content below */}
+          <div className="hero-dateline absolute top-6 inset-x-0 z-10 font-mono text-[10px] tracking-[0.2em] uppercase text-white/70">
+            <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4 sm:px-5 md:px-6">
+              Published&nbsp;·&nbsp;{formatPublishedDate(digest) ?? dateRange.toUpperCase()}&nbsp;·&nbsp;Copenhagen
+            </div>
           </div>
 
           {/* Masthead */}
-          <div className="absolute top-0 left-0 right-0 pt-8 md:pt-12 px-6 md:px-12 z-10">
+          <div className="absolute top-0 left-0 right-0 pt-8 md:pt-12 z-10">
+            <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-4 sm:px-5 md:px-6">
             <div className="hero-title">
               <MastheadLockup variant="hero" />
             </div>
@@ -378,6 +385,7 @@ export default async function DigestPage({
                 {formatIssueLine(digest.weekLabel, digest.startISO)}
               </p>
             )}
+            </div>
           </div>
 
           {/* Scroll prompt — bottom-right */}
@@ -391,7 +399,9 @@ export default async function DigestPage({
 
         {/* PANELS SECTION */}
         <section className="relative z-20 -mt-2 pt-2">
-          <div className="w-full max-w-5xl mx-auto px-4 sm:px-5 md:px-6">
+          {/* max-w-7xl: the two-column category grid was tuned at this width while a
+              global CSS rule disabled max-w-*; at max-w-5xl its cards were ~200px. */}
+          <div className="w-full max-w-7xl 2xl:max-w-[100rem] mx-auto px-4 sm:px-5 md:px-6">
             <div className="mb-4 sm:mb-5 md:mb-6 mt-2">
               <Breadcrumbs
                 items={[
@@ -451,7 +461,7 @@ export default async function DigestPage({
                     </Suspense>
                   </div>
                   <div className="flex flex-col items-end">
-                    <span className="text-meta font-medium text-black/60">{digest.totals.total}</span>
+                    <span className="text-meta font-medium text-black/60">{digest.totals.total.toLocaleString('en-US')}</span>
                     <span className="text-meta text-black/40">articles analysed this week</span>
                   </div>
                 </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
 import ArticleCard from './ArticleCard';
 import Link from 'next/link';
 import type { Locale } from '@/lib/i18n/types';
@@ -34,6 +33,13 @@ type CategorySectionProps = {
   countLabel?: string;
   aiSummaryLabel?: string;
   categoryKey?: string;
+  /** How many the issue selected, when fewer are shown here (homepage shows 3 of 7) */
+  selectedTotal?: number;
+  /** Link to the full list on the issue page */
+  moreHref?: string;
+  moreLabel?: string;
+  /** Tighter spacing (homepage rows) */
+  compact?: boolean;
 };
 
 export default function CategorySection({
@@ -48,55 +54,36 @@ export default function CategorySection({
   emptyCta = 'Suggest a source',
   aiSummaryLabel = 'AI summary',
   categoryKey,
+  selectedTotal,
+  moreHref,
+  moreLabel,
+  compact,
 }: CategorySectionProps) {
   const isGrid = variant === 'grid';
-  const headerRef = useRef<HTMLElement>(null);
-  const [revealed, setRevealed] = useState(false);
-
-  useEffect(() => {
-    const el = headerRef.current;
-    if (!el) return;
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mq.matches) { setRevealed(true); return; }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setRevealed(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section
       id={id}
-      className={isGrid
+      className={compact
+        ? "scroll-mt-20 sm:scroll-mt-24 relative pb-8 md:pb-10 h-full flex flex-col"
+        : isGrid
         ? "scroll-mt-20 sm:scroll-mt-24 relative pb-10 md:pb-20"
         : "mb-0 pb-10 md:pb-20 border-b border-[var(--color-border)] last:border-b-0 last:pb-0 last:mb-0 scroll-mt-20 sm:scroll-mt-24 relative pt-10 pb-10 md:pt-20 md:pb-20"
       }
     >
       {/* Editorial frontispiece header */}
-      <header
-        ref={headerRef}
-        className={`mb-6 md:mb-10 pt-10 md:pt-16 border-t border-[var(--color-accent)] transition-all duration-[600ms] ease-out ${
-          revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}
-      >
-        <p className="text-[11px] tracking-[0.3em] uppercase text-[var(--color-accent)] font-sans mb-4">
-          This Week
-        </p>
-        <div className="flex flex-col gap-1.5 md:flex-row md:items-end md:justify-between md:gap-4">
-          <h2 className="font-serif font-normal text-[1.875rem] md:text-[2.75rem] leading-tight md:leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">
+      {/* Always visible: it used to start at opacity-0 and wait for an
+          IntersectionObserver, so previews, print and fast scrollers saw blanks. */}
+      <header className={`border-t border-[var(--color-accent)] ${compact ? 'mb-6 pt-8 md:pt-10' : 'mb-6 md:mb-10 pt-10 md:pt-16'}`}>
+        {/* compact (homepage, two categories side by side): count under the title and a
+            smaller title, so a wrapping title can't push one column lower than the other */}
+        <div className={compact ? 'flex flex-col gap-1.5' : 'flex flex-col gap-1.5 md:flex-row md:items-end md:justify-between md:gap-4'}>
+          <h2 className={`font-serif font-normal leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] whitespace-nowrap overflow-hidden text-ellipsis ${compact ? 'text-[1.75rem] md:text-[2.25rem]' : 'text-[1.875rem] md:text-[2.75rem] md:leading-none'}`}>
             {title}
           </h2>
           {(count > 0 || articles.length > 0) && (
             <span className="font-sans text-[11px] tracking-[0.2em] uppercase text-[var(--color-text-secondary)] md:pb-1 shrink-0">
-              {count} articles · {articles.length} selected
+              {count} articles · {selectedTotal ?? articles.length} selected
             </span>
           )}
         </div>
@@ -160,6 +147,16 @@ export default function CategorySection({
           </div>
         )}
       </div>
+      {moreHref && (
+        <Link
+          href={moreHref}
+          // mt-auto: the two categories in a row end at different heights; pinning the
+          // link to the bottom keeps both "All 7" links on one line.
+          className="mt-auto pt-6 self-start inline-flex items-center min-h-11 text-sm font-medium text-[var(--color-accent)] underline underline-offset-4 hover:opacity-80"
+        >
+          {moreLabel ?? 'See all'} <span aria-hidden="true">&nbsp;→</span>
+        </Link>
+      )}
     </section>
   );
 }

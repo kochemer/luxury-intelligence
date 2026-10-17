@@ -77,7 +77,7 @@ export default function ConsentBanner() {
           <button
             type="button"
             onClick={handleAccept}
-            className="font-mono text-[11px] tracking-[0.15em] uppercase bg-[var(--color-accent)] text-white px-5 py-2.5 rounded-[2px] hover:opacity-90 transition-opacity"
+            className="font-mono text-[11px] tracking-[0.15em] uppercase bg-[var(--color-accent)] text-[var(--color-on-accent)] px-5 py-2.5 rounded-[2px] hover:opacity-90 transition-opacity"
           >
             Accept
           </button>

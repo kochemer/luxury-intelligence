@@ -60,7 +60,7 @@ export default function SupportPage() {
 
       {/* Content Section */}
       <section className="max-w-5xl mx-auto px-4 md:px-6 py-16 md:py-20">
-        <div className="max-w-prose">
+        <div className="max-w-prose mx-auto">
         {/* Suggest Sources Card */}
         <div className="bg-[var(--color-surface)] rounded-xl shadow-sm border border-gray-200 p-6 md:p-8 mb-12 md:mb-16">
           <h2 className="text-section font-semibold text-gray-900 mb-4">

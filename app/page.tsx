@@ -7,18 +7,15 @@ import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import DigestClientView from './components/DigestClientView';
 import IssueRating from './components/IssueRating';
-import CategoryCardGrid from './components/CategoryCardGrid';
 import WatchOrListen from './components/WatchOrListen';
+import FreeSubscribeForm from './components/FreeSubscribeForm';
 import { loadWeeklyShort } from '@/lib/video/weeklyShort';
-import StatsBar from './components/StatsBar';
-import TopNSelector from './components/TopNSelector';
 import BrandPattern from './components/BrandPattern';
-import GrainOverlay from './components/GrainOverlay';
 import MastheadLockup from './components/MastheadLockup';
 import { WeeklyInsight } from './components/WeeklyInsight';
 import { EditorSpotlight } from './components/EditorSpotlight';
 import { TopicKey } from '@/lib/utils/topicNames';
-import { formatDateRange, formatIssueLine, formatPublishedDate } from '@/lib/utils/formatDate';
+import { formatIssueLine, formatPublishedDate } from '@/lib/utils/formatDate';
 import { getCurrentDigestWeek } from '@/lib/utils/getCurrentDigestWeek';
 import { formatStatsSecondaryLine } from '@/lib/utils/digestStats';
 import { getSiteUrl } from '@/lib/utils/siteUrl';
@@ -223,225 +220,175 @@ export default async function Home() {
   const podcast = await loadPodcastForWeek(weekLabel);
   const short = await loadWeeklyShort(weekLabel);
 
-  // HERO section (always present)
+  const issueHref = `/digest/${weekLabelToSlug(weekLabel)}`;
+  const publishedLabel = (digest && formatPublishedDate(digest))
+    ?? DateTime.fromObject({
+      weekYear: parseInt(weekLabel.split('-')[0] ?? String(DateTime.now().year), 10),
+      weekNumber: parseInt((weekLabel.split('-')[1] ?? 'W1').replace(/^W/i, ''), 10),
+    }).toFormat('dd MMMM yyyy').toUpperCase();
+
+  // Layout (owner, 2026-10-13 and 2026-10-16): keep the palette, the insight +
+  // Spotlight and the two-column article view; one signup form, up front; the
+  // weekly cover stays on the page but no longer fills the first screen; the
+  // Short and podcast sit beside the Spotlight so they show before the articles.
   return (
-    <main className="w-full" style={{
-      minHeight: '100vh',
-      fontFamily: 'system-ui, Arial, sans-serif',
-      background: 'var(--color-bg)',
-    }}>
+    <main className="w-full min-h-screen bg-[var(--color-bg)]">
 
-      {/* MAGAZINE COVER HERO (Concept A) — full-bleed image, overlaid masthead */}
-      <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] overflow-hidden" style={{ zIndex: 0 }}>
-        {/* Cover image — full bleed, anchor to bottom so top crops and bottom is visible */}
-        {digest?.coverImageUrl ? (
-          /* One optimised image in place of a CSS background plus a duplicate
-             sr-only <img>. The background bypassed image optimisation, and
-             these covers are ~2.5 MB PNGs — on the homepage that is the
-             Largest Contentful Paint element. Same treatment as the digest
-             page hero; see app/digest/[slug]/page.tsx. */
-          <div className="absolute inset-0 w-full h-full animate-ken-burns">
-            <Image
-              src={digest.coverImageUrl}
-              alt={digest.coverImageAlt || `Weekly digest cover for ${digest?.weekLabel || 'current week'}`}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-bottom"
-            />
-          </div>
-        ) : (
-          <div
-            className="absolute inset-0 w-full h-full"
-            style={{ background: 'linear-gradient(120deg, var(--color-deep) 50%, var(--color-accent) 100%)' }}
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/50" />
-        <BrandPattern variant="dark" className="z-[1]" />
-        <GrainOverlay id="grain-hero" className="z-[2] opacity-[0.08] md:opacity-[0.08] max-md:opacity-[0.03]" />
-        {/* Dateline stamp — top-left newspaper-style */}
-        <div className="hero-dateline absolute top-6 left-6 md:left-12 z-10 font-mono text-[10px] tracking-[0.2em] uppercase text-white/70">
-          Published&nbsp;·&nbsp;{(digest && formatPublishedDate(digest))
-            ?? DateTime.fromObject({
-                weekYear: parseInt(weekLabel.split('-')[0] ?? String(DateTime.now().year), 10),
-                weekNumber: parseInt((weekLabel.split('-')[1] ?? 'W1').replace(/^W/i, ''), 10),
-              }).toFormat('dd MMMM yyyy').toUpperCase()
-          }&nbsp;·&nbsp;Copenhagen
-        </div>
-
-        {/* Masthead */}
-        <div className="absolute top-0 left-0 right-0 pt-8 md:pt-12 px-6 md:px-12 z-10">
-          <div className="hero-title">
+      {/* MASTHEAD BAND: promise + the one signup form on the left; the weekly cover
+          fills the right column edge to edge (top, bottom and right); the
+          column is sized from the band height by .home-hero-grid in globals.css
+          so the cover stays close to 3:2 at every width. 1024-1279px: the cover
+          sits behind the right of the band; tablets: a 16:9 banner above the text;
+          phones: native 3:2, uncropped. From 1536px (2xl) the band becomes a
+          rounded panel inside the same 100rem column as the content below, so a
+          very wide screen has no empty navy strip beside the text (owner, 2026-10-16). */}
+      <section className="relative w-full">
+        <div className="2xl:max-w-[100rem] 2xl:mx-auto 2xl:px-6 2xl:pt-8">
+        <div className="relative overflow-hidden bg-[var(--color-deep)] 2xl:rounded-2xl">
+        <BrandPattern variant="dark" className="z-0" />
+        <div className="home-hero-grid relative z-10 grid">
+          <div className="px-6 py-6 md:px-10 md:py-10 lg:relative lg:z-10 lg:max-w-[33rem] lg:box-content xl:max-w-[36rem] xl:py-10 xl:pr-12 xl:pl-[max(1.5rem,calc((100vw_-_80rem)/2_+_1.5rem))] 2xl:pl-12 xl:self-center">
+            <p className="hidden sm:block font-mono text-xs tracking-[0.18em] uppercase text-[var(--color-on-deep-muted)] mb-4">
+              Published&nbsp;·&nbsp;{publishedLabel}&nbsp;·&nbsp;Copenhagen
+            </p>
             <MastheadLockup variant="hero" />
-          </div>
-          <p className="hero-sub font-mono text-white/80 text-body mt-2 max-w-xl uppercase">
-            Weekly intelligence across AI, ecommerce, luxury, and jewellery.
-          </p>
-          {weekLabel && (
-            <p
-              className="hero-issue text-white/70 text-issue-line tracking-[0.3em] uppercase mt-2"
-              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}
-            >
+            <p className="mt-4 text-lg md:text-xl leading-relaxed text-[var(--color-on-deep)] max-w-xl">
+              {digest
+                ? `The week’s most important stories in ecommerce, AI, luxury and jewellery, ranked from ${digest.totals.total.toLocaleString('en-US')} articles.`
+                : 'The week’s most important stories in ecommerce, AI, luxury and jewellery, ranked every Monday.'}
+            </p>
+            <p className="mt-2 text-issue-line tracking-[0.2em] uppercase text-[var(--color-on-deep-muted)]">
               {formatIssueLine(weekLabel, digest?.startISO)}
             </p>
-          )}
-        </div>
-
-        {/* Scroll prompt — bottom-right */}
-        <div className="hero-scroll-prompt absolute bottom-8 right-8 z-10 font-mono text-[10px] tracking-[0.2em] uppercase text-white/50 flex items-center gap-2 animate-[breathe_3s_ease-in-out_infinite]">
-          <span>Scroll to read</span>
-          <span className="block w-4 h-px bg-white/50" />
-        </div>
-      </section>
-
-      {/* PANELS SECTION */}
-      <section className="relative z-20 -mt-2 pt-2">
-        <div className="w-full max-w-5xl mx-auto px-4 sm:px-5 md:px-6">
-          {/* Stats bar: article count between hero and category nav */}
-          {digest && (
-            <StatsBar
-              totalArticles={digest.totals.total}
-              secondaryLine={formatStatsSecondaryLine(
-                digest,
-                podcast?.duration != null ? podcast.duration / 60 : undefined
-              )}
-            />
-          )}
-
-          {/* Weekly pull-quote — editorial insight between stats and category nav.
-              Insight or nothing: never fall back to an article summary here. */}
-          {digest?.oneSentenceSummary && <WeeklyInsight quote={digest.oneSentenceSummary} />}
-
-          {/* Editor's Take — the page's original argument, above the lists (roadmap F3.1) */}
-          {digest?.editorialTake && (
-            <div className="max-w-3xl mx-auto px-4 sm:px-6">
-              <EditorSpotlight
-                text={digest.editorialTake}
-                weekLabel={digest.weekLabel}
-                isOverride={Boolean(digest.editorialTakeOverride)}
-              />
+            <div className="mt-6">
+              <FreeSubscribeForm tone="dark" placement="home_hero" />
             </div>
-          )}
-
-          {/* Podcast + stats on cream */}
-          <div className="bg-[var(--color-bg)] rounded-t-xl md:rounded-t-2xl border border-b-0 border-t border-t-[var(--color-accent)] border-black/5 p-4 sm:p-6 md:p-8 lg:p-10">
-          {!digest ? (
-            // Reader-facing: never show build commands here (the old block printed
-            // `npx tsx scripts/buildWeeklyDigest.ts` to the public).
-            <div className="max-w-xl mx-auto my-10 text-center">
-              <h2 className="font-serif text-section text-[var(--color-text-primary)] mb-3">This week&rsquo;s issue is on its way</h2>
-              <p className="text-body text-[var(--color-text-secondary)] mb-6">
-                A new issue goes out every Monday. Until then, past issues are in the archive.
-              </p>
-              <Link
-                href="/archive"
-                className="inline-flex items-center min-h-11 px-5 rounded-sm bg-[var(--color-accent)] text-white text-sm font-medium hover:opacity-90"
-              >
-                Browse past issues
-              </Link>
-            </div>
-          ) : (
-            <>
-              {/* Watch or listen: the week's Short (once public) + podcast, at the top of the panel */}
-              <WatchOrListen short={short} podcast={podcast} />
-
-              {/* THIS WEEK - Category cards + Top N */}
-              <div id="categories" className="mb-4 sm:mb-5 md:mb-6 pb-4 sm:pb-5 md:pb-6 border-b border-gray-200 dark:border-gray-700">
-                <span className="text-meta font-medium uppercase tracking-widest text-[var(--color-accent)] block mb-4">
-                  THIS WEEK
-                </span>
-                <CategoryCardGrid
-                  cards={CATEGORY_CARDS.map((cat) => {
-                    const byTopic = digest.totals?.byTopic as Record<string, number> | undefined;
-                    return {
-                      key: cat.key,
-                      title: cat.title,
-                      cardDesc: cat.cardDesc,
-                      color: cat.color,
-                      anchorId: cat.anchorId,
-                      count: byTopic?.[cat.countBy] ?? 0,
-                    };
-                  })}
-                />
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="flex items-center">
-                    <Suspense fallback={<div className="h-4 w-20" />}>
-                      <TopNSelector />
-                    </Suspense>
-                  </div>
-                  <div className="flex flex-col items-end">
-                    <span className="text-meta font-medium text-black/60">
-                      {digest.totals.total}
-                    </span>
-                    <span className="text-meta text-black/40">
-                      articles analysed this week
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Article sections - white band */}
-              <div className={`bg-[var(--color-surface)] border-x border-b border-[var(--color-border)] px-4 sm:px-6 md:px-8 lg:px-10 py-10 sm:py-14 md:py-20 ${!(digest.keyThemes?.length) ? 'rounded-b-xl md:rounded-b-2xl' : ''}`}>
-              {/* CATEGORY SECTIONS UI - Client-side rendering with reactive TopN */}
-              <Suspense fallback={
-                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  {CATEGORY_CARDS.map(cat => (
-                    <div key={cat.key} className="w-full">
-                      <div className="bg-[var(--color-surface)] dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 p-4 md:p-7 h-64 animate-pulse" />
-                    </div>
-                  ))}
-                </div>
-              }>
-                <DigestClientView digest={digest} categoryCards={CATEGORY_CARDS} variant="home" />
-              </Suspense>
-              </div>
-
-              {/* Key Themes Summary (cream band) */}
-              {digest.keyThemes && digest.keyThemes.length > 0 ? (
-                <div className="border-t border-[var(--color-border)] bg-[var(--color-bg)] rounded-b-xl md:rounded-b-2xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12">
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center">
-                    {digest.keyThemes.map((theme, idx) => (
-                      <span
-                        key={idx}
-                        className="inline-flex items-center px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-meta font-medium bg-[var(--color-accent-light)] text-[var(--color-accent)] border border-[var(--color-accent)]/20"
-                      >
-                        {theme}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-            </>
-          )}
           </div>
 
-          {/* Issue Rating */}
-          {digest && (
-            <div className="w-full max-w-5xl mx-auto px-4 py-10 md:py-16 text-center border-t border-[var(--color-border)]">
-              <IssueRating slug={weekLabelToSlug(weekLabel)} />
+          {digest?.coverImageUrl && (
+            <Link
+              href={issueHref}
+              className="order-first lg:order-none group relative block aspect-[3/2] md:aspect-[16/9] lg:absolute lg:inset-y-0 lg:right-0 lg:w-[55%] lg:aspect-auto xl:relative xl:inset-auto xl:w-auto xl:h-full overflow-hidden"
+              aria-label={`Open issue ${digest.weekLabel}`}
+            >
+              <Image
+                src={digest.coverImageUrl}
+                alt={digest.coverImageAlt || `Cover for ${digest.weekLabel}`}
+                fill
+                priority
+                sizes="(min-width: 1536px) 900px, (min-width: 1280px) 56vw, (min-width: 1024px) 80vw, 100vw"
+                // Scene director v9 keeps the subject in the lower half with a calm top third.
+                className="object-cover object-[center_65%] transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+              />
+              {/* Fade the image into the navy on its inner edge so it reads as part of the band */}
+              <span className="hidden lg:block absolute inset-y-0 left-0 w-[22%] min-w-32 bg-gradient-to-r from-[var(--color-deep)] via-[var(--color-deep)]/50 to-transparent" aria-hidden="true" />
+              <span className="lg:hidden absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[var(--color-deep)] to-transparent" aria-hidden="true" />
+            </Link>
+          )}
+        </div>
+        </div>
+        </div>
+      </section>
+
+      {!digest ? (
+        // Reader-facing: never show build commands here (the old block printed
+        // `npx tsx scripts/buildWeeklyDigest.ts` to the public).
+        <div className="max-w-xl mx-auto my-16 px-6 text-center">
+          <h2 className="font-serif text-section text-[var(--color-text-primary)] mb-3">This week&rsquo;s issue is on its way</h2>
+          <p className="text-body text-[var(--color-text-secondary)] mb-6">
+            A new issue goes out every Monday. Until then, past issues are in the archive.
+          </p>
+          <Link
+            href="/archive"
+            className="inline-flex items-center min-h-11 px-5 rounded-sm bg-[var(--color-accent)] text-[var(--color-on-accent)] text-sm font-medium hover:opacity-90"
+          >
+            Browse past issues
+          </Link>
+        </div>
+      ) : (
+        <div className="w-full max-w-7xl 2xl:max-w-[100rem] mx-auto px-4 sm:px-5 md:px-6">
+
+          {/* READ / WATCH / LISTEN (owner layout, 2026-10-16): the insight as a full-width
+              pull quote, then the Spotlight and the Short + podcast side by side, tops aligned.
+              DOM order (insight, media, Spotlight) is the phone order, so on phones the media
+              comes right after the insight, before the long Spotlight. */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-10 pt-4 md:pt-8">
+            {digest.oneSentenceSummary && (
+              <div className="lg:col-span-12 lg:row-start-1">
+                {/* Insight or nothing: never fall back to an article summary here. */}
+                <WeeklyInsight quote={digest.oneSentenceSummary} wide />
+              </div>
+            )}
+
+            {(short || podcast) && (
+              <aside className="lg:col-span-6 lg:col-start-7 xl:col-span-5 xl:col-start-8 2xl:col-span-6 2xl:col-start-7 lg:row-start-2 lg:pt-10 mb-8 lg:mb-0">
+                <div className="lg:sticky lg:top-24">
+                  <WatchOrListen short={short} podcast={podcast} layout="sidebar" />
+                </div>
+              </aside>
+            )}
+
+            {digest.editorialTake && (
+              <div className="lg:col-span-6 xl:col-span-7 2xl:col-span-6 lg:row-start-2">
+                <EditorSpotlight
+                  text={digest.editorialTake}
+                  weekLabel={digest.weekLabel}
+                  isOverride={Boolean(digest.editorialTakeOverride)}
+                />
+              </div>
+            )}
+          </div>
+
+          {/* TOP STORIES: the two-column category view, three per category; the issue page has all seven */}
+          <section aria-labelledby="top-stories" className="mt-8 md:mt-12 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl md:rounded-2xl px-4 sm:px-6 md:px-10 pt-10 md:pt-14 pb-4">
+            <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-2">
+              <h2 id="top-stories" className="font-serif text-[1.75rem] md:text-[2.25rem] leading-tight tracking-[-0.02em] text-[var(--color-text-primary)]">
+                This week&rsquo;s top stories
+              </h2>
+              <p className="text-sm text-[var(--color-text-secondary)] md:pb-1">
+                {formatStatsSecondaryLine(digest)}
+              </p>
+            </div>
+            <Suspense fallback={<div className="h-96" />}>
+              <DigestClientView
+                digest={digest}
+                categoryCards={CATEGORY_CARDS}
+                variant="home"
+                perCategory={3}
+                compact
+                moreHref={issueHref}
+              />
+            </Suspense>
+          </section>
+
+          {/* Key themes */}
+          {digest.keyThemes && digest.keyThemes.length > 0 && (
+            <div className="mt-10 flex flex-wrap gap-2 justify-center">
+              {digest.keyThemes.map((theme, idx) => (
+                <span
+                  key={idx}
+                  className="inline-flex items-center px-3 py-1.5 rounded-full text-meta font-medium bg-[var(--color-accent-light)] text-[var(--color-accent)] border border-[var(--color-accent)]/20"
+                >
+                  {theme}
+                </span>
+              ))}
             </div>
           )}
 
-          {/* Permalink to this issue's dedicated page */}
-          {digest && (
-            <div className="mt-8 mb-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
-              <Link
-                href={`/digest/${weekLabelToSlug(weekLabel)}`}
-                className="font-mono text-[11px] tracking-[0.25em] uppercase text-[var(--color-accent)] hover:opacity-70 transition-opacity text-center"
-              >
-                Read the full {formatDateRange(digest.startISO, digest.endISO)} issue →
+          {/* Issue rating + links */}
+          <div className="py-12 md:py-16 text-center">
+            <IssueRating slug={weekLabelToSlug(weekLabel)} />
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 text-sm">
+              <Link href={issueHref} className="inline-flex items-center min-h-11 text-[var(--color-accent)] underline underline-offset-4 hover:opacity-80">
+                Full issue: all 28 stories
               </Link>
-              <span className="hidden sm:inline text-[var(--color-border)]">|</span>
-              <Link
-                href="/archive"
-                className="font-mono text-[11px] tracking-[0.25em] uppercase text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
-              >
-                View all issues
+              <Link href="/archive" className="inline-flex items-center min-h-11 text-[var(--color-text-secondary)] underline underline-offset-4 hover:text-[var(--color-accent)]">
+                All past issues
               </Link>
             </div>
-          )}
+          </div>
         </div>
-      </section>
+      )}
     </main>
   );
 }

@@ -45,7 +45,7 @@ export default function NavLinks() {
       <li className="whitespace-nowrap ml-4 md:ml-6 pl-4 md:pl-6 border-l border-[var(--color-accent)] flex items-center">
         <Link
           href={`${prefix}/subscribe`}
-          className="inline-flex items-center justify-center bg-[var(--color-accent)] text-white px-5 py-2 rounded-[3px] font-medium transition-colors transition-transform duration-200 hover:opacity-90 hover:scale-105 focus-visible:outline-none min-h-[44px] md:min-h-0"
+          className="inline-flex items-center justify-center bg-[var(--color-accent)] text-[var(--color-on-accent)] px-5 py-2 rounded-[3px] font-medium transition-colors transition-transform duration-200 hover:opacity-90 hover:scale-105 focus-visible:outline-none min-h-[44px] md:min-h-0"
         >
           {t.nav.subscribeCta}
         </Link>

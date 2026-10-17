@@ -47,7 +47,7 @@ export function EditorSpotlight({ text, weekLabel, isOverride = false }: EditorS
     <div
       ref={ref}
       className={`my-8 md:my-10 transition-all duration-700 ease-out ${
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        visible ? 'translate-y-0' : 'translate-y-2'
       }`}
     >
       <div

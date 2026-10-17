@@ -45,7 +45,8 @@ export default function SearchBar({ compact, defaultValue = '', onSubmit }: Sear
   );
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-[230px] md:max-w-[192px]">
+    <form onSubmit={handleSubmit} className="w-full">
+      {/* Width comes from the parent: header slot (192px on desktop), full row on phones, /search column. */}
       <label htmlFor="header-search" className="sr-only">
         {t.search.placeholder}
       </label>
