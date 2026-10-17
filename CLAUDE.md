@@ -27,6 +27,61 @@ belongs and maps every doc with its status. The short version:
   the message has a `Docs-Skip: <reason>` trailer. Never use `--no-verify`.
   Details: `docs/README.md` §6.
 
+## Parallel work rules (multiple agents run on this repo at once)
+
+1. Isolation
+   - Work only in your own git worktree on a branch named `agent/<short-task>`.
+     Never work directly on `main`.
+   - Before starting: `git fetch && git rebase origin/main`.
+   - A new worktree has no `node_modules` or `.env.local`: run `npm ci` in it.
+     Never junction `node_modules` in from the main checkout
+     (`git worktree remove --force` deletes through the junction).
+   - Don't commit someone else's uncommitted files you find in the main checkout.
+
+2. Scope
+   - Touch only the files/directories named in your task. If you need to change
+     something outside that scope, stop and ask. Do not "fix it while you're there".
+   - If your task doesn't name the paths you own, state the files/directories you
+     intend to change and wait for confirmation before editing anything.
+   - Exception: the doc updates the docs check requires for your change
+     (see Documentation rules) are in scope.
+   - Shared hot files. Do not edit these unless the task explicitly says so;
+     if you need a change there, list it in the PR description instead:
+     - Dependencies: `package.json`, `package-lock.json`, `video-short/package.json`, `video-short/package-lock.json`
+     - Build/deploy config: `vercel.json`, `scripts/vercel-ignore-build.sh`, `next.config.ts`, `middleware.ts`, `tsconfig.json`, `tsconfig.seo.json`, `eslint.config.mjs`, `postcss.config.mjs`, `.gitignore`
+     - Env: `.env*`, `lib/env.ts`
+     - DB: `lib/db/schema.ts`, `drizzle/`, `drizzle.config.ts`
+     - Global UI: `app/globals.css`, `app/layout.tsx`, `lib/i18n/messages.ts`, `public/manifest.webmanifest`
+     - CI and cron: `.github/workflows/`, `.githooks/`, `scripts/checkDocs.mjs`
+     - Pipeline orchestration and sources: `pipeline/runWeeklyPipeline.ts`, `scripts/runWeeklyPipeline.ts`, `ingestion/sources.ts`
+     - Feeds and crawl surface: `app/podcast/feed.xml/route.ts`, `lib/seo/urlInventory.ts`, `app/sitemap.ts`, `app/robots.ts`
+     - SEO agent guardrails: `seo/authority.ts`, `seo/repair/policy.ts`
+     - Pipeline output that CI commits to `main`: `data/articles.json`, `data/digests/`, `data/weeks/`, `data/markets/`, `data/seo/`
+
+3. Deployment
+   - Never run `vercel --prod`, never push to `main`, never merge your own PR.
+   - Push your branch and use the Vercel preview URL to verify.
+
+4. Before opening a PR
+   - `git fetch && git rebase origin/main` again, then run build + tests/lint.
+   - If the rebase conflicts: keep the intent of both sides, rebuild, re-test.
+     If you can't tell what the other change intended, stop and report. Don't guess.
+   - Run the `reviewer` subagent on the diff and fix what it flags.
+   - Force-push only your own branch, and only with `--force-with-lease`.
+
+5. PR hygiene
+   - One concern per PR, small diffs. In the description, state which files you
+     touched and whether any shared hot file needs changing.
+
+## Delegation
+
+Subagent definitions live in `.claude/agents/`.
+
+- Broad codebase searches ("where is X defined/used", "what touches Y") → `explorer` subagent.
+- Before opening a PR → `reviewer` subagent on the diff.
+- Do not delegate code edits to Haiku. Implement in the main session.
+- Don't spawn subagents for small lookups you can do with one or two Grep/Read calls.
+
 ## Commands
 
 ```bash
@@ -128,6 +183,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `data/` | Runtime JSON store: `articles.json`, `digests/`, `weeks/`, `markets/`, `seo/`, caches |
 | `scripts/` | Entry points and maintenance scripts (run with `tsx`) |
 | `hooks/` | React hooks (`useCountUp`, `useReveal`), not git hooks |
+| `.claude/` | `agents/`: Claude Code subagents (`explorer`, `reviewer`; see Delegation) |
 | `.githooks/` | Git hooks (`commit-msg` runs the docs check). Enabled by `npm install` |
 | `.github/workflows/` | Weekly digest (build → Short render + YouTube upload → subscriber email + social plan), weekday social publish, daily RSS ingestion (cache buffer, never commits), SEO weekly + daily monitor, subscriber sweep (see `docs/operations.md`) |
 
@@ -184,9 +240,11 @@ Web push: the backend (`app/api/push/`, `public/push-sw.js`, Vercel KV) still ex
 
 ### Deploy & CI
 
-Push to `main` = production deploy on Vercel. **Read `docs/operations.md`
+Push to `main` = production deploy on Vercel. Agents never push to `main`: the
+owner merges PRs (see Parallel work rules); only the CI workflows commit to it.
+**Read `docs/operations.md`
 before touching build config, workflows, or re-running a week.** The traps:
-the git→Vercel trigger sometimes drops a push (retrigger with an empty commit),
+the git→Vercel trigger sometimes drops a push (the owner retriggers it),
 never `vercel deploy` from the working tree, functions max 250 MB, and the
 weekly email is not idempotent (re-run with `send_email=false`).
 
