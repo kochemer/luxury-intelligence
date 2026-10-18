@@ -1,30 +1,30 @@
 {
   "version": 1,
-  "pulledAtISO": "2026-10-11T14:55:12.667Z",
+  "pulledAtISO": "2026-10-18T12:38:27.924Z",
   "siteUrl": "https://luxury-intel.com/",
   "windows": {
     "current": {
-      "start": "2026-09-11",
-      "end": "2026-10-08"
+      "start": "2026-09-18",
+      "end": "2026-10-15"
     },
     "previous": {
-      "start": "2026-08-14",
-      "end": "2026-09-10"
+      "start": "2026-08-21",
+      "end": "2026-09-17"
     }
   },
   "totals": {
     "current": {
-      "clicks": 2,
-      "impressions": 360,
-      "ctr": 0.005555555555555556,
-      "position": 6.436111111111111,
+      "clicks": 0,
+      "impressions": 334,
+      "ctr": 0,
+      "position": 6.131736526946108,
       "days": 28
     },
     "previous": {
-      "clicks": 3,
-      "impressions": 208,
-      "ctr": 0.014423076923076924,
-      "position": 11.399038461538462,
+      "clicks": 5,
+      "impressions": 279,
+      "ctr": 0.017921146953405017,
+      "position": 9.78853046594982,
       "days": 28
     }
   },
@@ -33,73 +33,73 @@
       "keys": [
         "https://luxury-intel.com/"
       ],
-      "clicks": 2,
-      "impressions": 45,
-      "ctr": 0.044444444444444446,
-      "position": 7.444444444444445
+      "clicks": 0,
+      "impressions": 34,
+      "ctr": 0,
+      "position": 4.3235294117647065
     },
     {
       "keys": [
         "https://luxury-intel.com/about"
       ],
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 23,
       "ctr": 0,
-      "position": 3.6666666666666665
+      "position": 4.434782608695652
     },
     {
       "keys": [
         "https://luxury-intel.com/archive"
       ],
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 10,
       "ctr": 0,
-      "position": 3.5454545454545454
+      "position": 5.8
     },
     {
       "keys": [
         "https://luxury-intel.com/da/about"
       ],
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 1,
       "ctr": 0,
-      "position": 7.75
+      "position": 9
     },
     {
       "keys": [
         "https://luxury-intel.com/da/archive"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 9
+      "position": 8
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/august-2026-week-32"
       ],
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 9,
       "ctr": 0,
-      "position": 5
+      "position": 3.888888888888889
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/august-2026-week-33"
       ],
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 1,
       "ctr": 0,
-      "position": 5.75
+      "position": 4
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/august-2026-week-34"
       ],
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 1,
       "ctr": 0,
-      "position": 5.6
+      "position": 7
     },
     {
       "keys": [
@@ -151,61 +151,52 @@
         "https://luxury-intel.com/digest/july-2026-week-30"
       ],
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 2,
       "ctr": 0,
-      "position": 7
+      "position": 6.5
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/july-2026-week-31"
       ],
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 5,
       "ctr": 0,
-      "position": 7.833333333333333
-    },
-    {
-      "keys": [
-        "https://luxury-intel.com/digest/june-2026-week-24"
-      ],
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 4
+      "position": 7.8
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/june-2026-week-25"
       ],
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 2,
       "ctr": 0,
-      "position": 3.6
+      "position": 2
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/march-2026-week-11"
       ],
       "clicks": 0,
-      "impressions": 62,
+      "impressions": 114,
       "ctr": 0,
-      "position": 5.290322580645161
+      "position": 5.824561403508772
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/march-2026-week-12"
       ],
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 2,
       "ctr": 0,
-      "position": 4.714285714285714
+      "position": 2
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/may-2026-week-19"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
       "position": 8
     },
@@ -214,45 +205,45 @@
         "https://luxury-intel.com/digest/may-2026-week-20"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 6.5
+      "position": 3
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/may-2026-week-21"
       ],
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 1,
       "ctr": 0,
-      "position": 8
+      "position": 10
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/may-2026-week-22"
       ],
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 1,
       "ctr": 0,
-      "position": 6.666666666666667
+      "position": 9
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/september-2026-week-36"
       ],
       "clicks": 0,
-      "impressions": 120,
+      "impressions": 62,
       "ctr": 0,
-      "position": 6.875
+      "position": 7.241935483870968
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/september-2026-week-37"
       ],
       "clicks": 0,
-      "impressions": 31,
+      "impressions": 16,
       "ctr": 0,
-      "position": 5.129032258064516
+      "position": 5.5625
     },
     {
       "keys": [
@@ -268,18 +259,18 @@
         "https://luxury-intel.com/es/about"
       ],
       "clicks": 0,
-      "impressions": 27,
+      "impressions": 43,
       "ctr": 0,
-      "position": 9.555555555555555
+      "position": 9.186046511627907
     },
     {
       "keys": [
         "https://luxury-intel.com/es/archive"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 8
+      "position": 7
     },
     {
       "keys": [
@@ -303,24 +294,6 @@
   "queries": [
     {
       "keys": [
-        "luxury intelligence"
-      ],
-      "clicks": 1,
-      "impressions": 7,
-      "ctr": 0.14285714285714285,
-      "position": 2.7142857142857144
-    },
-    {
-      "keys": [
-        "aurora ai for luxury brands"
-      ],
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 98
-    },
-    {
-      "keys": [
         "evaluate the ai marketplace company ai bazaar on lightweight carry-on design"
       ],
       "clicks": 0,
@@ -333,9 +306,9 @@
         "evaluate the ai marketplace company ai bazaar on minimalist modern luggage aesthetics"
       ],
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "ctr": 0,
-      "position": 3
+      "position": 4.333333333333334
     },
     {
       "keys": [
@@ -360,32 +333,30 @@
         "luxury ia"
       ],
       "clicks": 0,
-      "impressions": 20,
+      "impressions": 32,
       "ctr": 0,
-      "position": 9.65
+      "position": 9.5
+    },
+    {
+      "keys": [
+        "luxury intelligence"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 2.4545454545454546
+    },
+    {
+      "keys": [
+        "upscale ai token fabric october 8 2026 official press release"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5
     }
   ],
   "queryPages": [
-    {
-      "keys": [
-        "luxury intelligence",
-        "https://luxury-intel.com/"
-      ],
-      "clicks": 1,
-      "impressions": 7,
-      "ctr": 0.14285714285714285,
-      "position": 2.7142857142857144
-    },
-    {
-      "keys": [
-        "aurora ai for luxury brands",
-        "https://luxury-intel.com/"
-      ],
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 98
-    },
     {
       "keys": [
         "evaluate the ai marketplace company ai bazaar on lightweight carry-on design",
@@ -402,9 +373,9 @@
         "https://luxury-intel.com/digest/march-2026-week-11"
       ],
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "ctr": 0,
-      "position": 3
+      "position": 4.333333333333334
     },
     {
       "keys": [
@@ -432,9 +403,19 @@
         "https://luxury-intel.com/es/about"
       ],
       "clicks": 0,
-      "impressions": 20,
+      "impressions": 32,
       "ctr": 0,
-      "position": 9.65
+      "position": 9.5
+    },
+    {
+      "keys": [
+        "luxury intelligence",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 3
     },
     {
       "keys": [
@@ -442,9 +423,9 @@
         "https://luxury-intel.com/about"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 9,
       "ctr": 0,
-      "position": 4.5
+      "position": 4.333333333333334
     },
     {
       "keys": [
@@ -452,9 +433,19 @@
         "https://luxury-intel.com/archive"
       ],
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
       "position": 10
+    },
+    {
+      "keys": [
+        "upscale ai token fabric october 8 2026 official press release",
+        "https://luxury-intel.com/digest/march-2026-week-11"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5
     }
   ]
 }
