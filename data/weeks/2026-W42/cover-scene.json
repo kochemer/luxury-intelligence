@@ -1,0 +1,21 @@
+{
+  "chosenStory": "LVMH fashion sales fall 5% as weak Chinese demand hits flagship brand",
+  "whyThisStory": "Fashion stumbling while beauty-led selective retail grows offers a recognisable luxury-insider joke, without relying on banned gemstones or an off-brand checkout scene.",
+  "concept": "lipstick-to-the-rescue",
+  "setting": "couture boutique fitting room",
+  "primaryHumorDriver": "visual punchline",
+  "secondaryEnhancer": "implied motion or \"just happened\" moment",
+  "sceneDescription": "A couture shoe has snapped its heel, so a lipstick has been recruited as the emergency replacement: beauty is keeping fashion on its feet, riffing on LVMH's falling fashion sales and growing beauty-led selective retail business. In an empty couture fitting room, a single ivory satin court shoe rests on a pale limestone shoe plinth. Its broken heel is lying beside it; an upright, uncapped gold lipstick supports the back of the shoe, its exposed red tip slightly squashed under the load. The separate lipstick cap makes the improvised repair unmistakable. Everything else is quietly normal.",
+  "finalImagePrompt": "An empty couture boutique fitting room with a pale plaster wall and limestone shoe plinth. In the middle of the frame, lower half, one ivory satin court shoe has a snapped heel. An upright unbranded gold lipstick replaces the heel, its exposed red tip visibly squashed beneath the shoe. The broken heel and lipstick cap lie beside it. This small group occupies under a third of the image width. Plain wall above, soft daylight, slight scuffs and real satin texture.",
+  "negativePrompt": [
+    "people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette",
+    "text, letters, numbers, signage, labels, price tags",
+    "screens, UI, dashboards, holograms, floating icons",
+    "watermarks, unrelated brand logos",
+    "cartoon, illustration, CGI, 3D render, anime, video game render",
+    "AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed",
+    "diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone",
+    "dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh"
+  ],
+  "confidence": 0.71
+}

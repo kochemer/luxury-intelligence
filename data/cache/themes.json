@@ -1122,5 +1122,24 @@
     "cached_at": "2026-10-11T12:50:24.559Z",
     "model": "gpt-4.1-mini",
     "version": "3.2"
+  },
+  "2026-W42:2bb54ea3381d": {
+    "keyThemes": [
+      "Anthropic revenue growth",
+      "AI agent safety",
+      "M&S Klarna payments",
+      "LVMH China sales decline",
+      "De Beers acquisition bid"
+    ],
+    "oneSentenceSummary": "LVMH's fashion sales are falling while Brunello Cucinelli raises its targets. China has become an easy excuse for weak brands.",
+    "summaryCandidates": [
+      "Richemont's interest in De Beers will send rival jewellers hunting for more control over where their diamonds come from.",
+      "LVMH's fashion sales are falling while Brunello Cucinelli raises its targets. China has become an easy excuse for weak brands.",
+      "LVMH's jewellery growth proves that shoppers still have money for luxury. Brands have to give them a reason to spend.",
+      "M&S adds Klarna while Ikea opens on Douyin. Big retailers are letting tech companies stand between them and their shoppers."
+    ],
+    "cached_at": "2026-10-19T13:07:40.376Z",
+    "model": "gpt-6-luna",
+    "version": "3.2"
   }
 }

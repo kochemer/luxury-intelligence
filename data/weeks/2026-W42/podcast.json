@@ -1,0 +1,9 @@
+{
+  "week": "2026-W42",
+  "audioPath": "/podcast/2026-W42.mp3",
+  "model": "gpt-realtime-2.1-mini",
+  "voice": "alloy",
+  "generatedAt": "2026-10-19T13:12:29.240Z",
+  "duration": 935,
+  "fileSize": 7017453
+}

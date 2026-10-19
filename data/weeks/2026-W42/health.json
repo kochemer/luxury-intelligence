@@ -1,0 +1,80 @@
+{
+  "digestWeek": "2026-W42",
+  "ingestionWeek": "2026-W42",
+  "startedAt": "2026-10-19T12:40:10.781Z",
+  "finishedAt": "2026-10-19T13:13:44.391Z",
+  "steps": [
+    {
+      "name": "rss",
+      "ok": true,
+      "startedAt": "2026-10-19T12:40:10.796Z",
+      "finishedAt": "2026-10-19T12:46:01.980Z"
+    },
+    {
+      "name": "pages",
+      "ok": true,
+      "startedAt": "2026-10-19T12:46:01.980Z",
+      "finishedAt": "2026-10-19T12:46:03.793Z"
+    },
+    {
+      "name": "discovery",
+      "ok": true,
+      "startedAt": "2026-10-19T12:46:03.796Z",
+      "finishedAt": "2026-10-19T13:05:08.822Z"
+    },
+    {
+      "name": "classification",
+      "ok": true,
+      "startedAt": "2026-10-19T13:05:08.822Z",
+      "finishedAt": "2026-10-19T13:05:09.009Z"
+    },
+    {
+      "name": "digest",
+      "ok": true,
+      "startedAt": "2026-10-19T13:05:09.009Z",
+      "finishedAt": "2026-10-19T13:08:10.410Z"
+    },
+    {
+      "name": "email",
+      "ok": true,
+      "startedAt": "2026-10-19T13:08:10.410Z",
+      "finishedAt": "2026-10-19T13:09:19.507Z"
+    },
+    {
+      "name": "podcast",
+      "ok": true,
+      "startedAt": "2026-10-19T13:09:19.507Z",
+      "finishedAt": "2026-10-19T13:12:29.240Z"
+    },
+    {
+      "name": "cover",
+      "ok": true,
+      "startedAt": "2026-10-19T13:12:29.240Z",
+      "finishedAt": "2026-10-19T13:13:44.389Z"
+    }
+  ],
+  "health": {
+    "warnings": [
+      "Luxury & Consumer: www.theindustry.fashion represents 42.9% (3/7) - exceeds 40% threshold",
+      "Jewellery Industry: www.retail-jeweller.com represents 42.9% (3/7) - exceeds 40% threshold"
+    ],
+    "metrics": {
+      "paywallPercent": 0,
+      "podcastWordCount": 2338
+    }
+  },
+  "contentQuality": {
+    "ok": true,
+    "errors": [],
+    "summaryCoverage": 1,
+    "selectedCount": 28,
+    "summarizedCount": 28,
+    "hasCover": true,
+    "hasInsight": true,
+    "themeCount": 5
+  },
+  "versions": {
+    "node": "v20.20.2",
+    "gitCommit": "85e521fd39ae1140adda4b552b5edb5be903d9b4"
+  }
+}

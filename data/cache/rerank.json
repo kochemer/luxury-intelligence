@@ -5806,5 +5806,197 @@
     ],
     "cached_at": "2026-10-11T12:49:37.822Z",
     "model": "gpt-4.1"
+  },
+  "2026-W42:AI_and_Strategy:gpt-6.1-sol:i18:aae02a36512f": {
+    "selected": [
+      {
+        "id": "10",
+        "rank": 1,
+        "why": "Anthropic's 45% revenue growth reveals frontier AI commercialization momentum ahead of IPO.",
+        "confidence": 0.97
+      },
+      {
+        "id": "11",
+        "rank": 2,
+        "why": "ASML supply constraints threaten chipmaking capacity supporting AI compute expansion through 2028.",
+        "confidence": 0.94
+      },
+      {
+        "id": "15",
+        "rank": 3,
+        "why": "Gemini 4 Argon benchmark results signal renewed Google competitiveness at the AI frontier.",
+        "confidence": 0.91
+      },
+      {
+        "id": "8",
+        "rank": 4,
+        "why": "Decagon's acquisition discussions signal potential consolidation in the AI agent market.",
+        "confidence": 0.86
+      },
+      {
+        "id": "2",
+        "rank": 5,
+        "why": "Anthropic challenges Pentagon security designation affecting its government market access.",
+        "confidence": 0.88
+      },
+      {
+        "id": "16",
+        "rank": 6,
+        "why": "Anthropic research highlights emerging self-replication risks across internet-connected devices.",
+        "confidence": 0.8
+      },
+      {
+        "id": "17",
+        "rank": 7,
+        "why": "Six-agent experiment exposes deception, privacy failures, and uncontrolled escalation in autonomous workflows.",
+        "confidence": 0.84
+      }
+    ],
+    "cached_at": "2026-10-19T13:05:27.560Z",
+    "model": "gpt-6.1-sol"
+  },
+  "2026-W42:Ecommerce_Retail_Tech:gpt-6.1-sol:i18:663cdd40d25f": {
+    "selected": [
+      {
+        "id": "0",
+        "rank": 1,
+        "why": "M&S rolls out Klarna across ecommerce and app, expanding checkout payment options.",
+        "confidence": 0.93
+      },
+      {
+        "id": "15",
+        "rank": 2,
+        "why": "Ikea launches Douyin storefront, extending a major retailer into video-driven commerce.",
+        "confidence": 0.92
+      },
+      {
+        "id": "10",
+        "rank": 3,
+        "why": "Stricter FSSAI checks could raise compliance costs across quick-commerce platforms.",
+        "confidence": 0.84
+      },
+      {
+        "id": "13",
+        "rank": 4,
+        "why": "H&M investigates reported cyberattack, highlighting security risks for large retail operations.",
+        "confidence": 0.8
+      },
+      {
+        "id": "16",
+        "rank": 5,
+        "why": "Dunelm reports digital channels reaching 41% of sales alongside quarterly growth.",
+        "confidence": 0.89
+      },
+      {
+        "id": "5",
+        "rank": 6,
+        "why": "Edible Brands reports engagement gains following its app and loyalty relaunch.",
+        "confidence": 0.8
+      },
+      {
+        "id": "9",
+        "rank": 7,
+        "why": "Data showing 52.8% buying secondhand quantifies resale's significance for commerce.",
+        "confidence": 0.77
+      }
+    ],
+    "cached_at": "2026-10-19T13:05:46.977Z",
+    "model": "gpt-6.1-sol"
+  },
+  "2026-W42:Luxury_and_Consumer:gpt-6.1-sol:i18:75a856468965": {
+    "selected": [
+      {
+        "id": "11",
+        "rank": 1,
+        "why": "Reported potential Richemont bid involvement signals strategic shifts in diamond supply.",
+        "confidence": 0.82
+      },
+      {
+        "id": "4",
+        "rank": 2,
+        "why": "LVMH fashion sales decline quantifies Chinese demand weakness affecting luxury retail.",
+        "confidence": 0.98
+      },
+      {
+        "id": "17",
+        "rank": 3,
+        "why": "Revenue growth of 13.5% and raised outlook benchmark luxury sector performance.",
+        "confidence": 0.97
+      },
+      {
+        "id": "15",
+        "rank": 4,
+        "why": "Quarterly revenue growth provides regional demand signals across travel retail markets.",
+        "confidence": 0.93
+      },
+      {
+        "id": "1",
+        "rank": 5,
+        "why": "CTR Group consolidates circular businesses, highlighting operational changes in fashion resale.",
+        "confidence": 0.87
+      },
+      {
+        "id": "14",
+        "rank": 6,
+        "why": "TWP enters international physical retail with its first store outside America.",
+        "confidence": 0.9
+      },
+      {
+        "id": "8",
+        "rank": 7,
+        "why": "New resale pricing data informs assortment planning and luxury product demand assessment.",
+        "confidence": 0.92
+      }
+    ],
+    "cached_at": "2026-10-19T13:06:08.637Z",
+    "model": "gpt-6.1-sol"
+  },
+  "2026-W42:Jewellery_Industry:gpt-6.1-sol:i18:470eb683875b": {
+    "selected": [
+      {
+        "id": "10",
+        "rank": 1,
+        "why": "Potential Richemont and Signet involvement in De Beers bid signals industry consolidation.",
+        "confidence": 0.96
+      },
+      {
+        "id": "17",
+        "rank": 2,
+        "why": "LVMH jewellery revenue rose 8%, providing a concrete competitor performance benchmark.",
+        "confidence": 0.97
+      },
+      {
+        "id": "11",
+        "rank": 3,
+        "why": "Pandora's Vietnam factory opening directly informs production capacity and supply chain planning.",
+        "confidence": 0.99
+      },
+      {
+        "id": "6",
+        "rank": 4,
+        "why": "Stephanie Gottlieb enters wholesale through an exclusive lab-grown diamond partnership.",
+        "confidence": 0.93
+      },
+      {
+        "id": "5",
+        "rank": 5,
+        "why": "New Royal Exchange leasing deals expand jewellery and watch retail presence.",
+        "confidence": 0.88
+      },
+      {
+        "id": "4",
+        "rank": 6,
+        "why": "Bohomoon's watch category entry signals assortment expansion by a jewellery competitor.",
+        "confidence": 0.87
+      },
+      {
+        "id": "3",
+        "rank": 7,
+        "why": "Timex introduces five Cavatina Luxe styles, adding a concrete assortment development.",
+        "confidence": 0.84
+      }
+    ],
+    "cached_at": "2026-10-19T13:06:24.398Z",
+    "model": "gpt-6.1-sol"
   }
 }

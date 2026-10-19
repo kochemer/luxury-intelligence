@@ -1,0 +1,39 @@
+{
+  "weekLabel": "2026-W42",
+  "homepageTopArticles": [
+    {
+      "title": "Luxury Conglomerate Richemont May Be Joining a Bid to Buy De Beers: Report",
+      "topic": "Luxury & Consumer",
+      "source": "Robb Report",
+      "snippet": "The move would come at a time when jewelry is doing particularly well for the Cartier owner.",
+      "aiSummary": "Richemont may join a bid to buy De Beers as jewellery performs particularly well for the Cartier owner."
+    },
+    {
+      "title": "LVMH fashion sales fall 5% as weak Chinese demand hits flagship brand",
+      "topic": "Luxury & Consumer",
+      "source": "The Industry.fashion",
+      "snippet": "A slowdown among Chinese shoppers pushed the luxury group's biggest division back into decline after one quarter of growth. Selective retailing, home to Sephora, rose 8%.",
+      "aiSummary": "LVMH fashion sales fell 5% as Chinese demand weakened, while selective retailing, home to Sephora, grew 8%."
+    },
+    {
+      "title": "Richemont and Signet Said In Talks to Join Bidder for De Beers",
+      "topic": "Jewellery Industry",
+      "source": "Bloomberg - Technology",
+      "snippet": "Luxury giant Richemont and US retailer Signet Jewelers Ltd. are in talks to join a consortium that’s in prime position to buy diamond miner De Beers, according to five people familiar with the matter.",
+      "aiSummary": "Richemont and Signet Jewelers are in talks to join a consortium in prime position to buy diamond miner De Beers."
+    },
+    {
+      "title": "M&S ecommerce shoppers and app users can now pay with Klarna",
+      "topic": "Ecommerce & Retail Tech",
+      "source": "Retail Gazette",
+      "snippet": "Shoppers on M&S.com and the M&S app can now pay with Klarna, with the three-part payment option available. Whether shopping for fashion, home or beauty, M&S customers can split the cost into three equal, interest-free payments with transparent terms and no revolving balance, according to the new partnership. Katherine Carlson, director of financial services at M&S,...",
+      "aiSummary": "M&S has added Klarna to its website and app, letting shoppers split purchases into three equal, interest-free payments."
+    }
+  ],
+  "chosenStory": "LVMH fashion sales fall 5% as weak Chinese demand hits flagship brand",
+  "model": "gpt-image-2.5-sunburst",
+  "finalPrompt": "Candid documentary photograph, shot on a real camera: An empty couture boutique fitting room with a pale plaster wall and limestone shoe plinth. In the middle of the frame, lower half, one ivory satin court shoe has a snapped heel. An upright unbranded gold lipstick replaces the heel, its exposed red tip visibly squashed beneath the shoe. The broken heel and lipstick cap lie beside it. This small group occupies under a third of the image width. Plain wall above, soft daylight, slight scuffs and real satin texture.\n\nCRITICAL CONSTRAINTS (must be strictly avoided):\n- people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette, text, letters, numbers, signage, labels, price tags, screens, UI, dashboards, holograms, floating icons, watermarks, unrelated brand logos, cartoon, illustration, CGI, 3D render, anime, video game render, AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed, diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone, dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh\n\nThis must look like a genuine photograph taken by a person for a magazine — NOT AI-generated, not CGI, not a 3D render. Natural available light with real shadows and true reflections. Real materials with real texture: dust, wear, fingerprints, slight clutter, small imperfections and natural asymmetry. Slightly imperfect, candid framing. Avoid the AI look — no waxy/plastic surfaces, no over-smoothing, no over-saturation or HDR glow, no glossy studio perfection. Fill the entire frame edge to edge — no black bars, no empty edges.\n\nFraming: the subject of the photo is small and sits in the middle of the frame from left to right and in the lower half from top to bottom, with calm, empty background in the top third and generous space on both sides. Nothing important near the left or right edges or the top of the frame.\n\nDo not include: any people or human body parts; any text, labels, signage, screens, UI, or logos; diamonds or gemstones; CGI lighting, dramatic spotlights, or blurred vignette backgrounds.",
+  "imageSize": "1536x1024",
+  "outputPath": "/weekly-images/2026-W42.png",
+  "generatedAt": "2026-10-19T13:13:44.387Z"
+}
