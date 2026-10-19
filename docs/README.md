@@ -46,7 +46,8 @@ section in `CLAUDE.md`.
 | You lost an hour or more to something non-obvious | Add it to that area's "Things that will bite you" list |
 | You measured something (traffic, costs, counts) | The area's `*-status.md`, dated. Never in `CLAUDE.md`. |
 
-A docs-only change is a normal commit and gets pushed like any other.
+A docs-only change is a normal commit and goes through a branch + PR like any
+other (see "Parallel work rules" in `CLAUDE.md`).
 
 ## 3. How to write
 
@@ -149,6 +150,8 @@ when you verify or rewrite a doc.
 |---|---|---|---|
 | `CLAUDE.md` | Orientation for every agent | current | 2026-10-05 |
 | `docs/README.md` | This file: doc rules and map | current | 2026-10-05 |
+| `.claude/agents/explorer.md` | Claude Code subagent: read-only codebase search | current | 2026-10-17 |
+| `.claude/agents/reviewer.md` | Claude Code subagent: pre-PR review, names the build/test/lint commands it runs | current | 2026-10-17 |
 | `docs/operations.md` | Deploy, CI, re-runs, platform limits | current | 2026-10-05 |
 | `docs/pipeline.md` | Weekly pipeline modules, artifacts, caches, change recipes | current for step order + digest build; module/cache sections reference | 2026-10-05 |
 | `docs/pipeline-decisions.md` | Which model each pipeline step uses and why; measured costs | current | 2026-10-09 |
