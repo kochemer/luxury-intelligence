@@ -4386,6 +4386,1668 @@
    "type": null,
    "importance": "minor",
    "headline": null
+  },
+  "8395eca58ab46264": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "minor",
+   "headline": "LVMH awards its 2026 Prize to Belgian designer Julie Kegels"
+  },
+  "60732341cf3429ff": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3072d9114b81535e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "dfd39454d2a252c4": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "major",
+   "headline": "LVMH and Kering strengthen model protections charter"
+  },
+  "f1ae57c464318882": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "major",
+   "headline": "Kering and LVMH strengthen model protections charter"
+  },
+  "c96c3923a797db40": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "5481c820cfea2632": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c6cdb258b6288746": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c9d894a080ee6ca0": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH's key fashion unit faces China slowdown in third quarter"
+  },
+  "d47a2a9da903c178": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "9b85ac1e7a6df1f2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "0a6cc8c73f453bf0": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH reports slower third-quarter organic sales growth"
+  },
+  "555d101e5e0f5da0": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c02edbf2e827d469": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "cd7392e717902c15": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH organic revenue growth slows to 1% in third quarter"
+  },
+  "1fd1905f2b520dd0": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "af746b6ff7ddab39": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH fashion and leather goods sales decline amid China weakness"
+  },
+  "b42b34228c46cbcd": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH fashion and leather goods organic revenue falls 5% in third quarter"
+  },
+  "632a75e7a216ae6d": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH reports 1% organic revenue growth in third quarter of 2026"
+  },
+  "fb6d8cdfee9ac2e9": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH sales fall 5% in Asia and rise 5% in the US"
+  },
+  "688b617aef435a57": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Louis Vuitton unveils new Real Madrid formalwear and travel outfits"
+  },
+  "3eda533fc8285b07": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH third-quarter sales rise 1%"
+  },
+  "10b49faae15743fa": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH reports lower fashion and leather goods sales amid Chinese slowdown"
+  },
+  "742a4aeb7d2b87bc": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Prada hosts Ocean & Climate Village exhibition at its Luna Rossa base"
+  },
+  "b0a2f4fac9484f20": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "71c2abd7d6d06885": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Louis Vuitton unveils Real Madrid formal and travel outfits for 2026/27"
+  },
+  "7dde78c129291a3e": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Frasers increases its Burberry holding to 7.42% of voting rights"
+  },
+  "60dbcc26e45c4623": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6a6be09fa1dd682a": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH fashion sales fall 5% amid weaker Chinese demand"
+  },
+  "0abc6d3f5c8b35c0": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH watches and jewellery organic revenue rises 8% in first nine months"
+  },
+  "a1065fcb2e30168e": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH jewellery segment revenue rises 8% in third quarter"
+  },
+  "1e7a226ad70583f2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1a10e125615ddccc": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "9627a05b87d072f6": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "2478ad293aebabdb": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3b09ceb20bce6dd0": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "aab666669fd26acf": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "910fbb4d38d156a3": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c42b1f66faa2fa12": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Burberry offers a King Charles watercolour for sale"
+  },
+  "ad3103cdfd5ba9a4": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Frasers increases its stake in Burberry to 7.4%"
+  },
+  "a3d1dcaa64abf79a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ed96e29ad27890fc": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Louis Vuitton features Callum Turner and a dog in new campaign"
+  },
+  "197c170cf83618a8": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Callum Turner fronts Louis Vuitton's Spring/Summer 2027 Trunk Collection campaign"
+  },
+  "b91eea78feb6c861": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ce5ecc1accaf0303": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e841db0979e9597c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "682ea20869ee3ff7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1ccffafa3d18ffd2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "38e59a84cd94c35c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d02077ea70b921f6": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Louis Vuitton revives Monterey watch with black and green ceramic cases"
+  },
+  "ca02b01b79ab5be8": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d281ae7213cbbc07": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Hermès introduces H08 watches in Bleu de Malte and Blanc Chantilly"
+  },
+  "3de9710b2af3fc85": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH gives limited detail on watch business in latest financial results"
+  },
+  "6a814d02bb85ef47": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3b4f9aed898196e2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "60b06ce23243ede4": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "King Charles designs for Burberry"
+  },
+  "793a987d4fa4ee0f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "90c52d8160982cd8": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Burberry and Highgrove celebrate British landscape through art and craft"
+  },
+  "d1521024af8286d2": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Richemont reportedly in talks to join consortium bidding for De Beers"
+  },
+  "8c1d8cf4db31b292": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "minor",
+   "headline": "Prada Linea Rossa and Red Bull help Diego Poncelet set skateboarding speed record"
+  },
+  "45bd1226ae31859a": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "major",
+   "headline": "Bruno Pavlovsky leaves Chanel Ltd board but remains fashion president"
+  },
+  "47c182053a01689e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a0ff8e0ece9a09e9": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "65334e537bb712a3": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Burberry launches collection in partnership with Highgrove Gardens"
+  },
+  "e57c0803577ac98f": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "major",
+   "headline": "Bruno Pavlovsky leaves Chanel board while retaining operational role"
+  },
+  "aa4b473026e55f1e": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Hermès introduces white and blue editions of its glass fibre H08 watch"
+  },
+  "72a2eb7d6d2ff62d": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Hermès introduces new H08 watches in fibreglass and ceramic"
+  },
+  "a2653148471fc323": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "LVMH reports nine-month revenue of €57.1 billion and 2% organic growth"
+  },
+  "f35622042f195466": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Chanel celebrates the Paris Opera’s 2026/27 opening gala"
+  },
+  "bf0a59130ef90ee3": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Prada Group brings Ocean&Climate Village to Cagliari"
+  },
+  "fc0fc668290a6d0a": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Gucci presents LACMA’s 2026 Art+Film Gala with a performance by Rosé"
+  },
+  "6a10ef27bfb9cf25": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Dior unveils holiday campaign starring Anya Taylor-Joy and Deva Cassel"
+  },
+  "8c3fc2666fb1c49e": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Louis Vuitton unveils men’s trunk campaign for spring 2027"
+  },
+  "6e41c1c31208fa2a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c21730433defb59f": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Moncler launches Re/Icons 2026 campaign with Cher, Jennie and Grace Jones"
+  },
+  "f84929628b7e85c9": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "81c7c2f530bf0cb7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "008a52d2c56cff9f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "374d24687a5e4e2d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1e2a9f979bf8582b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "110be0b37d55b890": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6d36e24ea8108aac": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Kering appoints Flore Larger as corporate communications head"
+  },
+  "ff5841b3d7bda764": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Richemont considers joining a bid for De Beers"
+  },
+  "84ade68ab1a8c309": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "LVMH's Hublot brings in François-Henri Bennahmias as consultant"
+  },
+  "823e629cc52e74c6": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e9b6d97a85fa1638": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ba764ab1b3a7733a": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "major",
+   "headline": "Kering announces departure of Alexander McQueen creative director"
+  },
+  "3768adb803bfbec6": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Gucci presents 'Legends Sheevar' campaign"
+  },
+  "977004a4194ea4dd": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "eb43a262526cc11a": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Prada introduces Re-Cashmere and Re-Wool collection"
+  },
+  "964695a5b40359f7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "7d826c111433a615": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "429b64c7b8b30d86": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "24ef42ed088f43de": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Richemont is in talks to join a bid for De Beers, source says"
+  },
+  "3a0f815a66c4f811": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "major",
+   "headline": "Kering confirms McQueen creative director Seán McGirr's departure"
+  },
+  "9e0248f1a9648e94": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e78ca8675b68bb63": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "f60051ba0a7818da": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "342841eb3ee7cd3e": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Chanel celebrates emerging writer programme launch with Women's Prize"
+  },
+  "a8928f466ea77327": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Richemont may join a bid to buy De Beers, report says"
+  },
+  "a9bc3b545604536e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "58b46b6ea793d28f": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Moncler features Cher, Grace Jones and JENNIE in its latest Re/Icons collection"
+  },
+  "12d1f1182398ae1b": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Louis Vuitton releases Travel Book dedicated to K/DA’s virtual world"
+  },
+  "25e205557d7eda17": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "minor",
+   "headline": "Kering appoints Flore Larger as corporate communications director"
+  },
+  "850e10f365cd7a22": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3fec23c14d6453f3": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "45609ae2167270cb": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8e743367e88643a3": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Chanel unveils short film on the making of No. 5 fragrance"
+  },
+  "0b8eaf2cdb4b545c": {
+   "isMove": true,
+   "type": "Legal",
+   "importance": "major",
+   "headline": "Chanel blocks bottle shape trade mark in No. 5 perfume dispute"
+  },
+  "05500645926312ee": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Margot Robbie tours the fields of Grasse with Chanel"
+  },
+  "b7cec31b94948561": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d551952bc2d2628d": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "LVMH opens sixth edition of its global open-doors event"
+  },
+  "9d65aad6e4759ccb": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "LVMH launches Les Journées Particulières from Shanghai"
+  },
+  "d2299ab286c820eb": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "00fa0cd8778bf11b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3d2bdf275e5e5630": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "700004fbd52481da": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8f4e620b86f98e98": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Louis Vuitton introduces new jewellery collection"
+  },
+  "6488f49fc3f3147a": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Pharrell Williams takes Louis Vuitton to the slopes for 2027"
+  },
+  "c24319126682e0e3": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Louis Vuitton introduces LV Ski 2026"
+  },
+  "8f05c1b291d49eaa": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Fondation Louis Vuitton hosts Mohammad Alfaraj exhibition in Paris"
+  },
+  "74d5bee2d526e65e": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Fondation Louis Vuitton hosts Gustave Fayet exhibition in Paris"
+  },
+  "1077b699317107db": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d6561bc880b5da65": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6e2fa5ad54935ea1": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "871748506efe6bfe": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "Kering's McQueen revenue falls about 60%; Vaccarello exits"
+  },
+  "d960bcea395414fe": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "major",
+   "headline": "Seán McGirr leaves Kering's Alexander McQueen"
+  },
+  "9a34afe61f3007a0": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "fc7636ffcb023d47": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c22bfc303dd09ffb": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ad73b2c1e8904d01": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "2449dcc048083a8c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a2b546bdcc6b8136": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "98c6682562914c4d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8bdb65129f047be8": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1b617c284d0ed44d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "42596545260498ff": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Prada repurposes its scraps"
+  },
+  "3b68c28be7d9f98b": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Richemont considers a stake in De Beers"
+  },
+  "a7725de3bad1de3d": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Richemont and Signet reportedly in talks to join De Beers buyout group"
+  },
+  "410d97edecaa2444": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Richemont eyes De Beers as analysts question the appeal"
+  },
+  "5a641829a3a76a81": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Moncler honours cultural trailblazers with Re/Icons collection"
+  },
+  "c8edaf205d174265": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "Moncler and Mytheresa present a winter wardrobe"
+  },
+  "1019b247c9f62ab5": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Moncler Re/Icons campaign celebrates Jennie, Cher and Grace Jones"
+  },
+  "bb2f6903be534916": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Moncler celebrates winter with Cher, Grace Jones and Jennie"
+  },
+  "0c8f61ce196d4ea6": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1ba47d0357654e32": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "9d869b195086ae2b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a2b784f2718c4916": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "9814e21c1d085d20": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "LVMH holds second day of Journées Particulières"
+  },
+  "2b9078f3295140a0": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c769e2fa1c4cd8e7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "61367e66fa6619f6": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Gucci introduces a new trainer made in China"
+  },
+  "ed3ca2b7bdbccaf3": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "40d6cf1fe6753d48": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d4a87a51d1610920": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "9f4c2412045cb326": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "eb68a1d0c25584b9": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Chanel to open its first Wuhan store at SKP"
+  },
+  "5af8f1b49051d7f9": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "b363719543d85425": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "159799a6beb032c9": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "08b51ddab4d3086e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "18dce2febb93fd26": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "316b2273a2740030": {
+   "isMove": true,
+   "type": "Leadership",
+   "importance": "major",
+   "headline": "Kering ousts Alexander McQueen's chief designer in wider shake-up"
+  },
+  "41ebc9fe1ca8a838": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "2509231fa40df0fc": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "baaf3cc4dba3f53c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6f2a2ae001865799": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1023b135d7bdf388": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ad61bccd0a4287e7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6d53096e632e2569": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "223a0e28845ff0ae": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "57c7a63c683f81be": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "67db5855099f0ef3": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ae499ce03b9423d9": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "79a74ecb91aed6c7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "05309e173a6eef5f": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "Louis Vuitton closed five stores in China over two years"
+  },
+  "439e76876a7c8a0d": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Dior Beauty introduces a new anti-ageing skincare duo"
+  },
+  "0aec737219290984": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c59da9bc43cf0c5e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "061f7622f7b9e52f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e9078268897450a9": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "14cc064df04fab2b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "0755dc73f4f8c5d9": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "69829e66f675de68": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "84d61cf11d4ecfec": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Gucci features Vittoria Ceretti in its 2026 handbag campaign"
+  },
+  "90be177a2afe3bba": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Prada dresses celebrities for the 2026 Academy Museum Gala"
+  },
+  "4e56f13997930460": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a2f616c521453a67": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Chow Tai Fook and De Beers launch Desert Rose collection at JGW"
+  },
+  "0a91721c979f592c": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Brilliant Earth launches Elizabeth Taylor lab-grown diamond collection"
+  },
+  "cd79faaa80c861e2": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Monica Vinader becomes available through Watches of Switzerland"
+  },
+  "e505d20eee644e04": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Tiffany & Co. expands HardWear collection with nine new designs"
+  },
+  "b342df164cb16c00": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "57525cac05910a20": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "b6dba82aa63f083f": {
+   "isMove": true,
+   "type": "Corporate",
+   "importance": "major",
+   "headline": "Pandora opens its first jewellery factory outside Thailand in Vietnam"
+  },
+  "181b226f6052e4de": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "De Beers recruits Botswana Olympian and Jaipur maharaja for diamond campaigns"
+  },
+  "9e59e7dfb1894bbe": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Monica Vinader roll-out reaches Goldsmiths and Mappin & Webb stores"
+  },
+  "19c355da5e728c66": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Tiffany & Co. jewellery goes on display at Crystal Bridges in Arkansas"
+  },
+  "03a4132c7c9aab7f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "2d0e493171f35a64": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "28950bb73c2a2e13": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "74c2b4a391354b03": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "f41d88cae6558681": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "30747c8e36473018": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Van Cleef & Arpels brings Dance Reflections to Sydney"
+  },
+  "1037654d59fb3812": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Van Cleef & Arpels reimagines Alhambra collection in pink enamel"
+  },
+  "7a9fc188696c124b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e698a2beb2bd6b6b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "83ec35cfcc239450": {
+   "isMove": true,
+   "type": "Collaboration",
+   "importance": "minor",
+   "headline": "De Beers partners with Botswana artisans for Frieze Masters 2026"
+  },
+  "3b16a76338c9446a": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Botswana reportedly nears agreement to increase its De Beers stake"
+  },
+  "c5a53a928f6a8df8": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Botswana reportedly nears deal to raise its De Beers stake to 25%"
+  },
+  "92d522035ff4f6f0": {
+   "isMove": true,
+   "type": "Campaign",
+   "importance": "minor",
+   "headline": "Bulgari appoints Heated Rivalry star as brand ambassador"
+  },
+  "7969a1004062c697": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Bulgari creates a one-of-a-kind Serpenti for TimeForArt"
+  },
+  "64c6bbc4c3875388": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Tiffany & Co. jewels are displayed alongside nature-inspired art in the Ozarks"
+  },
+  "4c8123e814467bf2": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Tiffany & Co.'s latest collection celebrates Jean Schlumberger's legacy"
+  },
+  "f47def0938464c91": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "bbcd9abc49b014c4": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Van Cleef & Arpels opens a new Alexandra House boutique"
+  },
+  "fbd39254748188ab": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ab2a253cfb87c513": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Pandora's Disney Pop Century Resort charm debuts at Walt Disney World"
+  },
+  "0405da39aa85ec36": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Swarovski plans to reopen a standalone store in Belfast city centre"
+  },
+  "b20437270796bb7d": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Swarovski will introduce a new wrap"
+  },
+  "3a1af40e3b4b659a": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d283ce7773f0cdd9": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Signet and Richemont reportedly hold talks to join a bidder for De Beers"
+  },
+  "f224d6770a71661a": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Richemont and Signet reportedly hold talks to join a bidder for De Beers"
+  },
+  "d7121d502bc4d64e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "df4ec99bef403ec3": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "0b2bf5cc657cc5ad": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "15167879c9bae13f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "7ad36aa3f9b11b31": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Signet considers joining a bid for De Beers"
+  },
+  "6567a3151388acb1": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d7cd55ab683e63b4": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "8de496713415c0d7": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "e6ce9040c3409f4f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a6e4ed411682b07a": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "Bulgari and Tiffany drive 6% rise in LVMH watch and jewellery sales"
+  },
+  "edf517f637d94ccd": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "550ccaf9156c347a": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Tiffany & Co. celebrates the opening of Frieze London 2026"
+  },
+  "0bbf86b3751e66bf": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Tiffany & Co.'s NFTiffs for CryptoPunks pendants sell out in 20 minutes"
+  },
+  "264db58248a32247": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Tiffany & Co. creates the Sixteen Stone Solitaire diamond ring"
+  },
+  "e80e11bee583d5ae": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "db36832987ceb169": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3003f04d49d43a4f": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "592627b6a76cf8de": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3dbcfe4841fcc789": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Swarovski hosts Diwali party attended by Rashmika Mandanna"
+  },
+  "afb0c05430544e6a": {
+   "isMove": true,
+   "type": "Results",
+   "importance": "major",
+   "headline": "Brilliant Earth sets 5 November date for third-quarter 2026 results"
+  },
+  "fd80b8443b711460": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "minor",
+   "headline": "Mejuri eyes a store at NorthPark Center in Dallas"
+  },
+  "ab00f084818de5c7": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "De Beers celebrates Voyage Through the Diamond Realm, Chapter II at Frieze Masters"
+  },
+  "f698c9d258577eef": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "ef31a6d93d0f3efb": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6c125511d29b123c": {
+   "isMove": true,
+   "type": "Retail",
+   "importance": "major",
+   "headline": "De Beers London reopens renovated Madison Avenue flagship in New York"
+  },
+  "3a1c97a94e96c6a0": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3d48d8adc8816457": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "178732322b1fb54d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "7d177db059e9bbf7": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "major",
+   "headline": "Tiffany & Co. revives designs from its archive"
+  },
+  "a4805735feb7d577": {
+   "isMove": true,
+   "type": "Legal",
+   "importance": "major",
+   "headline": "Pandora faces a $1.99m job posting class action lawsuit"
+  },
+  "ba011c76238676cc": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "Pandora Animal Kingdom logo charm arrives exclusively at Walt Disney World"
+  },
+  "acd5f67dfc71ea09": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "32a5e72896630b3c": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "85c81d827e6ebd4b": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1808a85780382c20": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "86972cccc61784e8": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "33c6c6e3acd23ec2": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "28a22d8fd7d55739": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Richemont and Signet reportedly in talks to join De Beers buyout group"
+  },
+  "cf494eb5c589f534": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "1ce5d59c7c1d5af9": {
+   "isMove": true,
+   "type": "Deal",
+   "importance": "major",
+   "headline": "Botswana plans to secure a 26% stake in De Beers"
+  },
+  "d8237f8c35799867": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "d8e74c75f347f609": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "b961cd47f8109075": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "6f68f53c87cac9c6": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "3cfa5badb9e148b8": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "14d7e3b3e43a1c0d": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "c7b2400b1d7b9be6": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "4ab371424f51f5bf": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "82a0ae64a27f5ebb": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "876a0041b21e507e": {
+   "isMove": true,
+   "type": "Show",
+   "importance": "minor",
+   "headline": "Cartier celebrates its watchmaking icons in Geneva"
+  },
+  "168afc40149772cf": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "f11e5d1954b9fd0e": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "a97d39aa79941188": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
+  },
+  "b02775c11f9d4b03": {
+   "isMove": true,
+   "type": "Collection",
+   "importance": "minor",
+   "headline": "New Swarovski Disney jewellery arrives at EPCOT"
+  },
+  "c22fdef25f627cd0": {
+   "isMove": false,
+   "type": null,
+   "importance": "minor",
+   "headline": null
   }
  }
 }
