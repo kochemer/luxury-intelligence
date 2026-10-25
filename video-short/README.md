@@ -94,6 +94,12 @@ and the same video is embedded on the digest page. Brand logos are fine to use
 
 ## Things that will bite you
 
+- **The story picker only sees stories we have the full text for.** The
+  script must be grounded in the article, and a paywalled pick can't be. W42
+  (2026-10-19) failed because Opus picked a paywalled story from its snippet;
+  `story.ts` now drops those before asking, and falls back to the runners-up if
+  the chosen id is unknown.
+
 - **Text must never spill.** The template's `__checkLayout` runs before every
   render and fails it if text leaves the safe area. Don't disable it to get a
   render through. Fix the copy or the layout.

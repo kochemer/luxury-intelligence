@@ -71,13 +71,15 @@ export async function selectStory(week: string, budget: Budget, outDir: string):
     return s;
   } catch { /* select fresh */ }
 
-  const candidates = await loadCandidates(week);
+  // Only stories we have the full text for: the script must be grounded in the
+  // article, so a paywalled pick can't be used (W42, 2026-10-19, failed that way).
+  const all = await Promise.all((await loadCandidates(week)).map(async c => ({ ...c, text: await fullTextFor(c, week) })));
+  const candidates = all.filter((c): c is Candidate & { text: string } => !!c.text);
+  console.log(`[story] ${candidates.length}/${all.length} candidates have full text`);
+  if (!candidates.length) throw new Error(`[story] no candidate in ${week} has full text; can't ground a script on a snippet`);
   // The first ~250 words of each article let the editor see details a
   // one-line summary hides, without paying for 28 full articles.
-  const previews = await Promise.all(candidates.map(async c => {
-    const text = await fullTextFor(c, week);
-    return { ...c, preview: text ? text.split(/\s+/).slice(0, 250).join(' ') : c.snippet };
-  }));
+  const previews = candidates.map(c => ({ ...c, preview: c.text.split(/\s+/).slice(0, 250).join(' ') }));
 
   const user = `Week ${week}. Candidates:\n\n` + previews.map(c =>
     `### id=${c.id} [${c.topic}] ${c.title} (${c.source})\nSummary: ${c.summary}\nOpening: ${c.preview}\n`,
@@ -88,12 +90,12 @@ export async function selectStory(week: string, budget: Budget, outDir: string):
     schema: SELECTION_SCHEMA, maxTokens: 6000, effort: 'medium',
   });
 
-  const chosen = candidates.find(c => c.id === sel.chosenId);
-  if (!chosen) throw new Error(`[story] model chose unknown id ${sel.chosenId}`);
-  const text = await fullTextFor(chosen, week);
-  if (!text) throw new Error(`[story] no full text for ${chosen.url}; can't ground a script on a snippet`);
+  // A bad id shouldn't sink the week: fall back to the editor's runners-up.
+  const chosen = [sel.chosenId, ...sel.runnersUp].map(id => candidates.find(c => c.id === id)).find(Boolean);
+  if (!chosen) throw new Error(`[story] model chose unknown id ${sel.chosenId} (runners-up ${sel.runnersUp.join(', ')})`);
+  if (chosen.id !== sel.chosenId) console.log(`[story] unknown id ${sel.chosenId}; using runner-up ${chosen.id}`);
 
-  const story: Story = { ...chosen, text, selection: sel };
+  const story: Story = { ...chosen, selection: sel };
   await fs.mkdir(outDir, { recursive: true });
   await fs.writeFile(cached, JSON.stringify(story, null, 2));
   console.log(`[story] chose: ${chosen.title}\n        why: ${sel.why}\n        angle: ${sel.angle}`);
