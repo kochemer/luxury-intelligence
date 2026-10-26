@@ -14,9 +14,14 @@ export interface Candidate {
   url: string;
   source: string;
   topic: string;
+  /** 1-based position in its digest section (1 = the section's lead story). */
+  rank: number;
   summary: string;
   snippet: string;
 }
+
+/** Only each section's lead stories are candidates: the video follows news value (owner, 2026-10-26). */
+const PER_TOPIC = 3;
 
 export interface Selection {
   chosenId: string;
@@ -36,22 +41,26 @@ const SELECTION_SCHEMA = {
   required: ['chosenId', 'why', 'angle', 'runnersUp'],
   properties: {
     chosenId: { type: 'string', description: 'id of the chosen story' },
-    why: { type: 'string', description: 'One or two sentences: why this one makes the best 60-second video' },
+    why: { type: 'string', description: 'One or two sentences: why this is the week\'s most important story for the audience' },
     angle: { type: 'string', description: 'The joke or irony the video should build on, in one sentence' },
     runnersUp: { type: 'array', items: { type: 'string' }, description: 'ids of the next 2 best stories' },
   },
 };
 
+async function loadDigest(week: string): Promise<any> {
+  return JSON.parse(await fs.readFile(path.join('data', 'digests', `${week}.json`), 'utf8'));
+}
+
 export async function loadCandidates(week: string): Promise<Candidate[]> {
-  const digest = JSON.parse(await fs.readFile(path.join('data', 'digests', `${week}.json`), 'utf8'));
+  const digest = await loadDigest(week);
   const out: Candidate[] = [];
   for (const [topic, t] of Object.entries<any>(digest.topics)) {
-    for (const a of t.top ?? []) {
+    (t.top ?? []).slice(0, PER_TOPIC).forEach((a: any, i: number) => {
       out.push({
-        id: a.id, title: a.title, url: a.url, source: a.source, topic,
+        id: a.id, title: a.title, url: a.url, source: a.source, topic, rank: i + 1,
         summary: a.aiSummary ?? '', snippet: String(a.snippet ?? '').slice(0, 600),
       });
-    }
+    });
   }
   return out;
 }
@@ -71,17 +80,20 @@ export async function selectStory(week: string, budget: Budget, outDir: string):
     return s;
   } catch { /* select fresh */ }
 
+  const digest = await loadDigest(week);
   const candidates = await loadCandidates(week);
   // The first ~250 words of each article let the editor see details a
-  // one-line summary hides, without paying for 28 full articles.
+  // one-line summary hides, without paying for every full article.
   const previews = await Promise.all(candidates.map(async c => {
     const text = await fullTextFor(c, week);
     return { ...c, preview: text ? text.split(/\s+/).slice(0, 250).join(' ') : c.snippet };
   }));
 
-  const user = `Week ${week}. Candidates:\n\n` + previews.map(c =>
-    `### id=${c.id} [${c.topic}] ${c.title} (${c.source})\nSummary: ${c.summary}\nOpening: ${c.preview}\n`,
-  ).join('\n') + `\nChoose the single best story for this week's 60-second video.`;
+  const themes: string[] = digest.keyThemes ?? [];
+  const user = `Week ${week}.\nDigest headline: ${digest.oneSentenceSummary ?? '(none)'}\n` +
+    `Key themes: ${themes.length ? themes.join('; ') : '(none)'}\n\nCandidates:\n\n` + previews.map(c =>
+    `### id=${c.id} [${c.topic} #${c.rank}] ${c.title} (${c.source})\nSummary: ${c.summary}\nOpening: ${c.preview}\n`,
+  ).join('\n') + `\nChoose this week's most newsworthy story for the 60-second video.`;
 
   const sel = await callJson<Selection>({
     budget, step: 'select-story', system: SELECT_SYSTEM, user,
@@ -96,6 +108,8 @@ export async function selectStory(week: string, budget: Budget, outDir: string):
   const story: Story = { ...chosen, text, selection: sel };
   await fs.mkdir(outDir, { recursive: true });
   await fs.writeFile(cached, JSON.stringify(story, null, 2));
-  console.log(`[story] chose: ${chosen.title}\n        why: ${sel.why}\n        angle: ${sel.angle}`);
+  const runnersUp = sel.runnersUp.map(id => candidates.find(c => c.id === id)?.title ?? id);
+  console.log(`[story] chose: [${chosen.topic} #${chosen.rank}] ${chosen.title}\n        why: ${sel.why}\n` +
+    `        angle: ${sel.angle}\n        runners-up: ${runnersUp.join(' | ')}`);
   return story;
 }

@@ -44,6 +44,20 @@ Output (gitignored): `data/weeks/<week>/video-short/` (mp4s, `script.json`,
 - Story length target: 140–160 words (at 180 wpm, about 50 s), so the whole
   video lands near a minute with the bookends.
 
+## Owner decision (2026-10-26): news value picks the story
+
+W43's Short went to Delvaux, #5 in Luxury & Consumer, because the selector
+ranked all 28 digest stories by joke potential and never saw their digest rank.
+The owner wants news value first, with the comedy added by the script.
+
+- `src/story.ts` only offers the top 3 stories per section (`PER_TOPIC`, 12
+  candidates) and shows each one's section rank, plus the digest's headline
+  (`oneSentenceSummary`) and `keyThemes`.
+- `SELECT_SYSTEM` (`src/prompts.ts`) ranks news value first, then substance.
+  Irony only breaks ties. The script's sarcasm rules are unchanged.
+- The CI log line `[story] chose:` shows section and rank, and lists the
+  runners-up.
+
 ## YouTube and the site (live 2026-10-11)
 
 Owner decisions (2026-10-10): the weekly Short goes to YouTube
