@@ -17,7 +17,8 @@ Output (gitignored): `data/weeks/<week>/video-short/` (mp4s, `script.json`,
 - **$2/week spend cap**, enforced in `src/budget.ts`. Each call is priced at
   worst case *before* it runs. Override with `VIDEO_SHORT_CAP_USD`.
 - A cut about every 10 s (5–6 scenes). Voice keeps natural pauses, played at
-  **1.2×** (`VIDEO_SHORT_TEMPO`; was 1.25× until 2026-10-05).
+  **1.1×** (`VIDEO_SHORT_TEMPO`; 1.25× until 2026-10-05, 1.2× until 2026-10-26,
+  see "Things that will bite you").
 - Cheap OpenAI TTS is fine. The owner is moving off ElevenLabs.
 - ~~Do not publish or embed yet.~~ Superseded 2026-10-10: publish to YouTube + embed (see "YouTube and the site").
 - Vercel limits come first: nothing here may end up in a deployment.
@@ -41,8 +42,9 @@ Output (gitignored): `data/weeks/<week>/video-short/` (mp4s, `script.json`,
   wordmarks, and logos are never scraped. Every brand must be named in the
   source article. `meta.json` → `logosUsed` lists the logos to review before
   anything is published.
-- Story length target: 140–160 words (at 180 wpm, about 50 s), so the whole
-  video lands near a minute with the bookends.
+- Story length target: 120–130 words (at 165 wpm, about 45 s), so the whole
+  video lands near a minute with the bookends. Was 140–160 at 180 wpm until
+  2026-10-26.
 
 ## Owner decision (2026-10-26): news value picks the story
 
@@ -115,12 +117,19 @@ and the same video is embedded on the digest page. Brand logos are fine to use
   (an ESM package can't import the root's CommonJS modules). It's excluded from the root `tsconfig`, eslint and output tracing;
   `__tests__/videoShort.isolation.test.ts` guards that.
 - `ELEVENLABS_API_KEY` in `.env.local` is a key *ID*, not a key.
-- **"1.2×" means 1.2× normal speech (about 180 wpm), not 1.2× whatever the TTS
+- **The tempo means × normal speech (1.1× ≈ 165 wpm), not × whatever the TTS
   returns.** gpt-4o-mini-tts reads at roughly 115–125 wpm whatever the
   instruction says, so a plain `atempo=1.2` came out around 140 wpm and the
   owner heard it as 1× (2026-10-06). `voice.ts` measures the raw pace on every
-  run and picks the atempo to hit `TEMPO × NORMAL_WPM` (capped at 1.6×).
+  run and picks the atempo to hit `TEMPO × NORMAL_WPM`, capped at 1.25×.
   `meta.json` → `voicePace` records raw wpm, atempo and final wpm.
+- **Don't get the speed from ffmpeg.** The realtime voice read W43 at 115 wpm,
+  so hitting 180 wpm took atempo 1.57×, and the owner heard it as far too fast
+  and unnatural (2026-10-26). The fix: drop the target to 1.1×, cap atempo at
+  1.25× (`VIDEO_SHORT_MAX_ATEMPO`) and shorten the script. The voice ignores
+  "brisk" in its instruction (still 116 wpm), and its pauses are already short
+  (capping them at 0.35 s gained 1 wpm), so the speech itself is slow, about
+  138 wpm without pauses. With the cap the story lands near 146 wpm.
 - **The voice is `gpt-realtime-2.1-mini` over the Realtime API** (`lib/llm/speech.ts`)
   since 2026-10-14, because OpenAI removes gpt-4o-mini-tts on 2027-01-06. The
   owner listened to W39's six lines in "ash" on both and approved; it read every

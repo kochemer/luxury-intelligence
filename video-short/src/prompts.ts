@@ -50,8 +50,8 @@ the information sticks.
 - No lists of three adjectives or three parallel phrases for rhythm.
 - Colons only inside meme lines, versus items and code.
 
-## Structure (about 50 seconds, 140 to 160 spoken words)
-The narration plays at about 180 words per minute (1.2x normal speech), pauses included.
+## Structure (about 45 seconds, 120 to 130 spoken words)
+The narration plays at about 165 words per minute (1.1x normal speech), pauses included.
 A fixed intro ("Welcome to Luxury Intel...") plays before your script and a fixed outro
 after it. Don't write either, and don't greet the viewer.
 1. Cold open (about 10s): the most surprising fact or tension, stated flatly.
@@ -60,7 +60,7 @@ after it. Don't write either, and don't greet the viewer.
 4. The twist or joke callback (about 10s): the ironic angle and a sharp final line.
 
 ## Visual rhythm
-- Few, longer scenes: 5 to 6 scenes of about 10 seconds each (24 to 30 spoken words per scene).
+- Few, longer scenes: 5 to 6 scenes of about 8 to 10 seconds each (20 to 26 spoken words per scene).
   A cut only happens between scenes, so each scene is one complete idea.
 - Visuals build up while the scene plays: list items, meme lines, code lines, versus sides
   and bars appear one after another, in the order the narration mentions them.

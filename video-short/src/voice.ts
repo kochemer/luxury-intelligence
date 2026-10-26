@@ -22,14 +22,14 @@ export const TTS_MODEL = REALTIME_SPEECH_MODEL;
 export const TTS_FALLBACK_MODEL = 'gpt-4o-mini-tts';
 export const TTS_VOICE = process.env.VIDEO_SHORT_VOICE ?? 'ash';
 const INSTRUCTIONS =
-  'Dry, deadpan news delivery at a normal conversational pace. Keep short natural pauses between sentences. ' +
+  'Dry, deadpan news delivery at a brisk pace, like a quick tech news recap. Keep the pauses between sentences short. ' +
   'Confident, slightly sardonic, unimpressed by hype. Land punchlines flat. ' +
   'No radio-announcer warmth, no sing-song, no exaggerated excitement.';
 
 /** Silence after each scene: a breath before the next cut. */
 const GAP_S = 0.4;
 /**
- * Speed relative to NORMAL speech (owner set 1.2x on 2026-10-05).
+ * Speed relative to NORMAL speech (owner: 1.2x on 2026-10-05, 1.1x on 2026-10-26).
  *
  * Applying atempo=1.2 to whatever the TTS returns isn't enough: told to be
  * "calm", gpt-4o-mini-tts read at ~115 wpm, so 1.2x of that came out at
@@ -37,11 +37,14 @@ const GAP_S = 0.4;
  * pace is measured each run and atempo is set to land the story at
  * TEMPO x NORMAL_WPM, pauses included.
  */
-export const TEMPO = Number(process.env.VIDEO_SHORT_TEMPO ?? 1.2);
+export const TEMPO = Number(process.env.VIDEO_SHORT_TEMPO ?? 1.1);
 /** Typical conversational/news narration pace, pauses included. */
 const NORMAL_WPM = 150;
-/** atempo far beyond this starts to sound processed. */
-const MAX_ATEMPO = 1.6;
+/**
+ * The pace should come from the voice, not from stretching it: W43 at x1.57
+ * sounded too fast and processed (owner, 2026-10-26).
+ */
+const MAX_ATEMPO = Number(process.env.VIDEO_SHORT_MAX_ATEMPO ?? 1.25);
 
 export interface TimedScene extends Scene {
   start: number;
