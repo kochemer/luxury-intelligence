@@ -1,0 +1,111 @@
+{
+  "week": "2026-W43",
+  "generatedAt": "2026-10-26T13:11:04.996Z",
+  "model": "gpt-6.1-sol",
+  "posts": [
+    {
+      "slot": "linkedin-issue",
+      "channel": "linkedin",
+      "day": "mon",
+      "localTime": "10:00",
+      "dueAtISO": "2026-10-26T09:00:00.000Z",
+      "parts": [
+        "Luxury ecommerce needs to decide what shopping agents can buy without asking. Repeat jewellery orders offer a starting point, with customer approval required above a chosen price threshold.\n\n→ Shopify and Vercel have collaborated to let people and external AI agents shop a store, making purchase permissions a decision for retailers.\n\n→ Kering Jewelry grew 12% in Q3 while group revenue stayed flat, giving luxury leaders reason to assess ecommerce opportunities by category.\n\n→ Google Cloud added OpenAI models in private preview for enterprise customers, giving retail AI teams more model choice within one provider.\n\nRead, listen or watch the full issue, free every Monday: https://luxury-intel.com/digest/october-2026-week-43?utm_source=linkedin&utm_medium=social&utm_campaign=2026-W43&utm_content=issue-post\n\n#ecommerce #luxury #retailtech"
+      ],
+      "storyIds": [
+        "kc5qxm",
+        "6u1rgf",
+        "wsrk3z"
+      ],
+      "status": "ready",
+      "image": {
+        "url": "https://luxury-intel.com/weekly-images/2026-W43.png",
+        "alt": "Weekly cover illustration for 2026-W43"
+      }
+    },
+    {
+      "slot": "x-thread",
+      "channel": "x",
+      "day": "mon",
+      "localTime": "10:30",
+      "dueAtISO": "2026-10-26T09:30:00.000Z",
+      "parts": [
+        "Spending permissions are becoming a merchandising decision for luxury ecommerce. Brands need to decide which purchases an AI agent can complete without another conversation with the customer.",
+        "Kering Jewelry grew 12% and Eyewear 6% year on year on a reported basis in Q3, while group revenue stayed flat. Those divisions give management reason to look beyond market conditions when assessing performance.",
+        "Shopify and Vercel are letting humans and external AI agents shop stores. Luxury retailers could test repeat jewellery orders with approval above a price threshold, comparing completed purchases with cancellations before expanding access.",
+        "Richemont is reportedly in talks to join a consortium bidding for De Beers Group, according to Jeweller. A successful bid would give the luxury group a direct interest in diamond mining.",
+        "Read, listen or watch the full issue, free every Monday: https://luxury-intel.com/digest/october-2026-week-43?utm_source=x&utm_medium=social&utm_campaign=2026-W43&utm_content=thread"
+      ],
+      "storyIds": [
+        "6u1rgf",
+        "kc5qxm",
+        "sfxsk"
+      ],
+      "status": "ready",
+      "image": {
+        "url": "https://luxury-intel.com/weekly-images/2026-W43.png",
+        "alt": "Weekly cover illustration for 2026-W43"
+      }
+    },
+    {
+      "slot": "x-story-tue",
+      "channel": "x",
+      "day": "tue",
+      "localTime": "12:00",
+      "dueAtISO": "2026-10-27T11:00:00.000Z",
+      "parts": [
+        "Hermès posted 5.5% Q3 revenue growth, driven by Europe and the Americas. It kept its full-year forecast despite a deteriorating macroeconomic and geopolitical environment.",
+        "More in this week's issue: https://luxury-intel.com/digest/october-2026-week-43?utm_source=x&utm_medium=social&utm_campaign=2026-W43&utm_content=story-tue"
+      ],
+      "storyIds": [
+        "nc51tm"
+      ],
+      "status": "ready"
+    },
+    {
+      "slot": "x-story-wed",
+      "channel": "x",
+      "day": "wed",
+      "localTime": "12:00",
+      "dueAtISO": "2026-10-28T11:00:00.000Z",
+      "parts": [
+        "Walmart is rolling out controls that let shoppers oversee AI agent purchases and set spending limits. For retailers, this puts customer control over automated spending into the shopping experience.",
+        "More in this week's issue: https://luxury-intel.com/digest/october-2026-week-43?utm_source=x&utm_medium=social&utm_campaign=2026-W43&utm_content=story-wed"
+      ],
+      "storyIds": [
+        "eeazaz"
+      ],
+      "status": "ready"
+    },
+    {
+      "slot": "x-story-thu",
+      "channel": "x",
+      "day": "thu",
+      "localTime": "12:00",
+      "dueAtISO": "2026-10-29T11:00:00.000Z",
+      "parts": [
+        "Luk Fook’s revenue rose as diamond-jewellery demand improved. Its new London store gives the group its first European foothold as demand strengthens.",
+        "More in this week's issue: https://luxury-intel.com/digest/october-2026-week-43?utm_source=x&utm_medium=social&utm_campaign=2026-W43&utm_content=story-thu"
+      ],
+      "storyIds": [
+        "20uyvx"
+      ],
+      "status": "ready"
+    },
+    {
+      "slot": "x-story-fri",
+      "channel": "x",
+      "day": "fri",
+      "localTime": "12:00",
+      "dueAtISO": "2026-10-30T11:00:00.000Z",
+      "parts": [
+        "Anthropic launched Claude Duet to handle tasks while users are offline. For luxury retailers, required approval before sensitive actions such as payments puts a limit on what the agent can do unattended.",
+        "More in this week's issue: https://luxury-intel.com/digest/october-2026-week-43?utm_source=x&utm_medium=social&utm_campaign=2026-W43&utm_content=story-fri"
+      ],
+      "storyIds": [
+        "8u2un1"
+      ],
+      "status": "ready"
+    }
+  ]
+}
