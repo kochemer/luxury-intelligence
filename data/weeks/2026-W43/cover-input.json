@@ -1,0 +1,39 @@
+{
+  "weekLabel": "2026-W43",
+  "homepageTopArticles": [
+    {
+      "title": "Kering Eyewear and Jewelry divisions maintain positive trends in Q3 amid flat group revenue performance",
+      "topic": "Luxury & Consumer",
+      "source": "Moodie Davitt Report",
+      "snippet": "The strongest performers by division in Q3 were Kering Jewelry (+12% year-on-year on a reported basis) and Kering Eyewear (+6%) as group transformation and revitalisation of the Gucci brand continues.",
+      "aiSummary": "Kering Jewelry grew 12% and Kering Eyewear 6% year-on-year on a reported basis in Q3, while group revenue remained flat."
+    },
+    {
+      "title": "Hermès posts 5.5 percent Q3 sales growth driven by Europe and Americas",
+      "topic": "Luxury & Consumer",
+      "source": "FashionUnited",
+      "snippet": "Hermès store in Abu Dhabi. Credits: Falic Group. \n\nFrench luxury group Hermès reported a 5.5 percent increase in third-quarter revenue on Thursday, supported by Europe, the Americas and Japan. The company also confirmed its full-year forecast “despite the deteriorating macroeconomic and geopolitical environment”.",
+      "aiSummary": "Hermès reported 5.5% third-quarter revenue growth and confirmed its full-year forecast despite a deteriorating macroeconomic and geopolitical environment."
+    },
+    {
+      "title": "Luxury retailers reportedly considering bid for De Beers",
+      "topic": "Jewellery Industry",
+      "source": "Jeweller - Business News",
+      "snippet": "Luxury group Richemont, owner of brands such as Cartier and Van Cleef & Arpels, is reportedly in talks to join a consortium bidding for the diamond miner De Beers Group.",
+      "aiSummary": "Richemont is reportedly in talks to join a consortium bidding for diamond miner De Beers Group."
+    },
+    {
+      "title": "Shopify, Vercel Arm Stores for AI Agents",
+      "topic": "Ecommerce & Retail Tech",
+      "source": "Practical Ecommerce",
+      "snippet": "The collaboration allows humans and external AI agents alike to shop a store.  \nThe post Shopify, Vercel Arm Stores for AI Agents appeared first on Practical Ecommerce.",
+      "aiSummary": "Shopify and Vercel have collaborated to let humans and external AI agents shop a store."
+    }
+  ],
+  "chosenStory": "Luxury retailers reportedly considering bid for De Beers",
+  "model": "gpt-image-2.5-sunburst",
+  "finalPrompt": "Candid documentary photograph, shot on a real camera: An unpeopled luxury leather-goods boutique with pale limestone walls and an ivory display plinth. A battered mining pickaxe rests diagonally on a cream suede presentation cushion; its wooden grip is meticulously wrapped in burgundy silk with a neat bow. This small display sits in the middle, lower half, occupying less than one-third of the image width. Plain wall above. Natural window light, genuine steel scratches, worn wood, slightly creased silk. No writing, logos or stones.\n\nCRITICAL CONSTRAINTS (must be strictly avoided):\n- people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette, text, letters, numbers, signage, labels, price tags, screens, UI, dashboards, holograms, floating icons, watermarks, unrelated brand logos, cartoon, illustration, CGI, 3D render, anime, video game render, AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed, diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone, dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh\n\nThis must look like a genuine photograph taken by a person for a magazine — NOT AI-generated, not CGI, not a 3D render. Natural available light with real shadows and true reflections. Real materials with real texture: dust, wear, fingerprints, slight clutter, small imperfections and natural asymmetry. Slightly imperfect, candid framing. Avoid the AI look — no waxy/plastic surfaces, no over-smoothing, no over-saturation or HDR glow, no glossy studio perfection. Fill the entire frame edge to edge — no black bars, no empty edges.\n\nFraming: the subject of the photo is small and sits in the middle of the frame from left to right and in the lower half from top to bottom, with calm, empty background in the top third and generous space on both sides. Nothing important near the left or right edges or the top of the frame.\n\nDo not include: any people or human body parts; any text, labels, signage, screens, UI, or logos; diamonds or gemstones; CGI lighting, dramatic spotlights, or blurred vignette backgrounds.",
+  "imageSize": "1536x1024",
+  "outputPath": "/weekly-images/2026-W43.png",
+  "generatedAt": "2026-10-26T13:03:29.408Z"
+}

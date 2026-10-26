@@ -1,0 +1,84 @@
+{
+  "week": "2026-W43",
+  "generatedAt": "2026-10-26T12:58:51.872Z",
+  "weeklyQuote": "Hermès grows while Kering stays flat. Blaming the luxury market is getting harder.",
+  "editorialTake": "I think spending permissions are becoming a merchandising decision for luxury ecommerce. Brands need to decide which purchases an agent can complete without a conversation.\n\nShopify and Vercel are opening stores to shopping agents, while Walmart is giving customers spending limits. Claude Duet requires approval for sensitive actions such as payments, making consent part of the transaction. Luxury needs human advice, but that objection is weaker when returning customers already know the piece they want.\n\nNext quarter, I would test agent purchasing on a small sample of repeat orders from existing jewellery customers. Require approval above a chosen price threshold, then compare completed purchases with cancellations before extending access to higher ticket pieces. Ask customers whether they understood exactly what they authorised.",
+  "readOneThing": {
+    "title": "Shopify, Vercel Arm Stores for AI Agents",
+    "url": "https://www.practicalecommerce.com/shopify-vercel-arm-stores-for-ai-agents"
+  },
+  "items": [
+    {
+      "rank": 1,
+      "title": "Shopify, Vercel Arm Stores for AI Agents",
+      "url": "https://www.practicalecommerce.com/shopify-vercel-arm-stores-for-ai-agents",
+      "source": "Practical Ecommerce",
+      "bullets": [
+        "Shopify and Vercel presented Vercel Shop, an open-source storefront template supporting human shoppers and external AI agents, at Vercel’s October 15 conference.",
+        "The template’s optional shopping assistant can update the storefront’s shared cart, but shoppers must complete purchases through checkout themselves.",
+        "The collaboration follows Shopify’s June 30 Hydrogen SDK rebuild, which lets developers use its commerce tools across JavaScript frameworks and runtimes."
+      ],
+      "summary": "Shopify and Vercel have collaborated to let humans and external AI agents shop a store."
+    },
+    {
+      "rank": 2,
+      "title": "Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts",
+      "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
+      "source": "TechCrunch - AI",
+      "bullets": [
+        "OpenCode said attackers breached an older system serving its Console platform overnight, exposing API keys and affecting 1.4% of Console users.",
+        "Some users reported unauthorized charges exceeding $1,000, while OpenAI said it was refunding API customers for credits consumed during the attack.",
+        "OpenCode obtained access to OpenAI’s Daybreak Blue security program after standard models refused to analyze malicious code during its response."
+      ],
+      "summary": "Hackers breached part of OpenCode’s online platform, stealing some users’ API keys and running up charges on their AI accounts."
+    },
+    {
+      "rank": 3,
+      "title": "Kering Eyewear and Jewelry divisions maintain positive trends in Q3 amid flat group revenue performance",
+      "url": "https://moodiedavittreport.com/kering-eyewear-and-jewelry-divisions-maintain-positive-trends-in-q3-amid-flat-group-revenue-performance/?utm_source=rss&utm_medium=rss&utm_campaign=kering-eyewear-and-jewelry-divisions-maintain-positive-trends-in-q3-amid-flat-group-revenue-performance",
+      "source": "Moodie Davitt Report",
+      "bullets": [
+        "Kering reported third-quarter revenue of €3.345 billion, unchanged year-on-year on a reported basis and down 1% on a comparable basis.",
+        "Kering Jewelry revenue rose 12% year-on-year on a reported basis, while Kering Eyewear recorded 6% growth over the same period.",
+        "The group completed 105 net store closures during the first nine months of 2026, with at least 125 planned for the full year."
+      ],
+      "summary": "Kering Jewelry grew 12% and Kering Eyewear 6% year-on-year on a reported basis in Q3, while group revenue remained flat."
+    },
+    {
+      "rank": 4,
+      "title": "Walmart unveils AI agent shopping controls, spending limits",
+      "url": "https://www.digitalcommerce360.com/2026/10/23/walmart-unveils-ai-agent-shopping-controls-spending-limits/",
+      "source": "Digital Commerce 360",
+      "bullets": [
+        "Walmart announced an Agent Gateway that will connect AI shopping systems directly to its services using Anthropic’s Model Context Protocol.",
+        "Agent Profiles, scheduled to launch within a month, will let customers approve individual purchases or authorize spending up to preset limits.",
+        "Walmart wants its shoppers to stay in control as artificial intelligence (AI) agents take on a bigger role across ecommerce"
+      ],
+      "summary": "Walmart is rolling out tools that let shoppers oversee AI agent purchases and set spending limits."
+    },
+    {
+      "rank": 5,
+      "title": "1Password launches a way for AI agents to log in on your behalf without seeing your password",
+      "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+      "source": "TechCrunch - AI",
+      "bullets": [
+        "1Password launched 1Password for Agents on Thursday, supporting personal AI assistants from companies including Anthropic and OpenAI.",
+        "Each login attempt sends a unique digital key to 1Password, which alerts the user for approval before filling in account credentials.",
+        "Axios reported the same day that U.S. banks were detecting AI agent activity in customer accounts but struggled to verify user authorization."
+      ],
+      "summary": "1Password launched a feature allowing AI agents to log into customers’ personal accounts without seeing their passwords."
+    },
+    {
+      "rank": 6,
+      "title": "Klarna Takes BNPL Beyond Retail with Fiserv Partnership",
+      "url": "https://www.paymentsjournal.com/klarna-takes-bnpl-beyond-retail-with-fiserv-partnership/",
+      "source": "Payments Journal",
+      "bullets": [
+        "Klarna’s payment options are coming to Fiserv’s Commerce Hub, giving enterprise merchants access to the service online and in stores.",
+        "Customers can pay within 30 days or split purchases into interest-free installments through the new integration.",
+        "The announcement follows Klarna’s rollout at more than 100,000 U.S. merchant locations through Clover, Fiserv’s small-business point-of-sale platform."
+      ],
+      "summary": "Klarna and Fiserv are bringing buy now, pay later plans to Commerce Hub for the first time, enabling enterprise merchants to offer them in-store and online."
+    }
+  ]
+}

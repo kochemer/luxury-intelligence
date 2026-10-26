@@ -13473,5 +13473,313 @@
       "summary": "Timex ha lanzado Cavatina Luxe, ampliando su colección Cavatina con cinco relojes inspirados en la joyería y con una silueta ovalada retro."
     },
     "translatedAt": "2026-10-19T13:07:11.109Z"
+  },
+  "7107a7d27db7b2ee": {
+    "da": {
+      "title": "Google Cloud tilbyder nu OpenAI-modeller sammen med Gemini og Claude og bliver den eneste store udbyder med alle tre",
+      "summary": "Google Cloud har gjort OpenAI-modeller tilgængelige i en privat forhåndsvisning for erhvervskunder og er dermed den første store cloududbyder, der tilbyder Gemini, Claude og GPT'er."
+    },
+    "es": {
+      "title": "Google Cloud ofrece ahora modelos de OpenAI junto con Gemini y Claude, y se convierte en el único gran proveedor que ofrece los tres",
+      "summary": "Google Cloud ha añadido modelos de OpenAI en una vista previa privada para clientes empresariales, convirtiéndose en el primer gran proveedor de servicios en la nube que ofrece Gemini, Claude y GPT."
+    },
+    "translatedAt": "2026-10-26T12:56:39.990Z"
+  },
+  "0af75f22ae65b78c": {
+    "da": {
+      "title": "Anthropic tager kampen op mod Grok Bot, Metas Muse og OpenAIs Dots med sin altid aktive agent \"Claude Duet\"",
+      "summary": "Anthropic lancerede Claude Duet, en AI-agent, der udfører opgaver, mens brugerne er offline, og kræver godkendelse før følsomme handlinger som betalinger."
+    },
+    "es": {
+      "title": "Anthropic desafía a Grok Bot, Muse de Meta y Dots de OpenAI con su agente siempre activo \"Claude Duet\"",
+      "summary": "Anthropic lanzó Claude Duet, un agente de IA que realiza tareas mientras los usuarios están desconectados y requiere aprobación antes de llevar a cabo acciones delicadas, como pagos."
+    },
+    "translatedAt": "2026-10-26T12:56:39.990Z"
+  },
+  "0d3cf36c796ef8ed": {
+    "da": {
+      "title": "Hackere rammer AI-kodeværktøjet OpenCode og påfører brugerne regninger på deres AI-konti",
+      "summary": "Hackere brød ind i en del af OpenCodes onlineplatform, stjal nogle brugeres API-nøgler og påførte deres AI-konti ekstra gebyrer."
+    },
+    "es": {
+      "title": "Hackers atacan la herramienta de programación con IA OpenCode y generan cargos en las cuentas de IA de sus usuarios",
+      "summary": "Hackers vulneraron parte de la plataforma en línea de OpenCode, robaron las claves API de algunos usuarios y generaron cargos en sus cuentas de IA."
+    },
+    "translatedAt": "2026-10-26T12:56:39.990Z"
+  },
+  "de3e3d90d3c387fb": {
+    "da": {
+      "title": "Sådan klarer Canvas nye billedgenereringsværktøj sig sammenlignet med modeller fra OpenAI, Google og Meta",
+      "summary": "Canva lancerede Canva Craft, en AI-billedgenerator, der klarede sig godt med realistiske billeder, men kom til kort i en designopgave."
+    },
+    "es": {
+      "title": "Así se compara la nueva herramienta de generación de imágenes de Canva con los modelos de OpenAI, Google y Meta",
+      "summary": "Canva lanzó Canva Craft, un generador de imágenes con IA que obtuvo buenos resultados con imágenes realistas, pero se quedó corto en una tarea de diseño."
+    },
+    "translatedAt": "2026-10-26T12:56:39.990Z"
+  },
+  "849eae7ba3a25e38": {
+    "da": {
+      "title": "1Password lancerer en måde, hvor AI-agenter kan logge ind på dine vegne uden at se din adgangskode",
+      "summary": "1Password har lanceret en funktion, der gør det muligt for AI-agenter at logge ind på kundernes personlige konti uden at se deres adgangskoder."
+    },
+    "es": {
+      "title": "1Password lanza una forma para que los agentes de IA inicien sesión en tu nombre sin ver tu contraseña",
+      "summary": "1Password ha lanzado una función que permite a los agentes de IA iniciar sesión en las cuentas personales de los clientes sin ver sus contraseñas."
+    },
+    "translatedAt": "2026-10-26T12:56:39.990Z"
+  },
+  "36f78194afa3d789": {
+    "da": {
+      "title": "Anthropic sagsøges for angiveligt at have brugt 274 Elvis Presley-sange til at træne AI-modeller",
+      "summary": "Authentic Brands Group sagsøger Anthropic for angiveligt at have brugt 274 Elvis Presley-sange til at træne AI-modeller uden tilladelse."
+    },
+    "es": {
+      "title": "Anthropic, demandada por supuestamente usar 274 canciones de Elvis Presley para entrenar modelos de IA",
+      "summary": "Authentic Brands Group demanda a Anthropic por supuestamente usar 274 canciones de Elvis Presley para entrenar modelos de IA sin permiso."
+    },
+    "translatedAt": "2026-10-26T12:56:44.508Z"
+  },
+  "d123472dd38ac326": {
+    "da": {
+      "title": "AI-forskere efterlod Claude strandet på en virtuel øde ø. Den begyndte at „lege“.",
+      "summary": "Claude Opus 4.7-agenter udviste legelignende adfærd, da forskere efterlod dem alene på en virtuel øde ø i 30 timer uden opgaver."
+    },
+    "es": {
+      "title": "Investigadores de IA dejaron a Claude varado en una isla desierta virtual. Empezó a «jugar».",
+      "summary": "Los agentes Claude Opus 4.7 mostraron un comportamiento similar al juego cuando los investigadores los dejaron solos en una isla desierta virtual durante 30 horas sin tareas."
+    },
+    "translatedAt": "2026-10-26T12:56:44.508Z"
+  },
+  "4cd5a803d4149c7f": {
+    "da": {
+      "title": "Shopify og Vercel ruster butikker til AI-agenter",
+      "summary": "Shopify og Vercel har samarbejdet om at gøre det muligt for mennesker og eksterne AI-agenter at handle i en butik."
+    },
+    "es": {
+      "title": "Shopify y Vercel preparan tiendas para agentes de IA",
+      "summary": "Shopify y Vercel han colaborado para permitir que las personas y los agentes de IA externos compren en una tienda."
+    },
+    "translatedAt": "2026-10-26T12:56:44.508Z"
+  },
+  "bc9e6567a62aba6f": {
+    "da": {
+      "title": "Walmart lancerer kontrolfunktioner til AI-agenters indkøb og forbrugsgrænser",
+      "summary": "Walmart udruller værktøjer, der lader kunder holde øje med AI-agenters indkøb og sætte forbrugsgrænser."
+    },
+    "es": {
+      "title": "Walmart presenta controles de compra y límites de gasto para agentes de IA",
+      "summary": "Walmart está implementando herramientas para que los compradores supervisen las compras de los agentes de IA y establezcan límites de gasto."
+    },
+    "translatedAt": "2026-10-26T12:56:44.508Z"
+  },
+  "538a4f2bd8736a39": {
+    "da": {
+      "title": "Klarna udvider BNPL ud over detailhandlen med partnerskab med Fiserv",
+      "summary": "Klarna og Fiserv gør det for første gang muligt at tilbyde køb nu, betal senere-løsninger via Commerce Hub, så større forhandlere kan tilbyde dem både i butikkerne og online."
+    },
+    "es": {
+      "title": "Klarna lleva el BNPL más allá del comercio minorista con su alianza con Fiserv",
+      "summary": "Klarna y Fiserv incorporan por primera vez las opciones de compra ahora y paga después a Commerce Hub, lo que permite a los grandes comercios ofrecerlas tanto en tiendas físicas como online."
+    },
+    "translatedAt": "2026-10-26T12:56:44.508Z"
+  },
+  "409831787a5887f5": {
+    "da": {
+      "title": "AliExpress bringer skaberhandel til YouTube",
+      "summary": "AliExpress udvider sit partnerskab med YouTube ved at tilføje sit produktkatalog til platformens Shopping Affiliate Programme."
+    },
+    "es": {
+      "title": "AliExpress lleva el comercio de creadores a YouTube",
+      "summary": "AliExpress amplía su colaboración con YouTube al añadir su catálogo de productos al programa de afiliados de compras de la plataforma."
+    },
+    "translatedAt": "2026-10-26T12:56:49.441Z"
+  },
+  "f28d57e04f781113": {
+    "da": {
+      "title": "Amazon sigter mod 300.000 sæsonansættelser i juletiden",
+      "summary": "Amazon planlægger at ansætte 300.000 medarbejdere i USA til juletiden, en stigning på 20 % sammenlignet med de seneste tre sæsoner."
+    },
+    "es": {
+      "title": "Amazon prevé contratar a 300.000 trabajadores para las fiestas",
+      "summary": "Amazon planea contratar a 300.000 trabajadores en EE. UU. para la temporada navideña, lo que supone un aumento del 20 % respecto a las tres temporadas anteriores."
+    },
+    "translatedAt": "2026-10-26T12:56:49.441Z"
+  },
+  "8850b69a23005e04": {
+    "da": {
+      "title": "Rapport: Betalinger er en vækstdriver for e-handel i Sydøstasien",
+      "summary": "Checkout afgør, om efterspørgsel bliver til salg, og hvor hurtigt virksomheder går ind på nye markeder i Sydøstasien, skriver Inside Retail Asia."
+    },
+    "es": {
+      "title": "Informe: Los pagos impulsan el crecimiento del comercio electrónico en el Sudeste Asiático",
+      "summary": "El proceso de pago determina si la demanda se convierte en ventas y con qué rapidez las empresas entran en nuevos mercados del Sudeste Asiático, informa Inside Retail Asia."
+    },
+    "translatedAt": "2026-10-26T12:56:49.441Z"
+  },
+  "d4c34727531b45c0": {
+    "da": {
+      "title": "Bonobos lancerer Shopify-drevet website med omnichannel-funktioner til pasform og profiler",
+      "summary": "Bonobos har relanceret sit website på Shopify og tilføjet My Fit-profiler, der synkroniserer kundernes størrelser mellem Bonobos.com og virksomhedens 48 Guideshops."
+    },
+    "es": {
+      "title": "Bonobos lanza un sitio web con Shopify y funciones omnicanal de ajuste y perfiles",
+      "summary": "Bonobos ha relanzado su sitio web en Shopify y ha añadido perfiles My Fit que sincronizan las tallas de los clientes entre Bonobos.com y sus 48 Guideshops."
+    },
+    "translatedAt": "2026-10-26T12:56:49.441Z"
+  },
+  "5a559a61a99e50fc": {
+    "da": {
+      "title": "Kerings divisioner for briller og smykker fastholder den positive udvikling i Q3, mens koncernens omsætning er uændret",
+      "summary": "Kering Jewelry voksede 12 % og Kering Eyewear 6 % år til år på rapporteret basis i Q3, mens koncernens omsætning forblev uændret."
+    },
+    "es": {
+      "title": "Las divisiones de gafas y joyería de Kering mantienen una evolución positiva en el tercer trimestre, mientras los ingresos del grupo se mantienen estables",
+      "summary": "Kering Jewelry creció un 12 % y Kering Eyewear un 6 % interanual en el tercer trimestre, según cifras reportadas, mientras que los ingresos del grupo se mantuvieron estables."
+    },
+    "translatedAt": "2026-10-26T12:56:49.441Z"
+  },
+  "ce51ae835973ade6": {
+    "da": {
+      "title": "Hermès rapporterer en vækst i salget på 5,5 procent i tredje kvartal, drevet af Europa og Amerika",
+      "summary": "Hermès rapporterede en omsætningsvækst på 5,5 % i tredje kvartal og fastholdt sin prognose for hele året trods et forværret makroøkonomisk og geopolitisk miljø."
+    },
+    "es": {
+      "title": "Hermès registra un crecimiento de las ventas del 5,5 % en el tercer trimestre, impulsado por Europa y América",
+      "summary": "Hermès registró un crecimiento de los ingresos del 5,5 % en el tercer trimestre y confirmó sus previsiones para el conjunto del año pese al deterioro del entorno macroeconómico y geopolítico."
+    },
+    "translatedAt": "2026-10-26T12:56:53.816Z"
+  },
+  "09fe81ecb8cc054b": {
+    "da": {
+      "title": "Me+Em øger tempoet i sin amerikanske detailudvidelse, mens salget for hele året når 190 millioner pund",
+      "summary": "Me+Em rapporterede et salg på 190 millioner pund for regnskabsåret, der sluttede i januar 2026, samtidig med at virksomheden øgede tempoet i sin detailudvidelse i USA."
+    },
+    "es": {
+      "title": "Me+Em acelera su expansión minorista en EE. UU. mientras las ventas anuales alcanzan los 190 millones de libras",
+      "summary": "Me+Em registró unas ventas de 190 millones de libras en el ejercicio cerrado en enero de 2026, mientras aceleraba su expansión minorista en EE. UU."
+    },
+    "translatedAt": "2026-10-26T12:56:53.816Z"
+  },
+  "a74a6e1d460e6256": {
+    "da": {
+      "title": "Mulberry rapporterer en omsætningsstigning på 18 procent i første halvår 2026",
+      "summary": "Mulberrys salg steg 18 % i første halvår, drevet af en vedvarende efterspørgsel efter tasker med arvemæssig forankring og en større andel salg til fuld pris."
+    },
+    "es": {
+      "title": "Mulberry informa de un aumento del 18 % en sus ingresos en el primer semestre de 2026",
+      "summary": "Las ventas de Mulberry aumentaron un 18 % en el primer semestre, impulsadas por la sólida demanda de bolsos emblemáticos y una mayor proporción de ventas a precio completo."
+    },
+    "translatedAt": "2026-10-26T12:56:53.816Z"
+  },
+  "1a4296223567b024": {
+    "da": {
+      "title": "Delvaux får større underskud, mens omsætningen styrtdykker og Richemont fortsætter sin støtte",
+      "summary": "Delvaux’ belgiske enhed rapporterede et kraftigt fald i omsætningen og et større nettounderskud for regnskabsåret, der sluttede 31. marts 2026, mens ejeren Richemont fortsatte sin støtte."
+    },
+    "es": {
+      "title": "Delvaux registra mayores pérdidas tras desplomarse los ingresos, mientras Richemont mantiene su apoyo",
+      "summary": "La entidad belga de Delvaux informó de un fuerte descenso de los ingresos y de un mayor resultado neto negativo en el ejercicio finalizado el 31 de marzo de 2026, mientras su propietario, Richemont, continuó prestándole apoyo."
+    },
+    "translatedAt": "2026-10-26T12:56:53.816Z"
+  },
+  "2b23eef6e3608f56": {
+    "da": {
+      "title": "Det amerikanske mærke Quince bringer sin model med »overkommelig luksus« til Storbritannien",
+      "summary": "Quince er lanceret online i Storbritannien, det første marked uden for Nordamerika, med kashmir til 50 pund og sengetøj i hør til 70 pund."
+    },
+    "es": {
+      "title": "La marca estadounidense Quince lleva su modelo de «lujo asequible» al Reino Unido",
+      "summary": "Quince se ha lanzado en línea en el Reino Unido, su primer mercado fuera de Norteamérica, con prendas de cachemira por 50 libras y ropa de cama de lino por 70 libras."
+    },
+    "translatedAt": "2026-10-26T12:56:53.816Z"
+  },
+  "ab6a4675b778f0dc": {
+    "da": {
+      "title": "Løfter image hos Jared Jewelers",
+      "summary": "Jared Jewelers lancerede en følelsesladet julekampagne og en prototype på fremtidige butikker som led i sin positionering som et brand inden for „tilgængelig luksus“."
+    },
+    "es": {
+      "title": "Elevando la imagen de Jared Jewelers",
+      "summary": "Jared Jewelers presentó una emotiva campaña navideña y un prototipo de sus futuras tiendas como parte de su posicionamiento de «lujo accesible»."
+    },
+    "translatedAt": "2026-10-26T12:56:56.830Z"
+  },
+  "68e6d64d3f5628b2": {
+    "da": {
+      "title": "Luksusforhandlere overvejer angiveligt at byde på De Beers",
+      "summary": "Richemont forhandler angiveligt om at tilslutte sig et konsortium, der byder på diamantminekoncernen De Beers Group."
+    },
+    "es": {
+      "title": "Según informes, minoristas de lujo estudian presentar una oferta por De Beers",
+      "summary": "Según informes, Richemont está en conversaciones para unirse a un consorcio que presenta una oferta por la minera de diamantes De Beers Group."
+    },
+    "translatedAt": "2026-10-26T12:56:56.830Z"
+  },
+  "1652b9e90fe32213": {
+    "da": {
+      "title": "Luk Fooks omsætning stiger i takt med øget efterspørgsel efter diamantsmykker",
+      "summary": "Luk Fooks omsætning steg, da efterspørgslen efter diamantsmykker voksede, og koncernen åbnede en butik i London for for første gang at træde ind på det europæiske marked."
+    },
+    "es": {
+      "title": "Los ingresos de Luk Fook aumentan al mejorar la demanda de joyería con diamantes",
+      "summary": "Los ingresos de Luk Fook aumentaron al mejorar la demanda de joyería con diamantes, y el grupo abrió una tienda en Londres para entrar por primera vez en Europa."
+    },
+    "translatedAt": "2026-10-26T12:56:56.830Z"
+  },
+  "a2012f804d8ed651": {
+    "da": {
+      "title": "Positivt momentum i smykkesalget hos luksuskoncernen",
+      "summary": "LVMH rapporterede om forbedrede resultater på tværs af sine ur- og smykkebrands i den seneste finansielle rapport."
+    },
+    "es": {
+      "title": "Impulso positivo en las ventas de joyería para el líder del lujo",
+      "summary": "LVMH informó de una mejora en los resultados de sus marcas de relojes y joyería en su último informe financiero."
+    },
+    "translatedAt": "2026-10-26T12:56:56.830Z"
+  },
+  "e3d28b3c23ce3997": {
+    "da": {
+      "title": "Efterspørgsel efter guldsmykker understøtter Chow Sang Sangs salgsvækst",
+      "summary": "Chow Sang Sangs omsætning i tredje kvartal steg 3 % på årsbasis, understøttet af efterspørgslen efter guldsmykker."
+    },
+    "es": {
+      "title": "La demanda de joyas de oro impulsa el crecimiento de las ventas de Chow Sang Sang",
+      "summary": "Los ingresos de Chow Sang Sang aumentaron un 3 % interanual en el tercer trimestre, impulsados por la demanda de joyas de oro."
+    },
+    "translatedAt": "2026-10-26T12:56:56.830Z"
+  },
+  "ca654525dcedd692": {
+    "da": {
+      "title": "En hel etage for sig selv: Libertys galleri for modesmykker",
+      "summary": "Liberty har åbnet et galleri for modesmykker med fokus på moderne smykker og demi-fine smykker, formet af ændrede kundevaner."
+    },
+    "es": {
+      "title": "Una planta propia: la galería de joyería de moda de Liberty",
+      "summary": "Liberty ha abierto una galería de joyería de moda dedicada a la joyería contemporánea y demi-fine, creada en respuesta a los cambios en los hábitos de los clientes."
+    },
+    "translatedAt": "2026-10-26T12:57:00.150Z"
+  },
+  "8c8a2e2e3c194cef": {
+    "da": {
+      "title": "Forbruget på Black Friday forventes at stige trods større selektivitet",
+      "summary": "Australske forbrugere forventes at bruge flere penge under Black Friday- og Cyber Monday-udsalgene i 2026, selvom de bliver mere selektive og prisbevidste."
+    },
+    "es": {
+      "title": "Se prevé que el gasto en Black Friday aumente pese a una mayor selectividad",
+      "summary": "Se prevé que los consumidores australianos gasten más durante las rebajas de Black Friday y Cyber Monday de 2026, aunque serán más selectivos y buscarán más valor por su dinero."
+    },
+    "translatedAt": "2026-10-26T12:57:00.150Z"
+  },
+  "b32907adeceda72c": {
+    "da": {
+      "title": "Coach lancerer Cass-ur til støtte for brystkræftforskning",
+      "summary": "Coach har lanceret et nyt Cass-ur til 2026, hvor en del af salget går til den amerikanske velgørenhedsorganisation Breast Cancer Foundation."
+    },
+    "es": {
+      "title": "Coach lanza el reloj Cass para apoyar la investigación del cáncer de mama",
+      "summary": "Coach ha lanzado un nuevo reloj Cass para 2026; una parte de las ventas se destinará a la organización benéfica estadounidense Breast Cancer Foundation."
+    },
+    "translatedAt": "2026-10-26T12:57:00.150Z"
   }
 }

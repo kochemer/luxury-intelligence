@@ -1141,5 +1141,24 @@
     "cached_at": "2026-10-19T13:07:40.376Z",
     "model": "gpt-6-luna",
     "version": "3.2"
+  },
+  "2026-W43:49bf7c3d4e82": {
+    "keyThemes": [
+      "Claude Duet",
+      "AI agent shopping",
+      "Klarna Fiserv partnership",
+      "Hermès Q3 sales growth",
+      "Kering Jewelry sales growth"
+    ],
+    "oneSentenceSummary": "Hermès grows while Kering stays flat. Blaming the luxury market is getting harder.",
+    "summaryCandidates": [
+      "Shopify is opening shops to AI buyers. Luxury brands will soon pay to get picked by a bot.",
+      "Hermès grows while Kering stays flat. Blaming the luxury market is getting harder.",
+      "Luk Fook’s rising sales make weak demand for diamonds a poor excuse for every jeweller with an empty shop.",
+      "Walmart’s spending limits and the OpenCode hack show how quickly helpful AI becomes someone else spending your money."
+    ],
+    "cached_at": "2026-10-26T12:57:41.941Z",
+    "model": "gpt-6-luna",
+    "version": "3.2"
   }
 }

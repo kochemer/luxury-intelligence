@@ -1,0 +1,999 @@
+{
+  "weekLabel": "2026-W43",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2026-10-18T22:00:00.000Z",
+  "endISO": "2026-10-25T22:59:59.999Z",
+  "builtAtISO": "2026-10-26T13:56:07.562+01:00",
+  "builtAtLocal": "2026-10-26 13:56:07",
+  "totals": {
+    "total": 2347,
+    "byTopic": {
+      "AIStrategy": 333,
+      "EcommerceRetail": 229,
+      "LuxuryConsumer": 608,
+      "Jewellery": 274
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 333,
+      "top": [
+        {
+          "id": "wsrk3z",
+          "title": "Google Cloud now offers OpenAI models alongside Gemini and Claude, becoming the only major provider with all three",
+          "url": "https://the-decoder.com/google-cloud-now-offers-openai-models-alongside-gemini-and-claude-becoming-the-only-major-provider-with-all-three/",
+          "source": "The Decoder",
+          "published_at": "2026-10-21T17:44:22.000Z",
+          "ingested_at": "2026-10-22T10:21:14.973Z",
+          "snippet": "Google Cloud is the first major cloud provider to offer Gemini, Claude, and OpenAI's GPTs on a single platform. At launch, GPT-6 Astra, GPT-6.1 Sol, and GPT-6 Luna are available as a private preview for enterprise customers.\nThe article Google Cloud now offers OpenAI models alongside Gemini and Claude, becoming the only major provider with all three appeared first on The Decoder.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "openai",
+              "claude",
+              "gemini"
+            ]
+          },
+          "aiSummary": "Google Cloud added OpenAI models in private preview for enterprise customers, becoming the first major cloud provider offering Gemini, Claude and GPTs.",
+          "translations": {
+            "da": {
+              "title": "Google Cloud tilbyder nu OpenAI-modeller sammen med Gemini og Claude og bliver den eneste store udbyder med alle tre",
+              "summary": "Google Cloud har gjort OpenAI-modeller tilgængelige i en privat forhåndsvisning for erhvervskunder og er dermed den første store cloududbyder, der tilbyder Gemini, Claude og GPT'er."
+            },
+            "es": {
+              "title": "Google Cloud ofrece ahora modelos de OpenAI junto con Gemini y Claude, y se convierte en el único gran proveedor que ofrece los tres",
+              "summary": "Google Cloud ha añadido modelos de OpenAI en una vista previa privada para clientes empresariales, convirtiéndose en el primer gran proveedor de servicios en la nube que ofrece Gemini, Claude y GPT."
+            }
+          }
+        },
+        {
+          "id": "8u2un1",
+          "title": "Anthropic takes on Grok Bot, Meta's Muse, and OpenAI's Dots with its always-on agent \"Claude Duet\"",
+          "url": "https://the-decoder.com/anthropic-takes-on-grok-bot-metas-muse-and-openais-dots-with-its-always-on-agent-claude-duet/",
+          "source": "The Decoder",
+          "published_at": "2026-10-22T08:35:22.000Z",
+          "ingested_at": "2026-10-22T10:21:14.973Z",
+          "snippet": "Anthropic has launched Claude Duet, a proactive AI agent that handles tasks on its own, even when the user is offline. The app is built on Claude Opus 5.5 and connects to services like Gmail, Slack, and Stripe through more than 6,000 connectors. It asks for approval before sensitive actions like payments. With Duet, Anthropic is responding to similar products from xAI, Meta, and OpenAI.\nThe article Anthropic takes on Grok Bot, Meta's Muse, and OpenAI's Dots with its always-on agent \"Claude Duet\"...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "openai",
+              "anthropic",
+              "claude",
+              "agent",
+              "ai"
+            ]
+          },
+          "aiSummary": "Anthropic launched Claude Duet, an AI agent that handles tasks while users are offline and requires approval before sensitive actions such as payments.",
+          "translations": {
+            "da": {
+              "title": "Anthropic tager kampen op mod Grok Bot, Metas Muse og OpenAIs Dots med sin altid aktive agent \"Claude Duet\"",
+              "summary": "Anthropic lancerede Claude Duet, en AI-agent, der udfører opgaver, mens brugerne er offline, og kræver godkendelse før følsomme handlinger som betalinger."
+            },
+            "es": {
+              "title": "Anthropic desafía a Grok Bot, Muse de Meta y Dots de OpenAI con su agente siempre activo \"Claude Duet\"",
+              "summary": "Anthropic lanzó Claude Duet, un agente de IA que realiza tareas mientras los usuarios están desconectados y requiere aprobación antes de llevar a cabo acciones delicadas, como pagos."
+            }
+          }
+        },
+        {
+          "id": "3dprt7",
+          "title": "Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts",
+          "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-10-19T19:28:34.000Z",
+          "ingested_at": "2026-10-20T10:13:24.241Z",
+          "snippet": "OpenCode is an open source AI coding agent that's become a popular alternative to Claude Code and Cursor. But hackers got into part of its online platform and stole some users’ API keys, and the AI tools it turned to for help kept refusing to look at the malicious code.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.35,
+            "recencyScore": 0,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "claude",
+              "agent",
+              "open source"
+            ]
+          },
+          "aiSummary": "Hackers breached part of OpenCode’s online platform, stealing some users’ API keys and running up charges on their AI accounts.",
+          "translations": {
+            "da": {
+              "title": "Hackere rammer AI-kodeværktøjet OpenCode og påfører brugerne regninger på deres AI-konti",
+              "summary": "Hackere brød ind i en del af OpenCodes onlineplatform, stjal nogle brugeres API-nøgler og påførte deres AI-konti ekstra gebyrer."
+            },
+            "es": {
+              "title": "Hackers atacan la herramienta de programación con IA OpenCode y generan cargos en las cuentas de IA de sus usuarios",
+              "summary": "Hackers vulneraron parte de la plataforma en línea de OpenCode, robaron las claves API de algunos usuarios y generaron cargos en sus cuentas de IA."
+            }
+          }
+        },
+        {
+          "id": "i52yu2",
+          "title": "Here's how Canva's new image generation tool compares to models by OpenAI, Google, and Meta",
+          "url": "https://www.businessinsider.com/canva-craft-new-ai-image-generation-tool-2026-10",
+          "source": "Business Insider - Tech",
+          "published_at": "2026-10-24T08:11:01.000Z",
+          "ingested_at": "2026-10-24T09:39:06.568Z",
+          "snippet": "Canva has launched Canva Craft, a new image generation tool.\nBusiness Insider\n\nCanva launched Canva Craft, a tool similar to AI image models by Google, Meta, and OpenAI.\nSurprisingly, Canva fell short on a design task but did well at generating more realistic images.\nHere is how Canva's new image generation tool stacks up against ChatGPT, Gemini, and Muse.\n\nCanva wants a shot at winning the AI image generation race.\nThe design platform launched Canva Craft on Thursday, its first image-generation...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "openai",
+              "ai",
+              "gemini"
+            ]
+          },
+          "aiSummary": "Canva launched Canva Craft, an AI image generator that performed well on realistic images but fell short on a design task.",
+          "translations": {
+            "da": {
+              "title": "Sådan klarer Canvas nye billedgenereringsværktøj sig sammenlignet med modeller fra OpenAI, Google og Meta",
+              "summary": "Canva lancerede Canva Craft, en AI-billedgenerator, der klarede sig godt med realistiske billeder, men kom til kort i en designopgave."
+            },
+            "es": {
+              "title": "Así se compara la nueva herramienta de generación de imágenes de Canva con los modelos de OpenAI, Google y Meta",
+              "summary": "Canva lanzó Canva Craft, un generador de imágenes con IA que obtuvo buenos resultados con imágenes realistas, pero se quedó corto en una tarea de diseño."
+            }
+          }
+        },
+        {
+          "id": "fh4qrp",
+          "title": "1Password launches a way for AI agents to log in on your behalf without seeing your password",
+          "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-10-22T19:07:09.000Z",
+          "ingested_at": "2026-10-23T10:16:28.376Z",
+          "snippet": "The new feature allows agents to log into a customer's personal accounts while still protecting the private credentials that secure those accounts.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "agent"
+            ]
+          },
+          "aiSummary": "1Password launched a feature allowing AI agents to log into customers’ personal accounts without seeing their passwords.",
+          "translations": {
+            "da": {
+              "title": "1Password lancerer en måde, hvor AI-agenter kan logge ind på dine vegne uden at se din adgangskode",
+              "summary": "1Password har lanceret en funktion, der gør det muligt for AI-agenter at logge ind på kundernes personlige konti uden at se deres adgangskoder."
+            },
+            "es": {
+              "title": "1Password lanza una forma para que los agentes de IA inicien sesión en tu nombre sin ver tu contraseña",
+              "summary": "1Password ha lanzado una función que permite a los agentes de IA iniciar sesión en las cuentas personales de los clientes sin ver sus contraseñas."
+            }
+          }
+        },
+        {
+          "id": "7yd2ij",
+          "title": "Anthropic sued for allegedly using 274 Elvis Presley songs to train AI models",
+          "url": "https://www.theguardian.com/us-news/2026/oct/25/elvis-presley-anthropic-lawsuit-ai-models-music",
+          "source": "The Guardian - Technology",
+          "published_at": "2026-10-25T18:25:59.000Z",
+          "ingested_at": "2026-10-26T11:19:27.251Z",
+          "snippet": "Authentic Brands Group says AI company infringed on rights of songs by the King such as Can’t Help Falling in Love\nThe owners of Elvis Presley’s music catalogue are suing artificial intelligence (AI) company Anthropic for allegedly using Presley’s songs to train their models without permission.\nAuthentic Brands Group, the licensing organization that has ownership of both Presley’s music and likeness, is accusing Anthropic of infringing on the rights of 274 songs by Presley. The lawsuit, first re...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "anthropic",
+              "artificial intelligence",
+              "ai company"
+            ]
+          },
+          "aiSummary": "Authentic Brands Group is suing Anthropic for allegedly using 274 Elvis Presley songs to train AI models without permission.",
+          "translations": {
+            "da": {
+              "title": "Anthropic sagsøges for angiveligt at have brugt 274 Elvis Presley-sange til at træne AI-modeller",
+              "summary": "Authentic Brands Group sagsøger Anthropic for angiveligt at have brugt 274 Elvis Presley-sange til at træne AI-modeller uden tilladelse."
+            },
+            "es": {
+              "title": "Anthropic, demandada por supuestamente usar 274 canciones de Elvis Presley para entrenar modelos de IA",
+              "summary": "Authentic Brands Group demanda a Anthropic por supuestamente usar 274 canciones de Elvis Presley para entrenar modelos de IA sin permiso."
+            }
+          }
+        },
+        {
+          "id": "1g3l2m",
+          "title": "AI researchers stranded Claude on a virtual desert island. It started to “play.”",
+          "url": "https://www.technologyreview.com/2026/10/19/1147095/ai-stranded-claude-virtual-desert-island-play/",
+          "source": "MIT Technology Review",
+          "published_at": "2026-10-19T09:08:05.000Z",
+          "ingested_at": "2026-10-19T10:59:31.708Z",
+          "snippet": "What do AI agents do if you don’t tell them to do anything? The answer looks a lot like play. Researchers repeatedly stranded them alone on a virtual desert island for 30 hours in an experiment reminiscent of the movies Cast Away or Home Alone. The agents—copies of Claude Opus 4.7 nicknamed Eko—were able to…",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.39999999999999997,
+            "recencyScore": 0,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "research",
+              "claude",
+              "agent"
+            ]
+          },
+          "aiSummary": "Claude Opus 4.7 agents displayed play-like behaviour when researchers left them alone on a virtual desert island for 30 hours without tasks.",
+          "translations": {
+            "da": {
+              "title": "AI-forskere efterlod Claude strandet på en virtuel øde ø. Den begyndte at „lege“.",
+              "summary": "Claude Opus 4.7-agenter udviste legelignende adfærd, da forskere efterlod dem alene på en virtuel øde ø i 30 timer uden opgaver."
+            },
+            "es": {
+              "title": "Investigadores de IA dejaron a Claude varado en una isla desierta virtual. Empezó a «jugar».",
+              "summary": "Los agentes Claude Opus 4.7 mostraron un comportamiento similar al juego cuando los investigadores los dejaron solos en una isla desierta virtual durante 30 horas sin tareas."
+            }
+          }
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 229,
+      "top": [
+        {
+          "id": "kc5qxm",
+          "title": "Shopify, Vercel Arm Stores for AI Agents",
+          "url": "https://www.practicalecommerce.com/shopify-vercel-arm-stores-for-ai-agents",
+          "source": "Practical Ecommerce",
+          "published_at": "2026-10-20T14:09:21.000Z",
+          "ingested_at": "2026-10-21T10:21:45.099Z",
+          "snippet": "The collaboration allows humans and external AI agents alike to shop a store.  \nThe post Shopify, Vercel Arm Stores for AI Agents appeared first on Practical Ecommerce.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ecommerce"
+            ]
+          },
+          "aiSummary": "Shopify and Vercel have collaborated to let humans and external AI agents shop a store.",
+          "translations": {
+            "da": {
+              "title": "Shopify og Vercel ruster butikker til AI-agenter",
+              "summary": "Shopify og Vercel har samarbejdet om at gøre det muligt for mennesker og eksterne AI-agenter at handle i en butik."
+            },
+            "es": {
+              "title": "Shopify y Vercel preparan tiendas para agentes de IA",
+              "summary": "Shopify y Vercel han colaborado para permitir que las personas y los agentes de IA externos compren en una tienda."
+            }
+          }
+        },
+        {
+          "id": "eeazaz",
+          "title": "Walmart unveils AI agent shopping controls, spending limits",
+          "url": "https://www.digitalcommerce360.com/2026/10/23/walmart-unveils-ai-agent-shopping-controls-spending-limits/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-10-23T19:12:33.000Z",
+          "ingested_at": "2026-10-24T09:39:06.568Z",
+          "snippet": "Walmart wants its shoppers to stay in control as artificial intelligence (AI) agents take on a bigger role across ecommerce. The retailer is rolling out new tools designed to let customers oversee AI agent purchases, streamline how agents shop and set boundaries for what they can and cannot do on shoppers’ behalf. Announced Wednesday (Oct. […]\nThe post Walmart unveils AI agent shopping controls, spending limits appeared first on Digital Commerce 360.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "shopping",
+              "ecommerce"
+            ]
+          },
+          "aiSummary": "Walmart is rolling out tools that let shoppers oversee AI agent purchases and set spending limits.",
+          "translations": {
+            "da": {
+              "title": "Walmart lancerer kontrolfunktioner til AI-agenters indkøb og forbrugsgrænser",
+              "summary": "Walmart udruller værktøjer, der lader kunder holde øje med AI-agenters indkøb og sætte forbrugsgrænser."
+            },
+            "es": {
+              "title": "Walmart presenta controles de compra y límites de gasto para agentes de IA",
+              "summary": "Walmart está implementando herramientas para que los compradores supervisen las compras de los agentes de IA y establezcan límites de gasto."
+            }
+          }
+        },
+        {
+          "id": "27fwmn",
+          "title": "Klarna Takes BNPL Beyond Retail with Fiserv Partnership",
+          "url": "https://www.paymentsjournal.com/klarna-takes-bnpl-beyond-retail-with-fiserv-partnership/",
+          "source": "Payments Journal",
+          "published_at": "2026-10-19T18:00:00.000Z",
+          "ingested_at": "2026-10-20T10:13:24.241Z",
+          "snippet": "Enterprise users can now offer the buy now, pay later (BNPL) plans that have gained popularity among retailers. Klarna and Fiserv are teaming up to bring Klarna’s payment options to Commerce Hub, Fiserv’s enterprise commerce platform, for the first time. The service will allow enterprise merchants to offer Klarna’s plans both in-store and online. Customers […]\nThe post Klarna Takes BNPL Beyond Retail with Fiserv Partnership appeared first on PaymentsJournal.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "payment",
+              "platform"
+            ]
+          },
+          "aiSummary": "Klarna and Fiserv are bringing buy now, pay later plans to Commerce Hub for the first time, enabling enterprise merchants to offer them in-store and online.",
+          "translations": {
+            "da": {
+              "title": "Klarna udvider BNPL ud over detailhandlen med partnerskab med Fiserv",
+              "summary": "Klarna og Fiserv gør det for første gang muligt at tilbyde køb nu, betal senere-løsninger via Commerce Hub, så større forhandlere kan tilbyde dem både i butikkerne og online."
+            },
+            "es": {
+              "title": "Klarna lleva el BNPL más allá del comercio minorista con su alianza con Fiserv",
+              "summary": "Klarna y Fiserv incorporan por primera vez las opciones de compra ahora y paga después a Commerce Hub, lo que permite a los grandes comercios ofrecerlas tanto en tiendas físicas como online."
+            }
+          }
+        },
+        {
+          "id": "e54gro",
+          "title": "AliExpress brings creator commerce to YouTube",
+          "url": "https://internetretailing.net/aliexpress-brings-creator-commerce-to-youtube/",
+          "source": "Internet Retailing",
+          "published_at": "2026-10-20T13:01:52.000Z",
+          "ingested_at": "2026-10-21T10:21:45.099Z",
+          "snippet": "AliExpress is expanding its partnership with YouTube, bringing its product catalogue into the platform's Shopping Affiliate Programme.\nThe post AliExpress brings creator commerce to YouTube appeared first on InternetRetailing.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "shopping",
+              "platform"
+            ]
+          },
+          "aiSummary": "AliExpress is expanding its YouTube partnership by adding its product catalogue to the platform’s Shopping Affiliate Programme.",
+          "translations": {
+            "da": {
+              "title": "AliExpress bringer skaberhandel til YouTube",
+              "summary": "AliExpress udvider sit partnerskab med YouTube ved at tilføje sit produktkatalog til platformens Shopping Affiliate Programme."
+            },
+            "es": {
+              "title": "AliExpress lleva el comercio de creadores a YouTube",
+              "summary": "AliExpress amplía su colaboración con YouTube al añadir su catálogo de productos al programa de afiliados de compras de la plataforma."
+            }
+          }
+        },
+        {
+          "id": "97cfzz",
+          "title": "Amazon eyes 300K holiday hires",
+          "url": "https://www.retaildive.com/news/amazon-eyes-three-hundred-thousand-holiday-season-hires/833567/",
+          "source": "Retail Dive",
+          "published_at": "2026-10-21T16:40:00.000Z",
+          "ingested_at": "2026-10-22T10:21:14.973Z",
+          "snippet": "The e-commerce giant is increasing U.S. holiday staffing by 20% compared to the past three seasons.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "e-commerce"
+            ]
+          },
+          "aiSummary": "Amazon plans 300,000 U.S. holiday hires, increasing seasonal staffing by 20% compared with the past three seasons.",
+          "translations": {
+            "da": {
+              "title": "Amazon sigter mod 300.000 sæsonansættelser i juletiden",
+              "summary": "Amazon planlægger at ansætte 300.000 medarbejdere i USA til juletiden, en stigning på 20 % sammenlignet med de seneste tre sæsoner."
+            },
+            "es": {
+              "title": "Amazon prevé contratar a 300.000 trabajadores para las fiestas",
+              "summary": "Amazon planea contratar a 300.000 trabajadores en EE. UU. para la temporada navideña, lo que supone un aumento del 20 % respecto a las tres temporadas anteriores."
+            }
+          }
+        },
+        {
+          "id": "mrmng",
+          "title": "Report: Payments a growth lever in Southeast Asia e-commerce",
+          "url": "https://insideretail.asia/2026/10/22/report-payments-a-growth-lever-in-southeast-asia-e-commerce/",
+          "source": "Inside Retail Asia",
+          "published_at": "2026-10-22T03:38:24.000Z",
+          "ingested_at": "2026-10-22T10:21:14.973Z",
+          "snippet": "The checkout now decides whether demand converts to sales and how quickly a business can launch in a new market.\nThe post Report: Payments a growth lever in Southeast Asia e-commerce appeared first on Inside Retail Asia.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "e-commerce",
+              "payment",
+              "checkout"
+            ]
+          },
+          "aiSummary": "Checkout determines whether demand converts into sales and how quickly businesses enter new Southeast Asian markets, Inside Retail Asia reports.",
+          "translations": {
+            "da": {
+              "title": "Rapport: Betalinger er en vækstdriver for e-handel i Sydøstasien",
+              "summary": "Checkout afgør, om efterspørgsel bliver til salg, og hvor hurtigt virksomheder går ind på nye markeder i Sydøstasien, skriver Inside Retail Asia."
+            },
+            "es": {
+              "title": "Informe: Los pagos impulsan el crecimiento del comercio electrónico en el Sudeste Asiático",
+              "summary": "El proceso de pago determina si la demanda se convierte en ventas y con qué rapidez las empresas entran en nuevos mercados del Sudeste Asiático, informa Inside Retail Asia."
+            }
+          }
+        },
+        {
+          "id": "f2rmtd",
+          "title": "Bonobos launches Shopify-powered site with omnichannel fit and profile capabilities",
+          "url": "https://www.digitalcommerce360.com/2026/10/19/bonobos-launches-shopify-powered-site-with-omnichannel-fit-and-profile-capabilities/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-10-19T17:40:42.000Z",
+          "ingested_at": "2026-10-20T10:13:24.241Z",
+          "snippet": "Menswear brand Bonobos announced the relaunch of its website on Shopify in October. The company cited numerous benefits that it will seek to realize. Examples include faster checkout and new “My Fit” profiles that sync sizing between Bonobos.com and its 48 physical stores, known as Guideshops. Customers will see a host of new options when […]\nThe post Bonobos launches Shopify-powered site with omnichannel fit and profile capabilities appeared first on Digital Commerce 360.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "checkout"
+            ]
+          },
+          "aiSummary": "Bonobos relaunched its website on Shopify, adding My Fit profiles that sync customer sizing between Bonobos.com and its 48 Guideshops.",
+          "translations": {
+            "da": {
+              "title": "Bonobos lancerer Shopify-drevet website med omnichannel-funktioner til pasform og profiler",
+              "summary": "Bonobos har relanceret sit website på Shopify og tilføjet My Fit-profiler, der synkroniserer kundernes størrelser mellem Bonobos.com og virksomhedens 48 Guideshops."
+            },
+            "es": {
+              "title": "Bonobos lanza un sitio web con Shopify y funciones omnicanal de ajuste y perfiles",
+              "summary": "Bonobos ha relanzado su sitio web en Shopify y ha añadido perfiles My Fit que sincronizan las tallas de los clientes entre Bonobos.com y sus 48 Guideshops."
+            }
+          }
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 608,
+      "top": [
+        {
+          "id": "6u1rgf",
+          "title": "Kering Eyewear and Jewelry divisions maintain positive trends in Q3 amid flat group revenue performance",
+          "url": "https://moodiedavittreport.com/kering-eyewear-and-jewelry-divisions-maintain-positive-trends-in-q3-amid-flat-group-revenue-performance/?utm_source=rss&utm_medium=rss&utm_campaign=kering-eyewear-and-jewelry-divisions-maintain-positive-trends-in-q3-amid-flat-group-revenue-performance",
+          "source": "Moodie Davitt Report",
+          "published_at": "2026-10-22T18:49:54.000Z",
+          "ingested_at": "2026-10-23T10:16:28.376Z",
+          "snippet": "The strongest performers by division in Q3 were Kering Jewelry (+12% year-on-year on a reported basis) and Kering Eyewear (+6%) as group transformation and revitalisation of the Gucci brand continues.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "aiSummary": "Kering Jewelry grew 12% and Kering Eyewear 6% year-on-year on a reported basis in Q3, while group revenue remained flat.",
+          "translations": {
+            "da": {
+              "title": "Kerings divisioner for briller og smykker fastholder den positive udvikling i Q3, mens koncernens omsætning er uændret",
+              "summary": "Kering Jewelry voksede 12 % og Kering Eyewear 6 % år til år på rapporteret basis i Q3, mens koncernens omsætning forblev uændret."
+            },
+            "es": {
+              "title": "Las divisiones de gafas y joyería de Kering mantienen una evolución positiva en el tercer trimestre, mientras los ingresos del grupo se mantienen estables",
+              "summary": "Kering Jewelry creció un 12 % y Kering Eyewear un 6 % interanual en el tercer trimestre, según cifras reportadas, mientras que los ingresos del grupo se mantuvieron estables."
+            }
+          }
+        },
+        {
+          "id": "nc51tm",
+          "title": "Hermès posts 5.5 percent Q3 sales growth driven by Europe and Americas",
+          "url": "https://fashionunited.com/news/business/hermes-posts-5-5-percent-q3-sales-growth-driven-by-europe-and-americas/2026102275330",
+          "source": "FashionUnited",
+          "published_at": "2026-10-22T07:55:15.000Z",
+          "ingested_at": "2026-10-22T10:21:14.973Z",
+          "snippet": "Hermès store in Abu Dhabi. Credits: Falic Group. \n\nFrench luxury group Hermès reported a 5.5 percent increase in third-quarter revenue on Thursday, supported by Europe, the Americas and Japan. The company also confirmed its full-year forecast “despite the deteriorating macroeconomic and geopolitical environment”.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.15,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury"
+            ]
+          },
+          "aiSummary": "Hermès reported 5.5% third-quarter revenue growth and confirmed its full-year forecast despite a deteriorating macroeconomic and geopolitical environment.",
+          "translations": {
+            "da": {
+              "title": "Hermès rapporterer en vækst i salget på 5,5 procent i tredje kvartal, drevet af Europa og Amerika",
+              "summary": "Hermès rapporterede en omsætningsvækst på 5,5 % i tredje kvartal og fastholdt sin prognose for hele året trods et forværret makroøkonomisk og geopolitisk miljø."
+            },
+            "es": {
+              "title": "Hermès registra un crecimiento de las ventas del 5,5 % en el tercer trimestre, impulsado por Europa y América",
+              "summary": "Hermès registró un crecimiento de los ingresos del 5,5 % en el tercer trimestre y confirmó sus previsiones para el conjunto del año pese al deterioro del entorno macroeconómico y geopolítico."
+            }
+          }
+        },
+        {
+          "id": "jhsboh",
+          "title": "Me+Em accelerates US retail expansion as full-year sales reach 190 million pounds",
+          "url": "https://fashionunited.com/news/business/me-em-accelerates-us-retail-expansion-as-full-year-sales-reach-190-million-pounds/2026102175300",
+          "source": "FashionUnited",
+          "published_at": "2026-10-21T08:29:12.000Z",
+          "ingested_at": "2026-10-21T10:21:45.099Z",
+          "snippet": "ME+EM store LA Credits: ME+EM\n\nBritish modern luxury womenswear brand Me+Em has announced its financial results for the year ended January 2026, driven by continued global expansion and accelerating international demand.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury",
+              "demand",
+              "brand"
+            ]
+          },
+          "aiSummary": "Me+Em reported full-year sales of £190 million for the year ended January 2026 as it accelerated its US retail expansion.",
+          "translations": {
+            "da": {
+              "title": "Me+Em øger tempoet i sin amerikanske detailudvidelse, mens salget for hele året når 190 millioner pund",
+              "summary": "Me+Em rapporterede et salg på 190 millioner pund for regnskabsåret, der sluttede i januar 2026, samtidig med at virksomheden øgede tempoet i sin detailudvidelse i USA."
+            },
+            "es": {
+              "title": "Me+Em acelera su expansión minorista en EE. UU. mientras las ventas anuales alcanzan los 190 millones de libras",
+              "summary": "Me+Em registró unas ventas de 190 millones de libras en el ejercicio cerrado en enero de 2026, mientras aceleraba su expansión minorista en EE. UU."
+            }
+          }
+        },
+        {
+          "id": "sdwnfq",
+          "title": "Mulberry reports first half 2026 revenue increase of 18 percent",
+          "url": "https://cpp-luxury.com/mulberry-reports-first-half-2026-revenue-increase-of-18-percent/",
+          "source": "CPP-Luxury",
+          "published_at": "2026-10-20T09:32:35.000Z",
+          "ingested_at": "2026-10-20T10:13:24.241Z",
+          "snippet": "British luxury brand Mulberry reported an 18 percent jump in first-half sales on ​Monday, driven by resilient demand for its ‌heritage bags and a higher share of full-price sales, sending its shares nearly 4 percent higher in early ​trading. The […]",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.14999999999999997,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0.15,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "luxury",
+              "demand",
+              "brand",
+              "heritage"
+            ]
+          },
+          "aiSummary": "Mulberry’s first-half sales rose 18%, driven by resilient demand for heritage bags and a higher share of full-price sales.",
+          "translations": {
+            "da": {
+              "title": "Mulberry rapporterer en omsætningsstigning på 18 procent i første halvår 2026",
+              "summary": "Mulberrys salg steg 18 % i første halvår, drevet af en vedvarende efterspørgsel efter tasker med arvemæssig forankring og en større andel salg til fuld pris."
+            },
+            "es": {
+              "title": "Mulberry informa de un aumento del 18 % en sus ingresos en el primer semestre de 2026",
+              "summary": "Las ventas de Mulberry aumentaron un 18 % en el primer semestre, impulsadas por la sólida demanda de bolsos emblemáticos y una mayor proporción de ventas a precio completo."
+            }
+          }
+        },
+        {
+          "id": "kdp3uv",
+          "title": "Delvaux posts wider losses as revenue plunges, Richemont continues support",
+          "url": "https://fashionunited.com/news/business/delvaux-posts-wider-losses-as-revenue-plunges-richemont-continues-support/2026102175320",
+          "source": "FashionUnited",
+          "published_at": "2026-10-21T13:29:09.000Z",
+          "ingested_at": "2026-10-22T10:21:14.973Z",
+          "snippet": "Illustrative image of a Delvaux store. Credits: Delvaux\n\nDelvaux, the Belgian luxury leather goods maker owned by Richemont, recorded a sharp drop in revenue and a wider net loss in the financial year ended March 31, 2026. The figures relate to Delvaux Créateur SA, the Belgian entity behind the brand. The annual accounts were filed with the National Bank of Belgium on October 15, 2026.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury",
+              "brand"
+            ]
+          },
+          "aiSummary": "Delvaux’s Belgian entity reported a sharp revenue decline and wider net loss for the year ended March 31, 2026, while owner Richemont continued support.",
+          "translations": {
+            "da": {
+              "title": "Delvaux får større underskud, mens omsætningen styrtdykker og Richemont fortsætter sin støtte",
+              "summary": "Delvaux’ belgiske enhed rapporterede et kraftigt fald i omsætningen og et større nettounderskud for regnskabsåret, der sluttede 31. marts 2026, mens ejeren Richemont fortsatte sin støtte."
+            },
+            "es": {
+              "title": "Delvaux registra mayores pérdidas tras desplomarse los ingresos, mientras Richemont mantiene su apoyo",
+              "summary": "La entidad belga de Delvaux informó de un fuerte descenso de los ingresos y de un mayor resultado neto negativo en el ejercicio finalizado el 31 de marzo de 2026, mientras su propietario, Richemont, continuó prestándole apoyo."
+            }
+          }
+        },
+        {
+          "id": "j7ii2n",
+          "title": "US brand Quince brings its 'affordable luxury' model to UK",
+          "url": "https://www.theindustry.fashion/us-brand-quince-brings-its-affordable-luxury-model-to-uk/?utm_source=rss&utm_medium=rss&utm_campaign=us-brand-quince-brings-its-affordable-luxury-model-to-uk",
+          "source": "The Industry.fashion",
+          "published_at": "2026-10-19T09:11:13.000Z",
+          "ingested_at": "2026-10-20T10:13:24.241Z",
+          "snippet": "The $10.1bn manufacturer-to-consumer platform is selling £50 cashmere and £70 linen bedding online only, with free delivery and a 365-day returns window, in its first market outside North America.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury",
+              "brand",
+              "consumer"
+            ]
+          },
+          "aiSummary": "Quince has launched online in the UK, its first market outside North America, selling £50 cashmere and £70 linen bedding.",
+          "translations": {
+            "da": {
+              "title": "Det amerikanske mærke Quince bringer sin model med »overkommelig luksus« til Storbritannien",
+              "summary": "Quince er lanceret online i Storbritannien, det første marked uden for Nordamerika, med kashmir til 50 pund og sengetøj i hør til 70 pund."
+            },
+            "es": {
+              "title": "La marca estadounidense Quince lleva su modelo de «lujo asequible» al Reino Unido",
+              "summary": "Quince se ha lanzado en línea en el Reino Unido, su primer mercado fuera de Norteamérica, con prendas de cachemira por 50 libras y ropa de cama de lino por 70 libras."
+            }
+          }
+        },
+        {
+          "id": "mv696t",
+          "title": "Elevating the Image at Jared Jewelers",
+          "url": "https://wwd.com/business-news/retail/jared-jewelers-store-prototype-holiday-campaign-1239377001/",
+          "source": "WWD - Business News",
+          "published_at": "2026-10-21T17:25:14.000Z",
+          "ingested_at": "2026-10-22T10:21:14.973Z",
+          "snippet": "The \"approachable luxury\" jewelry brand unveiled a warm, sentimental holiday campaign and a prototype for stores of the future.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury",
+              "brand"
+            ]
+          },
+          "aiSummary": "Jared Jewelers unveiled a sentimental holiday campaign and a prototype for future stores as part of its “approachable luxury” positioning.",
+          "translations": {
+            "da": {
+              "title": "Løfter image hos Jared Jewelers",
+              "summary": "Jared Jewelers lancerede en følelsesladet julekampagne og en prototype på fremtidige butikker som led i sin positionering som et brand inden for „tilgængelig luksus“."
+            },
+            "es": {
+              "title": "Elevando la imagen de Jared Jewelers",
+              "summary": "Jared Jewelers presentó una emotiva campaña navideña y un prototipo de sus futuras tiendas como parte de su posicionamiento de «lujo accesible»."
+            }
+          }
+        }
+      ]
+    },
+    "Jewellery_Industry": {
+      "total": 274,
+      "top": [
+        {
+          "id": "sfxsk",
+          "title": "Luxury retailers reportedly considering bid for De Beers",
+          "url": "https://www.jewellermagazine.com/Article/15603/Luxury-retailers-reportedly-considering-bid-for-De-Beers",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-10-19T13:00:00.000Z",
+          "ingested_at": "2026-10-20T10:13:24.241Z",
+          "snippet": "Luxury group Richemont, owner of brands such as Cartier and Van Cleef & Arpels, is reportedly in talks to join a consortium bidding for the diamond miner De Beers Group.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "retailer",
+              "diamond"
+            ]
+          },
+          "aiSummary": "Richemont is reportedly in talks to join a consortium bidding for diamond miner De Beers Group.",
+          "translations": {
+            "da": {
+              "title": "Luksusforhandlere overvejer angiveligt at byde på De Beers",
+              "summary": "Richemont forhandler angiveligt om at tilslutte sig et konsortium, der byder på diamantminekoncernen De Beers Group."
+            },
+            "es": {
+              "title": "Según informes, minoristas de lujo estudian presentar una oferta por De Beers",
+              "summary": "Según informes, Richemont está en conversaciones para unirse a un consorcio que presenta una oferta por la minera de diamantes De Beers Group."
+            }
+          }
+        },
+        {
+          "id": "20uyvx",
+          "title": "Luk Fook Revenue Rises as Diamond-Jewelry Demand Improves",
+          "url": "https://rapaport.com/news/luk-fook-revenue-rises-as-diamond-jewelry-demand-improves/",
+          "source": "Rapaport News",
+          "published_at": "2026-10-25T15:34:24.000Z",
+          "ingested_at": "2026-10-26T11:19:27.251Z",
+          "snippet": "Group opens store in London, entering European market for first time.\nThe post Luk Fook Revenue Rises as Diamond-Jewelry Demand Improves appeared first on Rapaport.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewelry",
+              "diamond"
+            ]
+          },
+          "aiSummary": "Luk Fook’s revenue rose as diamond-jewellery demand improved, and the group opened a London store to enter Europe for the first time.",
+          "translations": {
+            "da": {
+              "title": "Luk Fooks omsætning stiger i takt med øget efterspørgsel efter diamantsmykker",
+              "summary": "Luk Fooks omsætning steg, da efterspørgslen efter diamantsmykker voksede, og koncernen åbnede en butik i London for for første gang at træde ind på det europæiske marked."
+            },
+            "es": {
+              "title": "Los ingresos de Luk Fook aumentan al mejorar la demanda de joyería con diamantes",
+              "summary": "Los ingresos de Luk Fook aumentaron al mejorar la demanda de joyería con diamantes, y el grupo abrió una tienda en Londres para entrar por primera vez en Europa."
+            }
+          }
+        },
+        {
+          "id": "6gpe73",
+          "title": "Positive jewellery sales momentum for luxury leader",
+          "url": "https://www.jewellermagazine.com/Article/15599/Positive-jewellery-sales-momentum-for-luxury-leader",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-10-19T13:00:00.000Z",
+          "ingested_at": "2026-10-20T10:13:24.241Z",
+          "snippet": "Luxury juggernaut Moët Hennessy Louis Vuitton (LVMH) has reported improved performance among its watch and jewellery brands in its latest financial report.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.09999999999999998,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0.05,
+            "penalty": 0.2,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller",
+              "watch"
+            ]
+          },
+          "aiSummary": "LVMH reported improved performance across its watch and jewellery brands in its latest financial report.",
+          "translations": {
+            "da": {
+              "title": "Positivt momentum i smykkesalget hos luksuskoncernen",
+              "summary": "LVMH rapporterede om forbedrede resultater på tværs af sine ur- og smykkebrands i den seneste finansielle rapport."
+            },
+            "es": {
+              "title": "Impulso positivo en las ventas de joyería para el líder del lujo",
+              "summary": "LVMH informó de una mejora en los resultados de sus marcas de relojes y joyería en su último informe financiero."
+            }
+          }
+        },
+        {
+          "id": "wv37rj",
+          "title": "Gold-Jewelry Demand Supports Chow Sang Sang Sales Growth",
+          "url": "https://rapaport.com/news/gold-jewelry-demand-supports-chow-sang-sang-sales-growth/",
+          "source": "Rapaport News",
+          "published_at": "2026-10-19T11:49:41.000Z",
+          "ingested_at": "2026-10-19T12:40:10.797Z",
+          "snippet": "Group revenue up 3% year on year in third quarter.\nThe post Gold-Jewelry Demand Supports Chow Sang Sang Sales Growth appeared first on Rapaport.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewelry",
+              "gold"
+            ]
+          },
+          "aiSummary": "Chow Sang Sang’s third-quarter revenue rose 3% year on year, supported by gold-jewellery demand.",
+          "translations": {
+            "da": {
+              "title": "Efterspørgsel efter guldsmykker understøtter Chow Sang Sangs salgsvækst",
+              "summary": "Chow Sang Sangs omsætning i tredje kvartal steg 3 % på årsbasis, understøttet af efterspørgslen efter guldsmykker."
+            },
+            "es": {
+              "title": "La demanda de joyas de oro impulsa el crecimiento de las ventas de Chow Sang Sang",
+              "summary": "Los ingresos de Chow Sang Sang aumentaron un 3 % interanual en el tercer trimestre, impulsados por la demanda de joyas de oro."
+            }
+          }
+        },
+        {
+          "id": "g9yhl3",
+          "title": "A Floor of its Own: Liberty’s Fashion Jewellery Gallery",
+          "url": "https://www.retail-jeweller.com/retail/a-floor-of-its-own-libertys-fashion-jewellery-gallery-22-10-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-10-22T07:34:42.000Z",
+          "ingested_at": "2026-10-23T10:16:28.376Z",
+          "snippet": "Retail Jeweller\nA Floor of its Own: Liberty’s Fashion Jewellery Gallery\nLiberty has opened the Fashion Jewellery Gallery, a dedicated space for contemporary and demi-fine jewellery. Jewellery buying manager Ruby Beales tells Ruth Faulkner how changing customer habits shaped its new approach to the category.\nA Floor of its Own: Liberty’s Fashion Jewellery Gallery\nRuth Faulkner",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Liberty has opened a Fashion Jewellery Gallery dedicated to contemporary and demi-fine jewellery, shaped by changing customer habits.",
+          "translations": {
+            "da": {
+              "title": "En hel etage for sig selv: Libertys galleri for modesmykker",
+              "summary": "Liberty har åbnet et galleri for modesmykker med fokus på moderne smykker og demi-fine smykker, formet af ændrede kundevaner."
+            },
+            "es": {
+              "title": "Una planta propia: la galería de joyería de moda de Liberty",
+              "summary": "Liberty ha abierto una galería de joyería de moda dedicada a la joyería contemporánea y demi-fine, creada en respuesta a los cambios en los hábitos de los clientes."
+            }
+          }
+        },
+        {
+          "id": "ofjdg3",
+          "title": "Black Friday spending expected to rise despite increasing selectivity",
+          "url": "https://www.jewellermagazine.com/Article/15600/Black-Friday-spending-expected-to-rise-despite-increasing-selectivity",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-10-19T13:00:00.000Z",
+          "ingested_at": "2026-10-20T10:13:24.241Z",
+          "snippet": "Australian consumers are expected to spend more during this year’s Black Friday and Cyber Monday sales, despite retailers encountering more discerning, value-driven customers.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "retailer"
+            ]
+          },
+          "aiSummary": "Australian consumers are expected to spend more during Black Friday and Cyber Monday sales in 2026 despite becoming more selective and value-driven.",
+          "translations": {
+            "da": {
+              "title": "Forbruget på Black Friday forventes at stige trods større selektivitet",
+              "summary": "Australske forbrugere forventes at bruge flere penge under Black Friday- og Cyber Monday-udsalgene i 2026, selvom de bliver mere selektive og prisbevidste."
+            },
+            "es": {
+              "title": "Se prevé que el gasto en Black Friday aumente pese a una mayor selectividad",
+              "summary": "Se prevé que los consumidores australianos gasten más durante las rebajas de Black Friday y Cyber Monday de 2026, aunque serán más selectivos y buscarán más valor por su dinero."
+            }
+          }
+        },
+        {
+          "id": "oopc4k",
+          "title": "Coach launches Cass watch in support of breast cancer research",
+          "url": "https://www.retail-jeweller.com/news-and-insight/coach-launches-cass-watch-in-support-of-breast-cancer-research-21-10-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-10-21T07:30:30.000Z",
+          "ingested_at": "2026-10-23T10:16:28.376Z",
+          "snippet": "Retail Jeweller\nCoach launches Cass watch in support of breast cancer research\nFashion and accessories brand Coach has introduced a new Cass watch design for 2026, with a proportion of sales supporting US charity the Breast Cancer Foundation.\nCoach launches Cass watch in support of breast cancer research\nKate Rainford",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "watch",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Coach has launched a new Cass watch for 2026, with a proportion of sales supporting US charity the Breast Cancer Foundation.",
+          "translations": {
+            "da": {
+              "title": "Coach lancerer Cass-ur til støtte for brystkræftforskning",
+              "summary": "Coach har lanceret et nyt Cass-ur til 2026, hvor en del af salget går til den amerikanske velgørenhedsorganisation Breast Cancer Foundation."
+            },
+            "es": {
+              "title": "Coach lanza el reloj Cass para apoyar la investigación del cáncer de mama",
+              "summary": "Coach ha lanzado un nuevo reloj Cass para 2026; una parte de las ventas se destinará a la organización benéfica estadounidense Breast Cancer Foundation."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "oneSentenceSummary": "Hermès grows while Kering stays flat. Blaming the luxury market is getting harder.",
+  "keyThemes": [
+    "Claude Duet",
+    "AI agent shopping",
+    "Klarna Fiserv partnership",
+    "Hermès Q3 sales growth",
+    "Kering Jewelry sales growth"
+  ],
+  "editorialTake": "I think spending permissions are becoming a merchandising decision for luxury ecommerce. Brands need to decide which purchases an agent can complete without a conversation.\n\nShopify and Vercel are opening stores to shopping agents, while Walmart is giving customers spending limits. Claude Duet requires approval for sensitive actions such as payments, making consent part of the transaction. Luxury needs human advice, but that objection is weaker when returning customers already know the piece they want.\n\nNext quarter, I would test agent purchasing on a small sample of repeat orders from existing jewellery customers. Require approval above a chosen price threshold, then compare completed purchases with cancellations before extending access to higher ticket pieces. Ask customers whether they understood exactly what they authorised.",
+  "coverImageUrl": "/weekly-images/2026-W43.png",
+  "coverImageAlt": "Weekly cover illustration for 2026-W43"
+}

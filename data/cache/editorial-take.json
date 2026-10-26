@@ -268,5 +268,11 @@
     "cached_at": "2026-10-19T13:08:10.407Z",
     "model": "gpt-6.1-sol",
     "version": "3.0"
+  },
+  "2026-W43:49bf7c3d4e82": {
+    "editorialTake": "I think spending permissions are becoming a merchandising decision for luxury ecommerce. Brands need to decide which purchases an agent can complete without a conversation.\n\nShopify and Vercel are opening stores to shopping agents, while Walmart is giving customers spending limits. Claude Duet requires approval for sensitive actions such as payments, making consent part of the transaction. Luxury needs human advice, but that objection is weaker when returning customers already know the piece they want.\n\nNext quarter, I would test agent purchasing on a small sample of repeat orders from existing jewellery customers. Require approval above a chosen price threshold, then compare completed purchases with cancellations before extending access to higher ticket pieces. Ask customers whether they understood exactly what they authorised.",
+    "cached_at": "2026-10-26T12:58:04.958Z",
+    "model": "gpt-6.1-sol",
+    "version": "3.0"
   }
 }
