@@ -130,6 +130,15 @@ and the same video is embedded on the digest page. Brand logos are fine to use
   "brisk" in its instruction (still 116 wpm), and its pauses are already short
   (capping them at 0.35 s gained 1 wpm), so the speech itself is slow, about
   138 wpm without pauses. With the cap the story lands near 146 wpm.
+- **Captions follow the heard words.** Until 2026-10-26 word times were
+  estimated by spreading each scene's words by length. That ran up to 1.5 s
+  off the voice on W43, and the owner saw the captions lag. Now `voice.ts`
+  sends each trimmed clip (before the speed-up) to whisper-1 for word
+  timestamps (~$0.01 a video, cached as `voice/words-<key>.json`). It aligns
+  them to the script words, divides by the atempo, and shows each word 0.08 s
+  early (`CAPTION_LEAD_S`). A scene whose transcript fails or matches less than
+  60% of its words falls back to the estimate, with a `[voice]` warning in the
+  log.
 - **The voice is `gpt-realtime-2.1-mini` over the Realtime API** (`lib/llm/speech.ts`)
   since 2026-10-14, because OpenAI removes gpt-4o-mini-tts on 2027-01-06. The
   owner listened to W39's six lines in "ash" on both and approved; it read every
