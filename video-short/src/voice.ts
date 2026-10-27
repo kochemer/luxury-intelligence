@@ -43,9 +43,9 @@ export const TEMPO = Number(process.env.VIDEO_SHORT_TEMPO ?? 1.1);
 const NORMAL_WPM = 150;
 /**
  * The pace should come from the voice, not from stretching it: W43 at x1.57
- * sounded too fast and processed (owner, 2026-10-26).
+ * sounded too fast and processed; owner picked 1.35x over 1.25x (2026-10-26).
  */
-const MAX_ATEMPO = Number(process.env.VIDEO_SHORT_MAX_ATEMPO ?? 1.25);
+const MAX_ATEMPO = Number(process.env.VIDEO_SHORT_MAX_ATEMPO ?? 1.35);
 
 export interface TimedScene extends Scene {
   start: number;

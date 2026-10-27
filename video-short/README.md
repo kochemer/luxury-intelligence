@@ -121,15 +121,16 @@ and the same video is embedded on the digest page. Brand logos are fine to use
   returns.** gpt-4o-mini-tts reads at roughly 115–125 wpm whatever the
   instruction says, so a plain `atempo=1.2` came out around 140 wpm and the
   owner heard it as 1× (2026-10-06). `voice.ts` measures the raw pace on every
-  run and picks the atempo to hit `TEMPO × NORMAL_WPM`, capped at 1.25×.
+  run and picks the atempo to hit `TEMPO × NORMAL_WPM`, capped at 1.35×.
   `meta.json` → `voicePace` records raw wpm, atempo and final wpm.
 - **Don't get the speed from ffmpeg.** The realtime voice read W43 at 115 wpm,
   so hitting 180 wpm took atempo 1.57×, and the owner heard it as far too fast
   and unnatural (2026-10-26). The fix: drop the target to 1.1×, cap atempo at
-  1.25× (`VIDEO_SHORT_MAX_ATEMPO`) and shorten the script. The voice ignores
+  1.35× (`VIDEO_SHORT_MAX_ATEMPO`; the owner picked it over 1.25×, which ran
+  64 s at 145 wpm) and shorten the script. The voice ignores
   "brisk" in its instruction (still 116 wpm), and its pauses are already short
   (capping them at 0.35 s gained 1 wpm), so the speech itself is slow, about
-  138 wpm without pauses. With the cap the story lands near 146 wpm.
+  138 wpm without pauses. With the cap the story lands near 157 wpm.
 - **Captions follow the heard words.** Until 2026-10-26 word times were
   estimated by spreading each scene's words by length. That ran up to 1.5 s
   off the voice on W43, and the owner saw the captions lag. Now `voice.ts`
