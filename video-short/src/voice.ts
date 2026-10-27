@@ -1,19 +1,20 @@
 /**
  * Narration: one TTS clip per scene, so scene timing comes straight from clip
- * durations (no forced alignment needed). Leading/trailing silence is trimmed
- * and a short breath inserted between scenes. Pauses inside a clip are kept.
+ * durations. Caption word timing comes from whisper-1 word timestamps aligned
+ * to the script. Leading/trailing silence is trimmed and a short breath
+ * inserted between scenes. Pauses inside a clip are kept.
  *
  * OpenAI gpt-realtime-2.1-mini over the Realtime API (lib/llm/speech.ts),
  * since 2026-10-14: cheap, and it takes a delivery instruction. It replaces
  * gpt-4o-mini-tts, which OpenAI removes on 2027-01-06; until then a clip that
  * fails falls back to it, same voice and instruction.
  */
-import { promises as fs } from 'fs';
+import { promises as fs, createReadStream } from 'fs';
 import path from 'path';
 import { spawn } from 'child_process';
 import crypto from 'crypto';
 import OpenAI from 'openai';
-import { Budget, TTS_USD_PER_MINUTE } from './budget';
+import { Budget, TTS_USD_PER_MINUTE, WHISPER_USD_PER_MINUTE } from './budget';
 import type { Scene } from './script';
 import { REALTIME_SPEECH_MODEL, synthesizeSpeech } from '../../lib/llm/speech';
 
@@ -22,14 +23,14 @@ export const TTS_MODEL = REALTIME_SPEECH_MODEL;
 export const TTS_FALLBACK_MODEL = 'gpt-4o-mini-tts';
 export const TTS_VOICE = process.env.VIDEO_SHORT_VOICE ?? 'ash';
 const INSTRUCTIONS =
-  'Dry, deadpan news delivery at a normal conversational pace. Keep short natural pauses between sentences. ' +
+  'Dry, deadpan news delivery at a brisk pace, like a quick tech news recap. Keep the pauses between sentences short. ' +
   'Confident, slightly sardonic, unimpressed by hype. Land punchlines flat. ' +
   'No radio-announcer warmth, no sing-song, no exaggerated excitement.';
 
 /** Silence after each scene: a breath before the next cut. */
 const GAP_S = 0.4;
 /**
- * Speed relative to NORMAL speech (owner set 1.2x on 2026-10-05).
+ * Speed relative to NORMAL speech (owner: 1.2x on 2026-10-05, 1.1x on 2026-10-26).
  *
  * Applying atempo=1.2 to whatever the TTS returns isn't enough: told to be
  * "calm", gpt-4o-mini-tts read at ~115 wpm, so 1.2x of that came out at
@@ -37,11 +38,14 @@ const GAP_S = 0.4;
  * pace is measured each run and atempo is set to land the story at
  * TEMPO x NORMAL_WPM, pauses included.
  */
-export const TEMPO = Number(process.env.VIDEO_SHORT_TEMPO ?? 1.2);
+export const TEMPO = Number(process.env.VIDEO_SHORT_TEMPO ?? 1.1);
 /** Typical conversational/news narration pace, pauses included. */
 const NORMAL_WPM = 150;
-/** atempo far beyond this starts to sound processed. */
-const MAX_ATEMPO = 1.6;
+/**
+ * The pace should come from the voice, not from stretching it: W43 at x1.57
+ * sounded too fast and processed; owner picked 1.35x over 1.25x (2026-10-26).
+ */
+const MAX_ATEMPO = Number(process.env.VIDEO_SHORT_MAX_ATEMPO ?? 1.35);
 
 export interface TimedScene extends Scene {
   start: number;
@@ -64,9 +68,10 @@ async function duration(file: string) {
   return Number(out.trim());
 }
 
-/** Word timings within a clip, weighted by length; punctuation earns a little extra time. */
-function spreadWords(text: string, start: number, dur: number) {
-  const words = text.split(/\s+/).filter(Boolean);
+type WordTime = { text: string; start: number; end: number };
+
+/** Word timings within a span, weighted by length; punctuation earns a little extra time. */
+function spread(words: string[], start: number, dur: number): WordTime[] {
   const weight = (w: string) => w.length + 2 + (/[.,!?;:]$/.test(w) ? 3 : 0);
   const total = words.reduce((s, w) => s + weight(w), 0);
   let t = start;
@@ -76,6 +81,60 @@ function spreadWords(text: string, start: number, dur: number) {
     t += d;
     return r;
   });
+}
+
+function spreadWords(text: string, start: number, dur: number) {
+  return spread(text.split(/\s+/).filter(Boolean), start, dur);
+}
+
+/** Captions show this much before the word is heard; a caption that trails the voice reads as lag. */
+const CAPTION_LEAD_S = 0.08;
+const TRANSCRIBE_MODEL = 'whisper-1';
+
+/** whisper-1 word timestamps for a clip, in the clip's own time. */
+async function transcribeWords(openai: OpenAI, file: string, script: string): Promise<{ word: string; start: number; end: number }[]> {
+  const res: any = await openai.audio.transcriptions.create({
+    model: TRANSCRIBE_MODEL, file: createReadStream(file), response_format: 'verbose_json',
+    timestamp_granularities: ['word'], prompt: script,
+  });
+  return res.words ?? [];
+}
+
+const norm = (w: string) => w.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+/**
+ * Put the script's words on the heard timestamps. The transcript can split,
+ * merge or misspell words ("3,345" vs "3345"), so the two sequences are
+ * aligned (longest common subsequence on normalized words). Matched words take
+ * the heard times; runs in between are spread across their gap. Returns null
+ * when too little matched to trust.
+ */
+function alignWords(text: string, heard: { word: string; start: number; end: number }[], dur: number): WordTime[] | null {
+  const words = text.split(/\s+/).filter(Boolean);
+  const a = words.map(norm), b = heard.map(h => norm(h.word));
+  const n = a.length, m = b.length;
+  const L: number[][] = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--) {
+    L[i][j] = a[i] && a[i] === b[j] ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+  }
+  const match: (number | null)[] = new Array(n).fill(null);
+  for (let i = 0, j = 0; i < n && j < m;) {
+    if (a[i] && a[i] === b[j]) { match[i++] = j++; } else if (L[i + 1][j] >= L[i][j + 1]) i++; else j++;
+  }
+  if (match.filter(x => x !== null).length < n * 0.6) return null;
+
+  const out: WordTime[] = [];
+  for (let i = 0; i < n;) {
+    const j = match[i];
+    if (j !== null) { out.push({ text: words[i], start: heard[j].start, end: heard[j].end }); i++; continue; }
+    let k = i;
+    while (k < n && match[k] === null) k++;
+    const from = out.length ? out[out.length - 1].end : 0;
+    const to = k < n ? heard[match[k]!].start : dur;
+    out.push(...spread(words.slice(i, k), from, Math.max(0.05, to - from)));
+    i = k;
+  }
+  return out;
 }
 
 /** One clip as WAV with `model`: Realtime models via lib/llm/speech.ts, others on the speech endpoint. */
@@ -167,12 +226,41 @@ export async function buildVoice(scenes: Scene[], budget: Budget, outDir: string
     trimmed.push(out);
   }
 
+  // Caption timing from what the voice actually says, not an estimate
+  // (estimated timings drifted behind the voice, owner 2026-10-26). Transcribed
+  // before the speed-up, so a transcript is cached per voice clip and reused
+  // whatever the atempo.
+  const cutS = await Promise.all(cut.map(duration));
+  const heard = await budget.spend('align', TRANSCRIBE_MODEL, ((cutS.reduce((s, d) => s + d, 0) / 60) * 2) * WHISPER_USD_PER_MINUTE, async () => {
+    const openai = new OpenAI();
+    let seconds = 0;
+    const res = await Promise.all(cut.map(async (f, i) => {
+      const cache = path.join(clipDir, `words-${path.basename(clips[i], '.wav').replace(/^raw-/, '')}.json`);
+      try { return JSON.parse(await fs.readFile(cache, 'utf8')); } catch { /* transcribe */ }
+      try {
+        const w = await transcribeWords(openai, f, scenes[i].vo);
+        seconds += cutS[i];
+        await fs.writeFile(cache, JSON.stringify(w));
+        return w;
+      } catch (error) {
+        console.warn(`[voice] scene ${i + 1}: ${TRANSCRIBE_MODEL} failed (${(error as Error).message}); estimating its captions`);
+        return null;
+      }
+    }));
+    return { result: res as ({ word: string; start: number; end: number }[] | null)[], actualUsd: (seconds / 60) * WHISPER_USD_PER_MINUTE };
+  });
+
   const timed: TimedScene[] = [];
   let t = 0;
   for (const [i, f] of trimmed.entries()) {
     const d = await duration(f);
     const speech = Math.max(0.3, d - GAP_S);
-    timed.push({ ...scenes[i], start: t, end: t + d, words: spreadWords(scenes[i].vo, t, speech) });
+    const aligned = heard[i] ? alignWords(scenes[i].vo, heard[i]!, cutS[i]) : null;
+    if (heard[i] && !aligned) console.warn(`[voice] scene ${i + 1}: transcript didn't match the script; estimating its captions`);
+    const words = aligned
+      ? aligned.map(w => ({ text: w.text, start: Math.max(t, t + w.start / atempo - CAPTION_LEAD_S), end: t + w.end / atempo - CAPTION_LEAD_S }))
+      : spreadWords(scenes[i].vo, t, speech);
+    timed.push({ ...scenes[i], start: t, end: t + d, words });
     t += d;
   }
 

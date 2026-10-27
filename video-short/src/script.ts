@@ -194,7 +194,7 @@ export function checkShape(script: Script): string[] {
   const n = script.scenes.length;
   if (n < 4 || n > 7) p.push(`scene count ${n} (want 5 to 6)`);
   const words = script.scenes.reduce((s, sc) => s + sc.vo.split(/\s+/).filter(Boolean).length, 0);
-  if (words < 130 || words > 170) p.push(`narration is ${words} words (want 140 to 160)`);
+  if (words < 110 || words > 140) p.push(`narration is ${words} words (want 120 to 130)`);
   for (let i = 2; i < n; i++) {
     const k = script.scenes[i].visual.kind;
     if (k === script.scenes[i - 1].visual.kind && k === script.scenes[i - 2].visual.kind) {

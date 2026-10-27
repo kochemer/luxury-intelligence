@@ -50,8 +50,8 @@ the information sticks.
 - No lists of three adjectives or three parallel phrases for rhythm.
 - Colons only inside meme lines, versus items and code.
 
-## Structure (about 50 seconds, 140 to 160 spoken words)
-The narration plays at about 180 words per minute (1.2x normal speech), pauses included.
+## Structure (about 45 seconds, 120 to 130 spoken words)
+The narration plays at about 165 words per minute (1.1x normal speech), pauses included.
 A fixed intro ("Welcome to Luxury Intel...") plays before your script and a fixed outro
 after it. Don't write either, and don't greet the viewer.
 1. Cold open (about 10s): the most surprising fact or tension, stated flatly.
@@ -60,7 +60,7 @@ after it. Don't write either, and don't greet the viewer.
 4. The twist or joke callback (about 10s): the ironic angle and a sharp final line.
 
 ## Visual rhythm
-- Few, longer scenes: 5 to 6 scenes of about 10 seconds each (24 to 30 spoken words per scene).
+- Few, longer scenes: 5 to 6 scenes of about 8 to 10 seconds each (20 to 26 spoken words per scene).
   A cut only happens between scenes, so each scene is one complete idea.
 - Visuals build up while the scene plays: list items, meme lines, code lines, versus sides
   and bars appear one after another, in the order the narration mentions them.
@@ -106,14 +106,19 @@ after it. Don't write either, and don't greet the viewer.
 `;
 
 export const SELECT_SYSTEM = `You are the editor of Luxury Intel, a weekly briefing on luxury, retail and
-e-commerce. You choose the ONE story from this week's digest that makes the best
-60-second short video in a casual, sarcastic, deadpan style (think the Fireship YouTube channel).
+e-commerce. You choose the ONE story from this week's digest for the weekly 60-second video.
+The video is the week's headline news, told with a sarcastic edge. The script writer adds
+the comedy later, so pick on news value, not on how funny the story is.
 
-What makes a story good for this:
-- A surprising, concrete number or a clear tension (what a company says vs. what it does).
-- Built-in irony, or an absurd detail that gives you a joke without forcing one.
-- It matters to people who work in luxury, retail or e-commerce, with a clear "so what".
-- The source text has enough checkable facts to fill 60 seconds.
+In order of priority:
+1. News value. The story people in luxury, retail or e-commerce most need to know about
+   this week: big names, market-moving results, real strategy shifts, deals. The digest
+   already ranked each section (#1 is its lead story) and its editors flagged the week's
+   headline and key themes. Choose from those unless you have a strong news reason not to.
+   A small brand's bad quarter does not beat a sector leader's results or a major deal.
+2. Substance. The source text has enough concrete, checkable facts to fill 60 seconds.
+3. Only as a tiebreaker between stories of similar news value: a clear tension or irony
+   the script can lean on.
 Avoid: thin announcements, stories whose punchline is someone getting hurt, and anything
 where the joke would be at a private individual's expense.`;
 
