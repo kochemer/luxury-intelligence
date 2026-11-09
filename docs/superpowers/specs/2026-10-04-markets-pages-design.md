@@ -91,10 +91,11 @@ week → Share of voice (demoted).
 | Falls need breadth | "Pearls dropped away" was two bursts from one outlet. |
 | Examples prefer headline matches | Snippet-only matches gave weak evidence (a fashion roundup under "India"). |
 | Jewellery shows no signal until coverage supports one | 374 articles in 12 weeks from 6 outlets. New feeds (JCK, Rapaport) from W41 should change that. |
+| Signals section leads with every theme, not an empty box (2026-11-09) | Most weeks nothing passes the rules, so the page opened on "No signal is strong enough", which also misread as too little coverage. Now a one-line status (signals, or the closest call, or too few outlets) over a list of all themes with share, change and 12-week trend; colour only on real signals, themes under 20 articles greyed. Shortening the window was rejected: 2-vs-2 weeks flips China between 0.42× and 0.77× week to week. Code: `app/markets/_components/ThemeTable.tsx`. |
 | Cross-sector signal on the luxury page | AI shopping agents: ~27 articles a week across all sources, of which the luxury press wrote 4 of 263. Only a site reading both sees it. |
 | Coverage vs share price per listed company (with its brands) | The aha cases: Signet and Brilliant Earth +23% on 5 and 0 articles; LVMH most covered and down 23%. "Loud" callouts on the luxury page only: LVMH and Richemont are covered for fashion, not jewellery. |
 
-Code: `markets/signals.ts`, `markets/attention.ts`; `MarketData` version 2.
+Code: `markets/signals.ts`, `markets/attention.ts`, `app/markets/_components/ThemeTable.tsx` (Signals section); `MarketData` version 2.
 Tests: `__tests__/markets.signals.test.ts`.
 
 ## Later

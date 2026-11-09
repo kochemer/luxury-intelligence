@@ -159,7 +159,7 @@ when you verify or rewrite a doc.
 | `docs/seo-status.md` | SEO dated state, resume checklist | current | 2026-10-04 |
 | `docs/seo-decisions.md` | SEO design reasoning | current | 2026-09-21 |
 | `docs/seo-backlog.md` | SEO remaining work | current | 2026-10-04 |
-| `docs/superpowers/specs/2026-10-04-markets-pages-design.md` | Markets pages design | current | 2026-10-04 |
+| `docs/superpowers/specs/2026-10-04-markets-pages-design.md` | Markets pages design | current | 2026-11-09 |
 | `docs/superpowers/specs/2026-10-14-social-content-plan.md` | What we post where on LinkedIn, X, YouTube, Spotify; automation design and phases | current (Phase 1 built) | 2026-10-14 |
 | `docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md` | /analytics Amplitude sections (returning, engagement, replays, social, vitals) and the weekly insights agent; what the Amplitude data can and can't do | built 2026-10-17 (differences in its `Status:` line) | 2026-10-17 |
 | `docs/analytics/measurement-plan.md` | Analytics events and attribution (§5 notes where the implementation differs) | reference | 2026-10-17 |

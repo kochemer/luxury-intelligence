@@ -143,10 +143,9 @@ export default function ThemeTable({ data, market, h2Class, subClass, noteClass 
   data: MarketData; market: MarketId; h2Class: string; subClass: string; noteClass: string;
 }) {
   const R = data.rules;
-  const seen = new Set<string>();
-  const themes = [...data.signals, ...data.watching].filter(t => !seen.has(t.name) && seen.add(t.name));
-  const rank = (t: ThemeStat) => (t.verdict === 'rising' ? 0 : t.verdict === 'falling' ? 1 : 2);
-  themes.sort((a, b) => rank(a) - rank(b) || b.shareRecent - a.shareRecent);
+  // Signals keep the engine's order (as in the status rows above); the rest by share.
+  const names = new Set(data.signals.map(t => t.name));
+  const themes = [...data.signals, ...data.watching.filter(t => !names.has(t.name)).sort((a, b) => b.shareRecent - a.shareRecent)];
 
   return (
     <>

@@ -265,6 +265,8 @@ Since v2 (2026-10-09) the pages lead with signals counted from the whole
 article stream (`markets/signals.ts`: share-of-articles themes, explicit
 thresholds, panels from `categoryHint` in `ingestion/sources.ts`) and
 coverage vs share price (`markets/attention.ts`).
+Since 2026-11-09 the Signals section (`app/markets/_components/ThemeTable.tsx`)
+lists every theme and names the closest call when nothing qualifies.
 
 ### Planning docs
 
