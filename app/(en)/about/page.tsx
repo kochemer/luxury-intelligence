@@ -288,7 +288,7 @@ export default function AboutPage() {
             <p className="text-body text-gray-800 italic m-0">
               <strong>Fully automated:</strong> Articles are selected, ranked and summarised by AI from titles and
               snippets, with automated quality checks. No one reviews an issue by hand before it goes out, and the
-              weekly Editor&apos;s Spotlight is written by AI. Always read the original article for full context.
+              weekly The Week in Context section is written by AI. Always read the original article for full context.
             </p>
           </div>
           <p className="text-body text-gray-600 mb-4">

@@ -294,15 +294,15 @@ export function renderEmailDigestHtml(digest: EmailDigest, opts: RenderEmailDige
   const articleRows = leadRow + secondaryRows + tertiaryRows;
 
   const takeBlock = digest.editorialTake ? `
-          <!-- Editor's Take -->
+          <!-- The Week in Context -->
           <tr>
             <td class="outer-pad" style="background-color: ${C.bg}; padding: 0 32px 8px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td style="border-left: 2px solid ${C.accent}; padding: 4px 0 4px 20px;">
-                    <p style="margin: 0 0 14px 0; font-family: ${SANS}; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: ${C.accent};">Editor&#8217;s Take</p>
+                    <p style="margin: 0 0 14px 0; font-family: ${SANS}; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: ${C.accent};">The Week in Context</p>
                     ${digest.editorialTake.split(/\n\s*\n/).map(p => `<p style="margin: 0 0 14px 0; font-family: ${SERIF}; font-size: 17px; line-height: 1.7; color: ${C.textPrimary};">${escapeHtml(p.trim())}</p>`).join('\n                    ')}
-                    <p style="margin: 6px 0 0 0; font-family: ${SANS}; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: ${C.textSecond};">The Editor</p>
+                    <p style="margin: 6px 0 0 0; font-family: ${SANS}; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: ${C.textSecond};">Written by AI from this week&#8217;s selected sources.</p>
                   </td>
                 </tr>
               </table>
@@ -427,7 +427,7 @@ export function renderEmailDigestPlaintext(digest: EmailDigest, unsubscribeUrl?:
   text += `${'─'.repeat(50)}\n\n`;
 
   if (digest.editorialTake) {
-    text += `EDITOR'S TAKE\n\n${digest.editorialTake.trim()}\n\n— The Editor\n\n`;
+    text += `THE WEEK IN CONTEXT\n\n${digest.editorialTake.trim()}\n\nWritten by AI from this week's selected sources.\n\n`;
     text += `${'─'.repeat(50)}\n\n`;
   }
 

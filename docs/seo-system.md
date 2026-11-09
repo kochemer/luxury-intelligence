@@ -359,8 +359,8 @@ One entity graph, declared once in `app/layout.tsx` via `buildRootGraphLd()`,
 with `@id`s that other pages reference rather than re-declare:
 
 - `{siteUrl}/#website` — WebSite
-- `{siteUrl}/#organization` — Organization (publisher)
-- `{siteUrl}/#editor` — Person (author)
+- `{siteUrl}/#organization` — Organization (publisher, and since 2026-11-09 the NewsArticle `author`: issues are automated, owner rule 2026-10-13)
+- `{siteUrl}/#editor` — Person "The Editor", still declared for /about but no longer referenced as an author
 
 Before this, Organization and Person were declared separately in the layout
 and the digest page with no `@id`, so nothing connected an article's publisher

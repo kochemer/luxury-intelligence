@@ -1,47 +1,90 @@
 /**
- * Generate the weekly Editor's Take — a first-person, opinionated editorial
- * commentary for the weekly digest. Designed to feel human and analytical,
- * not like an automated summary.
+ * Generate "The Week in Context" (internal name: editorialTake), the short
+ * explainer that opens the weekly digest. Since 2026-11-09 (owner decision,
+ * docs/pipeline-decisions.md) it is written in a neutral voice: no persona, no
+ * first or second person, no advice to an unnamed operator, plain language.
+ *
+ * Variety: the model picks one of six formats (takeChecks.ts TAKE_FORMATS),
+ * excluding the formats used in the previous 2 published weeks, and sees the
+ * previous 3 takes as examples of what not to repeat. Code checks
+ * (takeChecks.ts: pronouns, banned phrases, repeated opening, jargon,
+ * readability, filler) and a judge model call (one point, luxury or jewellery
+ * consequence, format fidelity, round-up, restating ending) feed one rewrite
+ * pass; a take is never dropped for style.
+ *
+ * Only the week being built is generated. A legacy take (an existing digest
+ * file with editorialTake and no editorialTakeFormat) is kept on a rebuild, so
+ * bumping TAKE_VERSION does not rewrite past digests. Only an explicit
+ * regenTake=true (scripts/regenEditorialTake.ts) replaces it.
  *
  * Supports an override flag: if editorialTakeOverride is set in the digest JSON,
- * the pipeline will NOT overwrite the editorialTake field on rebuild. This lets
- * the editor manually tweak the text after generation without losing it.
- *
+ * the pipeline will NOT overwrite the editorialTake field on rebuild.
  * To regenerate a manually overridden take: pass regenTake=true, or delete
  * editorialTakeOverride from the digest JSON before rebuilding.
  */
 
 import crypto from 'crypto';
+import { promises as fs } from 'fs';
+import path from 'path';
 import OpenAI from 'openai';
 import type { WeeklyDigest } from './buildWeeklyDigest';
 import { getTopicDisplayName } from '../lib/utils/topicNames';
 import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
 import { getModelFor, maxTokensParam, temperatureParam } from '../lib/llm/models';
-import { HOUSE_STYLE_RULES, findStyleProblems, stripDashes } from '../lib/llm/houseStyle';
+import { HOUSE_STYLE_RULES, stripDashes } from '../lib/llm/houseStyle';
+import {
+  TAKE_FORMATS,
+  allowedFormats,
+  findTakeProblems,
+  formatProblem,
+  isTakeFormat,
+  wordCount,
+  judgeProblems,
+  parseJudge,
+  type JudgeResult,
+  type TakeFormatId,
+} from './takeChecks';
 
 // ── Configuration ─────────────────────────────────────────────────────────────
-// The strongest model we route to: this is the page's original content and
-// the argument it opens with (roadmap F3.1, 2026-09-18).
+// The strongest model we route to: this is the page's original content
+// (roadmap F3.1, 2026-09-18).
 const TAKE_MODEL = process.env.EDITORIAL_TAKE_MODEL || getModelFor('polish');
-const TEMPERATURE = 0.4; // Slightly higher than summaries — we want voice, not determinism
-const MAX_TOKENS = 600;
+const TEMPERATURE = 0.5; // some range, so the formats and openings really differ week to week
+const MAX_TOKENS = 700;
 const CACHE_KIND = 'editorial-take';
 // Length history (owner decisions): 250–300 words (F3.1, 2026-09-18) →
-// 150–180 ("too chunky", 2026-09-21) → 120–130 (2026-10-09, with the move to
-// GPT-6.1 Sol). Change TARGET_* to retune; the prompt and condense pass follow.
-const TAKE_VERSION = '3.0';
-const TARGET_MIN_WORDS = 120;
-const TARGET_MAX_WORDS = 130;
-const MIN_WORDS = 100; // below this, one fresh attempt, then give up
-const MAX_WORDS = 145; // above this, one condensing pass (see condenseTake)
+// 150–180 ("too chunky", 2026-09-21) → 120–130 (2026-10-09) → 80–140 words in
+// 2 to 4 paragraphs (2026-11-09, with the new neutral voice).
+const TAKE_VERSION = '4.0';
+const TARGET_MIN_WORDS = 80;
+const TARGET_MAX_WORDS = 140;
+const MIN_WORDS = 70; // below this, one fresh attempt, then give up
+const MAX_WORDS = 150; // above this, one condensing pass (see condenseTake)
+const MIN_PARAGRAPHS = 2;
+const MAX_PARAGRAPHS = 4;
+const EXCLUDE_LAST_FORMATS = 2; // formats used in the previous 2 published weeks are off limits
+const SHOW_PREVIOUS_TAKES = 3; // previous takes shown in the prompt
+const OPENING_CHECK_TAKES = 4; // previous takes checked for a repeated opening
+
+const TOPIC_KEYS = ['AI_and_Strategy', 'Ecommerce_Retail_Tech', 'Luxury_and_Consumer', 'Jewellery_Industry'] as const;
 
 // ── Types ─────────────────────────────────────────────────────────────────────
-type TakeResult = {
+export type TakeResult = {
   editorialTake: string;
+  /** Null only when the model never returned a known format. */
+  format: TakeFormatId | null;
+};
+
+/** An earlier published take. `format` is absent on takes from before v4.0. */
+export type PriorTake = {
+  weekLabel: string;
+  text: string;
+  format?: string | null;
 };
 
 type CacheEntry = {
   editorialTake: string;
+  format?: TakeFormatId | null;
   cached_at: string;
   model: string;
   version: string;
@@ -67,7 +110,7 @@ async function saveCache(cache: TakeCache): Promise<void> {
 
 function fingerprintDigest(digest: WeeklyDigest): string {
   const urls: string[] = [];
-  for (const key of ['AI_and_Strategy', 'Ecommerce_Retail_Tech', 'Luxury_and_Consumer', 'Jewellery_Industry'] as const) {
+  for (const key of TOPIC_KEYS) {
     for (const article of digest.topics[key]?.top ?? []) {
       if (article.url) urls.push(article.url);
     }
@@ -79,18 +122,57 @@ function getCacheKey(weekLabel: string, digest: WeeklyDigest): string {
   return `${weekLabel}:${fingerprintDigest(digest)}`;
 }
 
-// ── Prompt builder ────────────────────────────────────────────────────────────
-function buildEditorialTakePrompt(digest: WeeklyDigest): string {
-  const topicKeys = ['AI_and_Strategy', 'Ecommerce_Retail_Tech', 'Luxury_and_Consumer', 'Jewellery_Industry'] as const;
+// ── History ───────────────────────────────────────────────────────────────────
+const DIGESTS_DIR = path.join(process.cwd(), 'data', 'digests');
 
+/**
+ * The last `count` published takes before `weekLabel`, oldest first. Weeks
+ * without a take are skipped. Labels sort as text (YYYY-Www), also across years.
+ */
+export async function loadPreviousTakes(
+  weekLabel: string,
+  count = OPENING_CHECK_TAKES,
+  dir = DIGESTS_DIR,
+): Promise<PriorTake[]> {
+  let files: string[];
+  try {
+    files = await fs.readdir(dir);
+  } catch {
+    return [];
+  }
+  const labels = files
+    .map(f => f.match(/^(\d{4}-W\d{2})\.json$/)?.[1])
+    .filter((l): l is string => Boolean(l) && l! < weekLabel)
+    .sort();
+  const found: PriorTake[] = [];
+  for (const label of labels.reverse()) {
+    if (found.length >= count) break;
+    try {
+      const d = JSON.parse(await fs.readFile(path.join(dir, `${label}.json`), 'utf-8'));
+      if (typeof d.editorialTake === 'string' && d.editorialTake.trim()) {
+        found.push({ weekLabel: label, text: d.editorialTake.trim(), format: d.editorialTakeFormat ?? null });
+      }
+    } catch {
+      // unreadable digest: skip it
+    }
+  }
+  return found.reverse();
+}
+
+/** Formats used in the last EXCLUDE_LAST_FORMATS published takes. */
+export function excludedFormatsFrom(history: ReadonlyArray<PriorTake>): string[] {
+  return history.slice(-EXCLUDE_LAST_FORMATS).map(t => t.format).filter((f): f is string => Boolean(f));
+}
+
+// ── Prompt builder ────────────────────────────────────────────────────────────
+export function buildEditorialTakePrompt(digest: WeeklyDigest, history: ReadonlyArray<PriorTake> = []): string {
   const articleLines: string[] = [];
-  for (const key of topicKeys) {
+  for (const key of TOPIC_KEYS) {
     const topic = digest.topics[key];
     if (!topic?.top?.length) continue;
-    const topicName = getTopicDisplayName(key);
-    articleLines.push(`\n[${topicName}]`);
-    // The full week, not a sample: the take must draw evidence from at least
-    // three selected stories, so the model needs to see all of them.
+    articleLines.push(`\n[${getTopicDisplayName(key)}]`);
+    // The full week, not a sample: the model needs to see every story to find
+    // the two that connect, the figure that matters or the dated event.
     for (const article of topic.top) {
       const summary = article.aiSummary || article.snippet || '';
       articleLines.push(`- ${article.title} (${article.source})${summary ? `: ${summary.slice(0, 160)}` : ''}`);
@@ -99,10 +181,17 @@ function buildEditorialTakePrompt(digest: WeeklyDigest): string {
 
   const weeklyInsight = digest.oneSentenceSummary || '';
   const themes = digest.keyThemes?.length ? digest.keyThemes.join(' · ') : '';
+  const excluded = excludedFormatsFrom(history);
+  const allowed = allowedFormats(excluded);
+  const formatLines = TAKE_FORMATS.filter(f => allowed.includes(f.id)).map(f => `- ${f.id}: ${f.description}`).join('\n');
+  const previous = history.slice(-SHOW_PREVIOUS_TAKES);
+  const previousBlock = previous.length
+    ? `PREVIOUS WEEKS (do not reuse their opening words, sentence patterns or endings; some are in an older style that is no longer allowed):\n${previous
+        .map(t => `[${t.weekLabel}${t.format ? `, format: ${t.format}` : ''}]\n${t.text}`)
+        .join('\n\n')}`
+    : '';
 
-  return `You are the editor of a weekly intelligence digest read by people who run luxury and jewellery businesses: brand strategy, merchandising, ecommerce, competitive intelligence. Your background is in management consulting and ecommerce strategy.
-
-Write this week's Editor's Take: the column that opens the issue. It is the one piece of original argument on the page. A reader who reads nothing else should come away with a point of view they did not have before.
+  return `Write "The Week in Context" for a weekly news brief read by people who work in luxury, jewellery and ecommerce. It explains what happened this week and why it matters, the way a good news brief does. It is written by software, so it has no author's voice and no persona.
 
 THIS WEEK'S SELECTED STORIES:
 ${articleLines.join('\n')}
@@ -110,34 +199,43 @@ ${articleLines.join('\n')}
 ${weeklyInsight ? `THIS WEEK'S ONE-LINE INSIGHT (already on the page, do not repeat it verbatim): ${weeklyInsight}` : ''}
 ${themes ? `KEY THEMES: ${themes}` : ''}
 
-STRUCTURE (exactly three short paragraphs, ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words total):
-1. THESIS. Open with the claim: the one thing this week's evidence actually shows. A specific, arguable statement, stated in the first sentence.
-2. EVIDENCE AND COUNTER. Build the case from at least TWO of the stories above, ideally three, named explicitly (company, number, decision). Show how they connect; do not list them. Every fact must come from the stories above; invent nothing. End this paragraph with one sentence on the strongest objection and why it does not hold.
-3. IMPLICATION. Close with what a luxury or jewellery operator should do differently, or watch for, in the next quarter because of this. Concrete, not "stay alert". If the week's evidence is mostly about AI or ecommerce, this paragraph is where you make it matter for luxury and jewellery specifically.
+${previousBlock}
 
-FORMAT:
-- ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words, hard limit: count them before answering. Exactly three paragraphs separated by a blank line (\n\n). Each paragraph two sentences, three at most.
-- If a sentence does not advance the argument, cut it. Short beats complete.
-- No headers. No bullet points. No numbered lists. No labels like "Thesis:".
+CHOOSE ONE FORMAT that fits this week's stories best. Allowed formats:
+${formatLines}
+${excluded.length ? `Not allowed this week (used in the previous weeks): ${excluded.join(', ')}.` : ''}
+Use "watch" only if the stories contain a dated upcoming event or decision. Follow the chosen format exactly as described.
 
-WRITING STYLE:
-- Short sentences. Vary rhythm. No padding.
-- Reads like a smart human wrote it at 8am, not like a press release or a blog post.
-- Direct and specific. Never hedging with "may", "could", "might suggest".
+ONE POINT (the most important rule):
+- State one clear, specific point in plain words within the first two sentences. It is a factual claim the stories support, written neutrally (no opinion voice). Everything after it supports that point.
+- Use at most 2 or 3 stories, and every one must serve the point. Never a round-up of separate items; leave out stories that do not fit. If the week has a luxury or jewellery story that fits the point, prefer it.
+- Say, in plain terms and usually in the last paragraph, what the point means for a luxury or jewellery business. This is a consequence, not advice. Good: "For a jeweller selling online, an AI assistant that cannot enter a marketplace cannot recommend the pieces listed there." Bad: "Jewellers should test...".
+- The last sentence must add new information or state that consequence. It must never restate an earlier sentence or summarise. No closing recommendation. Only "watch" may end on something forward-looking.
+- Avoid empty linking words: "concerns", "developments", "is changing too", "also finding". Say the specific thing.
 
-STRICT BANS (any violation makes this unusable):
-- NEVER mention Pandora or any employer
-- NO "this week" as an opener
-- NO em-dashes (use commas or colons instead)
-- NO: "groundbreaking", "transformative", "revolutionary", "significant", "exciting", "fascinating", "notable", "interesting", "landscape", "ecosystem", "it remains to be seen"
-- NO meta-references to "this digest", "the articles", "the stories above"
-- NO filler openers like "What I find...", "There's something...", "It's worth noting..."
-- DO write in first person: "I", "my", "what I think..."
+CONTENT RULES:
+- Use only facts from the stories above. Invent nothing. Name the companies and the numbers.
+- Open with a company, a number or an event. Never open with the writer, "this week" or "Luxury brands should".
+- Never use first or second person: no I, me, my, we, our, us, you, your. No advice aimed at brands, operators or retailers.
+- Plain language. Sentences average about 15 words or fewer. Everyday words. A concrete subject and verb in every sentence. One idea per sentence. If a trade term cannot be avoided, explain it in the same sentence.
+- No consulting or ecommerce jargon (the banned list is below). Say what actually happens.
+- Never mention Pandora or any employer. No references to "the digest", "the articles" or "the stories".
+- No em dashes (use commas or colons or full stops).
+
+LENGTH: ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words in ${MIN_PARAGRAPHS} to ${MAX_PARAGRAPHS} short paragraphs separated by a blank line. No headers, bullets or labels.
+
+STYLE REFERENCE (a "split" take for another week; show the same plainness, but do not copy its sentences or structure unless your format is "split"):
+"TikTok and Walmart both want shoppers to buy without leaving their apps. TikTok launched a separate Shop app with its own deals and checkout. Walmart's assistant, Sparky, can now recognise products from a photo and fill a shopping cart.
+
+Palace went the other way. Its Burberry collection is sold only in its stores.
+
+The two paths trade off differently for luxury brands. Selling inside an app reaches more shoppers, but the app owns the checkout. Selling only in stores keeps the buyer close, but fewer people find the product."
 
 ${HOUSE_STYLE_RULES}
 
-Format your response as JSON:
+Respond as JSON:
 {
+  "format": "<one allowed format id>",
   "editorialTake": "Paragraph one here.\\n\\nParagraph two here."
 }`;
 }
@@ -149,12 +247,15 @@ Format your response as JSON:
  * becomes a colon. Also collapses whitespace inside paragraphs.
  */
 export function normalizeTakeText(text: string): string {
-  // Dashes become commas (ranges become hyphens): see stripDashes.
   return stripDashes(text)
     .split(/\n\s*\n/)
     .map(p => p.replace(/[ \t]+/g, ' ').trim())
     .filter(Boolean)
     .join('\n\n');
+}
+
+export function paragraphCount(text: string): number {
+  return text.split(/\n\s*\n/).filter(p => p.trim()).length;
 }
 
 /**
@@ -170,11 +271,11 @@ async function condenseTake(openai: OpenAI, text: string): Promise<string | null
       ...maxTokensParam(TAKE_MODEL, MAX_TOKENS),
       messages: [{
         role: 'user',
-        content: `Cut this editorial column to ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words. Keep exactly three paragraphs separated by a blank line, the opening claim, every company name and number that remains load-bearing, and the closing recommendation. Remove repetition and any sentence that restates an earlier point. Do not add anything new. Keep first person. No em dashes.
+        content: `Cut this short news explainer to ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words. Keep the paragraph count (${MIN_PARAGRAPHS} to ${MAX_PARAGRAPHS} paragraphs separated by a blank line), the opening, and every company name and number that remains load-bearing. Keep the neutral voice: no first or second person, no advice. Keep sentences short and words plain. Remove repetition and any sentence that restates an earlier point. Do not add anything new. No em dashes.
 
 Respond as JSON: {"editorialTake": "..."}
 
-COLUMN:
+TEXT:
 ${text}`,
       }],
       response_format: { type: 'json_object' },
@@ -188,8 +289,8 @@ ${text}`,
   }
 }
 
-/** One pass that fixes only the listed house-style problems. Null on failure. */
-async function fixTakeStyle(openai: OpenAI, text: string, problems: string[]): Promise<string | null> {
+/** One pass that fixes only the listed problems. Null on failure. */
+async function fixTakeStyle(openai: OpenAI, text: string, problems: string[], avoidOpenings: string[]): Promise<string | null> {
   try {
     const response = await openai.chat.completions.create({
       model: TAKE_MODEL,
@@ -197,14 +298,14 @@ async function fixTakeStyle(openai: OpenAI, text: string, problems: string[]): P
       ...maxTokensParam(TAKE_MODEL, MAX_TOKENS),
       messages: [{
         role: 'user',
-        content: `Edit this editorial column to fix these problems, and change nothing else: ${problems.join('; ')}.
-Keep the three paragraphs, the argument, every fact and the first person. Keep it ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words.
-
+        content: `Edit this short news explainer to fix these problems, and change nothing else: ${problems.join('; ')}.
+Keep the neutral voice (no first or second person, no advice), the facts, and the length. You may restructure sentences and paragraphs to fix the problems: the take needs one clear point in the first two sentences, only the 2 or 3 stories that serve it, one plain sentence on what it means for a luxury or jewellery business (a consequence, not advice), and a last sentence that adds something new. Keep it ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words. Use short sentences (about 15 words) and everyday words.
+${avoidOpenings.length ? `Do not open with the same first words as these earlier texts:\n${avoidOpenings.map(o => `- ${o}`).join('\n')}\n` : ''}
 ${HOUSE_STYLE_RULES}
 
 Respond as JSON: {"editorialTake": "..."}
 
-COLUMN:
+TEXT:
 ${text}`,
       }],
       response_format: { type: 'json_object' },
@@ -218,8 +319,64 @@ ${text}`,
   }
 }
 
+/**
+ * Judge pass: one model call (temperature 0) that checks the take for a single
+ * point, a luxury or jewellery consequence, the declared format, round-up
+ * structure and a restating ending. Null on any failure: the judge is then skipped.
+ */
+async function judgeTake(openai: OpenAI, text: string, format: TakeFormatId | null): Promise<JudgeResult | null> {
+  try {
+    const fmt = TAKE_FORMATS.find(f => f.id === format);
+    const response = await openai.chat.completions.create({
+      model: TAKE_MODEL,
+      ...temperatureParam(TAKE_MODEL, 0),
+      ...maxTokensParam(TAKE_MODEL, 300),
+      messages: [{
+        role: 'user',
+        content: `You check a short news explainer written for people in luxury and jewellery. Declared format: ${fmt ? `${fmt.id} (${fmt.description})` : 'none'}.
+
+Answer as JSON with exactly these keys:
+- "point": the one point the text makes, in one sentence, or null if the first two sentences do not state one clear, specific claim
+- "luxuryConsequence": true only if the text says in plain terms what its point means for a luxury or jewellery business
+- "followsFormat": true only if the text follows the declared format as described
+- "roundUp": true if the text covers separate items that do not serve one point
+- "endingRestates": true if the last sentence restates an earlier sentence instead of adding information or the consequence
+
+TEXT:
+${text}`,
+      }],
+      response_format: { type: 'json_object' },
+    });
+    const content = response.choices[0]?.message?.content?.trim();
+    return content ? parseJudge(JSON.parse(content)) : null;
+  } catch {
+    return null;
+  }
+}
+
 // ── LLM call ──────────────────────────────────────────────────────────────────
-async function callLLMForEditorialTake(digest: WeeklyDigest): Promise<TakeResult | null> {
+type Candidate = { text: string; format: TakeFormatId | null; words: number; structural: string[] };
+
+/** Length, paragraph and format problems that earn a fresh attempt. */
+function structuralProblems(text: string, format: unknown, excluded: string[]): string[] {
+  const out: string[] = [];
+  const words = wordCount(text);
+  if (words < MIN_WORDS) out.push(`too short (${words} words, need ${MIN_WORDS} or more)`);
+  const paras = paragraphCount(text);
+  if (paras < MIN_PARAGRAPHS || paras > MAX_PARAGRAPHS) out.push(`${paras} paragraphs, need ${MIN_PARAGRAPHS} to ${MAX_PARAGRAPHS}`);
+  const fp = formatProblem(format, excluded);
+  if (fp) out.push(fp);
+  return out;
+}
+
+/**
+ * Generate one take from `history` (earlier takes, oldest first). No cache, no
+ * file I/O: the caller decides what to store. Exported for the dry-run script.
+ */
+export async function generateTake(
+  digest: WeeklyDigest,
+  history: ReadonlyArray<PriorTake>,
+): Promise<(TakeResult & { problems: string[]; judge: JudgeResult | null }) | null> {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     console.warn('[EditorialTake] OPENAI_API_KEY not set, skipping');
@@ -228,12 +385,14 @@ async function callLLMForEditorialTake(digest: WeeklyDigest): Promise<TakeResult
 
   try {
     const openai = new OpenAI({ apiKey });
-    const prompt = buildEditorialTakePrompt(digest);
+    const prompt = buildEditorialTakePrompt(digest, history);
+    const excluded = excludedFormatsFrom(history);
+    const previousTexts = history.slice(-OPENING_CHECK_TAKES).map(t => t.text);
 
-    // A too-short answer gets one fresh attempt. Returning null leaves the
-    // page without a Take (the build carries on), so it is worth one retry.
-    let editorialTake = '';
-    let words = 0;
+    // A too-short answer, an unknown or excluded format, or a paragraph count
+    // outside 2-4 gets one fresh attempt. Returning null leaves the page
+    // without a take, so keep the best candidate rather than give up.
+    let best: Candidate | null = null;
     for (let attempt = 1; attempt <= 2; attempt++) {
       const response = await openai.chat.completions.create({
         model: TAKE_MODEL,
@@ -242,42 +401,63 @@ async function callLLMForEditorialTake(digest: WeeklyDigest): Promise<TakeResult
         messages: [{ role: 'user', content: prompt }],
         response_format: { type: 'json_object' },
       });
-
       const content = response.choices[0]?.message?.content?.trim();
       const parsed = content ? JSON.parse(content) : {};
-      editorialTake = normalizeTakeText(typeof parsed.editorialTake === 'string' ? parsed.editorialTake : '');
-      words = editorialTake.split(/\s+/).filter(Boolean).length;
-      if (words >= MIN_WORDS) break;
-      console.warn(`[EditorialTake] Response too short (${words} words, need ≥${MIN_WORDS}), attempt ${attempt} of 2`);
+      const text = normalizeTakeText(typeof parsed.editorialTake === 'string' ? parsed.editorialTake : '');
+      const format = isTakeFormat(parsed.format) ? parsed.format : null;
+      const structural = structuralProblems(text, parsed.format, excluded);
+      const cand: Candidate = { text, format, words: wordCount(text), structural };
+      // Prefer a candidate that is long enough, then the one with fewer structural problems.
+      const rank = (c: Candidate) => (c.words >= MIN_WORDS ? 0 : 100) + c.structural.length;
+      if (!best || rank(cand) < rank(best)) best = cand;
+      if (!structural.length) break;
+      console.warn(`[EditorialTake] Attempt ${attempt} of 2: ${structural.join('; ')}`);
     }
-    if (words < MIN_WORDS) return null;
+    if (!best || best.words < MIN_WORDS) return null;
 
-    // House style (no AI-isms). One targeted rewrite if the check finds any;
-    // keep it only if it is cleaner and still long enough.
-    const problems = findStyleProblems(editorialTake);
+    let editorialTake = best.text;
+    const format = best.format;
+
+    // Take-only checks plus house style. One targeted rewrite; kept only if it
+    // has fewer problems and is still long enough. Never dropped for style.
+    let judge = await judgeTake(openai, editorialTake, format);
+    const allProblems = (text: string, j: JudgeResult | null) => [...findTakeProblems(text, previousTexts), ...judgeProblems(j, format)];
+    let problems = allProblems(editorialTake, judge);
     if (problems.length) {
-      console.warn(`[EditorialTake] Style problems: ${problems.join('; ')}. Rewriting once...`);
-      const fixed = await fixTakeStyle(openai, editorialTake, problems);
-      const fixedWords = fixed ? fixed.split(/\s+/).filter(Boolean).length : 0;
-      if (fixed && fixedWords >= MIN_WORDS && findStyleProblems(fixed).length < problems.length) {
-        editorialTake = fixed;
-        words = fixedWords;
-      } else {
-        console.warn('[EditorialTake] Rewrite did not help; keeping the original');
+      console.warn(`[EditorialTake] Problems: ${problems.join('; ')}. Rewriting once...`);
+      const openings = previousTexts.map(t => t.split(/\s+/).slice(0, 6).join(' '));
+      const fixed = await fixTakeStyle(openai, editorialTake, problems, openings);
+      if (fixed && wordCount(fixed) >= MIN_WORDS) {
+        const fixedJudge = await judgeTake(openai, fixed, format);
+        const fixedProblems = allProblems(fixed, fixedJudge);
+        if (fixedProblems.length < problems.length) {
+          editorialTake = fixed;
+          problems = fixedProblems;
+          judge = fixedJudge;
+        } else {
+          console.warn('[EditorialTake] Rewrite did not help; keeping the original');
+        }
       }
     }
+
+    let words = wordCount(editorialTake);
     if (words > MAX_WORDS) {
       console.warn(`[EditorialTake] Response long (${words} words); condensing...`);
       const condensed = await condenseTake(openai, editorialTake);
-      const condensedWords = condensed ? condensed.split(/\s+/).filter(Boolean).length : 0;
+      const condensedWords = condensed ? wordCount(condensed) : 0;
       if (condensed && condensedWords >= MIN_WORDS && condensedWords < words) {
         console.log(`[EditorialTake] Condensed ${words} → ${condensedWords} words`);
-        return { editorialTake: condensed };
+        editorialTake = condensed;
+        words = condensedWords;
+        judge = await judgeTake(openai, editorialTake, format);
+        problems = allProblems(editorialTake, judge);
+      } else {
+        console.warn(`[EditorialTake] Condensing did not help (${condensedWords} words); keeping original`);
       }
-      console.warn(`[EditorialTake] Condensing did not help (${condensedWords} words); keeping original`);
     }
 
-    return { editorialTake };
+    if (problems.length) console.warn(`[EditorialTake] Shipping with remaining problems: ${problems.join('; ')}`);
+    return { editorialTake, format, problems, judge };
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
     console.error(`[EditorialTake] LLM call failed: ${msg}`);
@@ -287,22 +467,38 @@ async function callLLMForEditorialTake(digest: WeeklyDigest): Promise<TakeResult
 
 // ── Public API ────────────────────────────────────────────────────────────────
 /**
- * Generate the Editor's Take for a weekly digest with caching.
+ * Generate The Week in Context for a weekly digest with caching.
  *
- * Will skip generation and return null if:
+ * Returns null (and generates nothing) if:
  *   - digest.editorialTakeOverride is true (manual edit protection)
  *   - OPENAI_API_KEY is not set
  *
- * Pass regenTake=true to bypass cache (but still respects the override flag).
+ * A legacy take (existing digest file with editorialTake and no
+ * editorialTakeFormat) is returned unchanged unless regenTake=true, so a
+ * rebuild of an old week, or a TAKE_VERSION bump, never rewrites it.
+ * Pass regenTake=true to bypass the cache and that guard (the override flag
+ * is still respected).
  */
 export async function generateEditorialTakeForDigest(
   digest: WeeklyDigest,
   regenTake = false,
 ): Promise<TakeResult | null> {
-  // Respect manual override flag — never clobber editor's own text
+  // Respect manual override flag: never clobber the owner's own text
   if (digest.editorialTakeOverride) {
     console.log(`[EditorialTake] Override flag set for ${digest.weekLabel}, skipping generation`);
     return null;
+  }
+
+  if (!regenTake) {
+    try {
+      const existing = JSON.parse(await fs.readFile(path.join(DIGESTS_DIR, `${digest.weekLabel}.json`), 'utf-8'));
+      if (typeof existing.editorialTake === 'string' && existing.editorialTake.trim() && !existing.editorialTakeFormat) {
+        console.log(`[EditorialTake] ${digest.weekLabel} has a published take from before v4.0, keeping it`);
+        return { editorialTake: existing.editorialTake, format: null };
+      }
+    } catch {
+      // no existing digest: a new week
+    }
   }
 
   const cache = await loadCache();
@@ -312,19 +508,13 @@ export async function generateEditorialTakeForDigest(
     const cached = cache[cacheKey];
     if (cached && cached.version === TAKE_VERSION && cached.model === TAKE_MODEL) {
       console.log(`[EditorialTake] Cache hit for ${digest.weekLabel}`);
-      return { editorialTake: cached.editorialTake };
+      return { editorialTake: cached.editorialTake, format: cached.format ?? null };
     }
   }
 
-  console.log(`[EditorialTake] Generating editorial take for ${digest.weekLabel}...`);
-  let result = await callLLMForEditorialTake(digest);
-  // Three short paragraphs is the point of the 2.1 format; two ~100-word
-  // blocks read as the wall of text it replaced. One retry, then accept.
-  if (result && result.editorialTake.split(/\n\s*\n/).length < 3) {
-    console.warn(`[EditorialTake] Got fewer than 3 paragraphs for ${digest.weekLabel}; retrying once`);
-    const retry = await callLLMForEditorialTake(digest);
-    if (retry && retry.editorialTake.split(/\n\s*\n/).length >= 3) result = retry;
-  }
+  console.log(`[EditorialTake] Generating take for ${digest.weekLabel}...`);
+  const history = await loadPreviousTakes(digest.weekLabel);
+  const result = await generateTake(digest, history);
 
   if (!result) {
     console.warn(`[EditorialTake] Generation failed for ${digest.weekLabel}`);
@@ -333,12 +523,13 @@ export async function generateEditorialTakeForDigest(
 
   cache[cacheKey] = {
     editorialTake: result.editorialTake,
+    format: result.format,
     cached_at: new Date().toISOString(),
     model: TAKE_MODEL,
     version: TAKE_VERSION,
   };
   await saveCache(cache);
 
-  console.log(`[EditorialTake] ✓ Generated for ${digest.weekLabel}`);
-  return result;
+  console.log(`[EditorialTake] ✓ Generated for ${digest.weekLabel} (format: ${result.format ?? 'unknown'})`);
+  return { editorialTake: result.editorialTake, format: result.format };
 }

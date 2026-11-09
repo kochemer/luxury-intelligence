@@ -636,7 +636,7 @@ export async function buildAndSaveWeeklyDigest(
 
   // Weekly insight + key themes. This feeds the homepage pull-quote, the digest
   // meta description, JSON-LD keywords and llms.txt. It must run BEFORE the
-  // Editor's Take, which reads digest.oneSentenceSummary for context.
+  // take, which reads digest.oneSentenceSummary for context.
   //
   // History: scripts/buildWeeklyDigest.ts used to call this, but the pipeline
   // orchestrator switched to this function on 2026-02-08 and the call was lost —
@@ -664,16 +664,17 @@ export async function buildAndSaveWeeklyDigest(
     console.warn(`[Build Weekly Digest] ⚠ No key themes generated (content-quality gate will flag this)`);
   }
 
-  // Generate Editor's Take (after summaries so the AI has good context from aiSummary fields)
+  // Generate The Week in Context, the editorialTake field (after summaries so the AI has good context from aiSummary fields)
   // Skipped automatically if editorialTakeOverride is set in the existing digest JSON.
-  console.log(`[Build Weekly Digest] Generating Editor's Take...`);
+  console.log(`[Build Weekly Digest] Generating The Week in Context...`);
   const { generateEditorialTakeForDigest } = await import('./generateEditorialTake');
   const editorialResult = await generateEditorialTakeForDigest(digest);
   if (editorialResult) {
     (digest as any).editorialTake = editorialResult.editorialTake;
-    console.log(`[Build Weekly Digest] ✓ Editor's Take generated`);
+    if (editorialResult.format) digest.editorialTakeFormat = editorialResult.format;
+    console.log(`[Build Weekly Digest] ✓ The Week in Context generated (format: ${editorialResult.format ?? 'none'})`);
   } else {
-    console.warn(`[Build Weekly Digest] ⚠ Editor's Take skipped (override set, or generation failed)`);
+    console.warn(`[Build Weekly Digest] ⚠ The Week in Context skipped (override set, or generation failed)`);
   }
 
   // Save to data/digests/{weekLabel}.json
@@ -696,6 +697,7 @@ export async function buildAndSaveWeeklyDigest(
       // but we re-apply here as a safety net in case the digest object was rebuilt fresh.
       if (existing.editorialTakeOverride) {
         (digest as any).editorialTake = existing.editorialTake;
+        if (existing.editorialTakeFormat) digest.editorialTakeFormat = existing.editorialTakeFormat;
         (digest as any).editorialTakeOverride = true;
       }
     } catch {

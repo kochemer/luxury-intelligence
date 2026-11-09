@@ -154,7 +154,7 @@ Scripts must call `loadEnv()` from `lib/env.ts` at startup. Key variables:
 | Variable | Used for |
 |----------|---------|
 | `DATABASE_URL` | Neon Postgres |
-| `OPENAI_API_KEY` | Story selection, summaries, themes, Editor's Take, cover, podcast script + voice. Many `*_MODEL` vars override per-step models; defaults and reasons in `docs/pipeline-decisions.md` |
+| `OPENAI_API_KEY` | Story selection, summaries, themes, The Week in Context (`editorialTake`), cover, podcast script + voice. Many `*_MODEL` vars override per-step models; defaults and reasons in `docs/pipeline-decisions.md` |
 | `TAVILY_API_KEY` | Web discovery |
 | `ANTHROPIC_API_KEY` | SEO repair agent (CI), video-short, `analytics:insights` |
 | `INSIGHTS_MODEL` | Optional: model for `analytics:insights` (default `claude-opus-5-5`); GitHub repo variable |

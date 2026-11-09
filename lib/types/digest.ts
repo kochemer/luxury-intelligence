@@ -100,8 +100,11 @@ export interface WeeklyDigest<T extends Article = Article> {
   introParagraph?: string; // Longer intro paragraph
   weeklyInsight?: string; // Pull-quote / editorial insight shown between stats and category nav
 
-  // === Editorial Take ===
-  editorialTake?: string; // AI-generated first-person editorial opinion (~150-200 words)
+  // === The Week in Context (field name kept: editorialTake) ===
+  // AI-written neutral explainer, 2-4 paragraphs, 80-140 words (since 2026-11-09).
+  // Takes before W46 are older first-person ~120-word pieces and have no format.
+  editorialTake?: string;
+  editorialTakeFormat?: 'connection' | 'number' | 'split' | 'what-changed' | 'open-question' | 'watch'; // absent on older takes
   editorialTakeOverride?: boolean; // If true, pipeline will NOT overwrite editorialTake on rebuild
   
   // === Article counts ===
@@ -148,7 +151,7 @@ export interface EmailDigest {
    */
   short?: { youtubeId: string; title: string; durationS: number; poster: string };
   podcast?: { audioPath: string; durationS?: number };
-  /** The week's Editor's Take, copied from the digest JSON (roadmap F3.1). Paragraphs separated by \n\n. */
+  /** The week's The Week in Context text, copied from the digest JSON (roadmap F3.1). Paragraphs separated by \n\n. */
   editorialTake?: string;
   readOneThing?: { title: string; url: string };
   items: EmailDigestItem[];

@@ -1,5 +1,5 @@
 /**
- * House style for every model-written text readers see: Editor's Take,
+ * House style for every model-written text readers see: The Week in Context,
  * pull-quote, article summaries, email digest, podcast script.
  *
  * Owner rule (2026-10-09): no "AI-isms". The prompt block states the rules;
@@ -7,6 +7,11 @@
  * can retry or drop a candidate. Rule of three and the tidy closing line have
  * no reliable pattern, so they are prompt-only. Dashes are rewritten, not
  * rejected (stripDashes), because that fix is mechanical.
+ *
+ * Plain-language rules (2026-11-09) are in the prompt block for all text. The
+ * jargon check (findJargon) is NOT part of findStyleProblems: that function
+ * gates social posts and summaries, where words like "checkout" are fine. Only
+ * the weekly take runs findJargon (digest/takeChecks.ts).
  */
 
 export const HOUSE_STYLE_RULES = `HOUSE STYLE: write like a person, not like an AI. Breaking any of these makes the text unusable.
@@ -14,7 +19,7 @@ export const HOUSE_STYLE_RULES = `HOUSE STYLE: write like a person, not like an 
 - No rule of three. Do not list three things unless exactly three matter. Two is fine, one is better.
 - No em dashes or en dashes. Use a comma, a colon or a full stop.
 - No set-ups or colon reveals: "The result?", "Here's the thing:", "The catch:".
-- Do not end paragraphs on a neat quotable summary line. Stop when the point is made.
+- Do not end paragraphs on a neat quotable summary line or a restatement. End on new information or the consequence.
 - Never use: delve, tapestry, landscape, realm, robust, seamless, leverage, elevate, navigate, unlock, pivotal, testament, nuanced, underscore, showcase, foster, game-changer, ever-evolving.
 - No inflated significance: "plays a crucial role", "stands as a testament to", "marks a pivotal moment".
 - No trailing commentary clauses: ", highlighting ...", ", underscoring ...", ", reflecting ...".
@@ -22,6 +27,8 @@ export const HOUSE_STYLE_RULES = `HOUSE STYLE: write like a person, not like an 
 - No vague sources: "experts say", "many believe", "studies suggest". Name the source or drop the claim.
 - No signposting: "let's dive in", "in today's fast-paced world", "in a world where", "in conclusion".
 - No filler or flattering openers.
+- Plain language (owner rule, 2026-11-09). Short sentences, about 15 words on average. Everyday words. One idea per sentence, with a concrete subject and verb. Name the company and the number. If a trade term cannot be avoided, explain it in the same sentence.
+- No consulting or ecommerce jargon. Never use: agentic, omnichannel, DTC, D2C, clienteling, unit economics, go-to-market, value proposition, synergy, stack (as a tech noun), rails, verticalise or vertical integration, moat, flywheel, headwind, tailwind, playbook, touchpoint, friction, monetise, scalable, operationalise, north star, low-hanging fruit, double down, table stakes, customer journey, ecosystem. Say what actually happens instead.
 - Plain text only: no bold, no headers, no emoji.`;
 
 const STOCK_WORDS = [
@@ -84,4 +91,47 @@ export function stripDashes(text: string): string {
     .replace(/\s*[—–]\s*/g, ', ')
     .replace(/,\s*,/g, ',')
     .replace(/\s+([,.;:])/g, '$1');
+}
+
+
+/**
+ * Consulting and ecommerce jargon the weekly take may not use. Each entry is a
+ * label plus a word-bounded pattern, so "tail" and "backstack" do not match.
+ * Not used by findStyleProblems on purpose (see the header comment).
+ */
+export const JARGON_TERMS: ReadonlyArray<{ term: string; pattern: RegExp }> = [
+  { term: 'agentic', pattern: /\bagentic\b/i },
+  { term: 'omnichannel', pattern: /\bomni-?channel\b/i },
+  { term: 'DTC', pattern: /\bDTC\b/i },
+  { term: 'D2C', pattern: /\bD2C\b/i },
+  { term: 'clienteling', pattern: /\bclienteling\b/i },
+  { term: 'unit economics', pattern: /\bunit economics\b/i },
+  { term: 'go-to-market', pattern: /\bgo[- ]to[- ]market\b/i },
+  { term: 'value proposition', pattern: /\bvalue propositions?\b/i },
+  { term: 'synergy', pattern: /\bsynerg(?:y|ies|istic)\b/i },
+  // "stack" as a tech noun only: "tech stack", "the stack", not "stack of boxes".
+  { term: 'stack', pattern: /\b(?:tech|technology|software|data|commerce|ai|payments?|full|modern|composable|checkout)[- ]stacks?\b|\bthe stack\b/i },
+  { term: 'rails', pattern: /\brails\b/i },
+  { term: 'verticalise', pattern: /\bvertical(?:is|iz)\w*|\bvertical integration\b/i },
+  { term: 'moat', pattern: /\bmoats?\b/i },
+  { term: 'flywheel', pattern: /\bflywheels?\b/i },
+  { term: 'headwind', pattern: /\bheadwinds?\b/i },
+  { term: 'tailwind', pattern: /\btailwinds?\b/i },
+  { term: 'playbook', pattern: /\bplaybooks?\b/i },
+  { term: 'touchpoint', pattern: /\btouch-?points?\b/i },
+  { term: 'friction', pattern: /\bfriction\b/i },
+  { term: 'monetise', pattern: /\bmonet(?:is|iz)\w*/i },
+  { term: 'scalable', pattern: /\bscalab(?:le|ility)\b/i },
+  { term: 'operationalise', pattern: /\boperational(?:is|iz)\w*/i },
+  { term: 'north star', pattern: /\bnorth star\b/i },
+  { term: 'low-hanging fruit', pattern: /\blow[- ]hanging fruit\b/i },
+  { term: 'double down', pattern: /\bdoubl(?:e|es|ed|ing) down\b/i },
+  { term: 'table stakes', pattern: /\btable stakes\b/i },
+  { term: 'customer journey', pattern: /\bcustomer journeys?\b/i },
+  { term: 'ecosystem', pattern: /\becosystems?\b/i },
+];
+
+/** The jargon terms found in `text`, as their canonical labels. Empty = clean. */
+export function findJargon(text: string): string[] {
+  return JARGON_TERMS.filter(({ pattern }) => pattern.test(text)).map(({ term }) => term);
 }

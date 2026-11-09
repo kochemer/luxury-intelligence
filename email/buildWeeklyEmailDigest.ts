@@ -447,7 +447,7 @@ export async function buildWeeklyEmailDigest(weekLabel: string, topN: number = 8
     generatedAt: new Date().toISOString(),
     // The pull-quote opens the email as it does the web digest (replaced the LLM intro, 2026-10-13).
     weeklyQuote: digest.oneSentenceSummary?.trim() || undefined,
-    // The Editor's Take opens the email as it opens the page (roadmap F3.1).
+    // The Week in Context opens the email as it opens the page (roadmap F3.1).
     editorialTake: digest.editorialTake?.trim() || undefined,
     readOneThing,
     items,
