@@ -13,7 +13,7 @@ import { MARKET_IDS, MARKET_LABEL, type MarketId } from '@/lib/markets/types';
 import { buildBreadcrumbLd } from '@/lib/seo/jsonLd';
 import JsonLd from '../../components/JsonLd';
 import { ShareOfVoice } from '../_components/MarketCharts';
-import { CrossPanel, SignalRow } from '../_components/Signals';
+import ThemeTable from '../_components/ThemeTable';
 import AttentionChart from '../_components/AttentionChart';
 import Trackers from '../_components/Trackers';
 import { formatPct } from '../_components/format';
@@ -105,54 +105,7 @@ export default async function MarketPage({ params }: Params) {
         <>
           {/* 1. Signals */}
           <section className="bg-[var(--color-surface)] border-b border-[var(--color-border)] -mx-4 md:mx-0 px-4 md:px-8 py-12" aria-labelledby="signals-h">
-            <p className="intel-section-label text-[var(--color-accent)] mb-3">Signals</p>
-            <h2 id="signals-h" className={`${H2} md:text-[34px]`}>What the volume of coverage shows</h2>
-            <p className={SUB}>Counted from every article the trade press published in the last 12 weeks, including the ones that didn’t make the digest.</p>
-
-            {data.signals.length > 0 ? (
-              data.signals.map(s => <SignalRow key={s.name} s={s} />)
-            ) : (
-              <div className="border border-dashed border-[var(--color-border)] bg-[var(--color-bg)] px-5 md:px-7 py-9 mt-2">
-                <h3 className="font-display font-semibold text-[28px] md:text-[30px] leading-[1.2] mb-2.5">No signal is strong enough to call yet.</h3>
-                <p className="text-[16px] text-[var(--color-text-secondary)] max-w-[44em]">
-                  The {market} trade press published {nf(data.panel.articles)} articles in 12 weeks from {nf(data.panel.outlets)} outlets, about {nf(Math.round(data.panel.articles / 12))} a week. A signal needs at least {R.minArticles} articles across {R.minOutlets} outlets.
-                  {market === 'jewellery' && ' New jewellery sources (JCK, Rapaport) join the weekly build.'}
-                </p>
-              </div>
-            )}
-
-            {data.cross && <CrossPanel c={data.cross} />}
-
-            {data.watching.length > 0 && (
-              <div className="mt-9">
-                <h3 className="text-[12px] font-semibold tracking-[0.2em] uppercase text-[var(--color-text-secondary)] mb-1">Also watching</h3>
-                <p className="text-[13px] text-[var(--color-text-secondary)] mb-2.5">Below the threshold for a signal. Shown so you can see what’s being measured.</p>
-                <div className="overflow-x-auto">
-                  <table className="w-full max-w-[520px] border-collapse text-[14px] text-[var(--color-text-secondary)]">
-                    <thead>
-                      <tr>
-                        <th scope="col" className={TH}>Theme</th>
-                        <th scope="col" className={`${TH} text-right`}>Articles</th>
-                        <th scope="col" className={`${TH} text-right`}>vs previous</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data.watching.map(w => (
-                        <tr key={w.name}>
-                          <td className={TD}>{w.name}</td>
-                          <td className={`${TD} ${NUM}`}>{nf(w.total)}</td>
-                          <td className={`${TD} ${NUM}`}>{w.ratio == null ? '—' : `${w.ratio.toFixed(1)}×`}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-
-            <p className={NOTE}>
-              Rules: a theme rises when its share of articles is at least {R.rise}× its previous level, with {R.minArticles}+ articles, {R.minRecent}+ in the last 4 weeks, from {R.minOutlets}+ outlets. It falls when it drops to under {Math.round(R.fall * 100)}% of its previous share after {R.fallPriorMin}+ articles from {R.fallMinOutlets}+ outlets.
-            </p>
+            <ThemeTable data={data} market={market} h2Class={H2} subClass={SUB} noteClass={NOTE} />
           </section>
 
           {/* 2. Attention vs performance */}
