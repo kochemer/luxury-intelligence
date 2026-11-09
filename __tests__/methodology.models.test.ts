@@ -7,7 +7,7 @@ import { REALTIME_SPEECH_MODEL } from '../lib/llm/speech';
 // /methodology names the models each step uses (owner decision, 2026-10-16).
 // When a default model changes, this fails until the page says so too.
 test('/methodology names the current default models', () => {
-  const page = readFileSync('app/methodology/page.tsx', 'utf8');
+  const page = readFileSync('app/(en)/methodology/page.tsx', 'utf8');
   const shown = {
     rank: DEFAULT_MODEL_BY_WORKFLOW.rank,
     summarize: DEFAULT_MODEL_BY_WORKFLOW.summarize,

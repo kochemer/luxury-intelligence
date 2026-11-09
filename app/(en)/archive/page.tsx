@@ -16,7 +16,7 @@ import { digestDate, formatDateRange } from '@/lib/utils/formatDate';
 import { weekLabelToSlug } from '@/lib/utils/weekSlug';
 import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { buildArchiveCollectionLd } from '@/lib/seo/jsonLd';
-import JsonLd from '../components/JsonLd';
+import JsonLd from '@/app/components/JsonLd';
 
 const siteUrl = getSiteUrl();
 

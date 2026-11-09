@@ -26,7 +26,9 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   // English-only content served under a locale prefix: not worth indexing (roadmap F2.3, 2026-09-18).
   robots: { index: false, follow: true },
-  title: 'Digest Semanal de IA, Ecommerce y Lujo',
+  // absolute: a layout's title.template does not apply to the page in the same
+  // segment (es/layout.tsx is now a root layout, it used to be app/layout.tsx).
+  title: { absolute: 'Digest Semanal de IA, Ecommerce y Lujo | Luxury Intelligence' },
   description: 'Un digest semanal curado sobre IA y estrategia, tecnología de ecommerce y retail, y noticias del sector del lujo y la joyería. Actualizado cada semana.',
   alternates: {
     canonical: `${siteUrl}/es`,

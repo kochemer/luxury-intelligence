@@ -1,22 +1,31 @@
+/**
+ * The shared <html>/<head>/<body> shell for every root layout.
+ *
+ * There is no app/layout.tsx. Next.js needs <html lang> to come from a layout,
+ * and reading the request path in one layout (headers()) made every page render
+ * per request. Instead the three root layouts, app/(en)/layout.tsx,
+ * app/es/layout.tsx and app/da/layout.tsx, each pass a literal `lang` here, so
+ * all pages can be prerendered. Metadata and viewport are shared through
+ * rootMetadata / rootViewport. See docs/operations.md § Rendering.
+ */
 import type { Metadata, Viewport } from "next";
-import { headers } from "next/headers";
 import { Libre_Baskerville, DM_Sans, Courier_Prime, Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import AmplitudeInit from "./components/AmplitudeInit";
-import AnalyticsPageView from "./components/AnalyticsPageView";
-import VisitCounter from "./components/VisitCounter";
-import ConsentBanner from "./components/ConsentBanner";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import DisplayModeAttribute from "./components/DisplayModeAttribute";
-import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
-import JsonLd from "./components/JsonLd";
+import AmplitudeInit from "./AmplitudeInit";
+import AnalyticsPageView from "./AnalyticsPageView";
+import VisitCounter from "./VisitCounter";
+import ConsentBanner from "./ConsentBanner";
+import Header from "./Header";
+import Footer from "./Footer";
+import DisplayModeAttribute from "./DisplayModeAttribute";
+import ServiceWorkerRegistration from "./ServiceWorkerRegistration";
+import JsonLd from "./JsonLd";
 import { buildRootGraphLd } from "@/lib/seo/jsonLd";
-import CanonicalUrlValidator from "./components/CanonicalUrlValidator";
-import { ThemeProvider } from "./context/ThemeContext";
-import ScrollProgressBar from "./components/ScrollProgressBar";
-import "./globals.css";
+import CanonicalUrlValidator from "./CanonicalUrlValidator";
+import { ThemeProvider } from "../context/ThemeContext";
+import ScrollProgressBar from "./ScrollProgressBar";
+import "../globals.css";
 
 const libreBaskerville = Libre_Baskerville({
   weight: ["400", "700"],
@@ -78,14 +87,14 @@ if (process.env.NODE_ENV === 'production') {
   }
 }
 
-export const viewport: Viewport = {
+export const rootViewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   themeColor: "#8B6914",
 };
 
-export const metadata: Metadata = {
+export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     template: '%s | Luxury Intelligence',
@@ -121,13 +130,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootShell({
+  lang,
   children,
 }: Readonly<{
+  lang: 'en' | 'es' | 'da';
   children: React.ReactNode;
 }>) {
-  const pathname = (await headers()).get('x-pathname') ?? '/';
-  const lang = pathname.startsWith('/es') ? 'es' : pathname.startsWith('/da') ? 'da' : 'en';
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>

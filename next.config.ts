@@ -41,6 +41,12 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // There is no app/layout.tsx (one root layout per language, see
+  // app/components/RootShell.tsx), so URLs that match no route are rendered by
+  // app/global-not-found.tsx.
+  experimental: {
+    globalNotFound: true,
+  },
   // Exclude large local data files from serverless function bundles.
   // data/weeks/ and data/articles.json are only needed at pipeline-build time
   // (runs locally), not at Vercel request time. Without this, api/build-digest
@@ -74,6 +80,10 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...(await buildWeekRedirects()),
+      // Was handled by middleware.ts (deleted 2026-11-09 to cut Fluid CPU).
+      // Trailing-slash removal is Next's own default (trailingSlash is unset),
+      // www -> apex is a Vercel domain-level redirect.
+      { source: '/index.html', destination: '/', permanent: true },
       { source: '/competitor-watch', destination: '/markets/jewellery', permanent: true },
       { source: '/es/competitor-watch', destination: '/markets/jewellery', permanent: true },
       { source: '/da/competitor-watch', destination: '/markets/jewellery', permanent: true },
