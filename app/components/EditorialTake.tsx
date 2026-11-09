@@ -1,5 +1,5 @@
 /**
- * EditorialTake — weekly first-person editor commentary.
+ * EditorialTake — weekly neutral AI explainer (The Week in Context).
  *
  * Renders the `editorialTake` field from the digest JSON.
  * Content is AI-generated but can be manually overridden (editorialTakeOverride flag).
@@ -22,7 +22,7 @@ export function EditorialTake({ text, isOverride = false }: EditorialTakeProps) 
         {/* Label row */}
         <div className="flex items-center justify-between mb-4 md:mb-5">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-[var(--color-accent)]">
-            Editor&apos;s Take
+            The Week in Context
           </p>
           {isOverride && (
             <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--color-text-secondary)] opacity-60">
@@ -38,7 +38,7 @@ export function EditorialTake({ text, isOverride = false }: EditorialTakeProps) 
 
         {/* Attribution */}
         <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--color-text-secondary)]">
-          — The Editor
+          Written by AI from this week&apos;s selected sources.
         </span>
       </div>
     </div>

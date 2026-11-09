@@ -85,8 +85,11 @@ defaults live in `lib/llm/models.ts`; GPT-5 and later need `maxTokensParam` /
      judge: max 23 words, plain words, never Pandora (`docs/pipeline-decisions.md`).
    - All published prose (quote, Take, summaries, email, podcast script) follows
      the no-AI-isms house style in `lib/llm/houseStyle.ts`.
-   - Editor's Take (`generateEditorialTake.ts`, 3 short paragraphs, 120–130 words, one retry if
-     under 100), which reads
+   - The Week in Context (`generateEditorialTake.ts`, field `editorialTake`; neutral AI voice,
+     2-4 paragraphs, 80-140 words, one of 6 rotating formats stored as `editorialTakeFormat`,
+     the previous 2 weeks' formats excluded, previous 3 takes shown to the model as what not to
+     repeat; code checks in `takeChecks.ts` feed one rewrite pass, never a null; only the week
+     being built is generated, an older take with no format is kept on a rebuild), which reads
      `oneSentenceSummary`, so it must run after themes
    - Content-quality gate (`checkDigestContentQuality`) before the JSON is written
    - `weeklyInsight` / `introParagraph` aren't produced (the unused
@@ -229,7 +232,7 @@ The orchestrator's own numbering (`pipeline/runWeeklyPipeline.ts`): rss → page
 
 **Email layout** (`lib/digest/renderEmailDigestHtml.ts`): masthead → weekly quote
 (`weeklyQuote`, copied from the digest's `oneSentenceSummary`, the same pull-quote
-the web digest shows) → "Watch & listen" band → Editor's Take → stories. The LLM
+the web digest shows) → "Watch & listen" band → The Week in Context → stories. The LLM
 intro paragraph was dropped on 2026-10-13. The band is filled at send time by
 `scripts/sendWeeklyEmailDigest.ts` from `data/weeks/{week}/video.json` (only when
 `"public": true`) and `podcast.json`. Email can't embed video, so the Short is a

@@ -423,7 +423,7 @@ export default async function DigestPage({
             {/* Insight or nothing: never fall back to an article summary here. */}
             {digest.oneSentenceSummary && <WeeklyInsight quote={digest.oneSentenceSummary} />}
 
-            {/* Editor's Take — the page's original argument, above the lists (roadmap F3.1) */}
+            {/* The Week in Context (field editorialTake) — the page's original argument, above the lists (roadmap F3.1) */}
             {digest.editorialTake && (
               <div className="max-w-3xl mx-auto px-4 sm:px-6">
                 <EditorSpotlight

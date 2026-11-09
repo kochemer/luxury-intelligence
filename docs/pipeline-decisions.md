@@ -9,7 +9,7 @@ in `lib/llm/models.ts`; per-step env overrides are in `docs/operations.md`.
 | Step | Code | Model | Since |
 |---|---|---|---|
 | Story selection (discovery ranking) | `discovery/selectTop.ts`, tier `rank` | `gpt-6.1-sol` | 2026-10-09 (was `o4-mini`) |
-| Editor's Take | `digest/generateEditorialTake.ts`, tier `polish` | `gpt-6.1-sol` | 2026-10-09 (was `gpt-4.1`) |
+| The Week in Context (was Editor's Take) | `digest/generateEditorialTake.ts`, tier `polish` | `gpt-6.1-sol` | 2026-10-09 (was `gpt-4.1`) |
 | Pull-quote generator + judge | `digest/generateThemes.ts`, tier `polish` | `gpt-6.1-sol` | 2026-10-09 (was `gpt-4.1`) |
 | Cover scene director | `digest/sceneDirector.ts`, tier `polish` | `gpt-6.1-sol` | 2026-10-09 (was `gpt-4.1`) |
 | Podcast script | `podcast/buildWeeklyPodcast.ts`, tier `script` | `gpt-6.1-sol` | 2026-10-09 (was `gpt-4.1`) |
@@ -186,7 +186,46 @@ copy of `data/` with caches cleared, recording `usage` from every call.
   faithful to the source snippet (F1.4 found `gpt-4.1-mini` inventing
   specifics). Still open: A/B them on Sol before switching.
 
-## Editor's Take length (owner decisions)
+## The Week in Context: neutral voice, rotating formats, plain language (owner decision, 2026-11-09)
+
+The weekly take (field `editorialTake`, was "Editor's Take") changed on
+2026-11-09. Why: the W39-W45 takes had one structure (thesis, evidence plus
+"the strongest objection", then "Next quarter, I would..." advice to an
+unnamed operator), 6 of 7 opened with "I think", it posed as a human editor
+with a consulting background, and it was dense with consultant and ecommerce
+jargon ("spending permissions are becoming a merchandising decision").
+
+- **Name and signature.** Section "The Week in Context"; signature "Written by
+  AI from this week's selected sources." (page, email HTML and text). The About
+  page's "The Editor" card and the JSON-LD `Person` "The Editor" describe the
+  human curator and were left alone.
+- **Voice.** Neutral, no persona, never first or second person, no advice to a
+  group, no mandatory recommendation. Opens with a company, number or event.
+- **Formats.** `connection`, `number`, `split`, `what-changed`, `open-question`,
+  `watch` (`TAKE_FORMATS` in `digest/takeChecks.ts`). The model picks one, minus
+  the formats of the previous 2 published weeks; a bad or excluded format gets
+  one retry. The previous 3 takes go into the prompt as "do not reuse".
+- **Plain language everywhere.** The rules (short sentences, everyday words, no
+  jargon list) are in `HOUSE_STYLE_RULES`, so they reach all model-written text.
+  The automatic jargon (`findJargon`) and readability checks run only on the
+  take, because `findStyleProblems` gates social posts and summaries where
+  words like "checkout" are fine. Do not add jargon to `findStyleProblems`.
+- **Readability threshold** (`MAX_FK_GRADE` 9, `MAX_AVG_SENTENCE_WORDS` 17):
+  calibrated on W35-W45. Old takes scored FK grade 10.6-15.1 and 15-30 words per
+  sentence; the owner's target example scored 5.9 and 11.1. Numbers are in the
+  comment in `takeChecks.ts`.
+- **New weeks only.** No committed digest was regenerated. Old takes keep their
+  text; only the label and signature changed, because they come from components.
+  Guard: an existing digest with a take and no `editorialTakeFormat` is kept on
+  a rebuild, so bumping `TAKE_VERSION` ('4.0') does not rewrite past weeks.
+  Only `scripts/regenEditorialTake.ts` (explicit) replaces one.
+- **Checks never drop a take.** Style, pronoun, banned-phrase, repeated-opening
+  (first 3 words vs the previous 4 takes), jargon and readability problems feed
+  one rewrite, kept only if it has fewer problems; leftovers are logged.
+- **Dry run.** `scripts/regenEditorialTake.ts --dry-run --from= --to= --out=`
+  writes a comparison file and touches neither `data/` nor the take cache.
+
+### Earlier length history (owner decisions, superseded by the above)
 
 250–300 words (F3.1, 2026-09-18) → 150–180 ("too chunky", 2026-09-21) →
 120–130 (2026-10-09). The roadmap's case for the Take was original content per
@@ -222,7 +261,7 @@ Customers call them a reason to walk away." (W39).
 
 ## House style: no AI-isms (owner rule, 2026-10-09)
 
-Applies to every model-written text readers see: Editor's Take, pull-quote,
+Applies to every model-written text readers see: The Week in Context, pull-quote,
 article summaries, email digest, podcast script. The owner's list covers false
 contrasts ("it's not X, it's Y"), rule of three, em dashes, colon reveals, tidy
 closing lines, stock words (delve, landscape, leverage, navigate...), inflated
@@ -237,7 +276,7 @@ them without flagging good sentences. What each step does on a violation:
 | Step | On a violation |
 |---|---|
 | Pull-quote | candidate dropped before judging |
-| Editor's Take | one rewrite pass naming the problems; kept only if cleaner and long enough |
+| The Week in Context | one rewrite pass naming the problems (house style plus take-only checks); kept only if it has fewer problems and is long enough |
 | Article summaries | one retry naming the problems; the cleaner of the two is kept |
 | Email digest, podcast script | prompt + dash stripping only (long text; not worth rejecting over one phrase) |
 

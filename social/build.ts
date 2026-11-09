@@ -39,7 +39,7 @@ HONESTY: the stories are selected and summarised by AI. Never say or suggest tha
 function weekPoint(d: WeeklyDigest): string {
   return [
     d.oneSentenceSummary && `Headline of the week: ${d.oneSentenceSummary}`,
-    d.editorialTake && `Editor's Spotlight (the week's argument):\n${d.editorialTake}`,
+    d.editorialTake && `The Week in Context (an AI-written explainer of the week):\n${d.editorialTake}`,
   ].filter(Boolean).join('\n\n');
 }
 

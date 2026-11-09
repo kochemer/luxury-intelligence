@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * EditorSpotlight — weekly first-person editorial opinion column.
+ * EditorSpotlight — weekly AI-written explainer (The Week in Context).
  *
  * Styled as a newspaper column: left-rule accent, open prose, compact attribution.
  * Fades in on scroll intersection. Respects prefers-reduced-motion.
@@ -56,7 +56,7 @@ export function EditorSpotlight({ text, weekLabel, isOverride = false }: EditorS
       >
         <div className="flex items-center gap-3 mb-4 md:mb-5">
           <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-[var(--color-accent)] whitespace-nowrap">
-            Editor&apos;s Spotlight
+            The Week in Context
           </span>
           <span
             className="flex-1 block h-px opacity-25"
@@ -81,8 +81,8 @@ export function EditorSpotlight({ text, weekLabel, isOverride = false }: EditorS
 
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-[var(--color-text-secondary)] opacity-60">
-            {/* Owner, 2026-10-13: issues are fully automated, so the column is not signed as a person. */}
-            Written by AI
+            {/* Owner, 2026-10-13: issues are fully automated, so the column is not signed as a person (2026-11-09: signature names the sources). */}
+            Written by AI from this week&apos;s selected sources.
           </span>
           {weekLabel && (
             <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-[var(--color-text-secondary)] opacity-35 select-none">
