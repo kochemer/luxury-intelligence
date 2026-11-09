@@ -114,8 +114,8 @@ test('every digest produces a valid NewsArticle bound to the root entities', asy
     // The entity-resolution property this whole file exists to protect.
     assert.deepEqual(ld.publisher, { '@id': entityId.organization(SITE) },
       `${weekLabel}: publisher must reference the root Organization by @id`);
-    assert.deepEqual(ld.author, { '@id': entityId.editor(SITE) },
-      `${weekLabel}: author must reference the root Person by @id`);
+    assert.deepEqual(ld.author, { '@id': entityId.organization(SITE) },
+      `${weekLabel}: author must reference the root Organization by @id (issues are automated, not signed as a person)`);
     assert.deepEqual(ld.isPartOf, { '@id': entityId.website(SITE) },
       `${weekLabel}: article must be part of the declared WebSite`);
 

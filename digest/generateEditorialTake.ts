@@ -8,7 +8,9 @@
  * excluding the formats used in the previous 2 published weeks, and sees the
  * previous 3 takes as examples of what not to repeat. Code checks
  * (takeChecks.ts: pronouns, banned phrases, repeated opening, jargon,
- * readability) feed one rewrite pass; a take is never dropped for style.
+ * readability, filler) and a judge model call (one point, luxury or jewellery
+ * consequence, format fidelity, round-up, restating ending) feed one rewrite
+ * pass; a take is never dropped for style.
  *
  * Only the week being built is generated. A legacy take (an existing digest
  * file with editorialTake and no editorialTakeFormat) is kept on a rebuild, so
@@ -37,6 +39,9 @@ import {
   formatProblem,
   isTakeFormat,
   wordCount,
+  judgeProblems,
+  parseJudge,
+  type JudgeResult,
   type TakeFormatId,
 } from './takeChecks';
 
@@ -199,7 +204,14 @@ ${previousBlock}
 CHOOSE ONE FORMAT that fits this week's stories best. Allowed formats:
 ${formatLines}
 ${excluded.length ? `Not allowed this week (used in the previous weeks): ${excluded.join(', ')}.` : ''}
-Use "watch" only if the stories contain a dated upcoming event or decision. Only "watch" may end on something forward-looking. Every other format stops when the point is made: no closing recommendation, no advice, no summary line.
+Use "watch" only if the stories contain a dated upcoming event or decision. Follow the chosen format exactly as described.
+
+ONE POINT (the most important rule):
+- State one clear, specific point in plain words within the first two sentences. It is a factual claim the stories support, written neutrally (no opinion voice). Everything after it supports that point.
+- Use at most 2 or 3 stories, and every one must serve the point. Never a round-up of separate items; leave out stories that do not fit. If the week has a luxury or jewellery story that fits the point, prefer it.
+- Say, in plain terms and usually in the last paragraph, what the point means for a luxury or jewellery business. This is a consequence, not advice. Good: "For a jeweller selling online, an AI assistant that cannot enter a marketplace cannot recommend the pieces listed there." Bad: "Jewellers should test...".
+- The last sentence must add new information or state that consequence. It must never restate an earlier sentence or summarise. No closing recommendation. Only "watch" may end on something forward-looking.
+- Avoid empty linking words: "concerns", "developments", "is changing too", "also finding". Say the specific thing.
 
 CONTENT RULES:
 - Use only facts from the stories above. Invent nothing. Name the companies and the numbers.
@@ -287,7 +299,7 @@ async function fixTakeStyle(openai: OpenAI, text: string, problems: string[], av
       messages: [{
         role: 'user',
         content: `Edit this short news explainer to fix these problems, and change nothing else: ${problems.join('; ')}.
-Keep the paragraph count, the neutral voice (no first or second person, no advice), the point, and every fact. Keep it ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words. Use short sentences (about 15 words) and everyday words.
+Keep the neutral voice (no first or second person, no advice), the facts, and the length. You may restructure sentences and paragraphs to fix the problems: the take needs one clear point in the first two sentences, only the 2 or 3 stories that serve it, one plain sentence on what it means for a luxury or jewellery business (a consequence, not advice), and a last sentence that adds something new. Keep it ${TARGET_MIN_WORDS}-${TARGET_MAX_WORDS} words. Use short sentences (about 15 words) and everyday words.
 ${avoidOpenings.length ? `Do not open with the same first words as these earlier texts:\n${avoidOpenings.map(o => `- ${o}`).join('\n')}\n` : ''}
 ${HOUSE_STYLE_RULES}
 
@@ -302,6 +314,41 @@ ${text}`,
     if (!content) return null;
     const parsed = JSON.parse(content);
     return typeof parsed.editorialTake === 'string' ? normalizeTakeText(parsed.editorialTake) : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Judge pass: one model call (temperature 0) that checks the take for a single
+ * point, a luxury or jewellery consequence, the declared format, round-up
+ * structure and a restating ending. Null on any failure: the judge is then skipped.
+ */
+async function judgeTake(openai: OpenAI, text: string, format: TakeFormatId | null): Promise<JudgeResult | null> {
+  try {
+    const fmt = TAKE_FORMATS.find(f => f.id === format);
+    const response = await openai.chat.completions.create({
+      model: TAKE_MODEL,
+      ...temperatureParam(TAKE_MODEL, 0),
+      ...maxTokensParam(TAKE_MODEL, 300),
+      messages: [{
+        role: 'user',
+        content: `You check a short news explainer written for people in luxury and jewellery. Declared format: ${fmt ? `${fmt.id} (${fmt.description})` : 'none'}.
+
+Answer as JSON with exactly these keys:
+- "point": the one point the text makes, in one sentence, or null if the first two sentences do not state one clear, specific claim
+- "luxuryConsequence": true only if the text says in plain terms what its point means for a luxury or jewellery business
+- "followsFormat": true only if the text follows the declared format as described
+- "roundUp": true if the text covers separate items that do not serve one point
+- "endingRestates": true if the last sentence restates an earlier sentence instead of adding information or the consequence
+
+TEXT:
+${text}`,
+      }],
+      response_format: { type: 'json_object' },
+    });
+    const content = response.choices[0]?.message?.content?.trim();
+    return content ? parseJudge(JSON.parse(content)) : null;
   } catch {
     return null;
   }
@@ -329,7 +376,7 @@ function structuralProblems(text: string, format: unknown, excluded: string[]): 
 export async function generateTake(
   digest: WeeklyDigest,
   history: ReadonlyArray<PriorTake>,
-): Promise<(TakeResult & { problems: string[] }) | null> {
+): Promise<(TakeResult & { problems: string[]; judge: JudgeResult | null }) | null> {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     console.warn('[EditorialTake] OPENAI_API_KEY not set, skipping');
@@ -373,16 +420,20 @@ export async function generateTake(
 
     // Take-only checks plus house style. One targeted rewrite; kept only if it
     // has fewer problems and is still long enough. Never dropped for style.
-    let problems = findTakeProblems(editorialTake, previousTexts);
+    let judge = await judgeTake(openai, editorialTake, format);
+    const allProblems = (text: string, j: JudgeResult | null) => [...findTakeProblems(text, previousTexts), ...judgeProblems(j, format)];
+    let problems = allProblems(editorialTake, judge);
     if (problems.length) {
       console.warn(`[EditorialTake] Problems: ${problems.join('; ')}. Rewriting once...`);
       const openings = previousTexts.map(t => t.split(/\s+/).slice(0, 6).join(' '));
       const fixed = await fixTakeStyle(openai, editorialTake, problems, openings);
       if (fixed && wordCount(fixed) >= MIN_WORDS) {
-        const fixedProblems = findTakeProblems(fixed, previousTexts);
+        const fixedJudge = await judgeTake(openai, fixed, format);
+        const fixedProblems = allProblems(fixed, fixedJudge);
         if (fixedProblems.length < problems.length) {
           editorialTake = fixed;
           problems = fixedProblems;
+          judge = fixedJudge;
         } else {
           console.warn('[EditorialTake] Rewrite did not help; keeping the original');
         }
@@ -398,14 +449,15 @@ export async function generateTake(
         console.log(`[EditorialTake] Condensed ${words} → ${condensedWords} words`);
         editorialTake = condensed;
         words = condensedWords;
-        problems = findTakeProblems(editorialTake, previousTexts);
+        judge = await judgeTake(openai, editorialTake, format);
+        problems = allProblems(editorialTake, judge);
       } else {
         console.warn(`[EditorialTake] Condensing did not help (${condensedWords} words); keeping original`);
       }
     }
 
     if (problems.length) console.warn(`[EditorialTake] Shipping with remaining problems: ${problems.join('; ')}`);
-    return { editorialTake, format, problems };
+    return { editorialTake, format, problems, judge };
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
     console.error(`[EditorialTake] LLM call failed: ${msg}`);

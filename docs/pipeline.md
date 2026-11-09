@@ -88,7 +88,7 @@ defaults live in `lib/llm/models.ts`; GPT-5 and later need `maxTokensParam` /
    - The Week in Context (`generateEditorialTake.ts`, field `editorialTake`; neutral AI voice,
      2-4 paragraphs, 80-140 words, one of 6 rotating formats stored as `editorialTakeFormat`,
      the previous 2 weeks' formats excluded, previous 3 takes shown to the model as what not to
-     repeat; code checks in `takeChecks.ts` feed one rewrite pass, never a null; only the week
+     repeat; code checks in `takeChecks.ts` plus a judge model call (one point, luxury/jewellery consequence, format, ending) feed one rewrite pass, never a null; only the week
      being built is generated, an older take with no format is kept on a rebuild), which reads
      `oneSentenceSummary`, so it must run after themes
    - Content-quality gate (`checkDigestContentQuality`) before the JSON is written

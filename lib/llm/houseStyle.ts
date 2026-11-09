@@ -19,7 +19,7 @@ export const HOUSE_STYLE_RULES = `HOUSE STYLE: write like a person, not like an 
 - No rule of three. Do not list three things unless exactly three matter. Two is fine, one is better.
 - No em dashes or en dashes. Use a comma, a colon or a full stop.
 - No set-ups or colon reveals: "The result?", "Here's the thing:", "The catch:".
-- Do not end paragraphs on a neat quotable summary line. Stop when the point is made.
+- Do not end paragraphs on a neat quotable summary line or a restatement. End on new information or the consequence.
 - Never use: delve, tapestry, landscape, realm, robust, seamless, leverage, elevate, navigate, unlock, pivotal, testament, nuanced, underscore, showcase, foster, game-changer, ever-evolving.
 - No inflated significance: "plays a crucial role", "stands as a testament to", "marks a pivotal moment".
 - No trailing commentary clauses: ", highlighting ...", ", underscoring ...", ", reflecting ...".

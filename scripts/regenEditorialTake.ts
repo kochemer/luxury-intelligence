@@ -82,6 +82,9 @@ async function dryRun(weeks: string[], outPath: string): Promise<void> {
     sections.push(
       `**New take** (format: \`${result.format ?? 'unknown'}\`, ${wordCount(result.editorialTake)} words, FK grade ${r.grade.toFixed(1)}, avg sentence ${r.avgSentenceWords.toFixed(1)} words):\n\n${quote(result.editorialTake)}\n`,
     );
+    const j = result.judge;
+    sections.push(`**Stated point:** ${j?.point ?? '(none)'}\n`);
+    sections.push(`**Judge:** ${j ? JSON.stringify(j) : 'skipped'}\n`);
     sections.push(`**Remaining problems:** ${result.problems.length ? result.problems.join('; ') : 'none'}\n`);
     history.push({ weekLabel, text: result.editorialTake, format: result.format });
   }

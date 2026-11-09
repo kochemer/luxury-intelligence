@@ -219,6 +219,21 @@ jargon ("spending permissions are becoming a merchandising decision").
   Guard: an existing digest with a take and no `editorialTakeFormat` is kept on
   a rebuild, so bumping `TAKE_VERSION` ('4.0') does not rewrite past weeks.
   Only `scripts/regenEditorialTake.ts` (explicit) replaces one.
+- **One point, a luxury or jewellery consequence, no restating ending
+  (round 2, 2026-11-09).** The first samples were plain but were fact lists
+  with no point. Now every take states one point in its first two sentences,
+  uses 2-3 stories that serve it, says what it means for a luxury or jewellery
+  business (a consequence, not advice) and ends on something new. Format
+  descriptions are stricter (`number` = one figure leads; `open-question` =
+  question first, evidence for each side; and so on). Code checks add filler
+  words (`findFiller`: concerns, developments, "is changing too", "also
+  finding"), take-only. A judge model call (`judgeTake`, temperature 0) checks
+  point, consequence, format, round-up and restating ending; each failure is a
+  problem label for the single fix pass (`judgeProblems`). If the judge call
+  fails it is skipped. The fix pass is kept only if it has fewer problems.
+- **JSON-LD author.** On digest pages the NewsArticle `author` is the
+  Organization, not the "The Editor" Person (owner rule 2026-10-13: issues are
+  automated). The Person stays declared in the root graph for /about.
 - **Checks never drop a take.** Style, pronoun, banned-phrase, repeated-opening
   (first 3 words vs the previous 4 takes), jargon and readability problems feed
   one rewrite, kept only if it has fewer problems; leftovers are logged.

@@ -9,7 +9,8 @@
  *
  * Everything here is anchored with `@id` so the graph resolves: the WebSite is
  * published by the Organization, an Article's publisher *is* that Organization,
- * and its author *is* the site's editor. Entity resolution is what lets an
+ * and its author is that same Organization (not the Person: since 2026-10-13
+ * issues are fully automated and not signed as a person). Entity resolution is what lets an
  * answer engine attribute a claim to a named publisher, which is the
  * foundation of GEO/AEO — you cannot be cited as a source if the machine
  * cannot tell who you are.
@@ -139,7 +140,9 @@ export function buildNewsArticleLd(args: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': entityId.webPage(url) },
     isPartOf: { '@id': entityId.website(siteUrl) },
     publisher: { '@id': entityId.organization(siteUrl) },
-    author: { '@id': entityId.editor(siteUrl) },
+    // Owner rule 2026-10-13: issues are automated, so the Organization is the
+    // author. The Person (#editor) stays declared in the root graph for /about.
+    author: { '@id': entityId.organization(siteUrl) },
     inLanguage: locale,
     isAccessibleForFree: true,
     articleSection: [

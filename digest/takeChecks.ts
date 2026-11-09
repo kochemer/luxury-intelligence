@@ -13,12 +13,12 @@ import { findJargon, findStyleProblems } from '../lib/llm/houseStyle';
 export type TakeFormatId = 'connection' | 'number' | 'split' | 'what-changed' | 'open-question' | 'watch';
 
 export const TAKE_FORMATS: ReadonlyArray<{ id: TakeFormatId; description: string }> = [
-  { id: 'connection', description: 'Two stories that look unrelated, and what links them.' },
-  { id: 'number', description: 'One figure from the week, and what it means.' },
-  { id: 'split', description: 'Two companies making opposite bets on the same question.' },
-  { id: 'what-changed', description: 'How something worked before, and what is different now.' },
-  { id: 'open-question', description: 'A question the week raised, with the evidence on each side and no verdict.' },
-  { id: 'watch', description: 'A dated upcoming event or decision found in the stories, and why it matters. Only allowed when the stories contain one.' },
+  { id: 'connection', description: 'Two stories that look unrelated. The first paragraph states what links them; that link is the point.' },
+  { id: 'number', description: 'One single figure leads the take (first or second sentence). The rest explains what it means. Not a list of figures.' },
+  { id: 'split', description: 'Two companies making opposite bets on the same question. The first paragraph names both bets.' },
+  { id: 'what-changed', description: 'Name the before and the after explicitly: how something worked until now, and what is different now.' },
+  { id: 'open-question', description: 'The question appears in the first or second sentence. Then one named piece of evidence for each side, and no verdict.' },
+  { id: 'watch', description: 'The date or decision to watch appears in the first paragraph, then why it matters. Only allowed when the stories contain a dated upcoming event or decision.' },
 ];
 
 export const TAKE_FORMAT_IDS: ReadonlyArray<TakeFormatId> = TAKE_FORMATS.map(f => f.id);
@@ -163,8 +163,60 @@ export function findTakeProblems(text: string, previousTakes: ReadonlyArray<stri
   if (pronouns.length) problems.push(`first or second person (${pronouns.join(', ')}): the text must be neutral`);
   for (const phrase of findBannedPhrases(text)) problems.push(`banned phrase "${phrase}"`);
   if (repeatsOpening(text, previousTakes)) problems.push('opens with the same first three words as a previous week: open differently');
+  for (const f of findFiller(text)) problems.push(`filler phrase "${f}": say the specific thing instead`);
   const jargon = findJargon(text);
   if (jargon.length) problems.push(`jargon (${jargon.join(', ')}): say what happens in plain words`);
   problems.push(...readabilityProblems(text));
   return problems;
+}
+
+// ── Filler (take only) ────────────────────────────────────────────────────────
+/** Empty linking phrases the first round of samples leaned on. Not in findStyleProblems. */
+const FILLER: ReadonlyArray<[RegExp, string]> = [
+  [/\bconcerns?\b/i, 'concerns'],
+  [/\bdevelopments?\b/i, 'developments'],
+  [/\bis changing too\b|\bare changing too\b/i, 'is changing too'],
+  [/\balso finding\b|\bare also finding\b/i, 'also finding'],
+];
+
+export function findFiller(text: string): string[] {
+  return FILLER.filter(([re]) => re.test(text)).map(([, label]) => label);
+}
+
+// ── Judge pass ────────────────────────────────────────────────────────────────
+/** What the judge model returns about a take and its declared format. */
+export type JudgeResult = {
+  point: string | null;
+  luxuryConsequence: boolean;
+  followsFormat: boolean;
+  roundUp: boolean;
+  endingRestates: boolean;
+};
+
+/** Parse the judge's JSON defensively. Null when it is not usable (the judge is then skipped). */
+export function parseJudge(raw: unknown): JudgeResult | null {
+  if (!raw || typeof raw !== 'object') return null;
+  const r = raw as Record<string, unknown>;
+  const bools = ['luxuryConsequence', 'followsFormat', 'roundUp', 'endingRestates'] as const;
+  if (!bools.every(k => typeof r[k] === 'boolean')) return null;
+  const point = typeof r.point === 'string' && r.point.trim() ? r.point.trim() : null;
+  return {
+    point,
+    luxuryConsequence: r.luxuryConsequence as boolean,
+    followsFormat: r.followsFormat as boolean,
+    roundUp: r.roundUp as boolean,
+    endingRestates: r.endingRestates as boolean,
+  };
+}
+
+/** Problem labels for the fix pass. Empty = the judge is satisfied. */
+export function judgeProblems(j: JudgeResult | null, format?: string | null): string[] {
+  if (!j) return [];
+  const out: string[] = [];
+  if (!j.point) out.push('no single clear point in the first two sentences: state one specific claim the stories support, then support it');
+  if (j.roundUp) out.push('reads as a round-up of separate items: keep only the 2 or 3 stories that serve one point and cut the rest');
+  if (!j.luxuryConsequence) out.push('never says what the point means for a luxury or jewellery business: add one plain sentence of consequence (not advice)');
+  if (!j.followsFormat) out.push(`does not follow the "${format ?? 'declared'}" format: ${(TAKE_FORMATS.find(f => f.id === format)?.description) ?? 'restructure to the declared format'}`);
+  if (j.endingRestates) out.push('the last sentence restates an earlier one: end on new information or the consequence');
+  return out;
 }
