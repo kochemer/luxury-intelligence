@@ -102,11 +102,11 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | Path | Purpose |
 |------|---------|
 | `app/` | Next.js App Router pages and API routes |
-| `app/analytics/` | Private `/analytics` dashboard (`sections/`, shared `ui.tsx`) and `/analytics/replay`, the password-gated proxy that feeds the session-replay player (see Privacy, visit counter and /analytics) |
+| `app/(en)/analytics/` | Private `/analytics` dashboard (`sections/`, shared `ui.tsx`) and `/analytics/replay`, the password-gated proxy that feeds the session-replay player (see Privacy, visit counter and /analytics) |
 | `app/api/` | API routes: `api/subscribe`, `api/stripe` (webhook), `api/push`, `api/build-digest`, `api/unsubscribe`, `api/og`, `api/hit` (visit counter), `api/ratings` (digest star ratings), `api/search` (article search over `data/articles.json`), `api/resend` (bounce/complaint webhook) |
-| `app/health/` | `/health`: latest digest's per-topic counts, a quick manual sanity page |
-| `app/[es|da]/` | i18n locale sub-routes (Spanish, Danish) |
-| `app/digest/[slug]/` | Dynamic digest page (slug = `month-yyyy-week-n`) |
+| `app/(en)/health/` | `/health`: latest digest's per-topic counts, a quick manual sanity page |
+| `app/(en)/` | Route group for every English page (own root layout, `lang="en"`); `app/[es|da]/` are the Spanish and Danish roots |
+| `app/(en)/digest/[slug]/` | Digest page, prerendered per issue via `generateStaticParams` (slug = `month-yyyy-week-n`) |
 | `pipeline/` | `runWeeklyPipeline.ts` orchestrates all weekly steps; `checks/` = content-quality gates. `competitorAnalyze.ts` is unused since 2026-10-04 (delete after a few weeks) |
 | `ingestion/` | RSS (`fetchRss.ts`) and page (`fetchPages.ts`) scrapers |
 | `discovery/` | Article candidate scoring/discovery logic |
@@ -144,7 +144,7 @@ Neon Postgres via Drizzle ORM. Schema at `lib/db/schema.ts`, six tables (`analyt
 - Default locale: English at `/`
 - Spanish at `/es/`, Danish at `/da/`: the locale pages are copies of the English pages (`app/es/*`, `app/da/*`), not thin wrappers, and have drifted (no Short, Spotlight or rating; an older feedback page). A fix to an English page does not reach them; merging them is Stage 6 of `IMPROVEMENTS.md` Area 5. Since 2026-09-18 they are `noindex`, out of the sitemap, with no hreflang (roadmap F2.3). robots.txt is untouched on purpose.
 - `lib/i18n/messages.ts` holds all UI string dictionaries
-- `middleware.ts` handles www→non-www, trailing slash removal, and gclid/fbclid stripping (308); utm_* params are intentionally preserved for client-side attribution
+- **No middleware.ts and no app/layout.tsx** (since 2026-11-09, Vercel Fluid CPU budget; see `docs/operations.md` § Rendering). Public pages are prerendered. Each language has its own root layout (`app/(en)/layout.tsx`, `app/es/layout.tsx`, `app/da/layout.tsx`) that passes a literal `lang` to `app/components/RootShell.tsx`. English routes live in the `app/(en)/` route group (URLs unchanged). Don't call `headers()`, `cookies()` or read `searchParams` in a layout or public page: it makes the page render per request again. `/index.html` → `/` is in `next.config.ts` redirects, trailing-slash 308 is Next's default, www → apex is a Vercel domain redirect, gclid/fbclid are no longer stripped (canonical tags have no query string). `/analytics` stays `force-dynamic`
 - `/week/YYYY-Www` → `/digest/slug` permanent redirects built at compile time in `next.config.ts`
 
 ### Environment Variables
@@ -265,7 +265,7 @@ Since v2 (2026-10-09) the pages lead with signals counted from the whole
 article stream (`markets/signals.ts`: share-of-articles themes, explicit
 thresholds, panels from `categoryHint` in `ingestion/sources.ts`) and
 coverage vs share price (`markets/attention.ts`).
-Since 2026-11-09 the Signals section (`app/markets/_components/ThemeTable.tsx`)
+Since 2026-11-09 the Signals section (`app/(en)/markets/_components/ThemeTable.tsx`)
 lists every theme and names the closest call when nothing qualifies.
 
 ### Planning docs
@@ -303,7 +303,7 @@ See `docs/README.md` §4 for how they relate. Outside channels (Spotify, Apple P
   - "Historical insights" tiles live in `analytics_insights` and are kept by the
     weekly agent (`analytics:insights`). They carry traffic facts, so they must
     never be committed.
-  - `/analytics/replay` (`app/analytics/replay/route.ts`) is a password-gated
+  - `/analytics/replay` (`app/(en)/analytics/replay/route.ts`) is a password-gated
     proxy: it fetches a replay's files from Amplitude for the in-page player and
     stores nothing.
   Design and data findings: `docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md`.

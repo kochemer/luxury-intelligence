@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import FeedbackForm from '../components/FeedbackForm';
+import FeedbackForm from '@/app/components/FeedbackForm';
 
 export const metadata: Metadata = {
   title: 'Write to Us – Feedback',

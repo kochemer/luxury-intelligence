@@ -35,7 +35,7 @@ Facts are as of 2026-10-05 unless dated otherwise.
 As of 2026-10-17. Design and data findings:
 `docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md`.
 
-- **The replay route (`app/analytics/replay/route.ts`) returns 413 above 4 MB gzipped.** Vercel caps a function
+- **The replay route (`app/(en)/analytics/replay/route.ts`) returns 413 above 4 MB gzipped.** Vercel caps a function
   response at 4.5 MB, so the route refuses bigger recordings and the player
   points the owner at Amplitude. Most visits are far below that.
 - **The page needs `maxDuration = 60`.** A cold Amplitude refresh is ~20 calls
@@ -48,6 +48,50 @@ As of 2026-10-17. Design and data findings:
   other. Run one at a time.
 - The replay list only reaches back 30 days, and every Amplitude panel starts
   at `CONSENT_START` (2026-10-06); older periods are clamped.
+
+## Rendering and Fluid CPU
+
+As of 2026-11-09. The Hobby team has a 4 h / rolling-30-day **Fluid Active CPU**
+allowance and goes down when it is exceeded. On 2026-11-09 it was at 3 h 03 m:
+middleware 1 h 05 m (~1,600 invocations/day, ~80 ms each) and functions 44 m.
+Both came from one pattern, fixed the same day:
+
+- app/layout.tsx read `headers()` (`x-pathname`, set by middleware.ts) to pick
+  `<html lang>`. Any `headers()` call in a root layout makes **every page render
+  per request**. Now there is no app/layout.tsx: `app/(en)/layout.tsx`,
+  `app/es/layout.tsx` and `app/da/layout.tsx` are separate root layouts that
+  pass a literal `lang` to `app/components/RootShell.tsx` (shared fonts, `<head>`,
+  providers, metadata). English pages moved into the `(en)` route group; URLs are
+  unchanged. Moving between languages is a full page load (Next does this itself
+  between root layouts).
+- middleware.ts is deleted. Its jobs: www → apex is a Vercel domain-level 308;
+  /index.html → `/` is in `next.config.ts` `redirects()`; /foo/ → /foo is
+  Next's default (`trailingSlash` unset); `gclid`/`fbclid` are **no longer
+  stripped** (every page's canonical is query-free; Amplitude may now see them).
+- URLs that match no route are rendered by `app/global-not-found.tsx`
+  (`experimental.globalNotFound`), always `lang="en"`, still status 404.
+  `notFound()` inside a page (e.g. an unknown /digest/x) is unchanged.
+
+Rules that keep pages static (a page that breaks one becomes `ƒ` in the build's
+route table; check the table after touching a layout or a public page):
+
+- No `headers()`, `cookies()`, `searchParams` prop, `connection()` or
+  `fetch(..., {cache: 'no-store'})` in a layout or public page. Still dynamic on
+  purpose: `/analytics` (`force-dynamic`, cookie session), /subscribe/success
+  (`searchParams`), /week/[weekLabel] (redirect), `/api/*`.
+- `useSearchParams` in a client component makes a prerendered page client-render
+  up to the nearest `<Suspense>`, so the article text would leave the HTML that AI
+  crawlers read. `hooks/useTopN.ts` reads `?n=` from `window.location` after
+  hydration instead; the server HTML always has the default top 7 per category
+  (the issue page). Only /search (noindex, client fetch) still uses
+  `useSearchParams`.
+- Content only changes through a commit and deploy (weekly digest, markets,
+  podcast, social commits), so frozen-at-build is right. `getCurrentDigestWeek()`
+  is evaluated at build time; the weekly build commits on Monday 06:00 UTC and
+  redeploys, so the home page moves to the new issue then. A Sunday deploy falls
+  back to the newest digest on disk.
+- A `Date`-derived value in a page is frozen until the next deploy; use
+  `export const revalidate = N` on that route if it must be fresher.
 
 ## Build
 

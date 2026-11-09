@@ -144,7 +144,7 @@ const CO_CHANGE = [
   { code: /^(markets|lib\/markets)\//, docs: ['CLAUDE.md', 'docs/superpowers/specs/2026-10-04-markets-pages-design.md'] },
   { code: /^social\//, docs: ['docs/distribution.md', 'docs/superpowers/specs/2026-10-14-social-content-plan.md'] },
   { code: /^video-short\/(src|template)\//, docs: ['video-short/README.md'] },
-  { code: /^(lib\/db\/schema\.ts$|middleware\.ts$|lib\/env\.ts$)/, docs: ['CLAUDE.md'] },
+  { code: /^(lib\/db\/schema\.ts$|lib\/env\.ts$)/, docs: ['CLAUDE.md'] },
 ];
 const msgIdx = process.argv.indexOf('--commit-msg');
 if (msgIdx !== -1) {

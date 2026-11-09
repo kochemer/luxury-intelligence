@@ -1,38 +1,12 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-import { useMemo, useState, useEffect } from 'react';
+import { useTopN } from '@/hooks/useTopN';
 import CategorySection from './CategorySection';
 import { getTopicDisplayName, TopicKey } from '@/lib/utils/topicNames';
 import { formatDate } from '@/lib/utils/formatDate';
 import { getMessages } from '@/lib/i18n/messages';
 import type { WeeklyDigest } from '@/lib/types';
 import type { Locale } from '@/lib/i18n/types';
-
-const VALID_N_VALUES = [3, 4, 5, 6, 7] as const;
-const DEFAULT_N = 7;
-
-type TopNValue = typeof VALID_N_VALUES[number];
-
-function isValidN(value: number | null | undefined): value is TopNValue {
-  return value !== null && value !== undefined && VALID_N_VALUES.includes(value as TopNValue);
-}
-
-function getNFromStorage(): TopNValue | null {
-  if (typeof window === 'undefined') return null;
-  try {
-    const stored = localStorage.getItem('topN');
-    if (stored) {
-      const parsed = parseInt(stored, 10);
-      if (isValidN(parsed)) {
-        return parsed;
-      }
-    }
-  } catch (e) {
-    // localStorage might not be available
-  }
-  return null;
-}
 
 type CategoryCard = {
   key: TopicKey;
@@ -66,46 +40,8 @@ export default function DigestClientView({
   moreHref,
   compact,
 }: DigestClientViewProps) {
-  const searchParams = useSearchParams();
   const t = getMessages(locale);
-  
-  // Get current N from URL param or default (server-safe)
-  // Don't access localStorage during initial render to avoid hydration mismatch
-  const topN = useMemo(() => {
-    const urlN = searchParams.get('n');
-    if (urlN) {
-      const parsed = parseInt(urlN, 10);
-      if (isValidN(parsed)) {
-        return parsed;
-      }
-    }
-    // Always return default on server - localStorage will be checked after hydration
-    return DEFAULT_N;
-  }, [searchParams]);
-  
-  // Use state to track the effective topN value
-  // Initialize with server-safe value (URL param or default)
-  const [effectiveTopN, setEffectiveTopN] = useState<TopNValue>(topN);
-  
-  // Update when topN changes (from URL params)
-  useEffect(() => {
-    if (topN !== effectiveTopN) {
-      setEffectiveTopN(topN);
-    }
-  }, [topN]);
-  
-  // Sync with localStorage after hydration (only if no URL param)
-  useEffect(() => {
-    const urlN = searchParams.get('n');
-    if (!urlN) {
-      // No URL param - check localStorage (client-side only)
-      const storedN = getNFromStorage();
-      if (storedN && storedN !== topN) {
-        setEffectiveTopN(storedN);
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams]);
+  const effectiveTopN = useTopN();
 
   if (variant === 'home') {
     // Home page: 12-column grid layout

@@ -11,7 +11,7 @@ import { getSiteUrl } from '@/lib/utils/siteUrl';
 import { loadMarket } from '@/lib/markets/load';
 import { MARKET_IDS, MARKET_LABEL, type MarketId } from '@/lib/markets/types';
 import { buildBreadcrumbLd } from '@/lib/seo/jsonLd';
-import JsonLd from '../../components/JsonLd';
+import JsonLd from '@/app/components/JsonLd';
 import { ShareOfVoice } from '../_components/MarketCharts';
 import ThemeTable from '../_components/ThemeTable';
 import AttentionChart from '../_components/AttentionChart';
