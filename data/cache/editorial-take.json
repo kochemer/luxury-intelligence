@@ -274,5 +274,11 @@
     "cached_at": "2026-10-26T12:58:04.958Z",
     "model": "gpt-6.1-sol",
     "version": "3.0"
+  },
+  "2026-W45:a1726ecf3e93": {
+    "editorialTake": "I think luxury brands should treat platform checkout as a margin decision before treating it as a growth opportunity. The risk is paying for access without earning a customer relationship.\n\nTikTok’s standalone Shop app offers exclusive deals and checkout, while Walmart’s Sparky is adding visual recognition and cart generation. Both put more of the purchase inside a retailer’s interface. Palace’s in-store-only Burberry capsule offers an alternative, but exclusivity alone does not establish how a brand earns visibility inside a shopping app.\n\nNext quarter, I would test one jewellery collection through a platform and measure contribution after fees and returns. Keep an exclusive assortment on owned channels to compare repeat purchases against the same period’s platform buyers, rather than judging the trial on gross sales.",
+    "cached_at": "2026-11-09T16:03:23.753Z",
+    "model": "gpt-6.1-sol",
+    "version": "3.0"
   }
 }

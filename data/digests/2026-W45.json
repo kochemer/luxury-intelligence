@@ -1,0 +1,979 @@
+{
+  "weekLabel": "2026-W45",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2026-11-01T23:00:00.000Z",
+  "endISO": "2026-11-08T22:59:59.999Z",
+  "builtAtISO": "2026-11-09T17:01:57.539+01:00",
+  "builtAtLocal": "2026-11-09 17:01:57",
+  "totals": {
+    "total": 2279,
+    "byTopic": {
+      "AIStrategy": 366,
+      "EcommerceRetail": 267,
+      "LuxuryConsumer": 506,
+      "Jewellery": 277
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 366,
+      "top": [
+        {
+          "id": "vwg9x8",
+          "title": "Anthropic Reveals $17 Billion in Revenue as I.P.O. Approaches",
+          "url": "https://www.nytimes.com/2026/11/02/business/anthropic-earnings-ai.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-11-02T18:55:10.000Z",
+          "ingested_at": "2026-11-03T12:54:40.157Z",
+          "snippet": "The A.I. company’s quarterly revenue totaled $17 billion, 12 times as high as the same quarter last year, while its net loss totaled $23 billion.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.125,
+            "recencyScore": 0,
+            "sourceWeight": 0.075,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "anthropic"
+            ]
+          },
+          "aiSummary": "Anthropic reported $17 billion in quarterly revenue, 12 times the year-earlier figure, and a $23 billion net loss as its IPO approaches.",
+          "translations": {
+            "da": {
+              "title": "Anthropic afslører en omsætning på 17 mia. dollar, mens børsnoteringen nærmer sig",
+              "summary": "Anthropic rapporterede en kvartalsomsætning på 17 mia. dollar, 12 gange så høj som året før, og et nettotab på 23 mia. dollar, mens selskabets børsnotering nærmer sig."
+            },
+            "es": {
+              "title": "Anthropic revela ingresos de 17.000 millones de dólares mientras se acerca su salida a bolsa",
+              "summary": "Anthropic informó de unos ingresos trimestrales de 17.000 millones de dólares, 12 veces la cifra del año anterior, y de pérdidas netas de 23.000 millones de dólares mientras se acerca su salida a bolsa."
+            }
+          }
+        },
+        {
+          "id": "qh2gdx",
+          "title": "OpenAI to acquire developer tools firm Pierre to expand Codex capabilities ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/openai-to-acquire-developer-tools-firm-pierre-to-expand-codex-capabilities/articleshow/135556193.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-11-05T02:27:35.000Z",
+          "ingested_at": "2026-11-05T13:22:02.221Z",
+          "snippet": "OpenAI will acquire Pierre Computer Company, the developer of open-source coding tools, to expand its Codex platform's capabilities in building, understanding and reviewing software, as it looks to strengthen the role of AI agents across the software development process.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "openai",
+              "ai",
+              "agent",
+              "compute"
+            ]
+          },
+          "aiSummary": "OpenAI will acquire open-source coding tools developer Pierre Computer Company to expand Codex’s software development capabilities.",
+          "translations": {
+            "da": {
+              "title": "OpenAI opkøber udviklerværktøjsfirmaet Pierre for at udvide Codex' funktioner",
+              "summary": "OpenAI opkøber udvikleren af open source-kodningsværktøjer Pierre Computer Company for at udvide Codex' funktioner inden for softwareudvikling."
+            },
+            "es": {
+              "title": "OpenAI adquirirá la empresa de herramientas para desarrolladores Pierre para ampliar las capacidades de Codex",
+              "summary": "OpenAI adquirirá Pierre Computer Company, desarrolladora de herramientas de programación de código abierto, para ampliar las capacidades de Codex en el desarrollo de software."
+            }
+          }
+        },
+        {
+          "id": "x3rfmf",
+          "title": "Dropbox acquires Tigris Data for $350M to bolster its AI infrastructure",
+          "url": "https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-11-05T15:19:05.000Z",
+          "ingested_at": "2026-11-06T13:04:40.641Z",
+          "snippet": "The deal is expected to support the development of DBX Agent Cloud, a new storage platform aimed at developers building AI models and agents.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.3,
+            "recencyScore": 0,
+            "sourceWeight": 0.15,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "agent"
+            ]
+          },
+          "aiSummary": "Dropbox acquired Tigris Data for $350 million to support DBX Agent Cloud, a storage platform for developers building AI models and agents.",
+          "translations": {
+            "da": {
+              "title": "Dropbox opkøber Tigris Data for 350 mio. dollar for at styrke sin AI-infrastruktur",
+              "summary": "Dropbox opkøbte Tigris Data for 350 millioner dollar for at understøtte DBX Agent Cloud, en lagringsplatform til udviklere, der bygger AI-modeller og agenter."
+            },
+            "es": {
+              "title": "Dropbox adquiere Tigris Data por 350 millones de dólares para reforzar su infraestructura de IA",
+              "summary": "Dropbox adquirió Tigris Data por 350 millones de dólares para respaldar DBX Agent Cloud, una plataforma de almacenamiento para desarrolladores que crean modelos y agentes de IA."
+            }
+          }
+        },
+        {
+          "id": "9m57v8",
+          "title": "Google's Gemini Omni 1.2 Flash stretches AI video clips to 15 seconds and cuts pricing by 30 percent",
+          "url": "https://the-decoder.com/googles-gemini-omni-1-2-flash-stretches-ai-video-clips-to-15-seconds-and-cuts-pricing-by-30-percent/",
+          "source": "The Decoder",
+          "published_at": "2026-11-05T19:05:31.000Z",
+          "ingested_at": "2026-11-06T13:04:40.641Z",
+          "snippet": "Google Deepmind is making Gemini Omni 1.2 Flash generally available. The video-generation model now creates clips up to 15 seconds long, can be edited step by step via conversation, and costs just $0.07 per second at 720p, 30 percent less than its predecessor. Users who draft in low resolution and upscale only the final result can save even more.\nThe article Google's Gemini Omni 1.2 Flash stretches AI video clips to 15 seconds and cuts pricing by 30 percent appeared first on The Decoder.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "gemini",
+              "deepmind"
+            ]
+          },
+          "aiSummary": "Google's Gemini Omni 1.2 Flash now generates videos up to 15 seconds long at $0.07 per second in 720p, 30% cheaper than its predecessor.",
+          "translations": {
+            "da": {
+              "title": "Googles Gemini Omni 1.2 Flash forlænger AI-videoklip til 15 sekunder og sænker prisen med 30 procent",
+              "summary": "Googles Gemini Omni 1.2 Flash genererer nu videoer på op til 15 sekunder til 0,07 dollar pr. sekund i 720p, 30 % billigere end forgængeren."
+            },
+            "es": {
+              "title": "Gemini Omni 1.2 Flash de Google amplía los clips de vídeo con IA hasta 15 segundos y reduce el precio un 30 por ciento",
+              "summary": "Gemini Omni 1.2 Flash de Google ahora genera vídeos de hasta 15 segundos a 0,07 dólares por segundo en 720p, un 30 % más barato que su predecesor."
+            }
+          }
+        },
+        {
+          "id": "5xka7m",
+          "title": "METR finds Anthropic may have crossed its own AI acceleration warning threshold back in July",
+          "url": "https://the-decoder.com/metr-finds-anthropic-may-have-crossed-its-own-ai-acceleration-warning-threshold-back-in-july/",
+          "source": "The Decoder",
+          "published_at": "2026-11-06T13:40:07.000Z",
+          "ingested_at": "2026-11-07T11:50:04.575Z",
+          "snippet": "Nonprofit METR spent eleven weeks auditing Anthropic's internal research data and concluded that the pace of model development has roughly doubled, with about 80 percent of the speedup driven by AI-assisted research. Anthropic redacted the most informative evidence, though, which means the public has to rely on METR's judgment \"much more than would be ideal.\" There are also skeptical voices inside the company.\nThe article METR finds Anthropic may have crossed its own AI acceleration warning thre...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.25,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "anthropic",
+              "research"
+            ]
+          },
+          "aiSummary": "METR found Anthropic’s model development roughly doubled in speed, with AI-assisted research driving about 80% of the acceleration.",
+          "translations": {
+            "da": {
+              "title": "METR vurderer, at Anthropic muligvis overskred sin egen advarselstærskel for AI-acceleration allerede i juli",
+              "summary": "METR fandt, at udviklingen af Anthropics modeller omtrent blev dobbelt så hurtig, og at AI-assisteret forskning stod for omkring 80 % af accelerationen."
+            },
+            "es": {
+              "title": "METR concluye que Anthropic pudo haber superado ya en julio su propio umbral de alerta por aceleración de la IA",
+              "summary": "METR descubrió que el desarrollo de modelos de Anthropic aproximadamente duplicó su velocidad, y que la investigación asistida por IA impulsó cerca del 80 % de la aceleración."
+            }
+          }
+        },
+        {
+          "id": "jh12kw",
+          "title": "Nine AI agents tried autonomous research on open questions from US national labs and none passed the experts' bar",
+          "url": "https://the-decoder.com/nine-ai-agents-tried-autonomous-research-on-open-questions-from-us-national-labs-and-none-passed-the-experts-bar/",
+          "source": "The Decoder",
+          "published_at": "2026-11-07T11:13:42.000Z",
+          "ingested_at": "2026-11-07T11:50:04.575Z",
+          "snippet": "The \"Into the Unknown\" benchmark tasks nine AI agents with tackling open research questions from U.S. national laboratories. None of the 135 submissions meets all requirements. A total of 114 papers fail the integrity check, with agents claiming to have conducted experiments that never took place. GPT-6 Astra performs best but still doesn't meet the experts' standards.\nThe article Nine AI agents tried autonomous research on open questions from US national labs and none passed the experts' bar ap...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.30000000000000004,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "research",
+              "agent",
+              "benchmark"
+            ]
+          },
+          "aiSummary": "Nine AI agents produced 135 research submissions on US national laboratory questions; none met all requirements, and 114 failed integrity checks.",
+          "translations": {
+            "da": {
+              "title": "Ni AI-agenter forsøgte at udføre selvstændig forskning i åbne spørgsmål fra amerikanske nationale laboratorier, men ingen levede op til eksperternes krav",
+              "summary": "Ni AI-agenter indsendte 135 forskningsbidrag om spørgsmål fra amerikanske nationale laboratorier; ingen opfyldte alle krav, og 114 bestod ikke integritetstjek."
+            },
+            "es": {
+              "title": "Nueve agentes de IA intentaron investigar de forma autónoma preguntas abiertas de laboratorios nacionales de EE. UU., pero ninguno alcanzó el nivel exigido por los expertos",
+              "summary": "Nueve agentes de IA presentaron 135 trabajos de investigación sobre preguntas de laboratorios nacionales de EE. UU.; ninguno cumplió todos los requisitos y 114 no superaron las verificaciones de integridad."
+            }
+          }
+        },
+        {
+          "id": "4a5bws",
+          "title": "A new way of measuring AI models suggests China's threat to OpenAI and Anthropic may have been overblown",
+          "url": "https://www.businessinsider.com/chinese-ai-models-rankings-artificial-analysis-private-tests-anthropic-openai-2026-11",
+          "source": "Business Insider - Tech",
+          "published_at": "2026-11-03T10:00:02.000Z",
+          "ingested_at": "2026-11-03T12:54:40.157Z",
+          "snippet": "The DeepSeek logo on a smartphone\nIllustration by Omar Marques/SOPA Images/LightRocket via Getty Images\n\nArtificial Analysis's revamped ranking widened the gap between top closed and open-weight AI models.\nMany tests are now private, but the firm also changed the tasks and how it weights them.\nOpen-weight AI remains competitive in coding. Usage figures offer only a limited view of demand.\n\nChinese AI models have fallen sharply behind American rivals in a closely watched ranking, raising fresh qu...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "ai",
+              "openai",
+              "anthropic",
+              "weights"
+            ]
+          },
+          "aiSummary": "Artificial Analysis's revamped AI ranking widened the gap between leading closed and open-weight models, while open-weight models remained competitive in coding.",
+          "translations": {
+            "da": {
+              "title": "En ny måde at måle AI-modeller på tyder på, at truslen fra Kina mod OpenAI og Anthropic måske var overdrevet",
+              "summary": "Artificial Analysis' opdaterede AI-rangering øgede afstanden mellem de førende lukkede modeller og modeller med åbne vægte, mens modeller med åbne vægte fortsat var konkurrencedygtige inden for kodning."
+            },
+            "es": {
+              "title": "Una nueva forma de medir los modelos de IA sugiere que la amenaza de China para OpenAI y Anthropic quizá se exageró",
+              "summary": "La clasificación de IA renovada de Artificial Analysis amplió la brecha entre los principales modelos cerrados y los de pesos abiertos, mientras que estos últimos siguieron siendo competitivos en programación."
+            }
+          }
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 267,
+      "top": [
+        {
+          "id": "9g38bo",
+          "title": "What DoorDash’s proposed acquisition of Instacart means for Uber, Amazon and the rest of the quick commerce space",
+          "url": "https://www.modernretail.co/operations/what-doordashs-proposed-acquisition-of-instacart-means-for-uber-amazon-and-the-rest-of-the-quick-commerce-space/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-11-02T15:00:00.000Z",
+          "ingested_at": "2026-11-03T12:54:40.157Z",
+          "snippet": "The race to be the go-to platform for shoppers when they want products delivered quickly is about to get a lot more cutthroat after DoorDash announced its intent to acquire Instacart last week. Here's what it means for the quick commerce space, and other formidable players like Uber and Amazon.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "platform"
+            ]
+          },
+          "aiSummary": "DoorDash announced plans to acquire Instacart, intensifying competition with Uber and Amazon for shoppers seeking fast delivery.",
+          "translations": {
+            "da": {
+              "title": "Hvad DoorDash’ foreslåede opkøb af Instacart betyder for Uber, Amazon og resten af quick commerce-branchen",
+              "summary": "DoorDash har annonceret planer om at opkøbe Instacart, hvilket skærper konkurrencen med Uber og Amazon om kunder, der ønsker hurtig levering."
+            },
+            "es": {
+              "title": "Qué significa la propuesta de adquisición de Instacart por parte de DoorDash para Uber, Amazon y el resto del sector del comercio rápido",
+              "summary": "DoorDash anunció planes para adquirir Instacart, intensificando la competencia con Uber y Amazon por los clientes que buscan entregas rápidas."
+            }
+          }
+        },
+        {
+          "id": "sjf8s4",
+          "title": "TikTok quietly launches a stand-alone TikTok Shop app",
+          "url": "https://techcrunch.com/2026/11/05/tiktok-quietly-launches-a-standalone-tiktok-shop-app/",
+          "source": "TechCrunch - Commerce",
+          "published_at": "2026-11-05T15:33:58.000Z",
+          "ingested_at": "2026-11-06T13:04:40.641Z",
+          "snippet": "The app will offer personalized product recommendations, shopping through livestreams and short-form videos, app-exclusive deals, in-app checkout, order tracking, and customer support.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "shopping",
+              "checkout"
+            ]
+          },
+          "aiSummary": "TikTok has launched a standalone TikTok Shop app with app-exclusive deals and in-app checkout.",
+          "translations": {
+            "da": {
+              "title": "TikTok lancerer i al stilhed en selvstændig TikTok Shop-app",
+              "summary": "TikTok har lanceret en selvstændig TikTok Shop-app med eksklusive tilbud og betaling direkte i appen."
+            },
+            "es": {
+              "title": "TikTok lanza discretamente una aplicación independiente de TikTok Shop",
+              "summary": "TikTok ha lanzado una aplicación independiente de TikTok Shop con ofertas exclusivas y pago integrado en la aplicación."
+            }
+          }
+        },
+        {
+          "id": "awrmf4",
+          "title": "Walmart ramps up Sparky features in time for the holidays",
+          "url": "https://www.retaildive.com/news/walmart-sparky-features-AI-holidays/873718/",
+          "source": "Retail Dive",
+          "published_at": "2026-11-05T18:01:00.000Z",
+          "ingested_at": "2026-11-06T13:04:40.641Z",
+          "snippet": "New visual recognition and cart generation capabilities for the AI assistant aim to ease the pain of holiday shopping, both online and in stores.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "shopping"
+            ]
+          },
+          "aiSummary": "Walmart is adding visual recognition and cart generation to its Sparky AI assistant for holiday shopping online and in stores.",
+          "translations": {
+            "da": {
+              "title": "Walmart udvider Sparky-funktionerne op til højtiden",
+              "summary": "Walmart tilføjer visuel genkendelse og automatisk oprettelse af indkøbskurve til sin AI-assistent Sparky til julehandlen online og i butikkerne."
+            },
+            "es": {
+              "title": "Walmart amplía las funciones de Sparky para las fiestas",
+              "summary": "Walmart añade reconocimiento visual y creación de carritos a su asistente de IA Sparky para las compras navideñas en línea y en tiendas."
+            }
+          }
+        },
+        {
+          "id": "7clpt5",
+          "title": "Criteo expands connected TV ambitions as retail media data moves onto the biggest screen in the home",
+          "url": "https://internetretailing.net/criteo-expands-connected-tv-ambitions-as-retail-media-data-moves-onto-the-biggest-screen-in-the-home/",
+          "source": "Internet Retailing",
+          "published_at": "2026-11-05T12:32:18.000Z",
+          "ingested_at": "2026-11-05T13:22:02.221Z",
+          "snippet": "Commerce media platform Criteo has announced plans to expand its Performance Connected TV (CTV) offering beyond the US.\nThe post Criteo expands connected TV ambitions as retail media data moves onto the biggest screen in the home appeared first on InternetRetailing.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "platform"
+            ]
+          },
+          "aiSummary": "Criteo plans to expand its Performance Connected TV offering beyond the US.",
+          "translations": {
+            "da": {
+              "title": "Criteo udvider sine ambitioner inden for connected TV, mens retailmediedata rykker op på hjemmets største skærm",
+              "summary": "Criteo planlægger at udvide sit Performance Connected TV-tilbud ud over USA."
+            },
+            "es": {
+              "title": "Criteo amplía sus ambiciones en televisión conectada mientras los datos de retail media llegan a la pantalla más grande del hogar",
+              "summary": "Criteo planea ampliar su oferta de Performance Connected TV más allá de Estados Unidos."
+            }
+          }
+        },
+        {
+          "id": "13v4mv",
+          "title": "Waitrose steps up South West investment with £1bn supply chain expansion",
+          "url": "https://www.retailgazette.co.uk/blog/2026/11/waitrose-south-west-supply-chain/",
+          "source": "Retail Gazette",
+          "published_at": "2026-11-03T16:15:15.000Z",
+          "ingested_at": "2026-11-04T13:08:08.662Z",
+          "snippet": "Waitrose is expanding its presence across the South West with a series of store and supply chain investments in Bristol, including a new regional distribution centre designed to support more than 50 shops. The retailer is developing a 360,000 sq ft distribution centre in Avonmouth, its first regional logistics hub in the South West. This...",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.05,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "logistics"
+            ]
+          },
+          "aiSummary": "Waitrose is developing a 360,000 sq ft distribution centre in Avonmouth, its first South West regional logistics hub, to support more than 50 shops.",
+          "translations": {
+            "da": {
+              "title": "Waitrose øger investeringerne i det sydvestlige England med en udvidelse af forsyningskæden til 1 mia. pund",
+              "summary": "Waitrose er ved at opføre et distributionscenter på 360.000 kvadratfod i Avonmouth, virksomhedens første regionale logistikknudepunkt i det sydvestlige England, som skal betjene over 50 butikker."
+            },
+            "es": {
+              "title": "Waitrose refuerza su inversión en el suroeste de Inglaterra con una ampliación de la cadena de suministro de 1.000 millones de libras",
+              "summary": "Waitrose está construyendo un centro de distribución de 360.000 pies cuadrados en Avonmouth, su primer centro logístico regional en el suroeste de Inglaterra, para abastecer a más de 50 tiendas."
+            }
+          }
+        },
+        {
+          "id": "ja01je",
+          "title": "Wayfair notches ‘strongest quarter of growth’ since the pandemic",
+          "url": "https://www.retaildive.com/news/wayfair-strongest-quarter-since-pandemic/873740/",
+          "source": "Retail Dive",
+          "published_at": "2026-11-04T17:18:00.000Z",
+          "ingested_at": "2026-11-05T13:22:02.221Z",
+          "snippet": "The retailer posted nearly 10% revenue gains and 4.7% growth in active customers in Q3, even as consumer spending habits change in the home category.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Wayfair’s Q3 revenue rose nearly 10% and active customers increased 4.7%, delivering its strongest quarter of growth since the pandemic.",
+          "translations": {
+            "da": {
+              "title": "Wayfair noterer sig for sit stærkeste vækstkvartal siden pandemien",
+              "summary": "Wayfairs omsætning i tredje kvartal steg næsten 10 %, og antallet af aktive kunder voksede med 4,7 %, hvilket gav selskabet det stærkeste vækstkvartal siden pandemien."
+            },
+            "es": {
+              "title": "Wayfair registra su trimestre de mayor crecimiento desde la pandemia",
+              "summary": "Los ingresos de Wayfair en el tercer trimestre aumentaron casi un 10 % y el número de clientes activos creció un 4,7 %, lo que supuso su trimestre de mayor crecimiento desde la pandemia."
+            }
+          }
+        },
+        {
+          "id": "df03l9",
+          "title": "Modern Retail+ Reseach: Brands’ focus on owned channels wavers for the 2026 holiday season",
+          "url": "https://www.modernretail.co/marketing/modern-retail-reseach-brands-focus-on-owned-channels-wavers-for-the-2026-holiday-season/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-11-05T05:00:00.000Z",
+          "ingested_at": "2026-11-05T13:22:02.221Z",
+          "snippet": "A new Modern Retail+ Research report examines which commerce channels are dominating marketers’ holiday strategies.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Brands’ focus on owned commerce channels is wavering for the 2026 holiday season.",
+          "translations": {
+            "da": {
+              "title": "Modern Retail+ Research: Mærkernes fokus på egne kanaler vakler op til julesæsonen 2026",
+              "summary": "Mærkernes fokus på egne handelskanaler vakler op til julesæsonen 2026."
+            },
+            "es": {
+              "title": "Modern Retail+ Research: El enfoque de las marcas en sus canales propios se tambalea de cara a la temporada navideña de 2026",
+              "summary": "El enfoque de las marcas en sus canales de venta propios se tambalea de cara a la temporada navideña de 2026."
+            }
+          }
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 506,
+      "top": [
+        {
+          "id": "b80w5v",
+          "title": "Growth across all regions: Pandora reports solid third-quarter sales increase",
+          "url": "https://fashionunited.com/news/business/growth-across-all-regions-pandora-reports-solid-third-quarter-sales-increase/2026110475543",
+          "source": "FashionUnited",
+          "published_at": "2026-11-04T09:50:38.000Z",
+          "ingested_at": "2026-11-04T13:08:08.662Z",
+          "snippet": "Pandora flagship store in Copenhagen Image: Pandora\n\nDanish jewellery retailer Pandora A/S has further increased its revenue in the third quarter of the 2026 financial year, despite challenging market conditions. Profit was also higher than in the prior-year period, according to an interim report published by the company on Wednesday.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Pandora increased third-quarter revenue across all regions in 2026, with profit also rising from a year earlier despite challenging market conditions.",
+          "translations": {
+            "da": {
+              "title": "Vækst i alle regioner: Pandora rapporterer solid salgsfremgang i tredje kvartal",
+              "summary": "Pandora øgede omsætningen i alle regioner i tredje kvartal 2026, og overskuddet steg også i forhold til året før trods udfordrende markedsforhold."
+            },
+            "es": {
+              "title": "Crecimiento en todas las regiones: Pandora registra un sólido aumento de las ventas en el tercer trimestre",
+              "summary": "Pandora aumentó sus ingresos en todas las regiones en el tercer trimestre de 2026, y los beneficios también crecieron respecto al año anterior a pesar de las difíciles condiciones del mercado."
+            }
+          }
+        },
+        {
+          "id": "vvw65n",
+          "title": "Revolve’s Q3 Profits Slip Despite 20% Sales Increase",
+          "url": "https://wwd.com/business-news/financial/revolve-q3-2026-earnings-sales-1239399370/",
+          "source": "WWD - Business News",
+          "published_at": "2026-11-03T22:25:40.000Z",
+          "ingested_at": "2026-11-04T13:08:08.662Z",
+          "snippet": "But logistics costs contributed to lower profits at the e-commerce company targeting Millennials and Gen Z.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "Revolve’s Q3 profits fell despite a 20% sales increase, with logistics costs contributing to the decline.",
+          "translations": {
+            "da": {
+              "title": "Revolves overskud i 3. kvartal falder trods en salgsstigning på 20 %",
+              "summary": "Revolves overskud i 3. kvartal faldt trods en salgsstigning på 20 %, blandt andet på grund af logistikomkostninger."
+            },
+            "es": {
+              "title": "Los beneficios de Revolve caen en el tercer trimestre pese a un aumento del 20 % en las ventas",
+              "summary": "Los beneficios de Revolve cayeron en el tercer trimestre pese a un aumento del 20 % en las ventas, debido en parte a los costes logísticos."
+            }
+          }
+        },
+        {
+          "id": "k7apah",
+          "title": "Capri Holdings returns to profit on solid financials for Michael Kors and Jimmy Choo",
+          "url": "https://cpp-luxury.com/capri-holdings-returns-to-profit-on-solid-financials-for-michael-kors-and-jimmy-choo/",
+          "source": "CPP-Luxury",
+          "published_at": "2026-11-02T09:08:50.000Z",
+          "ingested_at": "2026-11-02T13:41:18.063Z",
+          "snippet": "Capri Holdings has reported a 5.5% decline in revenue to $809 million for the second quarter, with the U.S. luxury firm still returning to profit, thanks to gains at Jimmy Choo and a recovering Michael Kors. Sales at luxury shoe […]",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury"
+            ]
+          },
+          "aiSummary": "Capri Holdings returned to profit in the second quarter as revenue fell 5.5% to $809 million, supported by Jimmy Choo and Michael Kors.",
+          "translations": {
+            "da": {
+              "title": "Capri Holdings vender tilbage til overskud på baggrund af stærke resultater fra Michael Kors og Jimmy Choo",
+              "summary": "Capri Holdings vendte tilbage til overskud i andet kvartal, mens omsætningen faldt 5,5 % til 809 millioner dollar, understøttet af Jimmy Choo og Michael Kors."
+            },
+            "es": {
+              "title": "Capri Holdings vuelve a obtener beneficios gracias a los sólidos resultados de Michael Kors y Jimmy Choo",
+              "summary": "Capri Holdings volvió a obtener beneficios en el segundo trimestre, mientras que los ingresos cayeron un 5,5 % hasta los 809 millones de dólares, con el respaldo de Jimmy Choo y Michael Kors."
+            }
+          }
+        },
+        {
+          "id": "rtsd8l",
+          "title": "Sustainable fashion brand Reformation lifts full-year 2026 financial outlook",
+          "url": "https://fashionunited.com/news/business/sustainable-fashion-brand-reformation-lifts-full-year-2026-financial-outlook/2026110675595",
+          "source": "FashionUnited",
+          "published_at": "2026-11-06T04:14:51.000Z",
+          "ingested_at": "2026-11-06T13:04:40.641Z",
+          "snippet": "Reformation store  Credits: Reformation\n\nUS sustainable womenswear brand Reformation Inc. has reported a 19.1 percent increase in net revenue to 173.60 million dollars for the third quarter ended September 26, 2026, supported by expansion across retail channels and geographic regions.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.15,
+            "penalty": 0,
+            "matchedKeywords": [
+              "brand"
+            ]
+          },
+          "aiSummary": "Reformation raised its full-year 2026 outlook as third-quarter net revenue rose 19.1% to $173.6 million.",
+          "translations": {
+            "da": {
+              "title": "Det bæredygtige modemærke Reformation hæver forventningerne til hele regnskabsåret 2026",
+              "summary": "Reformation hævede sine forventninger til hele regnskabsåret 2026, efter at nettoomsætningen i tredje kvartal steg 19,1 % til 173,6 millioner dollar."
+            },
+            "es": {
+              "title": "La marca de moda sostenible Reformation eleva sus previsiones para el conjunto de 2026",
+              "summary": "Reformation elevó sus previsiones para el conjunto de 2026 tras aumentar un 19,1 % sus ingresos netos del tercer trimestre, hasta los 173,6 millones de dólares."
+            }
+          }
+        },
+        {
+          "id": "2savhi",
+          "title": "US resale platform ThredUp reports 7 percent revenue growth in Q3",
+          "url": "https://fashionunited.com/news/business/us-resale-platform-thredup-reports-7-percent-revenue-growth-in-q3/2026110575561",
+          "source": "FashionUnited",
+          "published_at": "2026-11-05T05:24:03.000Z",
+          "ingested_at": "2026-11-05T13:22:02.221Z",
+          "snippet": "ThredUp expands into live shopping with Whatnot Credits: ThredUp\n\nUS online second-hand fashion platform ThredUp has reported its financial results for the third quarter ended September 30, 2026, posting a 7 percent increase in revenue year-over-year (YoY) to 88.20 million dollars.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.15,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0.15,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "aiSummary": "ThredUp’s third-quarter revenue rose 7% year-on-year to $88.2 million.",
+          "translations": {
+            "da": {
+              "title": "Den amerikanske videresalgsplatform ThredUp melder om en omsætningsvækst på 7 procent i tredje kvartal",
+              "summary": "ThredUps omsætning steg 7 % fra året før til 88,2 millioner dollar i tredje kvartal."
+            },
+            "es": {
+              "title": "La plataforma estadounidense de reventa ThredUp registra un crecimiento de los ingresos del 7 % en el tercer trimestre",
+              "summary": "Los ingresos de ThredUp aumentaron un 7 % interanual, hasta los 88,2 millones de dólares, en el tercer trimestre."
+            }
+          }
+        },
+        {
+          "id": "agtuq1",
+          "title": "EXCLUSIVE: Raffles Hotels & Resorts Debuts First Global E-Commerce With Luxury Fashion, Accessories and Home",
+          "url": "https://wwd.com/home-design/home-decor/raffles-hotels-launches-luxury-e-shop-fashion-home-1239393032/",
+          "source": "WWD - Women's Wear Daily",
+          "published_at": "2026-11-02T12:00:00.000Z",
+          "ingested_at": "2026-11-02T13:41:18.063Z",
+          "snippet": "The platform includes exclusive collaborations with heritage brands like Ginori 1735, Christofle, Frette, Globe-Trotter and Smythson.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury",
+              "exclusive",
+              "brand",
+              "heritage"
+            ]
+          },
+          "aiSummary": "Raffles Hotels & Resorts launched its first global e-commerce platform, offering exclusive collaborations with brands including Ginori 1735 and Christofle.",
+          "translations": {
+            "da": {
+              "title": "EKSKLUSIVT: Raffles Hotels & Resorts lancerer sin første globale e-handelsplatform med luksusmode, accessories og boligprodukter",
+              "summary": "Raffles Hotels & Resorts har lanceret sin første globale e-handelsplatform med eksklusive samarbejder med brands som Ginori 1735 og Christofle."
+            },
+            "es": {
+              "title": "EXCLUSIVA: Raffles Hotels & Resorts lanza su primera plataforma global de comercio electrónico con moda de lujo, accesorios y artículos para el hogar",
+              "summary": "Raffles Hotels & Resorts ha lanzado su primera plataforma global de comercio electrónico, con colaboraciones exclusivas con marcas como Ginori 1735 y Christofle."
+            }
+          }
+        },
+        {
+          "id": "gwihox",
+          "title": "Palace Unveils Supersized London Flagship in Soho",
+          "url": "https://wwd.com/business-news/retail/palace-supersized-london-flagship-burberry-capsule-launch-1239399328/",
+          "source": "WWD - Women's Wear Daily",
+          "published_at": "2026-11-04T09:01:00.000Z",
+          "ingested_at": "2026-11-04T13:08:08.662Z",
+          "snippet": "The space will carry an in-store-only, 10-piece exclusive capsule collection with English heritage luxury brand Burberry.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0.2,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.2,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "luxury",
+              "brand",
+              "heritage",
+              "exclusive"
+            ]
+          },
+          "aiSummary": "Palace unveiled a supersized London flagship in Soho, featuring an in-store-only, 10-piece capsule collection with Burberry.",
+          "translations": {
+            "da": {
+              "title": "Palace åbner en ekstra stor flagshipbutik i Soho i London",
+              "summary": "Palace har åbnet en ekstra stor flagshipbutik i Soho i London med en 10-delt kapselkollektion med Burberry, som kun fås i butikken."
+            },
+            "es": {
+              "title": "Palace inaugura una flagship de grandes dimensiones en el Soho londinense",
+              "summary": "Palace ha inaugurado una flagship de grandes dimensiones en el Soho londinense, con una colección cápsula de 10 piezas junto a Burberry, disponible exclusivamente en la tienda."
+            }
+          }
+        }
+      ]
+    },
+    "Jewellery_Industry": {
+      "total": 277,
+      "top": [
+        {
+          "id": "eo1iha",
+          "title": "Pandora Raises 2026 Outlook as U.S. Sales Rebound",
+          "url": "https://www.jckonline.com/editorial-article/pandora-sales-rebound/",
+          "source": "JCK - Editorial",
+          "published_at": "2026-11-04T19:45:28.000Z",
+          "ingested_at": "2026-11-05T13:22:02.221Z",
+          "snippet": "Buoyed by improved sales in the United States and strong growth in Asia-Pacific, Pandora reported 6% organic revenue growth in the third quarter, prompting the jewelry giant to narrow its full-year forecast toward the upper end of its previous range. The company said on Nov. 4 that quarterly revenue rose 7% to 6.69 billion Danish…",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.05,
+            "insightSignalBoost": 0.1,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewelry"
+            ]
+          },
+          "aiSummary": "Pandora narrowed its full-year outlook toward the upper end of its previous range after third-quarter organic revenue grew 6%, supported by improved U.S. sales.",
+          "translations": {
+            "da": {
+              "title": "Pandora hæver forventningerne til 2026, efter at salget i USA er vendt tilbage",
+              "summary": "Pandora indsnævrede sine forventninger til hele året mod den øvre ende af det tidligere interval, efter at den organiske omsætning voksede 6 % i tredje kvartal, understøttet af forbedret salg i USA."
+            },
+            "es": {
+              "title": "Pandora eleva sus previsiones para 2026 tras la recuperación de las ventas en EE. UU.",
+              "summary": "Pandora ajustó sus previsiones para el año completo hacia el extremo superior del rango anterior, después de que los ingresos orgánicos crecieran un 6 % en el tercer trimestre, impulsados por la mejora de las ventas en EE. UU."
+            }
+          }
+        },
+        {
+          "id": "w6a5ax",
+          "title": "Jewellery retail giant reports slight sales decline",
+          "url": "https://www.jewellermagazine.com/Article/15618/Jewellery-retail-giant-reports-slight-sales-decline",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-11-02T13:00:00.000Z",
+          "ingested_at": "2026-11-03T12:54:40.157Z",
+          "snippet": "One of the world’s largest jewellery retailers has closed more than 200 stores as weaker sales in its largest market offset stronger demand in other regions.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.3,
+            "recencyScore": 0,
+            "sourceWeight": 0.1,
+            "keywordBoost": 0.15000000000000002,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller",
+              "retailer"
+            ]
+          },
+          "aiSummary": "One of the world’s largest jewellery retailers closed more than 200 stores as weaker sales in its largest market outweighed growth elsewhere.",
+          "translations": {
+            "da": {
+              "title": "Smykkekæmpe melder om et mindre fald i salget",
+              "summary": "En af verdens største smykkeforhandlere lukkede mere end 200 butikker, da svagere salg på det største marked opvejede væksten andre steder."
+            },
+            "es": {
+              "title": "El gigante de la joyería registra una leve caída de las ventas",
+              "summary": "Uno de los mayores minoristas de joyería del mundo cerró más de 200 tiendas, ya que las menores ventas en su principal mercado contrarrestaron el crecimiento en otros lugares."
+            }
+          }
+        },
+        {
+          "id": "xpdzir",
+          "title": "Lab-Grown Diamond Jewelry Sales Hit $23.8 Billion",
+          "url": "https://www.jckonline.com/editorial-article/lab-grown-jewelry-23-8-billion/",
+          "source": "JCK - Editorial",
+          "published_at": "2026-11-03T16:45:16.000Z",
+          "ingested_at": "2026-11-04T13:08:08.662Z",
+          "snippet": "Global retail sales of lab-grown diamond jewelry reached an estimated $23.8 billion in 2025, even as falling stone prices continued to reshape the economics of the business, according to a new report from diamond industry analyst Edahn Golan. Working in collaboration with Eyal Axelrod of Lexa International, Golan reported Nov. 1 that global production of…",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewelry",
+              "diamond"
+            ]
+          },
+          "aiSummary": "Global retail sales of lab-grown diamond jewellery reached an estimated $23.8 billion in 2025 as falling stone prices continued to reshape business economics.",
+          "translations": {
+            "da": {
+              "title": "Salget af smykker med laboratoriedyrkede diamanter nåede 23,8 mia. dollar",
+              "summary": "Det globale detailsalg af smykker med laboratoriedyrkede diamanter nåede anslået 23,8 mia. dollar i 2025, mens faldende diamantpriser fortsat ændrede branchens økonomi."
+            },
+            "es": {
+              "title": "Las ventas de joyería con diamantes cultivados en laboratorio alcanzaron los 23.800 millones de dólares",
+              "summary": "Las ventas minoristas mundiales de joyería con diamantes cultivados en laboratorio alcanzaron una cifra estimada de 23.800 millones de dólares en 2025, mientras la caída de los precios de las piedras seguía transformando la economía del sector."
+            }
+          }
+        },
+        {
+          "id": "w6lo70",
+          "title": "The Big Survey 2026: Buying & Selling",
+          "url": "https://instoremag.com/the-big-survey-2026-buying-selling/",
+          "source": "Instore Magazine",
+          "published_at": "2026-11-02T04:12:58.000Z",
+          "ingested_at": "2026-11-02T13:41:18.063Z",
+          "snippet": "Not only do buying and selling sum up what jewelry retailers do at the most basic level, but they also hint at what makes the business such sport: the informed bets on the right inventory and brands, and the thrill of the close. Here, jewelers share what they got right — and wrong.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.15000000000000002,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0.05,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewelry",
+              "retailer"
+            ]
+          },
+          "aiSummary": "Jewellers share buying and selling successes and mistakes in Instore Magazine’s Big Survey 2026, including inventory and brand choices.",
+          "translations": {
+            "da": {
+              "title": "Den store undersøgelse 2026: Køb og salg",
+              "summary": "Guldsmede deler deres succeser og fejl inden for køb og salg i Instore Magazines Big Survey 2026, herunder valg af varelager og mærker."
+            },
+            "es": {
+              "title": "La gran encuesta de 2026: compras y ventas",
+              "summary": "Los joyeros comparten sus aciertos y errores en compras y ventas en la Big Survey 2026 de Instore Magazine, incluidas sus decisiones sobre inventario y marcas."
+            }
+          }
+        },
+        {
+          "id": "ub1vbd",
+          "title": "Norqain launches at Harrods as part of UK and Ireland expansion",
+          "url": "https://www.retail-jeweller.com/news-and-insight/norqain-launches-at-harrods-as-part-of-uk-and-ireland-expansion-03-11-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-11-03T08:54:12.000Z",
+          "ingested_at": "2026-11-03T12:54:40.157Z",
+          "snippet": "Retail Jeweller\nNorqain launches at Harrods as part of UK and Ireland expansion\nIndependent Swiss watch brand Norqain has launched at luxury department store Harrods in Knightsbridge, London, as part of its ongoing expansion across the UK and Ireland.\nNorqain launches at Harrods as part of UK and Ireland expansion\nKate Rainford",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jeweller",
+              "watch"
+            ]
+          },
+          "aiSummary": "Swiss watch brand Norqain has launched at Harrods in London as part of its expansion across the UK and Ireland.",
+          "translations": {
+            "da": {
+              "title": "Norqain lancerer hos Harrods som led i ekspansionen i Storbritannien og Irland",
+              "summary": "Det schweiziske urmærke Norqain er lanceret hos Harrods i London som led i sin ekspansion i Storbritannien og Irland."
+            },
+            "es": {
+              "title": "Norqain llega a Harrods como parte de su expansión en el Reino Unido e Irlanda",
+              "summary": "La marca suiza de relojes Norqain ha llegado a Harrods, en Londres, como parte de su expansión en el Reino Unido e Irlanda."
+            }
+          }
+        },
+        {
+          "id": "bkq1es",
+          "title": "Dior expands Diorissima collection",
+          "url": "https://www.retail-jeweller.com/news-and-insight/dior-expands-diorissima-collection-04-11-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-11-04T09:01:37.000Z",
+          "ingested_at": "2026-11-04T13:08:08.662Z",
+          "snippet": "Retail Jeweller\nDior expands Diorissima collection\nLuxury fashion house Dior has unveiled the second chapter of its Diorissima high jewellery collection, designed by Victoire de Castellane, artistic director of Dior Joaillerie.\nDior expands Diorissima collection\nKate Rainford",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jewellery",
+              "jeweller"
+            ]
+          },
+          "aiSummary": "Dior has unveiled the second chapter of its Diorissima high jewellery collection, designed by Dior Joaillerie artistic director Victoire de Castellane.",
+          "translations": {
+            "da": {
+              "title": "Dior udvider Diorissima-kollektionen",
+              "summary": "Dior har løftet sløret for andet kapitel i sin haute joaillerie-kollektion Diorissima, designet af Victoire de Castellane, kunstnerisk leder for Dior Joaillerie."
+            },
+            "es": {
+              "title": "Dior amplía la colección Diorissima",
+              "summary": "Dior ha presentado el segundo capítulo de su colección de alta joyería Diorissima, diseñada por Victoire de Castellane, directora artística de Dior Joaillerie."
+            }
+          }
+        },
+        {
+          "id": "xzkaue",
+          "title": "Gerald Charles opens first shop-in-shop in Taiwan",
+          "url": "https://www.retail-jeweller.com/news-and-insight/gerald-charles-opens-first-shop-in-shop-in-taiwan-02-11-2026/",
+          "source": "Retail Jeweller UK",
+          "published_at": "2026-11-02T08:30:33.000Z",
+          "ingested_at": "2026-11-02T13:41:18.063Z",
+          "snippet": "Retail Jeweller\nGerald Charles opens first shop-in-shop in Taiwan\nSwiss watch brand Gerald Charles has opened its first shop-in-shop in Taiwan, located within Chung Mei Watch’s Nanjing store in Taipei, just ten months after entering the market.\nGerald Charles opens first shop-in-shop in Taiwan\nKate Rainford",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0.1,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0.1,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": [
+              "jeweller",
+              "watch"
+            ]
+          },
+          "aiSummary": "Gerald Charles opened its first Taiwan shop-in-shop at Chung Mei Watch’s Nanjing store in Taipei, ten months after entering the market.",
+          "translations": {
+            "da": {
+              "title": "Gerald Charles åbner sin første shop-in-shop i Taiwan",
+              "summary": "Gerald Charles åbnede sin første shop-in-shop i Taiwan hos Chung Mei Watch i Nanjing-butikken i Taipei, ti måneder efter at have indtaget markedet."
+            },
+            "es": {
+              "title": "Gerald Charles abre su primer espacio shop-in-shop en Taiwán",
+              "summary": "Gerald Charles abrió su primer espacio shop-in-shop en Taiwán en la tienda de Chung Mei Watch en Nanjing, Taipéi, diez meses después de entrar en el mercado."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "oneSentenceSummary": "TikTok and Walmart are taking charge of the shop window. Jewellers are becoming guests in someone else's store.",
+  "keyThemes": [
+    "Anthropic revenue growth",
+    "TikTok Shop app",
+    "DoorDash Instacart acquisition",
+    "Pandora 2026 outlook",
+    "Lab-grown diamond sales"
+  ],
+  "editorialTake": "I think luxury brands should treat platform checkout as a margin decision before treating it as a growth opportunity. The risk is paying for access without earning a customer relationship.\n\nTikTok’s standalone Shop app offers exclusive deals and checkout, while Walmart’s Sparky is adding visual recognition and cart generation. Both put more of the purchase inside a retailer’s interface. Palace’s in-store-only Burberry capsule offers an alternative, but exclusivity alone does not establish how a brand earns visibility inside a shopping app.\n\nNext quarter, I would test one jewellery collection through a platform and measure contribution after fees and returns. Keep an exclusive assortment on owned channels to compare repeat purchases against the same period’s platform buyers, rather than judging the trial on gross sales.",
+  "coverImageUrl": "/weekly-images/2026-W45.png",
+  "coverImageAlt": "Weekly cover illustration for 2026-W45"
+}

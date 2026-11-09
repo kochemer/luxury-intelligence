@@ -1160,5 +1160,24 @@
     "cached_at": "2026-10-26T12:57:41.941Z",
     "model": "gpt-6-luna",
     "version": "3.2"
+  },
+  "2026-W45:a1726ecf3e93": {
+    "keyThemes": [
+      "Anthropic revenue growth",
+      "TikTok Shop app",
+      "DoorDash Instacart acquisition",
+      "Pandora 2026 outlook",
+      "Lab-grown diamond sales"
+    ],
+    "oneSentenceSummary": "TikTok and Walmart are taking charge of the shop window. Jewellers are becoming guests in someone else's store.",
+    "summaryCandidates": [
+      "Google's cheaper AI videos will flood jewellery feeds with lookalike ads. Looking expensive is about to get painfully cheap.",
+      "Revolve sold 20% more and made less money. Luxury bosses chasing sales have the wrong target.",
+      "Capri is back in profit. Luxury's obsession with the next hot brand leaves money on the table.",
+      "TikTok and Walmart are taking charge of the shop window. Jewellers are becoming guests in someone else's store."
+    ],
+    "cached_at": "2026-11-09T16:03:05.429Z",
+    "model": "gpt-6-luna",
+    "version": "3.2"
   }
 }

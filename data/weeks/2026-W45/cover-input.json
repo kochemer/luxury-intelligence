@@ -1,0 +1,39 @@
+{
+  "weekLabel": "2026-W45",
+  "homepageTopArticles": [
+    {
+      "title": "Growth across all regions: Pandora reports solid third-quarter sales increase",
+      "topic": "Luxury & Consumer",
+      "source": "FashionUnited",
+      "snippet": "Pandora flagship store in Copenhagen Image: Pandora\n\nDanish jewellery retailer Pandora A/S has further increased its revenue in the third quarter of the 2026 financial year, despite challenging market conditions. Profit was also higher than in the prior-year period, according to an interim report published by the company on Wednesday.",
+      "aiSummary": "Pandora increased third-quarter revenue across all regions in 2026, with profit also rising from a year earlier despite challenging market conditions."
+    },
+    {
+      "title": "Revolve’s Q3 Profits Slip Despite 20% Sales Increase",
+      "topic": "Luxury & Consumer",
+      "source": "WWD - Business News",
+      "snippet": "But logistics costs contributed to lower profits at the e-commerce company targeting Millennials and Gen Z.",
+      "aiSummary": "Revolve’s Q3 profits fell despite a 20% sales increase, with logistics costs contributing to the decline."
+    },
+    {
+      "title": "Pandora Raises 2026 Outlook as U.S. Sales Rebound",
+      "topic": "Jewellery Industry",
+      "source": "JCK - Editorial",
+      "snippet": "Buoyed by improved sales in the United States and strong growth in Asia-Pacific, Pandora reported 6% organic revenue growth in the third quarter, prompting the jewelry giant to narrow its full-year forecast toward the upper end of its previous range. The company said on Nov. 4 that quarterly revenue rose 7% to 6.69 billion Danish…",
+      "aiSummary": "Pandora narrowed its full-year outlook toward the upper end of its previous range after third-quarter organic revenue grew 6%, supported by improved U.S. sales."
+    },
+    {
+      "title": "What DoorDash’s proposed acquisition of Instacart means for Uber, Amazon and the rest of the quick commerce space",
+      "topic": "Ecommerce & Retail Tech",
+      "source": "Modern Retail",
+      "snippet": "The race to be the go-to platform for shoppers when they want products delivered quickly is about to get a lot more cutthroat after DoorDash announced its intent to acquire Instacart last week. Here's what it means for the quick commerce space, and other formidable players like Uber and Amazon.",
+      "aiSummary": "DoorDash announced plans to acquire Instacart, intensifying competition with Uber and Amazon for shoppers seeking fast delivery."
+    }
+  ],
+  "chosenStory": "Pandora Raises 2026 Outlook as U.S. Sales Rebound",
+  "model": "gpt-image-2.5-sunburst",
+  "finalPrompt": "Candid documentary photograph, shot on a real camera: A jeweller’s private viewing desk in daylight, pale oak beneath a plain limestone wall. In the middle of the frame, lower half, a small open ivory leather bracelet case has a stout steel spring extending from its base, lifting its linen cushion like a jack-in-the-box. A silver bracelet with plain silver charms encircles the cushion. The case occupies less than a third of the width. Slight leather wear, natural shadows, no writing, no people.\n\nCRITICAL CONSTRAINTS (must be strictly avoided):\n- people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette, text, letters, numbers, signage, labels, price tags, screens, UI, dashboards, holograms, floating icons, watermarks, unrelated brand logos, cartoon, illustration, CGI, 3D render, anime, video game render, AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed, diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone, dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh\n\nThis must look like a genuine photograph taken by a person for a magazine — NOT AI-generated, not CGI, not a 3D render. Natural available light with real shadows and true reflections. Real materials with real texture: dust, wear, fingerprints, slight clutter, small imperfections and natural asymmetry. Slightly imperfect, candid framing. Avoid the AI look — no waxy/plastic surfaces, no over-smoothing, no over-saturation or HDR glow, no glossy studio perfection. Fill the entire frame edge to edge — no black bars, no empty edges.\n\nFraming: the subject of the photo is small and sits in the middle of the frame from left to right and in the lower half from top to bottom, with calm, empty background in the top third and generous space on both sides. Nothing important near the left or right edges or the top of the frame.\n\nDo not include: any people or human body parts; any text, labels, signage, screens, UI, or logos; diamonds or gemstones; CGI lighting, dramatic spotlights, or blurred vignette backgrounds.",
+  "imageSize": "1536x1024",
+  "outputPath": "/weekly-images/2026-W45.png",
+  "generatedAt": "2026-11-09T16:08:54.151Z"
+}

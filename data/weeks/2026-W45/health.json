@@ -1,0 +1,82 @@
+{
+  "digestWeek": "2026-W45",
+  "ingestionWeek": "2026-W45",
+  "startedAt": "2026-11-09T15:42:32.232Z",
+  "finishedAt": "2026-11-09T16:08:54.157Z",
+  "steps": [
+    {
+      "name": "rss",
+      "ok": true,
+      "startedAt": "2026-11-09T15:42:32.254Z",
+      "finishedAt": "2026-11-09T15:43:51.671Z"
+    },
+    {
+      "name": "pages",
+      "ok": true,
+      "startedAt": "2026-11-09T15:43:51.671Z",
+      "finishedAt": "2026-11-09T15:43:53.384Z"
+    },
+    {
+      "name": "discovery",
+      "ok": true,
+      "startedAt": "2026-11-09T15:43:53.389Z",
+      "finishedAt": "2026-11-09T16:00:54.440Z"
+    },
+    {
+      "name": "classification",
+      "ok": true,
+      "startedAt": "2026-11-09T16:00:54.440Z",
+      "finishedAt": "2026-11-09T16:00:54.705Z"
+    },
+    {
+      "name": "digest",
+      "ok": true,
+      "startedAt": "2026-11-09T16:00:54.705Z",
+      "finishedAt": "2026-11-09T16:03:23.755Z"
+    },
+    {
+      "name": "email",
+      "ok": true,
+      "startedAt": "2026-11-09T16:03:23.756Z",
+      "finishedAt": "2026-11-09T16:04:11.882Z"
+    },
+    {
+      "name": "podcast",
+      "ok": true,
+      "startedAt": "2026-11-09T16:04:11.882Z",
+      "finishedAt": "2026-11-09T16:07:43.020Z"
+    },
+    {
+      "name": "cover",
+      "ok": true,
+      "startedAt": "2026-11-09T16:07:43.020Z",
+      "finishedAt": "2026-11-09T16:08:54.154Z"
+    }
+  ],
+  "health": {
+    "warnings": [
+      "AI & Strategy: the-decoder.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Luxury & Consumer: fashionunited.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Luxury & Consumer: wwd.com represents 42.9% (3/7) - exceeds 40% threshold",
+      "Jewellery Industry: www.retail-jeweller.com represents 42.9% (3/7) - exceeds 40% threshold"
+    ],
+    "metrics": {
+      "paywallPercent": 0,
+      "podcastWordCount": 2380
+    }
+  },
+  "contentQuality": {
+    "ok": true,
+    "errors": [],
+    "summaryCoverage": 1,
+    "selectedCount": 28,
+    "summarizedCount": 28,
+    "hasCover": true,
+    "hasInsight": true,
+    "themeCount": 5
+  },
+  "versions": {
+    "node": "v20.20.2",
+    "gitCommit": "a06fde5dbbba273b9a0f34db9d452286ddfc76d3"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "week": "2026-W45",
+  "generatedAt": "2026-11-09T16:04:11.881Z",
+  "weeklyQuote": "TikTok and Walmart are taking charge of the shop window. Jewellers are becoming guests in someone else's store.",
+  "editorialTake": "I think luxury brands should treat platform checkout as a margin decision before treating it as a growth opportunity. The risk is paying for access without earning a customer relationship.\n\nTikTok’s standalone Shop app offers exclusive deals and checkout, while Walmart’s Sparky is adding visual recognition and cart generation. Both put more of the purchase inside a retailer’s interface. Palace’s in-store-only Burberry capsule offers an alternative, but exclusivity alone does not establish how a brand earns visibility inside a shopping app.\n\nNext quarter, I would test one jewellery collection through a platform and measure contribution after fees and returns. Keep an exclusive assortment on owned channels to compare repeat purchases against the same period’s platform buyers, rather than judging the trial on gross sales.",
+  "readOneThing": {
+    "title": "What DoorDash’s proposed acquisition of Instacart means for Uber, Amazon and the rest of the quick commerce space",
+    "url": "https://www.modernretail.co/operations/what-doordashs-proposed-acquisition-of-instacart-means-for-uber-amazon-and-the-rest-of-the-quick-commerce-space/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss"
+  },
+  "items": [
+    {
+      "rank": 1,
+      "title": "What DoorDash’s proposed acquisition of Instacart means for Uber, Amazon and the rest of the quick commerce space",
+      "url": "https://www.modernretail.co/operations/what-doordashs-proposed-acquisition-of-instacart-means-for-uber-amazon-and-the-rest-of-the-quick-commerce-space/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+      "source": "Modern Retail",
+      "bullets": [
+        "DoorDash announced a proposed $17 billion acquisition of Instacart last week, following several years of expansion beyond restaurant delivery.",
+        "The two platforms account for 77% of consumer spending on U.S. delivery platforms, according to market research company Consumer Edge.",
+        "Amazon launched its 30-minute delivery service, Amazon Now, in May and now operates it in dozens of major U.S. cities."
+      ],
+      "summary": "DoorDash announced plans to acquire Instacart, intensifying competition with Uber and Amazon for shoppers seeking fast delivery."
+    },
+    {
+      "rank": 2,
+      "title": "OpenAI to acquire developer tools firm Pierre to expand Codex capabilities ",
+      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/openai-to-acquire-developer-tools-firm-pierre-to-expand-codex-capabilities/articleshow/135556193.cms",
+      "source": "Economic Times - Technology",
+      "bullets": [
+        "OpenAI announced a deal to bring Pierre Computer Company's team and technology into its developer ecosystem, subject to regulatory approvals.",
+        "Pierre's open-source projects will remain open-source, and existing customers will retain access to Code Storage after the acquisition closes.",
+        "Earlier this week, OpenAI detailed Pando, an internal source control backend built for its engineers and AI agents."
+      ],
+      "summary": "OpenAI will acquire open-source coding tools developer Pierre Computer Company to expand Codex’s software development capabilities."
+    },
+    {
+      "rank": 3,
+      "title": "Growth across all regions: Pandora reports solid third-quarter sales increase",
+      "url": "https://fashionunited.com/news/business/growth-across-all-regions-pandora-reports-solid-third-quarter-sales-increase/2026110475543",
+      "source": "FashionUnited",
+      "bullets": [
+        "Pandora reported third-quarter 2026 revenue of 6.69 billion Danish kroner, up 7 percent year over year despite challenging market conditions.",
+        "Operating profit increased 21 percent to 1.06 billion Danish kroner as the gross margin rose to 83.7 percent from 79.3 percent.",
+        "Management narrowed its full-year organic revenue growth forecast to 2 to 3 percent and raised its 2027 EBIT margin guidance to 14 to 15 percent."
+      ],
+      "summary": "Pandora increased third-quarter revenue across all regions in 2026, with profit also rising from a year earlier despite challenging market conditions."
+    },
+    {
+      "rank": 4,
+      "title": "TikTok quietly launches a stand-alone TikTok Shop app",
+      "url": "https://techcrunch.com/2026/11/05/tiktok-quietly-launches-a-standalone-tiktok-shop-app/",
+      "source": "TechCrunch - Commerce",
+      "bullets": [
+        "TikTok Shop is now available as a separate download on iOS and Android in Singapore, Malaysia, Thailand, and the Philippines.",
+        "The app supports purchases through livestreams and short videos, and advertises free shipping offers and exclusive first-order benefits.",
+        "Amazon previously introduced Inspire, a TikTok-like short-video feed designed to keep consumers on its platform and drive purchases."
+      ],
+      "summary": "TikTok has launched a standalone TikTok Shop app with app-exclusive deals and in-app checkout."
+    },
+    {
+      "rank": 5,
+      "title": "Dropbox acquires Tigris Data for $350M to bolster its AI infrastructure",
+      "url": "https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/",
+      "source": "TechCrunch - AI",
+      "bullets": [
+        "Dropbox announced an agreement to buy Tigris Data to support DBX Agent Cloud, a new storage platform for AI developers.",
+        "The $350 million transaction is expected to close in the fourth quarter of 2026, with no acquisition-related headcount reductions currently planned.",
+        "Separately, Dropbox’s updated AI experience has reached more than 70,000 teams, with broader availability planned for 2027."
+      ],
+      "summary": "Dropbox acquired Tigris Data for $350 million to support DBX Agent Cloud, a storage platform for developers building AI models and agents."
+    },
+    {
+      "rank": 6,
+      "title": "Walmart ramps up Sparky features in time for the holidays",
+      "url": "https://www.retaildive.com/news/walmart-sparky-features-AI-holidays/873718/",
+      "source": "Retail Dive",
+      "bullets": [
+        "Walmart updated its Sparky AI assistant to convert digital or handwritten shopping lists into shopping carts and provide product suggestions from uploaded images.",
+        "Walmart CEO John Furner said in August that customers using Sparky spend 40% more per order than shoppers who do not.",
+        "As Sparky expands to Mexico and Canada, Walmart is adding Spanish and French recognition and expects chainwide voice recognition by year-end."
+      ],
+      "summary": "Walmart is adding visual recognition and cart generation to its Sparky AI assistant for holiday shopping online and in stores."
+    }
+  ]
+}

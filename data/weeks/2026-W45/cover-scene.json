@@ -1,0 +1,21 @@
+{
+  "chosenStory": "Pandora Raises 2026 Outlook as U.S. Sales Rebound",
+  "whyThisStory": "Pandora’s sales rebound offers a recognisable jewellery-world setup with a physical punchline, unlike the broader growth report or the less cover-friendly logistics and delivery stories.",
+  "concept": "the-bracelet-box-bounces-back",
+  "setting": "a jeweller’s private viewing desk",
+  "primaryHumorDriver": "visual punchline",
+  "secondaryEnhancer": "implied motion or just happened moment",
+  "sceneDescription": "A jewellery case has sprung open like a jack-in-the-box, raising its bracelet cushion on a spring: Pandora’s sales rebound has apparently reached the presentation boxes. On a pale oak private viewing desk, an open ivory leather bracelet case contains one unexpectedly extended steel coil supporting its linen insert, with a plain silver charm bracelet securely wrapped around it. The lid rests tipped back behind the spring. Everything else is quietly respectable, and nobody is present.",
+  "finalImagePrompt": "A jeweller’s private viewing desk in daylight, pale oak beneath a plain limestone wall. In the middle of the frame, lower half, a small open ivory leather bracelet case has a stout steel spring extending from its base, lifting its linen cushion like a jack-in-the-box. A silver bracelet with plain silver charms encircles the cushion. The case occupies less than a third of the width. Slight leather wear, natural shadows, no writing, no people.",
+  "negativePrompt": [
+    "people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette",
+    "text, letters, numbers, signage, labels, price tags",
+    "screens, UI, dashboards, holograms, floating icons",
+    "watermarks, unrelated brand logos",
+    "cartoon, illustration, CGI, 3D render, anime, video game render",
+    "AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed",
+    "diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone",
+    "dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh"
+  ],
+  "confidence": 0.6699999999999999
+}
