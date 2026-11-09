@@ -210,10 +210,12 @@ jargon ("spending permissions are becoming a merchandising decision").
   The automatic jargon (`findJargon`) and readability checks run only on the
   take, because `findStyleProblems` gates social posts and summaries where
   words like "checkout" are fine. Do not add jargon to `findStyleProblems`.
-- **Readability threshold** (`MAX_FK_GRADE` 9, `MAX_AVG_SENTENCE_WORDS` 17):
+- **Readability threshold** (`MAX_FK_GRADE` 10.5, `MAX_AVG_SENTENCE_WORDS` 17):
   calibrated on W35-W45. Old takes scored FK grade 10.6-15.1 and 15-30 words per
-  sentence; the owner's target example scored 5.9 and 11.1. Numbers are in the
-  comment in `takeChecks.ts`.
+  sentence; the owner's target example scored 5.9 and 11.1. First set at 9, then
+  raised to 10.5 the same day: brand names inflate the syllable count, so plainly
+  written round-2 samples scored 9.3-10.0 and the fix pass churned on them.
+  Numbers are in the comment in `takeChecks.ts`.
 - **New weeks only.** No committed digest was regenerated. Old takes keep their
   text; only the label and signature changed, because they come from components.
   Guard: an existing digest with a take and no `editorialTakeFormat` is kept on

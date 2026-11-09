@@ -138,10 +138,13 @@ export function readability(text: string): Readability {
  *   W40 11.6/17.6, W41 14.0/17.3, W42 14.2/18.0, W43 11.9/15.3, W45 12.5/17.7
  *   (all 10 old takes are above grade 10.5; 9 of 10 average over 17 words).
  * - W45 target example (split format): 5.9 / 11.1.
- * Threshold: grade 9 (the example passes by 3 points, every old take fails) and
+ * Threshold: grade 10.5 (every old take fails, the example passes by 4.6) and
  * average sentence 17 words (owner asked for about 15; 9 of 10 old takes fail).
+ * Raised from 9 on 2026-11-09 after the round-2 dry run: brand and product
+ * names (Commerce Hub, Anthropic, Givenchy) add syllables, so plainly written
+ * takes scored 9.3-10.0 and the fix pass churned on them without helping.
  */
-export const MAX_FK_GRADE = 9;
+export const MAX_FK_GRADE = 10.5;
 export const MAX_AVG_SENTENCE_WORDS = 17;
 
 export function readabilityProblems(text: string): string[] {
