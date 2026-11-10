@@ -27,6 +27,8 @@ const CACHE_FILENAMES: Record<string, string> = {
   scene_director: 'scene_director.json',
   classification: 'classification.json',
   query_director: 'query_director.json',
+  selection_triage: 'selection_triage.json',
+  selection_judge: 'selection_judge.json',
 };
 
 // Old paths for backward compatibility (relative to DATA_DIR)

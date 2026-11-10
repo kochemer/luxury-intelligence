@@ -120,6 +120,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `video/` | Older FFmpeg-based video clip composer |
 | `video-short/` | Weekly 60s short; its own package, isolated from the root build |
 | `scoring/` | Article relevance scoring utilities |
+| `selection/` | Selection funnel v2 (top 7 per category): hard filters, story clusters, LLM triage, shortlist, full text, quality judge, editor pick. Design: `docs/superpowers/specs/2026-11-10-selection-funnel-design.md` |
 | `config/` | Static config (`jewelleryCompanies.ts`) |
 | `drizzle/` | Generated SQL migrations + snapshots (`npx drizzle-kit generate`); don't hand-edit |
 | `assets/` | Source audio for the podcast (see `assets/audio/README.md`) |
