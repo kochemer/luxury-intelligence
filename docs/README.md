@@ -162,7 +162,8 @@ when you verify or rewrite a doc.
 | `docs/superpowers/specs/2026-10-04-markets-pages-design.md` | Markets pages design | current | 2026-11-09 |
 | `docs/superpowers/specs/2026-10-14-social-content-plan.md` | What we post where on LinkedIn, X, YouTube, Spotify; automation design and phases | current (Phase 1 built) | 2026-10-14 |
 | `docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md` | /analytics Amplitude sections (returning, engagement, replays, social, vitals) and the weekly insights agent; what the Amplitude data can and can't do | built 2026-10-17 (differences in its `Status:` line) | 2026-10-17 |
-| `docs/superpowers/specs/2026-11-10-selection-funnel-design.md` | Selection funnel v2: how the top 7 per category are chosen (filters, clusters, triage, full-text judge, editor pick) | being built on `agent/selection-funnel` | 2026-11-10 |
+| `docs/superpowers/specs/2026-11-10-selection-funnel-design.md` | Selection funnel v2: how the top 7 per category are chosen (filters, clusters, triage, full-text judge, editor pick) | shipped in the selection-funnel PR, default `SELECTION_FUNNEL=v2` | 2026-11-10 |
+| `docs/selection-funnel.html` | One-page visual of the v2 selection funnel with W45 numbers per stage (open in a browser) | snapshot of W45, update numbers only if the stages change | 2026-11-10 |
 | `docs/analytics/measurement-plan.md` | Analytics events and attribution (§5 notes where the implementation differs) | reference | 2026-10-17 |
 | `docs/PAYWALL_AWARE_SELECTION.md` | Paywall detection in selection | reference | 2026-01-18 |
 | `docs/PODCAST_SCRIPT_LENGTH_IMPROVEMENTS.md` | Jan 2026 problem analysis for podcast length | historical | 2026-01-18 |
