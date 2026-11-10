@@ -243,6 +243,7 @@ ol{list-style:none;padding:0;margin:0}ol li{display:flex;gap:10px;padding:8px;bo
 .muted{color:var(--mut);font-size:.85rem}.call{border-top:1px solid var(--line);margin-top:8px;padding-top:4px}details summary{cursor:pointer;font-weight:600;margin-top:10px}ul{margin:.2rem 0;padding-left:1.2rem}
 </style></head><body><main><h1>Selection compare, ${escapeHtml(week)}</h1>
 <p>A = <b>${escapeHtml(labelA)}</b>, B = <b>${escapeHtml(labelB)}</b>. Categories won: ${escapeHtml(labelA)} ${overall.winner.A}, ${escapeHtml(labelB)} ${overall.winner.B}, tie ${overall.winner.tie}. Top 5 better: ${escapeHtml(labelA)} ${overall.top5.A}, ${escapeHtml(labelB)} ${overall.top5.B}, tie ${overall.top5.tie}. Judge: ${escapeHtml(report.judgeModel)}, order randomised and swapped. Highlighted rows appear in only one list.</p>
+${String(report.bPath ?? '').includes('v2-funnel') ? `<p class="banner"><b>Caveat:</b> the legacy published list carries AI summaries (aiSummary) while this v2 list was built in funnel-only mode and carries source snippets only, so the judge sees less text for v2.</p>` : ''}
 ${cats}</main></body></html>`;
 }
 
