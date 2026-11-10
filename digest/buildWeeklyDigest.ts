@@ -5,6 +5,7 @@ import { DateTime } from 'luxon';
 import { getWeekRangeCET } from '../lib/utils/weekCET';
 import { classifyTopic } from '../classification/classifyTopics';
 import { rerankArticles } from './rerankArticles';
+import { runSelectionFunnel } from '../selection/runFunnel';
 import type { Article, ArticleWithRelevance, RelevanceScore, Topic, WeeklyDigest } from '../lib/types';
 
 // Re-export WeeklyDigest for backward compatibility
@@ -109,6 +110,14 @@ const LOW_SIGNAL_MARKERS = [
   "sponsored", "press release", "advertorial", "advertisement", "promoted",
   "paid content", "sponsored content", "ad", "promo"
 ];
+const LOW_SIGNAL_REGEXES = LOW_SIGNAL_MARKERS.map(
+  m => new RegExp(`(^|[^a-z0-9])${m.replace(/ /g, '\\s+')}([^a-z0-9]|$)`, 'i')
+);
+
+/** Number of low-signal markers present as whole words/phrases ("trade", "head", "already" do not count as "ad"). */
+export function countLowSignalMarkers(text: string): number {
+  return LOW_SIGNAL_REGEXES.filter(re => re.test(text)).length;
+}
 
 // Keyword boost per match (small boost)
 const KEYWORD_BOOST_PER_MATCH = 0.05;
@@ -131,7 +140,7 @@ function normalizeTitle(title: string): string {
  * Deduplicate articles within a topic by normalized title,
  * keeping the newest published_at. 
  */
-function dedupeArticles(articles: Article[]): Article[] {
+export function dedupeArticles(articles: Article[]): Article[] {
   const map = new Map<string, Article>();
   for (const art of articles) {
     const normTitle = normalizeTitle(art.title);
@@ -148,6 +157,13 @@ function dedupeArticles(articles: Article[]): Article[] {
     }
   }
   return Array.from(map.values());
+}
+
+/** The v2 funnel's input pool: in-week articles, URL dedupe then exact-title dedupe. Shared with scripts/selectionCompare.ts. */
+export function buildSelectionPool(eligibleArticles: Article[]): Article[] {
+  const byUrl = new Map<string, Article>();
+  for (const a of eligibleArticles) if (!byUrl.has(a.url)) byUrl.set(a.url, a);
+  return dedupeArticles(Array.from(byUrl.values()));
 }
 
 // RelevanceScore and ArticleWithRelevance are now imported from @/lib/types
@@ -232,8 +248,7 @@ function calculateInsightSignalBoost(article: Article): number {
  */
 function calculatePenalty(article: Article): number {
   const text = `${article.title} ${article.snippet || ''}`.toLowerCase();
-  const matches = LOW_SIGNAL_MARKERS.filter(marker => text.includes(marker.toLowerCase()));
-  return matches.length * LOW_SIGNAL_PENALTY;
+  return countLowSignalMarkers(text) * LOW_SIGNAL_PENALTY;
 }
 
 /**
@@ -497,60 +512,92 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
 
   const eligibleArticles = filterToWeekWindow(articles, weekStart, weekEnd);
   
-  // Classify articles and group by topic
-  const byTopic: Record<Topic, Article[]> = {
-    "AI_and_Strategy": [],
-    "Ecommerce_Retail_Tech": [],
-    "Luxury_and_Consumer": [],
-    "Jewellery_Industry": [],
-  };
-  
-  let droppedOffTopic = 0;
-  for (const article of eligibleArticles) {
-    const topic = classifyTopic(article);
-    if (topic) byTopic[topic].push(article);
-    else droppedOffTopic++; // no topical signal → excluded from the digest
-  }
-  if (droppedOffTopic > 0) {
-    console.log(`[buildWeeklyDigest] Dropped ${droppedOffTopic} off-topic article(s) with no category signal`);
+  const funnelMode = (process.env.SELECTION_FUNNEL || 'v2').trim().toLowerCase();
+  let totals: WeeklyDigest['totals'] | undefined;
+  let topics: WeeklyDigest['topics'] | undefined;
+
+  if (funnelMode !== 'legacy') {
+    try {
+      // Pool: in-week articles, URL dedupe then exact-title dedupe. Includes articles the
+      // keyword classifier rejects: triage assigns the category, the classifier is only a hint.
+      const pool = buildSelectionPool(eligibleArticles);
+      const { output, totalsByTopic } = await runSelectionFunnel(weekLabel, pool);
+      totals = {
+        total: eligibleArticles.length,
+        byTopic: {
+          AIStrategy: totalsByTopic.AI_and_Strategy,
+          EcommerceRetail: totalsByTopic.Ecommerce_Retail_Tech,
+          LuxuryConsumer: totalsByTopic.Luxury_and_Consumer,
+          Jewellery: totalsByTopic.Jewellery_Industry,
+        },
+      };
+      topics = {
+        AI_and_Strategy: { total: totalsByTopic.AI_and_Strategy, top: output.AI_and_Strategy },
+        Ecommerce_Retail_Tech: { total: totalsByTopic.Ecommerce_Retail_Tech, top: output.Ecommerce_Retail_Tech },
+        Luxury_and_Consumer: { total: totalsByTopic.Luxury_and_Consumer, top: output.Luxury_and_Consumer },
+        Jewellery_Industry: { total: totalsByTopic.Jewellery_Industry, top: output.Jewellery_Industry },
+      };
+    } catch (err) {
+      console.error(`[Selection] v2 failed, falling back to legacy: ${(err as Error)?.stack || err}`);
+    }
   }
 
-  // Deduplicate articles within each topic
-  for (const topicKey of Object.keys(byTopic) as Topic[]) {
-    byTopic[topicKey] = dedupeArticles(byTopic[topicKey]);
+  if (!totals || !topics) {
+    // Classify articles and group by topic
+    const byTopic: Record<Topic, Article[]> = {
+      "AI_and_Strategy": [],
+      "Ecommerce_Retail_Tech": [],
+      "Luxury_and_Consumer": [],
+      "Jewellery_Industry": [],
+    };
+  
+    let droppedOffTopic = 0;
+    for (const article of eligibleArticles) {
+      const topic = classifyTopic(article);
+      if (topic) byTopic[topic].push(article);
+      else droppedOffTopic++; // no topical signal → excluded from the digest
+    }
+    if (droppedOffTopic > 0) {
+      console.log(`[buildWeeklyDigest] Dropped ${droppedOffTopic} off-topic article(s) with no category signal`);
+    }
+
+    // Deduplicate articles within each topic
+    for (const topicKey of Object.keys(byTopic) as Topic[]) {
+      byTopic[topicKey] = dedupeArticles(byTopic[topicKey]);
+    }
+  
+    // Build totals (after deduplication)
+    totals = {
+      total: eligibleArticles.length,
+      byTopic: {
+        AIStrategy: byTopic["AI_and_Strategy"].length,
+        EcommerceRetail: byTopic["Ecommerce_Retail_Tech"].length,
+        LuxuryConsumer: byTopic["Luxury_and_Consumer"].length,
+        Jewellery: byTopic["Jewellery_Industry"].length,
+      },
+    };
+  
+    // Build topics structure with top N articles (with relevance scores)
+    topics = {
+      AI_and_Strategy: {
+        total: byTopic["AI_and_Strategy"].length,
+        top: await selectTopN(byTopic["AI_and_Strategy"], TOP_N, "AI_and_Strategy", weekStart, weekEnd, weekLabel),
+      },
+      Ecommerce_Retail_Tech: {
+        total: byTopic["Ecommerce_Retail_Tech"].length,
+        top: await selectTopN(byTopic["Ecommerce_Retail_Tech"], TOP_N, "Ecommerce_Retail_Tech", weekStart, weekEnd, weekLabel),
+      },
+      Luxury_and_Consumer: {
+        total: byTopic["Luxury_and_Consumer"].length,
+        top: await selectTopN(byTopic["Luxury_and_Consumer"], TOP_N, "Luxury_and_Consumer", weekStart, weekEnd, weekLabel),
+      },
+      Jewellery_Industry: {
+        total: byTopic["Jewellery_Industry"].length,
+        top: await selectTopN(byTopic["Jewellery_Industry"], TOP_N, "Jewellery_Industry", weekStart, weekEnd, weekLabel),
+      },
+    };
   }
-  
-  // Build totals (after deduplication)
-  const totals = {
-    total: eligibleArticles.length,
-    byTopic: {
-      AIStrategy: byTopic["AI_and_Strategy"].length,
-      EcommerceRetail: byTopic["Ecommerce_Retail_Tech"].length,
-      LuxuryConsumer: byTopic["Luxury_and_Consumer"].length,
-      Jewellery: byTopic["Jewellery_Industry"].length,
-    },
-  };
-  
-  // Build topics structure with top N articles (with relevance scores)
-  const topics = {
-    AI_and_Strategy: {
-      total: byTopic["AI_and_Strategy"].length,
-      top: await selectTopN(byTopic["AI_and_Strategy"], TOP_N, "AI_and_Strategy", weekStart, weekEnd, weekLabel),
-    },
-    Ecommerce_Retail_Tech: {
-      total: byTopic["Ecommerce_Retail_Tech"].length,
-      top: await selectTopN(byTopic["Ecommerce_Retail_Tech"], TOP_N, "Ecommerce_Retail_Tech", weekStart, weekEnd, weekLabel),
-    },
-    Luxury_and_Consumer: {
-      total: byTopic["Luxury_and_Consumer"].length,
-      top: await selectTopN(byTopic["Luxury_and_Consumer"], TOP_N, "Luxury_and_Consumer", weekStart, weekEnd, weekLabel),
-    },
-    Jewellery_Industry: {
-      total: byTopic["Jewellery_Industry"].length,
-      top: await selectTopN(byTopic["Jewellery_Industry"], TOP_N, "Jewellery_Industry", weekStart, weekEnd, weekLabel),
-    },
-  };
-  
+
   // Get current timestamp in Europe/Copenhagen
   const now = DateTime.now().setZone('Europe/Copenhagen');
   const builtAtISO = now.toISO();

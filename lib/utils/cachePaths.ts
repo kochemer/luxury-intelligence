@@ -27,6 +27,8 @@ const CACHE_FILENAMES: Record<string, string> = {
   scene_director: 'scene_director.json',
   classification: 'classification.json',
   query_director: 'query_director.json',
+  selection_triage: 'selection_triage.json',
+  selection_judge: 'selection_judge.json',
 };
 
 // Old paths for backward compatibility (relative to DATA_DIR)
@@ -116,8 +118,15 @@ export async function writeJsonCache(kind: string, data: unknown): Promise<void>
     // Ensure cache directory exists
     await fs.mkdir(CACHE_DIR, { recursive: true });
     
-    // Write to new path only
-    await fs.writeFile(newPath, JSON.stringify(data, null, 2), 'utf-8');
+    // Atomic: write a temp file then rename over the target (no torn files on crash)
+    const tmp = `${newPath}.${process.pid}.${Date.now()}.${Math.random().toString(36).slice(2, 8)}.tmp`;
+    try {
+      await fs.writeFile(tmp, JSON.stringify(data, null, 2), 'utf-8');
+      await fs.rename(tmp, newPath);
+    } catch (e) {
+      await fs.unlink(tmp).catch(() => {});
+      throw e;
+    }
   } catch (err: any) {
     console.warn(`[Cache] Failed to write ${newPath}: ${err.message}`);
     throw err;

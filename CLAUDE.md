@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Luxury Intelligence** (`luxury-intel.com`) — a Next.js 16 / React 19 weekly digest site for luxury, e-commerce, and retail-tech news. It ingests RSS feeds and web pages, classifies articles with source + keyword rules, ranks them with OpenAI, builds JSON digest files, renders them as a PWA with Tailwind CSS v4, and distributes content via email (Resend) and a podcast (OpenAI `gpt-realtime-2.1-mini`; ElevenLabs only if `PODCAST_TTS_PROVIDER=elevenlabs`). Subscribers and payments are managed through a Neon Postgres DB (Drizzle ORM) and Stripe.
+**Luxury Intelligence** (`luxury-intel.com`) — a Next.js 16 / React 19 weekly digest site for luxury, e-commerce, and retail-tech news. It ingests RSS feeds and web pages, classifies articles with source + keyword rules (a hint), triages and ranks them with OpenAI (selection funnel v2), builds JSON digest files, renders them as a PWA with Tailwind CSS v4, and distributes content via email (Resend) and a podcast (OpenAI `gpt-realtime-2.1-mini`; ElevenLabs only if `PODCAST_TTS_PROVIDER=elevenlabs`). Subscribers and payments are managed through a Neon Postgres DB (Drizzle ORM) and Stripe.
 
 ## Documentation rules
 
@@ -120,6 +120,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `video/` | Older FFmpeg-based video clip composer |
 | `video-short/` | Weekly 60s short; its own package, isolated from the root build |
 | `scoring/` | Article relevance scoring utilities |
+| `selection/` | Selection funnel v2 (top 7 per category): hard filters, story clusters, LLM triage, shortlist, full text, quality judge, editor pick. Design: `docs/superpowers/specs/2026-11-10-selection-funnel-design.md` |
 | `config/` | Static config (`jewelleryCompanies.ts`) |
 | `drizzle/` | Generated SQL migrations + snapshots (`npx drizzle-kit generate`); don't hand-edit |
 | `assets/` | Source audio for the podcast (see `assets/audio/README.md`) |

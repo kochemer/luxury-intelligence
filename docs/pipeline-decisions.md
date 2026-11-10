@@ -16,12 +16,29 @@ in `lib/llm/models.ts`; per-step env overrides are in `docs/operations.md`.
 | Podcast voice | `podcast/buildWeeklyPodcast.ts` | `gpt-realtime-2.1-mini` (Realtime API), voice `alloy`; `gpt-4o-mini-tts` fallback until 2027-01-06 | 2026-10-14 (was `gpt-4o-mini-tts` with `tts-1` fallback) |
 | Cover image | `digest/generateCoverImage.ts` | `gpt-image-2.5-sunburst`; `gpt-image-2` fallback | 2026-10-09 (was `gpt-image-2`) |
 | Article summaries, email digest | tier `summarize` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1`) |
-| Reranker | `digest/rerankArticles.ts` | `gpt-6.1-sol`, criteria "hard news first"; fallback `gpt-6-luna`, effort `none` | 2026-10-14 (was `gpt-4.1`) |
+| Selection funnel: triage (all articles) | `selection/triage.ts` | `gpt-6-luna`, effort `none` | 2026-11-10 |
+| Selection funnel: quality judge + editor pick | `selection/judge.ts`, `selection/editorPick.ts` | `gpt-6.1-sol`, effort `low` | 2026-11-10 |
+| Selection funnel: story clusters | `selection/cluster.ts` | `text-embedding-3-small` | 2026-11-10 |
+| Reranker (legacy path, fallback only) | `digest/rerankArticles.ts` | `gpt-6.1-sol`, criteria "hard news first"; fallback `gpt-6-luna`, effort `none` | 2026-10-14 (was `gpt-4.1`) |
 | Markets pages | tier `markets` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1`) |
 | Themes, translations | tier `classify` | `gpt-6-luna`, effort `none`; translation fallback `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1-mini`) |
 | Discovery queries (query-delta) | tier `triage` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1-mini`) |
 
 Owner approved the 2026-10-09 switches after the measurements below.
+
+### Selection funnel v2 model choices (2026-11-10)
+
+- **Triage on `gpt-6-luna`, effort `none`.** It reads every in-week article that
+  passes the hard filters (~2,100 a week, 40 per call), so it must be cheap. The task
+  is labelling (category, type, significance, ad risk), which Luna handles; the
+  shortlist is not final, so a mislabel costs a slot, not the digest.
+- **Judge and editor on `gpt-6.1-sol`.** They see ~100 full texts and 4 shortlists, so
+  cost is cents, and spotting hidden ads and ranking for significance is where
+  quality matters (Sol beat Luna 4.67 vs 3.83 on the reranker test above).
+- **`gpt-6.1-sol` rejects `reasoning_effort: none`** (400), so the judge and editor
+  use `low` (`getReasoningFor('rank') ?? 'low'`). Luna accepts `none`.
+- Overrides: `SELECTION_TRIAGE_MODEL`, `SELECTION_JUDGE_MODEL`, `SELECTION_EDITOR_MODEL`.
+  Measured token usage of the first full run is recorded in the spec's Cost section.
 
 ## Retirement 2027-01 (OpenAI notices of 2026-10-01 and 2026-10-14)
 
@@ -355,3 +372,19 @@ shipped without a live call: `gpt-4o-mini-tts` with `instructions`, and
 the previous, proven model, so the worst case is the old voice or image model,
 logged as a warning. Check the first run's log for `retrying with tts-1` or
 `retrying with gpt-image-2`.
+
+## Selection funnel v2: editorial rules (2026-11-10)
+
+The W45 v2 trial showed four problems, each now a rule in `selection/`:
+one outlet (two WWD sections) took 4 of 7 Luxury slots, so picks are capped at 2 per web domain
+per category; the editor chose an analysis of Pandora's turnaround over the results reports
+themselves, so hard news wins over analysis of the same event and Pandora and direct-peer
+results are significance 4+ (`PEER_COMPANIES` in `selection/types.ts`); Ecommerce picked fashion
+sourcing and green-claims regulation, so its triage definition is limited to digital commerce
+topics; Anthropic held 4 of the top 5 in AI, so at most 2 of ranks 1-5 may share a `mainCompany`.
+Two parts of one series (same domain, same title prefix before ':') count as one story.
+
+## Selection funnel v2: tuning round 3 (2026-11-10)
+
+W45 Ecommerce shortlisted Walmart/Symbotic, Zalando, Asos and JD.com/Ceconomy (independence 3, "company-sourced but factual") but ranked a duty-free operator, Hong Kong retail sales and an Indian gig-worker levy above them: the bar needed independence >= 4 and `validatePicks` re-sorted by bar then quality. Now the bar is significance >= 4, quality >= 3.4, independence >= 3 (hiddenAd, excluded types and adRisk high still block), the editor's order is primary (a failing pick is swapped down only if a passer can replace it), and the editor returns `sameEvent` groups (one pick per group) because embeddings missed the WWD/FashionUnited Ralph Lauren pair. Triage/judge prompts send travel retail and duty free to Luxury and rate single-country policy or local statistics significance <= 3 (prompt versions bumped).
+Cluster thresholds measured on W45 (2,197 articles): 0.86/0.80 gave 2,132 clusters (52 multi-member); 0.82/0.78 gives 2,052 (100 multi, 82 multi-source) and the merged pairs read as same event (results, appointments, launches); false merges were rare and harmless (Hodinkee auction preview parts 1/2, Bloomberg daily market wraps); 0.80/0.76 gives 2,017 (114) and was not adopted. Of 227 different-source pairs at cosine 0.78-0.86, nearly all are the same event, so the editor's `sameEvent` still covers the rest (e.g. two Pandora Q3 reports at 0.80).

@@ -60,19 +60,33 @@ digest.coverImageUrl    public/podcast/      data/weeks/{week}/
    - Merge into `data/articles.json`
 
 3. **Classification** (`classification/`)
-   - Classify each article into one of four topics
-   - Uses keyword matching + source heuristics
+   - Classify each article into one of four topics (keyword matching + source heuristics)
+   - Since 2026-11-10 this is only a **hint** for selection (v2 funnel, step 4): triage
+     assigns the final category, and articles the classifier rejects are triaged too
    - Pure function, no caching needed
 
 Models per step, and why each was chosen: `docs/pipeline-decisions.md`. Tier
 defaults live in `lib/llm/models.ts`; GPT-5 and later need `maxTokensParam` /
 `temperatureParam` from there (a raw `max_tokens` or `temperature` is a 400).
 
-4. **Selection & Reranking** (`digest/`)
-   - Filter articles by week date range (CET timezone)
-   - Apply relevance scoring (LLM-based reranking with deterministic fallback)
-   - Select top N per topic (`TOP_N = 7` in `digest/buildWeeklyDigest.ts`)
-   - Apply diversity constraints (max 3 per source)
+4. **Selection funnel v2** (`selection/`, called from `digest/buildWeeklyDigest.ts`;
+   default since 2026-11-10, `SELECTION_FUNNEL=legacy` restores the old path)
+   - Week pool: in-week articles (CET window), URL + exact-title dedupe
+   - Stages: (1) hard filters for sponsored/PR (`hardFilters.ts`), (2) story clusters via
+     embeddings (`cluster.ts`), (3) LLM triage of every article: category, type, significance,
+     ad risk (`triage.ts`), (4) shortlist of 25 per category (`shortlist.ts`), (5) full-text
+     fetch (`fullText.ts`), (6) quality judge (`judge.ts`), (7) editor pick of 7 per
+     category with deterministic validation (`editorPick.ts`). Orchestrated by `runFunnel.ts`.
+   - Each selected article carries a `selection` object (tier, rank, scores, why);
+     `relevance` is a zeroed legacy placeholder. `totals.byTopic` = triage category counts.
+   - Writes `data/weeks/{week}/selection-report.json` (stage counts, per-category shortlist
+     with scores and pick/drop reasons, models, token usage, timings; no article text).
+   - Caches: `selection_triage.json` and `selection_judge.json` in `data/cache/` (8 weeks),
+     full text in the gitignored `data/cache/selection-fulltext/`.
+   - If v2 throws, the build logs `[Selection] v2 failed, falling back to legacy` and runs the
+     legacy path (`selectTopN` + `rerankArticles.ts`, LLM rerank of 18 candidates per category).
+   - Design and reasons: `docs/superpowers/specs/2026-11-10-selection-funnel-design.md`;
+     models per stage: `docs/pipeline-decisions.md`.
 
 5. **Digest build** (`digest/buildWeeklyDigest.ts#buildAndSaveWeeklyDigest`), in this order:
    - AI summaries for the selected articles (`generateSummaries.ts`)
@@ -187,7 +201,8 @@ The orchestrator's own numbering (`pipeline/runWeeklyPipeline.ts`): rss → page
 **Purpose**: Build weekly digest, select top articles, generate summaries/translations
 
 - `buildWeeklyDigest.ts`: Main digest builder, orchestrates selection, reranking, summaries, translations
-- `rerankArticles.ts`: LLM-based reranking with deterministic fallback (cached)
+- `rerankArticles.ts`: legacy LLM reranking with deterministic fallback (cached); used only when `SELECTION_FUNNEL=legacy` or v2 fails
+- `../selection/`: v2 selection funnel (see step 4)
 - `generateSummaries.ts`: Generate AI summaries for articles (cached)
 - `coverArticles.ts`: Which digest stories the cover may use (`selectCoverArticles`; shared by the pipeline, `npm run cover` and `cover:mock`)
 - `sceneDirector.ts`: Generate cover image scene descriptions (cached; bump `SCENE_DIRECTOR_VERSION` to invalidate)
@@ -318,6 +333,7 @@ The podcast link is the MP3 itself, with a "Follow on Spotify" link under it (si
   - `fetch/{hash}.html`: Cached HTML
   - `extracted/{hash}.json`: Extracted article content
   - `selected-top20.json`: Final selected articles
+- **`selection-report.json`**: v2 selection funnel report (counts, per-category shortlist rows, picks, usage; no article text)
 - **`email-digest.json`**: Email digest format
 - **`podcast-script.txt`**: Podcast script text
 - **`podcast.json`**: Podcast metadata
@@ -330,7 +346,8 @@ The podcast link is the MP3 itself, with a "Follow on Spotify" link under it (si
 
 All caches are centralized in `data/cache/` (managed by `lib/utils/cachePaths.ts`):
 
-- **`rerank.json`**: LLM reranking results (keyed by week+category+fingerprint)
+- **`rerank.json`**: legacy LLM reranking results (keyed by week+category+fingerprint)
+- **`selection_triage.json`**, **`selection_judge.json`**: v2 funnel triage/judge results per week and URL (keyed by prompt version + model; last 8 weeks)
 - **`intro.json`**: Weekly intro text cache
 - **`themes.json`**: Weekly themes cache
 - **`scene_director.json`**: Cover image scene descriptions cache

@@ -96,3 +96,8 @@ public/workbox-*.js.map
 # Impeccable design skill: local run output (critique snapshots, mockups,
 # live-mode state). PRODUCT.md and DESIGN.md are the committed outputs.
 .impeccable/
+
+# Selection funnel full-text cache: article body text, never commit
+data/cache/selection-fulltext/
+data/cache/selection_triage.json
+data/cache/selection_judge.json

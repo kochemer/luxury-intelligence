@@ -16,8 +16,9 @@
  * budget. Trimming is deterministic: articles are scored by
  * `scoreCandidateForTrimming` (retail relevance keywords + source quality +
  * recency proxy), then the top N by score are sent to the LLM. Commerce
- * Materiality scores (from `scoring/commerceMateriality.ts`) influence
- * trimming weights but are NOT forwarded to the LLM to keep prompts concise.
+ * Materiality scores (from `scoring/commerceMateriality.ts`) are used ONLY in
+ * the LLM-failure fallback ordering; they do not affect which candidates are
+ * trimmed, and they are not forwarded to the LLM.
  *
  * ## Caching
  * Results are keyed by `weekLabel:topic:<md5(candidateFingerprint)>` and
@@ -31,8 +32,8 @@
  * the deterministic `scoreCandidateForTrimming` ordering — the digest still
  * publishes, just without LLM curation. Fallbacks are counted in `RerankStats`.
  *
- * ## Commerce Materiality weights
- * Three weight factors tune how much commerce materiality influences trimming:
+ * ## Commerce Materiality weights (LLM-failure fallback only)
+ * Three weight factors tune how much commerce materiality influences the fallback ordering:
  * - `COMMERCE_MATERIALITY_WEIGHT_ECOM` (default 1.5) — Ecommerce & Retail Tech.
  * - `COMMERCE_MATERIALITY_WEIGHT_EMAIL` (default 1.2) — articles likely to
  *   resonate in the email digest.
@@ -291,6 +292,14 @@ function truncateSnippet(snippet: string | undefined, maxLength: number): string
  * Commerce Materiality scores (when present) are added after this base score
  * using the per-category weight constants above.
  */
+const HIGH_QUALITY_SOURCES = ["mckinsey", "bain", "bcg", "ft", "bloomberg", "wsj", "economist"];
+
+/** True when an outlet name contains a high-quality outlet as a whole word ("FT" no longer matches "Fashion... soft"). */
+export function isHighQualitySource(source: string): boolean {
+  const s = (source || '').toLowerCase();
+  return HIGH_QUALITY_SOURCES.some(src => new RegExp(`(^|[^a-z0-9])${src}([^a-z0-9]|$)`).test(s));
+}
+
 function scoreCandidateForTrimming(candidate: CandidateArticle): number {
   let score = 0;
   const text = `${candidate.title} ${candidate.snippet || ''}`.toLowerCase();
@@ -308,8 +317,7 @@ function scoreCandidateForTrimming(candidate: CandidateArticle): number {
   score += retailMatches * 10;
   
   // Source priority (high-quality sources get boost)
-  const highQualitySources = ["mckinsey", "bain", "bcg", "ft", "bloomberg", "wsj", "economist"];
-  if (highQualitySources.some(src => candidate.source.toLowerCase().includes(src))) {
+  if (isHighQualitySource(candidate.source)) {
     score += 5;
   }
   
@@ -610,14 +618,8 @@ function buildRerankPrompt(
 ): string {
   // Build minimal payload: id, title, source, date, url, 1-sentence summary
   const candidateList = candidates.map((c, idx) => {
-    // Create 1-sentence summary from snippet (truncate to ~100 chars for 1 sentence)
-    let summary = '';
-    if (c.snippet) {
-      const truncated = truncateSnippet(c.snippet, 100);
-      // Take first sentence or first 100 chars
-      const firstSentence = truncated.split(/[.!?]/)[0];
-      summary = firstSentence.length > 0 ? firstSentence.trim() : truncated.substring(0, 100).trim();
-    }
+    // Full snippet (<= SNIPPET_MAX_LENGTH chars); the old first-sentence/100-char cut hid the story
+    const summary = c.snippet ? truncateSnippet(c.snippet, SNIPPET_MAX_LENGTH).trim() : '';
     
     return `${idx}. ${c.title}
    Source: ${c.source}

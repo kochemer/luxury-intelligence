@@ -41,6 +41,9 @@ import { getDomainRule } from './domainRules';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/** Browser-like UA used for direct article fetches (also by selection/fullText.ts). */
+export const BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36';
+
 const TAVILY_EXTRACT_API_URL = 'https://api.tavily.com/extract';
 
 /**
@@ -342,7 +345,7 @@ function extractDateFromJsonLd($: cheerio.Root): string | undefined {
  * Date selector priority: various `<time>` and `<meta>` date attributes, then
  * falls back to JSON-LD via `extractDateFromJsonLd`.
  */
-function extractText(html: string, url: string): { text: string; title: string; author?: string; date?: string } {
+export function extractText(html: string, url: string): { text: string; title: string; author?: string; date?: string } {
   const $ = cheerio.load(html);
   
   // Remove script and style elements
@@ -464,7 +467,7 @@ function isEnglish(text: string): boolean {
   return asciiChars / text.length > 0.8;
 }
 
-const PAYWALL_PATTERNS = [
+export const PAYWALL_PATTERNS = [
   /login required/i,
   /subscribe to/i,
   /sign up to read/i,
@@ -476,7 +479,7 @@ const PAYWALL_PATTERNS = [
   /meter/i
 ];
 
-const PAYWALL_HTML_MARKERS = [
+export const PAYWALL_HTML_MARKERS = [
   'paywall',
   'subscription',
   'meter',
@@ -512,7 +515,7 @@ const NON_ARTICLE_PATTERNS = [
  * gate. This is the second paywall detection pass (the first happens on the
  * HTTP response status in `fetchHtml`).
  */
-function detectPaywallInText(text: string): { isPaywalled: boolean; reason?: string } {
+export function detectPaywallInText(text: string): { isPaywalled: boolean; reason?: string } {
   for (const pattern of PAYWALL_PATTERNS) {
     if (pattern.test(text)) {
       return { isPaywalled: true, reason: `Text pattern: ${pattern.source}` };
