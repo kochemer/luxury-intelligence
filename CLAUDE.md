@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Luxury Intelligence** (`luxury-intel.com`) — a Next.js 16 / React 19 weekly digest site for luxury, e-commerce, and retail-tech news. It ingests RSS feeds and web pages, classifies articles with source + keyword rules, ranks them with OpenAI, builds JSON digest files, renders them as a PWA with Tailwind CSS v4, and distributes content via email (Resend) and a podcast (OpenAI `gpt-realtime-2.1-mini`; ElevenLabs only if `PODCAST_TTS_PROVIDER=elevenlabs`). Subscribers and payments are managed through a Neon Postgres DB (Drizzle ORM) and Stripe.
+**Luxury Intelligence** (`luxury-intel.com`) — a Next.js 16 / React 19 weekly digest site for luxury, e-commerce, and retail-tech news. It ingests RSS feeds and web pages, classifies articles with source + keyword rules (a hint), triages and ranks them with OpenAI (selection funnel v2), builds JSON digest files, renders them as a PWA with Tailwind CSS v4, and distributes content via email (Resend) and a podcast (OpenAI `gpt-realtime-2.1-mini`; ElevenLabs only if `PODCAST_TTS_PROVIDER=elevenlabs`). Subscribers and payments are managed through a Neon Postgres DB (Drizzle ORM) and Stripe.
 
 ## Documentation rules
 

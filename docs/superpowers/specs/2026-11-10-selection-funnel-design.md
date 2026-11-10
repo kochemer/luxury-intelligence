@@ -1,6 +1,6 @@
 # Selection funnel v2: design
 
-Status: being built on `agent/selection-funnel` (2026-11-10). Not deployed.
+Status: built and wired into `digest/buildWeeklyDigest.ts` on `agent/selection-funnel` (2026-11-10), default `v2`, not deployed.
 Shared types: `selection/types.ts`. Code lives in `selection/`.
 
 ## Why
@@ -64,8 +64,10 @@ Drop when any of:
 
 Soft flags (never drop alone; shown to triage and judge): whole-phrase matches in
 title/snippet of `sponsored by`, `in partnership with`, `brought to you by`,
-`paid partnership`, `press release`, `affiliate`, `we may earn a commission`,
-`presented by`.
+`paid partnership`, `affiliate`, `we may earn a commission`,
+`presented by`. (`press release` is deliberately not one: it fires on independent
+reporting such as "said in a press release"; wires and URL paths catch real
+releases and the judge's independence score covers the rest.)
 
 ### 2. Story clusters
 

@@ -54,6 +54,9 @@ test('hardFilter soft flags never drop; scanDisclosures is whole-phrase', () => 
   assert.deepEqual(scanDisclosures('Sponsored by Acme; presented by Beta'), ['sponsored by', 'presented by']);
   assert.deepEqual(scanDisclosures('an affiliated company, affiliates of the group'), []);
   assert.deepEqual(scanDisclosures(''), []);
+  // independent reporting that cites a press release is not a disclosure
+  assert.deepEqual(scanDisclosures('The company said in a press release that sales fell'), []);
+  assert.deepEqual(hardFilter(art({ url: 'https://x.com/a/10', snippet: 'Said in a press release on Monday' })).softFlags, []);
 });
 
 // ---------- clustering ----------

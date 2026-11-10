@@ -16,12 +16,29 @@ in `lib/llm/models.ts`; per-step env overrides are in `docs/operations.md`.
 | Podcast voice | `podcast/buildWeeklyPodcast.ts` | `gpt-realtime-2.1-mini` (Realtime API), voice `alloy`; `gpt-4o-mini-tts` fallback until 2027-01-06 | 2026-10-14 (was `gpt-4o-mini-tts` with `tts-1` fallback) |
 | Cover image | `digest/generateCoverImage.ts` | `gpt-image-2.5-sunburst`; `gpt-image-2` fallback | 2026-10-09 (was `gpt-image-2`) |
 | Article summaries, email digest | tier `summarize` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1`) |
-| Reranker | `digest/rerankArticles.ts` | `gpt-6.1-sol`, criteria "hard news first"; fallback `gpt-6-luna`, effort `none` | 2026-10-14 (was `gpt-4.1`) |
+| Selection funnel: triage (all articles) | `selection/triage.ts` | `gpt-6-luna`, effort `none` | 2026-11-10 |
+| Selection funnel: quality judge + editor pick | `selection/judge.ts`, `selection/editorPick.ts` | `gpt-6.1-sol`, effort `low` | 2026-11-10 |
+| Selection funnel: story clusters | `selection/cluster.ts` | `text-embedding-3-small` | 2026-11-10 |
+| Reranker (legacy path, fallback only) | `digest/rerankArticles.ts` | `gpt-6.1-sol`, criteria "hard news first"; fallback `gpt-6-luna`, effort `none` | 2026-10-14 (was `gpt-4.1`) |
 | Markets pages | tier `markets` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1`) |
 | Themes, translations | tier `classify` | `gpt-6-luna`, effort `none`; translation fallback `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1-mini`) |
 | Discovery queries (query-delta) | tier `triage` | `gpt-6.1-sol` | 2026-10-14 (was `gpt-4.1-mini`) |
 
 Owner approved the 2026-10-09 switches after the measurements below.
+
+### Selection funnel v2 model choices (2026-11-10)
+
+- **Triage on `gpt-6-luna`, effort `none`.** It reads every in-week article that
+  passes the hard filters (~2,100 a week, 40 per call), so it must be cheap. The task
+  is labelling (category, type, significance, ad risk), which Luna handles; the
+  shortlist is not final, so a mislabel costs a slot, not the digest.
+- **Judge and editor on `gpt-6.1-sol`.** They see ~100 full texts and 4 shortlists, so
+  cost is cents, and spotting hidden ads and ranking for significance is where
+  quality matters (Sol beat Luna 4.67 vs 3.83 on the reranker test above).
+- **`gpt-6.1-sol` rejects `reasoning_effort: none`** (400), so the judge and editor
+  use `low` (`getReasoningFor('rank') ?? 'low'`). Luna accepts `none`.
+- Overrides: `SELECTION_TRIAGE_MODEL`, `SELECTION_JUDGE_MODEL`, `SELECTION_EDITOR_MODEL`.
+  Measured token usage of the first full run is recorded in the spec's Cost section.
 
 ## Retirement 2027-01 (OpenAI notices of 2026-10-01 and 2026-10-14)
 

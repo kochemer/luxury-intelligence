@@ -65,7 +65,6 @@ export const DISCLOSURE_PHRASES = [
   'in partnership with',
   'brought to you by',
   'paid partnership',
-  'press release',
   'affiliate',
   'we may earn a commission',
   'presented by',
