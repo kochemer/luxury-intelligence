@@ -1,6 +1,6 @@
 # Selection funnel v2: design
 
-Status: built and wired into `digest/buildWeeklyDigest.ts` on `agent/selection-funnel` (2026-11-10), default `v2`, not deployed.
+Status: built and wired into `digest/buildWeeklyDigest.ts` on `agent/selection-funnel` (2026-11-10), default `v2`, not deployed. Tuning round 3 (2026-11-10): lead bar independence >= 3 and quality >= 3.4, editor order primary, editor `sameEvent` groups, cluster thresholds 0.82/0.78, travel retail to Luxury, geography rule (see docs/pipeline-decisions.md).
 Deviations after review (2026-11-10): selection paywall patterns are word-bounded and 403 counts as unknown; validatePicks also drops excluded judge types, adRisk high, applies a per-domain cap (2 per category; 5 in the shortlist), series-title duplicates, at most one paywalled story in ranks 1-3, at most 2 per mainCompany in ranks 1-5, and judge fallbacks never meet the lead bar; hard news beats analysis of the same event; Pandora and peer results are significance 4+; Ecommerce scope excludes sourcing, labour and sustainability regulation; all OpenAI calls use a 90 s timeout with 1 retry; judge cache is atomic, serialised and re-judges snippet-only entries once full text is fetched.
 Shared types: `selection/types.ts`. Code lives in `selection/`.
 
@@ -76,7 +76,7 @@ Embed `title + first 200 chars of snippet` with `text-embedding-3-small`
 (batches of 256; no persistent cache, the call costs fractions of a cent).
 Greedy clustering in a fixed order (articles sorted by URL): an article joins the
 first existing cluster whose **centroid** has cosine ≥ `SELECTION_CLUSTER_SIM`
-(default 0.86) **and** whose seed has cosine ≥ 0.80; otherwise it seeds a new
+(default 0.82) **and** whose seed has cosine ≥ 0.78; otherwise it seeds a new
 cluster. Centroid-based, so no single-link chaining. `coverage` = distinct
 sources. If the embedding call fails, every article is its own cluster (log a
 warning, don't fail the digest). Expose a pure `clusterByVectors(items, vectors,
@@ -172,8 +172,14 @@ one paywalled story in ranks 1–3. Returns `{ url/id, rank, editorWhy }`.
 Deterministic validation after the LLM (`validatePicks`, pure, tested):
 - remove `hiddenAd` or `independence` < 3; remove a second item from the same cluster;
 - cap 3 per source; AI & Strategy: max 1 arXiv source (all arXiv feeds count as one);
-- lead bar: `significance ≥ 4 && quality ≥ 3.6 && independence ≥ 4`. Items that
-  pass keep the LLM order and fill ranks 1–5 first; if fewer than 5 pass, fill
+- the editor's order is primary. The editor also returns `sameEvent` groups
+  (shortlisted candidates covering one event); each group is merged into one
+  cluster, one pick per group, the editor's first;
+- lead bar: `significance ≥ 4 && quality ≥ 3.4 && independence ≥ 3` (plus not
+  hiddenAd, type not excluded, adRisk not high). An editor pick in ranks 1–5
+  that fails the bar is swapped down (to 6–7 or out) only when a bar-passer can
+  take its place (the editor's later picks first, then the pool by quality);
+  bar-passers are never reordered among themselves. If fewer than 5 pass, fill
   with the best remaining by `quality` (still tier `lead` for ranks 1–5 so UI
   is unchanged — record `barMet: false` in the report);
 - backfill to 7 from remaining judged candidates by `quality`, still respecting

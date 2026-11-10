@@ -64,7 +64,9 @@ export interface ShortlistRow {
   shortlistScore: number;
   triage?: Pick<TriageResult, 'type' | 'significance' | 'adRisk' | 'reason' | 'fallback'>;
   fulltext?: { status: string; paywall: string; wordCount: number; disclosures: string[] };
-  judge?: { scores: JudgeResult['scores']; quality: number; hiddenAd: boolean; why: string; fallback?: boolean };
+  judge?: { scores: JudgeResult['scores']; quality: number; hiddenAd: boolean; why: string; mainCompany?: string | null; fallback?: boolean };
+  /** editor same-event group label (rows sharing a label cover one event) */
+  sameEvent?: string;
   picked?: { rank: number; tier: string; editorWhy: string };
   dropReason?: string;
 }
@@ -315,6 +317,8 @@ export async function runSelectionFunnel(
         leadCount: picked.picks.filter(p => p.tier === 'lead').length,
       };
 
+      const eventLabel = new Map<string, string>();
+      picked.sameEvent.forEach((g, gi) => g.forEach(u => eventLabel.set(u, `e${gi + 1}`)));
       categories[category] = entries.map(e => {
         const a = byUrl.get(e.url)!;
         const t = triage.results.get(e.url);
@@ -330,7 +334,8 @@ export async function runSelectionFunnel(
           shortlistScore: e.shortlistScore,
           triage: t && { type: t.type, significance: t.significance, adRisk: t.adRisk, reason: t.reason, fallback: t.fallback },
           fulltext: f && { status: f.status, paywall: f.paywall, wordCount: f.wordCount, disclosures: f.disclosures },
-          judge: j && { scores: j.scores, quality: j.quality, hiddenAd: j.hiddenAd, why: j.why, fallback: j.fallback },
+          judge: j && { scores: j.scores, quality: j.quality, hiddenAd: j.hiddenAd, why: j.why, mainCompany: j.mainCompany ?? null, fallback: j.fallback },
+          sameEvent: eventLabel.get(e.url),
           picked: p && { rank: p.rank, tier: p.tier, editorWhy: p.editorWhy },
           dropReason: p ? undefined : dropByUrl.get(e.url) ?? 'not_selected',
         };

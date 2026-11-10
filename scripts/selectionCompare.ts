@@ -260,7 +260,7 @@ async function loadJson(p: string) {
 async function buildFunnelSide(week: string, outDir: string): Promise<string> {
   const { DateTime } = await import('luxon');
   const { getWeekRangeCET } = await import('../lib/utils/weekCET');
-  const { filterToWeekWindow } = await import('../digest/buildWeeklyDigest');
+  const { filterToWeekWindow, buildSelectionPool } = await import('../digest/buildWeeklyDigest');
   const { runSelectionFunnel } = await import('../selection/runFunnel');
   const m = week.match(/^(\d{4})-W(\d{1,2})$/);
   if (!m) throw new Error(`bad --week ${week}`);
@@ -268,15 +268,7 @@ async function buildFunnelSide(week: string, outDir: string): Promise<string> {
   const { weekStartCET, weekEndCET } = getWeekRangeCET(dt.toJSDate());
   const all: any[] = await loadJson(path.join(process.cwd(), 'data/articles.json'));
   const eligible = filterToWeekWindow(all, weekStartCET.getTime(), weekEndCET.getTime());
-  const byUrl = new Map<string, any>();
-  for (const a of eligible) if (!byUrl.has(a.url)) byUrl.set(a.url, a);
-  const seenTitle = new Set<string>();
-  const pool = [...byUrl.values()].filter(a => {
-    const t = String(a.title ?? '').trim().toLowerCase();
-    if (seenTitle.has(t)) return false;
-    seenTitle.add(t);
-    return true;
-  });
+  const pool = buildSelectionPool(eligible as any[]);
   const { output } = await runSelectionFunnel(week, pool);
   const file = path.join(outDir, `${week}__v2-funnel.json`);
   await fs.writeFile(file, JSON.stringify({ weekLabel: week, topics: Object.fromEntries(CATEGORIES.map(c => [c, { top: (output as any)[c] }])) }, null, 2));

@@ -16,7 +16,7 @@ export const MAX_PER_DOMAIN = 2;
 /** max stories per main company within the lead ranks 1-LEAD_COUNT */
 export const MAX_PER_COMPANY_LEAD = 2;
 export const MAX_ARXIV_AI = 1;
-export const LEAD_BAR = { significance: 4, quality: 3.6, independence: 4 } as const;
+export const LEAD_BAR = { significance: 4, quality: 3.4, independence: 3 } as const;
 
 /** A judged shortlist entry (joins shortlist + triage cluster info + judge result). */
 export interface PickCandidate {
@@ -55,6 +55,8 @@ export interface ValidatedPicks {
 
 export interface PickReport extends ValidatedPicks {
   llmFailed: boolean;
+  /** the editor's same-event groups (urls, validated, size >= 2) */
+  sameEvent: string[][];
 }
 
 export function meetsLeadBar(c: PickCandidate): boolean {
@@ -100,13 +102,16 @@ const isArxiv = (s: string) => s.toLowerCase().includes('arxiv');
 
 /**
  * Pure. `llmOrder` is the editor's chosen urls in rank order (may be empty, may
- * contain unknown/duplicate urls); `llmWhy` maps url to editorWhy.
+ * contain unknown/duplicate urls); `llmWhy` maps url to editorWhy. `sameEvent` are
+ * the editor's groups of urls covering one event (overlapping groups are merged);
+ * at most one member of a group is picked.
  */
 export function validatePicks(
   category: Topic,
   candidates: PickCandidate[],
   llmOrder: string[] = [],
-  llmWhy: Record<string, string> = {}
+  llmWhy: Record<string, string> = {},
+  sameEvent: string[][] = []
 ): ValidatedPicks {
   const dropped: { url: string; reason: string }[] = [];
   const byUrl = new Map<string, PickCandidate>();
@@ -122,7 +127,22 @@ export function validatePicks(
     else eligible.push(c);
   }
 
-  // 2. order: LLM picks (in its order), then the rest by quality
+  // same-event groups (union-find over known urls)
+  const parent = new Map<string, string>();
+  const find = (u: string): string => {
+    let r = u;
+    while (parent.get(r) !== r) r = parent.get(r)!;
+    parent.set(u, r);
+    return r;
+  };
+  for (const g of sameEvent) {
+    const known = [...new Set(g)].filter(u => byUrl.has(u));
+    for (const u of known) if (!parent.has(u)) parent.set(u, u);
+    for (let i = 1; i < known.length; i++) parent.set(find(known[i]), find(known[0]));
+  }
+  const groupOf = (u: string): string | null => (parent.has(u) ? find(u) : null);
+
+  // 2. order: the editor's picks (in its order) are primary; the rest by quality
   const seen = new Set<string>();
   const llmFirst: PickCandidate[] = [];
   for (const u of llmOrder) {
@@ -139,6 +159,7 @@ export function validatePicks(
   // 3. constraint-aware acceptance
   const chosen: PickCandidate[] = [];
   const clusters = new Set<string>();
+  const groups = new Set<string>();
   const sourceCount = new Map<string, number>();
   const domainCount = new Map<string, number>();
   const companyLead = new Map<string, number>();
@@ -166,6 +187,11 @@ export function validatePicks(
       dropped.push({ url: c.url, reason: 'duplicate-cluster' });
       return false;
     }
+    const grp = groupOf(c.url);
+    if (grp && groups.has(grp)) {
+      dropped.push({ url: c.url, reason: 'same-event' });
+      return false;
+    }
     const src = normSource(c.source);
     if ((sourceCount.get(src) ?? 0) >= MAX_PER_SOURCE) {
       dropped.push({ url: c.url, reason: 'source-cap' });
@@ -176,6 +202,7 @@ export function validatePicks(
       return false;
     }
     if (c.clusterId) clusters.add(c.clusterId);
+    if (grp) groups.add(grp);
     sourceCount.set(src, (sourceCount.get(src) ?? 0) + 1);
     if (dom) domainCount.set(dom, (domainCount.get(dom) ?? 0) + 1);
     if (sk) seriesKeys.add(sk);
@@ -185,31 +212,44 @@ export function validatePicks(
     return true;
   };
 
-  // lead ranks: bar-passers in (LLM, then quality) order
-  let leadFromBar = 0;
-  // two passes: the second picks up bar-passers deferred by the paywall rule for ranks 1-3
-  for (let pass = 0; pass < 2; pass++) {
-    for (const c of ordered) {
-      if (chosen.length >= LEAD_COUNT) break;
-      if (meetsLeadBar(c) && tryAdd(c)) leadFromBar++;
+  // Lead ranks: the editor's order is primary. An editor pick that fails the bar is swapped down
+  // (to ranks 6-7 or out) only when a bar-passer can take its place: the editor's remaining picks
+  // first, then the pool by quality. Bar-passers are never reordered among themselves.
+  const passersAfter = (c: PickCandidate): PickCandidate[] => {
+    const i = ordered.indexOf(c);
+    return [...ordered.slice(i + 1).filter(meetsLeadBar)];
+  };
+  for (const c of llmFirst) {
+    if (chosen.length >= LEAD_COUNT) break;
+    if (meetsLeadBar(c)) {
+      tryAdd(c);
+      continue;
     }
+    let replaced = false;
+    for (const r of passersAfter(c)) {
+      if (chosen.length >= LEAD_COUNT) break;
+      if (tryAdd(r)) {
+        replaced = true;
+        break;
+      }
+    }
+    if (!replaced) tryAdd(c);
   }
-  // not enough bar-passers: best remaining by quality
+  // still short (cap deferrals, short editor list): bar-passers, then the best of the rest by quality
+  for (const c of ordered) {
+    if (chosen.length >= LEAD_COUNT) break;
+    if (meetsLeadBar(c)) tryAdd(c);
+  }
   if (chosen.length < LEAD_COUNT) {
     for (const c of [...ordered].sort(byQuality)) {
       if (chosen.length >= LEAD_COUNT) break;
       tryAdd(c);
     }
   }
-  const barMet = leadFromBar >= LEAD_COUNT;
+  const barMet = chosen.length >= LEAD_COUNT && chosen.slice(0, LEAD_COUNT).every(meetsLeadBar);
 
-  // ranks 6-7: the editor's remaining picks first, then best by quality
-  const llmSet = new Set(llmFirst.map(c => c.url));
-  const remaining = [
-    ...ordered.filter(c => llmSet.has(c.url)),
-    ...ordered.filter(c => !llmSet.has(c.url)).sort(byQuality),
-  ];
-  for (const c of remaining) {
+  // ranks 6-7: the editor's remaining picks first (including those swapped down), then best by quality
+  for (const c of ordered) {
     if (chosen.length >= PICK_TARGET) break;
     tryAdd(c);
   }
@@ -239,7 +279,9 @@ export function buildEditorSystemPrompt(category: Topic): string {
 
 Choose and order up to ${PICK_TARGET} articles from the numbered candidates, best first.
 - Ranks 1-${LEAD_COUNT} must be significant for the industry, well written, well thought out, and independent journalism (not sponsored content, a press release or a hidden ad). Prefer candidates with significance >= ${LEAD_BAR.significance}, quality >= ${LEAD_BAR.quality} and independence >= ${LEAD_BAR.independence}. Ranks ${LEAD_COUNT + 1}-${PICK_TARGET} may be lighter but must still be independent journalism.
-- Vary sub-topics. Do not pick two candidates about the same event (same clusterId); when two outlets cover the same event prefer the one with original reporting.
+- Your order is final for ranks 1-${LEAD_COUNT}, except that the system will move a pick that fails the bar below a candidate that passes it. Order by importance to the reader: a major company deal or result outranks a local statistic or a minor policy item.
+- Vary sub-topics. Do not pick two candidates about the same event (same clusterId).
+- Same event: list in "sameEvent" every group of candidates that cover the same event or announcement (for example two outlets reporting one company's quarterly results, or a news report and an analysis of the same deal), even when their clusterIds differ. Pick only one candidate per group, and within a group prefer the hard-news report with the most detail and original reporting.
 - At most 3 from one source and at most 2 from one website domain (two sections of the same outlet count as one source). At most one paywalled story in ranks 1-3.
 - When a hard-news report and an analysis or feature cover the same company event (for example a results announcement), include the hard-news report. The analysis may join it only if it adds new data or reporting.
 - Do not pick two parts of the same series or report (titles sharing a prefix such as "The Big Survey 2026: ..."); pick the more significant part.
@@ -247,7 +289,7 @@ Choose and order up to ${PICK_TARGET} articles from the numbered candidates, bes
 - ${UNTRUSTED_NOTICE}
 - Do not reward length. The scores were assigned by a separate judge; use them, and your own judgement of the titles and reasons.
 
-Respond with JSON only: {"picks":[{"id":int,"rank":int,"editorWhy":"max 15 words, why it matters to the reader"}]}`;
+Respond with JSON only: {"picks":[{"id":int,"rank":int,"editorWhy":"max 15 words, why it matters to the reader"}],"sameEvent":[[id,id],...]}  (sameEvent may be an empty list; ids are the candidate numbers)`;
 }
 
 export function buildEditorUserPrompt(candidates: PickCandidate[]): string {
@@ -264,7 +306,7 @@ export function buildEditorUserPrompt(candidates: PickCandidate[]): string {
 export function parseEditorOutput(
   raw: string,
   candidates: PickCandidate[]
-): { order: string[]; why: Record<string, string> } | null {
+): { order: string[]; why: Record<string, string>; sameEvent: string[][] } | null {
   let o: any;
   try {
     o = JSON.parse(raw.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, ''));
@@ -285,7 +327,20 @@ export function parseEditorOutput(
   }
   if (!items.length) return null;
   items.sort((a, b) => a.rank - b.rank);
-  return { order: items.map(i => i.url), why: Object.fromEntries(items.map(i => [i.url, i.why])) };
+  const sameEvent: string[][] = [];
+  if (Array.isArray(o?.sameEvent)) {
+    for (const g of o.sameEvent) {
+      if (!Array.isArray(g)) continue;
+      const us = new Set<string>();
+      for (const rawId of g) {
+        const id = typeof rawId === 'number' ? rawId : typeof rawId === 'string' && /^\d+$/.test(rawId) ? Number(rawId) : NaN;
+        const c = Number.isInteger(id) ? candidates[id] : undefined;
+        if (c) us.add(c.url);
+      }
+      if (us.size >= 2) sameEvent.push([...us]);
+    }
+  }
+  return { order: items.map(i => i.url), why: Object.fromEntries(items.map(i => [i.url, i.why])), sameEvent };
 }
 
 export async function pickForCategoryDetailed(
@@ -297,20 +352,20 @@ export async function pickForCategoryDetailed(
   const chat = meta.chat ?? openAiChatJson;
   // Only offer the LLM candidates that could survive validation anyway.
   const offered = judged.filter(c => !c.hiddenAd && c.scores.independence >= 3 && !EXCLUDED_TYPES.includes(c.type) && c.adRisk !== 'high');
-  if (offered.length === 0) return { ...validatePicks(category, judged), llmFailed: false };
+  if (offered.length === 0) return { ...validatePicks(category, judged), llmFailed: false, sameEvent: [] };
 
   const system = buildEditorSystemPrompt(category);
   const user = buildEditorUserPrompt(offered);
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      const text = await chat({ model, system, user, maxTokens: 1200, usage: meta.usage });
+      const text = await chat({ model, system, user, maxTokens: 1800, usage: meta.usage });
       const parsed = parseEditorOutput(text, offered);
-      if (parsed) return { ...validatePicks(category, judged, parsed.order, parsed.why), llmFailed: false };
+      if (parsed) return { ...validatePicks(category, judged, parsed.order, parsed.why, parsed.sameEvent), llmFailed: false, sameEvent: parsed.sameEvent };
     } catch (err: any) {
       if (attempt === 1) console.warn(`[editorPick] ${category}: ${err?.message ?? err}`);
     }
   }
-  return { ...validatePicks(category, judged), llmFailed: true };
+  return { ...validatePicks(category, judged), llmFailed: true, sameEvent: [] };
 }
 
 export async function pickForCategory(

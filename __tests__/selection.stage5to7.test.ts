@@ -344,3 +344,62 @@ test('judge validator carries mainCompany (optional)', () => {
   assert.equal(validateJudgeOutput({ ...ok, mainCompany: null })?.mainCompany, null);
   assert.equal(validateJudgeOutput(ok)?.mainCompany, null);
 });
+
+// ---------- tuning round 3: editor order primary, bar independence 3, sameEvent ----------
+
+test('lead bar: independence 3 and quality 3.4 pass; sig 3 fails', async () => {
+  const { meetsLeadBar } = await import('../selection/editorPick');
+  assert.equal(meetsLeadBar(cand({ ind: 3, q: 3.4, sig: 4 })), true);
+  assert.equal(meetsLeadBar(cand({ ind: 3, q: 3.39, sig: 4 })), false);
+  assert.equal(meetsLeadBar(cand({ ind: 3, q: 4, sig: 3 })), false);
+});
+
+test('validatePicks: editor order is kept among bar-passers even against quality', () => {
+  const pool = [cand({ q: 3.5 }), cand({ q: 4.9 }), cand({ q: 4.0 }), cand({ q: 3.6 }), cand({ q: 4.2 }), cand({ q: 3.9 }), cand({ q: 3.8 })];
+  const order = pool.map(c => c.url);
+  const r = validatePicks('Luxury_and_Consumer', pool, order);
+  assert.deepEqual(urls(r), order);
+  assert.equal(r.barMet, true);
+});
+
+test('validatePicks: bar-failing editor pick in ranks 1-5 is swapped down when a passer exists', () => {
+  const weak = cand({ sig: 3, q: 4.5 });
+  const p = Array.from({ length: 6 }, (_, i) => cand({ q: 3.8 + i * 0.01 }));
+  const order = [p[0].url, weak.url, p[1].url, p[2].url, p[3].url, p[4].url, p[5].url];
+  const r = validatePicks('Luxury_and_Consumer', [weak, ...p], order);
+  assert.deepEqual(urls(r).slice(0, 5), [p[0].url, p[1].url, p[2].url, p[3].url, p[4].url]);
+  assert.equal(r.picks[5].url, weak.url);
+});
+
+test('validatePicks: bar-failing editor pick stays in place when no passer exists', () => {
+  const weak = cand({ sig: 3, q: 4.5 });
+  const p = [cand({ q: 3.8 })];
+  const r = validatePicks('Luxury_and_Consumer', [weak, ...p], [p[0].url, weak.url]);
+  assert.deepEqual(urls(r), [p[0].url, weak.url]);
+  assert.equal(r.barMet, false);
+});
+
+test('validatePicks: sameEvent groups keep one pick, the editor\'s first', () => {
+  const a = cand({ q: 4.0 });
+  const b = cand({ q: 4.5 });
+  const c = cand({ q: 3.9 });
+  const rest = Array.from({ length: 6 }, () => cand({ q: 3.6 }));
+  const r = validatePicks('Luxury_and_Consumer', [a, b, c, ...rest], [a.url, b.url, c.url], {}, [[a.url, b.url], [b.url, 'nope']]);
+  assert.ok(urls(r).includes(a.url));
+  assert.ok(!urls(r).includes(b.url));
+  assert.ok(r.dropped.some(d => d.url === b.url && d.reason === 'same-event'));
+  assert.equal(r.picks.length, 7);
+});
+
+test('parseEditorOutput: sameEvent ids are validated and mapped to urls', () => {
+  const pool = [cand(), cand(), cand()];
+  const raw = JSON.stringify({ picks: [{ id: 0, rank: 1 }], sameEvent: [[0, 2], [1], [1, 99], 'x', [0, 0]] });
+  const o = parseEditorOutput(raw, pool)!;
+  assert.deepEqual(o.sameEvent, [[pool[0].url, pool[2].url]]);
+});
+
+test('editor prompt mentions sameEvent and the hard-news preference', async () => {
+  const { buildEditorSystemPrompt } = await import('../selection/editorPick');
+  const p = buildEditorSystemPrompt('Luxury_and_Consumer');
+  assert.ok(p.includes('sameEvent') && p.includes('hard-news report with the most detail'));
+});

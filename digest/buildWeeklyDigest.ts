@@ -140,7 +140,7 @@ function normalizeTitle(title: string): string {
  * Deduplicate articles within a topic by normalized title,
  * keeping the newest published_at. 
  */
-function dedupeArticles(articles: Article[]): Article[] {
+export function dedupeArticles(articles: Article[]): Article[] {
   const map = new Map<string, Article>();
   for (const art of articles) {
     const normTitle = normalizeTitle(art.title);
@@ -157,6 +157,13 @@ function dedupeArticles(articles: Article[]): Article[] {
     }
   }
   return Array.from(map.values());
+}
+
+/** The v2 funnel's input pool: in-week articles, URL dedupe then exact-title dedupe. Shared with scripts/selectionCompare.ts. */
+export function buildSelectionPool(eligibleArticles: Article[]): Article[] {
+  const byUrl = new Map<string, Article>();
+  for (const a of eligibleArticles) if (!byUrl.has(a.url)) byUrl.set(a.url, a);
+  return dedupeArticles(Array.from(byUrl.values()));
 }
 
 // RelevanceScore and ArticleWithRelevance are now imported from @/lib/types
@@ -513,9 +520,7 @@ export async function buildWeeklyDigest(weekLabel: string): Promise<WeeklyDigest
     try {
       // Pool: in-week articles, URL dedupe then exact-title dedupe. Includes articles the
       // keyword classifier rejects: triage assigns the category, the classifier is only a hint.
-      const byUrl = new Map<string, Article>();
-      for (const a of eligibleArticles) if (!byUrl.has(a.url)) byUrl.set(a.url, a);
-      const pool = dedupeArticles(Array.from(byUrl.values()));
+      const pool = buildSelectionPool(eligibleArticles);
       const { output, totalsByTopic } = await runSelectionFunnel(weekLabel, pool);
       totals = {
         total: eligibleArticles.length,

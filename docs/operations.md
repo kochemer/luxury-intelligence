@@ -195,7 +195,7 @@ overrides; leave them unset unless you mean to change behaviour.
 | `SELECTION_FUNNEL` | `v2` (default) or `legacy`: which selection path builds the digest's top 7 per category. v2 falls back to legacy on any error |
 | `SELECTION_TRIAGE_MODEL`, `SELECTION_JUDGE_MODEL`, `SELECTION_EDITOR_MODEL` | v2 funnel models (defaults `gpt-6-luna`, `gpt-6.1-sol`, `gpt-6.1-sol`; reasons in `docs/pipeline-decisions.md`). Triage/judge caches key on the model |
 | `SELECTION_SHORTLIST_N` | Shortlist size per category before the judge (default 25) |
-| `SELECTION_CLUSTER_SIM` | Cosine threshold for merging same-story articles into one cluster (default 0.86) |
+| `SELECTION_CLUSTER_SIM` | Cosine threshold for merging same-story articles into one cluster (default 0.82; seed 0.78) |
 | `RERANK_MAX_ITEMS`, `RERANK_MAX_CHARS`, `RERANK_COOLDOWN_MS`, `RERANK_DEBUG` | Rerank batch size, prompt size, rate limiting, logging |
 | `RERANK_TRIM_MAX_PER_SOURCE` | Max candidates per source when trimming to `RERANK_MAX_ITEMS` before the LLM (default 4) |
 | `COMMERCE_MATERIALITY_WEIGHT_ECOM`, `_EMAIL`, `_OTHER` | Weights in `scoring/commerceMateriality.ts` |

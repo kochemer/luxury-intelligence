@@ -10,7 +10,7 @@ import { getReasoningFor, maxTokensParam, reasoningParam, temperatureParam } fro
 import { mapLimit } from './fullText';
 import { OPENAI_REQUEST_OPTIONS, PEER_RESULTS_RULE, type AdRisk, type ArticleType, type FullTextResult, type JudgeResult, type JudgeScores, type TriageResult } from './types';
 
-export const JUDGE_PROMPT_VERSION = 2;
+export const JUDGE_PROMPT_VERSION = 3;
 export const JUDGE_DEFAULT_MODEL = 'gpt-6.1-sol';
 export const JUDGE_CONCURRENCY = 4;
 export const JUDGE_CACHE_KIND = 'selection_judge';
@@ -130,6 +130,8 @@ independence (5 independent journalism ... 1 advertorial, PR or hidden ad)
  1 advertorial, sponsored or pure promotion
 
 ${PEER_RESULTS_RULE} Score significance accordingly.
+
+Geography: the reader works for an international company (Europe, US, Asia). A single-country policy, a local retail-sales statistic or a local company story is significance 3 or lower unless it materially affects international brands or retailers, or is a major data point from a top-5 market (US, China, Japan, UK, Germany or France). Travel retail, duty free and airport retail are Luxury & Consumer topics, not ecommerce.
 
 Hidden-ad signals: only the company is quoted and no independent voice or numbers; promotional adjectives ("game-changing", "leading", "seamless"); prices, "where to buy", discount codes or a call to action; a vendor explaining its own product as if neutral; reads like a press release; disclosure text such as "sponsored by" or "in partnership with" in the body. Set hiddenAd true when you judge the piece is paid, brand-supplied or vendor-led promotion presented as editorial. Put independence at 2 or lower when hiddenAd is true.
 

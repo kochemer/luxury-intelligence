@@ -12,9 +12,9 @@ export const EMBEDDING_MODEL = 'text-embedding-3-small';
 const EMBED_BATCH = 256;
 
 export interface ClusterOpts {
-  /** cosine to centroid needed to join (default env SELECTION_CLUSTER_SIM or 0.86) */
+  /** cosine to centroid needed to join (default env SELECTION_CLUSTER_SIM or 0.82) */
   sim?: number;
-  /** cosine to the cluster's seed also needed (default 0.80) */
+  /** cosine to the cluster's seed also needed (default 0.78) */
   seedSim?: number;
 }
 
@@ -64,8 +64,8 @@ function dot(a: number[], b: number[]): number {
  */
 export function clusterByVectors(items: ClusterItem[], vectors: number[][], opts: ClusterOpts = {}): StoryCluster[] {
   if (items.length !== vectors.length) throw new Error('clusterByVectors: items/vectors length mismatch');
-  const sim = opts.sim ?? (Number(process.env.SELECTION_CLUSTER_SIM) || 0.86);
-  const seedSim = opts.seedSim ?? 0.8;
+  const sim = opts.sim ?? (Number(process.env.SELECTION_CLUSTER_SIM) || 0.82);
+  const seedSim = opts.seedSim ?? 0.78;
 
   interface Work {
     seed: number[];

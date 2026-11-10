@@ -13,7 +13,7 @@ import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
 import { OPENAI_REQUEST_OPTIONS, PEER_RESULTS_RULE, UNTRUSTED_NOTICE, type AdRisk, type ArticleType, type HardFilterResult, type TriageResult } from './types';
 
 /** Bump to invalidate the triage cache (prompt or rubric change). */
-export const TRIAGE_PROMPT_VERSION = 'triage-v2';
+export const TRIAGE_PROMPT_VERSION = 'triage-v3';
 export const TRIAGE_BATCH_SIZE = 40;
 export const TRIAGE_CONCURRENCY = 4;
 export const TRIAGE_CACHE_KIND = 'selection_triage';
@@ -53,7 +53,7 @@ A professional working in fashion, luxury, jewellery or ecommerce (for example a
 
 CATEGORIES (pick the single best fit, or null)
 - AI_and_Strategy: AI first. AI is the PRIMARY subject: frontier labs and models (OpenAI, Anthropic, Google, Meta, xAI, Mistral, DeepSeek...), releases and capability leaps, benchmarks and evals, research and technical shifts, AI industry economics (funding, compute, pricing, partnerships, leadership), and regulation or policy that materially affects AI development. Also substantive applied AI in retail/commerce (agents at scale, real deployments with results). NOT this category: a commerce, retail or logistics story that only mentions "AI" in passing, generic "AI adoption" surveys, "AI will change jobs" commentary, vendor webinars.
-- Ecommerce_Retail_Tech: digital commerce, platforms and marketplaces (Amazon, Shopify, Temu, Shein, Stripe...), payments, checkout, retail media and advertising measurement, logistics and fulfilment, fraud and identity, personalization, retail technology, AI in commerce, and ecommerce regulation (privacy, platform rules, marketplace and consumer-protection rules for online selling, customs duties on parcels). Grocery and delivery platforms count as ecommerce. Concrete developments by named companies or regulators beat commentary. NOT this category: fashion sourcing, labour and supply-chain due diligence, sustainability and green-claims regulation, and brand or retailer financial results; those go to Luxury_and_Consumer (or Jewellery_Industry when about jewellery). Not jewellery or luxury-brand news unless the story is objectively top-tier for ecommerce.
+- Ecommerce_Retail_Tech: digital commerce, platforms and marketplaces (Amazon, Shopify, Temu, Shein, Stripe...), payments, checkout, retail media and advertising measurement, logistics and fulfilment, fraud and identity, personalization, retail technology, AI in commerce, and ecommerce regulation (privacy, platform rules, marketplace and consumer-protection rules for online selling, customs duties on parcels). Grocery and delivery platforms count as ecommerce. Concrete developments by named companies or regulators beat commentary. NOT this category: travel retail, duty free and airport retail (those go to Luxury_and_Consumer), fashion sourcing, labour and supply-chain due diligence, sustainability and green-claims regulation, and brand or retailer financial results; those go to Luxury_and_Consumer (or Jewellery_Industry when about jewellery). Not jewellery or luxury-brand news unless the story is objectively top-tier for ecommerce.
 - Luxury_and_Consumer: luxury, fashion and consumer brands. Deals (acquisitions, sales, stakes, bankruptcies), financial results and trading updates, leadership changes (CEO, creative director, board), strategy (restructurings, market entries and exits, flagship openings, pricing), major launches and collections from leading houses (LVMH, Kering, Hermes, Richemont, Prada, Chanel, Gucci, Burberry, Nike...), demand data and trade policy with direct retail impact.
 - Jewellery_Industry: jewellery, watches, diamonds, gold and precious metals prices, lab-grown diamonds, major jewellers and watchmakers (Pandora, Signet, Tiffany, Cartier, Swarovski, Chow Tai Fook, Rolex, Swatch Group...), mining and supply (De Beers, Alrosa), trade bodies and trade shows (WJA, JCK, CIBJO, Responsible Jewellery Council), industry deals, results and leadership.
 - null: fits none of the four (general news, sport, entertainment, local news, politics, health, lifestyle, celebrity, anything with no clear tie to the categories above). Use null freely; do not force a category. A classifier hint is only a hint and is often wrong.
@@ -79,6 +79,7 @@ SIGNIFICANCE 1-5 (one scale for every category, judged for the reader above)
 - 3 notable: worthwhile, narrower impact.
 - 2 minor: incremental, local, one small company.
 - 1 noise: irrelevant, trivial, promotional.
+GEOGRAPHY: the reader works for an international company (Europe, US, Asia). A single-country policy, a local retail-sales statistic or a local company story is significance 3 or lower unless it materially affects international brands or retailers, or is a major data point from a top-5 market (US, China, Japan, UK, Germany, France).
 ${PEER_RESULTS_RULE}
 Be strict: most articles are 2 or 3. Reserve 5 for a handful of stories per week. Opinion, listicles, reviews and how-tos rarely exceed 3. Significance is about the story, not about how well it is written.
 

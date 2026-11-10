@@ -74,7 +74,7 @@ test('clusterByVectors merges near-duplicates and counts distinct sources', () =
     [0.98, 0.1, 0],
     [0, 1, 0],
   ];
-  const cl = clusterByVectors(items, vectors, { sim: 0.86 });
+  const cl = clusterByVectors(items, vectors, { sim: 0.86, seedSim: 0.8 });
   assert.equal(cl.length, 2);
   assert.deepEqual(cl[0].members, ['a', 'b', 'c']);
   assert.equal(cl[0].coverage, 2);
