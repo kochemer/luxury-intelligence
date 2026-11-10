@@ -4,6 +4,7 @@
  * so near-duplicates merge but A~B~C chains do not.
  */
 import OpenAI from 'openai';
+import { OPENAI_REQUEST_OPTIONS } from './types';
 import type { Article } from '../lib/types';
 import type { StoryCluster } from './types';
 
@@ -35,7 +36,7 @@ export async function embedTexts(
   let tokens = 0;
   for (let i = 0; i < texts.length; i += EMBED_BATCH) {
     const batch = texts.slice(i, i + EMBED_BATCH).map(t => t || ' ');
-    const res = await openai.embeddings.create({ model: EMBEDDING_MODEL, input: batch });
+    const res = await openai.embeddings.create({ model: EMBEDDING_MODEL, input: batch }, OPENAI_REQUEST_OPTIONS);
     const sorted = [...res.data].sort((a, b) => a.index - b.index);
     for (const d of sorted) vectors.push(d.embedding);
     tokens += res.usage?.total_tokens ?? 0;

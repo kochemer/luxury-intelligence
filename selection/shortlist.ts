@@ -44,6 +44,8 @@ export interface ShortlistInput {
   n?: number;
   /** max per source, default 4 */
   perSourceCap?: number;
+  /** max per web domain, default 5 */
+  perDomainCap?: number;
 }
 
 interface Cand {
@@ -67,6 +69,7 @@ function betterRep(x: Cand, y: Cand): boolean {
 export function buildShortlist(input: ShortlistInput): Record<Topic, ShortlistEntry[]> {
   const n = input.n ?? (Number(process.env.SELECTION_SHORTLIST_N) || 25);
   const cap = input.perSourceCap ?? 4;
+  const domCap = input.perDomainCap ?? 5;
   const clusterOf = new Map<string, StoryCluster>();
   for (const c of input.clusters) for (const u of c.members) clusterOf.set(u, c);
 
@@ -93,10 +96,19 @@ export function buildShortlist(input: ShortlistInput): Record<Topic, ShortlistEn
     }
     const sorted = [...byCluster.values()].sort((x, y) => y.score - x.score || (x.a.url < y.a.url ? -1 : 1));
     const perSource = new Map<string, number>();
+    const perDomain = new Map<string, number>();
     for (const c of sorted) {
       if (out[topic].length >= n) break;
       const used = perSource.get(c.a.source) ?? 0;
       if (used >= cap) continue;
+      let dom = '';
+      try {
+        dom = new URL(c.a.url).hostname.toLowerCase().replace(/^www\./, '');
+      } catch {
+        /* no domain cap */
+      }
+      if (dom && (perDomain.get(dom) ?? 0) >= domCap) continue;
+      if (dom) perDomain.set(dom, (perDomain.get(dom) ?? 0) + 1);
       perSource.set(c.a.source, used + 1);
       out[topic].push({
         url: c.a.url,

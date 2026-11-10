@@ -1,6 +1,7 @@
 # Selection funnel v2: design
 
 Status: built and wired into `digest/buildWeeklyDigest.ts` on `agent/selection-funnel` (2026-11-10), default `v2`, not deployed.
+Deviations after review (2026-11-10): selection paywall patterns are word-bounded and 403 counts as unknown; validatePicks also drops excluded judge types, adRisk high, applies a per-domain cap (2 per category; 5 in the shortlist), series-title duplicates, at most one paywalled story in ranks 1-3, at most 2 per mainCompany in ranks 1-5, and judge fallbacks never meet the lead bar; hard news beats analysis of the same event; Pandora and peer results are significance 4+; Ecommerce scope excludes sourcing, labour and sustainability regulation; all OpenAI calls use a 90 s timeout with 1 retry; judge cache is atomic, serialised and re-judges snippet-only entries once full text is fetched.
 Shared types: `selection/types.ts`. Code lives in `selection/`.
 
 ## Why

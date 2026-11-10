@@ -372,3 +372,14 @@ shipped without a live call: `gpt-4o-mini-tts` with `instructions`, and
 the previous, proven model, so the worst case is the old voice or image model,
 logged as a warning. Check the first run's log for `retrying with tts-1` or
 `retrying with gpt-image-2`.
+
+## Selection funnel v2: editorial rules (2026-11-10)
+
+The W45 v2 trial showed four problems, each now a rule in `selection/`:
+one outlet (two WWD sections) took 4 of 7 Luxury slots, so picks are capped at 2 per web domain
+per category; the editor chose an analysis of Pandora's turnaround over the results reports
+themselves, so hard news wins over analysis of the same event and Pandora and direct-peer
+results are significance 4+ (`PEER_COMPANIES` in `selection/types.ts`); Ecommerce picked fashion
+sourcing and green-claims regulation, so its triage definition is limited to digital commerce
+topics; Anthropic held 4 of the top 5 in AI, so at most 2 of ranks 1-5 may share a `mainCompany`.
+Two parts of one series (same domain, same title prefix before ':') count as one story.

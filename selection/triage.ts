@@ -10,10 +10,10 @@ import OpenAI from 'openai';
 import type { Article, Topic } from '../lib/types';
 import { maxTokensParam, reasoningParam, temperatureParam } from '../lib/llm/models';
 import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
-import type { AdRisk, ArticleType, HardFilterResult, TriageResult } from './types';
+import { OPENAI_REQUEST_OPTIONS, PEER_RESULTS_RULE, UNTRUSTED_NOTICE, type AdRisk, type ArticleType, type HardFilterResult, type TriageResult } from './types';
 
 /** Bump to invalidate the triage cache (prompt or rubric change). */
-export const TRIAGE_PROMPT_VERSION = 'triage-v1';
+export const TRIAGE_PROMPT_VERSION = 'triage-v2';
 export const TRIAGE_BATCH_SIZE = 40;
 export const TRIAGE_CONCURRENCY = 4;
 export const TRIAGE_CACHE_KIND = 'selection_triage';
@@ -46,12 +46,14 @@ export function triageModel(): string {
 
 export const TRIAGE_SYSTEM_PROMPT = `You are the first-pass editor of a weekly news digest. You read short article cards and label each one. Respond with valid JSON only, no markdown, no code fences.
 
+${UNTRUSTED_NOTICE} The cards sit between ===BEGIN CARDS=== and ===END CARDS===.
+
 THE READER
 A professional working in fashion, luxury, jewellery or ecommerce (for example a Pandora colleague) who wants to follow the relevant news reliably each week. Judge every article for this person: would they want to know about it, and is it trustworthy independent journalism?
 
 CATEGORIES (pick the single best fit, or null)
 - AI_and_Strategy: AI first. AI is the PRIMARY subject: frontier labs and models (OpenAI, Anthropic, Google, Meta, xAI, Mistral, DeepSeek...), releases and capability leaps, benchmarks and evals, research and technical shifts, AI industry economics (funding, compute, pricing, partnerships, leadership), and regulation or policy that materially affects AI development. Also substantive applied AI in retail/commerce (agents at scale, real deployments with results). NOT this category: a commerce, retail or logistics story that only mentions "AI" in passing, generic "AI adoption" surveys, "AI will change jobs" commentary, vendor webinars.
-- Ecommerce_Retail_Tech: industry significance first. Platforms and marketplaces (Amazon, Shopify, Temu, Shein, Stripe...), payments and checkout, retail media and advertising measurement, logistics and fulfilment, fraud and identity, personalization, retail technology, and regulation with direct commerce impact (privacy, platform rules, tariffs and trade policy affecting retail, consumer protection). Concrete developments by named companies or regulators beat commentary. Not jewellery or luxury-brand news unless the story is objectively top-tier for ecommerce.
+- Ecommerce_Retail_Tech: digital commerce, platforms and marketplaces (Amazon, Shopify, Temu, Shein, Stripe...), payments, checkout, retail media and advertising measurement, logistics and fulfilment, fraud and identity, personalization, retail technology, AI in commerce, and ecommerce regulation (privacy, platform rules, marketplace and consumer-protection rules for online selling, customs duties on parcels). Grocery and delivery platforms count as ecommerce. Concrete developments by named companies or regulators beat commentary. NOT this category: fashion sourcing, labour and supply-chain due diligence, sustainability and green-claims regulation, and brand or retailer financial results; those go to Luxury_and_Consumer (or Jewellery_Industry when about jewellery). Not jewellery or luxury-brand news unless the story is objectively top-tier for ecommerce.
 - Luxury_and_Consumer: luxury, fashion and consumer brands. Deals (acquisitions, sales, stakes, bankruptcies), financial results and trading updates, leadership changes (CEO, creative director, board), strategy (restructurings, market entries and exits, flagship openings, pricing), major launches and collections from leading houses (LVMH, Kering, Hermes, Richemont, Prada, Chanel, Gucci, Burberry, Nike...), demand data and trade policy with direct retail impact.
 - Jewellery_Industry: jewellery, watches, diamonds, gold and precious metals prices, lab-grown diamonds, major jewellers and watchmakers (Pandora, Signet, Tiffany, Cartier, Swarovski, Chow Tai Fook, Rolex, Swatch Group...), mining and supply (De Beers, Alrosa), trade bodies and trade shows (WJA, JCK, CIBJO, Responsible Jewellery Council), industry deals, results and leadership.
 - null: fits none of the four (general news, sport, entertainment, local news, politics, health, lifestyle, celebrity, anything with no clear tie to the categories above). Use null freely; do not force a category. A classifier hint is only a hint and is often wrong.
@@ -77,6 +79,7 @@ SIGNIFICANCE 1-5 (one scale for every category, judged for the reader above)
 - 3 notable: worthwhile, narrower impact.
 - 2 minor: incremental, local, one small company.
 - 1 noise: irrelevant, trivial, promotional.
+${PEER_RESULTS_RULE}
 Be strict: most articles are 2 or 3. Reserve 5 for a handful of stories per week. Opinion, listicles, reviews and how-tos rarely exceed 3. Significance is about the story, not about how well it is written.
 
 CONTROVERSY RULE: articles primarily about war or armed conflict, culture-war or polarising identity politics, or election horse-race politics get significance 2 or lower, unless there is a DIRECT retail, trade or AI-industry impact (tariffs and trade policy affecting retail pricing or supply chains, AI compliance laws such as the AI Act or GDPR, platform regulation with commerce impact, consumer protection law).
@@ -106,14 +109,19 @@ function urlPath(url: string): string {
   }
 }
 
+/** Collapse whitespace/newlines and neutralise the card delimiters so card text cannot fake structure. */
+export function cleanCardText(s: string): string {
+  return (s || '').replace(/={3,}/g, '=').replace(/\s+/g, ' ').trim();
+}
+
 /** Pure prompt builder, exported for tests. Index = position in `cards`. */
 export function buildTriagePrompt(cards: TriageCardInput[]): string {
   const body = cards
     .map((c, i) => {
-      const snippet = (c.article.snippet || '').replace(/\s+/g, ' ').trim().slice(0, 400);
+      const snippet = cleanCardText(c.article.snippet || '').slice(0, 400);
       return [
-        `[${i}] ${c.article.title}`,
-        `Source: ${c.article.source}`,
+        `[${i}] ${cleanCardText(c.article.title)}`,
+        `Source: ${cleanCardText(c.article.source)}`,
         `Path: ${urlPath(c.article.url)}`,
         `Classifier hint: ${c.hint ?? 'none'}`,
         c.softFlags.length ? `Soft flags: ${c.softFlags.join(', ')}` : '',
@@ -123,7 +131,7 @@ export function buildTriagePrompt(cards: TriageCardInput[]): string {
         .join('\n');
     })
     .join('\n\n');
-  return `Label these ${cards.length} articles (indices 0 to ${cards.length - 1}).\n\n${body}`;
+  return `Label these ${cards.length} articles (indices 0 to ${cards.length - 1}).\n\n===BEGIN CARDS===\n${body}\n===END CARDS===`;
 }
 
 // ---------- Response validation ----------
@@ -280,7 +288,7 @@ async function callBatch(
       { role: 'system', content: TRIAGE_SYSTEM_PROMPT },
       { role: 'user', content: buildTriagePrompt(cards) },
     ],
-  } as Parameters<typeof openai.chat.completions.create>[0]) as OpenAI.Chat.Completions.ChatCompletion;
+  } as Parameters<typeof openai.chat.completions.create>[0], OPENAI_REQUEST_OPTIONS) as OpenAI.Chat.Completions.ChatCompletion;
   usage.calls++;
   usage.promptTokens += res.usage?.prompt_tokens ?? 0;
   usage.completionTokens += res.usage?.completion_tokens ?? 0;
@@ -384,6 +392,7 @@ export async function triageArticles(articles: Article[], opts: TriageOptions): 
       for (const r of newlyDone) wk[r.url] = { ...r, v: TRIAGE_PROMPT_VERSION, model };
       fresh[opts.week] = wk;
       const keep = Object.keys(fresh).sort().slice(-TRIAGE_CACHE_WEEKS);
+      if (!keep.includes(opts.week)) keep.push(opts.week);
       const pruned: TriageCache = {};
       for (const k of keep) pruned[k] = fresh[k];
       await writeJsonCache(TRIAGE_CACHE_KIND, pruned);

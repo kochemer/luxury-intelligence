@@ -9,7 +9,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import fetchNode from 'node-fetch';
-import { extractText, detectPaywallInText, BROWSER_USER_AGENT } from '../discovery/fetchExtract';
+import { extractText, PAYWALL_PATTERNS, BROWSER_USER_AGENT } from '../discovery/fetchExtract';
 import { scanDisclosures } from './hardFilters';
 import type { FullTextResult, PaywallStatus } from './types';
 
@@ -22,6 +22,18 @@ export const FULLTEXT_CACHE_VERSION = 1;
 export const FULLTEXT_MIN_WORDS = 80;
 /** Text-pattern paywall hits only count on short bodies (a long article quoting "subscribe to" is not gated). */
 const PAYWALL_TEXT_MAX_WORDS = 500;
+
+/**
+ * Paywall text patterns for the selection path. The legacy list has a bare /meter/i that
+ * matches "parameters" and "diameter"; here it is word-bounded. Legacy discovery is unchanged.
+ */
+export const SELECTION_PAYWALL_PATTERNS: RegExp[] = PAYWALL_PATTERNS.map(p =>
+  p.source === 'meter' ? /\bmeter(ed)?\b/i : p
+);
+
+export function detectSelectionPaywall(text: string): boolean {
+  return SELECTION_PAYWALL_PATTERNS.some(p => p.test(text));
+}
 
 export const FULLTEXT_CACHE_DIR = path.join(process.cwd(), 'data', 'cache', 'selection-fulltext');
 
@@ -96,9 +108,11 @@ export async function fetchOne(
       signal: controller.signal,
       redirect: 'follow',
     });
-    if (res.status === 401 || res.status === 402 || res.status === 403) {
+    if (res.status === 401 || res.status === 402) {
       return snippetResult(url, snippet, 'likely_paywalled', maxChars);
     }
+    // 403 is usually a bot block, not a paywall
+    if (res.status === 403) return snippetResult(url, snippet, 'unknown', maxChars);
     if (!res.ok) return snippetResult(url, snippet, 'unknown', maxChars);
 
     // Body read is bounded by the same abort timer on real fetches; race for injected ones.
@@ -108,8 +122,7 @@ export async function fetchOne(
     ]);
     const extracted = extractText(html, url).text;
     const words = countWords(extracted);
-    const gate = detectPaywallInText(extracted);
-    const paywalled = gate.isPaywalled && words < PAYWALL_TEXT_MAX_WORDS;
+    const paywalled = detectSelectionPaywall(extracted) && words < PAYWALL_TEXT_MAX_WORDS;
     if (paywalled) return snippetResult(url, snippet, 'likely_paywalled', maxChars);
     if (words < FULLTEXT_MIN_WORDS) return snippetResult(url, snippet, 'unknown', maxChars);
 

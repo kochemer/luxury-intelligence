@@ -297,6 +297,9 @@ export async function runSelectionFunnel(
           hiddenAd: j.hiddenAd,
           why: j.why,
           paywall: fullTexts.get(e.url)?.paywall,
+          adRisk: triage.results.get(e.url)?.adRisk,
+          fallback: j.fallback,
+          mainCompany: j.mainCompany ?? null,
         });
       }
       const t2 = Date.now();

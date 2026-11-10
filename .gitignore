@@ -99,3 +99,5 @@ public/workbox-*.js.map
 
 # Selection funnel full-text cache: article body text, never commit
 data/cache/selection-fulltext/
+data/cache/selection_triage.json
+data/cache/selection_judge.json
