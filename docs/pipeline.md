@@ -10,7 +10,7 @@ The Luxury Intelligence pipeline produces a weekly digest of curated articles ac
 - **AI & Strategy**: AI/ML research, industry strategy, technology trends
 - **Ecommerce & Retail Tech**: E-commerce platforms, retail technology, payment systems
 - **Luxury & Consumer**: Consumer behavior, luxury brands, fashion trends
-- **Jewellery Industry**: Jewelry news, gemstones, luxury watches, industry updates
+- **Jewellery Industry**: Jewelry news, gemstones, diamonds, industry updates (watches are Luxury & Consumer since 2026-11-11)
 
 The system ingests articles from RSS feeds and web discovery, classifies them by topic, selects and reranks the most relevant articles, generates AI summaries and translations, and produces:
 - Weekly digest JSON (`data/digests/{week}.json`)

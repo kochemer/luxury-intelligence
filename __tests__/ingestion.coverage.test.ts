@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { unwrapBingNewsUrl, pagedFeedUrl } from '../ingestion/fetchRss';
+import { unwrapBingNewsUrl, pagedFeedUrl, articleSourceName } from '../ingestion/fetchRss';
 import { mergeYield, type SourceYield, type SourceYieldReport } from '../ingestion/sourceYield';
 import { mergeBufferedArticles, pickYieldReport } from '../scripts/mergeIngestBuffer';
 import { classifyTopic } from '../classification/classifyTopics';
@@ -59,8 +59,12 @@ test('pickYieldReport only takes the buffer report for the current week', () => 
 test('new sources route to their intended category by name', () => {
   const route = (source: string, title = 'Company names new chief executive') =>
     classifyTopic({ url: 'https://example.com/x', title, source });
-  for (const s of ['JCK - Editorial', 'Rapaport News', 'Hodinkee', 'National Jeweler (via Bing News)', 'Professional Jeweller (via Bing News)', 'WatchPro (via Bing News)']) {
+  for (const s of ['JCK - Editorial', 'Rapaport News', 'National Jeweler (via Bing News)', 'Professional Jeweller (via Bing News)']) {
     assert.equal(route(s), 'Jewellery_Industry', s);
+  }
+  // Watches are Luxury since 2026-11-11.
+  for (const s of ['Hodinkee', 'WatchPro (via Bing News)']) {
+    assert.equal(route(s), 'Luxury_and_Consumer', s);
   }
   for (const s of ['FashionUnited', 'WWD - Business News', 'CPP-Luxury', 'Moodie Davitt Report', 'The Industry.fashion', 'Business of Fashion (via Bing News)', 'Vogue Business (via Bing News)', 'FashionNetwork (via Bing News)']) {
     assert.equal(route(s), 'Luxury_and_Consumer', s);
@@ -83,4 +87,12 @@ test('rerank trim caps one high-volume source and backfills when sources run out
   const backfilled = takeTopPerSourceCapped(items, 8, 4);
   assert.equal(backfilled.length, 8);
   assert.deepEqual(backfilled.slice(6).map(i => i.id), ['fu4', 'fu5']);
+});
+
+test('keyword-query feeds key articles to the real publisher, other feeds keep the feed name', () => {
+  assert.equal(articleSourceName('Bing News: De Beers', 'Reuters on MSN', 'https://www.msn.com/x'), 'Reuters (via Bing News)');
+  assert.equal(articleSourceName('Bing News: De Beers', 'Financial Times', 'https://www.ft.com/x'), 'Financial Times (via Bing News)');
+  assert.equal(articleSourceName('Bing News: De Beers', undefined, 'https://www.ft.com/content/x'), 'ft.com (via Bing News)');
+  assert.equal(articleSourceName('National Jeweler (via Bing News)', 'National Jeweler', 'https://nationaljeweler.com/x'), 'National Jeweler (via Bing News)');
+  assert.equal(articleSourceName('JCK - Editorial', undefined, 'https://jckonline.com/x'), 'JCK - Editorial');
 });

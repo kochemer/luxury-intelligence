@@ -52,7 +52,7 @@ const Jewellery_Industry_Keywords = [
   // genuine jewellery stories instead.
   "jewel", "jewellery", "jewelry", "diamond", "gem", "gems",
   "fancy color", "carat", "cartier", "tiffany", "bulgari", "harry winston",
-  "gemstone", "precious stone", "van cleef", "luxury watch", "horology",
+  "gemstone", "precious stone", "van cleef",
   "de beers", "sotheby’s", "graff", "piaget"
 ];
 
@@ -76,7 +76,9 @@ const Luxury_and_Consumer_Keywords = [
   "luxury shopper", "vip", "purchase intent", "brand loyalty", "spending",
   "trend", "trends", "market research", "demographic", "psychographic",
   "demand", "customer journey", "connoisseur", "collectors", "high net worth",
-  "motivation", "desire", "experiential"
+  "motivation", "desire", "experiential",
+  // Watches are Luxury since 2026-11-11 (owner decision), not Jewellery.
+  "luxury watch", "horology", "watchmaker", "rolex", "patek philippe", "audemars piguet"
 ];
 
 const Ecommerce_Retail_Tech_Keywords = [
@@ -117,10 +119,15 @@ const EXCEPTION_POSITIVE = [
 // Specific jewellery sources that should be automatically classified as Jewellery_Industry
 const JEWELLERY_SOURCES = [
   "Rapaport", "National Jeweler", "JCK", "Jeweller Magazine", "Professional Jeweller", "JewelleryNet",
-  // Watch/jewellery trade + enthusiast sources routed by name — their article
-  // titles often lack jewellery keywords (e.g. a Rolex review), so without this
-  // they would be dropped after the classification-precision change.
-  "The Jewellery Editor", "Retail Jeweller", "Instore Magazine",
+  // Jewellery trade sources routed by name (titles often lack jewellery keywords).
+  "The Jewellery Editor", "Retail Jeweller", "Instore Magazine", "IDEX Online",
+];
+
+// Watch trade + enthusiast sources, routed to Luxury_and_Consumer by name since
+// 2026-11-11 (owner decision: watches are Luxury, not Jewellery). Their titles
+// often carry no category keyword (e.g. a Rolex review), so without this they
+// would be dropped.
+const WATCH_SOURCES = [
   "Watchonista", "Worn & Wound", "SJX Watches", "Time and Tide", "Quill & Pad",
   "WatchPro", "A Blog to Watch", "Monochrome Watches", "Fratello",
   "Hodinkee",
@@ -230,6 +237,13 @@ export function classifyTopic(article: {
     return "Jewellery_Industry";
   }
   
+  // Watch sources go to Luxury (before the retail/commerce source patterns).
+  if (WATCH_SOURCES.some(s =>
+    article.source && article.source.toLowerCase().includes(s.toLowerCase())
+  )) {
+    return "Luxury_and_Consumer";
+  }
+
   // Check Ecommerce & Retail Tech SECOND - source override takes precedence over keyword matching
   // Any article from a retail/commerce/ecommerce source is automatically classified as Ecommerce_Retail_Tech
   // First check exact/partial matches in RETAIL_COMMERCE_SOURCES

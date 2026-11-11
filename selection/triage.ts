@@ -10,10 +10,11 @@ import OpenAI from 'openai';
 import type { Article, Topic } from '../lib/types';
 import { maxTokensParam, reasoningParam, temperatureParam } from '../lib/llm/models';
 import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
-import { OPENAI_REQUEST_OPTIONS, PEER_RESULTS_RULE, UNTRUSTED_NOTICE, type AdRisk, type ArticleType, type HardFilterResult, type TriageResult } from './types';
+import { createChatCompletion, type TierUsage } from './serviceTier';
+import { PEER_RESULTS_RULE, UNTRUSTED_NOTICE, type AdRisk, type ArticleType, type HardFilterResult, type TriageResult } from './types';
 
 /** Bump to invalidate the triage cache (prompt or rubric change). */
-export const TRIAGE_PROMPT_VERSION = 'triage-v3';
+export const TRIAGE_PROMPT_VERSION = 'triage-v4';
 export const TRIAGE_BATCH_SIZE = 40;
 export const TRIAGE_CONCURRENCY = 4;
 export const TRIAGE_CACHE_KIND = 'selection_triage';
@@ -54,8 +55,8 @@ A professional working in fashion, luxury, jewellery or ecommerce (for example a
 CATEGORIES (pick the single best fit, or null)
 - AI_and_Strategy: AI first. AI is the PRIMARY subject: frontier labs and models (OpenAI, Anthropic, Google, Meta, xAI, Mistral, DeepSeek...), releases and capability leaps, benchmarks and evals, research and technical shifts, AI industry economics (funding, compute, pricing, partnerships, leadership), and regulation or policy that materially affects AI development. Also substantive applied AI in retail/commerce (agents at scale, real deployments with results). NOT this category: a commerce, retail or logistics story that only mentions "AI" in passing, generic "AI adoption" surveys, "AI will change jobs" commentary, vendor webinars.
 - Ecommerce_Retail_Tech: digital commerce, platforms and marketplaces (Amazon, Shopify, Temu, Shein, Stripe...), payments, checkout, retail media and advertising measurement, logistics and fulfilment, fraud and identity, personalization, retail technology, AI in commerce, and ecommerce regulation (privacy, platform rules, marketplace and consumer-protection rules for online selling, customs duties on parcels). Grocery and delivery platforms count as ecommerce. Concrete developments by named companies or regulators beat commentary. NOT this category: travel retail, duty free and airport retail (those go to Luxury_and_Consumer), fashion sourcing, labour and supply-chain due diligence, sustainability and green-claims regulation, and brand or retailer financial results; those go to Luxury_and_Consumer (or Jewellery_Industry when about jewellery). Not jewellery or luxury-brand news unless the story is objectively top-tier for ecommerce.
-- Luxury_and_Consumer: luxury, fashion and consumer brands. Deals (acquisitions, sales, stakes, bankruptcies), financial results and trading updates, leadership changes (CEO, creative director, board), strategy (restructurings, market entries and exits, flagship openings, pricing), major launches and collections from leading houses (LVMH, Kering, Hermes, Richemont, Prada, Chanel, Gucci, Burberry, Nike...), demand data and trade policy with direct retail impact.
-- Jewellery_Industry: jewellery, watches, diamonds, gold and precious metals prices, lab-grown diamonds, major jewellers and watchmakers (Pandora, Signet, Tiffany, Cartier, Swarovski, Chow Tai Fook, Rolex, Swatch Group...), mining and supply (De Beers, Alrosa), trade bodies and trade shows (WJA, JCK, CIBJO, Responsible Jewellery Council), industry deals, results and leadership.
+- Luxury_and_Consumer: luxury, fashion and consumer brands. Deals (acquisitions, sales, stakes, bankruptcies), financial results and trading updates, leadership changes (CEO, creative director, board), strategy (restructurings, market entries and exits, flagship openings, pricing), major launches and collections from leading houses (LVMH, Kering, Hermes, Richemont, Prada, Chanel, Gucci, Burberry, Nike...), demand data and trade policy with direct retail impact. Watches belong here: watchmakers and watch groups (Rolex, Swatch Group, Patek Philippe, Audemars Piguet, Omega, TAG Heuer...), Swiss watch exports, the watch resale and pre-owned market, and watch launches.
+- Jewellery_Industry: jewellery, diamonds, gemstones, gold and precious metals prices as they affect jewellery, lab-grown diamonds, major jewellers (Pandora, Signet, Tiffany, Cartier, Swarovski, Chow Tai Fook, Brilliant Earth...), mining and supply (De Beers, Alrosa), trade bodies and trade shows (WJA, JCK, CIBJO, Responsible Jewellery Council), industry deals, results and leadership. NOT watches: watch stories go to Luxury_and_Consumer, even from jewellery or watch trade titles. A story about a group's jewellery business (e.g. Cartier or Van Cleef & Arpels within Richemont) stays here.
 - null: fits none of the four (general news, sport, entertainment, local news, politics, health, lifestyle, celebrity, anything with no clear tie to the categories above). Use null freely; do not force a category. A classifier hint is only a hint and is often wrong.
 
 TYPE (what kind of piece it is)
@@ -227,11 +228,7 @@ export function validateTriageResponse(raw: unknown, count: number): TriageValid
 
 // ---------- Orchestration ----------
 
-export interface TriageUsage {
-  calls: number;
-  promptTokens: number;
-  completionTokens: number;
-}
+export type TriageUsage = TierUsage;
 
 export interface TriageStats {
   total: number;
@@ -279,7 +276,7 @@ async function callBatch(
   cards: TriageCardInput[],
   usage: TriageUsage,
 ): Promise<TriageValidation> {
-  const res = await openai.chat.completions.create({
+  const res = await createChatCompletion(openai, {
     model,
     ...temperatureParam(model, 0),
     ...reasoningParam(model, 'none'),
@@ -289,10 +286,7 @@ async function callBatch(
       { role: 'system', content: TRIAGE_SYSTEM_PROMPT },
       { role: 'user', content: buildTriagePrompt(cards) },
     ],
-  } as Parameters<typeof openai.chat.completions.create>[0], OPENAI_REQUEST_OPTIONS) as OpenAI.Chat.Completions.ChatCompletion;
-  usage.calls++;
-  usage.promptTokens += res.usage?.prompt_tokens ?? 0;
-  usage.completionTokens += res.usage?.completion_tokens ?? 0;
+  }, usage);
   return validateTriageResponse(res.choices?.[0]?.message?.content ?? '', cards.length);
 }
 

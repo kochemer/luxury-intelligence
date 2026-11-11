@@ -13,9 +13,62 @@ and drop or replace whatever is still dead. Candidates as of 2026-10-05:
 
 - **Near-duplicate:** `Jeweller - Main`, `Jeweller - Jewellery Trends` (0–1 new/week; the Business News feed carries the same items).
 - **Empty:** `Luxury Daily - Retail`, `Luxury Daily - Commerce` (0 items), `Luxury Daily - Research` (0 new).
-- **Failing every run (403/429/parse error):** `Business of Fashion - News`, `Professional Jeweller`, `WatchPro`, `Just Style`, `Retail TouchPoints`, `Sourcing Journal`, `AI News`, `VentureBeat - AI`, `PYMNTS` (parse error since 2026-10-05), `BoF - News (The News in Brief)` page scrape.
-  BoF, Professional Jeweller, WatchPro and Retail TouchPoints now also come in
-  via Bing News proxies, so their direct feeds can go once the proxies prove stable.
+- **Failing every run (403/429/parse error):** `Business of Fashion - News`, `WatchPro`, `Just Style`, `Retail TouchPoints`, `Sourcing Journal`, `AI News`, `VentureBeat - AI`, `PYMNTS` (parse error since 2026-10-05), `BoF - News (The News in Brief)` page scrape.
+  BoF, WatchPro and Retail TouchPoints now also come in via Bing News proxies,
+  so their direct feeds can go once the proxies prove stable. (`Professional
+  Jeweller` and `Rapaport News` direct feeds were removed on 2026-11-11, see below.)
+
+## 2026-11-11: Jewellery pool enlargement
+
+**Why.** Watches moved from Jewellery to Luxury (owner decision 2026-11-11). In
+W45, about 160 of the 297 articles triaged into Jewellery were watch stories, so
+Jewellery would drop to ~140 articles a week, almost all from five trade titles
+(Instore, Retail Jeweller UK, JCK Editorial, Jeweller Business News, Professional
+Jeweller via Bing).
+
+**Removed / replaced**
+
+- `Rapaport News` direct feed (403 on 8 of 8 runs since 2026-10-05) →
+  `Rapaport News (via Bing News)`.
+- `Professional Jeweller` direct feed (403 every run) → removed; the Bing proxy
+  has run 8 of 8 without failure (84 items, 2026-11-03 to 2026-11-09).
+
+**Added** (items dated in the last 14 days when checked from a home IP on
+2026-11-11; Bing returns at most ~10–14 items, so daily ingestion sees more per week):
+
+| Feed | Recent / total items | On topic |
+|---|---|---|
+| `Rapaport News (via Bing News)` | 12 / 12 | all (De Beers sale, auctions, synthetics) |
+| `Jewellery Outlook` (direct) | 10 / 10 | all (UK trade) |
+| `Jeweller Magazine (via Bing News)` | 11 / 11 | all; overlaps the direct Jeweller feeds, URL dedupe drops repeats |
+| `Retail Jeweller India (via Bing News)` | 12 / 12 | ~half business news, ~half local store promotions (triage scores those low) |
+| `World Gold Council (via Bing News)` | 10 / 12 | Gold Demand Trends, central-bank data; a few static price pages, ingested once |
+| `Jewellery Business (Canada)` (direct) | 5 / 10 | mostly |
+| `IDEX Online (via Bing News)` | 2 / 3 | all |
+| `Bing News: Pandora jewellery` | 2 / 10 | mostly |
+| `Bing News: Signet Jewelers` | 5 / 12 | mixed: results and filings plus stock-commentary noise |
+| `Bing News: De Beers` | 2 / 2 | all |
+| `Bing News: Chow Tai Fook` | 1 / 11 | all |
+| `Bing News: lab-grown diamonds` | 2 / 11 | all |
+
+Keyword queries (`bingNewsQuery` in `sources.ts`) bring business coverage from
+any outlet (Reuters, Bloomberg, CNBC). Their articles are keyed to the real
+publisher from Bing's `News:Source` field, e.g. `Reuters (via Bing News)`
+(`articleSourceName` in `ingestion/fetchRss.ts`), so readers never see the
+query name and selection's per-source caps apply per outlet. They also pull in
+consumer listicles (Bustle, Sportskeeda); triage scores those low and the
+shortlist excludes listicles. Expected effect: roughly +70–100
+on-topic Jewellery articles a week. Check the first CI weeks in
+`source_yield.json` and the selection report before trusting that.
+
+**Rejected:** Jewellery Focus (direct 403; Bing ~1 item a fortnight), Solitaire
+International (direct 403; Bing empty), Gem-A (direct feed has nothing recent;
+Bing empty), Diamond World / GJEPC (empty), JewelleryNet and JNA (Bing empty;
+JNA's own feed is malformed XML), Kitco and Mining.com diamonds (404), Centurion
+(unreachable), Diamonds.net (Bing stale), Retail Jeweller India direct (403),
+JCK via Bing (duplicates `JCK - Editorial`), Brilliant Earth query (mostly its own
+press releases and call transcripts), "jewellery sales" and "diamond industry"
+queries (nothing recent).
 
 ## 2026-10-05: coverage expansion
 
