@@ -59,7 +59,9 @@ h1 { font-family: var(--f-display); font-weight: 600; font-size: clamp(2.3rem, 6
 }
 .label { min-width: 0; }
 .label h2 { font-family: var(--f-display); font-weight: 600; font-size: 1.5rem; line-height: 1.1; margin: 0; color: var(--navy); display: flex; align-items: baseline; gap: 10px; }
-.label p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+.label p { margin: 2px 0 0; color: var(--fg); font-size: 15px; }
+.label p.how { margin-top: 3px; color: var(--muted); font-size: 13px; line-height: 1.4; }
+.band { height: 72px !important; }
 .ai { font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; color: var(--gold); border: 1px solid currentColor; border-radius: 2px; padding: 1px 5px; font-weight: 500; }
 
 .out { margin-top: 40px; padding-top: 22px; border-top: 1px solid color-mix(in srgb, var(--muted) 30%, transparent); display: flex; flex-wrap: wrap; gap: 8px 32px; color: var(--muted); font-size: 15px; }
@@ -82,31 +84,31 @@ h1 { font-family: var(--f-display); font-weight: 600; font-size: clamp(2.3rem, 6
   <ol class="funnel">
     <li class="row">
       <div class="band" style="--c:var(--b1);--t:var(--on-light);--a:0%;--z:4%">2,197</div>
-      <div class="label"><h2>Filter</h2><p>Drop obvious ads and press releases</p></div>
+      <div class="label"><h2>Filter</h2><p>Drop obvious ads and press releases</p><p class="how">Fixed rules on links and titles: "/sponsored/", "Advertorial", PR wires</p></div>
     </li>
     <li class="row">
       <div class="band" style="--c:var(--b2);--t:var(--on-light);--a:4%;--z:8%">2,052</div>
-      <div class="label"><h2>Group</h2><p>Merge articles about the same story</p></div>
+      <div class="label"><h2>Group</h2><p>Merge articles about the same story</p><p class="how">Text similarity finds near-identical coverage; more outlets means more weight</p></div>
     </li>
     <li class="row">
       <div class="band" style="--c:var(--b3);--t:var(--on-light);--a:8%;--z:12%">1,600</div>
-      <div class="label"><h2>Triage <span class="ai">AI</span></h2><p>Label every article by topic and importance</p></div>
+      <div class="label"><h2>Triage <span class="ai">AI</span></h2><p>Label every article by topic and importance</p><p class="how">A fast model reads each headline and summary: category, type, importance 1–5, ad risk</p></div>
     </li>
     <li class="row">
       <div class="band" style="--c:var(--b4);--t:var(--on-light);--a:12%;--z:16%">100</div>
-      <div class="label"><h2>Shortlist</h2><p>Keep the best 25 per category</p></div>
+      <div class="label"><h2>Shortlist</h2><p>Keep the best 25 per category</p><p class="how">Ranked by importance and type; one per story, capped per source, no PR or podcasts</p></div>
     </li>
     <li class="row">
       <div class="band" style="--c:var(--b5);--t:var(--on-dark);--a:16%;--z:20%">100</div>
-      <div class="label"><h2>Read</h2><p>Fetch each full article</p></div>
+      <div class="label"><h2>Read</h2><p>Fetch each full article</p><p class="how">Downloads the page, spots paywalls and hidden "sponsored by" notes</p></div>
     </li>
     <li class="row">
       <div class="band" style="--c:var(--b6);--t:var(--on-dark);--a:20%;--z:24%">100</div>
-      <div class="label"><h2>Judge <span class="ai">AI</span></h2><p>Score quality, catch hidden ads</p></div>
+      <div class="label"><h2>Judge <span class="ai">AI</span></h2><p>Score quality, catch hidden ads</p><p class="how">A strong model rates significance, substance, insight, writing and independence</p></div>
     </li>
     <li class="row">
       <div class="band" style="--c:var(--b7);--t:var(--on-dark);--a:24%;--z:28%">28</div>
-      <div class="label"><h2>Pick <span class="ai">AI</span></h2><p>An editor chooses 7 per category</p></div>
+      <div class="label"><h2>Pick <span class="ai">AI</span></h2><p>An editor chooses 7 per category</p><p class="how">The strong model ranks them; rules enforce variety and keep ads out of the top 5</p></div>
     </li>
   </ol>
 
