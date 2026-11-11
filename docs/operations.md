@@ -194,6 +194,7 @@ overrides; leave them unset unless you mean to change behaviour.
 | `MAX_TOTAL_ARTICLES`, `MAX_ARTICLES_PER_CATEGORY`, `MIN_ARTICLES_PER_CATEGORY` | Digest size limits in the pipeline |
 | `SELECTION_FUNNEL` | `v2` (default) or `legacy`: which selection path builds the digest's top 7 per category. v2 falls back to legacy on any error |
 | `SELECTION_TRIAGE_MODEL`, `SELECTION_JUDGE_MODEL`, `SELECTION_EDITOR_MODEL` | v2 funnel models (defaults `gpt-6-luna`, `gpt-6.1-sol`, `gpt-6.1-sol`; reasons in `docs/pipeline-decisions.md`). Triage/judge caches key on the model |
+| `SELECTION_SERVICE_TIER` | `flex` (default, about half price, falls back to the standard tier when flex is busy or slow) or `default` (`selection/serviceTier.ts`) |
 | `SELECTION_SHORTLIST_N` | Shortlist size per category before the judge (default 25) |
 | `SELECTION_CLUSTER_SIM` | Cosine threshold for merging same-story articles into one cluster (default 0.82; seed 0.78) |
 | `RERANK_MAX_ITEMS`, `RERANK_MAX_CHARS`, `RERANK_COOLDOWN_MS`, `RERANK_DEBUG` | Rerank batch size, prompt size, rate limiting, logging |

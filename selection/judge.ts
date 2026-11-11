@@ -8,7 +8,8 @@ import { getTopicDisplayName } from '../lib/utils/topicNames';
 import { readJsonCache, writeJsonCache } from '../lib/utils/cachePaths';
 import { getReasoningFor, maxTokensParam, reasoningParam, temperatureParam } from '../lib/llm/models';
 import { mapLimit } from './fullText';
-import { OPENAI_REQUEST_OPTIONS, PEER_RESULTS_RULE, type AdRisk, type ArticleType, type FullTextResult, type JudgeResult, type JudgeScores, type TriageResult } from './types';
+import { createChatCompletion, type TierUsage } from './serviceTier';
+import { PEER_RESULTS_RULE, type AdRisk, type ArticleType, type FullTextResult, type JudgeResult, type JudgeScores, type TriageResult } from './types';
 
 export const JUDGE_PROMPT_VERSION = 3;
 export const JUDGE_DEFAULT_MODEL = 'gpt-6.1-sol';
@@ -24,11 +25,7 @@ export const ARTICLE_TYPES: readonly ArticleType[] = [
 export const READER =
   'a professional working in fashion, luxury, jewellery or ecommerce who wants to follow the relevant news of their industry reliably each week';
 
-export interface TokenUsage {
-  calls: number;
-  promptTokens: number;
-  completionTokens: number;
-}
+export type TokenUsage = TierUsage;
 export const emptyUsage = (): TokenUsage => ({ calls: 0, promptTokens: 0, completionTokens: 0 });
 
 /** One chat completion returning JSON text. Injectable for tests. */
@@ -44,7 +41,7 @@ let _client: OpenAI | null = null;
 /** Default chat implementation (OpenAI, JSON mode, GPT-5+-safe params). */
 export const openAiChatJson: ChatJson = async ({ model, system, user, maxTokens, usage }) => {
   _client ??= new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-  const res = await _client.chat.completions.create({
+  const res = await createChatCompletion(_client, {
     model,
     messages: [
       { role: 'system', content: system },
@@ -54,12 +51,7 @@ export const openAiChatJson: ChatJson = async ({ model, system, user, maxTokens,
     ...maxTokensParam(model, maxTokens),
     ...temperatureParam(model, 0),
     ...reasoningParam(model, getReasoningFor('rank') ?? 'low'),
-  } as any, OPENAI_REQUEST_OPTIONS);
-  if (usage) {
-    usage.calls += 1;
-    usage.promptTokens += res.usage?.prompt_tokens ?? 0;
-    usage.completionTokens += res.usage?.completion_tokens ?? 0;
-  }
+  }, usage);
   return res.choices[0]?.message?.content ?? '';
 };
 

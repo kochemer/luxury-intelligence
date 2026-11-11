@@ -39,6 +39,24 @@ Owner approved the 2026-10-09 switches after the measurements below.
   use `low` (`getReasoningFor('rank') ?? 'low'`). Luna accepts `none`.
 - Overrides: `SELECTION_TRIAGE_MODEL`, `SELECTION_JUDGE_MODEL`, `SELECTION_EDITOR_MODEL`.
   Measured token usage of the first full run is recorded in the spec's Cost section.
+- **Flex service tier (2026-11-11).** Triage, judge and editor calls ask for
+  `service_tier: "flex"`: same model and output at about half the token price,
+  slower. A flex refusal (429/5xx, or a 400 naming the tier) or a 180 s timeout
+  retries once on the standard tier (`selection/serviceTier.ts`), so flex can slow
+  a call but not fail it. Chosen over a smaller shortlist because in W45 the editor
+  took 4 of 7 picks from shortlist positions 15-25 in AI and Luxury. Probe on
+  2026-11-11: both models accepted flex. `SELECTION_SERVICE_TIER=default` turns it
+  off. Embeddings stay on the standard tier (no flex).
+- **Cached input is tracked.** OpenAI already bills a repeated prompt prefix over
+  1,024 tokens at a discount (probe: 1,058 of 1,061 judge prompt tokens cached on the
+  second call). The judge system prompt is ~1,175 tokens of a ~2,000-token call, so
+  `promptTokens` alone overstates cost; the selection report now records
+  `cachedTokens`, `flexCalls` and `flexFallbacks` per stage.
+- **Watches are Luxury, not Jewellery (2026-11-11, owner).** In W45 ~160 of 297
+  Jewellery articles were watch stories from enthusiast titles and crowded out
+  jewellery news. Triage prompt `triage-v4` and the keyword classifier
+  (`WATCH_SOURCES`) route watches to Luxury & Consumer; a group's jewellery business
+  (Cartier, Van Cleef within Richemont) stays Jewellery.
 
 ## Retirement 2027-01 (OpenAI notices of 2026-10-01 and 2026-10-14)
 
