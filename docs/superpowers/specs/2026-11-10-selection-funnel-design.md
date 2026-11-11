@@ -106,7 +106,7 @@ Significance anchors (same scale everywhere, judged for the reader above):
 Category definitions: reuse the intent of the four legacy rerank prompts in
 `digest/rerankArticles.ts` (AI-first for AI & Strategy; industry significance for
 Ecommerce; deals/results/leadership/strategy for Luxury and for Jewellery incl.
-watches, diamonds, gold, lab-grown, major jewellers and trade bodies).
+diamonds, gold, lab-grown, major jewellers and trade bodies; watches moved to Luxury on 2026-11-11, see `docs/pipeline-decisions.md`).
 Controversy filter from the legacy prompts carries over (war, culture-war,
 election horse race → `significance` ≤ 2 unless direct retail/trade impact).
 

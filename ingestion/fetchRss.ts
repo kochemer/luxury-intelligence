@@ -104,6 +104,23 @@ export function unwrapBingNewsUrl(url: string): string {
 }
 
 /**
+ * Keyword-query feeds ("Bing News: <query>", see `bingNewsQuery` in sources.ts)
+ * mix many outlets, so each article is keyed to its real publisher instead of
+ * the feed name: readers see "Reuters", not "Bing News: De Beers", and the
+ * per-source caps in selection apply per outlet. The " (via Bing News)" suffix
+ * keeps the plumbing visible in data; `displaySourceName` strips it.
+ * Bing's own "X on MSN" syndication label is reduced to X.
+ */
+export function articleSourceName(feedName: string, newsSource: unknown, articleUrl: string): string {
+  if (!/^Bing News:/i.test(feedName)) return feedName;
+  let publisher = typeof newsSource === 'string' ? newsSource.trim().replace(/\s+on MSN$/i, '') : '';
+  if (!publisher) {
+    try { publisher = new URL(articleUrl).hostname.replace(/^www\./, ''); } catch { publisher = ''; }
+  }
+  return publisher ? `${publisher} (via Bing News)` : feedName;
+}
+
+/**
  * Reads pages 2..`maxPages` of a WordPress feed so a weekly-scale backfill
  * survives feeds that only list their latest 10 items. Stops at the first
  * non-200, a page with no unseen links, or a page reaching items older than
@@ -141,7 +158,8 @@ async function fetchExtraPages(
 }
 
 export async function runRssIngestion(): Promise<{ added: number; updated: number; feeds: RssFeedStats[] }> {
-  const parser = new Parser();
+  // News:Source = publisher name on Bing News items (used by articleSourceName).
+  const parser = new Parser({ customFields: { item: [['News:Source', 'newsSource']] } } as any);
   const allNewArticles: Article[] = [];
   let updatedCount = 0;
   const now = new Date().toISOString();
@@ -221,7 +239,7 @@ export async function runRssIngestion(): Promise<{ added: number; updated: numbe
             id: hashString(url),
             title,
             url,
-            source: feed.name,
+            source: articleSourceName(feed.name, (item as any).newsSource, url),
             published_at: new Date(isoDate).toISOString(),
             ingested_at: now,
             snippet: truncatedSnippet || undefined,

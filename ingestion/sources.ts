@@ -42,7 +42,17 @@ import { SourceFeed, SourcePage } from './types.js';
  * if it stops working, the yield report shows it under `failedRuns`.
  */
 function bingNews(site: string): string {
-  return `https://www.bing.com/news/search?q=${encodeURIComponent(`site:${site}`)}&format=rss&setlang=en-US&cc=US`;
+  return bingNewsQuery(`site:${site}`);
+}
+
+/**
+ * Bing News RSS for a free keyword query (any outlet). Used for company and
+ * sector names whose business coverage (Reuters, Bloomberg, CNBC, trade press)
+ * no single feed carries. Same ~10-14 item limit as `bingNews`; mixes in some
+ * stock-commentary noise, which triage scores low.
+ */
+function bingNewsQuery(query: string): string {
+  return `https://www.bing.com/news/search?q=${encodeURIComponent(query)}&format=rss&setlang=en-US&cc=US`;
 }
 
 // --- Tier 1: Global Business & News ---
@@ -481,16 +491,10 @@ const JEWELLERY_FEEDS: SourceFeed[] = [
     categoryHint: "Jewellery Industry",
     paginate: 3
   },
-  {
-    name: "Professional Jeweller",
-    url: "https://www.professionaljeweller.com/feed/",
-    tier: 2,
-    sourceType: "jewellery",
-    categoryHint: "Jewellery Industry"
-  },
-  // National Jeweler: Removed (404)
-  // Jewellery Focus: Removed (network error / unreachable)
-  // Rapaport News: Removed (404)
+  // Professional Jeweller direct feed: removed 2026-11-11 (403 on every run, incl.
+  // GitHub IPs); covered by "Professional Jeweller (via Bing News)" below.
+  // National Jeweler: direct feed 404; covered via Bing News below.
+  // Jewellery Focus: direct feed 403, Bing returns ~1 item a fortnight (checked 2026-11-11).
   {
     name: "Instore Magazine",
     url: "https://instoremag.com/feed/",
@@ -567,13 +571,15 @@ const JEWELLERY_FEEDS: SourceFeed[] = [
     categoryHint: "Jewellery Industry",
     paginate: 2
   },
+  // Rapaport direct feed (rapaport.com/feed/) returned 403 on 8 of 8 runs; Bing
+  // News proxy since 2026-11-11 (12 of 12 items from the last 14 days on test).
+  // The name keeps "Rapaport" so classifyTopics.ts routes it to Jewellery.
   {
-    name: "Rapaport News",
-    url: "https://www.rapaport.com/feed/",
+    name: "Rapaport News (via Bing News)",
+    url: bingNews("rapaport.com"),
     tier: 2,
     sourceType: "jewellery",
-    categoryHint: "Jewellery Industry",
-    paginate: 2
+    categoryHint: "Jewellery Industry"
   },
   {
     name: "Hodinkee",
@@ -599,6 +605,87 @@ const JEWELLERY_FEEDS: SourceFeed[] = [
   {
     name: "WatchPro (via Bing News)",
     url: bingNews("watchpro.com"),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  // --- Added 2026-11-11: enlarge the Jewellery pool once watches moved to Luxury
+  // (W45: ~160 of 297 Jewellery articles were watch stories). Each feed checked
+  // for items from the last 14 days; counts in docs/sources-status.md. ---
+  {
+    name: "Jewellery Outlook",
+    url: "https://www.jewelleryoutlook.com/feed/",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Jewellery Business (Canada)",
+    url: "https://www.jewellerybusiness.com/feed/",
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Jeweller Magazine (via Bing News)",
+    url: bingNews("jewellermagazine.com"),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "IDEX Online (via Bing News)",
+    url: bingNews("idexonline.com"),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Retail Jeweller India (via Bing News)",
+    url: bingNews("retailjewellerindia.com"),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "World Gold Council (via Bing News)",
+    url: bingNews("gold.org"),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  // Keyword queries: business coverage of the sector's bellwethers from any outlet.
+  {
+    name: "Bing News: Pandora jewellery",
+    url: bingNewsQuery("Pandora jewellery"),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Bing News: Signet Jewelers",
+    url: bingNewsQuery('"Signet Jewelers"'),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Bing News: De Beers",
+    url: bingNewsQuery('"De Beers"'),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Bing News: Chow Tai Fook",
+    url: bingNewsQuery('"Chow Tai Fook"'),
+    tier: 2,
+    sourceType: "jewellery",
+    categoryHint: "Jewellery Industry"
+  },
+  {
+    name: "Bing News: lab-grown diamonds",
+    url: bingNewsQuery('"lab-grown diamonds"'),
     tier: 2,
     sourceType: "jewellery",
     categoryHint: "Jewellery Industry"
