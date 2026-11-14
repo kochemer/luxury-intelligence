@@ -14,7 +14,9 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import type { YearReview } from '@/lib/review/types';
 import { COMPANIES } from '../markets/attention';
-import { runBacktest } from './backtest';
+import { BRANDS, mentionsBrand } from '../markets/brands';
+import { articleText } from '../markets/coverage';
+import { rankCorrelation, runBacktest } from './backtest';
 import { boundaryCloses, companyRows, fetchPriceHistory, weeklyCoverage, type PriceHistory } from './companies';
 import { fullMonths, inReviewWindow, lastFullWeekEnd, luxuryPressPanel, steadyByWeek, WEEK_MS, WINDOW_START_MS, type ReviewArticle } from './panel';
 import { labelThemes, themeSection, type Labels, type Theme } from './themes';
@@ -65,6 +67,9 @@ export async function buildYearReview(opts: BuildOptions = {}): Promise<{ review
     weekStarts: Array.from({ length: weeks }, (_, i) => new Date(startMs + i * WEEK_MS).toISOString().slice(0, 10)),
   });
 
+  const brands = BRANDS.map(b => ({ name: b.name, group: b.group, market: b.market, articles: panel.filter(a => mentionsBrand(b, articleText(a))).length }))
+    .sort((a, b) => b.articles - a.articles);
+
   // ── themes ────────────────────────────────────────────────────────────────
   const months = fullMonths(startMs, endMs);
   const press = luxuryPressPanel(windowed, months);
@@ -84,7 +89,7 @@ export async function buildYearReview(opts: BuildOptions = {}): Promise<{ review
     window: { startISO: new Date(startMs).toISOString().slice(0, 10), endISO: new Date(endMs).toISOString().slice(0, 10), weeks },
     archive: { articles: windowed.length, sources: new Set(windowed.map(a => a.source)).size },
     panel: { articles: panel.length, sources: new Set(panel.map(a => a.source)).size },
-    companies, backtest, themes: section,
+    companies, coverageRank: rankCorrelation(companies.map(c => c.articles), companies.map(c => c.changeYtd)), brands, backtest, themes: section,
   };
   await fs.writeFile(path.join(process.cwd(), 'data', 'review', `${year}.json`), JSON.stringify(review, null, 1));
   return { review, labelled, costUsd, failedTickers, unlabelled: press.length - section.articles };

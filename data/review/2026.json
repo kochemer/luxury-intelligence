@@ -1,6 +1,6 @@
 {
  "year": 2026,
- "builtAtISO": "2026-11-14T11:26:15.103Z",
+ "builtAtISO": "2026-11-14T12:24:31.765Z",
  "window": {
   "startISO": "2026-03-02",
   "endISO": "2026-11-09",
@@ -1026,6 +1026,157 @@
     0,
     0
    ]
+  }
+ ],
+ "coverageRank": {
+  "rho": -0.44,
+  "p": 0.188,
+  "n": 11
+ },
+ "brands": [
+  {
+   "name": "Rolex",
+   "group": "Private",
+   "market": "luxury",
+   "articles": 138
+  },
+  {
+   "name": "Louis Vuitton",
+   "group": "LVMH",
+   "market": "luxury",
+   "articles": 100
+  },
+  {
+   "name": "Chanel",
+   "group": "Private",
+   "market": "luxury",
+   "articles": 96
+  },
+  {
+   "name": "Dior",
+   "group": "LVMH",
+   "market": "luxury",
+   "articles": 86
+  },
+  {
+   "name": "Prada",
+   "group": "Prada",
+   "market": "luxury",
+   "articles": 79
+  },
+  {
+   "name": "LVMH",
+   "group": "LVMH",
+   "market": "luxury",
+   "articles": 74
+  },
+  {
+   "name": "Kering",
+   "group": "Kering",
+   "market": "luxury",
+   "articles": 68
+  },
+  {
+   "name": "Burberry",
+   "group": "Burberry",
+   "market": "luxury",
+   "articles": 68
+  },
+  {
+   "name": "Gucci",
+   "group": "Kering",
+   "market": "luxury",
+   "articles": 67
+  },
+  {
+   "name": "Hermès",
+   "group": "Hermès",
+   "market": "luxury",
+   "articles": 46
+  },
+  {
+   "name": "Cartier",
+   "group": "Richemont",
+   "market": "jewellery",
+   "articles": 40
+  },
+  {
+   "name": "Richemont",
+   "group": "Richemont",
+   "market": "luxury",
+   "articles": 33
+  },
+  {
+   "name": "Moncler",
+   "group": "Moncler",
+   "market": "luxury",
+   "articles": 23
+  },
+  {
+   "name": "Tiffany & Co.",
+   "group": "LVMH",
+   "market": "jewellery",
+   "articles": 23
+  },
+  {
+   "name": "De Beers",
+   "group": "Anglo American",
+   "market": "jewellery",
+   "articles": 21
+  },
+  {
+   "name": "Signet",
+   "group": "Signet",
+   "market": "jewellery",
+   "articles": 20
+  },
+  {
+   "name": "Bulgari",
+   "group": "LVMH",
+   "market": "jewellery",
+   "articles": 18
+  },
+  {
+   "name": "Pandora",
+   "group": "Pandora",
+   "market": "jewellery",
+   "articles": 16
+  },
+  {
+   "name": "Van Cleef & Arpels",
+   "group": "Richemont",
+   "market": "jewellery",
+   "articles": 12
+  },
+  {
+   "name": "Swarovski",
+   "group": "Private",
+   "market": "jewellery",
+   "articles": 5
+  },
+  {
+   "name": "Chow Tai Fook",
+   "group": "Chow Tai Fook",
+   "market": "jewellery",
+   "articles": 4
+  },
+  {
+   "name": "Mejuri",
+   "group": "Private",
+   "market": "jewellery",
+   "articles": 3
+  },
+  {
+   "name": "Brilliant Earth",
+   "group": "Brilliant Earth",
+   "market": "jewellery",
+   "articles": 0
+  },
+  {
+   "name": "Monica Vinader",
+   "group": "Private",
+   "market": "jewellery",
+   "articles": 0
   }
  ],
  "backtest": {

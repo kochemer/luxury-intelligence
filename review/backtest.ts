@@ -62,6 +62,31 @@ export function correlation(xs: number[], ys: number[]): number {
   return b && c ? a / Math.sqrt(b * c) : NaN;
 }
 
+/** Average ranks, ties shared. */
+function ranks(xs: number[]): number[] {
+  const order = xs.map((x, i) => ({ x, i })).sort((a, b) => a.x - b.x);
+  const out = new Array<number>(xs.length);
+  for (let i = 0; i < order.length;) {
+    let j = i;
+    while (j + 1 < order.length && order[j + 1]!.x === order[i]!.x) j++;
+    for (let k = i; k <= j; k++) out[order[k]!.i] = (i + j) / 2 + 1;
+    i = j + 1;
+  }
+  return out;
+}
+
+/** Spearman rank correlation with a two-sided permutation p-value. */
+export function rankCorrelation(xs: number[], ys: number[], permutations = 10000, seed = 2028): { rho: number; p: number; n: number } {
+  const rx = ranks(xs), ry = ranks(ys);
+  const rho = correlation(rx, ry);
+  const rand = mulberry32(seed);
+  let atLeast = 0;
+  for (let k = 0; k < permutations; k++) {
+    if (Math.abs(correlation(rx, shuffled(ry, rand) as number[])) >= Math.abs(rho)) atLeast++;
+  }
+  return { rho: Math.round(rho * 100) / 100, p: Math.round((atLeast / permutations) * 1000) / 1000, n: xs.length };
+}
+
 /** This week's attention against its own trailing mean, z-scored. Null until there is a full trailing window. */
 export function surprise(attention: number[], trailing = TRAILING_WEEKS): Series {
   return zscore(attention.map((x, i) => (i < trailing ? null : x - mean(attention.slice(i - trailing, i)))));

@@ -124,3 +124,13 @@ test('themeSection weights outlets equally, so one prolific outlet cannot set th
   panel.push(art('unlabelled', 'Big', '2026-03-11'));
   assert.equal(themeSection(panel, themes, labels, months).articles, 222);
 });
+
+test('rankCorrelation: perfect, reversed, and tied ranks', async () => {
+  const { rankCorrelation } = await import('../review/backtest');
+  assert.equal(rankCorrelation([1, 2, 3, 4, 5], [10, 20, 30, 40, 50], 200).rho, 1);
+  assert.equal(rankCorrelation([1, 2, 3, 4, 5], [5, 4, 3, 2, 1], 200).rho, -1);
+  const tied = rankCorrelation([1, 1, 2, 3], [4, 3, 2, 1], 200);
+  assert.ok(tied.rho < -0.9 && tied.rho > -1 && tied.n === 4);
+  // Unrelated series: not significant.
+  assert.ok(rankCorrelation([3, 1, 4, 1, 5, 9, 2, 6], [2, 7, 1, 8, 2, 8, 1, 8], 2000).p > 0.05);
+});

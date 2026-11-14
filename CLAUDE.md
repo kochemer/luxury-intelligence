@@ -105,6 +105,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `app/` | Next.js App Router pages and API routes |
 | `app/(en)/analytics/` | Private `/analytics` dashboard (`sections/`, shared `ui.tsx`) and `/analytics/replay`, the password-gated proxy that feeds the session-replay player (see Privacy, visit counter and /analytics) |
 | `app/api/` | API routes: `api/subscribe`, `api/stripe` (webhook), `api/push`, `api/build-digest`, `api/unsubscribe`, `api/og`, `api/hit` (visit counter), `api/ratings` (digest star ratings), `api/search` (article search over `data/articles.json`), `api/resend` (bounce/complaint webhook) |
+| `app/(en)/review/2026/`, `app/(en)/research/coverage-and-share-prices/` | `/review/2026` (year in review) and `/research/coverage-and-share-prices`; both read `data/review/2026.json` and stay noindex until `REVIEW_LIVE` in `lib/review/load.ts` is true. See `docs/year-review.md` |
 | `app/(en)/health/` | `/health`: latest digest's per-topic counts, a quick manual sanity page |
 | `app/(en)/` | Route group for every English page (own root layout, `lang="en"`); `app/[es|da]/` are the Spanish and Danish roots |
 | `app/(en)/digest/[slug]/` | Digest page, prerendered per issue via `generateStaticParams` (slug = `month-yyyy-week-n`) |

@@ -28,6 +28,14 @@ export interface CompanyRow {
   weeklyArticles: number[];
 }
 
+export interface BrandRow {
+  name: string;
+  group: string;
+  market: 'luxury' | 'jewellery';
+  /** Articles naming the brand, steady sources, in the window. */
+  articles: number;
+}
+
 export interface LagStat {
   /** Weeks. Positive: coverage first, share price after. */
   lag: number;
@@ -95,6 +103,14 @@ export interface YearReview {
   archive: { articles: number; sources: number };
   panel: { articles: number; sources: number };
   companies: CompanyRow[];
+  /**
+   * Spearman rank correlation between articles and year-to-date share price
+   * change across the companies, with a permutation p-value. Weak in 2026:
+   * coverage mostly follows company size.
+   */
+  coverageRank: { rho: number; p: number; n: number };
+  /** Tracked brands (markets/brands.ts), most-covered first. */
+  brands: BrandRow[];
   backtest: Backtest;
   themes: ThemeSection;
 }

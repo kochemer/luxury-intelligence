@@ -14,15 +14,35 @@ Two public pieces from one dataset, decided by the owner on 2026-11-14:
 | Part | State |
 |---|---|
 | Data engine (`review/`, `npm run review:build` → `data/review/2026.json`) | built, tested |
+| `/research/coverage-and-share-prices` and `/review/2026` | built, hidden (`REVIEW_LIVE = false`: noindex, not in the sitemap or menus) |
 | Second price source to cross-check Yahoo | not done; do before publishing |
-| Pages, film, podcast special, social posts, press pitch | not started |
+| Film, podcast special, social posts, press pitch | not started |
 
 Re-run the build in early December so November is a full month. New headlines
 cost about $0.50 per 1,000 to label.
 
+## Launch steps
+
+1. Re-run `npm run review:build` once November is complete; read the output against this doc and update the tables below.
+2. Cross-check the share prices against a second source.
+3. Set `REVIEW_LIVE = true` in `lib/review/load.ts` (removes the noindex on both pages).
+4. Add both URLs to `lib/seo/urlInventory.ts` (the sitemap follows) and link them from the home page and `/markets`.
+5. Give each page its own social card; both use the default `/api/og` image today.
+
+The pages compute every sentence from `data/review/2026.json`, so a rebuild changes the copy. Read both pages after every rebuild.
+
 ## What the data says (window 2026-03-02 → 2026-11-09, 36 weeks)
 
-**The press watched the losers.** Articles naming each listed group or one of
+**The most-covered name is Rolex** (138 articles), which is private; Louis Vuitton is next with 100.
+
+**The two most-covered groups had a bad year, but coverage does not track performance.** LVMH and
+Kering are the most-covered groups and the two worst performers. Across all eleven companies the
+link is weak (Spearman −0.44, p = 0.19): coverage mostly follows company size and brand count.
+An independent review on 2026-11-14 rejected the first headline, "the press watched the losers",
+as an overclaim; do not bring it back without a stronger result. The share price runs from
+January and the article count from March; both pages say so.
+
+Articles naming each listed group or one of
 its brands, from the 44 steady sources (28,128 articles), against the share
 price from the first close of 2026:
 
@@ -45,7 +65,9 @@ at least two articles a week (LVMH, Kering, Richemont, Prada):
 
 - Direction: a coverage surge says nothing about where the share goes, at any
   lag from −4 to +4 weeks (|r| ≤ 0.17, none significant).
-- Size: coverage surges in the same week as big moves (r = 0.32, p = 0.001).
+- Size: coverage surges in the same week as big moves (r = 0.32, p < 0.001). Weekly data cannot
+  say which came first inside the week, so the pages say "no sign that coverage comes first",
+  never "the press reacts" or "coverage follows".
   In the loudest 10% of company-weeks the share moved 4.2% against the basket;
   in the rest, 2.1%.
 - The significant r = −0.36 at lag −3 is an artefact, not a finding: a big move
@@ -92,6 +114,14 @@ once outlets were weighted equally.
 - **Permutation p-values with a fixed seed**, so published numbers do not
   change between builds.
 
+## Wording rules for the pages (from the 2026-11-14 review)
+
+- Theme figures are shares of headlines with each outlet weighted equally; say "headlines" and
+  "each outlet counts equally", not "articles" or "every title".
+- The event study has no significance test; say "we cannot say whether the difference is real".
+- The share-price baseline is the average of all eleven companies, not "the other ten".
+- A peak month is one rule in one place: `isPeak` in `app/(en)/review/_components/ThemeRows.tsx`.
+
 ## Owner decisions
 
 - 2026-11-14: Pandora appears as a plain data row with no commentary. The
@@ -108,7 +138,9 @@ once outlets were weighted equally.
 | `review/backtest.ts` | surprise, lead/lag, permutation test, event study |
 | `review/themes.ts` | model labelling (cached) and monthly shares |
 | `review/build.ts`, `scripts/buildYearReview.ts` | the build |
-| `lib/review/types.ts` | the output's shape |
+| `lib/review/types.ts`, `lib/review/load.ts` | the output's shape; loader and the `REVIEW_LIVE` switch |
+| `app/(en)/research/coverage-and-share-prices/`, `app/(en)/research/_components/LagChart.tsx` | the analysis page |
+| `app/(en)/review/2026/`, `app/(en)/review/_components/ThemeRows.tsx` | the year in review page |
 | `data/review/2026/` | `taxonomy.json`, `labels.json` (cache), `prices.json` (daily closes) |
 | `data/review/2026.json` | the output the pages and film read |
 | `__tests__/review.test.ts` | tests |

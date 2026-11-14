@@ -18,7 +18,14 @@ type Anchor = 'start' | 'end' | 'middle';
 const hit = (a: Box, b: Box) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
 const signed = (v: number) => `${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v)}%`;
 
-export default function AttentionChart({ rows }: { rows: AttentionRow[] }) {
+/** The coverage vs share price page passes its own period; the y value is always read from `change3m`. */
+export interface AttentionLabels { x: string; y: string; period: string; aria: string }
+const DEFAULT_LABELS: AttentionLabels = {
+  x: 'Articles in 12 weeks (square-root scale)', y: 'Share price, 3 months', period: 'in 3 months',
+  aria: 'Scatter chart: articles in 12 weeks against 3-month share price change, one dot per company. Values are in the table below.',
+};
+
+export default function AttentionChart({ rows, labels: text = DEFAULT_LABELS }: { rows: AttentionRow[]; labels?: AttentionLabels }) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(DEFAULT_W);
 
@@ -94,7 +101,7 @@ export default function AttentionChart({ rows }: { rows: AttentionRow[] }) {
         viewBox={`0 0 ${W} ${H}`} width={W} height={H}
         className="block w-full h-auto max-h-[420px]"
         role="img"
-        aria-label="Scatter chart: articles in 12 weeks against 3-month share price change, one dot per company. Values are in the table below."
+        aria-label={text.aria}
       >
         <g className="font-ibm-mono" fill="var(--color-text-secondary)">
           {yTicks.map(v => (
@@ -111,12 +118,12 @@ export default function AttentionChart({ rows }: { rows: AttentionRow[] }) {
           ))}
         </g>
         <g fill="var(--color-text-secondary)">
-          <text x={M.l + pw / 2} y={H - 8} textAnchor="middle" fontSize={fs + 1}>Articles in 12 weeks (square-root scale)</text>
-          <text x={0} y={0} textAnchor="middle" fontSize={fs + 1} transform={`translate(12 ${M.t + ph / 2}) rotate(-90)`}>Share price, 3 months</text>
+          <text x={M.l + pw / 2} y={H - 8} textAnchor="middle" fontSize={fs + 1}>{text.x}</text>
+          <text x={0} y={0} textAnchor="middle" fontSize={fs + 1} transform={`translate(12 ${M.t + ph / 2}) rotate(-90)`}>{text.y}</text>
         </g>
         {dots.map(d => (
           <circle key={d.p.ticker} cx={d.x} cy={d.y} r={R} fill={d.p.change3m >= 0 ? 'var(--color-up)' : 'var(--color-down)'}>
-            <title>{`${d.p.company}: ${d.p.articles} articles, ${formatPct(d.p.change3m)} in 3 months`}</title>
+            <title>{`${d.p.company}: ${d.p.articles} articles, ${formatPct(d.p.change3m)} ${text.period}`}</title>
           </circle>
         ))}
         <g fill="var(--color-text-primary)" fontWeight={500}>
