@@ -55,6 +55,7 @@ npm run podcast       # Build weekly podcast audio
 npm run media:compress # Shrink public/ MP3s + cover PNGs (re-runnable; see docs/operations.md § Storage)
 npm run email:weekly  # Send weekly email digest (NOT idempotent: re-running double-sends)
 npm run markets:build # /markets pages data (also pipeline step 9)
+npm run review:build  # Year in review + coverage vs share price data -> data/review/2026.json (--offline, --end=YYYY-MM-DD; one-off, see docs/year-review.md)
 npm run social:build  # Week's LinkedIn + X posts -> data/weeks/<week>/social.json (writes, never posts)
 npm run social:publish # Send today's posts to Buffer (--dry-run, --draft, --date=YYYY-MM-DD, --week=)
 npm run analytics:insights # Weekly agent for the /analytics 'Historical insights' tiles (--dry-run, --print-pack, --seed <file>; writes analytics_insights, never commits)
@@ -104,6 +105,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `app/` | Next.js App Router pages and API routes |
 | `app/(en)/analytics/` | Private `/analytics` dashboard (`sections/`, shared `ui.tsx`) and `/analytics/replay`, the password-gated proxy that feeds the session-replay player (see Privacy, visit counter and /analytics) |
 | `app/api/` | API routes: `api/subscribe`, `api/stripe` (webhook), `api/push`, `api/build-digest`, `api/unsubscribe`, `api/og`, `api/hit` (visit counter), `api/ratings` (digest star ratings), `api/search` (article search over `data/articles.json`), `api/resend` (bounce/complaint webhook) |
+| `app/(en)/review/2026/`, `app/(en)/research/coverage-and-share-prices/` | `/review/2026` (year in review) and `/research/coverage-and-share-prices`; both read `data/review/2026.json` and stay noindex until `REVIEW_LIVE` in `lib/review/load.ts` is true. See `docs/year-review.md` |
 | `app/(en)/health/` | `/health`: latest digest's per-topic counts, a quick manual sanity page |
 | `app/(en)/` | Route group for every English page (own root layout, `lang="en"`); `app/[es|da]/` are the Spanish and Danish roots |
 | `app/(en)/digest/[slug]/` | Digest page, prerendered per issue via `generateStaticParams` (slug = `month-yyyy-week-n`) |
@@ -115,6 +117,7 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `email/` | Resend email rendering + delivery |
 | `podcast/` | Podcast script + TTS (OpenAI `gpt-realtime-2.1-mini` over the Realtime API via `lib/llm/speech.ts`, `gpt-4o-mini-tts` fallback until 2027-01-06; ElevenLabs opt-in); feed at `/podcast/feed.xml` |
 | `markets/` | Engine for `/markets/luxury` + `/markets/jewellery` |
+| `review/` | One-off 2026 year in review and coverage vs share price analysis: steady-source panel, company coverage against share prices, lead/lag backtest, model-labelled themes. Output shape in `lib/review/types.ts`. Findings, method and status: `docs/year-review.md` |
 | `social/` | Weekly LinkedIn page + X posts: written from the digest (`build.ts`), checked with no human review (`checks.ts`), sent through Buffer (`buffer.ts`, the only file that knows Buffer). See `docs/distribution.md` |
 | `seo/` | SEO audit / monitor / repair / recovery system (see below) |
 | `video/` | Older FFmpeg-based video clip composer |
@@ -127,8 +130,8 @@ Covered by `__tests__/digest.displayFacts.test.ts`.
 | `tools/` | Bundled FFmpeg notes (`tools/ffmpeg/README.md`) |
 | `__tests__/` | `node:test` suites (see Testing) |
 | `docs/` | All docs; start at `docs/README.md` |
-| `lib/` | Shared utilities: `db/`, `llm/`, `i18n/`, `stripe/`, `analytics/`, `seo/`, `markets/`, `utils/`, `env.ts` |
-| `data/` | Runtime JSON store: `articles.json`, `digests/`, `weeks/`, `markets/`, `seo/`, caches |
+| `lib/` | Shared utilities: `db/`, `llm/`, `i18n/`, `stripe/`, `analytics/`, `seo/`, `markets/`, `review/`, `utils/`, `env.ts` |
+| `data/` | Runtime JSON store: `articles.json`, `digests/`, `weeks/`, `markets/`, `review/`, `seo/`, caches |
 | `scripts/` | Entry points and maintenance scripts (run with `tsx`) |
 | `hooks/` | React hooks (`useCountUp`, `useReveal`), not git hooks |
 | `.githooks/` | Git hooks (`commit-msg` runs the docs check). Enabled by `npm install` |
@@ -157,7 +160,7 @@ Scripts must call `loadEnv()` from `lib/env.ts` at startup. Key variables:
 | `DATABASE_URL` | Neon Postgres |
 | `OPENAI_API_KEY` | Story selection, summaries, themes, The Week in Context (`editorialTake`), cover, podcast script + voice. Many `*_MODEL` vars override per-step models; defaults and reasons in `docs/pipeline-decisions.md` |
 | `TAVILY_API_KEY` | Web discovery |
-| `ANTHROPIC_API_KEY` | SEO repair agent (CI), video-short, `analytics:insights` |
+| `ANTHROPIC_API_KEY` | SEO repair agent (CI), video-short, `analytics:insights`, `review:build` (theme labels) |
 | `INSIGHTS_MODEL` | Optional: model for `analytics:insights` (default `claude-opus-5-5`); GitHub repo variable |
 | `NEXT_PUBLIC_SITE_URL` | Site URL (`localhost` in dev, so don't use it for anything that acts on production) |
 | `NEXT_PUBLIC_AMPLITUDE_API_KEY`, `AMPLITUDE_SECRET_KEY` | Analytics. The public key starts the browser SDK; the secret key is server-side REST access (SEO weekly Visitors section, the `/analytics` Amplitude sections and `analytics:insights`) and is set in Vercel and GitHub |

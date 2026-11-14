@@ -1,0 +1,94 @@
+{
+ "themes": [
+  {
+   "name": "Product drops and collabs",
+   "definition": "Headlines announcing or reviewing a specific new product, colourway, reissue, capsule or brand collaboration (sneakers, beauty, spirits, cars, watches, fashion), unless the release is tied to a major sporting event.",
+   "background": true
+  },
+  {
+   "name": "Celebrity and red carpet",
+   "definition": "Headlines about what named celebrities wore or did at awards, galas, premieres, festivals or public appearances, including red-carpet trend roundups.",
+   "background": true
+  },
+  {
+   "name": "Campaigns and ambassadors",
+   "definition": "Headlines about a brand's advertising campaign, campaign film, brand ambassador or face signing, sponsorship of arts or culture, or brand activation event, excluding sports-event marketing.",
+   "background": true
+  },
+  {
+   "name": "Fashion weeks and runway",
+   "definition": "Headlines reviewing or previewing runway collections, fashion week schedules, shows, street style at fashion weeks, or student graduate shows.",
+   "background": false
+  },
+  {
+   "name": "Creative director moves",
+   "definition": "Headlines about the appointment, debut or departure of a creative, artistic or design director at a fashion or luxury house.",
+   "background": false
+  },
+  {
+   "name": "Executive leadership changes",
+   "definition": "Headlines about the appointment, promotion, resignation or exit of a CEO, chair, board member or other non-design executive.",
+   "background": false
+  },
+  {
+   "name": "Mergers, acquisitions and IPOs",
+   "definition": "Headlines about companies or brands being bought, sold, merged, taking stakes, raising investment, or planning or completing a stock market listing.",
+   "background": false
+  },
+  {
+   "name": "Earnings and performance",
+   "definition": "Headlines reporting a company's sales, profits, quarterly or annual results, guidance, share-price moves or growth figures.",
+   "background": false
+  },
+  {
+   "name": "Tariffs and supply chain",
+   "definition": "Headlines about tariffs, trade policy, freight rates, shipping disruption, energy or production costs, sourcing and manufacturing location.",
+   "background": false
+  },
+  {
+   "name": "Consumer and macro outlook",
+   "definition": "Headlines about consumer confidence, retail sales data, footfall, economic growth, wealth trends or government economic policy affecting shoppers and retailers.",
+   "background": false
+  },
+  {
+   "name": "Retail distress and bankruptcy",
+   "definition": "Headlines about bankruptcy, administration, liquidation, store closures, layoffs, clearance sales or brands shutting down.",
+   "background": false
+  },
+  {
+   "name": "Store openings and expansion",
+   "definition": "Headlines about new or upsized physical stores, flagships, pop-ups, showrooms or a brand's entry into a new country or retail partner.",
+   "background": false
+  },
+  {
+   "name": "AI in retail",
+   "definition": "Headlines about artificial intelligence applied to shopping, marketing, search, styling, product creation or the workforce in fashion, beauty and luxury.",
+   "background": false
+  },
+  {
+   "name": "Creator and social commerce",
+   "definition": "Headlines about influencers, creator marketing, affiliate programmes, TikTok Shop, livestream shopping, retail media or social platforms as sales channels.",
+   "background": false
+  },
+  {
+   "name": "Wellness and longevity",
+   "definition": "Headlines about wellness, longevity, peptides, GLP-1s, supplements, health wearables, aesthetic treatments or wellness hospitality as a business category.",
+   "background": false
+  },
+  {
+   "name": "Resale and sustainability",
+   "definition": "Headlines about resale, vintage, rental, refills, circularity, environmental pledges, worker welfare or durability in the industry.",
+   "background": false
+  },
+  {
+   "name": "World Cup and sports marketing",
+   "definition": "Headlines linking brands, kits, products or campaigns to the World Cup, Wimbledon, NBA, F1, Olympics or other major sporting events and athletes.",
+   "background": false
+  },
+  {
+   "name": "Luxury travel and property",
+   "definition": "Headlines about luxury hotels, resorts, travel destinations, superyachts, private jets, or high-end homes and property listings.",
+   "background": false
+  }
+ ]
+}

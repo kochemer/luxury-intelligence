@@ -115,6 +115,7 @@ Docs-Skip: prompt wording tweak, no documented behaviour changed
 | `.github/workflows/`, `next.config.ts` | `docs/operations.md` |
 | `seo/`, `lib/seo/` | any `docs/seo-*.md` |
 | `markets/`, `lib/markets/` | `CLAUDE.md` or the markets spec |
+| `review/`, `lib/review/` | `docs/year-review.md` |
 | `social/` | `docs/distribution.md` or the social content plan spec |
 | `video-short/src/`, `video-short/template/` | `video-short/README.md` |
 | `docs/youtube-audit/README.md` | Evidence submitted for the YouTube API audit (screenshots, overview PDF) | current | 2026-10-12 |
@@ -160,6 +161,7 @@ when you verify or rewrite a doc.
 | `docs/seo-decisions.md` | SEO design reasoning | current | 2026-09-21 |
 | `docs/seo-backlog.md` | SEO remaining work | current | 2026-10-04 |
 | `docs/superpowers/specs/2026-10-04-markets-pages-design.md` | Markets pages design | current | 2026-11-09 |
+| `docs/year-review.md` | 2026 year in review and coverage vs share price: findings, method, status, owner decisions | current | 2026-11-14 |
 | `docs/superpowers/specs/2026-10-14-social-content-plan.md` | What we post where on LinkedIn, X, YouTube, Spotify; automation design and phases | current (Phase 1 built) | 2026-10-14 |
 | `docs/superpowers/specs/2026-10-16-analytics-amplitude-design.md` | /analytics Amplitude sections (returning, engagement, replays, social, vitals) and the weekly insights agent; what the Amplitude data can and can't do | built 2026-10-17 (differences in its `Status:` line) | 2026-10-17 |
 | `docs/superpowers/specs/2026-11-10-selection-funnel-design.md` | Selection funnel v2: how the top 7 per category are chosen (filters, clusters, triage, full-text judge, editor pick) | shipped in the selection-funnel PR, default `SELECTION_FUNNEL=v2` | 2026-11-10 |

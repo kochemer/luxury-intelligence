@@ -14,7 +14,7 @@ import { articleText } from './coverage';
 import type { SignalArticle } from './signals';
 
 /** Same false-positive exclusions as markets/brands.ts, applied at group level. */
-const COMPANIES: Record<string, { name: string; re: RegExp; exclude?: RegExp }> = {
+export const COMPANIES: Record<string, { name: string; re: RegExp; exclude?: RegExp }> = {
   'MC.PA': { name: 'LVMH', re: /\bLVMH\b|Louis Vuitton|\bDior\b|\bBulgari\b|\bBvlgari\b|\bTiffany\b|\bSephora\b|\bFendi\b|\bCeline\b|\bLoewe\b|TAG Heuer|\bHublot\b/i, exclude: /Tiffany\s+(Haddish|Trump|lamps?|glass)/i },
   'RMS.PA': { name: 'Hermès', re: /\bHerm[eè]s\b/i, exclude: /\bHermes\s+(parcel|delivery|courier|UK|Germany|Group)\b|\bEvri\b/i },
   'KER.PA': { name: 'Kering', re: /\bKering\b|\bGucci\b|Saint Laurent|Bottega Veneta|\bBalenciaga\b|\bBoucheron\b/i },

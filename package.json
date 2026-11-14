@@ -46,6 +46,7 @@
     "digest:mock": "tsx scripts/mockDigest.ts",
     "cover:mock": "tsx scripts/mockCover.ts",
     "markets:build": "tsx scripts/buildMarkets.ts",
+    "review:build": "tsx scripts/buildYearReview.ts",
     "social:build": "tsx scripts/buildWeeklySocial.ts",
     "social:publish": "tsx scripts/publishSocial.ts",
     "analytics:insights": "tsx scripts/analyticsInsights.ts"

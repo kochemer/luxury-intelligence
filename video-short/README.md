@@ -186,3 +186,30 @@ npx tsx video-short/explainer/run.ts             # voice + render (~$0.06 for ne
 
 Reference cost: W39 = $0.28 for the first full run; about $0.18 per script
 rewrite + voice after that. W39 total after three rounds of changes: $0.62.
+
+## Year in review film (2026-11-14)
+
+A one-off ~100-second landscape film for the 2026 year in review
+(`docs/year-review.md`). Same voice, budget and renderer as the explainer.
+
+```bash
+npx tsx video-short/review/run.ts --preview   # free: one frame per scene + out/script.txt
+npx tsx video-short/review/run.ts             # voice + render (first full run: $0.07)
+```
+
+- **The script is generated, not written by hand.** `review/scenes.ts` builds
+  every narration line and chart from `data/review/2026.json`, so a rebuild of
+  the data changes the film. Read `review/out/script.txt` and the preview
+  frames after every `npm run review:build`.
+- Wording follows the rules in `docs/year-review.md` (no "the press watched
+  the losers", no "the press reacts", "headlines" for theme shares). Pandora
+  appears in the companies chart as a data row and is never named in the
+  narration (owner, 2026-11-14).
+- `review/template.html` adds chart scenes to the explainer's look: `bars`,
+  `themes`, `months`, `compare`, `pairs`. `__checkLayout` fails the render if
+  any label leaves the stage.
+- Output: `review/out/` (gitignored): `luxury-intel-2026-in-review.mp4` and a
+  720p phone copy made with
+  `ffmpeg -i <in> -vf scale=-2:720 -c:v libx264 -preset slow -crf 27 -c:a aac -b:a 96k -movflags +faststart <out>`.
+- Not done: nobody has listened to the 2026-11-14 render (it was checked by
+  frames and audio level only), and it is not published anywhere.
