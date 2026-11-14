@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Luxury Intel: the year in review</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=block" rel="stylesheet">
+<style>
+/* Every frame is a pure function of time: __renderAt(t) sets inline styles. Same look as explainer/template.html. */
+:root {
+  --bg: #F7F3EA; --ink: #17140F; --muted: #776F62;
+  --gold: #A87C12; --gold-bright: #E2BE55; --gold-deep: #8B6914;
+  --paper: #FFFFFF; --line: rgba(23,20,15,0.12); --bar: #D9D1BF;
+  --up: #2F6B4F; --down: #A64235;
+  --sans: 'Inter Tight', system-ui, sans-serif;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); }
+body { color: var(--ink); font-family: var(--sans); position: relative; }
+#bg { position: absolute; inset: 0;
+  background:
+    radial-gradient(1100px 700px at 50% 42%, rgba(226,190,85,0.20), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(23,20,15,0.035) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(90deg, rgba(23,20,15,0.035) 0 1px, transparent 1px 80px),
+    var(--bg); }
+#header { position: absolute; top: 48px; left: 96px; right: 96px; display: flex; justify-content: space-between; align-items: baseline; }
+.wordmark { font-family: var(--serif); font-weight: 700; font-size: 40px; color: var(--gold-deep); letter-spacing: 0.02em; }
+.wordmark i { color: var(--ink); font-weight: 600; }
+#chapter { font-family: var(--mono); font-size: 22px; color: var(--muted); letter-spacing: 0.1em; }
+#progress { position: absolute; top: 112px; left: 96px; right: 96px; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+#progress > div { height: 100%; width: 0; background: var(--gold-deep); }
+
+#stage { position: absolute; top: 150px; left: 96px; right: 96px; height: 720px; }
+.scene { position: absolute; inset: 0; display: none; flex-direction: column; justify-content: center; }
+.kicker { font-family: var(--mono); font-size: 26px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 16px; }
+.heading { font-family: var(--serif); font-weight: 700; font-size: 72px; line-height: 1.05; margin-bottom: 40px; }
+.note { font-size: 24px; font-weight: 600; color: var(--muted); margin-top: 30px; }
+.el { opacity: 0; will-change: transform, opacity; }
+
+/* intro / outro */
+.center { align-items: center; text-align: center; }
+.big { font-family: var(--serif); font-weight: 700; font-size: 190px; line-height: 0.95; color: var(--ink); }
+.big em { color: var(--gold-deep); font-style: normal; }
+.sub { font-size: 44px; font-weight: 600; color: var(--muted); margin-top: 22px; }
+.rule { width: 0; height: 4px; background: var(--gold-bright); margin: 26px auto 0; }
+.stats { display: flex; gap: 110px; margin-top: 54px; justify-content: center; }
+.stat .n { font-family: var(--serif); font-weight: 700; font-size: 104px; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat .l { font-family: var(--mono); font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+.url { font-family: var(--mono); font-size: 64px; font-weight: 700; color: var(--gold-deep); margin-top: 44px; padding: 18px 40px; border: 3px solid var(--gold-deep); border-radius: 18px; }
+
+/* bars: label | bar | value */
+.rows { display: grid; gap: 14px; }
+.brow { display: grid; grid-template-columns: 330px 1fr 130px; align-items: center; gap: 26px; }
+.brow .lab { font-size: 36px; font-weight: 700; white-space: nowrap; }
+.track { position: relative; height: 40px; }
+.fill { position: absolute; top: 0; bottom: 0; left: 0; width: 0; border-radius: 6px; background: var(--bar); }
+.fill.hi { background: var(--gold-deep); }
+.val { font-family: var(--mono); font-size: 34px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* themes: label | 8 monthly bars | first half → second half */
+.trow { display: grid; grid-template-columns: 560px 1fr 330px; align-items: end; gap: 40px; padding: 18px 0; border-bottom: 2px solid var(--line); }
+.trow .lab { font-size: 38px; font-weight: 700; line-height: 1.1; align-self: center; }
+.mini { display: flex; align-items: flex-end; gap: 10px; height: 110px; }
+.mini > i { flex: 1; display: block; border-radius: 5px 5px 0 0; background: var(--bar); height: 0; }
+.mini > i.late { background: var(--down); opacity: 0.75; }
+.ab { font-family: var(--mono); font-size: 40px; font-weight: 700; text-align: right; align-self: center; white-space: nowrap; }
+.ab b { color: var(--down); }
+.thead { display: grid; grid-template-columns: 560px 1fr 330px; gap: 40px; font-family: var(--mono); font-size: 22px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 8px; border-bottom: 2px solid var(--line); }
+.thead .m { display: flex; justify-content: space-between; }
+.thead .r { text-align: right; }
+
+/* months: one big column chart */
+.cols { display: flex; align-items: flex-end; gap: 28px; height: 400px; border-bottom: 3px solid var(--ink); padding: 0 10px; }
+.col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
+.col .v { font-family: var(--mono); font-size: 32px; font-weight: 700; margin-bottom: 10px; }
+.col .b { width: 100%; height: 0; border-radius: 8px 8px 0 0; background: var(--bar); }
+.col.hi .b { background: var(--gold-deep); }
+.col.hi .v { color: var(--gold-deep); font-size: 44px; }
+.colx { display: flex; gap: 28px; padding: 12px 10px 0; }
+.colx > span { flex: 1; text-align: center; font-family: var(--mono); font-size: 26px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* compare: two big numbers */
+.cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.cmp .n { font-family: var(--serif); font-weight: 700; font-size: 240px; line-height: 0.95; font-variant-numeric: tabular-nums; }
+.cmp .muted .n { color: var(--muted); }
+.cmp .l { font-size: 36px; font-weight: 600; color: var(--muted); margin-top: 16px; max-width: 18em; line-height: 1.25; }
+
+/* pairs: company | articles bar | share price bar from a centre line */
+.phead, .prow { display: grid; grid-template-columns: 300px 1fr 1fr; gap: 44px; align-items: center; }
+.phead { font-family: var(--mono); font-size: 22px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 8px; border-bottom: 2px solid var(--line); margin-bottom: 6px; }
+.prow { padding: 3px 0; }
+.pairs .heading { font-size: 60px; margin-bottom: 22px; }
+.pairs .note { margin-top: 14px; font-size: 22px; }
+.prow .lab { font-size: 27px; font-weight: 700; white-space: nowrap; }
+.pcell { display: grid; grid-template-columns: 1fr 120px; gap: 16px; align-items: center; }
+.pcell .track { height: 22px; }
+.pcell .val { font-size: 25px; }
+.mid { position: absolute; top: -5px; bottom: -5px; left: 50%; width: 2px; background: var(--muted); opacity: 0.6; }
+.fill.up { background: var(--up); left: 50%; }
+.fill.down { background: var(--down); left: auto; right: 50%; }
+.val.up { color: var(--up); } .val.down { color: var(--down); }
+
+#captions { position: absolute; left: 160px; right: 160px; bottom: 44px; height: 120px; display: flex; align-items: center; justify-content: center; text-align: center; }
+#captions .line { font-size: 40px; font-weight: 700; line-height: 1.3; background: rgba(23,20,15,0.88); color: #F7F3EA; padding: 12px 26px; border-radius: 14px; }
+#captions .w.on { color: var(--gold-bright); }
+#fade { position: absolute; inset: 0; background: var(--bg); opacity: 0; pointer-events: none; }
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<div id="header"><div class="wordmark">Luxury <i>Intel</i></div><div id="chapter"></div></div>
+<div id="progress"><div></div></div>
+<div id="stage"></div>
+<div id="captions"></div>
+<div id="fade"></div>
+<script>
+let S = { scenes: [], total: 1 };
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const easeOut = x => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);
+
+/** `data-g` = the final size in % of the element's track; `data-axis` = w or h. Grown in __renderAt. */
+const grow = (cls, pct, axis = 'w') => `<i class="${cls} g" data-g="${pct.toFixed(2)}" data-axis="${axis}"></i>`;
+
+function build(sc) {
+  const v = sc.visual, d = document.createElement('div');
+  d.className = 'scene ' + v.kind;
+  const head = v.kicker && v.heading ? `<div class="kicker el">${esc(v.kicker)}</div><div class="heading el">${esc(v.heading)}</div>` : '';
+  const note = v.note ? `<div class="note el">${esc(v.note)}</div>` : '';
+  if (v.kind === 'intro') {
+    d.classList.add('center');
+    d.innerHTML = `<div class="kicker el">${esc(v.kicker)}</div><div class="big el"><em>${esc(v.title)}</em> ${esc(v.tail)}</div><div class="rule"></div><div class="sub el">${esc(v.sub)}</div>` +
+      `<div class="stats">${v.stats.map(s => `<div class="stat el"><div class="n">${esc(s.n)}</div><div class="l">${esc(s.l)}</div></div>`).join('')}</div>`;
+  } else if (v.kind === 'outro') {
+    d.classList.add('center');
+    d.innerHTML = `<div class="big el"><em>${esc(v.title)}</em> ${esc(v.tail)}</div><div class="sub el">${esc(v.sub)}</div><div class="url el">${esc(v.url)}</div>`;
+  } else if (v.kind === 'bars') {
+    const max = Math.max(...v.rows.map(r => r.value));
+    d.innerHTML = head + `<div class="rows">${v.rows.map(r =>
+      `<div class="brow el"><div class="lab">${esc(r.label)}</div><div class="track">${grow('fill' + (r.hi ? ' hi' : ''), (r.value / max) * 100)}</div><div class="val">${esc(r.text)}</div></div>`).join('')}</div>` + note;
+  } else if (v.kind === 'themes') {
+    const max = Math.max(...v.rows.flatMap(r => r.values));
+    const half = Math.ceil(v.months.length / 2);
+    d.innerHTML = head + `<div class="thead el"><span>Theme</span><span class="m"><span>${esc(v.months[0])}</span><span>${esc(v.months.at(-1))}</span></span><span class="r">${esc(v.span)} → ${esc(v.span2)}</span></div>` +
+      v.rows.map(r => `<div class="trow el"><div class="lab">${esc(r.label)}</div><div class="mini">${r.values.map((x, k) => grow(k >= half ? 'late' : '', Math.max(3, (x / max) * 100), 'h')).join('')}</div><div class="ab">${esc(r.a)} → <b>${esc(r.b)}</b></div></div>`).join('') + note;
+  } else if (v.kind === 'months') {
+    const max = Math.max(...v.values);
+    d.innerHTML = head + `<div class="cols el">${v.values.map((x, k) =>
+      `<div class="col${k === v.hi ? ' hi' : ''}"><div class="v">${x.toFixed(1)}%</div>${grow('b', (x / max) * 78, 'h')}</div>`).join('')}</div>` +
+      `<div class="colx el">${v.months.map(m => `<span>${esc(m)}</span>`).join('')}</div>` + note;
+  } else if (v.kind === 'compare') {
+    d.innerHTML = head + `<div class="cmp">${[v.left, v.right].map(x =>
+      `<div class="el${x.muted ? ' muted' : ''}"><div class="n">${esc(x.n)}</div><div class="l">${esc(x.l)}</div></div>`).join('')}</div>` + note;
+  } else if (v.kind === 'pairs') {
+    const maxA = Math.max(1, ...v.rows.map(r => r.articles)), maxC = Math.max(1, ...v.rows.map(r => Math.abs(r.change)));
+    d.innerHTML = head + `<div class="phead el"><span>Company</span><span>${esc(v.left)}</span><span>${esc(v.right)}</span></div>` +
+      v.rows.map(r => {
+        const dir = r.change >= 0 ? 'up' : 'down';
+        return `<div class="prow el"><div class="lab">${esc(r.label)}</div>` +
+          `<div class="pcell"><div class="track">${grow('fill', Math.max(0.4, (r.articles / maxA) * 100))}</div><div class="val">${r.articles.toLocaleString('en-GB')}</div></div>` +
+          `<div class="pcell"><div class="track"><span class="mid"></span>${grow('fill ' + dir, (Math.abs(r.change) / maxC) * 50)}</div><div class="val ${dir}">${esc(r.text)}</div></div></div>`;
+      }).join('') + note;
+  }
+  return d;
+}
+
+/** Caption chunks: up to 8 words, broken early after sentence punctuation. */
+function chunks(words) {
+  const out = []; let cur = [];
+  for (const w of words) {
+    cur.push(w);
+    if (cur.length >= 8 || (/[.?!]$/.test(w.text) && cur.length >= 3)) { out.push(cur); cur = []; }
+  }
+  if (cur.length) out.push(cur);
+  for (let i = out.length - 1; i > 0; i--) if (out[i].length <= 2 && out[i - 1].length <= 9) { out[i - 1].push(...out[i]); out.splice(i, 1); }
+  return out;
+}
+
+window.__setup = data => {
+  S = data;
+  const stage = document.getElementById('stage');
+  S.scenes.forEach(sc => {
+    sc.el = build(sc);
+    stage.appendChild(sc.el);
+    sc.items = [...sc.el.querySelectorAll('.el')];
+    sc.rule = sc.el.querySelector('.rule');
+    sc.chunks = chunks(sc.words);
+    // Each growing mark starts when the .el that holds it appears.
+    sc.grows = [...sc.el.querySelectorAll('.g')].map((g, k, all) => {
+      const host = g.closest('.el'), siblings = all.filter(x => x.closest('.el') === host);
+      return { g, host: sc.items.indexOf(host), order: siblings.indexOf(g), of: siblings.length };
+    });
+  });
+};
+
+/** Elements appear in order across the first ~55% of the scene's narration; bars then grow. */
+window.__renderAt = t => {
+  document.querySelector('#progress > div').style.width = `${(t / S.total) * 100}%`;
+  let active = S.scenes.findIndex(sc => t >= sc.start && t < sc.end);
+  if (active < 0) active = S.scenes.length - 1;
+  S.scenes.forEach((sc, i) => { sc.el.style.display = i === active ? 'flex' : 'none'; });
+  const sc = S.scenes[active], lt = t - sc.start, dur = sc.end - sc.start;
+  const n = sc.items.length;
+  const span = Math.max(0.6, Math.min(dur * 0.55, 0.5 * n));
+  const at = k => (k < 2 ? 0.05 + k * 0.12 : 0.35 + ((k - 2) / Math.max(1, n - 2)) * span);
+  sc.items.forEach((el, k) => {
+    const p = easeOut((lt - at(k)) / 0.45);
+    el.style.opacity = p;
+    el.style.transform = `translateY(${(1 - p) * 30}px)`;
+  });
+  sc.grows.forEach(({ g, host, order, of }) => {
+    // Marks inside one element (monthly columns) grow left to right.
+    const start = at(Math.max(0, host)) + 0.15 + (of > 1 ? (order / of) * 0.8 : 0);
+    const p = easeOut((lt - start) / 0.7) * Number(g.dataset.g);
+    if (g.dataset.axis === 'h') g.style.height = `${p}%`; else g.style.width = `${p}%`;
+  });
+  if (sc.rule) sc.rule.style.width = `${easeOut((lt - 0.4) / 0.8) * 520}px`;
+  const numbered = S.scenes.filter(s => /^\d\d/.test(s.visual.kicker || ''));
+  document.getElementById('chapter').textContent = /^\d\d/.test(sc.visual.kicker || '') ? `${sc.visual.kicker.slice(0, 2)} / ${String(numbered.length).padStart(2, '0')}` : 'THE YEAR IN REVIEW';
+  document.getElementById('fade').style.opacity = active === 0 ? Math.max(0, 1 - lt / 0.4) : Math.max(0, 0.6 * (1 - lt / 0.25));
+
+  const cap = document.getElementById('captions');
+  const ch = sc.chunks.find(c => t < c[c.length - 1].end + 0.05 && t >= c[0].start - 0.05) || null;
+  cap.innerHTML = ch ? `<div class="line">${ch.map(w => `<span class="w${t >= w.start && t < w.end ? ' on' : ''}">${esc(w.text)}</span>`).join(' ')}</div>` : '';
+};
+
+/** Text must stay inside the stage, and no label may be cut off. */
+window.__checkLayout = () => {
+  const bad = [];
+  const stage = document.getElementById('stage').getBoundingClientRect();
+  S.scenes.forEach((sc, i) => {
+    S.scenes.forEach((o, j) => { o.el.style.display = j === i ? 'flex' : 'none'; });
+    sc.items.forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+    for (const el of sc.el.querySelectorAll('.el, .lab, .val, .ab, .n, .l')) {
+      const r = el.getBoundingClientRect();
+      if (r.top < stage.top - 1 || r.bottom > stage.bottom + 1 || r.left < stage.left - 1 || r.right > stage.right + 1)
+        bad.push(`scene ${i} (${sc.visual.kind}): "${el.textContent.slice(0, 40)}" ${Math.round(r.left)},${Math.round(r.top)} → ${Math.round(r.right)},${Math.round(r.bottom)}`);
+      if (el.scrollWidth > el.clientWidth + 2 && /lab|val|ab/.test(el.className)) bad.push(`scene ${i}: text overflows "${el.textContent.slice(0, 40)}"`);
+    }
+  });
+  return bad;
+};
+</script>
+</body>
+</html>

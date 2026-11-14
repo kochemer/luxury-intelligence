@@ -16,14 +16,15 @@ Two public pieces from one dataset, decided by the owner on 2026-11-14:
 | Data engine (`review/`, `npm run review:build` → `data/review/2026.json`) | built, tested |
 | `/research/coverage-and-share-prices` and `/review/2026` | built, hidden (`REVIEW_LIVE = false`: noindex, not in the sitemap or menus) |
 | Second price source to cross-check Yahoo | not done; do before publishing |
-| Film, podcast special, social posts, press pitch | not started |
+| Film (`video-short/review/`, ~100 s, narrated; see `video-short/README.md`) | first cut rendered 2026-11-14, not yet listened to by the owner, not published |
+| Podcast special, social posts, press pitch | not started |
 
 Re-run the build in early December so November is a full month. New headlines
 cost about $0.50 per 1,000 to label.
 
 ## Launch steps
 
-1. Re-run `npm run review:build` once November is complete; read the output against this doc and update the tables below.
+1. Re-run `npm run review:build` once November is complete; read the output against this doc and update the tables below. Then re-render the film (its script is generated from the same file).
 2. Cross-check the share prices against a second source.
 3. Set `REVIEW_LIVE = true` in `lib/review/load.ts` (removes the noindex on both pages).
 4. Add both URLs to `lib/seo/urlInventory.ts` (the sitemap follows) and link them from the home page and `/markets`.
