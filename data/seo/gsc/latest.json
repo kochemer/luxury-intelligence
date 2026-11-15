@@ -1,30 +1,30 @@
 {
   "version": 1,
-  "pulledAtISO": "2026-11-08T15:01:31.700Z",
+  "pulledAtISO": "2026-11-15T15:37:07.745Z",
   "siteUrl": "https://luxury-intel.com/",
   "windows": {
     "current": {
-      "start": "2026-10-09",
-      "end": "2026-11-05"
+      "start": "2026-10-16",
+      "end": "2026-11-12"
     },
     "previous": {
-      "start": "2026-09-11",
-      "end": "2026-10-08"
+      "start": "2026-09-18",
+      "end": "2026-10-15"
     }
   },
   "totals": {
     "current": {
-      "clicks": 5,
-      "impressions": 205,
-      "ctr": 0.024390243902439025,
-      "position": 12,
+      "clicks": 8,
+      "impressions": 160,
+      "ctr": 0.05,
+      "position": 26.13125,
       "days": 28
     },
     "previous": {
-      "clicks": 2,
-      "impressions": 360,
-      "ctr": 0.005555555555555556,
-      "position": 6.436111111111111,
+      "clicks": 0,
+      "impressions": 334,
+      "ctr": 0,
+      "position": 6.131736526946108,
       "days": 28
     }
   },
@@ -33,19 +33,19 @@
       "keys": [
         "https://luxury-intel.com/"
       ],
-      "clicks": 3,
-      "impressions": 42,
-      "ctr": 0.07142857142857142,
-      "position": 7.261904761904762
+      "clicks": 5,
+      "impressions": 50,
+      "ctr": 0.1,
+      "position": 26.66
     },
     {
       "keys": [
         "https://luxury-intel.com/about"
       ],
       "clicks": 1,
-      "impressions": 47,
-      "ctr": 0.02127659574468085,
-      "position": 4.446808510638298
+      "impressions": 38,
+      "ctr": 0.02631578947368421,
+      "position": 4.184210526315789
     },
     {
       "keys": [
@@ -58,12 +58,21 @@
     },
     {
       "keys": [
+        "https://luxury-intel.com/digest/october-2026-week-43"
+      ],
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.3333333333333333,
+      "position": 3
+    },
+    {
+      "keys": [
         "https://luxury-intel.com/archive"
       ],
       "clicks": 0,
       "impressions": 7,
       "ctr": 0,
-      "position": 7
+      "position": 4
     },
     {
       "keys": [
@@ -106,9 +115,9 @@
         "https://luxury-intel.com/digest/march-2026-week-11"
       ],
       "clicks": 0,
-      "impressions": 56,
+      "impressions": 1,
       "ctr": 0,
-      "position": 6.357142857142857
+      "position": 10
     },
     {
       "keys": [
@@ -160,27 +169,27 @@
         "https://luxury-intel.com/digest/september-2026-week-36"
       ],
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 1,
       "ctr": 0,
-      "position": 14.75
+      "position": 10
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/september-2026-week-37"
       ],
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "ctr": 0,
-      "position": 9
+      "position": 9.666666666666666
     },
     {
       "keys": [
         "https://luxury-intel.com/es/about"
       ],
       "clicks": 0,
-      "impressions": 30,
+      "impressions": 14,
       "ctr": 0,
-      "position": 9.1
+      "position": 9.714285714285714
     },
     {
       "keys": [
@@ -196,18 +205,18 @@
         "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 19,
+      "impressions": 35,
       "ctr": 0,
-      "position": 64.52631578947368
+      "position": 69.17142857142858
     },
     {
       "keys": [
         "https://luxury-intel.com/methodology"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 5.5
+      "position": 4
     },
     {
       "keys": [
@@ -233,10 +242,10 @@
       "keys": [
         "luxury intelligence"
       ],
-      "clicks": 3,
-      "impressions": 17,
-      "ctr": 0.17647058823529413,
-      "position": 2.2941176470588234
+      "clicks": 4,
+      "impressions": 11,
+      "ctr": 0.36363636363636365,
+      "position": 2.1818181818181817
     },
     {
       "keys": [
@@ -249,73 +258,118 @@
     },
     {
       "keys": [
-        "evaluate the ai marketplace company ai bazaar on minimalist modern luggage aesthetics"
+        "fashion industry intelligence publications to subscribe to"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "keys": [
+        "luxury database price comparison"
+      ],
+      "clicks": 0,
+      "impressions": 1,
       "ctr": 0,
       "position": 5
+    },
+    {
+      "keys": [
+        "luxury ecommerce solutions"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 75.5
+    },
+    {
+      "keys": [
+        "luxury goods news today"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 85
     },
     {
       "keys": [
         "luxury ia"
       ],
       "clicks": 0,
-      "impressions": 23,
+      "impressions": 11,
       "ctr": 0,
-      "position": 9.391304347826088
+      "position": 9.545454545454545
     },
     {
       "keys": [
         "luxury industry news"
       ],
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 6,
       "ctr": 0,
-      "position": 59
+      "position": 67.66666666666667
     },
     {
       "keys": [
         "luxury industry news today"
       ],
       "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 63.75
+    },
+    {
+      "keys": [
+        "luxury marketing news"
+      ],
+      "clicks": 0,
       "impressions": 2,
       "ctr": 0,
-      "position": 63
+      "position": 64
     },
     {
       "keys": [
         "luxury news"
       ],
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 7,
       "ctr": 0,
-      "position": 82.6
+      "position": 81
     },
     {
       "keys": [
         "luxury news today"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 5,
       "ctr": 0,
-      "position": 81
+      "position": 80
     },
     {
       "keys": [
         "luxury retail news"
       ],
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 5,
       "ctr": 0,
-      "position": 76.33333333333333
+      "position": 72.2
     },
     {
       "keys": [
-        "upscale ai token fabric october 8 2026 official press release"
+        "luxury retail news today"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 100
+    },
+    {
+      "keys": [
+        "who provides detailed checkout costs for international designer purchases?"
+      ],
+      "clicks": 0,
+      "impressions": 1,
       "ctr": 0,
       "position": 5
     }
@@ -326,10 +380,10 @@
         "luxury intelligence",
         "https://luxury-intel.com/"
       ],
-      "clicks": 3,
-      "impressions": 17,
-      "ctr": 0.17647058823529413,
-      "position": 2.6470588235294117
+      "clicks": 4,
+      "impressions": 11,
+      "ctr": 0.36363636363636365,
+      "position": 2.1818181818181817
     },
     {
       "keys": [
@@ -343,13 +397,43 @@
     },
     {
       "keys": [
-        "evaluate the ai marketplace company ai bazaar on minimalist modern luggage aesthetics",
-        "https://luxury-intel.com/digest/march-2026-week-11"
+        "fashion industry intelligence publications to subscribe to",
+        "https://luxury-intel.com/"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "keys": [
+        "luxury database price comparison",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
       "ctr": 0,
       "position": 5
+    },
+    {
+      "keys": [
+        "luxury ecommerce solutions",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 75.5
+    },
+    {
+      "keys": [
+        "luxury goods news today",
+        "https://luxury-intel.com/markets/luxury"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 85
     },
     {
       "keys": [
@@ -357,9 +441,9 @@
         "https://luxury-intel.com/es/about"
       ],
       "clicks": 0,
-      "impressions": 23,
+      "impressions": 11,
       "ctr": 0,
-      "position": 9.391304347826088
+      "position": 9.545454545454545
     },
     {
       "keys": [
@@ -367,9 +451,9 @@
         "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 6,
       "ctr": 0,
-      "position": 59
+      "position": 67.66666666666667
     },
     {
       "keys": [
@@ -377,9 +461,9 @@
         "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 4,
       "ctr": 0,
-      "position": 63
+      "position": 63.75
     },
     {
       "keys": [
@@ -387,19 +471,19 @@
         "https://luxury-intel.com/about"
       ],
       "clicks": 0,
-      "impressions": 17,
+      "impressions": 11,
       "ctr": 0,
-      "position": 5.235294117647059
+      "position": 5.7272727272727275
     },
     {
       "keys": [
-        "luxury intelligence",
-        "https://luxury-intel.com/archive"
+        "luxury marketing news",
+        "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 10
+      "position": 64
     },
     {
       "keys": [
@@ -407,9 +491,9 @@
         "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 7,
       "ctr": 0,
-      "position": 82.6
+      "position": 81
     },
     {
       "keys": [
@@ -417,9 +501,9 @@
         "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 5,
       "ctr": 0,
-      "position": 81
+      "position": 80
     },
     {
       "keys": [
@@ -427,17 +511,27 @@
         "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 5,
       "ctr": 0,
-      "position": 76.33333333333333
+      "position": 72.2
     },
     {
       "keys": [
-        "upscale ai token fabric october 8 2026 official press release",
-        "https://luxury-intel.com/digest/march-2026-week-11"
+        "luxury retail news today",
+        "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 100
+    },
+    {
+      "keys": [
+        "who provides detailed checkout costs for international designer purchases?",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
       "ctr": 0,
       "position": 5
     }
