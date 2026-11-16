@@ -1,0 +1,111 @@
+{
+  "week": "2026-W46",
+  "generatedAt": "2026-11-16T15:56:19.443Z",
+  "model": "gpt-6.1-sol",
+  "posts": [
+    {
+      "slot": "linkedin-issue",
+      "channel": "linkedin",
+      "day": "mon",
+      "localTime": "10:00",
+      "dueAtISO": "2026-11-16T09:00:00.000Z",
+      "parts": [
+        "ChatGPT Wallet will make jewellers sell to software before they ever meet the buyer.\n\n→ Amazon plans to collect data on virtually every product worldwide, including items it does not stock. Luxury product details could reach shoppers beyond brands' chosen sellers.\n\n→ Richemont's first-half sales rose 17% excluding currency changes to €12.3 billion. The Middle East was the only region without double-digit growth.\n\n→ De Beers: Botswana announced plans to double its stake to 30%. Jewellers also face its pact with France reserving the word “diamond” for natural stones.\n\nRead, listen or watch the full issue, free every Monday: https://luxury-intel.com/digest/november-2026-week-46?utm_source=linkedin&utm_medium=social&utm_campaign=2026-W46&utm_content=issue-post\n\n#ecommerce #luxury #jewelry"
+      ],
+      "storyIds": [
+        "z99gha",
+        "9ms7m9",
+        "nojvp7"
+      ],
+      "status": "ready",
+      "image": {
+        "url": "https://luxury-intel.com/weekly-images/2026-W46.png",
+        "alt": "Weekly cover illustration for 2026-W46"
+      }
+    },
+    {
+      "slot": "x-thread",
+      "channel": "x",
+      "day": "mon",
+      "localTime": "10:30",
+      "dueAtISO": "2026-11-16T09:30:00.000Z",
+      "parts": [
+        "ChatGPT Wallet will make jewellers sell to software before they meet the buyer. Amazon plans to collect data on virtually every product sold worldwide, including items it does not stock.",
+        "Amazon plans to collect worldwide product data through World Product Graph, including items it does not stock. Jewellers’ product details could influence AI shopping decisions beyond the stores carrying their goods.",
+        "Richemont’s first-half sales rose 17% to €12.3 billion, excluding currency changes. For retailers comparing markets, the Middle East was the only region without double-digit growth.",
+        "Botswana named Global Diamond Consortium its preferred De Beers bidder and will double its stake to 30%. A larger stake would tie Botswana more closely to the natural stones it is defending through naming rules.",
+        "Read, listen or watch the full issue, free every Monday: https://luxury-intel.com/digest/november-2026-week-46?utm_source=x&utm_medium=social&utm_campaign=2026-W46&utm_content=thread"
+      ],
+      "storyIds": [
+        "z99gha",
+        "9ms7m9",
+        "nojvp7"
+      ],
+      "status": "ready",
+      "image": {
+        "url": "https://luxury-intel.com/weekly-images/2026-W46.png",
+        "alt": "Weekly cover illustration for 2026-W46"
+      }
+    },
+    {
+      "slot": "x-story-tue",
+      "channel": "x",
+      "day": "tue",
+      "localTime": "12:00",
+      "dueAtISO": "2026-11-17T11:00:00.000Z",
+      "parts": [
+        "PVH, owner of Calvin Klein and Tommy Hilfiger, will cut 4% of its workforce. The company is targeting $100 million in fiscal 2027 savings.",
+        "More in this week's issue: https://luxury-intel.com/digest/november-2026-week-46?utm_source=x&utm_medium=social&utm_campaign=2026-W46&utm_content=story-tue"
+      ],
+      "storyIds": [
+        "xtyzke"
+      ],
+      "status": "ready"
+    },
+    {
+      "slot": "x-story-wed",
+      "channel": "x",
+      "day": "wed",
+      "localTime": "12:00",
+      "dueAtISO": "2026-11-18T11:00:00.000Z",
+      "parts": [
+        "OpenAI launched ChatGPT Wallet, letting its AI make purchases for users. Retailers can receive orders placed by AI while shoppers keep their existing credit card rewards.",
+        "More in this week's issue: https://luxury-intel.com/digest/november-2026-week-46?utm_source=x&utm_medium=social&utm_campaign=2026-W46&utm_content=story-wed"
+      ],
+      "storyIds": [
+        "34jwxa"
+      ],
+      "status": "ready"
+    },
+    {
+      "slot": "x-story-thu",
+      "channel": "x",
+      "day": "thu",
+      "localTime": "12:00",
+      "dueAtISO": "2026-11-19T11:00:00.000Z",
+      "parts": [
+        "Richemont posted double-digit first-half sales and profit growth. The luxury group also has continuity at the top, with chairman Johann Rupert saying he has no plans to retire.",
+        "More in this week's issue: https://luxury-intel.com/digest/november-2026-week-46?utm_source=x&utm_medium=social&utm_campaign=2026-W46&utm_content=story-thu"
+      ],
+      "storyIds": [
+        "gwdy4t"
+      ],
+      "status": "ready"
+    },
+    {
+      "slot": "x-story-fri",
+      "channel": "x",
+      "day": "fri",
+      "localTime": "12:00",
+      "dueAtISO": "2026-11-20T11:00:00.000Z",
+      "parts": [
+        "Anthropic is seeking a valuation of up to $1.4tn, below the previously reported $2tn target. Luxury retailers weighing AI spending should note investors' doubts about the boom.",
+        "More in this week's issue: https://luxury-intel.com/digest/november-2026-week-46?utm_source=x&utm_medium=social&utm_campaign=2026-W46&utm_content=story-fri"
+      ],
+      "storyIds": [
+        "cutvmd"
+      ],
+      "status": "ready"
+    }
+  ]
+}
