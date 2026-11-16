@@ -1179,5 +1179,24 @@
     "cached_at": "2026-11-09T16:03:05.429Z",
     "model": "gpt-6-luna",
     "version": "3.2"
+  },
+  "2026-W46:63d82bc05766": {
+    "keyThemes": [
+      "Anthropic flotation",
+      "ChatGPT Wallet",
+      "Richemont sales growth",
+      "lab-grown bridal diamonds",
+      "De Beers ownership stake"
+    ],
+    "oneSentenceSummary": "ChatGPT Wallet will make jewellers sell to software before they ever meet the buyer.",
+    "summaryCandidates": [
+      "ChatGPT Wallet will make jewellers sell to software before they ever meet the buyer.",
+      "Richemont sales rose 16% while Calvin Klein’s owner cuts 4% of staff. Famous names offer no shelter.",
+      "Burberry’s £54 million profit makes writing off old luxury brands look lazy.",
+      "Amazon’s product data grab and ChatGPT Wallet share one goal. Both want to pick what your customers buy next."
+    ],
+    "cached_at": "2026-11-16T15:41:52.252Z",
+    "model": "gpt-6-luna",
+    "version": "3.2"
   }
 }

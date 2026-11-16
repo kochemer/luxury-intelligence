@@ -14089,5 +14089,313 @@
       "summary": "Gerald Charles abrió su primer espacio shop-in-shop en Taiwán en la tienda de Chung Mei Watch en Nanjing, Taipéi, diez meses después de entrar en el mercado."
     },
     "translatedAt": "2026-11-09T16:02:30.092Z"
+  },
+  "f5b7d563edc5ca4b": {
+    "da": {
+      "title": "Jensen Huang træder tilbage fra Nvidia efter affærer",
+      "summary": "Jensen Huang trådte tilbage som administrerende direktør for Nvidia, mens hans affærer blev gransket; finansdirektør Colette Kress blev udnævnt til midlertidig leder."
+    },
+    "es": {
+      "title": "Jensen Huang dimite de Nvidia tras sus aventuras amorosas",
+      "summary": "Jensen Huang dimitió como director ejecutivo de Nvidia en medio del escrutinio por sus aventuras amorosas; la directora financiera Colette Kress fue nombrada líder interina."
+    },
+    "translatedAt": "2026-11-16T15:39:57.161Z"
+  },
+  "e27209ceef7a4d74": {
+    "da": {
+      "title": "Anthropic sigter mod en værdiansættelse på op til 1,4 billioner dollar ved en børsnotering",
+      "summary": "Anthropic søger en værdiansættelse på op til 1,4 billioner dollar ved en børsnotering, lavere end det tidligere rapporterede mål på 2 billioner dollar, mens investorer sætter spørgsmålstegn ved AI-boomet."
+    },
+    "es": {
+      "title": "Anthropic aspira a una valoración de hasta 1,4 billones de dólares en su salida a bolsa",
+      "summary": "Anthropic busca una valoración de hasta 1,4 billones de dólares en su salida a bolsa, por debajo del objetivo de 2 billones de dólares informado anteriormente, mientras los inversores cuestionan el auge de la IA."
+    },
+    "translatedAt": "2026-11-16T15:39:57.161Z"
+  },
+  "0c56a8f8a193799a": {
+    "da": {
+      "title": "Anthropic lancerer de nye modeller Mythos og Fable midt i bekymringer om RSI",
+      "summary": "Anthropic lancerede Mythos og Fable og sagde, at de nye modeller er bedre til at kode og kommunikerer tydeligere med brugerne."
+    },
+    "es": {
+      "title": "Anthropic lanza los nuevos modelos Mythos y Fable en medio de la preocupación por la RSI",
+      "summary": "Anthropic lanzó Mythos y Fable y afirmó que los nuevos modelos mejoran en programación y se comunican con más claridad con los usuarios."
+    },
+    "translatedAt": "2026-11-16T15:39:57.161Z"
+  },
+  "c83c8f9d7f3a21e2": {
+    "da": {
+      "title": "TSMC vil investere op til 1 mia. dollar i Anthropic og OpenAI",
+      "summary": "TSMC's bestyrelse har godkendt investeringer på op til 500 mio. dollar hver i Anthropic og OpenAI."
+    },
+    "es": {
+      "title": "TSMC invertirá hasta 1.000 millones de dólares en Anthropic y OpenAI",
+      "summary": "El consejo de administración de TSMC aprobó inversiones de hasta 500 millones de dólares en Anthropic y OpenAI, respectivamente."
+    },
+    "translatedAt": "2026-11-16T15:39:57.161Z"
+  },
+  "0de6e1b3abe6a992": {
+    "da": {
+      "title": "Meta lancerer Muse Ember, en ny letvægtsmodel til agentafvikling",
+      "summary": "Meta har lanceret Muse Ember, en letvægts-AI-model, der koster 10 cent pr. million inputtokens, de tekstenheder, modellen læser."
+    },
+    "es": {
+      "title": "Meta lanza Muse Ember, un nuevo modelo ligero para la ejecución de agentes",
+      "summary": "Meta lanzó Muse Ember, un modelo ligero de IA que cuesta 10 centavos por millón de tokens de entrada, las unidades de texto que lee."
+    },
+    "translatedAt": "2026-11-16T15:39:57.161Z"
+  },
+  "6074601059e2916c": {
+    "da": {
+      "title": "Google lancerer Gemini 4 Hydrogen med 2,5 gange højere hastighed og fire ræsonneringsniveauer",
+      "summary": "Google lancerede Gemini 4 Hydrogen, en AI-model, der udfører opgaver 2,5 gange hurtigere end Gemini 3.8 Flash."
+    },
+    "es": {
+      "title": "Google lanza Gemini 4 Hydrogen con una velocidad 2,5 veces mayor y cuatro niveles de razonamiento",
+      "summary": "Google lanzó Gemini 4 Hydrogen, un modelo de IA que completa tareas 2,5 veces más rápido que Gemini 3.8 Flash."
+    },
+    "translatedAt": "2026-11-16T15:40:00.743Z"
+  },
+  "41d973037f2404cd": {
+    "da": {
+      "title": "Kongressen vil stramme eksportreglerne for AI-chips efter Nvidia-spionskandale",
+      "summary": "Kongressen ønsker strammere eksportregler for AI-chips efter en skandale, der involverede Nvidias tidligere administrerende direktør Jensen Huang og en formodet kinesisk spion."
+    },
+    "es": {
+      "title": "El Congreso quiere endurecer las normas de exportación de chips de IA tras un escándalo de espionaje relacionado con Nvidia",
+      "summary": "El Congreso quiere endurecer las normas de exportación de chips de IA tras un escándalo en el que se vieron involucrados Jensen Huang, exdirector ejecutivo de Nvidia, y un presunto espía chino."
+    },
+    "translatedAt": "2026-11-16T15:40:00.743Z"
+  },
+  "5f6fff3937e8bb17": {
+    "da": {
+      "title": "Amazons plan om at eje verdens produktdata og bekæmpe AI-shoppingagenter",
+      "summary": "Amazon planlægger at indsamle data om stort set alle produkter, der sælges verden over, via World Product Graph, også varer, som virksomheden ikke har på lager."
+    },
+    "es": {
+      "title": "El plan de Amazon para controlar los datos de productos del mundo y combatir a los agentes de compra con IA",
+      "summary": "Amazon planea recopilar datos sobre prácticamente todos los productos que se venden en el mundo a través de World Product Graph, incluidos los artículos que no tiene en stock."
+    },
+    "translatedAt": "2026-11-16T15:40:00.743Z"
+  },
+  "b09902d5bdf242a5": {
+    "da": {
+      "title": "OpenAI lancerer ChatGPT Wallet, så dets AI-agenter med »dots« kan foretage køb for brugerne",
+      "summary": "OpenAI har lanceret ChatGPT Wallet, der lader AI-agenter foretage køb for brugerne, mens kortholderne beholder deres eksisterende kreditkortfordele."
+    },
+    "es": {
+      "title": "OpenAI lanza ChatGPT Wallet, que permite a sus agentes de IA «dots» realizar compras para los usuarios",
+      "summary": "OpenAI ha lanzado ChatGPT Wallet, que permite a sus agentes de IA realizar compras para los usuarios mientras los titulares de las tarjetas conservan las recompensas de sus tarjetas de crédito actuales."
+    },
+    "translatedAt": "2026-11-16T15:40:00.743Z"
+  },
+  "2668f813fc8fb71a": {
+    "da": {
+      "title": "Brand, bøder og et dyrt comeback: Coupangs lange vej tilbage til overskud",
+      "summary": "Coupangs resultater viser fremgang, men der er ingen klar tidsplan for, hvornår virksomheden igen bliver rentabel."
+    },
+    "es": {
+      "title": "Incendios, multas y una costosa remontada: el largo camino de Coupang de vuelta a la rentabilidad",
+      "summary": "Los resultados de Coupang muestran impulso, pero no hay un calendario claro para volver a la rentabilidad."
+    },
+    "translatedAt": "2026-11-16T15:40:00.743Z"
+  },
+  "9c4ea96219889c07": {
+    "da": {
+      "title": "Kinas Singles’ Day bytter rabatter ud med AI og innovation inden for livestreaming",
+      "summary": "Kinas onlinesalg under Singles’ Day steg med 3,7 % fra året før til 251,7 mia. dollars, viser data fra Syntun."
+    },
+    "es": {
+      "title": "El Singles’ Day de China cambia los descuentos por IA e innovación en las retransmisiones en directo",
+      "summary": "Las ventas online de China durante el Singles’ Day aumentaron un 3,7 % interanual, hasta los 251.700 millones de dólares, según datos de Syntun."
+    },
+    "translatedAt": "2026-11-16T15:40:03.519Z"
+  },
+  "20c354e3c44f4406": {
+    "da": {
+      "title": "EU vil gøre det nemmere at slå vanedannende appfunktioner fra",
+      "summary": "EU vil fremlægge regler, der kræver, at platforme lader brugerne slå vanedannende appfunktioner fra."
+    },
+    "es": {
+      "title": "La UE facilitará desactivar las funciones adictivas de las aplicaciones",
+      "summary": "La UE presentará normas que obligarán a las plataformas a permitir que los usuarios desactiven las funciones adictivas de las aplicaciones."
+    },
+    "translatedAt": "2026-11-16T15:40:03.519Z"
+  },
+  "6ba8f742027204d3": {
+    "da": {
+      "title": "Amerikanske havne står over for trængsel, mens den forlængede højsæson for detailimport ebber ud",
+      "summary": "USA's detailimport forventes at falde efter en forlænget højsæson, mens trængsel og uafklarede arbejdsforhandlinger fortsætter, oplyser National Retail Federation."
+    },
+    "es": {
+      "title": "Los puertos de EE. UU. afrontan congestión mientras llega a su fin el prolongado pico de importaciones minoristas",
+      "summary": "Se prevé que las importaciones minoristas de EE. UU. disminuyan tras una prolongada temporada alta, mientras persisten la congestión y las negociaciones laborales sin resolver, informa la National Retail Federation."
+    },
+    "translatedAt": "2026-11-16T15:40:03.519Z"
+  },
+  "9e9be5e990b3fde0": {
+    "da": {
+      "title": "Tyske myndigheder udfordrer PayPal over konkurrencebegrænsende praksis",
+      "summary": "Tysklands konkurrencemyndighed undersøger PayPals forbud mod, at forhandlere lægger gebyrer på ved betaling, selvom PayPals gebyrer for sælgere er højere end ved andre betalingsmetoder."
+    },
+    "es": {
+      "title": "Los reguladores alemanes cuestionan a PayPal por prácticas anticompetitivas",
+      "summary": "La autoridad antimonopolio de Alemania está investigando la prohibición de PayPal de que los comercios cobren recargos al pagar, pese a que sus comisiones para vendedores son más altas que las de otros métodos de pago."
+    },
+    "translatedAt": "2026-11-16T15:40:03.519Z"
+  },
+  "e518059f6b079988": {
+    "da": {
+      "title": "Richemonts salg stiger 16 % i første halvår med solid vækst i alle regioner undtagen Mellemøsten",
+      "summary": "Richemonts salg steg 17 % i første halvår målt ved konstante valutakurser til 12,3 mia. euro med tocifret vækst i alle regioner undtagen Mellemøsten."
+    },
+    "es": {
+      "title": "Las ventas de Richemont crecen un 16 % en el primer semestre, con un sólido crecimiento en todas las regiones excepto Oriente Medio",
+      "summary": "Las ventas de Richemont aumentaron un 17 % en el primer semestre a tipos de cambio constantes, hasta los 12.300 millones de euros, con un crecimiento de dos dígitos en todas las regiones excepto Oriente Medio."
+    },
+    "translatedAt": "2026-11-16T15:40:03.519Z"
+  },
+  "a67ff29928ff35eb": {
+    "da": {
+      "title": "Ejeren af Calvin Klein og Tommy Hilfiger skærer 4 % af arbejdsstyrken",
+      "summary": "PVH, der ejer Calvin Klein og Tommy Hilfiger, skærer 4 % af arbejdsstyrken med henblik på besparelser på 100 millioner dollars i regnskabsåret 2027."
+    },
+    "es": {
+      "title": "El propietario de Calvin Klein y Tommy Hilfiger recortará el 4 % de su plantilla",
+      "summary": "PVH, propietario de Calvin Klein y Tommy Hilfiger, recortará el 4 % de su plantilla con el objetivo de ahorrar 100 millones de dólares en el ejercicio fiscal de 2027."
+    },
+    "translatedAt": "2026-11-16T15:40:06.178Z"
+  },
+  "be1c325cb1c5409a": {
+    "da": {
+      "title": "Burberrys salg stiger 6 % i første halvår, mens overskuddet når 54 millioner pund",
+      "summary": "Burberrys salg steg 6 % i første halvår, og overskuddet voksede til 54 millioner pund."
+    },
+    "es": {
+      "title": "Las ventas de Burberry aumentan un 6 % en el primer semestre y los beneficios alcanzan los 54 millones de libras",
+      "summary": "Las ventas de Burberry aumentaron un 6 % en el primer semestre y los beneficios crecieron hasta los 54 millones de libras."
+    },
+    "translatedAt": "2026-11-16T15:40:06.178Z"
+  },
+  "255256eaf1472873": {
+    "da": {
+      "title": "Ny chef hos Hugo Boss: Frasers indsætter David Epstein, mens Grieder træder tilbage",
+      "summary": "Hugo Boss har udnævnt Frasers-direktøren David Epstein til administrerende direktør fra 1. januar 2027. Han afløser Daniel Grieder, der fratræder efter eget ønske."
+    },
+    "es": {
+      "title": "Nuevo jefe en Hugo Boss: Frasers nombra a David Epstein mientras Grieder deja el cargo",
+      "summary": "Hugo Boss ha nombrado al directivo de Frasers David Epstein como consejero delegado a partir del 1 de enero de 2027. Sustituirá a Daniel Grieder, quien deja el cargo por decisión propia."
+    },
+    "translatedAt": "2026-11-16T15:40:06.178Z"
+  },
+  "631ee503dff3f445": {
+    "da": {
+      "title": "e.l.f. Beautys salg i Q2 vokser 51 %, mens virksomheden satser på digitale platforme",
+      "summary": "e.l.f. Beautys salg i Q2 steg 51 % til 520,8 millioner dollar, og virksomheden hævede sine forventninger til hele året for andet kvartal i træk."
+    },
+    "es": {
+      "title": "Las ventas de e.l.f. Beauty crecen un 51 % en el segundo trimestre mientras apuesta por las plataformas digitales",
+      "summary": "Las ventas de e.l.f. Beauty aumentaron un 51 % en el segundo trimestre, hasta los 520,8 millones de dólares, y la empresa elevó sus previsiones para el año completo por segundo trimestre consecutivo."
+    },
+    "translatedAt": "2026-11-16T15:40:06.178Z"
+  },
+  "c89933fa71452d97": {
+    "da": {
+      "title": "Dr. Martens: »Varm sommer« får omsætningen i første halvår til at falde",
+      "summary": "Dr. Martens’ omsætning i første halvår faldt 9,8 % til 290,4 millioner pund, da usædvanligt varmt sommervejr ramte efterspørgslen efter støvler, især i Europa."
+    },
+    "es": {
+      "title": "Dr. Martens: el «verano caluroso» hace caer los ingresos del primer semestre",
+      "summary": "Los ingresos de Dr. Martens en el primer semestre cayeron un 9,8 %, hasta 290,4 millones de libras, debido a que el verano excepcionalmente caluroso afectó a la demanda de botas, especialmente en Europa."
+    },
+    "translatedAt": "2026-11-16T15:40:06.178Z"
+  },
+  "0893e853ddac40b0": {
+    "da": {
+      "title": "Lululemon besætter 2 af 4 ledige stillinger med nye chefer for brand og strategi",
+      "summary": "Lululemon har besat to af fire ledige lederstillinger med nye chefer for brand og strategi, mens søgningen efter chefer for teknologi og kommunikation fortsætter."
+    },
+    "es": {
+      "title": "Lululemon cubre 2 de las 4 vacantes con nuevos responsables de marca y estrategia",
+      "summary": "Lululemon cubrió dos de las cuatro vacantes directivas con nuevos responsables de marca y estrategia, mientras continúa la búsqueda de responsables de tecnología y comunicación."
+    },
+    "translatedAt": "2026-11-16T15:40:09.069Z"
+  },
+  "6428e5c234d48435": {
+    "da": {
+      "title": "Botswanas præsident Boko udpeger Global Diamond Consortium som foretrukken køber af De Beers og annoncerer en ejerandel på 30 %",
+      "summary": "Botswana udpegede Global Diamond Consortium som sin foretrukne køber af De Beers og meddelte, at landet ville fordoble sin ejerandel til 30 %."
+    },
+    "es": {
+      "title": "El presidente de Botsuana, Boko, designa a Global Diamond Consortium como comprador preferido de De Beers y anuncia una participación del 30 %",
+      "summary": "Botsuana designó a Global Diamond Consortium como su comprador preferido de De Beers y anunció que duplicaría su participación hasta el 30 %."
+    },
+    "translatedAt": "2026-11-16T15:40:09.069Z"
+  },
+  "0ef78c936cc2a403": {
+    "da": {
+      "title": "Richemont ser mod fremtiden efter tocifret vækst i omsætning og overskud i første halvår",
+      "summary": "Richemont opnåede tocifret vækst i omsætning og overskud i første halvår, mens bestyrelsesformand Johann Rupert sagde, at han ikke har planer om at gå på pension."
+    },
+    "es": {
+      "title": "Richemont mira al futuro tras registrar un crecimiento de dos dígitos en ventas y beneficios en el primer semestre",
+      "summary": "Richemont registró un crecimiento de dos dígitos en ventas y beneficios en el primer semestre, mientras que su presidente, Johann Rupert, afirmó que no tiene planes de jubilarse."
+    },
+    "translatedAt": "2026-11-16T15:40:09.069Z"
+  },
+  "fe4e04b61d021f9f": {
+    "da": {
+      "title": "Den stærke salgsudvikling fortsætter for verdens største smykkebrand",
+      "summary": "Pandora, verdens største smykkebrand, rapporterede om højere salg i tredje kvartal."
+    },
+    "es": {
+      "title": "Continúa el sólido rendimiento de ventas de la mayor marca de joyería del mundo",
+      "summary": "Pandora, la mayor marca de joyería del mundo, registró mayores ventas en el tercer trimestre."
+    },
+    "translatedAt": "2026-11-16T15:40:09.069Z"
+  },
+  "555c109334ab1a9a": {
+    "da": {
+      "title": "Større sten, samme budget: Lab-dyrkede diamanter presser naturdiamanternes attraktive position på brudemarkedet",
+      "summary": "Lab-dyrkede diamanter dominerer mange juvelerers salg af forlovelsesringe, da køberne bruger besparelsen på større sten, viser INSTOREs Big Survey 2026."
+    },
+    "es": {
+      "title": "Piedras más grandes, mismo presupuesto: los diamantes de laboratorio desplazan el punto ideal de los naturales en el mercado nupcial",
+      "summary": "Los diamantes de laboratorio dominan las ventas de anillos de compromiso de muchas joyerías, ya que los compradores destinan el ahorro a piedras más grandes, según la encuesta Big Survey 2026 de INSTORE."
+    },
+    "translatedAt": "2026-11-16T15:40:09.069Z"
+  },
+  "f548ff83a62727b7": {
+    "da": {
+      "title": "Frankrig og Botswana underskriver erklæring, der forbeholder ordet »diamant« til naturlige sten",
+      "summary": "Frankrig og Botswana underskrev Paris-erklæringen om naturlige diamanter, der forbeholder ordet »diamant« til naturlige sten."
+    },
+    "es": {
+      "title": "Francia y Botsuana firman una declaración que reserva la palabra «diamante» para las piedras naturales",
+      "summary": "Francia y Botsuana firmaron la Declaración de París sobre los Diamantes Naturales, que reserva la palabra «diamante» para las piedras naturales."
+    },
+    "translatedAt": "2026-11-16T15:40:11.361Z"
+  },
+  "4fc0874c7506a78c": {
+    "da": {
+      "title": "Watches of Switzerland forbedrer udsigterne efter et spring i salget i USA",
+      "summary": "Watches of Switzerland forventer nu en omsætningsvækst på 7-10 % i dette regnskabsår efter et spring i salget i USA."
+    },
+    "es": {
+      "title": "Watches of Switzerland mejora sus previsiones tras el repunte de las ventas en EE. UU.",
+      "summary": "Watches of Switzerland espera ahora un crecimiento de los ingresos del 7 % al 10 % en este ejercicio fiscal tras un repunte de las ventas en EE. UU."
+    },
+    "translatedAt": "2026-11-16T15:40:11.361Z"
+  },
+  "7eb6601f1119da9d": {
+    "da": {
+      "title": "Phillips sætter endnu en rekord med historiens mest indbringende urauktion",
+      "summary": "Phillips’ urauktion i Genève indbragte 112,3 millioner dollars, det højeste beløb i urauktionernes historie, og satte 24 verdensrekorder på to dage."
+    },
+    "es": {
+      "title": "Phillips bate otro récord con la subasta de relojes más lucrativa de la historia",
+      "summary": "La subasta de relojes de Phillips en Ginebra recaudó 112,3 millones de dólares, la cifra más alta de la historia de las subastas de relojes, y estableció 24 récords mundiales en dos días."
+    },
+    "translatedAt": "2026-11-16T15:40:11.361Z"
   }
 }

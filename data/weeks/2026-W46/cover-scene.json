@@ -1,0 +1,22 @@
+{
+  "chosenStory": "Calvin Klein, Tommy Hilfiger owner to cut 4% of workforce",
+  "whyThisStory": "The workforce cuts offer a sharper luxury-insider joke than the growth, ownership and data stories: an expensive fashion-house seat made less functional by a very small saving.",
+  "concept": "a-small-cut-to-support",
+  "setting": "a fashion-house director’s private office",
+  "primaryHumorDriver": "literal metaphor",
+  "secondaryEnhancer": "implied motion or \"just happened\" moment",
+  "sceneDescription": "An exquisite executive chair has had a small section sawn off one leg to save material, leaving the expensive seat precariously supported—a literal-minded response to PVH cutting staff to reduce costs. In a fashion-house director’s pale, quietly luxurious office, a carved walnut chair with gilt details and ivory silk upholstery stands beside a travertine desk. One front leg ends noticeably above the floor; its matching offcut lies directly beneath it. An unmarked brass-backed handsaw rests across the seat. Everything else is perfectly respectable.",
+  "finalImagePrompt": "A fashion-house director’s private office, pale plaster wall above a travertine desk edge and lightly scuffed oak floor. Middle of frame, lower half, a small carved walnut chair with gilt details and ivory silk upholstery occupies roughly one third of the width. One front leg has its bottom section neatly sawn off; the matching offcut lies beneath the gap. An unmarked brass-backed handsaw rests on the seat. Soft window daylight, real shadows, visible sawdust and worn gilding. Plain upper wall.",
+  "negativePrompt": [
+    "people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette",
+    "text, letters, numbers, signage, labels, price tags",
+    "screens, UI, dashboards, holograms, floating icons",
+    "watermarks, unrelated brand logos",
+    "cartoon, illustration, CGI, 3D render, anime, video game render",
+    "AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed",
+    "diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone",
+    "dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh",
+    "black backdrop, velvet, construction site, workshop, piles of objects, excessive clutter"
+  ],
+  "confidence": 0.63
+}

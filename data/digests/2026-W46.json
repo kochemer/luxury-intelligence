@@ -1,0 +1,1632 @@
+{
+  "weekLabel": "2026-W46",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2026-11-08T23:00:00.000Z",
+  "endISO": "2026-11-15T22:59:59.999Z",
+  "builtAtISO": "2026-11-16T16:39:44.521+01:00",
+  "builtAtLocal": "2026-11-16 16:39:44",
+  "totals": {
+    "total": 2333,
+    "byTopic": {
+      "AIStrategy": 476,
+      "EcommerceRetail": 242,
+      "LuxuryConsumer": 666,
+      "Jewellery": 311
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 476,
+      "top": [
+        {
+          "id": "8ap5yb",
+          "title": "Jensen Huang Resigns From Nvidia After Affairs",
+          "url": "https://www.nytimes.com/2026/11/12/technology/nvidia-jensen-huang.html",
+          "source": "NYTimes Technology",
+          "published_at": "2026-11-12T19:07:44.000Z",
+          "ingested_at": "2026-11-13T13:16:09.252Z",
+          "snippet": "The chief executive has been under scrutiny for an affair with a woman said to be a Chinese spy, as well as for a relationship with a subordinate at his A.I. chip company. Nvidia’s finance chief, Colette Kress, was named interim leader.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 1,
+            "clusterId": "c0074",
+            "coverage": 8,
+            "triage": {
+              "type": "hard_news",
+              "significance": 5,
+              "adRisk": "low",
+              "reason": "Nvidia’s CEO resignation is a landmark leadership change for the AI industry."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 3.95,
+              "why": "Reports a leadership upheaval at the dominant AI chipmaker, raising succession and strategic continuity questions across the AI industry."
+            },
+            "editorWhy": "Leadership upheaval at the dominant AI chipmaker raises strategic continuity and infrastructure risks.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Jensen Huang resigned as Nvidia chief executive amid scrutiny over affairs; finance chief Colette Kress was named interim leader.",
+          "translations": {
+            "da": {
+              "title": "Jensen Huang træder tilbage fra Nvidia efter affærer",
+              "summary": "Jensen Huang trådte tilbage som administrerende direktør for Nvidia, mens hans affærer blev gransket; finansdirektør Colette Kress blev udnævnt til midlertidig leder."
+            },
+            "es": {
+              "title": "Jensen Huang dimite de Nvidia tras sus aventuras amorosas",
+              "summary": "Jensen Huang dimitió como director ejecutivo de Nvidia en medio del escrutinio por sus aventuras amorosas; la directora financiera Colette Kress fue nombrada líder interina."
+            }
+          }
+        },
+        {
+          "id": "cutvmd",
+          "title": "Anthropic targets valuation of up to $1.4tn in stock market flotation",
+          "url": "https://www.theguardian.com/technology/2026/nov/10/anthropic-valuation-stock-market-flotation-ipo-wall-street-ai",
+          "source": "The Guardian - Technology",
+          "published_at": "2026-11-10T16:13:13.000Z",
+          "ingested_at": "2026-11-11T12:51:24.271Z",
+          "snippet": "Claude chatbot developer had been reported to be aiming for $2tn IPO on Wall Street before investors cooled on AI\nAnthropic is seeking a valuation of up to $1.4tn (£1.1tn) in its imminent stock market flotation, short of the $2tn that had been expected before investors started to question the durability of the AI boom.\nThe developer of the Claude chatbot was widely reported to be targeting a $2tn initial public offering on Wall Street but its sights have been set lower, according to a US regulat...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 2,
+            "clusterId": "c1470",
+            "coverage": 2,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "A major AI developer’s reported IPO valuation is important industry financing news."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 5,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.7,
+              "why": "A landmark AI flotation tests investor appetite and exposes the financial risks of enormous compute commitments."
+            },
+            "editorWhy": "Landmark flotation tests AI valuations and the sustainability of enormous computing commitments.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Anthropic is seeking a stock market valuation of up to $1.4tn, below the previously reported $2tn target as investors question the AI boom.",
+          "translations": {
+            "da": {
+              "title": "Anthropic sigter mod en værdiansættelse på op til 1,4 billioner dollar ved en børsnotering",
+              "summary": "Anthropic søger en værdiansættelse på op til 1,4 billioner dollar ved en børsnotering, lavere end det tidligere rapporterede mål på 2 billioner dollar, mens investorer sætter spørgsmålstegn ved AI-boomet."
+            },
+            "es": {
+              "title": "Anthropic aspira a una valoración de hasta 1,4 billones de dólares en su salida a bolsa",
+              "summary": "Anthropic busca una valoración de hasta 1,4 billones de dólares en su salida a bolsa, por debajo del objetivo de 2 billones de dólares informado anteriormente, mientras los inversores cuestionan el auge de la IA."
+            }
+          }
+        },
+        {
+          "id": "2c2xug",
+          "title": "Anthropic releases new Mythos and Fable models amid RSI concerns",
+          "url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-11-09T19:24:51.000Z",
+          "ingested_at": "2026-11-10T13:39:01.188Z",
+          "snippet": "Anthropic says the new models \"show improvements in areas like coding, reasoning, and vision,\" as well as in communicating more clearly with users.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 3,
+            "clusterId": "c0530",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Anthropic’s new models are a significant frontier AI release."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 4.15,
+              "why": "Frontier model releases cut enterprise AI costs and improve speed, while raising consequential questions about evaluation reliability and autonomous research."
+            },
+            "editorWhy": "New frontier models promise lower enterprise costs while raising questions about capability evaluations and safety.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Anthropic released Mythos and Fable, saying the new models improve coding and communicate more clearly with users.",
+          "translations": {
+            "da": {
+              "title": "Anthropic lancerer de nye modeller Mythos og Fable midt i bekymringer om RSI",
+              "summary": "Anthropic lancerede Mythos og Fable og sagde, at de nye modeller er bedre til at kode og kommunikerer tydeligere med brugerne."
+            },
+            "es": {
+              "title": "Anthropic lanza los nuevos modelos Mythos y Fable en medio de la preocupación por la RSI",
+              "summary": "Anthropic lanzó Mythos y Fable y afirmó que los nuevos modelos mejoran en programación y se comunican con más claridad con los usuarios."
+            }
+          }
+        },
+        {
+          "id": "30dlrr",
+          "title": "TSMC to invest up to $1 billion in Anthropic, OpenAI ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/tsmc-to-invest-up-to-1-billion-in-anthropic-openai/articleshow/135713178.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-11-10T14:14:58.000Z",
+          "ingested_at": "2026-11-11T12:51:24.271Z",
+          "snippet": "The company is positioning itself to benefit not only from supplying AI infrastructure, but also from owning stakes in some of the industry's most influential developers. TSMC's board approved on Tuesday an investment of up to $500 million to acquire shares in Anthropic at its initial public offering price, and an investment of up to $500 million to acquire preferred stock in OpenAI.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 4,
+            "clusterId": "c0044",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "TSMC’s investments in Anthropic and OpenAI are significant AI-industry financing news."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.45,
+              "why": "A major chip supplier taking stakes in frontier AI developers deepens financial ties across the AI infrastructure ecosystem."
+            },
+            "editorWhy": "Chipmaker investments deepen financial interdependence between AI developers and their infrastructure suppliers.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "TSMC's board approved investments of up to $500 million each in Anthropic and OpenAI.",
+          "translations": {
+            "da": {
+              "title": "TSMC vil investere op til 1 mia. dollar i Anthropic og OpenAI",
+              "summary": "TSMC's bestyrelse har godkendt investeringer på op til 500 mio. dollar hver i Anthropic og OpenAI."
+            },
+            "es": {
+              "title": "TSMC invertirá hasta 1.000 millones de dólares en Anthropic y OpenAI",
+              "summary": "El consejo de administración de TSMC aprobó inversiones de hasta 500 millones de dólares en Anthropic y OpenAI, respectivamente."
+            }
+          }
+        },
+        {
+          "id": "tyolw4",
+          "title": "Meta releases Muse Ember, a new lightweight model for agent execution",
+          "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-11-09T18:00:00.000Z",
+          "ingested_at": "2026-11-10T13:39:01.188Z",
+          "snippet": "At 10 cents per million input tokens, Ember is significantly cheaper than frontier competitors like Haiku and Luna.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 5,
+            "clusterId": "c0536",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Meta’s low-cost agent model is a notable AI product and pricing development."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.45,
+              "why": "Meta’s low-cost multimodal model targets high-volume agent tasks, potentially reducing customer-support and document-processing costs for retailers."
+            },
+            "editorWhy": "Lightweight agent model could reduce costs for retail customer support and document processing.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Meta released Muse Ember, a lightweight AI model costing 10 cents per million input tokens, the units of text it reads.",
+          "translations": {
+            "da": {
+              "title": "Meta lancerer Muse Ember, en ny letvægtsmodel til agentafvikling",
+              "summary": "Meta har lanceret Muse Ember, en letvægts-AI-model, der koster 10 cent pr. million inputtokens, de tekstenheder, modellen læser."
+            },
+            "es": {
+              "title": "Meta lanza Muse Ember, un nuevo modelo ligero para la ejecución de agentes",
+              "summary": "Meta lanzó Muse Ember, un modelo ligero de IA que cuesta 10 centavos por millón de tokens de entrada, las unidades de texto que lee."
+            }
+          }
+        },
+        {
+          "id": "hl38nn",
+          "title": "Google rolls out Gemini 4 Hydrogen with 2.5x speed boost, four reasoning levels ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/google-rolls-out-gemini-4-hydrogen-with-2-5x-speed-boost-four-reasoning-levels/articleshow/135789016.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-11-13T04:10:52.000Z",
+          "ingested_at": "2026-11-13T13:16:09.252Z",
+          "snippet": "Google has rolled out Gemini 4 Hydrogen, a new artificial intelligence model that completes tasks 2.5 times faster than its predecessor, Gemini 3.8 Flash, as the company looks to improve the speed and efficiency of everyday AI tasks, coding and agentic workflows.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 6,
+            "clusterId": "c0032",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 5,
+              "adRisk": "low",
+              "reason": "Google’s reported major model release and speed gains mark a potentially significant frontier-model development."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 2,
+                "writing": 3,
+                "independence": 3
+              },
+              "quality": 3.15,
+              "why": "A widely available model release promises faster, cheaper AI workflows, but performance and safety claims rely entirely on Google."
+            },
+            "editorWhy": "Faster Gemini models could improve everyday AI workflows, though performance claims remain vendor-supplied.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Google launched Gemini 4 Hydrogen, an AI model that completes tasks 2.5 times faster than Gemini 3.8 Flash.",
+          "translations": {
+            "da": {
+              "title": "Google lancerer Gemini 4 Hydrogen med 2,5 gange højere hastighed og fire ræsonneringsniveauer",
+              "summary": "Google lancerede Gemini 4 Hydrogen, en AI-model, der udfører opgaver 2,5 gange hurtigere end Gemini 3.8 Flash."
+            },
+            "es": {
+              "title": "Google lanza Gemini 4 Hydrogen con una velocidad 2,5 veces mayor y cuatro niveles de razonamiento",
+              "summary": "Google lanzó Gemini 4 Hydrogen, un modelo de IA que completa tareas 2,5 veces más rápido que Gemini 3.8 Flash."
+            }
+          }
+        },
+        {
+          "id": "uk9zi0",
+          "title": "Congress wants to tighten export rules on AI chips after Nvidia spy scandal",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china",
+          "source": "The Verge",
+          "published_at": "2026-11-15T19:15:43.000Z",
+          "ingested_at": "2026-11-16T13:51:32.672Z",
+          "snippet": "Unsurprisingly, following the scandal involving now-former Nvidia CEO Jensen Huang and a suspected Chinese spy, Congress is looking to further restrict exports of AI chips. Both Democrats and Republicans have voiced support for various measures and bills that would tighten rules and have demanded that Huang and other Nvidia leaders testify before Congress.\nSenate Minority Leader Chuck Schumer has already said that Huang and the Trump administration need to answer to Congress. Senate Banking Comm...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 7,
+            "clusterId": "c1455",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Bipartisan push to tighten AI-chip export controls could materially affect Nvidia and the AI sector."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 2,
+                "writing": 3,
+                "independence": 4
+              },
+              "quality": 3.3,
+              "why": "Bipartisan pressure for tighter chip export controls could reshape global AI compute access and Nvidia’s China business."
+            },
+            "editorWhy": "Proposed export restrictions could alter global access to AI computing infrastructure.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Congress wants tighter AI chip export rules after a scandal involving former Nvidia CEO Jensen Huang and a suspected Chinese spy.",
+          "translations": {
+            "da": {
+              "title": "Kongressen vil stramme eksportreglerne for AI-chips efter Nvidia-spionskandale",
+              "summary": "Kongressen ønsker strammere eksportregler for AI-chips efter en skandale, der involverede Nvidias tidligere administrerende direktør Jensen Huang og en formodet kinesisk spion."
+            },
+            "es": {
+              "title": "El Congreso quiere endurecer las normas de exportación de chips de IA tras un escándalo de espionaje relacionado con Nvidia",
+              "summary": "El Congreso quiere endurecer las normas de exportación de chips de IA tras un escándalo en el que se vieron involucrados Jensen Huang, exdirector ejecutivo de Nvidia, y un presunto espía chino."
+            }
+          }
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 242,
+      "top": [
+        {
+          "id": "z99gha",
+          "title": "Amazon's plan to own the world's product data and fight AI shopping agents ",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/amazons-plan-to-own-the-worlds-product-data-and-fight-ai-shopping-agents/articleshow/135800426.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-11-13T11:04:50.000Z",
+          "ingested_at": "2026-11-13T13:16:09.252Z",
+          "snippet": "Called World Product Graph, the initiative seeks to hoover up data on virtually every item for sale on Earth, whether Amazon stocks it or not, according to an internal document reviewed by Reuters, and to people familiar with the matter.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 1,
+            "clusterId": "c0023",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Amazon’s product-data initiative could reshape shopping agents and competition in digital commerce."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 5,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.35,
+              "why": "Amazon’s proposed product database could reshape shopping discovery, retailer visibility and AI agents’ access to ecommerce customers."
+            },
+            "editorWhy": "Amazon’s product-data ambitions could reshape retail discovery and merchants’ access to AI-driven shoppers.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Amazon plans to collect data on virtually every product sold worldwide through World Product Graph, including items it does not stock.",
+          "translations": {
+            "da": {
+              "title": "Amazons plan om at eje verdens produktdata og bekæmpe AI-shoppingagenter",
+              "summary": "Amazon planlægger at indsamle data om stort set alle produkter, der sælges verden over, via World Product Graph, også varer, som virksomheden ikke har på lager."
+            },
+            "es": {
+              "title": "El plan de Amazon para controlar los datos de productos del mundo y combatir a los agentes de compra con IA",
+              "summary": "Amazon planea recopilar datos sobre prácticamente todos los productos que se venden en el mundo a través de World Product Graph, incluidos los artículos que no tiene en stock."
+            }
+          }
+        },
+        {
+          "id": "34jwxa",
+          "title": "OpenAI launches ChatGPT Wallet, allowing its 'dots' AI agents to make purchases for users",
+          "url": "https://www.cnbc.com/2026/11/13/openai-chatgpt-wallet-dot-purchases.html",
+          "source": "CNBC Technology",
+          "published_at": "2026-11-13T18:56:26.000Z",
+          "ingested_at": "2026-11-14T12:21:04.576Z",
+          "snippet": "OpenAI's ChatGPT Wallet partners with American Express, Mastercard and Visa, and those cardholders keep their existing credit card rewards.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 2,
+            "clusterId": "c1216",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "OpenAI’s purchasing wallet partners with major payment networks, advancing agentic commerce."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 4,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 4,
+              "why": "Agent-enabled payments could reshape ecommerce checkout and merchant access, though the initial rollout is limited and major retailers block agents."
+            },
+            "editorWhy": "ChatGPT Wallet introduces agent-led checkout, with important limits on merchant access and consumer adoption.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "OpenAI launched ChatGPT Wallet, letting its AI agents make purchases for users while cardholders keep their existing credit card rewards.",
+          "translations": {
+            "da": {
+              "title": "OpenAI lancerer ChatGPT Wallet, så dets AI-agenter med »dots« kan foretage køb for brugerne",
+              "summary": "OpenAI har lanceret ChatGPT Wallet, der lader AI-agenter foretage køb for brugerne, mens kortholderne beholder deres eksisterende kreditkortfordele."
+            },
+            "es": {
+              "title": "OpenAI lanza ChatGPT Wallet, que permite a sus agentes de IA «dots» realizar compras para los usuarios",
+              "summary": "OpenAI ha lanzado ChatGPT Wallet, que permite a sus agentes de IA realizar compras para los usuarios mientras los titulares de las tarjetas conservan las recompensas de sus tarjetas de crédito actuales."
+            }
+          }
+        },
+        {
+          "id": "ru93s",
+          "title": "Fire, fines and a costly comeback: Coupang’s long road back to profit",
+          "url": "https://insideretail.asia/2026/11/09/fire-fines-and-a-costly-comeback-coupangs-long-road-back-to-profit/",
+          "source": "Inside Retail Asia",
+          "published_at": "2026-11-09T03:19:17.000Z",
+          "ingested_at": "2026-11-09T14:06:44.750Z",
+          "snippet": "The question hanging over the results is how long it will take that momentum to show up in profit.\nThe post Fire, fines and a costly comeback: Coupang’s long road back to profit appeared first on Inside Retail Asia.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 3,
+            "clusterId": "c0243",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "Examines Coupang’s path to profitability, a significant regional ecommerce operator’s business performance."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 4,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 4,
+              "why": "Major Asian ecommerce operator’s losses, recovering customer loyalty and Taiwan investment reveal the costs and timeline of its turnaround."
+            },
+            "editorWhy": "Coupang’s turnaround exposes the financial costs of rebuilding trust and expanding internationally.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Coupang’s results show momentum, with no clear timeline for a return to profit.",
+          "translations": {
+            "da": {
+              "title": "Brand, bøder og et dyrt comeback: Coupangs lange vej tilbage til overskud",
+              "summary": "Coupangs resultater viser fremgang, men der er ingen klar tidsplan for, hvornår virksomheden igen bliver rentabel."
+            },
+            "es": {
+              "title": "Incendios, multas y una costosa remontada: el largo camino de Coupang de vuelta a la rentabilidad",
+              "summary": "Los resultados de Coupang muestran impulso, pero no hay un calendario claro para volver a la rentabilidad."
+            }
+          }
+        },
+        {
+          "id": "2esvir",
+          "title": "China’s Singles’ Day Trades Discounts for AI, Livestream Innovation",
+          "url": "https://wwd.com/business-news/retail/china-singles-day-2026-trends-ai-livestream-innovation-1239412549/",
+          "source": "WWD - Business News",
+          "published_at": "2026-11-12T16:04:05.000Z",
+          "ingested_at": "2026-11-13T13:16:09.252Z",
+          "snippet": "Based on data from Syntun, e-commerce sales during the shopping festival totaled 1.679 trillion renminbi, or $251.7 billion, up 3.7 percent year-over-year.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 4,
+            "clusterId": "c0717",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Major Chinese shopping festival data and AI-led changes matter to global ecommerce."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 3.8,
+              "why": "Singles’ Day results reveal China’s ecommerce growth, shifting brand rankings and emerging AI sales channels relevant to international retailers."
+            },
+            "editorWhy": "Singles’ Day results reveal changing brand performance and emerging AI sales channels in China.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "China’s Singles’ Day online sales rose 3.7% year over year to $251.7 billion, Syntun data showed.",
+          "translations": {
+            "da": {
+              "title": "Kinas Singles’ Day bytter rabatter ud med AI og innovation inden for livestreaming",
+              "summary": "Kinas onlinesalg under Singles’ Day steg med 3,7 % fra året før til 251,7 mia. dollars, viser data fra Syntun."
+            },
+            "es": {
+              "title": "El Singles’ Day de China cambia los descuentos por IA e innovación en las retransmisiones en directo",
+              "summary": "Las ventas online de China durante el Singles’ Day aumentaron un 3,7 % interanual, hasta los 251.700 millones de dólares, según datos de Syntun."
+            }
+          }
+        },
+        {
+          "id": "wdjm8i",
+          "title": "EU to make addictive app features easier to switch off ",
+          "url": "https://economictimes.indiatimes.com/tech/technology/eu-to-make-addictive-app-features-easier-to-switch-off/articleshow/135723311.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-11-11T02:40:43.000Z",
+          "ingested_at": "2026-11-11T12:51:24.271Z",
+          "snippet": "The European Union will on Wednesday unveil new rules to crack down on influencer marketing, ban online features that trick Europeans and force platforms to give users the right to turn off \"addictive\" features.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 5,
+            "clusterId": "c0063",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Prospective EU rules on platform design and influencer marketing could materially affect online businesses."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 3.95,
+              "why": "Proposed EU rules would affect international retailers’ checkout pricing, influencer disclosures, subscriptions and digital interface design."
+            },
+            "editorWhy": "Proposed EU rules could change checkout pricing, influencer disclosures, subscriptions and interface design.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "The EU will unveil rules requiring platforms to let users turn off addictive app features.",
+          "translations": {
+            "da": {
+              "title": "EU vil gøre det nemmere at slå vanedannende appfunktioner fra",
+              "summary": "EU vil fremlægge regler, der kræver, at platforme lader brugerne slå vanedannende appfunktioner fra."
+            },
+            "es": {
+              "title": "La UE facilitará desactivar las funciones adictivas de las aplicaciones",
+              "summary": "La UE presentará normas que obligarán a las plataformas a permitir que los usuarios desactiven las funciones adictivas de las aplicaciones."
+            }
+          }
+        },
+        {
+          "id": "9z9elu",
+          "title": "US ports face congestion as extended retail import peak winds down",
+          "url": "https://fashionunited.com/news/retail/us-ports-face-congestion-as-extended-retail-import-peak-winds-down/2026111075659",
+          "source": "FashionUnited",
+          "published_at": "2026-11-10T11:12:00.000Z",
+          "ingested_at": "2026-11-11T12:51:24.271Z",
+          "snippet": "Illustrative image of a container terminal. Credits: Pexels.\n\nUS retail imports are expected to taper off following an extended peak season, but congestion and unresolved labour negotiations continue to pose challenges for supply chains, according to the latest Global Port Tracker report from the National Retail Federation (NRF) and Hackett Associates published on Monday.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 6,
+            "clusterId": "c0222",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "US port congestion and labour uncertainty may affect retail import supply chains."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 3.8,
+              "why": "Elevated US imports and port labour uncertainty affect international retailers’ shipping schedules, despite most holiday merchandise already arriving."
+            },
+            "editorWhy": "US port congestion and labour uncertainty threaten retailers’ shipping schedules and inventory planning.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "US retail imports are forecast to fall after an extended peak season while congestion and unresolved labour talks persist, the National Retail Federation reports.",
+          "translations": {
+            "da": {
+              "title": "Amerikanske havne står over for trængsel, mens den forlængede højsæson for detailimport ebber ud",
+              "summary": "USA's detailimport forventes at falde efter en forlænget højsæson, mens trængsel og uafklarede arbejdsforhandlinger fortsætter, oplyser National Retail Federation."
+            },
+            "es": {
+              "title": "Los puertos de EE. UU. afrontan congestión mientras llega a su fin el prolongado pico de importaciones minoristas",
+              "summary": "Se prevé que las importaciones minoristas de EE. UU. disminuyan tras una prolongada temporada alta, mientras persisten la congestión y las negociaciones laborales sin resolver, informa la National Retail Federation."
+            }
+          }
+        },
+        {
+          "id": "mqbeb4",
+          "title": "German Regulators Challenge PayPal Over Anti-Competitive Practices",
+          "url": "https://www.paymentsjournal.com/german-regulators-challenge-paypal-over-anti-competitive-practices/",
+          "source": "Payments Journal",
+          "published_at": "2026-11-11T17:51:59.000Z",
+          "ingested_at": "2026-11-12T13:53:21.452Z",
+          "snippet": "PayPal, a major player in Germany’s online retail market, is facing scrutiny from the country’s antitrust regulator over alleged anticompetitive practices. At issue is the company’s policy prohibiting merchants from adding surcharges when customers choose PayPal at checkout,  despite the relatively high fees it charges sellers compared with other payment methods. According to Global Banking […]\nThe post German Regulators Challenge PayPal Over Anti-Competitive Practices appeared first on Payments...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 7,
+            "clusterId": "c1766",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "German antitrust scrutiny of PayPal's checkout restrictions could affect online merchants."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 3,
+                "independence": 4
+              },
+              "quality": 3.5,
+              "why": "German antitrust scrutiny could reshape PayPal merchant restrictions, checkout choices and payment costs across Europe."
+            },
+            "editorWhy": "PayPal antitrust scrutiny could alter merchant restrictions, checkout options and European payment costs.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Germany’s antitrust regulator is scrutinising PayPal’s ban on merchants adding checkout surcharges despite its higher seller fees than other payment methods.",
+          "translations": {
+            "da": {
+              "title": "Tyske myndigheder udfordrer PayPal over konkurrencebegrænsende praksis",
+              "summary": "Tysklands konkurrencemyndighed undersøger PayPals forbud mod, at forhandlere lægger gebyrer på ved betaling, selvom PayPals gebyrer for sælgere er højere end ved andre betalingsmetoder."
+            },
+            "es": {
+              "title": "Los reguladores alemanes cuestionan a PayPal por prácticas anticompetitivas",
+              "summary": "La autoridad antimonopolio de Alemania está investigando la prohibición de PayPal de que los comercios cobren recargos al pagar, pese a que sus comisiones para vendedores son más altas que las de otros métodos de pago."
+            }
+          }
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 666,
+      "top": [
+        {
+          "id": "9ms7m9",
+          "title": "Richemont Sales Climb 16% in H1 With All Regions, Except for the Middle East, Showing Robust Growth",
+          "url": "https://wwd.com/business-news/financial/richemont-sales-16-percent-first-half-americas-japan-grow-1239414585/",
+          "source": "WWD - Women's Wear Daily",
+          "published_at": "2026-11-13T06:24:12.000Z",
+          "ingested_at": "2026-11-13T13:16:09.252Z",
+          "snippet": "At constant exchange rates, Richemont sales were up 17 percent to 12.3 billion euros with all regions, except for the Middle East, growing in the double-digits.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 1,
+            "clusterId": "c0706",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Strong first-half growth at major luxury group Richemont is important industry news."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 3.8,
+              "why": "Richemont’s strong sales and profit growth highlight jewellery’s resilience, regional demand differences and slower second-quarter momentum."
+            },
+            "editorWhy": "Richemont’s results reveal jewellery resilience and regional demand shifts across the global luxury market.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Richemont’s first-half sales rose 17% at constant exchange rates to €12.3 billion, with double-digit growth in every region except the Middle East.",
+          "translations": {
+            "da": {
+              "title": "Richemonts salg stiger 16 % i første halvår med solid vækst i alle regioner undtagen Mellemøsten",
+              "summary": "Richemonts salg steg 17 % i første halvår målt ved konstante valutakurser til 12,3 mia. euro med tocifret vækst i alle regioner undtagen Mellemøsten."
+            },
+            "es": {
+              "title": "Las ventas de Richemont crecen un 16 % en el primer semestre, con un sólido crecimiento en todas las regiones excepto Oriente Medio",
+              "summary": "Las ventas de Richemont aumentaron un 17 % en el primer semestre a tipos de cambio constantes, hasta los 12.300 millones de euros, con un crecimiento de dos dígitos en todas las regiones excepto Oriente Medio."
+            }
+          }
+        },
+        {
+          "id": "xtyzke",
+          "title": "Calvin Klein, Tommy Hilfiger owner to cut 4% of workforce",
+          "url": "https://www.retaildive.com/news/calvin-klein-tommy-hilfiger-owner-to-cut-4-of-workforce/874492/",
+          "source": "Retail Dive",
+          "published_at": "2026-11-12T16:16:00.000Z",
+          "ingested_at": "2026-11-13T13:16:09.252Z",
+          "snippet": "PVH Corp.'s enterprisewide initiative aims to improve productivity and long-term profitability, with a goal of achieving $100 million in cost savings during fiscal 2027.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 2,
+            "clusterId": "c1837",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "PVH’s workforce cuts and cost-savings plan are a material strategic update from a major fashion group."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 3.95,
+              "why": "Global workforce cuts and a $100 million savings target signal restructuring at the owner of Calvin Klein and Tommy Hilfiger."
+            },
+            "editorWhy": "PVH’s workforce cuts and $100 million savings target signal major restructuring at two global fashion brands.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "PVH, owner of Calvin Klein and Tommy Hilfiger, will cut 4% of its workforce, targeting $100 million in fiscal 2027 savings.",
+          "translations": {
+            "da": {
+              "title": "Ejeren af Calvin Klein og Tommy Hilfiger skærer 4 % af arbejdsstyrken",
+              "summary": "PVH, der ejer Calvin Klein og Tommy Hilfiger, skærer 4 % af arbejdsstyrken med henblik på besparelser på 100 millioner dollars i regnskabsåret 2027."
+            },
+            "es": {
+              "title": "El propietario de Calvin Klein y Tommy Hilfiger recortará el 4 % de su plantilla",
+              "summary": "PVH, propietario de Calvin Klein y Tommy Hilfiger, recortará el 4 % de su plantilla con el objetivo de ahorrar 100 millones de dólares en el ejercicio fiscal de 2027."
+            }
+          }
+        },
+        {
+          "id": "n0ht84",
+          "title": "Burberry Sales Climb 6% in First Half, with Profits Rising to 54 Million Pounds",
+          "url": "https://wwd.com/business-news/business-features/burberry-sales-climb-six-percent-first-half-profits-rising-1239412423/",
+          "source": "WWD - Women's Wear Daily",
+          "published_at": "2026-11-12T07:56:38.000Z",
+          "ingested_at": "2026-11-12T13:53:21.452Z",
+          "snippet": "The second quarter of fiscal 2026-27 was the fifth consecutive one of growth for the British brand under the stewardship of CEO Josh Schulman.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 3,
+            "clusterId": "c0699",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Burberry reports improving sales and profits, an important update from a direct peer."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.65,
+              "why": "Burberry’s return to profit and regional growth provide evidence of turnaround progress amid uncertain luxury demand."
+            },
+            "editorWhy": "Burberry’s return to profit offers concrete evidence of turnaround progress amid uncertain luxury demand.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Burberry’s first-half sales rose 6% and profits climbed to £54 million.",
+          "translations": {
+            "da": {
+              "title": "Burberrys salg stiger 6 % i første halvår, mens overskuddet når 54 millioner pund",
+              "summary": "Burberrys salg steg 6 % i første halvår, og overskuddet voksede til 54 millioner pund."
+            },
+            "es": {
+              "title": "Las ventas de Burberry aumentan un 6 % en el primer semestre y los beneficios alcanzan los 54 millones de libras",
+              "summary": "Las ventas de Burberry aumentaron un 6 % en el primer semestre y los beneficios crecieron hasta los 54 millones de libras."
+            }
+          }
+        },
+        {
+          "id": "ex5bs4",
+          "title": "New Boss at Hugo Boss: Frasers installs David Epstein as Grieder steps down",
+          "url": "https://fashionunited.com/news/people/new-boss-at-hugo-boss-frasers-installs-david-epstein-as-grieder-steps-down/2026111275732",
+          "source": "FashionUnited",
+          "published_at": "2026-11-12T20:04:14.000Z",
+          "ingested_at": "2026-11-13T13:16:09.252Z",
+          "snippet": "Hugo-Boss-CEO Daniel GriederBild: Hugo Boss  \n\nHugo Boss chief executive Daniel Grieder is stepping down, and Frasers Group is putting one of its own executives in charge. Grieder leaves at his own request on December 31, 2026, and the supervisory board has appointed David Epstein as CEO from January 1, 2027.\nEpstein has spent more than ten years at Frasers, most recently as chief brand partnerships officer since 2024, overseeing brand relationships across its Sport, Premium and Luxury businesse...",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 4,
+            "clusterId": "c0201",
+            "coverage": 5,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "CEO departure and successor at major fashion brand Hugo Boss."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 3.8,
+              "why": "CEO succession consolidates Frasers' control of Hugo Boss amid executive departures and a reduced sales and profit outlook."
+            },
+            "editorWhy": "Hugo Boss’s CEO succession reshapes leadership amid Frasers’ growing influence and weaker financial expectations.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Hugo Boss appointed Frasers executive David Epstein CEO from January 1, 2027, replacing Daniel Grieder, who is leaving at his own request.",
+          "translations": {
+            "da": {
+              "title": "Ny chef hos Hugo Boss: Frasers indsætter David Epstein, mens Grieder træder tilbage",
+              "summary": "Hugo Boss har udnævnt Frasers-direktøren David Epstein til administrerende direktør fra 1. januar 2027. Han afløser Daniel Grieder, der fratræder efter eget ønske."
+            },
+            "es": {
+              "title": "Nuevo jefe en Hugo Boss: Frasers nombra a David Epstein mientras Grieder deja el cargo",
+              "summary": "Hugo Boss ha nombrado al directivo de Frasers David Epstein como consejero delegado a partir del 1 de enero de 2027. Sustituirá a Daniel Grieder, quien deja el cargo por decisión propia."
+            }
+          }
+        },
+        {
+          "id": "da72b4",
+          "title": "e.l.f. Beauty Q2 sales grow 51% as it embraces digital platforms",
+          "url": "https://www.digitalcommerce360.com/2026/11/10/e-l-f-beauty-q2-sales-grow-51-as-it-embraces-digital-platforms/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-11-10T17:29:24.000Z",
+          "ingested_at": "2026-11-11T12:51:24.271Z",
+          "snippet": "E.l.f. Beauty Inc. raised its full-year outlook for the second straight quarter after net sales increased 51% in its fiscal Q2 2027, helped by Rhode’s launch at Sephora in Europe and a rebound in unit sales for the core e.l.f. brand. Net sales for the quarter ended Sept. 30 reached $520.8 million, an increase from […]\nThe post e.l.f. Beauty Q2 sales grow 51% as it embraces digital platforms appeared first on Digital Commerce 360.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 5,
+            "clusterId": "c1343",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "E.l.f.’s 51% sales growth and raised outlook are important consumer-brand results."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.65,
+              "why": "Strong sales and raised guidance highlight digital-channel momentum and international expansion, while tougher comparisons signal sharply slower second-half growth."
+            },
+            "editorWhy": "Rapid beauty sales growth highlights digital-channel opportunities, while tougher comparisons temper expectations.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "E.l.f. Beauty’s Q2 sales rose 51% to $520.8 million, and it raised its full-year outlook for the second straight quarter.",
+          "translations": {
+            "da": {
+              "title": "e.l.f. Beautys salg i Q2 vokser 51 %, mens virksomheden satser på digitale platforme",
+              "summary": "e.l.f. Beautys salg i Q2 steg 51 % til 520,8 millioner dollar, og virksomheden hævede sine forventninger til hele året for andet kvartal i træk."
+            },
+            "es": {
+              "title": "Las ventas de e.l.f. Beauty crecen un 51 % en el segundo trimestre mientras apuesta por las plataformas digitales",
+              "summary": "Las ventas de e.l.f. Beauty aumentaron un 51 % en el segundo trimestre, hasta los 520,8 millones de dólares, y la empresa elevó sus previsiones para el año completo por segundo trimestre consecutivo."
+            }
+          }
+        },
+        {
+          "id": "8y3in3",
+          "title": "Dr. Martens: 'Hot summer' pushes half-year revenue down",
+          "url": "https://fashionunited.com/news/business/dr-martens-hot-summer-pushes-half-year-revenue-down/2026111275708",
+          "source": "FashionUnited",
+          "published_at": "2026-11-12T10:42:02.000Z",
+          "ingested_at": "2026-11-13T13:16:09.252Z",
+          "snippet": "Dr. Martens stores in Munich.  Credits: Bild: Etritane Emini\n\nDr. Martens reported a 9.8 percent drop in first-half revenue to 290.4 million pounds, as exceptionally hot summer weather hit demand for its core boots category, particularly in Europe.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 6,
+            "clusterId": "c0130",
+            "coverage": 4,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Dr. Martens reports a steep half-year revenue decline."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.45,
+              "why": "Falling boot demand and weak direct sales expose turnaround challenges, with crucial holiday trading determining full-year performance."
+            },
+            "editorWhy": "Weak boot demand and direct sales expose Dr. Martens’ turnaround risks before crucial holiday trading.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Dr. Martens’ first-half revenue fell 9.8% to £290.4 million as exceptionally hot summer weather hit boot demand, particularly in Europe.",
+          "translations": {
+            "da": {
+              "title": "Dr. Martens: »Varm sommer« får omsætningen i første halvår til at falde",
+              "summary": "Dr. Martens’ omsætning i første halvår faldt 9,8 % til 290,4 millioner pund, da usædvanligt varmt sommervejr ramte efterspørgslen efter støvler, især i Europa."
+            },
+            "es": {
+              "title": "Dr. Martens: el «verano caluroso» hace caer los ingresos del primer semestre",
+              "summary": "Los ingresos de Dr. Martens en el primer semestre cayeron un 9,8 %, hasta 290,4 millones de libras, debido a que el verano excepcionalmente caluroso afectó a la demanda de botas, especialmente en Europa."
+            }
+          }
+        },
+        {
+          "id": "lf9kea",
+          "title": "Lululemon fills 2 of 4 open roles with new brand, strategy chiefs",
+          "url": "https://www.retaildive.com/news/lululemon-fills-executive-roles-chief-brand-strategy-officer-heidi-oneill-turnaround-team/874204/",
+          "source": "Retail Dive",
+          "published_at": "2026-11-10T15:37:00.000Z",
+          "ingested_at": "2026-11-11T12:51:24.271Z",
+          "snippet": "The athletics retailer is still searching for technology and communications chiefs after those executives left their positions a few months ago.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 7,
+            "clusterId": "c1844",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Lululemon’s appointments to senior brand and strategy roles are important leadership news."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.45,
+              "why": "Key leadership appointments advance Lululemon’s turnaround, clarifying brand and strategy responsibilities while technology and communications vacancies remain."
+            },
+            "editorWhy": "New brand and strategy chiefs clarify Lululemon’s turnaround leadership, though important vacancies remain.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Lululemon filled two of four leadership vacancies with new brand and strategy chiefs, while searches continue for technology and communications chiefs.",
+          "translations": {
+            "da": {
+              "title": "Lululemon besætter 2 af 4 ledige stillinger med nye chefer for brand og strategi",
+              "summary": "Lululemon har besat to af fire ledige lederstillinger med nye chefer for brand og strategi, mens søgningen efter chefer for teknologi og kommunikation fortsætter."
+            },
+            "es": {
+              "title": "Lululemon cubre 2 de las 4 vacantes con nuevos responsables de marca y estrategia",
+              "summary": "Lululemon cubrió dos de las cuatro vacantes directivas con nuevos responsables de marca y estrategia, mientras continúa la búsqueda de responsables de tecnología y comunicación."
+            }
+          }
+        }
+      ]
+    },
+    "Jewellery_Industry": {
+      "total": 311,
+      "top": [
+        {
+          "id": "nojvp7",
+          "title": "Botswana President Boko Names Global Diamond Consortium Preferred De Beers Bidder, Announces 30% Ownership Stake",
+          "url": "https://www.jckonline.com/editorial-article/botswana-de-beers-consortium/",
+          "source": "JCK - Editorial",
+          "published_at": "2026-11-09T19:00:51.000Z",
+          "ingested_at": "2026-11-10T13:39:01.188Z",
+          "snippet": "Botswana President Duma Boko, in his Nov. 9 State of the Nation address in Gaborone, said it is increasing its De Beers stake to 30% and the government selected the Gareth Penny–led Global Diamond Consortium as its preferred bidder for the diamond producer. “Botswana’s shareholding in De Beers will double from the current 15%. Botswana…",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 1,
+            "clusterId": "c0704",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Botswana’s stake increase and preferred De Beers bidder could reshape diamond-sector ownership."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 5,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.7,
+              "why": "Proposed De Beers ownership overhaul could reshape natural diamond supply, producer-country influence, and industry investment in consumer demand."
+            },
+            "editorWhy": "Proposed ownership overhaul could reshape diamond supply, producer influence and investment in consumer demand.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Botswana named Global Diamond Consortium its preferred De Beers bidder and announced it would double its stake to 30%.",
+          "translations": {
+            "da": {
+              "title": "Botswanas præsident Boko udpeger Global Diamond Consortium som foretrukken køber af De Beers og annoncerer en ejerandel på 30 %",
+              "summary": "Botswana udpegede Global Diamond Consortium som sin foretrukne køber af De Beers og meddelte, at landet ville fordoble sin ejerandel til 30 %."
+            },
+            "es": {
+              "title": "El presidente de Botsuana, Boko, designa a Global Diamond Consortium como comprador preferido de De Beers y anuncia una participación del 30 %",
+              "summary": "Botsuana designó a Global Diamond Consortium como su comprador preferido de De Beers y anunció que duplicaría su participación hasta el 30 %."
+            }
+          }
+        },
+        {
+          "id": "gwdy4t",
+          "title": "Richemont Looks to the Future After Posting Double-Digit Growth in First-Half Sales, Profits",
+          "url": "https://wwd.com/business-news/business-features/richemont-looks-future-double-digit-rises-first-half-sales-1239415568/",
+          "source": "WWD - Business News",
+          "published_at": "2026-11-13T18:30:26.000Z",
+          "ingested_at": "2026-11-14T12:21:04.576Z",
+          "snippet": "Founder and chairman Johann Rupert said he's happy with the succession plan at Richemont, but has no plans to retire because he's still having fun.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 2,
+            "clusterId": "c0702",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Richemont’s double-digit growth and succession outlook merit attention across luxury and jewellery."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 5,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.35,
+              "why": "Strong jewellery growth, recovering watches and regional demand show Richemont outperforming luxury peers despite higher gold costs."
+            },
+            "editorWhy": "Detailed Richemont results benchmark luxury jewellery demand, regional recovery and resilience to rising gold costs.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Richemont posted double-digit first-half sales and profit growth, while chairman Johann Rupert said he has no plans to retire.",
+          "translations": {
+            "da": {
+              "title": "Richemont ser mod fremtiden efter tocifret vækst i omsætning og overskud i første halvår",
+              "summary": "Richemont opnåede tocifret vækst i omsætning og overskud i første halvår, mens bestyrelsesformand Johann Rupert sagde, at han ikke har planer om at gå på pension."
+            },
+            "es": {
+              "title": "Richemont mira al futuro tras registrar un crecimiento de dos dígitos en ventas y beneficios en el primer semestre",
+              "summary": "Richemont registró un crecimiento de dos dígitos en ventas y beneficios en el primer semestre, mientras que su presidente, Johann Rupert, afirmó que no tiene planes de jubilarse."
+            }
+          }
+        },
+        {
+          "id": "e9ywfn",
+          "title": "Strong sales performance continues for world’s biggest jewellery brand",
+          "url": "https://www.jewellermagazine.com/Article/15635/Strong-sales-performance-continues-for-worlds-biggest-jewellery-brand",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-11-09T13:00:00.000Z",
+          "ingested_at": "2026-11-10T13:39:01.188Z",
+          "snippet": "The world’s largest jewellery brand, Pandora, has reported improved sales during the third quarter of the financial year.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 3,
+            "clusterId": "c1677",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 5,
+              "adRisk": "low",
+              "reason": "Pandora quarterly sales update is a top-tier development for the reader."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 4,
+                "insight": 2,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.8,
+              "why": "Pandora’s quarterly sales growth, regional performance and narrowed guidance provide a key benchmark for global jewellery demand."
+            },
+            "editorWhy": "Pandora’s sales and guidance provide a global benchmark for accessible jewellery demand.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Pandora, the world’s largest jewellery brand, reported higher sales in the third quarter.",
+          "translations": {
+            "da": {
+              "title": "Den stærke salgsudvikling fortsætter for verdens største smykkebrand",
+              "summary": "Pandora, verdens største smykkebrand, rapporterede om højere salg i tredje kvartal."
+            },
+            "es": {
+              "title": "Continúa el sólido rendimiento de ventas de la mayor marca de joyería del mundo",
+              "summary": "Pandora, la mayor marca de joyería del mundo, registró mayores ventas en el tercer trimestre."
+            }
+          }
+        },
+        {
+          "id": "56loeh",
+          "title": "Bigger Stones, Same Budget: Lab-Grown Is Squeezing Natural’s Bridal Sweet Spot",
+          "url": "https://instoremag.com/bigger-stones-same-budget-lab-grown-is-squeezing-naturals-bridal-sweet-spot/",
+          "source": "Instore Magazine",
+          "published_at": "2026-11-10T04:45:33.000Z",
+          "ingested_at": "2026-11-10T13:39:01.188Z",
+          "snippet": "INSTORE’s 2026 Big Survey finds lab-grown now dominates many jewelers’ engagement business, and customers are turning the savings into extra carats.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 4,
+            "clusterId": "c0292",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "Survey data shows lab-grown diamonds changing engagement purchases and customer spending."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.15,
+              "why": "Original retailer survey shows lab-grown diamonds displacing core natural bridal sizes while customers prioritize larger stones over lower spending."
+            },
+            "editorWhy": "Original retailer research reveals lab-grown diamonds displacing natural stones in core bridal sizes.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Lab-grown diamonds dominate many jewellers’ engagement sales as buyers use the savings for bigger stones, INSTORE’s 2026 Big Survey finds.",
+          "translations": {
+            "da": {
+              "title": "Større sten, samme budget: Lab-dyrkede diamanter presser naturdiamanternes attraktive position på brudemarkedet",
+              "summary": "Lab-dyrkede diamanter dominerer mange juvelerers salg af forlovelsesringe, da køberne bruger besparelsen på større sten, viser INSTOREs Big Survey 2026."
+            },
+            "es": {
+              "title": "Piedras más grandes, mismo presupuesto: los diamantes de laboratorio desplazan el punto ideal de los naturales en el mercado nupcial",
+              "summary": "Los diamantes de laboratorio dominan las ventas de anillos de compromiso de muchas joyerías, ya que los compradores destinan el ahorro a piedras más grandes, según la encuesta Big Survey 2026 de INSTORE."
+            }
+          }
+        },
+        {
+          "id": "kw2vp2",
+          "title": "France and Botswana Sign Declaration Reserving the Word ‘Diamond’ for Natural Stones",
+          "url": "https://www.jckonline.com/editorial-article/france-botswana-declaration/",
+          "source": "JCK - Editorial",
+          "published_at": "2026-11-10T20:30:06.000Z",
+          "ingested_at": "2026-11-11T12:51:24.271Z",
+          "snippet": "In a move signaled by Botswana President Duma Boko, France and Botswana on Nov. 10 signed the Paris Declaration on Natural Diamonds at the Paris Peace Forum—a move heralded by the Diamond Collective and its CEO, Amber Pepper, for its support of natural diamonds. One standout effort within the declaration relates to terminology: The two…",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 5,
+            "clusterId": "c0296",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "France-Botswana declaration may shape natural-diamond terminology and trade positioning."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 3.95,
+              "why": "France and Botswana’s declaration escalates the international diamond terminology dispute, with implications for jewellery marketing and consumer disclosures."
+            },
+            "editorWhy": "International terminology declaration raises consequential questions for diamond marketing and consumer disclosures.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "France and Botswana signed the Paris Declaration on Natural Diamonds, reserving the word “diamond” for natural stones.",
+          "translations": {
+            "da": {
+              "title": "Frankrig og Botswana underskriver erklæring, der forbeholder ordet »diamant« til naturlige sten",
+              "summary": "Frankrig og Botswana underskrev Paris-erklæringen om naturlige diamanter, der forbeholder ordet »diamant« til naturlige sten."
+            },
+            "es": {
+              "title": "Francia y Botsuana firman una declaración que reserva la palabra «diamante» para las piedras naturales",
+              "summary": "Francia y Botsuana firmaron la Declaración de París sobre los Diamantes Naturales, que reserva la palabra «diamante» para las piedras naturales."
+            }
+          }
+        },
+        {
+          "id": "ifjiim",
+          "title": "Watches of Switzerland Improves Outlook After US Sales Jump",
+          "url": "https://www.businessoffashion.com/news/luxury/watches-of-switzerland-improves-outlook-after-us-sales-jump/",
+          "source": "Business of Fashion (via Bing News)",
+          "published_at": "2026-11-10T01:38:00.000Z",
+          "ingested_at": "2026-11-10T13:39:01.188Z",
+          "snippet": "Britain’s top seller of Rolex watches now expects revenue growth of 7 percent to 10 percent this fiscal year, according to a statement Tuesday, shifting guidance to the upper end of its previous range ...",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 6,
+            "clusterId": "c1149",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Watches of Switzerland raises its outlook after stronger US sales."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 2,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.25,
+              "why": "Upgraded revenue guidance following stronger US sales offers a relevant signal of luxury watch retail demand."
+            },
+            "editorWhy": "Stronger US sales and upgraded guidance signal improving demand at a major luxury watch retailer.",
+            "paywall": "unknown"
+          },
+          "aiSummary": "Watches of Switzerland now expects 7% to 10% revenue growth this fiscal year after a jump in US sales.",
+          "translations": {
+            "da": {
+              "title": "Watches of Switzerland forbedrer udsigterne efter et spring i salget i USA",
+              "summary": "Watches of Switzerland forventer nu en omsætningsvækst på 7-10 % i dette regnskabsår efter et spring i salget i USA."
+            },
+            "es": {
+              "title": "Watches of Switzerland mejora sus previsiones tras el repunte de las ventas en EE. UU.",
+              "summary": "Watches of Switzerland espera ahora un crecimiento de los ingresos del 7 % al 10 % en este ejercicio fiscal tras un repunte de las ventas en EE. UU."
+            }
+          }
+        },
+        {
+          "id": "bfrok6",
+          "title": "Phillips Sets Another Record With the Highest-Grossing Watch Auction in History",
+          "url": "https://robbreport.com/style/watch-collector/phillips-highest-grossing-watch-auction-in-history-1238829215/",
+          "source": "Robb Report",
+          "published_at": "2026-11-09T12:00:00.000Z",
+          "ingested_at": "2026-11-09T14:06:44.750Z",
+          "snippet": "The Geneva Watch Auction: XXIV sale realized an unprecedented $112.3 million, with 24 world records set over two days.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 7,
+            "clusterId": "c0508",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Record-breaking $112.3 million watch auction is significant industry market data."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 2,
+                "writing": 3,
+                "independence": 3
+              },
+              "quality": 3.15,
+              "why": "Record auction proceeds and strong independent-watchmaker prices offer a notable signal for the international collectible-watch market."
+            },
+            "editorWhy": "Record auction proceeds offer a useful signal for collectible watches and independent watchmakers.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Phillips’ Geneva watch auction raised $112.3 million, the highest total in watch auction history, setting 24 world records over two days.",
+          "translations": {
+            "da": {
+              "title": "Phillips sætter endnu en rekord med historiens mest indbringende urauktion",
+              "summary": "Phillips’ urauktion i Genève indbragte 112,3 millioner dollars, det højeste beløb i urauktionernes historie, og satte 24 verdensrekorder på to dage."
+            },
+            "es": {
+              "title": "Phillips bate otro récord con la subasta de relojes más lucrativa de la historia",
+              "summary": "La subasta de relojes de Phillips en Ginebra recaudó 112,3 millones de dólares, la cifra más alta de la historia de las subastas de relojes, y estableció 24 récords mundiales en dos días."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "oneSentenceSummary": "ChatGPT Wallet will make jewellers sell to software before they ever meet the buyer.",
+  "keyThemes": [
+    "Anthropic flotation",
+    "ChatGPT Wallet",
+    "Richemont sales growth",
+    "lab-grown bridal diamonds",
+    "De Beers ownership stake"
+  ],
+  "editorialTake": "France and Botswana are drawing a clear line on diamond names as lab-grown stones win bridal sales. The countries signed the Paris Declaration on Natural Diamonds, reserving the word “diamond” for natural stones.\n\nLab-grown diamonds lead engagement sales at many jewellers, according to INSTORE’s 2026 Big Survey. Buyers use the savings to choose bigger stones within the same budget.\n\nFor bridal jewellers, the declaration gives different labels to products competing for the same spending. A switch to lab-grown stones can change what a jeweller sells without cutting what the buyer spends.",
+  "editorialTakeFormat": "connection",
+  "coverImageUrl": "/weekly-images/2026-W46.png",
+  "coverImageAlt": "Weekly cover illustration for 2026-W46"
+}

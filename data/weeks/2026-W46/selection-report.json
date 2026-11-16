@@ -1,0 +1,3706 @@
+{
+  "funnelVersion": "v2",
+  "week": "2026-W46",
+  "generatedAt": "2026-11-16T15:39:44.519Z",
+  "models": {
+    "triage": "gpt-6-luna",
+    "judge": "gpt-6.1-sol",
+    "editor": "gpt-6.1-sol",
+    "embedding": "text-embedding-3-small"
+  },
+  "counts": {
+    "pool": 2323,
+    "hardFilterDropped": 5,
+    "hardFilterDroppedByReason": {
+      "url:spons": 4,
+      "url:sponsored": 1
+    },
+    "noSummaryDropped": 66,
+    "triaged": 2252,
+    "clusters": 2079,
+    "multiSourceClusters": 82,
+    "triage": {
+      "byCategory": {
+        "AI_and_Strategy": 476,
+        "Ecommerce_Retail_Tech": 242,
+        "Luxury_and_Consumer": 666,
+        "Jewellery_Industry": 311
+      },
+      "null": 557,
+      "byType": {
+        "analysis": 460,
+        "hard_news": 814,
+        "interview": 67,
+        "opinion": 120,
+        "podcast_video": 58,
+        "feature_profile": 167,
+        "listicle_roundup": 102,
+        "review": 76,
+        "other": 159,
+        "how_to_explainer": 31,
+        "press_release": 107,
+        "sponsored": 47,
+        "event_promo": 44
+      },
+      "fallbacks": 0,
+      "cached": 0,
+      "failedCalls": 0
+    },
+    "shortlist": {
+      "AI_and_Strategy": 25,
+      "Ecommerce_Retail_Tech": 25,
+      "Luxury_and_Consumer": 25,
+      "Jewellery_Industry": 25
+    },
+    "fulltext": {
+      "fetched": 71,
+      "snippet_only": 29
+    },
+    "judgeFallbacks": {
+      "Luxury_and_Consumer": 0,
+      "Jewellery_Industry": 0,
+      "Ecommerce_Retail_Tech": 0,
+      "AI_and_Strategy": 0
+    },
+    "picks": {
+      "Luxury_and_Consumer": {
+        "count": 7,
+        "barMet": true,
+        "llmFailed": false,
+        "leadCount": 5
+      },
+      "Jewellery_Industry": {
+        "count": 7,
+        "barMet": true,
+        "llmFailed": false,
+        "leadCount": 5
+      },
+      "Ecommerce_Retail_Tech": {
+        "count": 7,
+        "barMet": true,
+        "llmFailed": false,
+        "leadCount": 5
+      },
+      "AI_and_Strategy": {
+        "count": 7,
+        "barMet": true,
+        "llmFailed": false,
+        "leadCount": 5
+      }
+    }
+  },
+  "warnings": [],
+  "tokenUsage": {
+    "embedding": {
+      "calls": 1,
+      "promptTokens": 115029,
+      "completionTokens": 0
+    },
+    "triage": {
+      "calls": 58,
+      "promptTokens": 341582,
+      "completionTokens": 95251
+    },
+    "judge": {
+      "calls": 100,
+      "promptTokens": 189881,
+      "completionTokens": 7939
+    },
+    "editor": {
+      "calls": 4,
+      "promptTokens": 12070,
+      "completionTokens": 1504
+    }
+  },
+  "timingsMs": {
+    "hardFilters": 37,
+    "cluster": 12211,
+    "triage": 203099,
+    "shortlist": 6,
+    "fullText": 20692,
+    "judge": 46206,
+    "editor": 14042,
+    "judgeAndEditorWall": 60249
+  },
+  "categories": {
+    "Luxury_and_Consumer": [
+      {
+        "title": "Dr. Martens: 'Hot summer' pushes half-year revenue down",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/business/dr-martens-hot-summer-pushes-half-year-revenue-down/2026111275708",
+        "clusterId": "c0130",
+        "coverage": 4,
+        "shortlistScore": 49,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Dr. Martens reports a steep half-year revenue decline."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 657,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.45,
+          "hiddenAd": false,
+          "why": "Falling boot demand and weak direct sales expose turnaround challenges, with crucial holiday trading determining full-year performance.",
+          "mainCompany": "Dr. Martens"
+        },
+        "picked": {
+          "rank": 6,
+          "tier": "more",
+          "editorWhy": "Weak boot demand and direct sales expose Dr. Martens’ turnaround risks before crucial holiday trading."
+        }
+      },
+      {
+        "title": "New Boss at Hugo Boss: Frasers installs David Epstein as Grieder steps down",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/people/new-boss-at-hugo-boss-frasers-installs-david-epstein-as-grieder-steps-down/2026111275732",
+        "clusterId": "c0201",
+        "coverage": 5,
+        "shortlistScore": 49,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "CEO departure and successor at major fashion brand Hugo Boss."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 290,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.8,
+          "hiddenAd": false,
+          "why": "CEO succession consolidates Frasers' control of Hugo Boss amid executive departures and a reduced sales and profit outlook.",
+          "mainCompany": "Hugo Boss"
+        },
+        "picked": {
+          "rank": 4,
+          "tier": "lead",
+          "editorWhy": "Hugo Boss’s CEO succession reshapes leadership amid Frasers’ growing influence and weaker financial expectations."
+        }
+      },
+      {
+        "title": "Michael Kors owner Capri Holdings eyes Estée Lauder exec for CEO role",
+        "source": "The Industry.fashion",
+        "url": "https://www.theindustry.fashion/michael-kors-owner-capri-holdings-eyes-estee-lauder-exec-for-ceo-role/?utm_source=rss&utm_medium=rss&utm_campaign=michael-kors-owner-capri-holdings-eyes-estee-lauder-exec-for-ceo-role",
+        "clusterId": "c0711",
+        "coverage": 4,
+        "shortlistScore": 49,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Further reporting on a prospective CEO appointment at Capri Holdings."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 36,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 2,
+            "insight": 1,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3,
+          "hiddenAd": false,
+          "why": "Reported CEO succession at Capri could shape strategy for a major international luxury and fashion group.",
+          "mainCompany": "Capri Holdings"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Saucony and Merrell drive Wolverine Worldwide’s Q3 sales growth",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/business/saucony-and-merrell-drive-wolverine-worldwides-q3-sales-growth/2026111275728",
+        "clusterId": "c0154",
+        "coverage": 3,
+        "shortlistScore": 47,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Peer-company quarterly growth and raised outlook are important trading news."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 520,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.1,
+          "hiddenAd": false,
+          "why": "Saucony and Merrell growth supports raised guidance, while tariff refunds explain most of the reported margin improvement.",
+          "mainCompany": "Wolverine Worldwide"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Lululemon appoints brand and strategy chiefs to leadership team",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/people/lululemon-appoints-brand-and-strategy-chiefs-to-leadership-team/2026110975616",
+        "clusterId": "c0200",
+        "coverage": 3,
+        "shortlistScore": 47,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Lululemon adds senior brand and strategy leadership, an important peer leadership update."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 353,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 2,
+            "insight": 2,
+            "writing": 3,
+            "independence": 2
+          },
+          "quality": 2.45,
+          "hiddenAd": false,
+          "why": "Two senior appointments extend Lululemon’s leadership overhaul, but the article offers little analysis of strategic implications.",
+          "mainCompany": "Lululemon"
+        },
+        "dropReason": "independence<3"
+      },
+      {
+        "title": "Burberry Sales Climb 6% in First Half, with Profits Rising to 54 Million Pounds",
+        "source": "WWD - Women's Wear Daily",
+        "url": "https://wwd.com/business-news/business-features/burberry-sales-climb-six-percent-first-half-profits-rising-1239412423/",
+        "clusterId": "c0699",
+        "coverage": 2,
+        "shortlistScore": 45,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Burberry reports improving sales and profits, an important update from a direct peer."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1081,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.65,
+          "hiddenAd": false,
+          "why": "Burberry’s return to profit and regional growth provide evidence of turnaround progress amid uncertain luxury demand.",
+          "mainCompany": "Burberry"
+        },
+        "sameEvent": "e2",
+        "picked": {
+          "rank": 3,
+          "tier": "lead",
+          "editorWhy": "Burberry’s return to profit offers concrete evidence of turnaround progress amid uncertain luxury demand."
+        }
+      },
+      {
+        "title": "Burberry reports rise in profits and marks ‘fifth consecutive quarter of growth’",
+        "source": "Drapers",
+        "url": "https://www.drapersonline.com/news/burberry-reports-rise-in-profits-and-marks-fifth-consecutive-quarter-of-growth",
+        "clusterId": "c1362",
+        "coverage": 2,
+        "shortlistScore": 45,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Burberry’s profit increase and sustained growth are important direct-peer results."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 57,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 1,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.05,
+          "hiddenAd": false,
+          "why": "Burberry’s profit recovery and continued growth provide a relevant trading signal for luxury-sector professionals.",
+          "mainCompany": "Burberry"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Calvin Klein, Tommy Hilfiger owner to cut 4% of workforce",
+        "source": "Retail Dive",
+        "url": "https://www.retaildive.com/news/calvin-klein-tommy-hilfiger-owner-to-cut-4-of-workforce/874492/",
+        "clusterId": "c1837",
+        "coverage": 2,
+        "shortlistScore": 45,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "PVH’s workforce cuts and cost-savings plan are a material strategic update from a major fashion group."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 432,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 3.95,
+          "hiddenAd": false,
+          "why": "Global workforce cuts and a $100 million savings target signal restructuring at the owner of Calvin Klein and Tommy Hilfiger.",
+          "mainCompany": "PVH"
+        },
+        "picked": {
+          "rank": 2,
+          "tier": "lead",
+          "editorWhy": "PVH’s workforce cuts and $100 million savings target signal major restructuring at two global fashion brands."
+        }
+      },
+      {
+        "title": "Industry News – Richemont Reports Strong First Semester 2026, Sales up by 17%",
+        "source": "Monochrome Watches",
+        "url": "https://monochrome-watches.com/richemont-reports-strong-first-semester-2026-sales-up-by-17-industry-news/",
+        "clusterId": "c0371",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Richemont’s substantial half-year sales growth is important luxury-sector news."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 447,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.25,
+          "hiddenAd": false,
+          "why": "Major luxury group's results show jewellery-led growth, regional demand trends and rising direct sales, but offer little independent analysis.",
+          "mainCompany": "Richemont"
+        },
+        "sameEvent": "e3",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "L’OCCITANE Group strikes deal to sell Elemis brand to PAI Partners",
+        "source": "Moodie Davitt Report",
+        "url": "https://moodiedavittreport.com/loccitane-group-strikes-deal-to-sell-elemis-brand-to-pai-partners/?utm_source=rss&utm_medium=rss&utm_campaign=loccitane-group-strikes-deal-to-sell-elemis-brand-to-pai-partners",
+        "clusterId": "c0426",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "L'Occitane sale of Elemis is a significant beauty-brand transaction."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 595,
+          "disclosures": [
+            "in partnership with"
+          ]
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 3,
+            "independence": 2
+          },
+          "quality": 3,
+          "hiddenAd": true,
+          "why": "Elemis ownership change affects a global prestige skincare business, with US expansion and digital growth priorities under PAI.",
+          "mainCompany": "Elemis"
+        },
+        "dropReason": "hiddenAd"
+      },
+      {
+        "title": "Richemont Sales Climb 16% in H1 With All Regions, Except for the Middle East, Showing Robust Growth",
+        "source": "WWD - Women's Wear Daily",
+        "url": "https://wwd.com/business-news/financial/richemont-sales-16-percent-first-half-americas-japan-grow-1239414585/",
+        "clusterId": "c0706",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Strong first-half growth at major luxury group Richemont is important industry news."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1060,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.8,
+          "hiddenAd": false,
+          "why": "Richemont’s strong sales and profit growth highlight jewellery’s resilience, regional demand differences and slower second-quarter momentum.",
+          "mainCompany": "Richemont"
+        },
+        "sameEvent": "e3",
+        "picked": {
+          "rank": 1,
+          "tier": "lead",
+          "editorWhy": "Richemont’s results reveal jewellery resilience and regional demand shifts across the global luxury market."
+        }
+      },
+      {
+        "title": "Asics Shares Down on Q3 Report",
+        "source": "WWD - Women's Wear Daily",
+        "url": "https://wwd.com/footwear-news/shoe-industry-news/asics-q3-results-operating-guidance-fell-shares-declined-1239411387/",
+        "clusterId": "c0746",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Asics results and guidance are a meaningful update from a major fashion and footwear peer."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 557,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 3,
+            "independence": 4
+          },
+          "quality": 3.7,
+          "hiddenAd": false,
+          "why": "A 14% share-price fall highlights elevated growth expectations despite strong sales, with implications for global sportswear sentiment.",
+          "mainCompany": "Asics"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "More People Are Buying Flip-flops as Havaianas Continues to Grow in Q3",
+        "source": "Footwear News",
+        "url": "https://wwd.com/footwear-news/shoe-industry-news/havaianas-q3-2026-earnings-flip-flops-alpargatas-1239407635/",
+        "clusterId": "c0755",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Havaianas parent’s quarterly growth and sales data are important peer trading news."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 817,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.3,
+          "hiddenAd": false,
+          "why": "Alpargatas reports footwear sales growth, improving Havaianas US profitability and distribution expansion, while Rothy’s remains loss-making.",
+          "mainCompany": "Alpargatas"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Nike’s Future All Comes Down to Tuesday’s Investor Day, Its First in 9 Years",
+        "source": "Footwear News",
+        "url": "https://wwd.com/footwear-news/shoe-industry-news/nike-investor-day-preview-analyst-predictions-1239416212/",
+        "clusterId": "c0759",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Nike's first investor day in nine years may clarify strategy at a major peer."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1074,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 4,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 4.15,
+          "hiddenAd": false,
+          "why": "Previews Nike’s turnaround priorities, financial reset and cost savings, with implications for global sportswear competition and wholesale partners.",
+          "mainCompany": "Nike"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Capri Holdings Names Estée Lauder Executive Justin Boxford New CEO",
+        "source": "Business of Fashion (via Bing News)",
+        "url": "https://www.businessoffashion.com/news/retail/capri-holdings-names-estee-lauder-executive-justin-boxford-new-ceo/",
+        "clusterId": "c1150",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Confirms a major luxury group's new CEO appointment."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 33,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.25,
+          "hiddenAd": false,
+          "why": "Leadership change at a major fashion group signals a new direction as Capri seeks to revive handbag demand.",
+          "mainCompany": "Capri Holdings"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Under Armour Q2 sales slide as CEO cites optimism about AI",
+        "source": "Digital Commerce 360",
+        "url": "https://www.digitalcommerce360.com/2026/11/09/under-armour-sales-q2-2027/",
+        "clusterId": "c1342",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Under Armour’s quarterly results and outlook matter to a major apparel brand."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 491,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 3,
+            "insight": 2,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 2.8,
+          "hiddenAd": false,
+          "why": "Declining revenue and ecommerce traffic highlight Under Armour’s turnaround challenges; AI ambitions offer little concrete evidence of recovery.",
+          "mainCompany": "Under Armour"
+        },
+        "sameEvent": "e4",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "e.l.f. Beauty Q2 sales grow 51% as it embraces digital platforms",
+        "source": "Digital Commerce 360",
+        "url": "https://www.digitalcommerce360.com/2026/11/10/e-l-f-beauty-q2-sales-grow-51-as-it-embraces-digital-platforms/",
+        "clusterId": "c1343",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "E.l.f.’s 51% sales growth and raised outlook are important consumer-brand results."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 698,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.65,
+          "hiddenAd": false,
+          "why": "Strong sales and raised guidance highlight digital-channel momentum and international expansion, while tougher comparisons signal sharply slower second-half growth.",
+          "mainCompany": "e.l.f. Beauty"
+        },
+        "picked": {
+          "rank": 5,
+          "tier": "lead",
+          "editorWhy": "Rapid beauty sales growth highlights digital-channel opportunities, while tougher comparisons temper expectations."
+        }
+      },
+      {
+        "title": "Ralph Lauren ups outlook as sales rise",
+        "source": "Drapers",
+        "url": "https://www.drapersonline.com/companies/directory/ralph-lauren/ralph-lauren-ups-outlook-at-sales-rise",
+        "clusterId": "c1350",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Ralph Lauren raised its outlook alongside strong operating-income growth."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 53,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 1,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.05,
+          "hiddenAd": false,
+          "why": "Ralph Lauren’s profit growth and raised outlook provide a significant trading signal for international luxury fashion.",
+          "mainCompany": "Ralph Lauren"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Under Armour trims outlook as sales and profits dip",
+        "source": "Drapers",
+        "url": "https://www.drapersonline.com/companies/directory/under-armour/under-armour-trims-outlook-as-sales-and-profits-dip",
+        "clusterId": "c1351",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Under Armour cut its outlook as sales and profits weakened."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 47,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 1,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 2.95,
+          "hiddenAd": false,
+          "why": "A major international sportswear brand cutting its outlook signals trading pressure relevant to fashion retailers and competitors.",
+          "mainCompany": "Under Armour"
+        },
+        "sameEvent": "e4",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Alaïa and Peter Millar drive fashion growth at Richemont",
+        "source": "Drapers",
+        "url": "https://www.drapersonline.com/news/alaia-and-peter-millar-drive-fashion-growth-at-richemont",
+        "clusterId": "c1356",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Richemont reports improved fashion performance alongside substantial group profit growth."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 51,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 1,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 2.95,
+          "hiddenAd": false,
+          "why": "Richemont’s profit growth and narrowing fashion losses provide a relevant trading signal for luxury professionals.",
+          "mainCompany": "Richemont"
+        },
+        "sameEvent": "e3",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Lululemon fills 2 of 4 open roles with new brand, strategy chiefs",
+        "source": "Retail Dive",
+        "url": "https://www.retaildive.com/news/lululemon-fills-executive-roles-chief-brand-strategy-officer-heidi-oneill-turnaround-team/874204/",
+        "clusterId": "c1844",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Lululemon’s appointments to senior brand and strategy roles are important leadership news."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 511,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.45,
+          "hiddenAd": false,
+          "why": "Key leadership appointments advance Lululemon’s turnaround, clarifying brand and strategy responsibilities while technology and communications vacancies remain.",
+          "mainCompany": "Lululemon"
+        },
+        "picked": {
+          "rank": 7,
+          "tier": "more",
+          "editorWhy": "New brand and strategy chiefs clarify Lululemon’s turnaround leadership, though important vacancies remain."
+        }
+      },
+      {
+        "title": "Burberry bounces back into profit as turnaround pays off",
+        "source": "Retail Gazette",
+        "url": "https://www.retailgazette.co.uk/blog/2026/11/burberry-bounces-back-into-profit-as-turnaround-pays-off/",
+        "clusterId": "c1860",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Burberry returns to profit, an important turnaround update from a major luxury brand."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 55,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.25,
+          "hiddenAd": false,
+          "why": "Burberry’s return to profit and growth in China and the US signal progress in its luxury turnaround.",
+          "mainCompany": "Burberry"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Marks & Spencer targets doubling food sales as it steps up growth ambitions",
+        "source": "Retail Gazette",
+        "url": "https://www.retailgazette.co.uk/blog/2026/11/marks-spencer-targets-doubling-food-sales-as-it-steps-up-growth-ambitions/",
+        "clusterId": "c1872",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "M&S sets ambitious growth and profit plans at a capital markets day."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 55,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 2,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 2.7,
+          "hiddenAd": false,
+          "why": "Signals a major UK retailer’s growth priorities, but the visible snippet focuses on food rather than fashion.",
+          "mainCompany": "Marks & Spencer"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Hugo Boss sales chief and Deputy CEO latest executive to leave following Frasers takeover",
+        "source": "The Industry.fashion",
+        "url": "https://www.theindustry.fashion/hugo-boss-sales-chief-and-deputy-ceo-latest-executive-to-leave-following-frasers-takeover/?utm_source=rss&utm_medium=rss&utm_campaign=hugo-boss-sales-chief-and-deputy-ceo-latest-executive-to-leave-following-frasers-takeover",
+        "clusterId": "c1983",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Senior Hugo Boss executive departure follows Frasers’ majority stake and ongoing leadership changes."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 36,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 2,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.05,
+          "hiddenAd": false,
+          "why": "Senior leadership departure and redistribution of sales responsibilities signal management changes amid reported ownership shifts and weaker channel performance.",
+          "mainCompany": "Hugo Boss"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Tapestry raises full-year outlook as Coach sales climb 16%",
+        "source": "The Industry.fashion",
+        "url": "https://www.theindustry.fashion/tapestry-raises-2027-sales-outlook/?utm_source=rss&utm_medium=rss&utm_campaign=tapestry-raises-2027-sales-outlook",
+        "clusterId": "c1996",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Tapestry’s raised outlook and Coach growth are significant peer trading news."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 24,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.25,
+          "hiddenAd": false,
+          "why": "Raised guidance and Coach’s strong international growth signal luxury handbag demand, while Kate Spade’s losses highlight uneven brand performance.",
+          "mainCompany": "Tapestry"
+        },
+        "dropReason": "not_selected"
+      }
+    ],
+    "Jewellery_Industry": [
+      {
+        "title": "Strong sales performance continues for world’s biggest jewellery brand",
+        "source": "Jeweller - Business News",
+        "url": "https://www.jewellermagazine.com/Article/15635/Strong-sales-performance-continues-for-worlds-biggest-jewellery-brand",
+        "clusterId": "c1677",
+        "coverage": 1,
+        "shortlistScore": 53,
+        "triage": {
+          "type": "hard_news",
+          "significance": 5,
+          "adRisk": "low",
+          "reason": "Pandora quarterly sales update is a top-tier development for the reader."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1594,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 4,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.8,
+          "hiddenAd": false,
+          "why": "Pandora’s quarterly sales growth, regional performance and narrowed guidance provide a key benchmark for global jewellery demand.",
+          "mainCompany": "Pandora"
+        },
+        "picked": {
+          "rank": 3,
+          "tier": "lead",
+          "editorWhy": "Pandora’s sales and guidance provide a global benchmark for accessible jewellery demand."
+        }
+      },
+      {
+        "title": "Botswana backs De Beers takeover bid as it doubles stake",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/business/botswana-backs-de-beers-takeover-bid-as-it-doubles-stake/2026111175686",
+        "clusterId": "c0126",
+        "coverage": 2,
+        "shortlistScore": 45,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Botswana’s proposed De Beers stake increase materially reshapes diamond ownership."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 203,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.45,
+          "hiddenAd": false,
+          "why": "Botswana’s proposed larger stake could reshape control of De Beers and diamond-producing countries’ influence over natural-diamond supply.",
+          "mainCompany": "De Beers"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Phillips Sets Another Record With the Highest-Grossing Watch Auction in History",
+        "source": "Robb Report",
+        "url": "https://robbreport.com/style/watch-collector/phillips-highest-grossing-watch-auction-in-history-1238829215/",
+        "clusterId": "c0508",
+        "coverage": 2,
+        "shortlistScore": 45,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Record-breaking $112.3 million watch auction is significant industry market data."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 665,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 3.15,
+          "hiddenAd": false,
+          "why": "Record auction proceeds and strong independent-watchmaker prices offer a notable signal for the international collectible-watch market.",
+          "mainCompany": "Phillips"
+        },
+        "picked": {
+          "rank": 7,
+          "tier": "more",
+          "editorWhy": "Record auction proceeds offer a useful signal for collectible watches and independent watchmakers."
+        }
+      },
+      {
+        "title": "Botswana President Boko Names Global Diamond Consortium Preferred De Beers Bidder, Announces 30% Ownership Stake",
+        "source": "JCK - Editorial",
+        "url": "https://www.jckonline.com/editorial-article/botswana-de-beers-consortium/",
+        "clusterId": "c0704",
+        "coverage": 2,
+        "shortlistScore": 45,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Botswana’s stake increase and preferred De Beers bidder could reshape diamond-sector ownership."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1172,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 5,
+            "insight": 4,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 4.7,
+          "hiddenAd": false,
+          "why": "Proposed De Beers ownership overhaul could reshape natural diamond supply, producer-country influence, and industry investment in consumer demand.",
+          "mainCompany": "De Beers"
+        },
+        "sameEvent": "e1",
+        "picked": {
+          "rank": 1,
+          "tier": "lead",
+          "editorWhy": "Proposed ownership overhaul could reshape diamond supply, producer influence and investment in consumer demand."
+        }
+      },
+      {
+        "title": "Fossil Group returns to profitability in Q3 as turnaround strategy gains traction",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/business/fossil-group-returns-to-profitability-in-q3-as-turnaround-strategy-gains-traction/2026111175675",
+        "clusterId": "c0137",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Fossil's quarterly results and return to profitability are important for a direct watch peer."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 481,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 3.15,
+          "hiddenAd": false,
+          "why": "Fossil returns to profit and raises guidance, but jewellery sales remain weak despite stronger watches and Asian demand.",
+          "mainCompany": "Fossil Group"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Richemont: half-year net profit climbs to 2.5 billion euros",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/business/richemont-half-year-net-profit-climbs-to-2-5-billion-euros/2026111375738",
+        "clusterId": "c0152",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Richemont’s half-year results are major news for a leading jewellery group."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 280,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.8,
+          "hiddenAd": false,
+          "why": "Major jewellery group reports strong profit and sales growth, with regional performance and analyst comparisons informing sector demand.",
+          "mainCompany": "Richemont"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Richemont’s Jewelry Sales Increased by 14% in Q2",
+        "source": "Robb Report",
+        "url": "https://robbreport.com/lifestyle/news/richemonts-jewelry-sales-second-quarter-1238838346/",
+        "clusterId": "c0462",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Richemont's jewellery sales growth is a major peer-group trading update."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 534,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 3,
+            "independence": 4
+          },
+          "quality": 3.5,
+          "hiddenAd": false,
+          "why": "Richemont’s jewellery growth slowed and missed expectations, offering a key demand signal alongside stronger watches and regional sales.",
+          "mainCompany": "Richemont"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Seiko Group watch sales on track to top $1.5 billion this year",
+        "source": "WatchPro (via Bing News)",
+        "url": "https://usa.watchpro.com/seiko-group-watch-sales-on-track-to-top-1-5bn/",
+        "clusterId": "c0661",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Strong Seiko sales and profit growth are important peer-company results."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 34,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 1,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.05,
+          "hiddenAd": false,
+          "why": "Strong sales and profit growth at a major watchmaker provide a relevant indicator of watch-sector demand.",
+          "mainCompany": "Seiko Group"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Watches of Switzerland Group ups full year financial forecast",
+        "source": "WatchPro (via Bing News)",
+        "url": "https://usa.watchpro.com/watches-of-switzerland-group-sales-rise-15/",
+        "clusterId": "c0663",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Watches of Switzerland raises its full-year forecast after a positive trading update."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 25,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 2,
+            "insight": 1,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 2.75,
+          "hiddenAd": false,
+          "why": "Upgraded guidance from a major luxury watch retailer signals stronger trading, though the snippet provides no financial detail.",
+          "mainCompany": "Watches of Switzerland Group"
+        },
+        "sameEvent": "e3",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Richemont Looks to the Future After Posting Double-Digit Growth in First-Half Sales, Profits",
+        "source": "WWD - Business News",
+        "url": "https://wwd.com/business-news/business-features/richemont-looks-future-double-digit-rises-first-half-sales-1239415568/",
+        "clusterId": "c0702",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Richemont’s double-digit growth and succession outlook merit attention across luxury and jewellery."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1997,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 5,
+            "insight": 4,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 4.35,
+          "hiddenAd": false,
+          "why": "Strong jewellery growth, recovering watches and regional demand show Richemont outperforming luxury peers despite higher gold costs.",
+          "mainCompany": "Richemont"
+        },
+        "sameEvent": "e2",
+        "picked": {
+          "rank": 2,
+          "tier": "lead",
+          "editorWhy": "Detailed Richemont results benchmark luxury jewellery demand, regional recovery and resilience to rising gold costs."
+        }
+      },
+      {
+        "title": "Botswana Agrees To Double De Beers Stake, Clearing Path for Anglo’s Exit",
+        "source": "Business of Fashion (via Bing News)",
+        "url": "https://www.businessoffashion.com/news/luxury/botswana-agrees-to-double-de-beers-stake-clearing-path-for-anglos-exit/",
+        "clusterId": "c1147",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Botswana’s supported deal could double its De Beers stake and enable Anglo’s exit."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 36,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.75,
+          "hiddenAd": false,
+          "why": "Botswana’s increased stake and support for a consortium sale could reshape ownership of a pivotal global diamond supplier.",
+          "mainCompany": "De Beers"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Watches of Switzerland Improves Outlook After US Sales Jump",
+        "source": "Business of Fashion (via Bing News)",
+        "url": "https://www.businessoffashion.com/news/luxury/watches-of-switzerland-improves-outlook-after-us-sales-jump/",
+        "clusterId": "c1149",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Watches of Switzerland raises its outlook after stronger US sales."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 35,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.25,
+          "hiddenAd": false,
+          "why": "Upgraded revenue guidance following stronger US sales offers a relevant signal of luxury watch retail demand.",
+          "mainCompany": "Watches of Switzerland"
+        },
+        "sameEvent": "e3",
+        "picked": {
+          "rank": 6,
+          "tier": "more",
+          "editorWhy": "Stronger US sales and upgraded guidance signal improving demand at a major luxury watch retailer."
+        }
+      },
+      {
+        "title": "Botswana’s Comments on De Beers Sale Leave Much Unanswered",
+        "source": "JCK - Editorial",
+        "url": "https://www.jckonline.com/editorial-article/botswanas-comments-sale/",
+        "clusterId": "c1655",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Botswana's preferred De Beers buyer signals a consequential development in diamond ownership."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 960,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 4,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 4.15,
+          "hiddenAd": false,
+          "why": "De Beers’ proposed ownership reshuffle raises unresolved financing, government-control and customer conflicts across the global diamond supply chain.",
+          "mainCompany": "De Beers"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Richemont Sales Beat Expectations, but Jewelry Growth Falls Short",
+        "source": "JCK - Editorial",
+        "url": "https://www.jckonline.com/editorial-article/richemont-sales-beat-expectations/",
+        "clusterId": "c1671",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Richemont results are important peer news, though jewellery growth missed expectations."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 716,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.8,
+          "hiddenAd": false,
+          "why": "Major jewellery group’s results show strong demand but slowing quarterly growth, with implications for luxury resilience and pricing.",
+          "mainCompany": "Richemont"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Richemont jewellery sales rise 18% as watchmakers gain momentum",
+        "source": "Retail Jeweller UK",
+        "url": "https://www.retail-jeweller.com/news-and-insight/richemont-jewellery-sales-rise-18-as-watchmakers-gain-momentum-14-11-2026/",
+        "clusterId": "c1823",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Richemont's jewellery growth is an important trading update from a direct peer."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 53,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 1,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.05,
+          "hiddenAd": false,
+          "why": "Richemont’s double-digit jewellery growth and rising watch sales provide an important trading signal for the global luxury sector.",
+          "mainCompany": "Richemont"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Watches of Switzerland hails ‘enduring’ demand for luxury as sales surge",
+        "source": "The Industry.fashion",
+        "url": "https://www.theindustry.fashion/watches-of-switzerland-hails-enduring-demand-for-luxury-as-sales-surge/?utm_source=rss&utm_medium=rss&utm_campaign=watches-of-switzerland-hails-enduring-demand-for-luxury-as-sales-surge",
+        "clusterId": "c1998",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Watches of Switzerland reports surging luxury watch and jewellery sales."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 27,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 2,
+            "insight": 1,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 2.4,
+          "hiddenAd": false,
+          "why": "Luxury watch retailer reports sales growth, but the snippet provides no figures to assess scale or wider market implications.",
+          "mainCompany": "Watches of Switzerland"
+        },
+        "sameEvent": "e3",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Panerai’s New Submersible Marina Militare Watches Are a Rugged Ode to the Italian Navy",
+        "source": "Robb Report",
+        "url": "https://robbreport.com/style/watch-collector/panerai-new-submersible-marina-militare-watches-1238834163/",
+        "clusterId": "c0506",
+        "coverage": 2,
+        "shortlistScore": 35,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "A notable new watch launch from major luxury watchmaker Panerai."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 669,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 2,
+            "substance": 2,
+            "insight": 2,
+            "writing": 3,
+            "independence": 2
+          },
+          "quality": 2.1,
+          "hiddenAd": true,
+          "why": "Two watch launches add to Panerai’s range, but offer little broader industry relevance or independent market context.",
+          "mainCompany": "Panerai"
+        },
+        "dropReason": "hiddenAd"
+      },
+      {
+        "title": "Japanese Artist Takashi Murakami Launches Time Objects",
+        "source": "SJX Watches",
+        "url": "https://watchesbysjx.com/2026/11/takashi-murakami-time-objects-skull-flowers.html",
+        "clusterId": "c0362",
+        "coverage": 2,
+        "shortlistScore": 35,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Independent report on prominent artist Takashi Murakami's watch-brand launch."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1098,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 2,
+            "substance": 3,
+            "insight": 4,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 2.95,
+          "hiddenAd": false,
+          "why": "Murakami’s niche watch launch illustrates how specialist manufacturers enable artists to enter ultra-luxury watchmaking independently.",
+          "mainCompany": "Takashi Murakami Time Objects"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Introducing: The TAG Heuer Aquaracer Professional 300 × Time+Tide Sundowner II",
+        "source": "Fratello Watches",
+        "url": "https://www.fratellowatches.com/tag-heuer-aquaracer-professional-300-x-timetide-sundowner-ii/",
+        "clusterId": "c0647",
+        "coverage": 4,
+        "shortlistScore": 35,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "medium",
+          "reason": "A limited TAG Heuer collaboration, relevant but narrow in reach."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 957,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 2,
+            "substance": 3,
+            "insight": 2,
+            "writing": 3,
+            "independence": 2
+          },
+          "quality": 2.3,
+          "hiddenAd": true,
+          "why": "Limited-edition watch collaboration offers product detail but little industry impact or independent analysis.",
+          "mainCompany": "TAG Heuer"
+        },
+        "dropReason": "hiddenAd"
+      },
+      {
+        "title": "France and Botswana Sign Declaration Reserving the Word ‘Diamond’ for Natural Stones",
+        "source": "JCK - Editorial",
+        "url": "https://www.jckonline.com/editorial-article/france-botswana-declaration/",
+        "clusterId": "c0296",
+        "coverage": 2,
+        "shortlistScore": 35,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "France-Botswana declaration may shape natural-diamond terminology and trade positioning."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1206,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 3.95,
+          "hiddenAd": false,
+          "why": "France and Botswana’s declaration escalates the international diamond terminology dispute, with implications for jewellery marketing and consumer disclosures.",
+          "mainCompany": null
+        },
+        "picked": {
+          "rank": 5,
+          "tier": "lead",
+          "editorWhy": "International terminology declaration raises consequential questions for diamond marketing and consumer disclosures."
+        }
+      },
+      {
+        "title": "Vacheron Constantin unveils redesigned Fiftysix watch models",
+        "source": "Retail Jeweller UK",
+        "url": "https://www.retail-jeweller.com/news-and-insight/vacheron-constantin-unveils-redesigned-fiftysix-watch-models-12-11-2026/",
+        "clusterId": "c0512",
+        "coverage": 4,
+        "shortlistScore": 35,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "medium",
+          "reason": "Updated models from a major luxury watchmaker."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 45,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 2,
+            "substance": 2,
+            "insight": 1,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 2.05,
+          "hiddenAd": false,
+          "why": "Routine updates to two watch models; the snippet offers no pricing, commercial implications or wider industry context.",
+          "mainCompany": "Vacheron Constantin"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Best luxury watches of the year ! GPHG winners announced in Geneva!",
+        "source": "CPP-Luxury",
+        "url": "https://cpp-luxury.com/best-luxury-watches-of-the-year-gphg-winners-announced-in-geneva/",
+        "clusterId": "c0005",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Annual watch awards recognise industry achievements, with moderate sector relevance."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1839,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 3,
+            "insight": 2,
+            "writing": 2,
+            "independence": 2
+          },
+          "quality": 2.55,
+          "hiddenAd": true,
+          "why": "GPHG winners highlight watchmaking recognition and category changes, but promotional product descriptions offer little independent industry analysis.",
+          "mainCompany": null
+        },
+        "dropReason": "hiddenAd"
+      },
+      {
+        "title": "Fossil Group and Diesel renew global licensing agreement until 2032",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/fashion/fossil-group-and-diesel-renew-global-licensing-agreement-until-2032/2026111075668",
+        "clusterId": "c0174",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Diesel watch and jewellery licensing renewal is a relevant but incremental industry deal."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 261,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 3,
+            "insight": 2,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 2.8,
+          "hiddenAd": false,
+          "why": "Renewal secures Fossil’s global Diesel watch and jewellery licence through 2032, maintaining continuity rather than changing industry dynamics.",
+          "mainCompany": "Fossil Group"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Bigger Stones, Same Budget: Lab-Grown Is Squeezing Natural’s Bridal Sweet Spot",
+        "source": "Instore Magazine",
+        "url": "https://instoremag.com/bigger-stones-same-budget-lab-grown-is-squeezing-naturals-bridal-sweet-spot/",
+        "clusterId": "c0292",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "analysis",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Survey data shows lab-grown diamonds changing engagement purchases and customer spending."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 880,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 4,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 4.15,
+          "hiddenAd": false,
+          "why": "Original retailer survey shows lab-grown diamonds displacing core natural bridal sizes while customers prioritize larger stones over lower spending.",
+          "mainCompany": null
+        },
+        "picked": {
+          "rank": 4,
+          "tier": "lead",
+          "editorWhy": "Original retailer research reveals lab-grown diamonds displacing natural stones in core bridal sizes."
+        }
+      },
+      {
+        "title": "Bulgari Pink Diamond Ring Sells for $14.6M at Christie’s Geneva",
+        "source": "Instore Magazine",
+        "url": "https://instoremag.com/bulgari-pink-diamond-ring-sells-for-14-6m-at-christies-geneva/",
+        "clusterId": "c0293",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Notable Bulgari diamond auction sale, but within expected estimate and limited broader impact."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 664,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.05,
+          "hiddenAd": false,
+          "why": "Notable high-value pink diamond auction result, but limited evidence of broader implications for jewellery demand or pricing.",
+          "mainCompany": "Christie's"
+        },
+        "dropReason": "not_selected"
+      }
+    ],
+    "Ecommerce_Retail_Tech": [
+      {
+        "title": "OpenAI turns ChatGPT into a business directory with AI agents that handle customer questions",
+        "source": "The Decoder",
+        "url": "https://the-decoder.com/openai-turns-chatgpt-into-a-business-directory-with-ai-agents-that-handle-customer-questions/",
+        "clusterId": "c0039",
+        "coverage": 4,
+        "shortlistScore": 49,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "ChatGPT business profiles and customer-service agents could materially affect online discovery and sales."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "likely_paywalled",
+          "wordCount": 63,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 2,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.05,
+          "hiddenAd": false,
+          "why": "ChatGPT business profiles and customer-service agents could reshape retailer discovery and customer engagement, initially for eligible US ecommerce providers.",
+          "mainCompany": "OpenAI"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Amazon launches AI shopping through text messages in agentic push",
+        "source": "Retail Gazette",
+        "url": "https://www.retailgazette.co.uk/blog/2026/11/amazon-text-messages-agentic-commerce/",
+        "clusterId": "c1715",
+        "coverage": 3,
+        "shortlistScore": 47,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Amazon is rolling out text-based AI shopping with purchasing capabilities to US customers."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 55,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.25,
+          "hiddenAd": false,
+          "why": "Amazon’s messaging-based shopping rollout could broaden AI-mediated product discovery and purchasing, with implications for ecommerce visibility and conversion.",
+          "mainCompany": "Amazon"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you",
+        "source": "The Verge",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet",
+        "clusterId": "c0582",
+        "coverage": 2,
+        "shortlistScore": 45,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "OpenAI is rolling out agent purchasing wallets, a concrete development in AI-powered commerce."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 659,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.45,
+          "hiddenAd": false,
+          "why": "Agent payments could reshape ecommerce checkout; retailer blocking, purchase approvals and US-only eligibility constrain the initial rollout.",
+          "mainCompany": "OpenAI"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Amazon's plan to own the world's product data and fight AI shopping agents ",
+        "source": "Economic Times - Technology",
+        "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/amazons-plan-to-own-the-worlds-product-data-and-fight-ai-shopping-agents/articleshow/135800426.cms",
+        "clusterId": "c0023",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Amazon’s product-data initiative could reshape shopping agents and competition in digital commerce."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1197,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 5,
+            "insight": 4,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 4.35,
+          "hiddenAd": false,
+          "why": "Amazon’s proposed product database could reshape shopping discovery, retailer visibility and AI agents’ access to ecommerce customers.",
+          "mainCompany": "Amazon"
+        },
+        "sameEvent": "e2",
+        "picked": {
+          "rank": 1,
+          "tier": "lead",
+          "editorWhy": "Amazon’s product-data ambitions could reshape retail discovery and merchants’ access to AI-driven shoppers."
+        }
+      },
+      {
+        "title": "EU to make addictive app features easier to switch off ",
+        "source": "Economic Times - Technology",
+        "url": "https://economictimes.indiatimes.com/tech/technology/eu-to-make-addictive-app-features-easier-to-switch-off/articleshow/135723311.cms",
+        "clusterId": "c0063",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Prospective EU rules on platform design and influencer marketing could materially affect online businesses."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 615,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 3.95,
+          "hiddenAd": false,
+          "why": "Proposed EU rules would affect international retailers’ checkout pricing, influencer disclosures, subscriptions and digital interface design.",
+          "mainCompany": null
+        },
+        "sameEvent": "e3",
+        "picked": {
+          "rank": 5,
+          "tier": "lead",
+          "editorWhy": "Proposed EU rules could change checkout pricing, influencer disclosures, subscriptions and interface design."
+        }
+      },
+      {
+        "title": "OpenAI rebuilt AI shopping from scratch with ChatGPT Wallet",
+        "source": "The Decoder",
+        "url": "https://the-decoder.com/openai-rebuilt-ai-shopping-from-scratch-with-chatgpt-wallet/",
+        "clusterId": "c0630",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "OpenAI’s wallet brings AI-agent purchasing into commerce through major card networks."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 586,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.45,
+          "hiddenAd": false,
+          "why": "Agent checkout could reshape ecommerce discovery and payments; the launch outlines merchant integration requirements but provides no adoption evidence.",
+          "mainCompany": "OpenAI"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "China’s Singles’ Day Trades Discounts for AI, Livestream Innovation",
+        "source": "WWD - Business News",
+        "url": "https://wwd.com/business-news/retail/china-singles-day-2026-trends-ai-livestream-innovation-1239412549/",
+        "clusterId": "c0717",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Major Chinese shopping festival data and AI-led changes matter to global ecommerce."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1570,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.8,
+          "hiddenAd": false,
+          "why": "Singles’ Day results reveal China’s ecommerce growth, shifting brand rankings and emerging AI sales channels relevant to international retailers.",
+          "mainCompany": null
+        },
+        "picked": {
+          "rank": 4,
+          "tier": "lead",
+          "editorWhy": "Singles’ Day results reveal changing brand performance and emerging AI sales channels in China."
+        }
+      },
+      {
+        "title": "OpenAI launches ChatGPT Wallet, allowing its 'dots' AI agents to make purchases for users",
+        "source": "CNBC Technology",
+        "url": "https://www.cnbc.com/2026/11/13/openai-chatgpt-wallet-dot-purchases.html",
+        "clusterId": "c1216",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "OpenAI’s purchasing wallet partners with major payment networks, advancing agentic commerce."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 881,
+          "disclosures": [
+            "in partnership with"
+          ]
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 4,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 4,
+          "hiddenAd": false,
+          "why": "Agent-enabled payments could reshape ecommerce checkout and merchant access, though the initial rollout is limited and major retailers block agents.",
+          "mainCompany": "OpenAI"
+        },
+        "sameEvent": "e1",
+        "picked": {
+          "rank": 2,
+          "tier": "lead",
+          "editorWhy": "ChatGPT Wallet introduces agent-led checkout, with important limits on merchant access and consumer adoption."
+        }
+      },
+      {
+        "title": "Microsoft 365 services slowly come back online after global outage",
+        "source": "Computerworld - Ecommerce",
+        "url": "https://www.computerworld.com/article/4248590/m365-services-slowly-come-back-online-after-global-outage.html",
+        "clusterId": "c1249",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Reports recovery from a global Microsoft 365 outage disrupting business services."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 587,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.45,
+          "hiddenAd": false,
+          "why": "Prolonged global disruption affects retailers’ workplace systems, with lingering email delays and heightened phishing risks during recovery.",
+          "mainCompany": "Microsoft"
+        },
+        "sameEvent": "e4",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "German Regulators Challenge PayPal Over Anti-Competitive Practices",
+        "source": "Payments Journal",
+        "url": "https://www.paymentsjournal.com/german-regulators-challenge-paypal-over-anti-competitive-practices/",
+        "clusterId": "c1766",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "German antitrust scrutiny of PayPal's checkout restrictions could affect online merchants."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 359,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 3,
+            "independence": 4
+          },
+          "quality": 3.5,
+          "hiddenAd": false,
+          "why": "German antitrust scrutiny could reshape PayPal merchant restrictions, checkout choices and payment costs across Europe.",
+          "mainCompany": "PayPal"
+        },
+        "picked": {
+          "rank": 7,
+          "tier": "more",
+          "editorWhy": "PayPal antitrust scrutiny could alter merchant restrictions, checkout options and European payment costs."
+        }
+      },
+      {
+        "title": "JD.com eyes European electronics dominance as $2.5bn takeover completes",
+        "source": "Retail Gazette",
+        "url": "https://www.retailgazette.co.uk/blog/2026/11/jd-com-eyes-european-electronics-dominance-as-2-5bn-takeover-completes/",
+        "clusterId": "c1869",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "JD.com’s major acquisition gives it control of a large European electronics retailer."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 55,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.25,
+          "hiddenAd": false,
+          "why": "Completed acquisition gives JD.com control of a major European electronics retail network, expanding its international ecommerce and omnichannel footprint.",
+          "mainCompany": "JD.com"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Microsoft outage shakes up companies, schools and local governments across US",
+        "source": "The Guardian - Technology",
+        "url": "https://www.theguardian.com/technology/2026/nov/13/microsoft-outage-shakes-up-companies-local-governments",
+        "clusterId": "c1955",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "A major Microsoft outage disrupted essential business services across the US."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 724,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 4,
+            "insight": 2,
+            "writing": 3,
+            "independence": 5
+          },
+          "quality": 3.3,
+          "hiddenAd": false,
+          "why": "Widespread Microsoft disruption highlights operational dependence on cloud tools, but reporting offers little direct retail impact or resilience analysis.",
+          "mainCompany": "Microsoft"
+        },
+        "sameEvent": "e4",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Loot boxes, influencers, and addictive features face an EU crackdown",
+        "source": "The Verge",
+        "url": "https://www.theverge.com/policy/1031575/digital-fairness-act-eu-dfa-consumer-protection",
+        "clusterId": "c2034",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Proposed EU consumer rules could materially affect online platforms and ecommerce practices."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 987,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.8,
+          "hiddenAd": false,
+          "why": "Proposed EU rules would reshape ecommerce pricing, influencer disclosures, subscriptions and customer service, with substantial potential penalties.",
+          "mainCompany": null
+        },
+        "sameEvent": "e3",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Amazon has a plan to index the world’s online shopping data",
+        "source": "The Verge",
+        "url": "https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search",
+        "clusterId": "c2060",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Amazon’s planned global product-data graph could materially shape product discovery and shopping competition."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 761,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.6,
+          "hiddenAd": false,
+          "why": "Amazon’s proposed product index could reshape retail discovery and AI shopping, though implementation remains uncertain.",
+          "mainCompany": "Amazon"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "United won’t let your AI agent book your flight",
+        "source": "The Verge",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1031623/united-unauthorized-ai-agents",
+        "clusterId": "c0580",
+        "coverage": 4,
+        "shortlistScore": 39,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "United’s refusal to permit AI agents booking flights highlights emerging limits on agentic commerce."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 716,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 2,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.05,
+          "hiddenAd": false,
+          "why": "United’s restrictions illustrate barriers to agentic commerce, including customer consent, regulatory compliance and retailers’ resistance to new intermediaries.",
+          "mainCompany": "United Airlines"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Government considers banning under-16s from Vinted and Ebay",
+        "source": "Drapers",
+        "url": "https://www.drapersonline.com/news/government-considers-banning-under-16s-from-vinted-and-ebay",
+        "clusterId": "c1373",
+        "coverage": 2,
+        "shortlistScore": 35,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Possible age restrictions could affect major resale marketplaces, but remain under consideration."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 41,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 2,
+            "insight": 1,
+            "writing": 3,
+            "independence": 4
+          },
+          "quality": 2.55,
+          "hiddenAd": false,
+          "why": "Potential age restrictions could affect marketplace access, but the snippet offers no policy details or confirmed decision.",
+          "mainCompany": null
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Asos extends GXO logistics partnership until 2034 in major deal",
+        "source": "Retail Gazette",
+        "url": "https://www.retailgazette.co.uk/blog/2026/11/asos-extends-gxo-logistics-partnership-until-2034-in-major-deal/",
+        "clusterId": "c1856",
+        "coverage": 2,
+        "shortlistScore": 35,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Long-term fulfilment and transport agreement between major companies."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 55,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 2,
+            "insight": 1,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 2.5,
+          "hiddenAd": false,
+          "why": "Extends a major online fashion retailer’s logistics arrangements through 2034, but the snippet offers little on operational changes.",
+          "mainCompany": "Asos"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Marks & Spencer joins forces with Global Fashion Group to expand across Asia Pacific",
+        "source": "The Industry.fashion",
+        "url": "https://www.theindustry.fashion/marks-spencer-joins-forces-with-global-fashion-group-to-expand-across-asia-pacific/?utm_source=rss&utm_medium=rss&utm_campaign=marks-spencer-joins-forces-with-global-fashion-group-to-expand-across-asia-pacific",
+        "clusterId": "c1376",
+        "coverage": 2,
+        "shortlistScore": 35,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "M&S uses an ecommerce partnership to expand into Asia-Pacific markets."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 23,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 2,
+            "insight": 1,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 2.5,
+          "hiddenAd": false,
+          "why": "The partnership expands M&S’s Asia-Pacific distribution, but the snippet provides no market, platform, timing or financial details.",
+          "mainCompany": "Marks & Spencer"
+        },
+        "sameEvent": "e5",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Microsoft outage shows the risks of relying on a single technology provider for essential services ",
+        "source": "Economic Times - Technology",
+        "url": "https://economictimes.indiatimes.com/tech/technology/microsoft-outage-shows-the-risks-of-relying-on-a-single-technology-provider-for-essential-services/articleshow/135821607.cms",
+        "clusterId": "c0071",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "analysis",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Explains business continuity risks exposed by a major cloud-services outage."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1025,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 3.6,
+          "hiddenAd": false,
+          "why": "Global Microsoft 365 disruption highlights operational dependency risks for retailers, though specific ecommerce impacts are not documented.",
+          "mainCompany": "Microsoft"
+        },
+        "sameEvent": "e4",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Spain demands that TikTok suspend operations until child sexual abuse material gone ",
+        "source": "Economic Times - Technology",
+        "url": "https://economictimes.indiatimes.com/tech/technology/spain-demands-that-tiktok-suspend-operations-until-child-sexual-abuse-material-gone/articleshow/135724304.cms",
+        "clusterId": "c0086",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "A national TikTok suspension demand could affect a major platform, amid serious content concerns."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 303,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 3.6,
+          "hiddenAd": false,
+          "why": "Spain’s suspension demand raises platform regulatory risk, but no ban is enacted and ecommerce implications remain indirect.",
+          "mainCompany": "TikTok"
+        },
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Vinted expands Rokt partnership to US following European growth",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/business/vinted-expands-rokt-partnership-to-us-following-european-growth/2026111375736",
+        "clusterId": "c0159",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Vinted expands a named ecommerce technology partnership into the US."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 249,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 2
+          },
+          "quality": 2.75,
+          "hiddenAd": true,
+          "why": "Vinted extends post-purchase advertising into the US, but company-led coverage offers little evidence of commercial impact or consumer trade-offs.",
+          "mainCompany": "Rokt"
+        },
+        "dropReason": "hiddenAd"
+      },
+      {
+        "title": "M&S launches on Zalora and The Iconic in regional Global Fashion Group partnership",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/retail/m-s-launches-on-zalora-and-the-iconic-in-regional-global-fashion-group-partnership/2026111275713",
+        "clusterId": "c0213",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "M&S expands fashion sales through regional ecommerce platforms in Asia Pacific."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 409,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 2.9,
+          "hiddenAd": false,
+          "why": "M&S expands Asia-Pacific marketplace distribution and regional fulfilment, illustrating its capital-light international ecommerce strategy.",
+          "mainCompany": "Marks & Spencer"
+        },
+        "sameEvent": "e5",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "US ports face congestion as extended retail import peak winds down",
+        "source": "FashionUnited",
+        "url": "https://fashionunited.com/news/retail/us-ports-face-congestion-as-extended-retail-import-peak-winds-down/2026111075659",
+        "clusterId": "c0222",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "analysis",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "US port congestion and labour uncertainty may affect retail import supply chains."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 544,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.8,
+          "hiddenAd": false,
+          "why": "Elevated US imports and port labour uncertainty affect international retailers’ shipping schedules, despite most holiday merchandise already arriving.",
+          "mainCompany": null
+        },
+        "picked": {
+          "rank": 6,
+          "tier": "more",
+          "editorWhy": "US port congestion and labour uncertainty threaten retailers’ shipping schedules and inventory planning."
+        }
+      },
+      {
+        "title": "Fire, fines and a costly comeback: Coupang’s long road back to profit",
+        "source": "Inside Retail Asia",
+        "url": "https://insideretail.asia/2026/11/09/fire-fines-and-a-costly-comeback-coupangs-long-road-back-to-profit/",
+        "clusterId": "c0243",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "analysis",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Examines Coupang’s path to profitability, a significant regional ecommerce operator’s business performance."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1575,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 4,
+            "insight": 4,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 4,
+          "hiddenAd": false,
+          "why": "Major Asian ecommerce operator’s losses, recovering customer loyalty and Taiwan investment reveal the costs and timeline of its turnaround.",
+          "mainCompany": "Coupang"
+        },
+        "picked": {
+          "rank": 3,
+          "tier": "lead",
+          "editorWhy": "Coupang’s turnaround exposes the financial costs of rebuilding trust and expanding internationally."
+        }
+      },
+      {
+        "title": "Lazada launches On flagship stores in the Philippines and Thailand",
+        "source": "Inside Retail Asia",
+        "url": "https://insideretail.asia/2026/11/09/lazada-launches-on-flagship-stores-in-the-philippines-and-thailand/",
+        "clusterId": "c0245",
+        "coverage": 1,
+        "shortlistScore": 33,
+        "triage": {
+          "type": "hard_news",
+          "significance": 3,
+          "adRisk": "low",
+          "reason": "Lazada adds official On brand stores in two Southeast Asian markets, a concrete marketplace development."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 394,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 3,
+            "substance": 2,
+            "insight": 2,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 2.7,
+          "hiddenAd": false,
+          "why": "On expands official marketplace distribution in Southeast Asia, adding LazMall stores in two markets alongside its Philippine physical-retail entry.",
+          "mainCompany": "On"
+        },
+        "dropReason": "not_selected"
+      }
+    ],
+    "AI_and_Strategy": [
+      {
+        "title": "Jensen Huang resigns as Nvidia CEO after espionage scandal wipes out $1.4 trillion in market value",
+        "source": "The Decoder",
+        "url": "https://the-decoder.com/jensen-huang-resigns-as-nvidia-ceo-after-espionage-scandal-wipes-out-1-4-trillion-in-market-value/",
+        "clusterId": "c0239",
+        "coverage": 9,
+        "shortlistScore": 59,
+        "triage": {
+          "type": "hard_news",
+          "significance": 5,
+          "adRisk": "low",
+          "reason": "Nvidia’s CEO resignation is a major leadership shock for the AI industry."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "likely_paywalled",
+          "wordCount": 44,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 2,
+            "insight": 1,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 3.1,
+          "hiddenAd": false,
+          "why": "Reported CEO departure and massive valuation loss would be pivotal for AI infrastructure; snippet provides no corroboration or explanation.",
+          "mainCompany": "Nvidia"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Jensen Huang Resigns From Nvidia After Affairs",
+        "source": "NYTimes Technology",
+        "url": "https://www.nytimes.com/2026/11/12/technology/nvidia-jensen-huang.html",
+        "clusterId": "c0074",
+        "coverage": 8,
+        "shortlistScore": 59,
+        "triage": {
+          "type": "hard_news",
+          "significance": 5,
+          "adRisk": "low",
+          "reason": "Nvidia’s CEO resignation is a landmark leadership change for the AI industry."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 539,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.95,
+          "hiddenAd": false,
+          "why": "Reports a leadership upheaval at the dominant AI chipmaker, raising succession and strategic continuity questions across the AI industry.",
+          "mainCompany": "Nvidia"
+        },
+        "sameEvent": "e1",
+        "picked": {
+          "rank": 1,
+          "tier": "lead",
+          "editorWhy": "Leadership upheaval at the dominant AI chipmaker raises strategic continuity and infrastructure risks."
+        }
+      },
+      {
+        "title": "Anthropic kicks off IPO roadshow, offering shares at $70 to $78 and targeting a trillion-dollar valuation",
+        "source": "The Decoder",
+        "url": "https://the-decoder.com/anthropic-kicks-off-ipo-roadshow-offering-shares-at-70-to-78-and-targeting-a-trillion-dollar-valuation/",
+        "clusterId": "c0598",
+        "coverage": 3,
+        "shortlistScore": 57,
+        "triage": {
+          "type": "hard_news",
+          "significance": 5,
+          "adRisk": "low",
+          "reason": "Anthropic's landmark IPO would be a major AI-industry financing event."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 648,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 4.15,
+          "hiddenAd": false,
+          "why": "A potentially record-scale AI listing exposes frontier-model revenue growth, enormous compute obligations and investor appetite for AI infrastructure.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Google rolls out Gemini 4 Hydrogen with 2.5x speed boost, four reasoning levels ",
+        "source": "Economic Times - Technology",
+        "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/google-rolls-out-gemini-4-hydrogen-with-2-5x-speed-boost-four-reasoning-levels/articleshow/135789016.cms",
+        "clusterId": "c0032",
+        "coverage": 1,
+        "shortlistScore": 53,
+        "triage": {
+          "type": "hard_news",
+          "significance": 5,
+          "adRisk": "low",
+          "reason": "Google’s reported major model release and speed gains mark a potentially significant frontier-model development."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 495,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 3.15,
+          "hiddenAd": false,
+          "why": "A widely available model release promises faster, cheaper AI workflows, but performance and safety claims rely entirely on Google.",
+          "mainCompany": "Google"
+        },
+        "picked": {
+          "rank": 6,
+          "tier": "more",
+          "editorWhy": "Faster Gemini models could improve everyday AI workflows, though performance claims remain vendor-supplied."
+        }
+      },
+      {
+        "title": "Claude Fable 5.2 and Mythos 5.2 cement Anthropic's AI lead just before its IPO",
+        "source": "The Decoder",
+        "url": "https://the-decoder.com/claude-fable-5-2-and-mythos-5-2-cement-anthropics-ai-lead-just-before-its-ipo/",
+        "clusterId": "c0026",
+        "coverage": 3,
+        "shortlistScore": 53,
+        "triage": {
+          "type": "hard_news",
+          "significance": 5,
+          "adRisk": "medium",
+          "reason": "Major frontier-model release claims substantial capability gains, largely sourced to Anthropic."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1569,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 4.15,
+          "hiddenAd": false,
+          "why": "Frontier releases raise capability benchmarks while exposing significant cost, access and safety trade-offs for enterprise AI adoption.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e3",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Nvidia Shares Slide as CEO Jensen Huang Resigns",
+        "source": "Business of Fashion (via Bing News)",
+        "url": "https://www.businessoffashion.com/news/technology/nvidia-shares-slide-as-ceo-jensen-huang-resigns/",
+        "clusterId": "c1156",
+        "coverage": 1,
+        "shortlistScore": 53,
+        "triage": {
+          "type": "hard_news",
+          "significance": 5,
+          "adRisk": "low",
+          "reason": "Nvidia CEO Jensen Huang's reported resignation is a landmark AI-industry leadership change."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 29,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 2,
+            "insight": 2,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.55,
+          "hiddenAd": false,
+          "why": "Reports a major AI leadership change with potential market repercussions, but the snippet provides no sourcing or supporting detail.",
+          "mainCompany": "Nvidia"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Anthropic releases first frontier models since Amodei's call for slowdown as IPO buzz builds",
+        "source": "CNBC Technology",
+        "url": "https://www.cnbc.com/2026/11/09/anthropic-claude-fable-5-2-mythos-5-2.html",
+        "clusterId": "c1159",
+        "coverage": 1,
+        "shortlistScore": 53,
+        "triage": {
+          "type": "hard_news",
+          "significance": 5,
+          "adRisk": "low",
+          "reason": "Frontier model release from a leading AI lab, amid a major anticipated IPO."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 665,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 4.15,
+          "hiddenAd": false,
+          "why": "Frontier model releases cut inference costs and test Anthropic’s safety commitments amid major IPO preparations.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e3",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Anthropic’s Giant IPO Will Tie It Closer to Nvidia",
+        "source": "NYTimes Technology",
+        "url": "https://www.nytimes.com/2026/11/10/business/anthropic-ipo-nvidia.html",
+        "clusterId": "c1731",
+        "coverage": 1,
+        "shortlistScore": 53,
+        "triage": {
+          "type": "hard_news",
+          "significance": 5,
+          "adRisk": "low",
+          "reason": "Nvidia’s reported $10 billion Anthropic investment alongside its IPO is a major AI-industry commitment."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 436,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 4.1,
+          "hiddenAd": false,
+          "why": "A potential $1.4 trillion IPO and $10 billion Nvidia investment would reshape AI financing and deepen supplier dependencies.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Nvidia stock slides after report board is preparing to oust Jensen Huang after second affair",
+        "source": "Business Insider - Tech",
+        "url": "https://www.businessinsider.com/nvidia-stock-drops-jensen-huang-second-affair-report-2026-11",
+        "clusterId": "c0558",
+        "coverage": 6,
+        "shortlistScore": 49,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Nvidia CEO succession risk is a major development for the AI industry."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 82,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.75,
+          "hiddenAd": false,
+          "why": "Reported leadership upheaval at a central AI chip supplier and an 8% stock decline could materially affect the AI sector.",
+          "mainCompany": "Nvidia"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Jensen Huang is out at Nvidia — who is Colette Kress, his interim replacement?",
+        "source": "TechCrunch - AI",
+        "url": "https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/",
+        "clusterId": "c0569",
+        "coverage": 3,
+        "shortlistScore": 47,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Nvidia CEO transition is major leadership news with broad implications for the AI industry."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 691,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 3,
+            "insight": 2,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 3.5,
+          "hiddenAd": false,
+          "why": "Reports a consequential leadership change at AI’s dominant chip supplier, but offers limited analysis and poorly sourced misconduct allegations.",
+          "mainCompany": "Nvidia"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Jensen Huang built an AI kingdom. Now he’s gone, will Nvidia’s ramparts be breached?",
+        "source": "The Guardian - Technology",
+        "url": "https://www.theguardian.com/technology/2026/nov/12/jensen-huang-built-an-ai-kingdom-now-hes-gone-will-nvidias-ramparts-be-breached",
+        "clusterId": "c0565",
+        "coverage": 3,
+        "shortlistScore": 47,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Nvidia leadership turmoil could affect the central supplier and economics of the AI industry."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1075,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.95,
+          "hiddenAd": false,
+          "why": "Reports a major AI leadership shock, highlighting financing and supply-chain risks, but provides limited sourcing for consequential claims.",
+          "mainCompany": "Nvidia"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Anthropic targets valuation of up to $1.4tn in stock market flotation",
+        "source": "The Guardian - Technology",
+        "url": "https://www.theguardian.com/technology/2026/nov/10/anthropic-valuation-stock-market-flotation-ipo-wall-street-ai",
+        "clusterId": "c1470",
+        "coverage": 2,
+        "shortlistScore": 45,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "A major AI developer’s reported IPO valuation is important industry financing news."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 742,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 5,
+            "insight": 4,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 4.7,
+          "hiddenAd": false,
+          "why": "A landmark AI flotation tests investor appetite and exposes the financial risks of enormous compute commitments.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "picked": {
+          "rank": 2,
+          "tier": "lead",
+          "editorWhy": "Landmark flotation tests AI valuations and the sustainability of enormous computing commitments."
+        }
+      },
+      {
+        "title": "Congress wants to tighten export rules on AI chips after Nvidia spy scandal",
+        "source": "The Verge",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china",
+        "clusterId": "c1455",
+        "coverage": 2,
+        "shortlistScore": 45,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Bipartisan push to tighten AI-chip export controls could materially affect Nvidia and the AI sector."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 686,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 3,
+            "independence": 4
+          },
+          "quality": 3.3,
+          "hiddenAd": false,
+          "why": "Bipartisan pressure for tighter chip export controls could reshape global AI compute access and Nvidia’s China business.",
+          "mainCompany": "Nvidia"
+        },
+        "picked": {
+          "rank": 7,
+          "tier": "more",
+          "editorWhy": "Proposed export restrictions could alter global access to AI computing infrastructure."
+        }
+      },
+      {
+        "title": "Investors flock to Anthropic IPO but question durability of AI lead ",
+        "source": "Economic Times - Technology",
+        "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/investors-flock-to-anthropic-ipo-but-question-durability-of-ai-lead/articleshow/135820893.cms",
+        "clusterId": "c0035",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Anthropic's major IPO roadshow tests investor appetite and confidence in its AI lead."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 916,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 5,
+            "insight": 4,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 4.7,
+          "hiddenAd": false,
+          "why": "A $64 billion AI IPO tests investor confidence in frontier-model economics, revenue forecasts and the durability of Anthropic’s competitive advantage.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "TSMC to invest up to $1 billion in Anthropic, OpenAI ",
+        "source": "Economic Times - Technology",
+        "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/tsmc-to-invest-up-to-1-billion-in-anthropic-openai/articleshow/135713178.cms",
+        "clusterId": "c0044",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "TSMC’s investments in Anthropic and OpenAI are significant AI-industry financing news."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 348,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.45,
+          "hiddenAd": false,
+          "why": "A major chip supplier taking stakes in frontier AI developers deepens financial ties across the AI infrastructure ecosystem.",
+          "mainCompany": "TSMC"
+        },
+        "picked": {
+          "rank": 4,
+          "tier": "lead",
+          "editorWhy": "Chipmaker investments deepen financial interdependence between AI developers and their infrastructure suppliers."
+        }
+      },
+      {
+        "title": "Anthropic targets valuation of about $1 trillion in IPO ",
+        "source": "Economic Times - Technology",
+        "url": "https://economictimes.indiatimes.com/tech/technology/anthropic-targets-valuation-of-about-1-trillion-in-ipo/articleshow/135710518.cms",
+        "clusterId": "c0057",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Potential trillion-dollar Anthropic IPO and major investor commitments signal a landmark AI financing event."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 205,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 4,
+            "insight": 1,
+            "writing": 3,
+            "independence": 3
+          },
+          "quality": 3.5,
+          "hiddenAd": false,
+          "why": "A proposed trillion-dollar AI IPO and $26 billion partner investment would mark a major shift in frontier AI financing.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Anthropic releases new Mythos and Fable models amid RSI concerns",
+        "source": "TechCrunch - AI",
+        "url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
+        "clusterId": "c0530",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Anthropic’s new models are a significant frontier AI release."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 624,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 4,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 4.15,
+          "hiddenAd": false,
+          "why": "Frontier model releases cut enterprise AI costs and improve speed, while raising consequential questions about evaluation reliability and autonomous research.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e3",
+        "picked": {
+          "rank": 3,
+          "tier": "lead",
+          "editorWhy": "New frontier models promise lower enterprise costs while raising questions about capability evaluations and safety."
+        }
+      },
+      {
+        "title": "Anthropic reportedly plans to move forward with IPO plans",
+        "source": "TechCrunch - AI",
+        "url": "https://techcrunch.com/2026/11/09/anthropic-reportedly-plans-to-move-forward-with-ipo-plans/",
+        "clusterId": "c0531",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Anthropic’s reported IPO plans are significant for the AI industry."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 432,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.6,
+          "hiddenAd": false,
+          "why": "Anthropic’s reported IPO timetable and falling valuation expectations offer a major test of investor appetite for AI.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Meta releases Muse Ember, a new lightweight model for agent execution",
+        "source": "TechCrunch - AI",
+        "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+        "clusterId": "c0536",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Meta’s low-cost agent model is a notable AI product and pricing development."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 530,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 3,
+            "writing": 4,
+            "independence": 3
+          },
+          "quality": 3.45,
+          "hiddenAd": false,
+          "why": "Meta’s low-cost multimodal model targets high-volume agent tasks, potentially reducing customer-support and document-processing costs for retailers.",
+          "mainCompany": "Meta"
+        },
+        "picked": {
+          "rank": 5,
+          "tier": "lead",
+          "editorWhy": "Lightweight agent model could reduce costs for retail customer support and document processing."
+        }
+      },
+      {
+        "title": "Anthropic CEO Amodei admits \"there's a huge uncertainty in what's going to happen next year\" days before a record IPO",
+        "source": "The Decoder",
+        "url": "https://the-decoder.com/anthropic-ceo-amodei-admits-theres-a-huge-uncertainty-in-whats-going-to-happen-next-year-days-before-a-record-ipo/",
+        "clusterId": "c0597",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Anthropic's extraordinary compute commitments highlight material AI-industry economics."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 854,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 4,
+            "insight": 4,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 4.35,
+          "hiddenAd": false,
+          "why": "Anthropic’s planned record IPO highlights the enormous financing requirements and demand uncertainty underpinning frontier AI economics.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Anthropic IPO’s Moment of Truth Nears as Waiting Period Expires",
+        "source": "Bloomberg - Technology",
+        "url": "https://www.bloomberg.com/news/articles/2026-11-09/anthropic-ipo-s-moment-of-truth-nears-as-waiting-period-expires",
+        "clusterId": "c0848",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Anthropic's potential IPO is a major AI-industry financing development."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 38,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.4,
+          "hiddenAd": false,
+          "why": "Anthropic’s approaching IPO marketing tests investor appetite for frontier AI companies amid falling AI-related stocks.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Nvidia Sinks as Analyst Downgrades Start to Come In: Street Wrap",
+        "source": "Bloomberg - Technology",
+        "url": "https://www.bloomberg.com/news/articles/2026-11-11/nvidia-tumbles-as-investors-consider-future-without-ceo-huang",
+        "clusterId": "c0892",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "hard_news",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Nvidia leadership uncertainty could materially affect the AI-chip industry and supply chain."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 67,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 3,
+            "insight": 2,
+            "writing": 4,
+            "independence": 4
+          },
+          "quality": 3.75,
+          "hiddenAd": false,
+          "why": "Reported succession planning at the dominant AI chipmaker triggers a sharp selloff, raising leadership and AI-market stability concerns.",
+          "mainCompany": "Nvidia"
+        },
+        "sameEvent": "e1",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "AI Doubts Collide With Anthropic’s Mega IPO",
+        "source": "Bloomberg - Technology",
+        "url": "https://www.bloomberg.com/news/newsletters/2026-11-11/ai-doubts-collide-with-anthropic-s-mega-ipo",
+        "clusterId": "c0943",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Anthropic’s planned mega-IPO is a major test of investor appetite for AI."
+        },
+        "fulltext": {
+          "status": "snippet_only",
+          "paywall": "unknown",
+          "wordCount": 13,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 4,
+            "substance": 2,
+            "insight": 2,
+            "writing": 3,
+            "independence": 4
+          },
+          "quality": 3.1,
+          "hiddenAd": false,
+          "why": "A major AI company's public listing could test investor confidence and influence funding across the sector.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Anthropic's IPO is an investor referendum on AI",
+        "source": "Business Insider - Tech",
+        "url": "https://www.businessinsider.com/ai-investors-referendum-anthropic-ipo-stock-market-bi-today-newsletter-2026-11",
+        "clusterId": "c0992",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Anthropic’s prospective IPO and valuation could shape investor views of the AI industry."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 636,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 4,
+            "insight": 3,
+            "writing": 3,
+            "independence": 5
+          },
+          "quality": 4.2,
+          "hiddenAd": false,
+          "why": "A massive frontier AI IPO tests investor appetite, financing sustainability and valuations across the AI industry.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      },
+      {
+        "title": "Anthropic’s IPO lands as the embattled AI trade looks for a much-needed bright spot",
+        "source": "CNBC Technology",
+        "url": "https://www.cnbc.com/2026/11/15/anthropic-ipo-is-make-or-break-for-the-technology-industry.html",
+        "clusterId": "c1226",
+        "coverage": 1,
+        "shortlistScore": 43,
+        "triage": {
+          "type": "analysis",
+          "significance": 4,
+          "adRisk": "low",
+          "reason": "Anthropic IPO could materially affect investor confidence and AI-industry financing."
+        },
+        "fulltext": {
+          "status": "fetched",
+          "paywall": "not_paywalled",
+          "wordCount": 1265,
+          "disclosures": []
+        },
+        "judge": {
+          "scores": {
+            "significance": 5,
+            "substance": 5,
+            "insight": 4,
+            "writing": 4,
+            "independence": 5
+          },
+          "quality": 4.7,
+          "hiddenAd": false,
+          "why": "Anthropic’s IPO exposes enormous AI infrastructure commitments and interconnected financial risks across leading cloud providers and chipmakers.",
+          "mainCompany": "Anthropic"
+        },
+        "sameEvent": "e2",
+        "dropReason": "not_selected"
+      }
+    ]
+  }
+}

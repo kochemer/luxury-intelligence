@@ -1,0 +1,77 @@
+{
+  "digestWeek": "2026-W46",
+  "ingestionWeek": "2026-W46",
+  "startedAt": "2026-11-16T15:17:27.885Z",
+  "finishedAt": "2026-11-16T15:49:06.190Z",
+  "steps": [
+    {
+      "name": "rss",
+      "ok": true,
+      "startedAt": "2026-11-16T15:17:27.906Z",
+      "finishedAt": "2026-11-16T15:18:46.778Z"
+    },
+    {
+      "name": "pages",
+      "ok": true,
+      "startedAt": "2026-11-16T15:18:46.779Z",
+      "finishedAt": "2026-11-16T15:18:48.059Z"
+    },
+    {
+      "name": "discovery",
+      "ok": true,
+      "startedAt": "2026-11-16T15:18:48.064Z",
+      "finishedAt": "2026-11-16T15:34:47.656Z"
+    },
+    {
+      "name": "classification",
+      "ok": true,
+      "startedAt": "2026-11-16T15:34:47.656Z",
+      "finishedAt": "2026-11-16T15:34:47.948Z"
+    },
+    {
+      "name": "digest",
+      "ok": true,
+      "startedAt": "2026-11-16T15:34:47.948Z",
+      "finishedAt": "2026-11-16T15:42:52.502Z"
+    },
+    {
+      "name": "email",
+      "ok": true,
+      "startedAt": "2026-11-16T15:42:52.502Z",
+      "finishedAt": "2026-11-16T15:44:10.871Z"
+    },
+    {
+      "name": "podcast",
+      "ok": true,
+      "startedAt": "2026-11-16T15:44:10.871Z",
+      "finishedAt": "2026-11-16T15:47:34.525Z"
+    },
+    {
+      "name": "cover",
+      "ok": true,
+      "startedAt": "2026-11-16T15:47:34.525Z",
+      "finishedAt": "2026-11-16T15:49:06.181Z"
+    }
+  ],
+  "health": {
+    "warnings": [],
+    "metrics": {
+      "paywallPercent": 0,
+      "podcastWordCount": 2294
+    }
+  },
+  "contentQuality": {
+    "ok": true,
+    "errors": [],
+    "summaryCoverage": 1,
+    "selectedCount": 28,
+    "summarizedCount": 28,
+    "hasCover": true,
+    "hasInsight": true,
+    "themeCount": 5
+  },
+  "versions": {
+    "node": "v20.20.2",
+    "gitCommit": "2f12296f255624d1d56824ace1521f74e3a7e52f"
+  }
+}

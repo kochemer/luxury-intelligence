@@ -1,0 +1,39 @@
+{
+  "weekLabel": "2026-W46",
+  "homepageTopArticles": [
+    {
+      "title": "Richemont Sales Climb 16% in H1 With All Regions, Except for the Middle East, Showing Robust Growth",
+      "topic": "Luxury & Consumer",
+      "source": "WWD - Women's Wear Daily",
+      "snippet": "At constant exchange rates, Richemont sales were up 17 percent to 12.3 billion euros with all regions, except for the Middle East, growing in the double-digits.",
+      "aiSummary": "Richemont’s first-half sales rose 17% at constant exchange rates to €12.3 billion, with double-digit growth in every region except the Middle East."
+    },
+    {
+      "title": "Calvin Klein, Tommy Hilfiger owner to cut 4% of workforce",
+      "topic": "Luxury & Consumer",
+      "source": "Retail Dive",
+      "snippet": "PVH Corp.'s enterprisewide initiative aims to improve productivity and long-term profitability, with a goal of achieving $100 million in cost savings during fiscal 2027.",
+      "aiSummary": "PVH, owner of Calvin Klein and Tommy Hilfiger, will cut 4% of its workforce, targeting $100 million in fiscal 2027 savings."
+    },
+    {
+      "title": "Botswana President Boko Names Global Diamond Consortium Preferred De Beers Bidder, Announces 30% Ownership Stake",
+      "topic": "Jewellery Industry",
+      "source": "JCK - Editorial",
+      "snippet": "Botswana President Duma Boko, in his Nov. 9 State of the Nation address in Gaborone, said it is increasing its De Beers stake to 30% and the government selected the Gareth Penny–led Global Diamond Consortium as its preferred bidder for the diamond producer. “Botswana’s shareholding in De Beers will double from the current 15%. Botswana…",
+      "aiSummary": "Botswana named Global Diamond Consortium its preferred De Beers bidder and announced it would double its stake to 30%."
+    },
+    {
+      "title": "Amazon's plan to own the world's product data and fight AI shopping agents ",
+      "topic": "Ecommerce & Retail Tech",
+      "source": "Economic Times - Technology",
+      "snippet": "Called World Product Graph, the initiative seeks to hoover up data on virtually every item for sale on Earth, whether Amazon stocks it or not, according to an internal document reviewed by Reuters, and to people familiar with the matter.",
+      "aiSummary": "Amazon plans to collect data on virtually every product sold worldwide through World Product Graph, including items it does not stock."
+    }
+  ],
+  "chosenStory": "Calvin Klein, Tommy Hilfiger owner to cut 4% of workforce",
+  "model": "gpt-image-2.5-sunburst",
+  "finalPrompt": "Candid documentary photograph, shot on a real camera: A fashion-house director’s private office, pale plaster wall above a travertine desk edge and lightly scuffed oak floor. Middle of frame, lower half, a small carved walnut chair with gilt details and ivory silk upholstery occupies roughly one third of the width. One front leg has its bottom section neatly sawn off; the matching offcut lies beneath the gap. An unmarked brass-backed handsaw rests on the seat. Soft window daylight, real shadows, visible sawdust and worn gilding. Plain upper wall.\n\nCRITICAL CONSTRAINTS (must be strictly avoided):\n- people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette, text, letters, numbers, signage, labels, price tags, screens, UI, dashboards, holograms, floating icons, watermarks, unrelated brand logos, cartoon, illustration, CGI, 3D render, anime, video game render, AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed, diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone, dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh, black backdrop, velvet, construction site, workshop, piles of objects, excessive clutter\n\nThis must look like a genuine photograph taken by a person for a magazine — NOT AI-generated, not CGI, not a 3D render. Natural available light with real shadows and true reflections. Real materials with real texture: dust, wear, fingerprints, slight clutter, small imperfections and natural asymmetry. Slightly imperfect, candid framing. Avoid the AI look — no waxy/plastic surfaces, no over-smoothing, no over-saturation or HDR glow, no glossy studio perfection. Fill the entire frame edge to edge — no black bars, no empty edges.\n\nFraming: the subject of the photo is small and sits in the middle of the frame from left to right and in the lower half from top to bottom, with calm, empty background in the top third and generous space on both sides. Nothing important near the left or right edges or the top of the frame.\n\nDo not include: any people or human body parts; any text, labels, signage, screens, UI, or logos; diamonds or gemstones; CGI lighting, dramatic spotlights, or blurred vignette backgrounds.",
+  "imageSize": "1536x1024",
+  "outputPath": "/weekly-images/2026-W46.png",
+  "generatedAt": "2026-11-16T15:49:06.173Z"
+}

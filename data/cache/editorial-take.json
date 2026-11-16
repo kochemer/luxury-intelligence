@@ -280,5 +280,12 @@
     "cached_at": "2026-11-09T16:03:23.753Z",
     "model": "gpt-6.1-sol",
     "version": "3.0"
+  },
+  "2026-W46:63d82bc05766": {
+    "editorialTake": "France and Botswana are drawing a clear line on diamond names as lab-grown stones win bridal sales. The countries signed the Paris Declaration on Natural Diamonds, reserving the word “diamond” for natural stones.\n\nLab-grown diamonds lead engagement sales at many jewellers, according to INSTORE’s 2026 Big Survey. Buyers use the savings to choose bigger stones within the same budget.\n\nFor bridal jewellers, the declaration gives different labels to products competing for the same spending. A switch to lab-grown stones can change what a jeweller sells without cutting what the buyer spends.",
+    "format": "connection",
+    "cached_at": "2026-11-16T15:42:52.498Z",
+    "model": "gpt-6.1-sol",
+    "version": "4.0"
   }
 }
