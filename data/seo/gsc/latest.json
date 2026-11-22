@@ -1,30 +1,30 @@
 {
   "version": 1,
-  "pulledAtISO": "2026-11-15T15:37:07.745Z",
+  "pulledAtISO": "2026-11-22T16:12:59.797Z",
   "siteUrl": "https://luxury-intel.com/",
   "windows": {
     "current": {
-      "start": "2026-10-16",
-      "end": "2026-11-12"
+      "start": "2026-10-23",
+      "end": "2026-11-19"
     },
     "previous": {
-      "start": "2026-09-18",
-      "end": "2026-10-15"
+      "start": "2026-09-25",
+      "end": "2026-10-22"
     }
   },
   "totals": {
     "current": {
-      "clicks": 8,
-      "impressions": 160,
-      "ctr": 0.05,
-      "position": 26.13125,
+      "clicks": 6,
+      "impressions": 186,
+      "ctr": 0.03225806451612903,
+      "position": 28.263440860215052,
       "days": 28
     },
     "previous": {
-      "clicks": 0,
-      "impressions": 334,
-      "ctr": 0,
-      "position": 6.131736526946108,
+      "clicks": 3,
+      "impressions": 314,
+      "ctr": 0.009554140127388535,
+      "position": 6.738853503184713,
       "days": 28
     }
   },
@@ -33,19 +33,28 @@
       "keys": [
         "https://luxury-intel.com/"
       ],
-      "clicks": 5,
-      "impressions": 50,
-      "ctr": 0.1,
-      "position": 26.66
+      "clicks": 2,
+      "impressions": 76,
+      "ctr": 0.02631578947368421,
+      "position": 21.092105263157894
     },
     {
       "keys": [
         "https://luxury-intel.com/about"
       ],
       "clicks": 1,
-      "impressions": 38,
-      "ctr": 0.02631578947368421,
-      "position": 4.184210526315789
+      "impressions": 37,
+      "ctr": 0.02702702702702703,
+      "position": 4
+    },
+    {
+      "keys": [
+        "https://luxury-intel.com/archive"
+      ],
+      "clicks": 1,
+      "impressions": 12,
+      "ctr": 0.08333333333333333,
+      "position": 3.6666666666666665
     },
     {
       "keys": [
@@ -61,18 +70,9 @@
         "https://luxury-intel.com/digest/october-2026-week-43"
       ],
       "clicks": 1,
-      "impressions": 3,
-      "ctr": 0.3333333333333333,
-      "position": 3
-    },
-    {
-      "keys": [
-        "https://luxury-intel.com/archive"
-      ],
-      "clicks": 0,
-      "impressions": 7,
-      "ctr": 0,
-      "position": 4
+      "impressions": 9,
+      "ctr": 0.1111111111111111,
+      "position": 6.333333333333333
     },
     {
       "keys": [
@@ -88,16 +88,16 @@
         "https://luxury-intel.com/digest/august-2026-week-33"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 6
+      "position": 3
     },
     {
       "keys": [
         "https://luxury-intel.com/digest/august-2026-week-35"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
       "position": 5
     },
@@ -106,9 +106,9 @@
         "https://luxury-intel.com/digest/july-2026-week-27"
       ],
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 1,
       "ctr": 0,
-      "position": 5.666666666666667
+      "position": 5
     },
     {
       "keys": [
@@ -126,7 +126,7 @@
       "clicks": 0,
       "impressions": 2,
       "ctr": 0,
-      "position": 5.5
+      "position": 9
     },
     {
       "keys": [
@@ -148,6 +148,15 @@
     },
     {
       "keys": [
+        "https://luxury-intel.com/digest/november-2026-week-46"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 5.428571428571429
+    },
+    {
+      "keys": [
         "https://luxury-intel.com/digest/october-2026-week-41"
       ],
       "clicks": 0,
@@ -160,9 +169,9 @@
         "https://luxury-intel.com/digest/october-2026-week-42"
       ],
       "clicks": 0,
-      "impressions": 18,
+      "impressions": 10,
       "ctr": 0,
-      "position": 4.444444444444445
+      "position": 4.4
     },
     {
       "keys": [
@@ -178,18 +187,27 @@
         "https://luxury-intel.com/digest/september-2026-week-37"
       ],
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 2,
       "ctr": 0,
-      "position": 9.666666666666666
+      "position": 10
+    },
+    {
+      "keys": [
+        "https://luxury-intel.com/digest/september-2026-week-38"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
     },
     {
       "keys": [
         "https://luxury-intel.com/es/about"
       ],
       "clicks": 0,
-      "impressions": 14,
+      "impressions": 2,
       "ctr": 0,
-      "position": 9.714285714285714
+      "position": 15
     },
     {
       "keys": [
@@ -205,27 +223,27 @@
         "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 35,
+      "impressions": 50,
       "ctr": 0,
-      "position": 69.17142857142858
+      "position": 66.96
     },
     {
       "keys": [
         "https://luxury-intel.com/methodology"
       ],
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 7,
       "ctr": 0,
-      "position": 4
+      "position": 5.857142857142857
     },
     {
       "keys": [
         "https://luxury-intel.com/subscribe"
       ],
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 6,
       "ctr": 0,
-      "position": 4.5
+      "position": 4.833333333333334
     },
     {
       "keys": [
@@ -242,28 +260,46 @@
       "keys": [
         "luxury intelligence"
       ],
-      "clicks": 4,
-      "impressions": 11,
-      "ctr": 0.36363636363636365,
-      "position": 2.1818181818181817
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 2.333333333333333
     },
     {
       "keys": [
-        "ai in luxury ecommerce"
+        "evaluate the home goods & furnishing retail company home depot on designer jewelry & watches"
       ],
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 58
+      "position": 2
+    },
+    {
+      "keys": [
+        "evaluate the home goods & furnishing retail company target on designer jewelry & watches"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
     },
     {
       "keys": [
         "fashion industry intelligence publications to subscribe to"
       ],
       "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "keys": [
+        "luxury brand updates"
+      ],
+      "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 79
+      "position": 60
     },
     {
       "keys": [
@@ -276,12 +312,21 @@
     },
     {
       "keys": [
+        "luxury ecommerce ai"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
         "luxury ecommerce solutions"
       ],
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 11,
       "ctr": 0,
-      "position": 75.5
+      "position": 71.9090909090909
     },
     {
       "keys": [
@@ -294,21 +339,12 @@
     },
     {
       "keys": [
-        "luxury ia"
-      ],
-      "clicks": 0,
-      "impressions": 11,
-      "ctr": 0,
-      "position": 9.545454545454545
-    },
-    {
-      "keys": [
         "luxury industry news"
       ],
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 5,
       "ctr": 0,
-      "position": 67.66666666666667
+      "position": 69.8
     },
     {
       "keys": [
@@ -333,9 +369,9 @@
         "luxury news"
       ],
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 10,
       "ctr": 0,
-      "position": 81
+      "position": 81.2
     },
     {
       "keys": [
@@ -348,12 +384,21 @@
     },
     {
       "keys": [
+        "luxury retail data solutions"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
         "luxury retail news"
       ],
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 72.2
+      "position": 69.66666666666667
     },
     {
       "keys": [
@@ -363,6 +408,87 @@
       "impressions": 1,
       "ctr": 0,
       "position": 100
+    },
+    {
+      "keys": [
+        "rank the top luxury jewellery brands by customer satisfaction pricing"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "retailers with transparent shipping policies for high-value electronics"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "which companies manufacture luxury jewelry vending machines for high-end retail locations?"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "which firms have shipped ai products for luxury retail?"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "which luxury brands deliver to p.o. box addresses?"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "which luxury brands let you track repair status online?"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "which luxury jewelry retailers are trusted for major purchases?"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "which luxury jewelry stores offer one-on-one clienteling experiences?"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "which sites make it easy to track luxury fashion prices?"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
     },
     {
       "keys": [
@@ -380,20 +506,30 @@
         "luxury intelligence",
         "https://luxury-intel.com/"
       ],
-      "clicks": 4,
-      "impressions": 11,
-      "ctr": 0.36363636363636365,
-      "position": 2.1818181818181817
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 2.333333333333333
     },
     {
       "keys": [
-        "ai in luxury ecommerce",
+        "evaluate the home goods & furnishing retail company home depot on designer jewelry & watches",
         "https://luxury-intel.com/"
       ],
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 58
+      "position": 2
+    },
+    {
+      "keys": [
+        "evaluate the home goods & furnishing retail company target on designer jewelry & watches",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
     },
     {
       "keys": [
@@ -401,9 +537,19 @@
         "https://luxury-intel.com/"
       ],
       "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "keys": [
+        "luxury brand updates",
+        "https://luxury-intel.com/markets/luxury"
+      ],
+      "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 79
+      "position": 60
     },
     {
       "keys": [
@@ -417,13 +563,23 @@
     },
     {
       "keys": [
+        "luxury ecommerce ai",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
         "luxury ecommerce solutions",
         "https://luxury-intel.com/"
       ],
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 11,
       "ctr": 0,
-      "position": 75.5
+      "position": 71.9090909090909
     },
     {
       "keys": [
@@ -437,23 +593,13 @@
     },
     {
       "keys": [
-        "luxury ia",
-        "https://luxury-intel.com/es/about"
-      ],
-      "clicks": 0,
-      "impressions": 11,
-      "ctr": 0,
-      "position": 9.545454545454545
-    },
-    {
-      "keys": [
         "luxury industry news",
         "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 5,
       "ctr": 0,
-      "position": 67.66666666666667
+      "position": 69.8
     },
     {
       "keys": [
@@ -471,9 +617,9 @@
         "https://luxury-intel.com/about"
       ],
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 6,
       "ctr": 0,
-      "position": 5.7272727272727275
+      "position": 6.666666666666667
     },
     {
       "keys": [
@@ -491,9 +637,9 @@
         "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 10,
       "ctr": 0,
-      "position": 81
+      "position": 81.2
     },
     {
       "keys": [
@@ -507,13 +653,23 @@
     },
     {
       "keys": [
+        "luxury retail data solutions",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
         "luxury retail news",
         "https://luxury-intel.com/markets/luxury"
       ],
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 72.2
+      "position": 69.66666666666667
     },
     {
       "keys": [
@@ -524,6 +680,96 @@
       "impressions": 1,
       "ctr": 0,
       "position": 100
+    },
+    {
+      "keys": [
+        "rank the top luxury jewellery brands by customer satisfaction pricing",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "retailers with transparent shipping policies for high-value electronics",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "which companies manufacture luxury jewelry vending machines for high-end retail locations?",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "which firms have shipped ai products for luxury retail?",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "which luxury brands deliver to p.o. box addresses?",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "which luxury brands let you track repair status online?",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "which luxury jewelry retailers are trusted for major purchases?",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "which luxury jewelry stores offer one-on-one clienteling experiences?",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "which sites make it easy to track luxury fashion prices?",
+        "https://luxury-intel.com/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
     },
     {
       "keys": [
