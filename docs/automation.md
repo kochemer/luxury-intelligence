@@ -39,10 +39,16 @@ Before running the workflow, verify environment variables are configured:
 npm run digest:preflight
 ```
 
-This checks that required secrets are present. It will:
-- ✅ Exit 0 if all required vars are set
+This checks that required secrets are present and that the OpenAI account can
+actually serve a request (one tiny `classify`-model call). It will:
+- ✅ Exit 0 if all required vars are set and the probe passes
 - ❌ Exit 1 with clear error if any required vars are missing
+- ❌ Exit 1 if OpenAI returns 401 (bad key) or 429 for quota/credits. Added after
+  the 2026-W47 run (23 Nov 2026) failed 27 minutes in on "no credits remaining".
+- ⚠️  Warn but pass if the probe is inconclusive (network, 5xx, rate limit)
 - ⚠️  Show warnings for optional but recommended vars
+
+`PREFLIGHT_SKIP_LLM_PROBE=1` skips the probe (offline use).
 
 ### 3. Trigger Workflow Manually
 
@@ -232,7 +238,7 @@ Edit the cron expression in `.github/workflows/weekly-digest.yml`:
 1. **Checks out repository** (full history for git operations)
 2. **Sets up Node.js** (checks `.nvmrc`, `package.json` engines, or defaults to Node 20)
 3. **Installs dependencies** (`npm ci`)
-4. **Runs preflight check** (validates required environment variables)
+4. **Runs preflight check** (validates required environment variables and probes OpenAI billing, so a dead account fails in seconds)
 5. **Builds weekly digest** (`npm run digest:weekly -- --skipMarkets`; Markets pages are built by the last job, see Job Order)
 6. **Prepares email recipients file** (from `EMAIL_RECIPIENTS_JSON` secret)
 7. **Sends weekly email digest** (dry-run unless `EMAIL_SEND_ENABLED=true`)
