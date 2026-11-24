@@ -1,0 +1,39 @@
+{
+  "weekLabel": "2026-W47",
+  "homepageTopArticles": [
+    {
+      "title": "Gucci reportedly cuts prices as turnaround pressure builds",
+      "topic": "Luxury & Consumer",
+      "source": "The Industry.fashion",
+      "snippet": "The Kering-owned house has reportedly repriced selected handbags, sneakers and ready-to-wear since the summer, while adding cheaper new bags, as Gucci's sales decline deepened in the third quarter.",
+      "aiSummary": "Gucci cut prices on selected products and added cheaper bags as its sales decline deepened in the third quarter."
+    },
+    {
+      "title": "Warm weather thwarts Old Navy recovery, as Gap continues to shine",
+      "topic": "Luxury & Consumer",
+      "source": "Retail Dive",
+      "snippet": "As the Gap Inc.’s value brand falters, its namesake has risen from a years-long slump to notch its 12th straight quarter of comparable sales growth.",
+      "aiSummary": "Gap’s sales at established stores grew for the 12th straight quarter as warm weather hampered Old Navy’s recovery."
+    },
+    {
+      "title": "Richemont jewellery sales spike amid diamond takeover speculation",
+      "topic": "Jewellery Industry",
+      "source": "Jeweller - Business News",
+      "snippet": "Swiss luxury industry juggernaut Richemont reported strong sales across its jewellery brands in the first half of the financial year.",
+      "aiSummary": "Richemont reported strong sales across its jewellery brands in the first half of its financial year."
+    },
+    {
+      "title": "Visa, Mastercard urge approval of $38 billion swipe fee settlement ",
+      "topic": "Ecommerce & Retail Tech",
+      "source": "Economic Times - Technology",
+      "snippet": "* Judge declines to rule immediately, sees 'protracted process' if he rejects settlement * Accord would end 'Honor All Cards' rule, cap fees on standard consumer cards * Opponents say fees remain too",
+      "aiSummary": "Visa and Mastercard urged approval for a $38 billion swipe fee settlement that would cap fees on standard consumer cards."
+    }
+  ],
+  "chosenStory": "Gucci reportedly cuts prices as turnaround pressure builds",
+  "model": "gpt-image-2.5-sunburst",
+  "finalPrompt": "Candid documentary photograph, shot on a real camera: A luxury accessories atelier with a pale plaster wall and worn pale oak worktable in natural window light. In the middle of the frame, lower half, a single brown-paper lunch sack has been made into a handbag with a substantial gold chain handle and polished gold turn-lock through its folded flap. Its paper is visibly creased and slightly torn around the fittings. It occupies a quarter of the image width. Nearby lie closed tailoring shears and one leather offcut.\n\nCRITICAL CONSTRAINTS (must be strictly avoided):\n- people, person, human, man, woman, child, crowd, hands, fingers, face, faces, body, silhouette, text, letters, numbers, signage, labels, price tags, screens, UI, dashboards, holograms, floating icons, watermarks, unrelated brand logos, cartoon, illustration, CGI, 3D render, anime, video game render, AI look, plastic, waxy skin, over-smooth, over-saturated, HDR glow, glossy studio, perfectly symmetrical, airbrushed, diamond, diamonds, gemstone, gemstones, precious stones, jewelry close-up, jewelry product shot, diamond ring, diamond necklace, diamond earring, jeweled, sparkling gemstone, dramatic spotlight, glowing edges, rim lighting, vignette, cinematic color grade, blurred background, bokeh, cardboard boxes, parcels, shipping materials, warehouse, supermarket, delivery vehicle, black backdrop, velvet, piles of bags, excessive clutter\n\nThis must look like a genuine photograph taken by a person for a magazine — NOT AI-generated, not CGI, not a 3D render. Natural available light with real shadows and true reflections. Real materials with real texture: dust, wear, fingerprints, slight clutter, small imperfections and natural asymmetry. Slightly imperfect, candid framing. Avoid the AI look — no waxy/plastic surfaces, no over-smoothing, no over-saturation or HDR glow, no glossy studio perfection. Fill the entire frame edge to edge — no black bars, no empty edges.\n\nFraming: the subject of the photo is small and sits in the middle of the frame from left to right and in the lower half from top to bottom, with calm, empty background in the top third and generous space on both sides. Nothing important near the left or right edges or the top of the frame.\n\nDo not include: any people or human body parts; any text, labels, signage, screens, UI, or logos; diamonds or gemstones; CGI lighting, dramatic spotlights, or blurred vignette backgrounds.",
+  "imageSize": "1536x1024",
+  "outputPath": "/weekly-images/2026-W47.png",
+  "generatedAt": "2026-11-24T21:19:32.478Z"
+}

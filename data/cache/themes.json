@@ -1198,5 +1198,24 @@
     "cached_at": "2026-11-16T15:41:52.252Z",
     "model": "gpt-6-luna",
     "version": "3.2"
+  },
+  "2026-W47:6cb254564006": {
+    "keyThemes": [
+      "Anthropic record IPO",
+      "ChatGPT Wallet",
+      "Gucci price cuts",
+      "Richemont jewellery sales",
+      "Swiss watch export growth"
+    ],
+    "oneSentenceSummary": "Richemont's jewellery sales prove shoppers still spend on luxury. Brands blaming weak demand need a better excuse.",
+    "summaryCandidates": [
+      "ChatGPT Wallet will make jewellers fight for a chatbot's pick before a shopper ever sees the ring.",
+      "Anthropic raises $81 billion while OpenAI cuts prices. Investors are paying more for an industry charging less.",
+      "Richemont's jewellery sales prove shoppers still spend on luxury. Brands blaming weak demand need a better excuse.",
+      "Gucci and OpenAI are making lower prices look normal. That puts every luxury brand's next price rise under pressure."
+    ],
+    "cached_at": "2026-11-24T21:12:33.768Z",
+    "model": "gpt-6-luna",
+    "version": "3.2"
   }
 }

@@ -287,5 +287,12 @@
     "cached_at": "2026-11-16T15:42:52.498Z",
     "model": "gpt-6.1-sol",
     "version": "4.0"
+  },
+  "2026-W47:6cb254564006": {
+    "editorialTake": "Swiss watch exports rose 9.1% in October, their fifth consecutive month of growth. Watches and jewellery showed strength while Gucci's sales decline deepened.\n\nGucci cut prices on selected products and added cheaper bags as its turnaround faced pressure. Those changes followed a worsening sales decline in the third quarter.\n\nFor jewellery businesses, Gucci's performance offers a limited guide to demand for their own products. Watch exports measure shipments, rather than purchases by shoppers, but jewellery sales provide separate evidence of spending. Richemont reported strong first-half sales across its jewellery brands.",
+    "format": "number",
+    "cached_at": "2026-11-24T21:13:41.138Z",
+    "model": "gpt-6.1-sol",
+    "version": "4.0"
   }
 }

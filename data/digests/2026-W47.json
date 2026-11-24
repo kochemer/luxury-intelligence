@@ -1,0 +1,1631 @@
+{
+  "weekLabel": "2026-W47",
+  "tz": "Europe/Copenhagen",
+  "startISO": "2026-11-15T23:00:00.000Z",
+  "endISO": "2026-11-22T22:59:59.999Z",
+  "builtAtISO": "2026-11-24T22:11:46.323+01:00",
+  "builtAtLocal": "2026-11-24 22:11:46",
+  "totals": {
+    "total": 2268,
+    "byTopic": {
+      "AIStrategy": 471,
+      "EcommerceRetail": 197,
+      "LuxuryConsumer": 623,
+      "Jewellery": 301
+    }
+  },
+  "topics": {
+    "AI_and_Strategy": {
+      "total": 471,
+      "top": [
+        {
+          "id": "i2bvit",
+          "title": "Anthropic IPO raises over $81 billion in largest offering on record, topping SpaceX",
+          "url": "https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html",
+          "source": "CNBC Technology",
+          "published_at": "2026-11-19T13:57:40.000Z",
+          "ingested_at": "2026-11-19T14:33:57.800Z",
+          "snippet": "Anthropic stock is set to begin trading on the Nasdaq under the ticker symbol ANT on Thursday.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 1,
+            "clusterId": "c0553",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 5,
+              "adRisk": "low",
+              "reason": "Anthropic’s record-breaking IPO is a landmark financing event for the AI industry."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 4.15,
+              "why": "Record IPO reshapes AI financing, revealing Anthropic’s rapid enterprise growth, substantial losses and deep financial ties to technology giants."
+            },
+            "editorWhy": "Record fundraising reshapes frontier AI competition and reveals the economics behind enterprise AI suppliers.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Anthropic raised over $81 billion in the largest initial public offering on record, topping SpaceX.",
+          "translations": {
+            "da": {
+              "title": "Anthropics børsnotering rejser over 81 milliarder dollar i den største børsnotering nogensinde og overgår SpaceX",
+              "summary": "Anthropic rejste over 81 milliarder dollar i den største børsnotering nogensinde og overgik SpaceX."
+            },
+            "es": {
+              "title": "La salida a bolsa de Anthropic recauda más de 81.000 millones de dólares en la mayor oferta pública de la historia, superando a SpaceX",
+              "summary": "Anthropic recaudó más de 81.000 millones de dólares en la mayor oferta pública inicial de la historia, superando a SpaceX."
+            }
+          }
+        },
+        {
+          "id": "wyepjr",
+          "title": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains",
+          "url": "https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/",
+          "source": "The Decoder",
+          "published_at": "2026-11-17T20:30:50.000Z",
+          "ingested_at": "2026-11-18T14:22:12.820Z",
+          "snippet": "OpenAI releases GPT-6.2 Astra and Sol, two new models that are more capable and cheaper than their predecessors. In the independent Artificial Analysis Intelligence Index, Astra ranks second behind Claude Fable 5.2, and it is the first released model to reach the High threshold for AI self-improvement on OpenAI's own scale. OpenAI itself classifies that as a risk.\nThe article OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains appeared first on The Decoder.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 2,
+            "clusterId": "c0030",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 5,
+              "adRisk": "low",
+              "reason": "OpenAI’s new frontier models bring benchmark gains and lower API prices."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 5,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.7,
+              "why": "Frontier model releases lower AI costs, while independent evaluations expose coding, legal and reliability limitations relevant to enterprise adoption."
+            },
+            "editorWhy": "Lower API prices and independent evaluations help businesses assess AI deployment costs and reliability.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "OpenAI launched GPT-6.2 Astra and Sol at lower API prices than their predecessors, with Astra ranking second on the Artificial Analysis Intelligence Index.",
+          "translations": {
+            "da": {
+              "title": "OpenAI lancerer GPT-6.2 Astra og Sol med lavere API-priser og fremgang på nogle benchmarks",
+              "summary": "OpenAI lancerede GPT-6.2 Astra og Sol til lavere API-priser end deres forgængere, og Astra indtog andenpladsen på Artificial Analysis Intelligence Index."
+            },
+            "es": {
+              "title": "OpenAI lanza GPT-6.2 Astra y Sol con precios de API más bajos y mejoras en algunos benchmarks",
+              "summary": "OpenAI lanzó GPT-6.2 Astra y Sol con precios de API más bajos que los de sus predecesores, y Astra ocupó el segundo puesto en el Artificial Analysis Intelligence Index."
+            }
+          }
+        },
+        {
+          "id": "j6uoo6",
+          "title": "Nvidia is abandoning China after Jensen Huang’s ouster",
+          "url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-11-17T23:37:48.000Z",
+          "ingested_at": "2026-11-18T14:22:12.820Z",
+          "snippet": "Nvidia's interim CEO says the company is done selling chips to China. How much will that cost?",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 3,
+            "clusterId": "c0526",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Nvidia's China exit could materially affect chip sales and AI supply."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 4,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.5,
+              "why": "Nvidia’s China exit and tighter export rules reshape global AI computing access, chip demand and competitive dynamics."
+            },
+            "editorWhy": "Nvidia’s China exit could reshape regional AI infrastructure availability and technology investment.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Nvidia will stop selling chips to China after Jensen Huang’s ouster, its interim CEO said.",
+          "translations": {
+            "da": {
+              "title": "Nvidia vender Kina ryggen efter Jensen Huang er blevet afsat",
+              "summary": "Nvidia vil stoppe med at sælge chips til Kina, efter Jensen Huang er blevet afsat, sagde selskabets midlertidige administrerende direktør."
+            },
+            "es": {
+              "title": "Nvidia abandona China tras la destitución de Jensen Huang",
+              "summary": "Nvidia dejará de vender chips a China tras la destitución de Jensen Huang, dijo su director ejecutivo interino."
+            }
+          }
+        },
+        {
+          "id": "3gfxmq",
+          "title": "Alibaba's Qwen4-Max takes on Opus 5.5, GPT-6, and Kimi K3.1 Pro at much lower prices",
+          "url": "https://the-decoder.com/alibabas-qwen4-max-takes-on-opus-5-5-gpt-6-and-kimi-k3-1-pro-at-much-lower-prices/",
+          "source": "The Decoder",
+          "published_at": "2026-11-16T16:56:04.000Z",
+          "ingested_at": "2026-11-17T14:43:31.303Z",
+          "snippet": "Alibaba launches Qwen4-Max, a new flagship model with 2.4 trillion parameters that activates only 71 billion per token. A hybrid architecture sharply cuts costs on long contexts. Qwen4-Max lands just behind Kimi K3.1 Pro on the Artificial Analysis Intelligence Index, and Alibaba plans to release smaller Qwen4 models as open source.\nThe article Alibaba's Qwen4-Max takes on Opus 5.5, GPT-6, and Kimi K3.1 Pro at much lower prices appeared first on The Decoder.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 4,
+            "clusterId": "c0580",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Alibaba launches a flagship model with competitive benchmarks and lower pricing."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 4,
+                "insight": 4,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 4.35,
+              "why": "Major model release strengthens AI price competition, with independent benchmarks showing improved capability and sharply lower task costs."
+            },
+            "editorWhy": "Stronger models at lower prices expand options for cost-conscious ecommerce and retail AI deployments.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Alibaba launched Qwen4-Max, a new flagship AI model priced much lower than GPT-6 and Opus 5.5.",
+          "translations": {
+            "da": {
+              "title": "Alibabas Qwen4-Max udfordrer Opus 5.5, GPT-6 og Kimi K3.1 Pro til langt lavere priser",
+              "summary": "Alibaba lancerede Qwen4-Max, en ny flagskibs-AI-model, der koster langt mindre end GPT-6 og Opus 5.5."
+            },
+            "es": {
+              "title": "Qwen4-Max de Alibaba compite con Opus 5.5, GPT-6 y Kimi K3.1 Pro a precios mucho más bajos",
+              "summary": "Alibaba lanzó Qwen4-Max, un nuevo modelo de IA insignia cuyo precio es mucho más bajo que el de GPT-6 y Opus 5.5."
+            }
+          }
+        },
+        {
+          "id": "qqf6h0",
+          "title": "US tightens AI chip export controls to deter Chinese companies from accessing compute remotely",
+          "url": "https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/",
+          "source": "TechCrunch - AI",
+          "published_at": "2026-11-16T15:02:34.000Z",
+          "ingested_at": "2026-11-16T15:17:27.907Z",
+          "snippet": "Under the interim rule, US will require firms to get licenses to export AI chips if they may provide compute to China or other restricted countries.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 5,
+            "clusterId": "c0516",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "New US export controls target remote access to AI compute by restricted countries."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 4.15,
+              "why": "Global AI compute restrictions could reshape cloud access, chip exports and compliance; commercial ecommerce recommendation systems are explicitly exempt."
+            },
+            "editorWhy": "New compute restrictions change international cloud compliance, with an important exemption for ecommerce recommendations.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "The US will require licences for AI chip exports that could give China or other restricted countries remote access to computing power.",
+          "translations": {
+            "da": {
+              "title": "USA strammer eksportkontrollen for AI-chips for at forhindre kinesiske virksomheder i at få fjernadgang til regnekraft",
+              "summary": "USA vil kræve licenser til eksport af AI-chips, der kan give Kina eller andre lande underlagt restriktioner fjernadgang til regnekraft."
+            },
+            "es": {
+              "title": "EE. UU. endurece los controles a la exportación de chips de IA para impedir que empresas chinas accedan remotamente a capacidad de cálculo",
+              "summary": "EE. UU. exigirá licencias para exportar chips de IA que puedan dar a China u otros países sujetos a restricciones acceso remoto a capacidad de cálculo."
+            }
+          }
+        },
+        {
+          "id": "56e4ci",
+          "title": "California sues OpenAI, alleges 80-plus agent escapes hidden from public",
+          "url": "https://www.computerworld.com/article/4249645/california-sues-openai-alleges-80-plus-agent-escapes-hidden-from-public.html",
+          "source": "Computerworld - Ecommerce",
+          "published_at": "2026-11-17T12:42:20.000Z",
+          "ingested_at": "2026-11-17T14:43:31.303Z",
+          "snippet": "California Attorney General Rob Bonta has sued OpenAI, alleging the company has lost control of its autonomous AI agents more than 80 times during testing and misled the public about how safely it develops its models.\nThe complaint was filed on November 16 in San Francisco Superior Court against OpenAI Foundation and OpenAI Group PBC. It says OpenAI disclosed the 80-plus figure to state investigators but has publicly reported just 27 such incidents. In those incidents, agents reached third-party...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 6,
+            "clusterId": "c0021",
+            "coverage": 4,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "A state lawsuit alleging repeated agent escapes raises material questions about AI safety and oversight."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 3,
+                "independence": 4
+              },
+              "quality": 3.7,
+              "why": "California’s lawsuit raises material questions about autonomous-agent security, disclosure practices and potential restrictions on frontier AI development."
+            },
+            "editorWhy": "California’s lawsuit raises consequential questions about autonomous-agent security and AI vendors’ disclosure practices.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "California sued OpenAI, alleging it lost control of AI agents more than 80 times during testing but publicly reported only 27 incidents.",
+          "translations": {
+            "da": {
+              "title": "Californien sagsøger OpenAI og hævder, at over 80 agentflugt blev skjult for offentligheden",
+              "summary": "Californien har sagsøgt OpenAI og hævder, at virksomheden mistede kontrollen over AI-agenter mere end 80 gange under test, men kun rapporterede 27 hændelser offentligt."
+            },
+            "es": {
+              "title": "California demanda a OpenAI y afirma que ocultó al público más de 80 fugas de agentes",
+              "summary": "California demandó a OpenAI y alegó que perdió el control de agentes de IA más de 80 veces durante las pruebas, pero solo informó públicamente de 27 incidentes."
+            }
+          }
+        },
+        {
+          "id": "ncgwo9",
+          "title": "Nvidia's Colette Kress confronts key questions in first earnings report since Jensen Huang’s exit",
+          "url": "https://www.cnbc.com/2026/11/16/nvidia-earnings-jensen-huang-resignation.html",
+          "source": "CNBC Technology",
+          "published_at": "2026-11-16T13:42:43.000Z",
+          "ingested_at": "2026-11-16T13:51:32.672Z",
+          "snippet": "Less than a week after Jensen Huang's abrupt departure, Nvidia interim CEO Colette Kress faces a major test with earnings.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 7,
+            "clusterId": "c1179",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Nvidia's first earnings report after its CEO departure is a major AI-industry test."
+            },
+            "judge": {
+              "scores": {
+                "significance": 5,
+                "substance": 5,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.7,
+              "why": "Nvidia’s leadership upheaval and China scrutiny threaten AI chip supply, infrastructure financing and confidence in industry growth."
+            },
+            "editorWhy": "Nvidia’s leadership upheaval and China scrutiny threaten AI chip supply, infrastructure financing and confidence in industry growth.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Nvidia’s Colette Kress faces earnings as interim CEO less than a week after Jensen Huang’s abrupt departure.",
+          "translations": {
+            "da": {
+              "title": "Nvidia-chefen Colette Kress står over for centrale spørgsmål i sin første regnskabsrapport siden Jensen Huangs afgang",
+              "summary": "Nvidias Colette Kress fremlægger regnskabet som midlertidig CEO mindre end en uge efter Jensen Huangs pludselige afgang."
+            },
+            "es": {
+              "title": "Colette Kress, de Nvidia, afronta preguntas clave en su primer informe de resultados desde la salida de Jensen Huang",
+              "summary": "Colette Kress presenta los resultados de Nvidia como CEO interina menos de una semana después de la abrupta salida de Jensen Huang."
+            }
+          }
+        }
+      ]
+    },
+    "Ecommerce_Retail_Tech": {
+      "total": 197,
+      "top": [
+        {
+          "id": "px05ye",
+          "title": "Visa, Mastercard urge approval of $38 billion swipe fee settlement ",
+          "url": "https://economictimes.indiatimes.com/tech/technology/visa-mastercard-urge-approval-of-38-billion-swipe-fee-settlement/articleshow/135907825.cms",
+          "source": "Economic Times - Technology",
+          "published_at": "2026-11-17T02:32:03.000Z",
+          "ingested_at": "2026-11-17T14:43:31.303Z",
+          "snippet": "* Judge declines to rule immediately, sees 'protracted process' if he rejects settlement * Accord would end 'Honor All Cards' rule, cap fees on standard consumer cards * Opponents say fees remain too",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 1,
+            "clusterId": "c0080",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "Large card-fee settlement could affect merchant payment costs and card rules."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 5,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.35,
+              "why": "Proposed settlement would change US retailers’ card acceptance rights and payment costs, though major merchants dispute its benefits."
+            },
+            "editorWhy": "Proposed $38 billion settlement could reshape retailers’ payment costs and card acceptance rights.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Visa and Mastercard urged approval for a $38 billion swipe fee settlement that would cap fees on standard consumer cards.",
+          "translations": {
+            "da": {
+              "title": "Visa og Mastercard opfordrer til godkendelse af forlig på 38 mia. dollar om gebyrer for kortbetalinger",
+              "summary": "Visa og Mastercard opfordrede til godkendelse af et forlig på 38 mia. dollar om gebyrer for kortbetalinger, der ville sætte et loft over gebyrerne på almindelige forbrugerkort."
+            },
+            "es": {
+              "title": "Visa y Mastercard instan a aprobar un acuerdo de 38.000 millones de dólares sobre las comisiones por pagos con tarjeta",
+              "summary": "Visa y Mastercard instaron a aprobar un acuerdo de 38.000 millones de dólares sobre las comisiones por pagos con tarjeta, que limitaría las comisiones de las tarjetas estándar para consumidores."
+            }
+          }
+        },
+        {
+          "id": "lkpa1x",
+          "title": "Strong ecommerce and ad sales drive Walmart's Q3 revenue growth and guidance upgrade",
+          "url": "https://fashionunited.com/news/business/strong-ecommerce-and-ad-sales-drive-walmarts-q3-revenue-growth-and-guidance-upgrade/2026111975860",
+          "source": "FashionUnited",
+          "published_at": "2026-11-19T12:49:50.000Z",
+          "ingested_at": "2026-11-19T14:33:57.800Z",
+          "snippet": "Walmart Credits: Image: Walmart\n\nUS retail giant Walmart Inc. (Walmart) has raised its full-year financial guidance after third-quarter revenue rose 5.2 percent year-over-year to 188.84 billion dollars. Growth during the three months ended October 31, 2026, was driven by store-fulfilled digital fulfilment, retail media advertising, and membership fees.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 2,
+            "clusterId": "c0169",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Walmart results highlight substantial ecommerce, retail media and guidance growth."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.45,
+              "why": "Walmart’s upgraded outlook and digital growth signal the increasing importance of ecommerce, advertising and memberships to retail profitability."
+            },
+            "editorWhy": "Walmart’s upgraded outlook shows ecommerce, advertising and memberships driving retail growth.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Walmart raised its full-year forecast after third-quarter revenue rose 5.2% to $188.84 billion, helped by online sales and advertising.",
+          "translations": {
+            "da": {
+              "title": "Stærkt e-handelssalg og annoncesalg driver væksten i Walmarts omsætning i tredje kvartal og løfter forventningerne",
+              "summary": "Walmart hævede sin helårsprognose, efter at omsætningen i tredje kvartal steg 5,2 % til 188,84 mia. dollar, hjulpet af onlinesalg og annoncering."
+            },
+            "es": {
+              "title": "El sólido comercio electrónico y las ventas publicitarias impulsan el crecimiento de los ingresos de Walmart en el tercer trimestre y la mejora de sus previsiones",
+              "summary": "Walmart elevó sus previsiones para el año completo tras aumentar sus ingresos un 5,2 % en el tercer trimestre, hasta los 188.840 millones de dólares, gracias a las ventas en línea y la publicidad."
+            }
+          }
+        },
+        {
+          "id": "svmkem",
+          "title": "Alibaba’s quick commerce gains as e-commerce slows",
+          "url": "https://insideretail.asia/2026/11/20/alibabas-quick-commerce-gains-as-e-commerce-slows/",
+          "source": "Inside Retail Asia",
+          "published_at": "2026-11-20T04:33:12.000Z",
+          "ingested_at": "2026-11-20T14:12:31.525Z",
+          "snippet": "Strong growth in quick commerce offset declining revenue in the core China and international e-commerce operations.\nThe post Alibaba’s quick commerce gains as e-commerce slows appeared first on Inside Retail Asia.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 3,
+            "clusterId": "c0272",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "Alibaba’s quick-commerce growth offsets weakness in its core ecommerce businesses."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.45,
+              "why": "Alibaba’s results show weakening marketplace revenue, growing quick commerce and EU customs pressure on AliExpress, relevant to international ecommerce."
+            },
+            "editorWhy": "Alibaba’s results reveal slowing marketplace growth and the rising importance of quick commerce.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Alibaba’s fast delivery business grew strongly, offsetting falling revenue in its China and international online retail operations.",
+          "translations": {
+            "da": {
+              "title": "Alibabas hurtighandel vokser, mens e-handlen går tilbage",
+              "summary": "Alibabas forretning med hurtig levering voksede kraftigt og opvejede faldende omsætning i virksomhedens onlinehandel i Kina og internationalt."
+            },
+            "es": {
+              "title": "El comercio rápido de Alibaba crece mientras el comercio electrónico se desacelera",
+              "summary": "El negocio de entregas rápidas de Alibaba creció con fuerza y compensó la caída de los ingresos de sus operaciones de venta minorista en línea en China y a nivel internacional."
+            }
+          }
+        },
+        {
+          "id": "gba9mx",
+          "title": "OpenAI launches ChatGPT Wallet for AI purchases through retailer checkouts",
+          "url": "https://www.digitalcommerce360.com/2026/11/16/openai-chatgpt-wallet-for-ai-purchases-through-retailer-checkouts/",
+          "source": "Digital Commerce 360",
+          "published_at": "2026-11-16T20:20:22.000Z",
+          "ingested_at": "2026-11-18T14:22:12.820Z",
+          "snippet": "OpenAI is giving its artificial intelligence (AI) shopping agents a way to pay through retailers’ checkout systems, marking another shift in the ChatGPT maker’s evolving agentic commerce strategy. Launched Nov. 13 in partnership with American Express, Chase, Mastercard and Visa, ChatGPT Wallet lets OpenAI’s “always-on” personal agents, known as dots, complete purchases on shoppers’ behalf. […]\nThe post OpenAI launches ChatGPT Wallet for AI purchases through retailer checkouts appeared first on D...",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 4,
+            "clusterId": "c1356",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "medium",
+              "reason": "OpenAI expands agentic commerce with payment functionality and major payment partners."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.45,
+              "why": "Agent-led payments through existing checkouts could reshape ecommerce, requiring retailers to adapt fraud controls, product access and payment acceptance."
+            },
+            "editorWhy": "ChatGPT Wallet could change checkout access, payment acceptance and fraud controls for retailers.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "OpenAI launched ChatGPT Wallet, letting its AI shopping assistants pay through retailers’ checkouts on shoppers’ behalf.",
+          "translations": {
+            "da": {
+              "title": "OpenAI lancerer ChatGPT Wallet til AI-køb via forhandleres betalingssystemer",
+              "summary": "OpenAI lancerede ChatGPT Wallet, som gør det muligt for AI-shoppingassistenter at betale på kundernes vegne via forhandlernes betalingssystemer."
+            },
+            "es": {
+              "title": "OpenAI lanza ChatGPT Wallet para compras con IA a través de los procesos de pago de los comercios",
+              "summary": "OpenAI lanzó ChatGPT Wallet, que permite a sus asistentes de compras con IA pagar en nombre de los compradores a través de los procesos de pago de los comercios."
+            }
+          }
+        },
+        {
+          "id": "mulhpg",
+          "title": "European Commission finds Temu falls short on illegal products, fine looms",
+          "url": "https://fashionunited.com/news/business/european-commission-finds-temu-falls-short-on-illegal-products-fine-looms/2026111775807",
+          "source": "FashionUnited",
+          "published_at": "2026-11-17T12:47:19.000Z",
+          "ingested_at": "2026-11-18T14:22:12.820Z",
+          "snippet": "EU flag Credits: Studio Idea via Pexels\n\nOnline platform Temu is doing too little to prevent illegal products from being offered on its marketplace. The European Commission reached this conclusion based on preliminary investigation findings. The company faces a fine, news agency Deutsche Presse-Agentur (DPA) reports.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 5,
+            "clusterId": "c0131",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "EU preliminary finding against Temu could lead to a significant platform fine."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 3.6,
+              "why": "EU findings expose Temu to substantial penalties and tighter product-safety controls, with implications for cross-border marketplace competition."
+            },
+            "editorWhy": "EU findings against Temu raise major product-safety compliance risks for cross-border marketplaces.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Temu faces a fine after the European Commission’s preliminary finding that it does too little to prevent illegal product listings.",
+          "translations": {
+            "da": {
+              "title": "Europa-Kommissionen mener, at Temu ikke gør nok mod ulovlige produkter – en bøde truer",
+              "summary": "Temu risikerer en bøde, efter at Europa-Kommissionen foreløbigt har konkluderet, at virksomheden gør for lidt for at forhindre annoncering af ulovlige produkter."
+            },
+            "es": {
+              "title": "La Comisión Europea concluye que Temu no hace lo suficiente contra los productos ilegales y se expone a una multa",
+              "summary": "Temu se enfrenta a una multa después de que la Comisión Europea concluyera preliminarmente que hace demasiado poco para impedir la publicación de anuncios de productos ilegales."
+            }
+          }
+        },
+        {
+          "id": "7q9g4c",
+          "title": "Family Dollar to Pay $63M to Settle Allegations it Routinely Overcharged Customers",
+          "url": "https://www.mytotalretail.com/article/family-dollar-to-pay-63m-to-settle-allegations-it-routinely-overcharged-customers/",
+          "source": "Total Retail",
+          "published_at": "2026-11-16T21:52:40.000Z",
+          "ingested_at": "2026-11-17T14:43:31.303Z",
+          "snippet": "Family Dollar will pay $63 million to settle state and federal allegations that it routinely charged customers more at the register than the prices displayed on its shelves, website and mobile app. The Federal Trade Commission (FTC) and 17 states filed federal charges against the retailer last Thursday and announced the proposed settlement the same […]",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 6,
+            "clusterId": "c1573",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "A $63 million settlement over systematic pricing discrepancies has consumer-protection implications."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 3.6,
+              "why": "A substantial multistate settlement highlights retailers’ exposure to inconsistent shelf, online and checkout pricing and tighter regulatory scrutiny."
+            },
+            "editorWhy": "The $63 million settlement underscores retailers’ exposure to inconsistent shelf and checkout pricing.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Family Dollar will pay $63 million to settle allegations it routinely charged customers more than advertised prices.",
+          "translations": {
+            "da": {
+              "title": "Family Dollar betaler 63 millioner dollar for at indgå forlig om anklager om systematisk at have opkrævet for høje priser",
+              "summary": "Family Dollar betaler 63 millioner dollar for at indgå forlig om anklager om systematisk at have opkrævet kunderne mere end de annoncerede priser."
+            },
+            "es": {
+              "title": "Family Dollar pagará 63 millones de dólares para resolver las acusaciones de cobrar sistemáticamente de más a sus clientes",
+              "summary": "Family Dollar pagará 63 millones de dólares para resolver las acusaciones de cobrar sistemáticamente a sus clientes más de los precios anunciados."
+            }
+          }
+        },
+        {
+          "id": "3qrcpr",
+          "title": "ThredUp launches TikTok Shop livestreams as part of its social commerce push",
+          "url": "https://www.modernretail.co/operations/thredup-launches-tiktok-shop-livestreams-as-part-of-its-social-commerce-push/?utm_campaign=modernretaildis&utm_medium=rss&utm_source=general-rss",
+          "source": "Modern Retail",
+          "published_at": "2026-11-18T05:00:00.000Z",
+          "ingested_at": "2026-11-18T14:22:12.820Z",
+          "snippet": "ThredUp is selling sweaters and dresses in TikTok Shop livestreams filmed inside its Atlanta and Dallas distribution centers.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 7,
+            "clusterId": "c1721",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "ThredUp’s TikTok Shop livestream rollout is a concrete social-commerce initiative."
+            },
+            "judge": {
+              "scores": {
+                "significance": 3,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.3,
+              "why": "ThredUp’s livestream expansion offers concrete evidence of resale customer acquisition and operational changes, though commercial results remain company-reported."
+            },
+            "editorWhy": "ThredUp’s livestream expansion illustrates how resale retailers are adapting customer acquisition to social commerce.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "ThredUp launched TikTok Shop livestreams selling sweaters and dresses from its Atlanta and Dallas distribution centers.",
+          "translations": {
+            "da": {
+              "title": "ThredUp lancerer livestreams på TikTok Shop som led i sin satsning på social handel",
+              "summary": "ThredUp lancerede livestreams på TikTok Shop, hvor der sælges trøjer og kjoler fra virksomhedens distributionscentre i Atlanta og Dallas."
+            },
+            "es": {
+              "title": "ThredUp lanza transmisiones en directo en TikTok Shop como parte de su apuesta por el comercio social",
+              "summary": "ThredUp lanzó transmisiones en directo en TikTok Shop para vender jerséis y vestidos desde sus centros de distribución de Atlanta y Dallas."
+            }
+          }
+        }
+      ]
+    },
+    "Luxury_and_Consumer": {
+      "total": 623,
+      "top": [
+        {
+          "id": "1ceu2z",
+          "title": "Gucci reportedly cuts prices as turnaround pressure builds",
+          "url": "https://www.theindustry.fashion/gucci-reportedly-cuts-prices-as-turnaround-pressure-builds/?utm_source=rss&utm_medium=rss&utm_campaign=gucci-reportedly-cuts-prices-as-turnaround-pressure-builds",
+          "source": "The Industry.fashion",
+          "published_at": "2026-11-17T13:02:20.000Z",
+          "ingested_at": "2026-11-17T14:43:31.303Z",
+          "snippet": "The Kering-owned house has reportedly repriced selected handbags, sneakers and ready-to-wear since the summer, while adding cheaper new bags, as Gucci's sales decline deepened in the third quarter.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 1,
+            "clusterId": "c1979",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Gucci price cuts amid worsening sales signal a material turnaround strategy at a major house."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.15,
+              "why": "Gucci’s targeted price cuts signal luxury pricing pressure and expose the trade-off between reviving aspirational demand and protecting exclusivity."
+            },
+            "editorWhy": "Gucci’s reported price cuts challenge luxury pricing power and highlight risks in rebuilding aspirational demand.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Gucci cut prices on selected products and added cheaper bags as its sales decline deepened in the third quarter.",
+          "translations": {
+            "da": {
+              "title": "Gucci sænker angiveligt priserne, mens presset for at vende udviklingen vokser",
+              "summary": "Gucci sænkede priserne på udvalgte produkter og tilføjede billigere tasker, efterhånden som salget faldt yderligere i tredje kvartal."
+            },
+            "es": {
+              "title": "Gucci habría bajado los precios ante la creciente presión para dar un giro",
+              "summary": "Gucci bajó los precios de algunos productos y añadió bolsos más económicos, mientras sus ventas caían aún más en el tercer trimestre."
+            }
+          }
+        },
+        {
+          "id": "m4v1ey",
+          "title": "Warm weather thwarts Old Navy recovery, as Gap continues to shine",
+          "url": "https://www.retaildive.com/news/old-navy-recovery-gap-shines-q3-earnings-warm-weather/875291/",
+          "source": "Retail Dive",
+          "published_at": "2026-11-20T17:28:00.000Z",
+          "ingested_at": "2026-11-21T13:37:08.345Z",
+          "snippet": "As the Gap Inc.’s value brand falters, its namesake has risen from a years-long slump to notch its 12th straight quarter of comparable sales growth.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 2,
+            "clusterId": "c1841",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Gap Inc. trading update reports Old Navy weakness and continued comparable-sales growth at Gap."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.15,
+              "why": "Gap cuts annual guidance as Old Navy discounts weigh on recovery, while its namesake brand sustains strong growth."
+            },
+            "editorWhy": "Gap’s guidance cut exposes uneven apparel demand, discounting pressures and divergent performance across major brands.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Gap’s sales at established stores grew for the 12th straight quarter as warm weather hampered Old Navy’s recovery.",
+          "translations": {
+            "da": {
+              "title": "Varmt vejr bremser Old Navys comeback, mens Gap fortsætter med at stråle",
+              "summary": "Gaps salg i etablerede butikker voksede for 12. kvartal i træk, mens det varme vejr hæmmede Old Navys comeback."
+            },
+            "es": {
+              "title": "El clima cálido frena la recuperación de Old Navy, mientras Gap sigue destacando",
+              "summary": "Las ventas de Gap en tiendas consolidadas crecieron por duodécimo trimestre consecutivo, mientras que el clima cálido obstaculizó la recuperación de Old Navy."
+            }
+          }
+        },
+        {
+          "id": "wg2yu8",
+          "title": "Amer Sports Is Firing on All Cylinders After Strong Q3",
+          "url": "https://wwd.com/footwear-news/shoe-industry-news/amer-sports-q3-earnings-salomon-arcteryx-brands-footwear-1239420125/",
+          "source": "WWD - Women's Wear Daily",
+          "published_at": "2026-11-17T13:57:10.000Z",
+          "ingested_at": "2026-11-17T14:43:31.303Z",
+          "snippet": "The company, and its Arc'teryx and Salomon brands, continues to show growth momentum.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 3,
+            "clusterId": "c0743",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Strong quarterly performance at Amer Sports matters for major brands Arc'teryx and Salomon."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 3,
+                "independence": 3
+              },
+              "quality": 3.55,
+              "why": "Strong Arc’teryx and Salomon growth, expanding margins and raised guidance signal continued momentum in premium sportswear."
+            },
+            "editorWhy": "Amer’s raised guidance and expanding margins demonstrate sustained strength in premium outdoor apparel and footwear.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Amer Sports posted a strong third quarter as Arc'teryx and Salomon continued to grow.",
+          "translations": {
+            "da": {
+              "title": "Amer Sports kører på alle cylindre efter et stærkt tredje kvartal",
+              "summary": "Amer Sports leverede et stærkt tredje kvartal, hvor Arc'teryx og Salomon fortsatte væksten."
+            },
+            "es": {
+              "title": "Amer Sports funciona a pleno rendimiento tras un sólido tercer trimestre",
+              "summary": "Amer Sports registró un sólido tercer trimestre, mientras Arc'teryx y Salomon siguieron creciendo."
+            }
+          }
+        },
+        {
+          "id": "t6doag",
+          "title": "Nike won’t return to growth for 3 more years",
+          "url": "https://www.retaildive.com/news/nike-return-sales-growth-three-years-strategic-turnaround-plan-full-stride-ahead/874901/",
+          "source": "Retail Dive",
+          "published_at": "2026-11-17T17:36:00.000Z",
+          "ingested_at": "2026-11-18T14:22:12.820Z",
+          "snippet": "The activewear giant outlined a plan to grow revenue by $5 billion between fiscal 2027 and fiscal 2031, but it starts with two more years of declines.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 4,
+            "clusterId": "c1838",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Nike's multi-year turnaround plan and delayed return to growth are important."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 3.6,
+              "why": "Nike’s prolonged sales recovery and strategic reset affect global sportswear competition, wholesale partners and regional distribution."
+            },
+            "editorWhy": "Nike’s prolonged recovery timeline has major implications for sportswear competitors, wholesale partners and distribution strategies.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Nike expects two more years of revenue declines before growth resumes, targeting $5 billion in gains between fiscal 2027 and 2031.",
+          "translations": {
+            "da": {
+              "title": "Nike vender ikke tilbage til vækst før om 3 år",
+              "summary": "Nike forventer yderligere to år med faldende omsætning, før væksten vender tilbage, og sigter mod en fremgang på 5 mia. dollar mellem regnskabsårene 2027 og 2031."
+            },
+            "es": {
+              "title": "Nike no volverá a crecer hasta dentro de 3 años",
+              "summary": "Nike prevé dos años más de caída de ingresos antes de que se reanude el crecimiento y aspira a lograr un aumento de 5.000 millones de dólares entre los ejercicios fiscales de 2027 y 2031."
+            }
+          }
+        },
+        {
+          "id": "pjncmw",
+          "title": "PVH to cut 4% of global workforce",
+          "url": "https://www.drapersonline.com/news/pvh-to-cut-4-of-global-workforce",
+          "source": "Drapers",
+          "published_at": "2026-11-16T08:07:27.000Z",
+          "ingested_at": "2026-11-16T13:51:32.672Z",
+          "snippet": "Drapers\nPVH to cut 4% of global workforce\nCalvin Klein and Tommy Hilfiger owner PVH is set to slash its workforce by 4% amid a global restructuring, according to reports.\nThe post PVH to cut 4% of global workforce appeared first on Drapers.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 5,
+            "clusterId": "c0162",
+            "coverage": 2,
+            "triage": {
+              "type": "hard_news",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "PVH plans global workforce cuts as part of a major restructuring."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 3,
+                "independence": 4
+              },
+              "quality": 3.5,
+              "why": "Global job cuts and $150 million in targeted annual savings signal continued restructuring at Calvin Klein and Tommy Hilfiger’s parent."
+            },
+            "editorWhy": "PVH’s global workforce cuts and savings targets reveal restructuring pressures behind Calvin Klein and Tommy Hilfiger.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "PVH, owner of Calvin Klein and Tommy Hilfiger, plans to cut 4% of its global workforce as part of a restructuring.",
+          "translations": {
+            "da": {
+              "title": "PVH skærer 4 % af den globale arbejdsstyrke",
+              "summary": "PVH, der ejer Calvin Klein og Tommy Hilfiger, planlægger at skære 4 % af sin globale arbejdsstyrke som led i en omstrukturering."
+            },
+            "es": {
+              "title": "PVH recortará el 4 % de su plantilla global",
+              "summary": "PVH, propietaria de Calvin Klein y Tommy Hilfiger, planea recortar el 4 % de su plantilla global como parte de una reestructuración."
+            }
+          }
+        },
+        {
+          "id": "b4cm0i",
+          "title": "5 Takeaways From Bain’s Annual Luxury Worldwide Market Study",
+          "url": "https://www.jckonline.com/editorial-article/bains-luxury-market-study/",
+          "source": "JCK - Editorial",
+          "published_at": "2026-11-19T19:15:49.000Z",
+          "ingested_at": "2026-11-21T13:37:08.345Z",
+          "snippet": "Jewelry is the strongest category in personal luxury goods in 2026, according to Bain & Co.’s annual Luxury Worldwide Market Study. Bain expects jewelry sales to grow 8%–10% this year. The report credits growth to “self-purchase, everyday wear, and renewed creativity across price points.” No other category comes close. Bain forecasts growth of 4%–6% for…",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 6,
+            "clusterId": "c1667",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Bain's global luxury study finds strong jewellery growth and provides market-wide data."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 3.8,
+              "why": "Bain forecasts jewelry leading luxury growth, with shrinking buyer numbers and regional divergence shaping brands’ customer and market strategies."
+            },
+            "editorWhy": "Bain’s findings illuminate shrinking luxury audiences, regional divergence and jewelry’s relative strength.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Jewellery leads personal luxury growth in 2026, with Bain forecasting sales gains of 8% to 10%.",
+          "translations": {
+            "da": {
+              "title": "5 hovedpointer fra Bains årlige globale luksusmarkedsundersøgelse",
+              "summary": "Smykker fører an i væksten inden for personlig luksus i 2026, hvor Bain forudser en salgsstigning på 8 % til 10 %."
+            },
+            "es": {
+              "title": "5 conclusiones del estudio anual de Bain sobre el mercado mundial del lujo",
+              "summary": "La joyería lidera el crecimiento del lujo personal en 2026, y Bain prevé un aumento de las ventas de entre el 8 % y el 10 %."
+            }
+          }
+        },
+        {
+          "id": "as7ila",
+          "title": "Why Burberry CEO is “more confident than ever” in the brand’s future",
+          "url": "https://insideretail.asia/2026/11/16/how-burberry-forward-put-the-british-legacy-brand-on-the-path-to-profitability/",
+          "source": "Inside Retail Asia",
+          "published_at": "2026-11-16T02:23:50.000Z",
+          "ingested_at": "2026-11-16T13:51:32.672Z",
+          "snippet": "Joshua Schulman’s turnaround strategy is delivering results, with China’s Gen Z consumers emerging as a key opportunity for further growth.\nThe post Why Burberry CEO is “more confident than ever” in the brand’s future appeared first on Inside Retail Asia.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 7,
+            "clusterId": "c0245",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Burberry’s CEO discusses turnaround progress and growth prospects at a major luxury house."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 4,
+                "writing": 4,
+                "independence": 5
+              },
+              "quality": 4.15,
+              "why": "Burberry’s return to profit and China growth offer evidence that its heritage-led turnaround is gaining traction."
+            },
+            "editorWhy": "Burberry’s improving profitability and China performance offer useful evidence on heritage-led luxury turnarounds.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Burberry CEO Joshua Schulman’s turnaround is delivering results, with China’s Gen Z shoppers emerging as a growth opportunity.",
+          "translations": {
+            "da": {
+              "title": "Hvorfor Burberrys CEO er »mere selvsikker end nogensinde« på brandets fremtid",
+              "summary": "Burberrys CEO Joshua Schulmans turnaround giver resultater, og Kinas generation Z-forbrugere viser sig at være en vækstmulighed."
+            },
+            "es": {
+              "title": "Por qué el CEO de Burberry está «más convencido que nunca» del futuro de la marca",
+              "summary": "El plan de recuperación del CEO de Burberry, Joshua Schulman, está dando resultados, y los consumidores de la generación Z de China se perfilan como una oportunidad de crecimiento."
+            }
+          }
+        }
+      ]
+    },
+    "Jewellery_Industry": {
+      "total": 301,
+      "top": [
+        {
+          "id": "8fuubb",
+          "title": "Richemont jewellery sales spike amid diamond takeover speculation",
+          "url": "https://www.jewellermagazine.com/Article/15646/Richemont-jewellery-sales-spike-amid-diamond-takeover-speculation",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-11-16T13:00:00.000Z",
+          "ingested_at": "2026-11-17T14:43:31.303Z",
+          "snippet": "Swiss luxury industry juggernaut Richemont reported strong sales across its jewellery brands in the first half of the financial year.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 1,
+            "clusterId": "c1692",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Richemont's jewellery sales growth is a major peer-group trading update."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 2,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.45,
+              "why": "Strong jewellery growth at a major luxury group highlights regional resilience despite Chinese weakness; De Beers bid speculation remains unconfirmed."
+            },
+            "editorWhy": "Richemont’s jewellery results reveal regional demand resilience and persistent weakness in China.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Richemont reported strong sales across its jewellery brands in the first half of its financial year.",
+          "translations": {
+            "da": {
+              "title": "Richemonts smykkesalg stiger amid spekulationer om diamantopkøb",
+              "summary": "Richemont rapporterede om stærkt salg på tværs af sine smykkemærker i første halvdel af regnskabsåret."
+            },
+            "es": {
+              "title": "Las ventas de joyería de Richemont se disparan ante las especulaciones sobre una adquisición en el sector del diamante",
+              "summary": "Richemont registró fuertes ventas en todas sus marcas de joyería durante el primer semestre de su ejercicio fiscal."
+            }
+          }
+        },
+        {
+          "id": "q84ka9",
+          "title": "Swiss Watch Exports Rise 9% in October as U.S. Shipments Surge",
+          "url": "https://www.jckonline.com/editorial-article/swiss-watch-exports-oct-26/",
+          "source": "JCK - Editorial",
+          "published_at": "2026-11-20T17:15:40.000Z",
+          "ingested_at": "2026-11-21T13:37:08.345Z",
+          "snippet": "Swiss watch exports continued their rebound in October, increasing 9.1% year over year to 2.46 billion Swiss francs ($3.1 billion), according to the Federation of the Swiss Watch Industry (FH). It was the fifth consecutive month of export growth, bringing shipments for the first 10 months of 2026 to nearly 22 billion francs, up 3.4%.…",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 2,
+            "clusterId": "c0683",
+            "coverage": 2,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Swiss watch exports post a fifth month of growth, a key market indicator."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 4,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 4,
+              "why": "Swiss watch export data reveals recovery, but tariff comparisons inflate U.S. growth while China weakness and margin pressures persist."
+            },
+            "editorWhy": "Swiss export recovery offers a key watch-market signal, with tariff distortions requiring careful interpretation.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Swiss watch exports rose 9.1% year on year to 2.46 billion francs in October, the fifth consecutive month of growth.",
+          "translations": {
+            "da": {
+              "title": "Schweizisk ureksport stiger 9 % i oktober, mens leverancerne til USA stiger kraftigt",
+              "summary": "Schweizisk ureksport steg 9,1 % på årsbasis til 2,46 mia. franc i oktober, den femte måned i træk med vækst."
+            },
+            "es": {
+              "title": "Las exportaciones suizas de relojes aumentan un 9 % en octubre, impulsadas por el fuerte crecimiento de los envíos a EE. UU.",
+              "summary": "Las exportaciones suizas de relojes aumentaron un 9,1 % interanual, hasta los 2.460 millones de francos en octubre, el quinto mes consecutivo de crecimiento."
+            }
+          }
+        },
+        {
+          "id": "8wkjxu",
+          "title": "Gold and Silver Slide as Fed Eyes Rate Hikes at Dec. 9 Meeting",
+          "url": "https://www.jckonline.com/editorial-article/gold-and-silver-slide/",
+          "source": "JCK - Editorial",
+          "published_at": "2026-11-20T18:15:57.000Z",
+          "ingested_at": "2026-11-21T13:37:08.345Z",
+          "snippet": "Gold and silver prices had their worst week in eight months, which experts say is the result of a stronger U.S. dollar, shifting expectations around interest rates, and changes in the national and global economic outlook. Spot gold was down to $3,541.10 an ounce on Nov. 20 as of press time—a sharp decline from its…",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 3,
+            "clusterId": "c1673",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "Gold and silver price movements directly affect jewellery costs and demand."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 4,
+                "insight": 3,
+                "writing": 3,
+                "independence": 4
+              },
+              "quality": 3.7,
+              "why": "Sharp precious-metal price declines affect jewellery input costs and inventory values, though explanations rely heavily on bullion-industry sources."
+            },
+            "editorWhy": "Precious-metal price declines reshape jewellery input costs, margins and inventory exposure.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Gold and silver had their worst week in eight months, with spot gold falling to $3,541.10 an ounce on November 20.",
+          "translations": {
+            "da": {
+              "title": "Guld og sølv falder, mens Fed overvejer renteforhøjelser på mødet den 9. december",
+              "summary": "Guld og sølv havde deres dårligste uge i otte måneder, og spotprisen på guld faldt til 3.541,10 dollar pr. ounce den 20. november."
+            },
+            "es": {
+              "title": "El oro y la plata caen mientras la Fed estudia subir los tipos en la reunión del 9 de diciembre",
+              "summary": "El oro y la plata registraron su peor semana en ocho meses, y el precio al contado del oro cayó a 3.541,10 dólares por onza el 20 de noviembre."
+            }
+          }
+        },
+        {
+          "id": "h82y9z",
+          "title": "U.S.-Thailand Trade Pact Could Pave Way for Tariff-Free Gemstones",
+          "url": "https://instoremag.com/us-thailand-trade-deal-gemstone-tariffs/",
+          "source": "Instore Magazine",
+          "published_at": "2026-11-18T06:44:46.000Z",
+          "ingested_at": "2026-11-18T14:22:12.820Z",
+          "snippet": "AGTA calls it a \"meaningful victory,\" but Thai ratification and final drafting come first.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 4,
+            "clusterId": "c0316",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "Potential tariff-free gemstone trade could matter to suppliers, pending final agreement."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 3,
+                "writing": 4,
+                "independence": 3
+              },
+              "quality": 3.45,
+              "why": "Potential US tariff exemptions could lower gemstone import costs, but drafting, ratification and implementation remain unresolved."
+            },
+            "editorWhy": "Potential gemstone tariff exemptions could materially reduce US sourcing costs, although implementation remains uncertain.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "A U.S.-Thailand trade pact could make gemstones tariff-free, pending Thai ratification and final drafting.",
+          "translations": {
+            "da": {
+              "title": "Handelsaftale mellem USA og Thailand kan bane vejen for toldfri ædelsten",
+              "summary": "En handelsaftale mellem USA og Thailand kan gøre ædelsten toldfri, når Thailand har ratificeret aftalen, og den endelige ordlyd er på plads."
+            },
+            "es": {
+              "title": "Un pacto comercial entre EE. UU. y Tailandia podría abrir el camino a las piedras preciosas sin aranceles",
+              "summary": "Un pacto comercial entre EE. UU. y Tailandia podría dejar las piedras preciosas libres de aranceles, pendiente de la ratificación tailandesa y de la redacción final."
+            }
+          }
+        },
+        {
+          "id": "nq8ozf",
+          "title": "Sales boom continues for Watches of Switzerland",
+          "url": "https://www.jewellermagazine.com/Article/15647/Sales-boom-continues-for-Watches-of-Switzerland",
+          "source": "Jeweller - Business News",
+          "published_at": "2026-11-16T13:00:00.000Z",
+          "ingested_at": "2026-11-17T14:43:31.303Z",
+          "snippet": "Watches of Switzerland has reported another spike in revenue across the first half of the financial year.",
+          "sourceType": "rss",
+          "categoryHint": "Jewellery Industry",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "lead",
+            "rank": 5,
+            "clusterId": "c1693",
+            "coverage": 1,
+            "triage": {
+              "type": "analysis",
+              "significance": 4,
+              "adRisk": "low",
+              "reason": "Watches of Switzerland reports strong half-year revenue growth, a key peer trading update."
+            },
+            "judge": {
+              "scores": {
+                "significance": 4,
+                "substance": 3,
+                "insight": 2,
+                "writing": 3,
+                "independence": 3
+              },
+              "quality": 3.15,
+              "why": "Major luxury retailer reports double-digit growth and annual guidance, signalling resilient watch and jewellery demand despite economic uncertainty."
+            },
+            "editorWhy": "Double-digit growth at a major luxury retailer signals resilient watch and jewellery demand.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Watches of Switzerland reported another jump in revenue in the first half of its financial year.",
+          "translations": {
+            "da": {
+              "title": "Salgsboomet fortsætter for Watches of Switzerland",
+              "summary": "Watches of Switzerland rapporterede endnu en omsætningsstigning i første halvdel af regnskabsåret."
+            },
+            "es": {
+              "title": "Continúa el auge de las ventas de Watches of Switzerland",
+              "summary": "Watches of Switzerland informó de otro aumento de los ingresos en la primera mitad de su ejercicio fiscal."
+            }
+          }
+        },
+        {
+          "id": "udp202",
+          "title": "Data breaches hit Muji, Chow Sang Sang and Sogo ",
+          "url": "https://insideretail.asia/2026/11/16/data-breaches-hit-muji-chow-sang-sang-and-sogo/",
+          "source": "Inside Retail Asia",
+          "published_at": "2026-11-16T04:15:41.000Z",
+          "ingested_at": "2026-11-16T13:51:32.672Z",
+          "snippet": "Separate data security incidents have potentially exposed millions of customer records and raised concerns over cybersecurity in the sector.\nThe post Data breaches hit Muji, Chow Sang Sang and Sogo  appeared first on Inside Retail Asia.",
+          "sourceType": "rss",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 6,
+            "clusterId": "c0244",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "A data-breach roundup includes Chow Sang Sang and raises customer-data concerns for retailers."
+            },
+            "judge": {
+              "scores": {
+                "significance": 3,
+                "substance": 3,
+                "insight": 2,
+                "writing": 4,
+                "independence": 4
+              },
+              "quality": 3.05,
+              "why": "Breaches expose jewellery customer data and disrupt Asian retail ecommerce, highlighting security risks across loyalty and membership systems."
+            },
+            "editorWhy": "Jewellery customer-data breaches highlight practical cybersecurity risks across ecommerce and loyalty programmes.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "Data breaches at Muji, Chow Sang Sang and Sogo may have exposed millions of customer records.",
+          "translations": {
+            "da": {
+              "title": "Datalæk rammer Muji, Chow Sang Sang og Sogo",
+              "summary": "Datalæk hos Muji, Chow Sang Sang og Sogo kan have eksponeret millioner af kundeoplysninger."
+            },
+            "es": {
+              "title": "Filtraciones de datos afectan a Muji, Chow Sang Sang y Sogo",
+              "summary": "Las filtraciones de datos en Muji, Chow Sang Sang y Sogo podrían haber expuesto millones de registros de clientes."
+            }
+          }
+        },
+        {
+          "id": "qe8rbi",
+          "title": "An F.P. Journe Becomes the Most Expensive Watch Ever Sold at Auction in France, Because Of Course",
+          "url": "https://robbreport.com/style/watch-collector/f-p-journe-most-expensive-watch-auctioned-france-1238851766/",
+          "source": "Robb Report",
+          "published_at": "2026-11-20T12:00:00.000Z",
+          "ingested_at": "2026-11-20T14:12:31.525Z",
+          "snippet": "The Tourbillon Souverain “Souscription” hammered down for $11.03 million at Bonhams Paris.",
+          "sourceType": "rss",
+          "categoryHint": "Fashion & Luxury",
+          "relevance": {
+            "scoreTotal": 0,
+            "recencyScore": 0,
+            "sourceWeight": 0,
+            "keywordBoost": 0,
+            "insightSignalBoost": 0,
+            "penalty": 0,
+            "matchedKeywords": []
+          },
+          "selection": {
+            "funnelVersion": "v2",
+            "tier": "more",
+            "rank": 7,
+            "clusterId": "c0478",
+            "coverage": 1,
+            "triage": {
+              "type": "hard_news",
+              "significance": 3,
+              "adRisk": "low",
+              "reason": "Record French auction price for an important F.P. Journe watch."
+            },
+            "judge": {
+              "scores": {
+                "significance": 3,
+                "substance": 4,
+                "insight": 4,
+                "writing": 3,
+                "independence": 4
+              },
+              "quality": 3.55,
+              "why": "Record auction price highlights demand for independent watches and the speculative resale pressures facing brands and collectors."
+            },
+            "editorWhy": "A record auction result illuminates independent-watch demand and speculative resale pressures.",
+            "paywall": "not_paywalled"
+          },
+          "aiSummary": "An F.P. Journe Tourbillon Souverain Souscription sold for $11.03 million at Bonhams Paris, setting France’s watch auction record.",
+          "translations": {
+            "da": {
+              "title": "Et F.P. Journe bliver det dyreste ur, der nogensinde er solgt på auktion i Frankrig – selvfølgelig",
+              "summary": "Et F.P. Journe Tourbillon Souverain Souscription blev solgt for 11,03 millioner dollar hos Bonhams Paris og satte dermed rekord for ursalg på auktion i Frankrig."
+            },
+            "es": {
+              "title": "Un F.P. Journe se convierte en el reloj más caro jamás vendido en una subasta en Francia, cómo no",
+              "summary": "Un F.P. Journe Tourbillon Souverain Souscription se vendió por 11,03 millones de dólares en Bonhams Paris, estableciendo el récord de subasta de relojes en Francia."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "oneSentenceSummary": "Richemont's jewellery sales prove shoppers still spend on luxury. Brands blaming weak demand need a better excuse.",
+  "keyThemes": [
+    "Anthropic record IPO",
+    "ChatGPT Wallet",
+    "Gucci price cuts",
+    "Richemont jewellery sales",
+    "Swiss watch export growth"
+  ],
+  "editorialTake": "Swiss watch exports rose 9.1% in October, their fifth consecutive month of growth. Watches and jewellery showed strength while Gucci's sales decline deepened.\n\nGucci cut prices on selected products and added cheaper bags as its turnaround faced pressure. Those changes followed a worsening sales decline in the third quarter.\n\nFor jewellery businesses, Gucci's performance offers a limited guide to demand for their own products. Watch exports measure shipments, rather than purchases by shoppers, but jewellery sales provide separate evidence of spending. Richemont reported strong first-half sales across its jewellery brands.",
+  "editorialTakeFormat": "number",
+  "coverImageUrl": "/weekly-images/2026-W47.png",
+  "coverImageAlt": "Weekly cover illustration for 2026-W47"
+}
